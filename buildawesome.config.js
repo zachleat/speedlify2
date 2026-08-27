@@ -2,6 +2,7 @@ import { HtmlBasePlugin } from "@awesome.me/buildawesome";
 import fontAwesomePlugin from "@11ty/font-awesome";
 import { library, findIconDefinition } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
+import { faForwardFast } from "@fortawesome/free-solid-svg-icons";
 
 // Must stay first: loads .env before the data files read process.env.
 import "./lib/env.js";
@@ -95,6 +96,27 @@ const LCP_SUBPARTS = [
 	{ key: "resourceLoadDuration", label: "Resource load duration" },
 	{ key: "elementRenderDelay", label: "Element render delay" },
 ];
+
+/**
+ * The tab icon, built from Font Awesome's own path data.
+ *
+ * An SVG data URI rather than a file: it is one path, so inlining costs less
+ * than the request would, and there is nothing to keep in sync in `src/`.
+ *
+ * Taken from the package rather than pasted, so upgrading Font Awesome updates
+ * the mark instead of leaving a copy of an old one behind. The viewBox comes
+ * from the icon too — Font Awesome's are 512-wide, not 16.
+ *
+ * Painted in the brand green, which reads on both the light and dark browser
+ * chrome a favicon has no way to ask about.
+ */
+const FAVICON = (() => {
+	const [width, height, , , path] = faForwardFast.icon;
+	const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}"><path fill="#00a776" d="${path}"/></svg>`;
+
+	// structure, and `#` in the fill would otherwise start a fragment.
+	return `data:image/svg+xml,${encodeURIComponent(svg)}`;
+})();
 
 /*
  * The brand pack, registered once so `findIconDefinition` can be asked about it.
@@ -238,6 +260,8 @@ export default async function ($config) {
 	 * leaving the `<i>` in place — would ship an invisible empty element instead
 	 * of a logo, on every row of a leaderboard, silently.
 	 */
+	$config.addGlobalData("favicon", FAVICON);
+
 	$config.addPlugin(fontAwesomePlugin, {
 		failOnError: true,
 	});
