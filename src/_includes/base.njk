@@ -27,7 +27,9 @@
 {% else %}
 <link rel="stylesheet" href="/css/style.css">
 {% endif %}
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='13' font-size='14'>⚡</text></svg>">
+<!-- Font Awesome's forward-fast, built from the package's own path data in
+     buildawesome.config.js so it cannot drift from the version installed. -->
+<link rel="icon" href="{{ favicon }}">
 <script>
 /* Applied before first paint so a light-mode reader never sees a dark flash.
    Dark is the default; only a stored choice of "light" changes anything. */
@@ -194,7 +196,7 @@ speedlifyThemeColor();
 			{%- if sites.coverage.medianAgeHours %}, median age
 			{{ sites.coverage.medianAgeHours | duration }}
 			{%- endif %}.
-			{% if sites.coverage.stale %}<span class="worse">{{ sites.coverage.stale }} stale</span> (over {{ sites.coverage.staleAfterHours | duration }}).{% endif %}
+			{% if sites.coverage.stale %}<span class="worse">{{ sites.coverage.stale }} stale</span>, each past its own category's target.{% endif %}
 			{% if sites.coverage.never %}<span class="muted">{{ sites.coverage.never }} not yet measured.</span>{% endif %}
 			{% if sites.stats.failing %}<span class="failing-note"><em>{{ sites.stats.failing | num }} currently failing.</em></span>{% endif %}
 			{%- endif %}

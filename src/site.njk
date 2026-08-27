@@ -88,7 +88,7 @@ eleventyComputed:
 			    sentence, and punctuation either side of it reads as stray marks. #}
 			Data from {{ entry.latest.date | date("long") }}
 			<span class="age-pill{{ ' stale' if entry.dataStale }}"><time datetime="{{ entry.latest.date | iso }}">{{ entry.latest.date | since }}</time> old</span>
-			{%- if entry.dataStale %}, older than the {{ sites.coverage.staleAfterHours | duration }} freshness target{% endif %}
+			{%- if entry.dataStale %}, older than this category's {{ entry.staleAfterHours | duration }} freshness target{% endif %}
 		{% else %}
 			No successful measurement yet.
 		{% endif %}
