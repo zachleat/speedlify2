@@ -73,19 +73,12 @@ eleventyComputed:
 	most groups have nothing significant to report most of the time, and a
 	permanent empty panel trains you to scroll past it.
 #}
-{% set movers = [] %}
-{% for entry in (group.entries if group.movers else []) %}
-	{% if entry.trends.performance and entry.trends.performance.significant %}
-		{% set movers = (movers.push(entry), movers) %}
-	{% endif %}
-{% endfor %}
-
 {#
-	Skipped entirely for a large category. "Biggest" implies a shortlist, and in
-	a group of thousands the significance test alone leaves far too many to be
-	one — the panel stops being a summary and becomes a second, worse table.
+	The four sites whose performance score moved furthest since the run before,
+	in either direction. Chosen and ordered in lib/report.js — by absolute change,
+	which a template cannot sort on.
 #}
-{% if group.movers and movers.length and group.entries.length <= 200 %}
+{% if group.topMovers.length %}
 <section class="panel">
 	<h2>Biggest movers</h2>
 	<p class="muted small">
@@ -93,16 +86,15 @@ eleventyComputed:
 		run-to-run noise. Everything else is jitter and is deliberately hidden.
 	</p>
 	<ul class="mover-cards">
-		{% for entry in movers %}
-		{% set t = entry.trends.performance %}
-		<li class="mover-card {{ t.vsPrevious | deltaClass }}">
-			<a class="site-link" href="/site/{{ entry.slug }}/">
-				{% set avatar = entry.url | avatar(meta.avatarService) %}
+		{% for m in group.topMovers %}
+		<li class="mover-card {{ m.vsPrevious | deltaClass }}">
+			<a class="site-link" href="/site/{{ m.slug }}/">
+				{% set avatar = m.url | avatar(meta.avatarService) %}
 				{% if avatar %}<img class="favicon" src="{{ avatar }}" width="32" height="32" alt="" loading="lazy" decoding="async">{% endif %}
-				<span title="{{ entry.displayUrl }}">{{ entry.displayUrl }}</span>
+				<span title="{{ m.displayUrl }}">{{ m.displayUrl }}</span>
 			</a>
-			<span class="mover-delta">{{ t.vsPrevious | deltaArrow }} {{ t.vsPrevious | deltaText }}</span>
-			<span class="mover-scores">{{ t.previous }} &rarr; {{ t.current }}</span>
+			<span class="mover-delta">{{ m.vsPrevious | deltaArrow }} {{ m.vsPrevious | deltaText }}</span>
+			<span class="mover-scores">{{ m.previous }} &rarr; {{ m.current }}</span>
 		</li>
 		{% endfor %}
 	</ul>
