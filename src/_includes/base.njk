@@ -118,6 +118,18 @@ speedlifyThemeColor();
 				<option value="{{ g.id }}"{% if group and g.id == group.id %} selected{% endif %}>{{ g.name }}</option>
 					{% endif %}
 				{% endfor %}
+				{#
+					A separator, not a label. `<hr>` in a `<select>` is in the spec and
+					current browsers draw it as a rule; older ones ignore it, which is
+					the right failure — the list still reads in the same order, just
+					without the line.
+
+					An `<optgroup>` was the alternative and says too much: these are not
+					a kind of category, they are the ones kept off the front page, and
+					naming that in the control would be explaining an editorial decision
+					to someone who only wants to go somewhere.
+				#}
+				{% if sites.hasSecondaryCategories %}<hr>{% endif %}
 				{% for g in sites.groups %}
 					{% if g.hideFromCategoryList %}
 				<option value="{{ g.id }}"{% if group and g.id == group.id %} selected{% endif %}>{{ g.name }}</option>
