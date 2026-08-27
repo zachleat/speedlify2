@@ -380,6 +380,10 @@ export default {
 		},
 
 		"package-managers": {
+			// Off the home page's list, like Test Runners: all fourteen are in
+			// Developer Tooling above, and a front page reads better naming the
+			// roll-up than each of its parts.
+			hideFromCategoryList: true,
 			name: "Package Managers",
 			enabled: true,
 			description:
@@ -499,6 +503,10 @@ export default {
 		},
 
 		"11ty-starters": {
+			// Off the home page's list. A starter is a demonstration of a stack
+			// rather than a site someone runs — the same reason its perfect scores
+			// are kept off that page's board.
+			hideFromCategoryList: true,
 			name: "Build Awesome Starters",
 			description:
 				"Starter projects and templates built with Eleventy. Measured apart from the community list because a starter is a demonstration of a stack rather than a site someone runs.",
