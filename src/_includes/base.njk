@@ -76,8 +76,7 @@ speedlifyThemeColor();
 				Trailing full stop trimmed: the sentence continues into the clause
 				below, where `<meta name="description">` above wants it whole.
 			#}
-			{{ meta.description | replace(r/\.$/, "") }}
-			{%- if sites.coverage.measured %} — measured continuously.{% else %}.{% endif %}
+			{{ meta.description }}
 		</p>
 		<div class="masthead-subhed masthead-tools">
 			<a href="/runs/">Measurement runs</a>

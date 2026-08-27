@@ -1315,8 +1315,17 @@ th.col-trend { text-align: center !important; }
 	color: var(--brand);
 }
 /* Block margin so the three lines read as separate statements — the tagline,
-   the links, the coverage — rather than one paragraph that happens to wrap. */
-.masthead-subhed { margin: 0.4rem 0; font-size: 0.95rem; color: var(--text-muted); }
+   the links, the coverage — rather than one paragraph that happens to wrap.
+
+   Balanced because the tagline is a single sentence under a large heading, and
+   the shape of two even lines is better than a full line above a stray word.
+   Inert on the tools row, which shares this class but has no text of its own. */
+.masthead-subhed {
+	margin: 0.4rem 0;
+	font-size: 0.95rem;
+	color: var(--text-muted);
+	text-wrap: balance;
+}
 
 /* ------------------------------------------------------------ score rings */
 
