@@ -2,7 +2,7 @@ export default {
 	title: "speedlify2",
 	tagline: "Web performance, measured over time",
 	description:
-		"Lighthouse lab metrics and Chrome UX Report field data for a list of sites, recorded on every run and compared over time.",
+		"Lighthouse lab metrics, Axe, and Chrome UX Report field data for a list of sites recorded and compared over time.",
 	// Set to your deployed origin for absolute URLs in metadata.
 	// Where this instance is published. Used for the copy-paste embed snippets,
 	// which land on other people's sites and so need an absolute URL — a path
