@@ -106,7 +106,7 @@ speedlifyThemeColor();
 				{#
 					Two passes over the same list rather than one.
 
-					A category hidden from the home page's list is still reachable
+					A category kept off the home page's list is still reachable
 					here — that is the point of the flag — but it belongs after the
 					ones a reader arrived expecting, not interleaved with them. Two
 					loops is the whole mechanism: Nunjucks has no sort-by-field that
@@ -114,7 +114,7 @@ speedlifyThemeColor();
 					given), so anything cleverer would have to happen in the report.
 				#}
 				{% for g in sites.groups %}
-					{% if not g.hideFromCategoryList %}
+					{% if g.showOnHomePageCategoryList %}
 				<option value="{{ g.id }}"{% if group and g.id == group.id %} selected{% endif %}>{{ g.name }}</option>
 					{% endif %}
 				{% endfor %}
@@ -131,7 +131,7 @@ speedlifyThemeColor();
 				#}
 				{% if sites.hasSecondaryCategories %}<hr>{% endif %}
 				{% for g in sites.groups %}
-					{% if g.hideFromCategoryList %}
+					{% if not g.showOnHomePageCategoryList %}
 				<option value="{{ g.id }}"{% if group and g.id == group.id %} selected{% endif %}>{{ g.name }}</option>
 					{% endif %}
 				{% endfor %}
@@ -192,9 +192,9 @@ speedlifyThemeColor();
 			    coverage fraction rather than as a separate statistic. #}
 			{%- if sites.stats.totalMeasurements %} ({{ sites.stats.totalMeasurements | num }} {{ sites.stats.totalMeasurements | plural("measurement") }}){% endif %}
 			{%- if sites.coverage.medianAgeHours %}, median age
-			{% if sites.coverage.medianAgeHours < 48 %}{{ sites.coverage.medianAgeHours }}h{% else %}{{ (sites.coverage.medianAgeHours / 24) | round(1) }}d{% endif %}
+			{{ sites.coverage.medianAgeHours | duration }}
 			{%- endif %}.
-			{% if sites.coverage.stale %}<span class="worse">{{ sites.coverage.stale }} stale</span> (over {{ sites.coverage.staleAfterHours }}h).{% endif %}
+			{% if sites.coverage.stale %}<span class="worse">{{ sites.coverage.stale }} stale</span> (over {{ sites.coverage.staleAfterHours | duration }}).{% endif %}
 			{% if sites.coverage.never %}<span class="muted">{{ sites.coverage.never }} not yet measured.</span>{% endif %}
 			{% if sites.stats.failing %}<span class="failing-note"><em>{{ sites.stats.failing | num }} currently failing.</em></span>{% endif %}
 			{%- endif %}

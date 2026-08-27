@@ -37,13 +37,14 @@ permalink: /index.html
 	<nav class="contents contents-categories" aria-labelledby="categories-heading">
 	<ul>
 		{#
-			`hideFromCategoryList` is about this list and nothing else — the category
-			keeps its page, its place in the switcher, and every ranking its sites
-			appear in. It is an editorial decision about what belongs on a front
-			page, not a way to retire a category.
+			`showOnHomePageCategoryList` is about this list and nothing else, and it
+			is off unless a category asks for it — the front page stays short by
+			default. A category left out keeps its page, its place in the switcher,
+			and every ranking its sites appear in. It is an editorial decision about
+			what belongs on a front page, not a way to retire a category.
 		#}
 		{% for group in sites.groups %}
-		{% if group.entries.length and not group.hideFromCategoryList %}
+		{% if group.entries.length and group.showOnHomePageCategoryList %}
 		<li>
 			<a href="/group/{{ group.id }}/">{{ group.name }}</a>
 			{#

@@ -252,9 +252,6 @@ const FRAMEWORK_SITES = [
 	{ name: "SolidJS", url: "https://www.solidjs.com/" },
 	{ name: "Qwik", url: "https://qwik.dev/" },
 
-	// Libraries rather than frameworks, strictly — a router and a family of
-	// headless utilities — but they are what people reach for in the same breath,
-	// and neither has ever been a site generator.
 	{ name: "React Router", url: "https://reactrouter.com/" },
 	{ name: "TanStack", url: "https://tanstack.com/" },
 
@@ -412,6 +409,7 @@ export default {
 		 * them appears here on the next build without a second edit.
 		 */
 		"dev-tooling": {
+			showOnHomePageCategoryList: true,
 			name: "Developer Tooling",
 			enabled: true,
 			description:
@@ -429,6 +427,7 @@ export default {
 		},
 
 		ssg: {
+			showOnHomePageCategoryList: true,
 			name: "Site Generators",
 			enabled: true,
 			description: "Home pages for popular site generators and frameworks.",
@@ -438,10 +437,11 @@ export default {
 		},
 
 		frameworks: {
-			name: "Frameworks",
+			showOnHomePageCategoryList: true,
+			name: "Frameworks and Libraries",
 			enabled: true,
 			description:
-				"The libraries pages are built with, measured on the pages that sell them. A framework's own site is the one page its authors control completely — and the one place the tradeoffs they chose are on display rather than described.",
+				"What pages are built with, measured on the pages that sell them. A framework's own site is the one page its authors control completely — and the one place the tradeoffs they chose are on display rather than described.",
 			...DAILY,
 
 			sites: FRAMEWORK_SITES,
@@ -453,20 +453,11 @@ export default {
 			description: "Home pages for JavaScript test runners and linters.",
 			...DAILY,
 
-			// Off the home page's list: nine sites of a kind most readers are not
-			// looking for, and they are all in Developer Tooling above, where they
-			// sit beside the generators and hosts they are used with. The category
-			// keeps its page for anyone who wants the nine on their own.
-			hideFromCategoryList: true,
 
 			sites: TEST_RUNNER_SITES,
 		},
 
 		"package-managers": {
-			// Off the home page's list, like Test Runners: all fourteen are in
-			// Developer Tooling above, and a front page reads better naming the
-			// roll-up than each of its parts.
-			hideFromCategoryList: true,
 			name: "Package Managers",
 			enabled: true,
 			description:
@@ -476,6 +467,7 @@ export default {
 		},
 
 		hosts: {
+			showOnHomePageCategoryList: true,
 			name: "Web Hosts",
 			enabled: true,
 			description:
@@ -485,6 +477,7 @@ export default {
 		},
 
 		builders: {
+			showOnHomePageCategoryList: true,
 			name: "Website Builders",
 			enabled: true,
 			description:
@@ -504,12 +497,6 @@ export default {
 		},
 
 		zachleat: {
-			// Kept off the home page's category list, but still in the switcher and
-			// still at its own URL. One person's own sites is a different kind of
-			// thing from the categories around it — a working notebook rather than
-			// a comparison anybody else came for — and the list reads better
-			// without it than it does with an explanation of it.
-			hideFromCategoryList: true,
 			name: "zachleat.com",
 			enabled: true,
 			description: "Pages from zachleat.com.",
@@ -531,6 +518,7 @@ export default {
 		},
 
 		"11ty-community": {
+			showOnHomePageCategoryList: true,
 			name: "Built Awesome",
 			enabled: true,
 			description:
@@ -586,6 +574,7 @@ export default {
 		},
 
 		"11ty-starters": {
+			showOnHomePageCategoryList: true,
 			name: "Build Awesome Starters",
 			description:
 				"Starter projects and templates built with Eleventy. Measured apart from the community list because a starter is a demonstration of a stack rather than a site someone runs.",
@@ -632,10 +621,6 @@ export default {
 		},
 
 		"11ty-emeritus": {
-			// Off the home page's list. These sites left; a front page listing
-			// "the ones that stopped" beside the categories people came for reads
-			// as a scoreboard of departures rather than as a record.
-			hideFromCategoryList: true,
 			name: "11ty Emeritus",
 
 			// Not a competition. These sites left, and ranking what they scored on

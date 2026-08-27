@@ -721,6 +721,25 @@ export default async function ($config) {
 	 * today at roughly 960 sites a day against 1,566 configured; it would stop
 	 * holding if the list grew much faster than the schedule.
 	 */
+	/**
+	 * A span of hours, said the way someone would say it.
+	 *
+	 * Hours up to two days, because "36h" is a length a reader holds in their
+	 * head; days past that, because "336h" is not — it is a number to be divided
+	 * before it means anything.
+	 *
+	 * Distinct from `cadence` above, which answers "how often" and returns a
+	 * phrase. This answers "how long" and returns a quantity.
+	 */
+	$config.addFilter("duration", (hours) => {
+		if (typeof hours !== "number" || hours <= 0) return "";
+		if (hours < 48) return `${hours}h`;
+
+		const days = hours / 24;
+		const rounded = Number.isInteger(days) ? days : Math.round(days * 10) / 10;
+		return `${rounded} ${rounded === 1 ? "day" : "days"}`;
+	});
+
 	$config.addFilter("cadence", (hours) => {
 		if (typeof hours !== "number" || hours <= 0) return null;
 		if (hours === 24) return "once a day";
