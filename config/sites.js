@@ -151,13 +151,9 @@ const SSG_SITES = [
 				{ name: "Gridsome", url: "https://gridsome.org/" },
 				{ name: "Next.js", url: "https://nextjs.org/" },
 				{ name: "Gatsby", url: "https://www.gatsbyjs.com/" },
-				{ name: "React Router", url: "https://reactrouter.com/" },
 				{ name: "Lume", url: "https://lume.land/" },
 				{ name: "Hexo", url: "https://hexo.io/" },
 				{ name: "Remix", url: "https://remix.run/" },
-				{ name: "SolidJS", url: "https://www.solidjs.com/" },
-				{ name: "Qwik", url: "https://qwik.dev/" },
-				{ name: "TanStack", url: "https://tanstack.com/" },
 				{ name: "Nuxt", url: "https://nuxt.com/" },
 
 				// Added here rather than in the imported order above: the upstream
@@ -175,6 +171,12 @@ const TEST_RUNNER_SITES = [
 				{ name: "Grunt", url: "https://gruntjs.com/" },
 				{ name: "WebdriverIO", url: "https://webdriver.io/" },
 				{ name: "Intern", url: "https://theintern.io/" },
+
+				// The three that took over after this list was written: on npm,
+				// Vitest and Playwright run at roughly 97M and 86M a week.
+				{ name: "Vitest", url: "https://vitest.dev/" },
+				{ name: "Playwright", url: "https://playwright.dev/" },
+				{ name: "Puppeteer", url: "https://pptr.dev/" },
 			];
 
 const PACKAGE_MANAGER_SITES = [
@@ -229,6 +231,69 @@ const HOST_SITES = [
 				{ name: "AWS Amplify", url: "https://aws.amazon.com/amplify/" },
 				{ name: "Azure Static Web Apps", url: "https://azure.microsoft.com/en-us/products/app-service/static" },
 			];
+
+/*
+ * UI frameworks, which none of the four lists above is the right home for: not
+ * generators, not runners, not registries, not hosts. They exist so Developer
+ * Tooling can carry them — the category is about the people who build the tools,
+ * and these are the tools most of the sites in it are built with.
+ */
+const FRAMEWORK_SITES = [
+	{ name: "React", url: "https://react.dev/" },
+	{ name: "Vue", url: "https://vuejs.org/" },
+	{ name: "Angular", url: "https://angular.dev/" },
+	{ name: "Preact", url: "https://preactjs.com/" },
+	{ name: "Lit", url: "https://lit.dev/" },
+	// In both this list and SSG_SITES, deliberately: svelte.dev documents Svelte
+	// and SvelteKit together, so the one page is a framework's home and a site
+	// generator's. loadConfig dedupes by URL, so the site is measured once and
+	// simply belongs to both categories.
+	{ name: "Svelte", url: "https://svelte.dev/" },
+	{ name: "SolidJS", url: "https://www.solidjs.com/" },
+	{ name: "Qwik", url: "https://qwik.dev/" },
+
+	// Libraries rather than frameworks, strictly — a router and a family of
+	// headless utilities — but they are what people reach for in the same breath,
+	// and neither has ever been a site generator.
+	{ name: "React Router", url: "https://reactrouter.com/" },
+	{ name: "TanStack", url: "https://tanstack.com/" },
+
+	// The no-build-step position, which is the argument this project's readers
+	// are most likely to be having. Small by download count and loud by
+	// influence — worth measuring for what their own pages do.
+	{ name: "Alpine.js", url: "https://alpinejs.dev/" },
+	{ name: "htmx", url: "https://htmx.org/" },
+
+	// The older guard. Both are past the point where anyone surveys them, and
+	// both are still on a great many more pages than that suggests.
+	{ name: "Ember", url: "https://emberjs.com/" },
+	{ name: "jQuery", url: "https://jquery.com/" },
+];
+
+/*
+ * Package managers whose home page is documentation rather than a registry.
+ *
+ * They are commented out of PACKAGE_MANAGER_SITES on purpose — that category is
+ * package *browsers*, and a docs site beside a search UI compares two different
+ * jobs. Here the question is only whether the tool has one, so they belong.
+ */
+const PACKAGE_TOOL_SITES = [
+	{ name: "pnpm", url: "https://pnpm.io/" },
+	// vlt.sh redirects to vlt.io; pinned to the destination.
+	{ name: "vlt", url: "https://www.vlt.io/" },
+	{ name: "jspm", url: "https://jspm.org/" },
+];
+
+/*
+ * What compiles and bundles the rest. Not frameworks and not test runners, but
+ * the same kind of thing as both: a tool whose home page is its shop window.
+ */
+const BUILD_TOOL_SITES = [
+	{ name: "TypeScript", url: "https://www.typescriptlang.org/" },
+	{ name: "Vite", url: "https://vite.dev/" },
+	{ name: "esbuild", url: "https://esbuild.github.io/" },
+	{ name: "webpack", url: "https://webpack.js.org/" },
+];
 
 export default {
 	// Read by lib/config.js, which marks the matching sites as it flattens the
@@ -352,7 +417,15 @@ export default {
 			description:
 				"Site generators, test runners, package managers and web hosts together. The people who build the tools, measured on the sites they use to sell them.",
 			...DAILY,
-			sites: [...SSG_SITES, ...TEST_RUNNER_SITES, ...PACKAGE_MANAGER_SITES, ...HOST_SITES],
+			sites: [
+				...SSG_SITES,
+				...TEST_RUNNER_SITES,
+				...PACKAGE_MANAGER_SITES,
+				...HOST_SITES,
+				...FRAMEWORK_SITES,
+				...BUILD_TOOL_SITES,
+				...PACKAGE_TOOL_SITES,
+			],
 		},
 
 		ssg: {
@@ -362,6 +435,16 @@ export default {
 			...DAILY,
 			// The list from https://www.speedlify.dev/ssg/, in its order.
 			sites: SSG_SITES,
+		},
+
+		frameworks: {
+			name: "Frameworks",
+			enabled: true,
+			description:
+				"The libraries pages are built with, measured on the pages that sell them. A framework's own site is the one page its authors control completely — and the one place the tradeoffs they chose are on display rather than described.",
+			...DAILY,
+
+			sites: FRAMEWORK_SITES,
 		},
 
 		"test-runners": {
