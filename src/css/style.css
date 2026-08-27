@@ -426,9 +426,18 @@ th.col-trend { text-align: center !important; }
 .cta-footer {
 	margin-block: 1.5rem 0;
 	text-align: center;
-	/* `.panel > p` caps prose at 90ch, and this is a direct child of a panel —
-	   so without this the button centres inside that measure rather than inside
-	   the panel, and lands visibly left of centre on a wide screen. */
+}
+
+/*
+ * `.panel > p` caps prose at 90ch and this is a direct child of a panel, so the
+ * button would centre inside that measure rather than inside the panel — left
+ * of centre on a wide screen.
+ *
+ * Qualified by the parent rather than declared on `.cta-footer` alone: that is
+ * one class against `.panel > p`'s class-plus-element, which wins on specificity
+ * whatever the source order. Two classes beats it.
+ */
+.panel > .cta-footer {
 	max-width: none;
 }
 
@@ -466,7 +475,15 @@ th.col-trend { text-align: center !important; }
  */
 .masthead-tools {
 	display: flex;
-	align-items: baseline;
+	/*
+	 * Centre, not baseline. The row is links, a button and a select — and two of
+	 * those have no usable baseline: a flex container takes its baseline from its
+	 * first item that has one, and the toggle's first item is a 14px icon, so its
+	 * baseline is synthesised from that icon's bottom edge and lands below the
+	 * text beside it. Centring aligns the boxes, which is what a row of controls
+	 * wants anyway.
+	 */
+	align-items: center;
 	flex-wrap: wrap;
 	/* The column gap is wide enough to read as separation on its own; the row
 	   gap only has to keep wrapped lines from touching. */
@@ -1379,11 +1396,13 @@ th.col-rings { text-align: left !important; }
 	border: 0;
 	padding: 0;
 	cursor: pointer;
-	/* inline-flex to seat the icon beside the label, but it sits in a sentence
-	   between separators — without this the button drops off the text baseline. */
+	/* inline-flex to seat the icon beside the label. `vertical-align` used to be
+	   here to keep it on the text baseline, from when this sat in a paragraph
+	   between interpuncts — it has been inert since the row became a flex
+	   container, where vertical-align does not apply to items. The row aligns it
+	   now. */
 	display: inline-flex;
 	align-items: center;
-	vertical-align: middle;
 	gap: 0.35em;
 }
 .theme-toggle .theme-toggle-text {
