@@ -114,6 +114,7 @@ const FAVICON = (() => {
 	const [width, height, , , path] = faForwardFast.icon;
 	const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}"><path fill="#00a776" d="${path}"/></svg>`;
 
+	// Encoded whole: the path data is full of characters a URL treats as
 	// structure, and `#` in the fill would otherwise start a fragment.
 	return `data:image/svg+xml,${encodeURIComponent(svg)}`;
 })();
