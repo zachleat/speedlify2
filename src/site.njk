@@ -7,6 +7,10 @@ pagination:
 permalink: "/site/{{ entry.slug }}/"
 eleventyComputed:
   title: "{{ entry.displayUrl }}"
+  # The measured site's own mark, so a tab full of these is readable by icon
+  # rather than by a truncated domain. base.njk falls back to the project's
+  # favicon wherever a page does not set one.
+  pageFavicon: "{{ entry.url | avatar(meta.avatarService) }}"
 ---
 
 <article class="detail">
@@ -63,7 +67,20 @@ eleventyComputed:
 
 <header class="detail-head{{ ' has-shot' if screenshot }}">
 	<div class="detail-head-text">
-	<h2 class="page-hed">{{ entry.displayUrl }}</h2>
+	{#
+		The site's own mark beside its name — the same image the tab shows, so the
+		page and the tab agree about what you are looking at.
+
+		Decorative: the domain is right next to it, and "favicon for example.com"
+		read aloud adds nothing to a heading that already says example.com. Sized
+		in the markup as well as in CSS so the heading does not reflow when the
+		image lands, and lazy would be wrong for something above the fold.
+	#}
+	<h2 class="page-hed">
+		{%- set siteIcon = entry.url | avatar(meta.avatarService) -%}
+		{%- if siteIcon %}<img class="page-hed-mark" src="{{ siteIcon }}" width="32" height="32" alt="" decoding="async">{% endif -%}
+		{{ entry.displayUrl }}
+	</h2>
 	<p class="detail-url"><a href="{{ entry.url }}">{{ entry.url }}</a></p>
 	{#
 		The same six rings the leaderboard shows for this row, so arriving from a

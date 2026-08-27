@@ -1408,7 +1408,29 @@ th.col-rings { text-align: left !important; }
 
 .detail-head .site-link { font-size: inherit; }
 
-.page-hed { margin: 0 0 0.25rem; font-size: clamp(1.5rem, 4vw, 2rem); letter-spacing: -0.02em; font-weight: 700; }
+.page-hed {
+	margin: 0 0 0.25rem;
+	font-size: clamp(1.5rem, 4vw, 2rem);
+	letter-spacing: -0.02em;
+	font-weight: 700;
+	/* Flex so the mark sits beside the domain rather than on its baseline — a
+	   favicon is a square with no descender, and baseline alignment drops it low
+	   against a 2rem word. Wraps so a long domain does not squeeze it. */
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 0.4em;
+}
+
+/* Sized in `em` so it tracks the heading's clamp, and given a box of its own:
+   these come from an external service, and a favicon that never arrives should
+   leave the heading where it was rather than closing the gap. */
+.page-hed-mark {
+	flex: none;
+	inline-size: 0.9em;
+	block-size: 0.9em;
+	border-radius: 2px;
+}
 
 .stat-suffix { font-size: 0.9rem; font-weight: 400; color: var(--text-muted); letter-spacing: 0; }
 

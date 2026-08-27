@@ -27,9 +27,14 @@
 {% else %}
 <link rel="stylesheet" href="/css/style.css">
 {% endif %}
-<!-- Font Awesome's forward-fast, built from the package's own path data in
-     buildawesome.config.js so it cannot drift from the version installed. -->
-<link rel="icon" href="{{ favicon }}">
+<!-- The project's mark by default — Font Awesome's forward-fast, built from the
+     package's own path data in buildawesome.config.js so it cannot drift from
+     the version installed.
+
+     A site page overrides it with that site's own favicon, which is the one
+     place the distinction is useful: several of these open at once is a row of
+     identical tabs otherwise. -->
+<link rel="icon" href="{{ pageFavicon or favicon }}">
 <script>
 /* Applied before first paint so a light-mode reader never sees a dark flash.
    Dark is the default; only a stored choice of "light" changes anything. */
