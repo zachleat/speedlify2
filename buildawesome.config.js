@@ -1,5 +1,7 @@
 import { HtmlBasePlugin } from "@awesome.me/buildawesome";
 import fontAwesomePlugin from "@11ty/font-awesome";
+import { library, findIconDefinition } from "@fortawesome/fontawesome-svg-core";
+import { fab } from "@fortawesome/free-brands-svg-icons";
 
 // Must stay first: loads .env before the data files read process.env.
 import "./lib/env.js";
@@ -94,22 +96,59 @@ const LCP_SUBPARTS = [
 	{ key: "elementRenderDelay", label: "Element render delay" },
 ];
 
-const FONT_AWESOME_ICONS = {
-	Amazon: "amazon",
-	BuildAwesome: "build-awesome",
-	Cloudflare: "cloudflare",
-	Drupal: "drupal",
-	Eleventy: "eleventy",
-	Forgejo: "forgejo",
-	Github: "github",
-	Obsidian: "obsidian",
-	Squarespace: "squarespace",
-	Svelte: "svelte",
+/*
+ * The brand pack, registered once so `findIconDefinition` can be asked about it.
+ */
+library.add(fab);
+
+/**
+ * simple-icons names that Font Awesome spells differently.
+ *
+ * Only the irregular ones. A brand both sets carry under the same name, or one
+ * Font Awesome knows by an alias, needs no entry here.
+ */
+const FONT_AWESOME_ALIASES = {
 	Vuedotjs: "vuejs",
-	Webflow: "webflow",
-	Wix: "wix",
-	Wordpress: "wordpress",
+	Flydotio: "fly",
 };
+
+/**
+ * Font Awesome's own name for a brand, or null if it does not carry one.
+ *
+ * Font Awesome is preferred wherever it has the mark, because of how it is
+ * delivered: the plugin rewrites `<i class="fa-brands fa-x">` into a `<use>`
+ * against a per-page spritesheet, so a logo repeated down a thousand-row
+ * leaderboard costs one symbol. simple-icons is inlined as path data at every
+ * occurrence.
+ *
+ * Asked of the library rather than matched against a list, for two reasons.
+ * `findIconDefinition` resolves aliases — `11ty` returns the `eleventy`
+ * definition, which scraping the exports would miss — and it returns the
+ * canonical `iconName`, so the class is correct whichever spelling matched.
+ *
+ * A slug is only ever emitted for a definition the library actually returned,
+ * so `failOnError` below cannot fire on a guess.
+ */
+function fontAwesomeSlug(name) {
+	if (!name) return null;
+
+	// Compound names are the one place the two projects disagree in a way no
+	// alias covers: simple-icons writes `BuildAwesome`, Font Awesome writes
+	// `build-awesome`.
+	const candidates = [
+		FONT_AWESOME_ALIASES[name],
+		name.toLowerCase(),
+		name.replace(/(?<=[a-z0-9])(?=[A-Z])/g, "-").toLowerCase(),
+	];
+
+	for (const iconName of candidates) {
+		if (!iconName) continue;
+		const found = findIconDefinition({ prefix: "fab", iconName });
+		if (found) return found.iconName;
+	}
+
+	return null;
+}
 
 /**
  * Brand marks kept in the repo rather than pulled from simple-icons.
@@ -195,7 +234,7 @@ export default async function ($config) {
 	 * bundle manager by hand. Rewriting the finished HTML needs none of that.
 	 *
 	 * failOnError stays on: a class this config emits that Font Awesome cannot
-	 * resolve is a mistake in FONT_AWESOME_ICONS, and the default behaviour —
+	 * resolve would be a bug in fontAwesomeSlug, and the default behaviour —
 	 * leaving the `<i>` in place — would ship an invisible empty element instead
 	 * of a logo, on every row of a leaderboard, silently.
 	 */
@@ -856,7 +895,7 @@ export default async function ($config) {
 		// short reference per row, rather than the same path inlined once per
 		// site. Brand colour is carried over from simple-icons when that project
 		// has an entry, since Font Awesome's marks are monochrome by design.
-		const faName = detected.icon ? FONT_AWESOME_ICONS[detected.icon] : null;
+		const faName = fontAwesomeSlug(detected.icon);
 		if (faName) {
 			// BRAND_COLORS first, for brands simple-icons has no entry for and so
 			// no hex to lend.
