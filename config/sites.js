@@ -423,6 +423,11 @@ export default {
 				...FRAMEWORK_SITES,
 				...BUILD_TOOL_SITES,
 				...PACKAGE_TOOL_SITES,
+
+				// This instance, in its own leaderboard. Not in any of the lists
+				// above because there is no list of one — and measuring the thing
+				// that does the measuring is the least it can do.
+				{ name: "Speedlify", url: "https://www.speedlify.dev/" },
 			],
 		},
 
