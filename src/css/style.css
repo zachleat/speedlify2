@@ -1296,7 +1296,24 @@ th.col-trend { text-align: center !important; }
 .masthead { position: static; border-bottom: 1px solid var(--border); background: transparent; }
 .masthead .wrap { display: block; text-align: center; padding-top: 2.5rem; padding-bottom: 1.75rem; min-height: 0; }
 .masthead-hed { margin: 0 0 0.5rem; font-size: clamp(2rem, 6vw, 3rem); font-weight: 700; letter-spacing: -0.02em; }
-.masthead-hed a { color: var(--text); text-decoration: none; }
+
+/* Flex so the mark sits beside the name rather than on its baseline: the glyph
+   is a solid block with no descender, and baseline alignment drops it low
+   against a 3rem word. Centred, and sized in `em` so it tracks the clamp. */
+.masthead-hed a {
+	color: var(--text);
+	text-decoration: none;
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4em;
+}
+
+.masthead-mark {
+	flex: none;
+	width: 0.8em;
+	height: 0.8em;
+	color: var(--brand);
+}
 /* Block margin so the three lines read as separate statements — the tagline,
    the links, the coverage — rather than one paragraph that happens to wrap. */
 .masthead-subhed { margin: 0.4rem 0; font-size: 0.95rem; color: var(--text-muted); }

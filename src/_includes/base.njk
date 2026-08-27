@@ -51,7 +51,21 @@ speedlifyThemeColor();
 
 <header class="masthead">
 	<div class="wrap">
-		<h1 class="masthead-hed"><a href="/">{{ meta.title }}</a></h1>
+		{#
+			The same mark as the tab icon, through the Font Awesome transform rather
+			than inlined — it becomes a `<use>` against the page's spritesheet, and
+			the favicon's copy is built separately in the config because a data URI
+			cannot reference one.
+
+			Empty and aria-hidden: the transform turns element content into a
+			`<title>`, and the site's name is the text right beside it.
+		#}
+		<h1 class="masthead-hed">
+			<a href="/">
+				<i class="fa-solid fa-forward-fast masthead-mark" width="32" height="32" aria-hidden="true"></i>
+				{{ meta.title }}
+			</a>
+		</h1>
 		{#
 			The tagline, and nothing else. How much of the corpus has data is a fact
 			about the instance rather than about the page you are on, so it reads as
