@@ -61,10 +61,10 @@ title: Charts
 		about a relationship should not double as a list of who is worst.
 	#}
 	<p class="muted small">
-		Only the {{ plot.labelled | num }} dots that painted within 2.5&nbsp;s are
+		Only the {{ plot.labeled | num }} dots that painted within 2.5&nbsp;s are
 		named &mdash; hover one for the site and its figures, or follow it through
 		to that site's page. The slower dots are plotted but deliberately left
-		unlabelled. Without a mouse, {{ plot.keyboardCount }} of them spread across
+		unlabeled. Without a mouse, {{ plot.keyboardCount }} of them spread across
 		the weight axis are in the tab order.
 	</p>
 	{{ scatterfigure(plot, "Page Weight") }}
@@ -99,7 +99,7 @@ title: Charts
 	</p>
 	{% endif %}
 	<p class="muted small">
-		Naming works as above: the {{ js.labelled | num }} dots inside 2.5&nbsp;s
+		Naming works as above: the {{ js.labeled | num }} dots inside 2.5&nbsp;s
 		are named on hover, {{ js.keyboardCount }} of them in the tab order.
 	</p>
 	{{ scatterfigure(js, "JavaScript Weight") }}
@@ -130,7 +130,7 @@ title: Charts
 		numbers on them are directly comparable.
 	#}
 	<p class="muted small">
-		Naming works as above: the {{ ttfb.labelled | num }} dots inside 2.5&nbsp;s
+		Naming works as above: the {{ ttfb.labeled | num }} dots inside 2.5&nbsp;s
 		are named on hover, {{ ttfb.keyboardCount }} of them in the tab order.
 	</p>
 	{{ scatterfigure(ttfb, "Time to First Byte") }}
@@ -146,7 +146,7 @@ title: Charts
 	<p class="muted small">
 		Font bytes along the bottom, cumulative layout shift up the side &mdash; the
 		question being whether the text arriving late drags the page around under
-		the reader. Colours and the two lines are the CLS thresholds, 0.1 and 0.25,
+		the reader. Colors and the two lines are the CLS thresholds, 0.1 and 0.25,
 		not the paint-time ones used above.
 	</p>
 	{#
@@ -184,7 +184,7 @@ title: Charts
 		Two things differ from the charts above, and both would mislead if left
 		unsaid. The vertical scale is linear because a score is bounded — zero has
 		no place on a log axis and the step from 90 to 100 is not smaller than the
-		one from 10 to 20. And the colours are inverted, because on this axis a
+		one from 10 to 20. And the colors are inverted, because on this axis a
 		high number is the good one.
 	#}
 	<p class="muted small">
@@ -197,7 +197,7 @@ title: Charts
 		nothing from anyone else at all.{% endif %}
 	</p>
 	<p class="muted small">
-		Naming works as above: the {{ tp.labelled | num }} sites scoring 90 or
+		Naming works as above: the {{ tp.labeled | num }} sites scoring 90 or
 		better are named on hover, {{ tp.keyboardCount }} of them in the tab order.
 	</p>
 	{{ scatterfigure(tp, "Third-Party Weight", "Performance Score") }}
@@ -278,21 +278,21 @@ title: Charts
 		what real users actually got &mdash; Chrome&rsquo;s field p75 &mdash; and a
 		line joining them. The line is the disagreement, and its length is that
 		site&rsquo;s error in seconds. Rows are ordered by the field figure, so the
-		coloured dots form a curve and the lab dots scatter against it.
+		colored dots form a curve and the lab dots scatter against it.
 	</p>
 	{#
 		The sampling bias is the first thing to say, not a footnote. CrUX only
-		reports sites with enough traffic to anonymise, so this is not a seventh of
+		reports sites with enough traffic to anonymize, so this is not a seventh of
 		the corpus chosen at random — it is the popular seventh, which is likely
 		the better-resourced one too. Any reading of the aggregate carries that.
 	#}
 	<p class="muted small">
 		The lab is slower than reality on <strong>{{ lf.labSlower | num }}</strong>
 		of these and faster on {{ lf.labFaster | num }}. Hovering names the
-		{{ lf.labelled | num }} whose real-user paint came inside 2.5&nbsp;s; the
+		{{ lf.labeled | num }} whose real-user paint came inside 2.5&nbsp;s; the
 		slower rows are drawn but not identified. Only {{ lf.count | num }} sites
 		appear at all, because Chrome publishes field data only for sites with
-		enough traffic to anonymise &mdash; not a random sample of the
+		enough traffic to anonymize &mdash; not a random sample of the
 		{{ sites.stats.measured | num }} measured here but the best-trafficked part
 		of it, so read the spread rather than the average.
 	</p>

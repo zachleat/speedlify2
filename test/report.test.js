@@ -713,7 +713,7 @@ describe("perfect scores", () => {
 		const f = fixture({ performance: () => 100, axe: clean });
 		const r = await buildReport({ resultsDir: f.resultsDir, configFile: f.configFile });
 
-		// No field data at all — the ring is grey, not red. Most of the corpus is
+		// No field data at all — the ring is gray, not red. Most of the corpus is
 		// too small to appear in CrUX, and that measures traffic, not quality.
 		assert.equal(r.entries[0].cwvFailures, null);
 		assert.equal(r.entries[0].perfect, true);

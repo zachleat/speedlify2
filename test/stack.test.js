@@ -5,7 +5,7 @@ import fs from "node:fs";
 import { detectGenerator, detectHost, pickHostHeaders, pageProbe, detectInterstitial } from "../lib/stack.js";
 
 /**
- * Every generator that https://github.com/11ty/api-generator recognises, with a
+ * Every generator that https://github.com/11ty/api-generator recognizes, with a
  * `meta[name=generator]` string in the shape that generator actually emits.
  *
  * This list is the contract: api-generator is the reference implementation for
@@ -37,7 +37,7 @@ describe("generator detection", () => {
 				const found = detectGenerator({ meta });
 				assert.equal(found?.name, name);
 				assert.equal(found.source, "meta");
-				// A name we recognise always carries an id; unknown ones are id-less.
+				// A name we recognize always carries an id; unknown ones are id-less.
 				assert.ok(found.id, `expected a known id for ${name}`);
 			});
 		}
@@ -67,7 +67,7 @@ describe("generator detection", () => {
 		assert.equal(detectGenerator({ meta: "Silex" }).version, null);
 	});
 
-	test("recognises Framer, and reads its build SHA as no version", () => {
+	test("recognizes Framer, and reads its build SHA as no version", () => {
 		// Framer stamps a commit hash where a version would go: "Framer 831f5a1".
 		// The digits run straight into a letter, so versionFrom finds no word
 		// boundary and reports null rather than a nonsense "831".
@@ -83,7 +83,7 @@ describe("generator detection", () => {
 		assert.equal(detectGenerator({ meta: "Some Framer-like thing" }).id, null);
 	});
 
-	test("recognises Next.js and Nuxt by their build output paths", () => {
+	test("recognizes Next.js and Nuxt by their build output paths", () => {
 		// Both ship without a generator meta tag, so the reference falls back to
 		// script[src^='/_next/'] and script[src^='/_nuxt/'] — so do we.
 		assert.equal(detectGenerator({ meta: null, marks: ["next"] })?.name, "Next.js");
@@ -114,7 +114,7 @@ describe("generator detection", () => {
 		assert.equal(found.raw, "WordPress 6.9");
 	});
 
-	test("recognises WordPress-only themes and plugins as WordPress on their own", () => {
+	test("recognizes WordPress-only themes and plugins as WordPress on their own", () => {
 		// These often strip the WordPress tag rather than precede it, leaving
 		// their own as the only signal on the page.
 		assert.equal(detectGenerator({ meta: "All in One SEO (AIOSEO) 4.9.9" }).name, "WordPress");
@@ -378,7 +378,7 @@ describe("a page declaring more than one generator", () => {
 describe("detecting a bot check", () => {
 	const seen = (title) => detectInterstitial({ title });
 
-	test("recognises the wording these pages use", () => {
+	test("recognizes the wording these pages use", () => {
 		// The several products that do this copy each other's phrasing, which is
 		// what makes titles a usable signal at all.
 		assert.ok(seen("Just a moment..."));

@@ -345,7 +345,7 @@ describe("score bands", () => {
 		assert.equal(scoreBand(null), "none");
 	});
 
-	// good 0, amber 2, red and grey 3. Five entries: the four categories and axe.
+	// good 0, amber 2, red and gray 3. Five entries: the four categories and axe.
 	test("ranks the four categories and axe, worst first", () => {
 		assert.deepEqual(bandProfile(entry()), [0, 0, 0, 0, 0]);
 		assert.deepEqual(bandProfile(entry({ seo: 80 })), [2, 0, 0, 0, 0]);
@@ -366,7 +366,7 @@ describe("score bands", () => {
 	});
 
 	test("unknown still loses to any amber, and beats any red", () => {
-		// The ordering this is all for: a grey ring must not let a site climb past
+		// The ordering this is all for: a gray ring must not let a site climb past
 		// one that was measured and scored, and must not be treated as proof of
 		// failure either.
 		const unknown = bandProfile(entry({ axe: false }));
@@ -379,7 +379,7 @@ describe("score bands", () => {
 
 	test("Core Web Vitals do not enter the band profile", () => {
 		// Left out on purpose: CrUX has no sample for most of this corpus, so the
-		// ring is grey more often than it is any colour, and a criterion that is
+		// ring is gray more often than it is any color, and a criterion that is
 		// unknown for most rows cannot carry the top tier. It still ranks a tier
 		// below, where a missing assessment costs nothing.
 		const withCwv = (ratings) => ({
@@ -389,10 +389,10 @@ describe("score bands", () => {
 
 		const green = bandProfile(withCwv(["good", "good", "good"]));
 		const red = bandProfile(withCwv(["poor", "poor", "poor"]));
-		const grey = bandProfile(entry());
+		const gray = bandProfile(entry());
 
-		assert.deepEqual(green, grey);
-		assert.deepEqual(red, grey, "even three failing vitals leave the profile untouched");
+		assert.deepEqual(green, gray);
+		assert.deepEqual(red, gray, "even three failing vitals leave the profile untouched");
 	});
 
 	test("is null when the site has no scores", () => {

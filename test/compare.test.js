@@ -50,7 +50,7 @@ describe("delta", () => {
 });
 
 describe("trend", () => {
-	test("summarises a series", () => {
+	test("summarizes a series", () => {
 		const t = trend(history([[80, 2000], [85, 1800], [90, 1500]]), "lab.scores.performance", "performance");
 
 		assert.equal(t.count, 3);

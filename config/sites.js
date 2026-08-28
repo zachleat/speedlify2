@@ -233,7 +233,7 @@ const HOST_SITES = [
 			];
 
 /*
- * The largest technology companies, by market capitalisation.
+ * The largest technology companies, by market capitalization.
  *
  * Ordered by rank at the time of writing (2026), which is a moving target — the
  * top of this list reshuffles every few months and the bottom of it turns over
@@ -491,7 +491,7 @@ export default {
 		 *
 		 * Every other category here is people who build for the web: generators,
 		 * hosts, starters, personal sites. These are the companies with the most
-		 * money and the largest engineering organisations on earth, measured on
+		 * money and the largest engineering organizations on earth, measured on
 		 * exactly the same terms — same runner, same throttling, same thresholds.
 		 *
 		 */
@@ -500,7 +500,7 @@ export default {
 			name: "Big Tech",
 			enabled: true,
 			description:
-				"The largest technology companies by market capitalisation.",
+				"The largest technology companies by market capitalization.",
 			...DAILY,
 			...POLITE,
 			sites: BIG_TECH_SITES,

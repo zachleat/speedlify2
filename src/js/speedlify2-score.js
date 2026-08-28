@@ -139,12 +139,12 @@ class SpeedlifyScore extends HTMLElement {
 
 	static css = `
 /*
- * Colours come from custom properties so the same stylesheet can render on a
+ * Colors come from custom properties so the same stylesheet can render on a
  * light page or a dark one.
  *
  * light-dark() resolves against the element's used color-scheme, which is
  * an inherited property — so it crosses the shadow boundary and picks up
- * whatever the *host page* declares. That is the behaviour this needs. A media
+ * whatever the *host page* declares. That is the behavior this needs. A media
  * query would follow the reader's operating system instead, which is a
  * different question and gets it wrong exactly when it matters: a dark site
  * read on a machine set to light rendered a light badge in the middle of a dark
@@ -155,7 +155,7 @@ class SpeedlifyScore extends HTMLElement {
  * what a page embedding this on a background it controls will want.
  *
  * This matters more than it looks. The numerals inside the rings are drawn in
- * the band colour directly onto the host page's background — there is no card
+ * the band color directly onto the host page's background — there is no card
  * behind them — and the dark-page greens and ambers measure about 2:1 on white.
  * The light values are the leaderboard's own, at 5.1:1 or better.
  */
@@ -182,7 +182,7 @@ class SpeedlifyScore extends HTMLElement {
 	vertical-align: middle;
 }
 
-/* Overriding color-scheme is the whole of forcing a theme: every colour above
+/* Overriding color-scheme is the whole of forcing a theme: every color above
    is resolved from it. */
 :host([theme="light"]) { color-scheme: light; }
 :host([theme="dark"]) { color-scheme: dark; }
@@ -213,7 +213,7 @@ class SpeedlifyScore extends HTMLElement {
 	fill: currentColor;
 }
 /* Part of the mark rather than an annotation beside it: currentColor is the
-   band colour, the same one the value above it uses. */
+   band color, the same one the value above it uses. */
 .ring-sublabel {
 	font-family: inherit;
 	font-size: 6px;
@@ -224,7 +224,7 @@ class SpeedlifyScore extends HTMLElement {
 /*
  * The placeholder: the track alone, at the size the finished ring occupies —
  * that is what stops the swap from moving anything — with the arc, the value
- * and the colour all withheld until they are known.
+ * and the color all withheld until they are known.
  */
 .skeleton {
 	color: var(--ss-none);
@@ -297,7 +297,7 @@ class SpeedlifyScore extends HTMLElement {
 /*
  * The age reads as a pill, the same shape the leaderboard gives it, so a badge
  * and the page it links to label freshness the same way. Translucent black or
- * white rather than a fixed grey, so it sits on whichever tooltip surface the
+ * white rather than a fixed gray, so it sits on whichever tooltip surface the
  * theme picked.
  */
 .age {
@@ -372,7 +372,7 @@ class SpeedlifyScore extends HTMLElement {
 		const wrapper = document.createElement("div");
 		wrapper.style.display = "contents";
 		// Six, matching render(): four Lighthouse categories, Core Web Vitals, axe.
-		// A button, matching render() exactly — `all: unset` normalises most of it,
+		// A button, matching render() exactly — `all: unset` normalizes most of it,
 		// but a span and a button are not guaranteed the same box, and any
 		// difference here is the shift this method exists to prevent. Inert while
 		// loading: there is nothing to describe yet.
@@ -422,13 +422,13 @@ class SpeedlifyScore extends HTMLElement {
 
 	/**
 	 * One ring, drawn exactly as the build-time `scoreRing` shortcode draws it:
-	 * a grey track, an arc dashed to the value, and the number in the middle.
+	 * a gray track, an arc dashed to the value, and the number in the middle.
 	 * Kept in step with eleventy.config.js by hand — the two run in different
 	 * places and there is nothing to share between them but the numbers.
 	 *
 	 * `pct` is what fills the arc, and it is not always the value: axe counts and
 	 * a Core Web Vitals verdict have no percentage, so they pass 1 and read as a
-	 * closed ring whose colour carries the answer. `null` leaves the track bare,
+	 * closed ring whose color carries the answer. `null` leaves the track bare,
 	 * which is how "no data" looks in both renderers.
 	 */
 	ring({ band, text, label, pct, sublabel = "" }) {
@@ -444,7 +444,7 @@ class SpeedlifyScore extends HTMLElement {
 			`<svg class="ring ${band}" viewBox="0 0 ${size} ${size}" role="img" aria-label="${SpeedlifyScore.escape(label)}">`,
 			`<circle class="ring-track" cx="${c}" cy="${c}" r="${r}" fill="none" stroke-width="${stroke}"/>`,
 			arc,
-			// A sublabel shifts the value up so the pair sits centred as a block,
+			// A sublabel shifts the value up so the pair sits centered as a block,
 			// both still inside the ring.
 			`<text class="ring-text" x="${c}" y="${sublabel ? c - 3.5 : c}" text-anchor="middle" dominant-baseline="central">${SpeedlifyScore.escape(text)}</text>`,
 			sublabel
@@ -470,7 +470,7 @@ class SpeedlifyScore extends HTMLElement {
 	 * 100 and Core Web Vitals is a glyph, but axe counts violating *nodes* — one
 	 * bad rule on a long table is thousands — and four digits at this size render
 	 * 32 units wide in a 31-unit hole, spilling over the stroke and onto the
-	 * neighbouring rings, which do not clip because the stroke's round cap needs
+	 * neighboring rings, which do not clip because the stroke's round cap needs
 	 * overflow visible.
 	 *
 	 * The exact number stays in the label, so this costs nothing but precision no

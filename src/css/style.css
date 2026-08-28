@@ -16,9 +16,9 @@
 	--text-muted: #b0b0b0;
 	/* For muted text sitting on a *tinted* surface rather than on the page.
 	   Several components here tint their own background from --text-muted — a
-	   pill 15-25% of its own text colour — which pulls the two together and
+	   pill 15-25% of its own text color — which pulls the two together and
 	   drops the pair under 4.5:1 no matter how legible each looks alone. This is
-	   the same grey, far enough along to clear the contrast floor on every one
+	   the same gray, far enough along to clear the contrast floor on every one
 	   of those surfaces (worst case the 25% chip, at 4.52:1). */
 	--text-muted-strong: #cbcbcb;
 
@@ -41,7 +41,7 @@
 	--accent: #7cc0ff;
 
 	/* The four phases of LCP. Four hues rather than four shades of one, because
-	   the segments sit side by side in a 4px bar and shades of a single colour
+	   the segments sit side by side in a 4px bar and shades of a single color
 	   are not separable at that size.
 
 	   Chosen away from the score palette on purpose: a large amber or red
@@ -60,7 +60,7 @@
 	--sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
 	/* Build Awesome's balloon green, and a near-black from the same family for
-	   text sitting on it. Identical in both themes: it is a brand colour, not a
+	   text sitting on it. Identical in both themes: it is a brand color, not a
 	   surface, so it should not shift when the page does. */
 	--brand: #00a776;
 	--brand-bright: #00b880;
@@ -214,7 +214,7 @@ pre code { font-size: inherit; }
  * rings carry their own.
  */
 .stat-rings { grid-column: span 2; }
-/* Two labelled rows in one tile, so the median and the mean read as the same
+/* Two labeled rows in one tile, so the median and the mean read as the same
    six measurements taken two ways rather than as separate statistics. */
 .ring-row + .ring-row { margin-top: 0.2rem; }
 .ring-row .rings { margin-bottom: 0.2rem; }
@@ -387,9 +387,9 @@ th.col-trend { text-align: center !important; }
  *
  * Build Awesome's own green, from BRAND_COLORS in buildawesome.config.js — the
  * same value the balloon is drawn in, so the page's one loud element is loud in
- * the project's colour rather than an invented one.
+ * the project's color rather than an invented one.
  *
- * The text is near-black rather than white, which is the reflex for a coloured
+ * The text is near-black rather than white, which is the reflex for a colored
  * button and would be wrong here: white on this green is 3.09:1, and at
  * 0.9rem/650 the label is not large text, so it needs 4.5. The dark green-black
  * below reaches 4.95:1 and belongs to the same family.
@@ -422,7 +422,7 @@ th.col-trend { text-align: center !important; }
 	}
 }
 
-/* After the table, centred — there is nothing beside it to align to. */
+/* After the table, centered — there is nothing beside it to align to. */
 .cta-footer {
 	margin-block: 1.5rem 0;
 	text-align: center;
@@ -430,8 +430,8 @@ th.col-trend { text-align: center !important; }
 
 /*
  * `.panel > p` caps prose at 90ch and this is a direct child of a panel, so the
- * button would centre inside that measure rather than inside the panel — left
- * of centre on a wide screen.
+ * button would center inside that measure rather than inside the panel — left
+ * of center on a wide screen.
  *
  * Qualified by the parent rather than declared on `.cta-footer` alone: that is
  * one class against `.panel > p`'s class-plus-element, which wins on specificity
@@ -444,7 +444,7 @@ th.col-trend { text-align: center !important; }
 /*
  * Category switcher, above the heading it changes.
  *
- * Baseline-aligned rather than centred so the label, the control and the button
+ * Baseline-aligned rather than centered so the label, the control and the button
  * sit on one line with the text around them. `accent-color` and `color-scheme`
  * hand the select's own chrome to the theme — a UA-styled dropdown otherwise
  * arrives light on a dark page, which is the one control on this site that
@@ -476,7 +476,7 @@ th.col-trend { text-align: center !important; }
 .masthead-tools {
 	display: flex;
 	/*
-	 * Centre, not baseline. The row is links, a button and a select — and two of
+	 * Center, not baseline. The row is links, a button and a select — and two of
 	 * those have no usable baseline: a flex container takes its baseline from its
 	 * first item that has one, and the toggle's first item is a 14px icon, so its
 	 * baseline is synthesised from that icon's bottom edge and lands below the
@@ -484,7 +484,7 @@ th.col-trend { text-align: center !important; }
 	 * wants anyway.
 	 */
 	align-items: center;
-	/* Centred under a centred masthead, at every width — the row is short enough
+	/* Centred under a centered masthead, at every width — the row is short enough
 	   that packing it left reads as a stray edge rather than as alignment. */
 	justify-content: center;
 	flex-wrap: wrap;
@@ -527,7 +527,7 @@ th.col-trend { text-align: center !important; }
 	font-size: 0.72rem;
 	font-weight: 600;
 	font-variant-numeric: tabular-nums;
-	/* Baseline, not middle: `middle` puts the box's centre at the baseline plus
+	/* Baseline, not middle: `middle` puts the box's center at the baseline plus
 	   half an x-height, which for a padded pill lands visibly below the text it
 	   sits in and grows the line box to make room. Same as .age-pill, which is
 	   the pill directly above it on this page. */
@@ -591,7 +591,7 @@ th.col-trend { text-align: center !important; }
 	align-items: start;
 }
 /* The link is only a wrapper — it must not add a box of its own, or the grid
-   column becomes a link-coloured rectangle around the image. */
+   column becomes a link-colored rectangle around the image. */
 .detail-shot-link { display: block; line-height: 0; }
 .detail-shot-link:hover .detail-shot { border-color: var(--border-strong); }
 
@@ -763,8 +763,8 @@ th.col-trend { text-align: center !important; }
 .lvf-ms { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
 
 /*
- * The lab bar is deliberately colourless. It is a simulation of one mid-range
- * phone, and colouring it good or poor would dress a test condition up as a
+ * The lab bar is deliberately colorless. It is a simulation of one mid-range
+ * phone, and coloring it good or poor would dress a test condition up as a
  * verdict — the rating belongs to the field number underneath it, which is the
  * one real users produced and Google grades.
  */
@@ -822,7 +822,7 @@ th.col-trend { text-align: center !important; }
    plot without it competing with the dots sitting on it. */
 /*
  * The lab/field pairs. The link is drawn first and neutral: it is the distance
- * between two readings, not a reading itself, and colouring it would imply the
+ * between two readings, not a reading itself, and coloring it would imply the
  * gap has a verdict of its own.
  */
 .pair-links line {
@@ -831,7 +831,7 @@ th.col-trend { text-align: center !important; }
 }
 
 /* The lab end, deliberately plain. The verdict belongs to the field dot, and a
-   second coloured end would leave the eye reading whichever sits further right. */
+   second colored end would leave the eye reading whichever sits further right. */
 .pair-lab circle {
 	fill: var(--text-muted);
 	fill-opacity: 0.55;
@@ -943,7 +943,7 @@ th.col-trend { text-align: center !important; }
 }
 
 /* Only the sampled ten can take focus, and the ring has to be findable against
-   a thousand dots — offset far enough to sit clear of the neighbours the dot is
+   a thousand dots — offset far enough to sit clear of the neighbors the dot is
    buried among. */
 .plot-hit:focus-visible {
 	outline: 2px solid var(--accent);
@@ -962,7 +962,7 @@ th.col-trend { text-align: center !important; }
 	max-width: 15rem;
 	margin-bottom: 0.2rem;
 	padding: 0.35rem 0.5rem;
-	/* Green, because only green dots are named — the card is recognisably
+	/* Green, because only green dots are named — the card is recognizably
 	   attached to the mark it describes rather than floating free. */
 	border: 1px solid var(--good);
 	border-radius: var(--radius);
@@ -1091,8 +1091,8 @@ th.col-trend { text-align: center !important; }
 
 /* Inside a stat tile now, so it stacks rather than sitting beside its facts.
    The screenshot is a banner crop: the tile is a few hundred pixels wide, and a
-   whole page scaled into that is a grey rectangle — the top of the page is the
-   part anyone recognises. */
+   whole page scaled into that is a gray rectangle — the top of the page is the
+   part anyone recognizes. */
 .sotd-shot { display: block; line-height: 0; margin: 0.15rem 0 0.5rem; }
 .sotd-shot img {
 	width: 100%;
@@ -1171,7 +1171,7 @@ th.col-trend { text-align: center !important; }
    small qualifying figures on these pages — it is a note on the number next to
    it rather than a column of its own.
 
-   Quiet by default, because most runs barely move, and coloured only when the
+   Quiet by default, because most runs barely move, and colored only when the
    machine got slower: that is the direction that inflates CPU-bound metrics and
    invents regressions. A faster machine is not a problem to flag. */
 .bench-change {
@@ -1242,7 +1242,7 @@ th.col-trend { text-align: center !important; }
 }
 
 /* The scatter thumbnail in the stat bar. The link wraps both the picture and
-   its note so the whole tile is one target, and the dots take their colours from
+   its note so the whole tile is one target, and the dots take their colors from
    the same .plot-good/.plot-average/.plot-poor rules the full chart uses. */
 .stat-chart {
 	display: block;
@@ -1312,7 +1312,7 @@ th.col-trend { text-align: center !important; }
 /* ------------------------------------------------- weight by resource type */
 
 /*
- * One bar, divided into shares. Colours are categorical here rather than the
+ * One bar, divided into shares. Colors are categorical here rather than the
  * good/average/poor scale used everywhere else on the site — a resource type is
  * not a verdict, and painting scripts red would say something the chart does not
  * mean. Mid-tone hues so the same values carry on both themes.
@@ -1440,7 +1440,7 @@ th.col-trend { text-align: center !important; }
 .recents-dot-good { --band: var(--good); }
 .recents-dot-average { --band: var(--average); }
 .recents-dot-poor { --band: var(--poor); }
-/* Nothing measured for that ring — an outline rather than a colour, so "no
+/* Nothing measured for that ring — an outline rather than a color, so "no
    data" cannot be misread as a fourth verdict. */
 .recents-dot-none { background: none; box-shadow: inset 0 0 0 1px var(--border-strong); }
 
@@ -1453,9 +1453,9 @@ th.col-trend { text-align: center !important; }
 
 /* ---------------------------------------------------------------- verdicts */
 
-/* The three Core Web Vitals outcomes as a small table. Colour carries the
+/* The three Core Web Vitals outcomes as a small table. Color carries the
    verdict, so the label is not the only thing distinguishing the rows — but
-   the words are there too, because colour alone is not a distinction. */
+   the words are there too, because color alone is not a distinction. */
 .verdicts {
 	width: 100%;
 	border-collapse: collapse;
@@ -1521,7 +1521,7 @@ th.col-trend { text-align: center !important; }
 /* The second histogram in the same tile, so it reads as a different measure
    rather than more of the first. */
 .histogram-bar-script { background: var(--lcp-load-delay); }
-/* A third measure in the same card, so a third colour — the teal from the LCP
+/* A third measure in the same card, so a third color — the teal from the LCP
    phase ramp, since this is the metric those phases add up to. */
 .histogram-bar-lcp { background: var(--lcp-load-duration); }
 
@@ -1609,7 +1609,7 @@ th.col-trend { text-align: center !important; }
 .lcp-bar-clipped .lcp-row:last-child { border-radius: 2px 0 0 2px; }
 
 /* A ramp rather than four unrelated hues: the phases are consecutive, and a
-   sequence of shades reads as a timeline where a set of colours would read as
+   sequence of shades reads as a timeline where a set of colors would read as
    four categories. Mixed from the theme's own tokens so it follows light and
    dark without a second palette. */
 .lcp-seg { display: block; height: 100%; }
@@ -1749,7 +1749,7 @@ th.col-trend { text-align: center !important; }
 	font-size: 0.86rem;
 	min-width: 0;
 }
-/* The direction is the point, so it colours the edge and the number both. */
+/* The direction is the point, so it colors the edge and the number both. */
 .mover-card.better { border-left-color: var(--good); }
 .mover-card.better .mover-delta { color: var(--good); }
 .mover-card.worse { border-left-color: var(--poor); }
@@ -1790,7 +1790,7 @@ th.col-trend { text-align: center !important; }
 /* How old the numbers are, as a pill — the same treatment the embeddable score
    component gives it, and the same one the category ranks use, so the small
    qualifying facts on a page all look like one kind of thing. Carries its own
-   colour when stale rather than inheriting the paragraph's, so the pill is
+   color when stale rather than inheriting the paragraph's, so the pill is
    what reads as the warning. */
 .age-pill {
 	display: inline-block;
@@ -1862,7 +1862,7 @@ th.col-trend { text-align: center !important; }
 /*
  * Lab against field, as a multiplier: lab LCP over field p75.
  *
- * Uncoloured on purpose. Every other coloured thing on these rows is a verdict —
+ * Uncolored on purpose. Every other colored thing on these rows is a verdict —
  * a Lighthouse band, a Core Web Vitals pass, an axe count — and this is not one.
  * A ratio far from 1 says the audience differs from the simulated device, which
  * is a fact about who visits rather than something the site did well or badly.
@@ -1878,7 +1878,7 @@ th.col-rings { text-align: left !important; }
 .ring-arc { stroke: var(--text-muted); }
 .ring-text { font-size: 12px; font-weight: 650; fill: var(--text); font-family: var(--sans); }
 /* Small enough to read as a caption rather than a value, and letter-spaced so
-   three capitals at this size do not run together. Takes the band colour from
+   three capitals at this size do not run together. Takes the band color from
    the rules below, same as the value above it — the label is part of the mark,
    not an annotation beside it. */
 .ring-sublabel {
@@ -1992,7 +1992,7 @@ th.col-rings { text-align: left !important; }
 
 /*
  * Prose does not want the full table width. The wrap is sized for the
- * leaderboard; running text and the centred intro stay at a readable measure.
+ * leaderboard; running text and the centered intro stay at a readable measure.
  */
 .masthead-subhed { max-width: 68ch; margin-inline: auto; }
 .panel > p, .group-head p, .detail-head p { max-width: 90ch; }
@@ -2021,7 +2021,7 @@ th.col-rings { text-align: left !important; }
 	color: var(--text-muted-strong);
 }
 
-/* Holding a mark rather than letters: centre it and drop the text padding.
+/* Holding a mark rather than letters: center it and drop the text padding.
    Height is pinned because `inline-flex` ignores the line-height that gives a
    letter chip its box, and a 16px chip next to an 11px one reads as misaligned. */
 .stack-chip-icon {
@@ -2042,7 +2042,7 @@ th.col-rings { text-align: left !important; }
 .stack-item { display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; }
 .stack-item .stack-label { color: var(--text-muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; }
 
-/* Monochrome marks inherit the theme's text colour so they stay visible. */
+/* Monochrome marks inherit the theme's text color so they stay visible. */
 .stack-icon-mono { color: var(--text); }
 
 /* ---------------------------------------------------------------- contents */
@@ -2070,7 +2070,7 @@ th.col-rings { text-align: left !important; }
 /* Matching .table-scroll, so the card lines up with the panels it scrolls over
    rather than sitting a few pixels inside their edges. On the sticky one only:
    the home page's category nav sits in the flow with the text around it, and
-   pulling that out would leave it hanging past its neighbours. */
+   pulling that out would leave it hanging past its neighbors. */
 .contents-sticky { margin-inline: -0.7rem; }
 
 
@@ -2151,7 +2151,7 @@ th.col-rings { text-align: left !important; }
 }
 
 /* Plain text, not a pill. Back to --text-muted rather than the strong variant:
-   that exists for text sitting on a tinted background of its own colour, and
+   that exists for text sitting on a tinted background of its own color, and
    with the tint gone there is nothing eating the contrast — 5.4:1 dark and
    5.2:1 light against the page. */
 .contents-count {
@@ -2186,7 +2186,7 @@ th.col-rings { text-align: left !important; }
  * Deliberately no `scroll-behavior: smooth`. With the whole address book on one
  * page the document runs past 100,000px tall, and animating a jump of tens of
  * thousands of pixels is slow and disorienting — an instant jump is the right
- * behaviour at this length.
+ * behavior at this length.
  */
 :target { scroll-margin-top: 1.5rem; }
 
