@@ -207,7 +207,7 @@ speedlifyThemeColor();
 			<a href="{{ meta.repo }}">Source on GitHub</a>{% endif %}
 			{%- if sites.coverage.measured %} ·
 			<strong>{{ sites.coverage.measured | num }}/{{ sites.coverage.total | num }}</strong>
-			{{ sites.coverage.measured | plural("site") }} {{ sites.coverage.measured | verb("has", "have") }} data
+			{{ sites.coverage.measured | plural("site") }}
 			{#- The running total, which used to head its own line above. It is a
 			    fact about the same set of sites, so it reads as a gloss on the
 			    coverage fraction rather than as a separate statistic. #}
@@ -215,12 +215,10 @@ speedlifyThemeColor();
 			{%- if sites.coverage.medianAgeHours %}, median age
 			{{ sites.coverage.medianAgeHours | duration }}
 			{%- endif %}.
-			{% if sites.coverage.stale %}<span class="worse">{{ sites.coverage.stale }} stale</span>, each past its own category's target.{% endif %}
+			{% if sites.coverage.stale %}<span class="worse">{{ sites.coverage.stale }} stale</span>.{% endif %}
 			{% if sites.coverage.never %}<span class="muted">{{ sites.coverage.never }} not yet measured.</span>{% endif %}
 			{% if sites.stats.failing %}<span class="failing-note"><em>{{ sites.stats.failing | num }} currently failing.</em></span>{% endif %}
 			{%- endif %}
-		</p>
-		<p class="muted">
 			Lab data from Lighthouse{% if sites.hasFieldData %}, field data from the Chrome UX Report (28-day trailing p75){% endif %}.
 			Lab numbers are simulated on one machine and will vary from real user data.
 		</p>

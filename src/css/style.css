@@ -1309,6 +1309,90 @@ th.col-trend { text-align: center !important; }
 	stroke-linecap: round;
 }
 
+/* ------------------------------------------------- weight by resource type */
+
+/*
+ * One bar, divided into shares. Colours are categorical here rather than the
+ * good/average/poor scale used everywhere else on the site — a resource type is
+ * not a verdict, and painting scripts red would say something the chart does not
+ * mean. Mid-tone hues so the same values carry on both themes.
+ */
+:root {
+	--type-image: #4f9d8f;
+	--type-script: #c98b3a;
+	--type-stylesheet: #7b6bc4;
+	--type-font: #b5638f;
+	--type-document: #4a7fb5;
+	--type-media: #5d8f4f;
+	--type-other: #7c8189;
+}
+
+.stackbar {
+	display: flex;
+	height: 1.5rem;
+	margin: 0.6rem 0 0.75rem;
+	border-radius: var(--radius);
+	overflow: hidden;
+	background: color-mix(in srgb, var(--text-muted) 15%, transparent);
+}
+
+/* No gaps between segments: they are parts of one quantity, and a gap would be
+   width the bar claims but does not account for. */
+.stackbar-part {
+	display: block;
+	min-width: 2px;
+	height: 100%;
+}
+
+.type-image { background: var(--type-image); }
+.type-script { background: var(--type-script); }
+.type-stylesheet { background: var(--type-stylesheet); }
+.type-font { background: var(--type-font); }
+.type-document { background: var(--type-document); }
+.type-media { background: var(--type-media); }
+.type-other { background: var(--type-other); }
+
+.stackkey {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: grid;
+	gap: 0.3rem 1.25rem;
+	grid-template-columns: repeat(auto-fill, minmax(min(16rem, 100%), 1fr));
+	font-size: 0.82rem;
+}
+
+.stackkey li {
+	display: grid;
+	grid-template-columns: auto minmax(0, 1fr) auto;
+	align-items: baseline;
+	gap: 0.5rem;
+}
+
+.stackkey-swatch {
+	width: 0.6rem;
+	height: 0.6rem;
+	border-radius: 2px;
+	/* Baseline-aligned with the text beside it rather than sitting on it. */
+	transform: translateY(0.05rem);
+}
+
+.stackkey-name {
+	font-weight: 600;
+}
+
+.stackkey-share {
+	font-variant-numeric: tabular-nums;
+}
+
+/* Its own line under the rest: three columns hold the name, share and swatch
+   together, and the byte figure is the part that can wrap without harm. */
+.stackkey-value {
+	grid-column: 2 / -1;
+	font-size: 0.76rem;
+	font-variant-numeric: tabular-nums;
+}
+
 /* ----------------------------------------------------------------- recents */
 
 /* Ten URLs and their ages, in a stat tile. Each row is one line — the URLs run

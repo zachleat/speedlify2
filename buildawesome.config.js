@@ -516,11 +516,11 @@ export default async function ($config) {
 		return (
 			{
 				"not-enough-measurements":
-					"A redirect has to lead to the same place on several consecutive runs before history follows it. These have not been measured enough times yet to tell.",
+					"A redirect has to lead to the same place on several consecutive runs before history follows it. We don’t know yet!",
 				unstable:
 					"The destination has not been consistent across recent runs. That pattern usually means an A/B test or a geo split rather than a move.",
 				temporary:
-					"A 302, 303 or 307 is the site saying this is a detour, not a move. History stays at the original URL.",
+					"An HTTP 302, 303 or 307 means a detour (not a move). History stays at the original URL.",
 				"no-redirect": "These stopped redirecting before the move could be confirmed.",
 			}[reason] || "Still being assessed."
 		);

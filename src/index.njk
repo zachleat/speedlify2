@@ -153,11 +153,7 @@ permalink: /index.html
 			<span class="head-count" title="{{ shown.length | num }} of {{ sites.stats.measured | num }} measured {{ sites.stats.measured | plural('site') }} score {{ perfectTotal }} with nothing amber or red beside it">{{ shown.length | num }} {{ shown.length | plural('site') }}</span>
 		</h2>
 		<p class="muted">
-			{{ perfectTotal }} in all {{ metrics.SCORES.length }} Lighthouse categories, no axe
-			violations, and no Core Web Vital failing real users. Sites CrUX has no data
-			for still qualify; sites failing it do not. Every row here is tied on all of
-			that, so the order comes down to the last tiebreaker: Speed Index per KB,
-			plus TTFB and blocking time — a fast heavy site outranks a fast empty one.
+			These websites score {{ perfectTotal }} in all {{ metrics.SCORES.length }} Lighthouse categories, have no Axe CLI violations, and have passing or unknown Core Web Vital. Tiebreakers on Speed Index per KB, plus TTFB and blocking time — a heavy site outranks an empty site.
 		</p>
 		{#
 			Stated rather than left to be noticed. A starter is a near-empty
@@ -176,11 +172,7 @@ permalink: /index.html
 		{% endfor %}
 		{% if excluded.length %}
 		<p class="muted small">
-			Excludes <a href="/group/11ty-starters/">starter projects</a>&nbsp;&mdash;
-			{{ excluded.length }} of them score {{ perfectTotal }} too. A starter is a
-			demonstration of a stack rather than a site someone runs, so a perfect
-			score there is the expected result. They still rank below and on their own
-			page.
+			Excludes {{ excluded.length }} perfect scoring <a href="/group/11ty-starters/">starter projects</a>. They are shown on their own category page.
 		</p>
 		{% endif %}
 	</div>
@@ -325,11 +317,11 @@ permalink: /index.html
 <section class="redirects" id="moving">
 	<h2>{{ sites.moving.length | plural("Site") }} that {{ sites.moving.length | verb("redirects", "redirect") }}</h2>
 	<p class="muted">
-		Lighthouse follows a redirect, so these are already measured at their
-		destination — the numbers are real, they just describe the page the URL
-		leads to. What is pending is whether the move is permanent enough to move
-		the <em>history</em> too, which happens on its own once a redirect proves
-		stable. Nothing here needs a config change.
+		Lighthouse follows a redirect, so these are measured at their
+		destination. A redirect move may be permanent enough to maintain a link
+		to the <em>history</em> of the previous destination, which happens on
+		its own once a redirect proves stable (when multiple consecutive equal 
+		redirects have been measured).
 	</p>
 
 	{#
@@ -448,21 +440,14 @@ permalink: /index.html
 <section class="orphans" id="archived">
 	<h2>Archived</h2>
 	<p class="muted">
-		{{ sites.archived.length | countOf("site") }} kept in the record but taken
-		out of circulation: no longer ranked or linked. Their stored measurements
-		are still on disk.
-	</p>
-	<p class="muted small">
-		Archived by hand for sites that have lapsed or whose domain is now parked —
-		not for sites that have moved off Eleventy or Build Awesome. Those keep
-		being measured and move to
-		<a href="/group/11ty-emeritus/">11ty Emeritus</a>, which happens on its own
-		the next time the generator comes back as something else.
+		{{ sites.archived.length | countOf("site") }} kept are on record but taken
+		out of circulation: no longer ranked or linked. These sites have lapsed or
+		their domain may be parked by a reseller.
 	</p>
 	<p class="muted small">
 		A site that fails {{ sites.config.archiveAfterFailures }} measurements in a
-		row is archived automatically. Those are still measured, about once a day,
-		and return to the board on their own if they start answering again.
+		row is archived automatically. It may return to the board if it comes back
+		to the land of the living.
 	</p>
 	{#
 		Counted, not named. Archiving is for sites that should stop being pointed

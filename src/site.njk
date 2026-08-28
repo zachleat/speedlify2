@@ -334,11 +334,6 @@ eleventyComputed:
 {% if hasStack %}
 <section class="panel" id="stack">
 	<h2>Stack</h2>
-	<p class="muted small">
-		Detected on the same page load as the accessibility pass — the generator
-		from <code>&lt;meta name="generator"&gt;</code> or the shape of the page,
-		the host from response headers.
-	</p>
 	<div class="stack-list">
 		{% if entry.generator %}
 		<div class="stack-item">
@@ -375,9 +370,7 @@ eleventyComputed:
 
 	{% if entry.cwv.source == "lab" %}
 	<p class="muted small">
-		No Chrome UX Report data for this URL, so this is a lab approximation using
-		TBT in place of INP. Lighthouse cannot measure INP in a lab run — only real
-		users produce it.
+		There is insufficient Chrome UX Report data for this URL, so the numbers shown here are lab approximations.
 	</p>
 	{% else %}
 	<p class="muted small">
@@ -386,7 +379,6 @@ eleventyComputed:
 		{% if entry.cwv.source == "field-history" %}
 		From the backfilled CrUX history rather than this measurement, which predates the API key.
 		{% endif %}
-		This is what Google measures you on.
 	</p>
 	{% endif %}
 	<div class="cwv">
@@ -589,10 +581,9 @@ eleventyComputed:
 	{{ trendtable(metrics.LAB_METRICS, entry) }}
 
 	{% if entry.latest.lab.lcpBreakdown %}
-	<h3>What LCP is made of <span class="tag">observed, unthrottled</span></h3>
+	<h3>LCP Subparts <span class="tag">lab observed, unthrottled</span></h3>
 	<p class="muted small">
-		A flat LCP number tells you something regressed. The subparts tell you
-		whether it was the server, resource discovery, the download, or rendering.
+		The subparts attribute LCP to your server, resource discovery, download, or rendering. Note that the Lab metrics LCP metric shown above <em>is</em> throttled.
 	</p>
 	{#
 		These will not add up to the LCP above, and the gap is usually large — 225
@@ -611,13 +602,6 @@ eleventyComputed:
 		are shown as measured and labelled for what they are, rather than scaled
 		to a total they were never part of.
 	#}
-	<p class="muted small">
-		Measured on the trace before throttling is modelled, so these are real
-		durations that
-		<strong>will not sum to the {{ entry.latest.lab.timings.lcp | ms }} above</strong> —
-		that figure is a simulation of the same load on a slow phone and connection.
-		Read these for the proportions: which phase dominates.
-	</p>
 	<div class="breakdown">
 		{% set lcpMax = entry.latest.lab.lcpBreakdown | sortByValue | maxValue("value") %}
 		{% for part in entry.latest.lab.lcpBreakdown | sortByValue %}
@@ -646,7 +630,6 @@ eleventyComputed:
 	<p class="muted small">
 		Real Chrome users, 28-day trailing window
 		({{ entry.latest.field.collectionPeriod.first }} → {{ entry.latest.field.collectionPeriod.last }}).
-		This is what Google measures you on.
 	</p>
 
 	<div class="table-scroll">
@@ -689,7 +672,7 @@ eleventyComputed:
 	</div>
 
 	{% if entry.labVsField %}
-	<h3>Lab vs field <span class="tag">LCP</span></h3>
+	<h3>Lab LCP vs Field LCP</h3>
 	{#
 		Two bars against one scale, so the comparison is a length rather than a
 		subtraction the reader performs. Both are widths of the larger of the two,
@@ -796,29 +779,47 @@ eleventyComputed:
 	<h2>Page weight</h2>
 	{{ trendtable(metrics.WEIGHT_METRICS, entry) }}
 
+	{% if entry.weightByType.length %}
 	<h3>By resource type</h3>
-	<div class="breakdown">
-		{% set types = [] %}
-		{% for key, val in entry.latest.lab.weight.byType %}
-			{% if key != "total" and val.bytes %}{% set types = (types.push({key: key, value: val.bytes, requests: val.requests}), types) %}{% endif %}
-		{% endfor %}
-		{% set typeMax = types | maxValue("value") %}
-		{% for t in types %}
-		<div class="breakdown-row">
-			<span class="breakdown-label breakdown-key">{{ t.key | humanize }}</span>
-			{% bar t.value, typeMax, "neutral" %}
-			<span class="breakdown-value">{{ t.value | bytes }} <span class="muted">· {{ t.requests }} req</span></span>
-		</div>
-		{% endfor %}
+	{#
+		One bar rather than a row per type. The question here is what the page is
+		made of, and that is a question about proportions — a stack answers it in
+		one line, where six bars scaled to the largest of them made the reader do
+		the dividing.
+
+		Shares come from lib/report.js, which also drops `third-party`: it is a
+		tally across the other types rather than one of them, and adding it here
+		would take the bar past its own total.
+	#}
+	<div class="stackbar" role="img"
+		aria-label="Page weight by resource type{% for t in entry.weightByType %}. {{ t.key | humanize }} {{ t.shareText }}, {{ t.bytes | bytes }} over {{ t.requests }} {{ t.requests | plural("request") }}{% endfor %}.">
+		{%- for t in entry.weightByType %}
+		<span class="stackbar-part type-{{ t.key }}" style="width: {{ t.share }}%"
+			title="{{ t.key | humanize }} — {{ t.bytes | bytes }} ({{ t.shareText }}) over {{ t.requests }} {{ t.requests | plural('request') }}"></span>
+		{%- endfor %}
 	</div>
+
+	{#
+		The legend carries the numbers the bar cannot. Ordered as the bar is, so
+		reading down the list walks left to right along it.
+	#}
+	<ul class="stackkey">
+		{%- for t in entry.weightByType %}
+		<li>
+			<span class="stackkey-swatch type-{{ t.key }}"></span>
+			<span class="stackkey-name">{{ t.key | humanize }}</span>
+			<span class="stackkey-share">{{ t.shareText }}</span>
+			<span class="stackkey-value muted">{{ t.bytes | bytes }} · {{ t.requests }} req</span>
+		</li>
+		{%- endfor %}
+	</ul>
+	{% endif %}
 
 	{% if entry.latest.lab.thirdParty and entry.latest.lab.thirdParty.count %}
 	<h3>Third parties <span class="tag">{{ entry.latest.lab.thirdParty.count }} entities</span></h3>
 	<p class="muted small">
 		{{ entry.latest.lab.thirdParty.bytes | bytes }} transferred,
-		{{ entry.latest.lab.thirdParty.mainThreadMs | ms }} of main thread time.
-		This is the number most likely to regress without anyone on your team
-		shipping anything.
+		{{ entry.latest.lab.thirdParty.mainThreadMs | ms }} on the main thread.
 	</p>
 	<div class="breakdown">
 		{% set tpMax = entry.latest.lab.thirdParty.top | maxValue("bytes") %}
@@ -862,9 +863,8 @@ eleventyComputed:
 	<p class="muted small">
 		<strong>{{ entry.axe.violations }}</strong> violating node{{ "s" if entry.axe.violations != 1 }}
 		across {{ entry.axe.violationRules }} rule{{ "s" if entry.axe.violationRules != 1 }},
-		{{ entry.axe.passes }} passing. This is a standalone axe run, stricter than the
-		subset Lighthouse folds into its score above — and it is the second tiebreaker
-		in the ranking.
+		{{ entry.axe.passes }} passing. This is a standalone Axe CLI run and is stricter than the
+		subset Lighthouse already includes.
 	</p>
 	{% if entry.axe.top.length %}
 	<ul class="failures">
@@ -882,10 +882,6 @@ eleventyComputed:
 
 	{% if entry.latest.lab.accessibility.failing.length %}
 	<h3>Accessibility failures <span class="tag">{{ entry.latest.lab.accessibility.failingCount }} of {{ entry.latest.lab.accessibility.applicableCount }} audits</span></h3>
-	<p class="muted small">
-		Tracked as a count, not just the score — the weighted score is coarse
-		enough that you can ship a broken component and barely move it.
-	</p>
 	<ul class="failures">
 		{% for fail in entry.latest.lab.accessibility.failing %}
 		<li>
@@ -899,7 +895,6 @@ eleventyComputed:
 
 <section class="panel" id="hygiene">
 	<h2>Hygiene</h2>
-	<p class="muted small">Changes rarely — which is exactly why a change is worth noticing.</p>
 	<div class="chips">
 		{% set h = entry.latest.lab.hygiene %}
 		{% for check in [
@@ -923,8 +918,7 @@ eleventyComputed:
 <section class="panel" id="log">
 	<h2>Measurement log</h2>
 	<p class="muted small">
-		Every stored run for this URL, newest first. Failures are kept as records —
-		"this site was down on Tuesday" is data too.
+		Every stored run for this URL, newest first.
 	</p>
 	<div class="table-scroll">
 	<table class="grid compact">
@@ -1010,9 +1004,7 @@ eleventyComputed:
 <section class="panel" id="embed">
 	<h2>Embed this score</h2>
 	<p class="muted small">
-		Live below, then the markup that produces it. Drop that on any page to show
-		{{ entry.displayUrl }}'s scores, updated whenever this instance
-		re-measures — <a href="/embed/">more about the component</a>. <em>Don’t forget to bundle the <code>speedlify2-score.js</code> component code into your site!</em>
+		Use this web component to show {{ entry.displayUrl }}'s scores on any website, updated whenever this instance re-measures — <a href="/embed/">more about the component</a>. <em>Don’t forget to bundle the <code>speedlify2-score.js</code> component code into your site!</em>
 	</p>
 	{#
 		The live one and the snippet resolve their instance URL differently, and
