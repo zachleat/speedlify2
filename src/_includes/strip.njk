@@ -1,0 +1,65 @@
+{#
+	The strip plot, drawn twice — JavaScript weight by generator and time to first
+	byte by host. Same picture of different columns, so one definition.
+
+	`strip` is whichever set lib/report.js built and `xTitle` names its scale.
+#}
+{% macro stripfigure(strip, xTitle) %}
+	<figure class="plot">
+		<div class="plot-frame">
+		<svg viewBox="0 0 {{ strip.box.w }} {{ strip.box.h }}" role="img"
+			aria-label="Median JavaScript weight by site generator{% for row in strip.rows %}. {{ row.name }}, {{ row.count }} sites, median {{ row.medianText }}{% endfor %}.">
+			<g class="plot-grid">
+				{%- for tick in strip.xTicks %}
+				<line x1="{{ tick.x }}" x2="{{ tick.x }}" y1="{{ strip.box.top }}" y2="{{ strip.box.top + strip.plot.h }}"/>
+				{%- endfor %}
+			</g>
+			{%- if strip.zero %}
+			<g class="plot-break">
+				<line x1="{{ strip.zero.sep }}" x2="{{ strip.zero.sep }}" y1="{{ strip.box.top }}" y2="{{ strip.box.top + strip.plot.h }}"/>
+			</g>
+			{%- endif %}
+
+			<g class="plot-axis">
+				{%- if strip.zero %}
+				<text x="{{ strip.zero.x }}" y="{{ strip.axis.tickY }}" text-anchor="middle">0</text>
+				{%- endif %}
+				{%- for tick in strip.xTicks %}
+				<text x="{{ tick.x }}" y="{{ strip.axis.tickY }}" text-anchor="middle">{{ tick.label }}</text>
+				{%- endfor %}
+			</g>
+			<g class="plot-axis-title">
+				<text x="{{ strip.axis.xLabel.x }}" y="{{ strip.axis.xLabel.y }}" text-anchor="middle">{{ xTitle }}</text>
+			</g>
+
+			{#
+				Names in the margin rather than a legend: nine rows each need reading
+				against their own label, and a legend would make that a lookup.
+			#}
+			<g class="gen-labels">
+				{%- for row in strip.rows %}
+				<text x="{{ strip.box.left - 12 }}" y="{{ row.y + 4 }}" text-anchor="end">{{ row.name }} <tspan class="gen-count">{{ row.count }}</tspan></text>
+				{%- endfor %}
+			</g>
+
+			{#
+				Sites first and faint, the median over them: the dots are the
+				evidence and the median is the summary, so the summary must not be
+				lost among them.
+			#}
+			<g class="gen-dots">
+				{#
+					One circle per occupied position, sized by how many sites share it
+					— see `stack` in lib/report.js. The title is the only way to read a
+					count off a circle, and costs one element per position rather than
+					one per site.
+				#}
+				{%- for row in strip.rows %}{% for dot in row.dots %}<circle cx="{{ dot.x }}" cy="{{ row.y }}" r="{{ dot.r }}">{% if dot.n > 1 %}<title>{{ dot.n }} sites</title>{% endif %}</circle>{% endfor %}{% endfor %}
+			</g>
+			<g class="gen-medians">
+				{%- for row in strip.rows %}<line x1="{{ row.medianX }}" x2="{{ row.medianX }}" y1="{{ row.y - 9 }}" y2="{{ row.y + 9 }}"/>{% endfor %}
+			</g>
+		</svg>
+		</div>
+	</figure>
+{% endmacro %}

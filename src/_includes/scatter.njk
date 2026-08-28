@@ -1,0 +1,171 @@
+{#
+	One scatter, drawn twice — once for total page weight and once for scripts
+	alone. A macro because the two are the same picture of different columns, and
+	a second copy is how one of them ends up a version behind the other.
+
+	`plot` is whichever set lib/report.js built; `xTitle` names its horizontal
+	scale. Everything else is identical between them.
+#}
+{% macro scatterfigure(plot, xTitle, yTitle="Largest Contentful Paint") %}
+	{#
+		Inline SVG rather than a canvas or an image: it is the only form that
+		needs no JavaScript, scales to any width without a second asset, and can
+		take its colours from the theme. One circle per site, and no per-dot
+		markup beyond its position — the radius, colour and opacity all come from
+		the stylesheet.
+
+		`preserveAspectRatio` is left at its default so the plot letterboxes
+		rather than stretches; the shape of a scatter is part of what it says.
+	#}
+	<figure class="plot">
+		<div class="plot-frame">
+		<svg viewBox="0 0 {{ plot.box.w }} {{ plot.box.h }}" role="img"
+			aria-label="Scatter plot of page weight against largest contentful paint for {{ plot.count | num }} sites. {{ plot.counts.good | num }} paint within 2.5 seconds, {{ plot.counts.average | num }} between 2.5 and 4 seconds, and {{ plot.counts.poor | num }} take longer than 4 seconds.">
+			<g class="plot-grid">
+				{%- for tick in plot.xTicks %}
+				<line x1="{{ tick.x }}" x2="{{ tick.x }}" y1="{{ plot.box.top }}" y2="{{ plot.box.top + plot.plot.h }}"/>
+				{%- endfor %}
+				{%- for tick in plot.yTicks %}
+				<line x1="{{ plot.box.left }}" x2="{{ plot.box.left + plot.plot.w }}" y1="{{ tick.y }}" y2="{{ tick.y }}"/>
+				{%- endfor %}
+			</g>
+
+			{#
+				The two Core Web Vitals boundaries, so the colours below read as a
+				scale someone else defined rather than as decoration.
+			#}
+			<g class="plot-threshold">
+				{%- for line in plot.thresholds %}
+				{%- if plot.bandOn == "x" %}
+				{# LCP runs along the bottom on this chart, so its boundaries stand up. #}
+				<line x1="{{ line.x }}" x2="{{ line.x }}" y1="{{ plot.box.top }}" y2="{{ plot.box.top + plot.plot.h }}"/>
+				<text x="{{ line.x + 5 }}" y="{{ plot.box.top + 12 }}" text-anchor="start">{{ line.label }}</text>
+				{%- else %}
+				<line x1="{{ plot.box.left }}" x2="{{ plot.box.left + plot.plot.w }}" y1="{{ line.y }}" y2="{{ line.y }}"/>
+				<text x="{{ plot.box.left + plot.plot.w - 4 }}" y="{{ line.y - 5 }}" text-anchor="end">{{ line.label }}</text>
+				{%- endif %}
+				{%- endfor %}
+			</g>
+
+			{#
+				The break in the scale, and the column beyond it.
+
+				Drawn before the ticks so the dashes sit under the numbers rather
+				than through them. Only ever present on an axis that has zeroes to
+				hold — see `zero` in lib/report.js.
+			#}
+			{%- if plot.zero or plot.zeroY %}
+			<g class="plot-break">
+				{%- if plot.zero %}
+				<line x1="{{ plot.zero.sep }}" x2="{{ plot.zero.sep }}"
+					y1="{{ plot.box.top }}" y2="{{ plot.box.top + plot.plot.h }}"/>
+				{%- endif %}
+				{#- The same break lying flat, for an axis whose zero is a real reading. -#}
+				{%- if plot.zeroY %}
+				<line x1="{{ plot.box.left }}" x2="{{ plot.box.left + plot.plot.w }}"
+					y1="{{ plot.zeroY.sep }}" y2="{{ plot.zeroY.sep }}"/>
+				{%- endif %}
+			</g>
+			{%- endif %}
+
+			{#
+				y = x, where both axes measure the same thing. Under the dots and
+				above the grid: it is the reference every point is read against, so
+				it must not obscure them or be lost among the gridlines.
+			#}
+			{%- if plot.identity %}
+			<g class="plot-identity">
+				<line x1="{{ plot.identity.x1 }}" y1="{{ plot.identity.y1 }}"
+					x2="{{ plot.identity.x2 }}" y2="{{ plot.identity.y2 }}"/>
+			</g>
+			{%- endif %}
+
+			<g class="plot-axis">
+				{%- if plot.zero %}
+				<text x="{{ plot.zero.x }}" y="{{ plot.axis.tickY }}" text-anchor="middle">0</text>
+				{%- endif %}
+				{%- if plot.zeroY %}
+				<text x="{{ plot.axis.tickX }}" y="{{ plot.zeroY.y + 4 }}" text-anchor="end">0</text>
+				{%- endif %}
+				{%- for tick in plot.xTicks %}
+				<text x="{{ tick.x }}" y="{{ plot.axis.tickY }}" text-anchor="middle">{{ tick.label }}</text>
+				{%- endfor %}
+				{%- for tick in plot.yTicks %}
+				<text x="{{ plot.axis.tickX }}" y="{{ tick.y + 4 }}" text-anchor="end">{{ tick.label }}</text>
+				{%- endfor %}
+			</g>
+
+			{#
+				What each scale measures. The ticks say "1 MB" and "10 s"; without
+				these, which of the two is on which axis is a guess — and the whole
+				point of the chart is the relationship between them.
+			#}
+			<g class="plot-axis-title">
+				<text x="{{ plot.axis.xLabel.x }}" y="{{ plot.axis.xLabel.y }}" text-anchor="middle">{{ xTitle }}</text>
+				<text x="{{ plot.axis.yLabel.x }}" y="{{ plot.axis.yLabel.y }}" text-anchor="middle"
+					transform="rotate(-90 {{ plot.axis.yLabel.x }} {{ plot.axis.yLabel.y }})">{{ yTitle }}</text>
+			</g>
+
+			{#
+				Poor first, good last, so the dense green cloud is not buried under
+				the sparse red one — with 1,490 overlapping dots, paint order is the
+				difference between a readable plot and a smear.
+			#}
+			{%- for band in ["poor", "average", "good"] %}
+			<g class="plot-dots plot-{{ band }}">
+				{#
+					What makes a dot hoverable is the overlay after the SVG, not
+					anything here — a circle can only carry a `<title>`, which
+					arrives after a delay and cannot be styled.
+				#}
+				{%- for dot in plot.dots[band] %}<circle cx="{{ dot.x }}" cy="{{ dot.y }}" r="3"/>{% endfor %}
+			</g>
+			{%- endfor %}
+		</svg>
+
+		{#
+			The tooltips: one link per outlier, positioned over the plot in
+			percentages of the same box the viewBox describes, so the two scale
+			together with no script measuring anything.
+
+			Links rather than labels, because "what is that dot?" is nearly always
+			followed by "show me that site" — and being a link makes each one
+			reachable by keyboard and readable by a screen reader, which a
+			`<title>` on a circle is not.
+		#}
+		<div class="plot-hits">
+			{%- for site in plot.named %}
+			{#
+				Dot-sized targets throughout: nine hundred of these sit in the
+				cloud, and at a finger-sized target twenty would overlap any given
+				point, so the hover would land on whichever the DOM painted last
+				rather than the one under the cursor.
+
+				Most are out of the tab order — nine hundred tab stops in the
+				middle of a page is a trap, not access, and each is a second way to
+				reach a link the leaderboard already lists in full. The ten marked
+				in lib/report.js stay in it, spread across the weight axis, so the
+				chart can be walked without a mouse. They carry a name because the
+				card is two grid cells and its text runs together when read aloud:
+				"ecsspert.com6 kB".
+			#}
+			<a class="plot-hit{{ ' is-key' if site.keyboard }}{{ ' is-right' if site.flipX }}{{ ' is-low' if site.flipY }}"
+				href="/site/{{ site.slug }}/" style="left: {{ site.px }}%; top: {{ site.py }}%"
+				{%- if site.keyboard %} aria-label="{{ site.name }}, {{ xTitle }} {{ site.xText }}, {{ yTitle }} {{ site.yText }}"
+				{%- else %} tabindex="-1" aria-hidden="true"{% endif %}>
+				<span class="plot-tip">
+					<span class="plot-tip-name">{{ site.name }}</span>
+					<span class="plot-tip-stats">{{ site.xText }} · {{ site.yText }}</span>
+				</span>
+			</a>
+			{%- endfor %}
+		</div>
+	</div>
+
+	<figcaption class="plot-legend">
+			<span class="plot-key plot-good">{{ plot.counts.good | num }} within 2.5&nbsp;s</span>
+			<span class="plot-key plot-average">{{ plot.counts.average | num }} to 4&nbsp;s</span>
+			<span class="plot-key plot-poor">{{ plot.counts.poor | num }} over 4&nbsp;s</span>
+	</figcaption>
+	</figure>
+{% endmacro %}

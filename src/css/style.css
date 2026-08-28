@@ -198,8 +198,8 @@ pre code { font-size: inherit; }
 	margin-inline: -0.7rem;
 }
 .stat {
-	/* Grow and shrink around a 14em basis, so a row of tiles fills the width the
-	   way the grid's 1fr tracks used to rather than leaving a ragged right edge. */
+	/* Grow and shrink around a 14em basis, so a row of tiles fills the width
+	   rather than leaving a ragged right edge. */
 	flex: 1 1 14em;
 	background: var(--surface);
 	border: 1px solid var(--border);
@@ -484,10 +484,13 @@ th.col-trend { text-align: center !important; }
 	 * wants anyway.
 	 */
 	align-items: center;
+	/* Centred under a centred masthead, at every width — the row is short enough
+	   that packing it left reads as a stray edge rather than as alignment. */
+	justify-content: center;
 	flex-wrap: wrap;
 	/* The column gap is wide enough to read as separation on its own; the row
 	   gap only has to keep wrapped lines from touching. */
-	gap: 0.35rem 1.1rem;
+	gap: 0.5rem 1.1rem;
 
 	/* The form and any other block child bring their own margins, which would
 	   fight the gap and offset one item from the rest of the row. */
@@ -773,6 +776,286 @@ th.col-trend { text-align: center !important; }
    rule the fill would inherit nothing and the bar would read as zero-length. */
 .lvf-fill-none { background: var(--border-strong); }
 
+/* ------------------------------------------------------------------- plot */
+
+/*
+ * The weight-against-LCP scatter. Everything about a dot except where it sits
+ * lives here rather than in the markup: with 1,490 of them, a fill or a radius
+ * repeated per element would cost more than the coordinates do.
+ */
+.plot {
+	margin: 1.25rem 0 0;
+}
+
+.plot svg {
+	display: block;
+	width: 100%;
+	height: auto;
+	/* The plot is wider than it is tall and stays readable down to a phone, but
+	   below this it stops being worth the vertical space it takes. */
+	min-height: 0;
+}
+
+.plot-grid line {
+	stroke: var(--border);
+	stroke-width: 1;
+}
+
+/* The 2.5 s and 4 s boundaries. Dashed so they read as reference lines rather
+   than as data, and drawn under the dots so no point is hidden by one. */
+.plot-threshold line {
+	stroke: var(--border-strong);
+	stroke-width: 1;
+	stroke-dasharray: 4 4;
+}
+
+/* The break between the zero column and the log scale. Dashed and vertical so
+   it reads as a discontinuity in the axis rather than as a threshold line like
+   the horizontal ones. */
+.plot-break line {
+	stroke: var(--border-strong);
+	stroke-width: 1;
+	stroke-dasharray: 2 3;
+}
+
+/* y = x. Solid but faint — a reference the eye can follow the length of the
+   plot without it competing with the dots sitting on it. */
+/*
+ * The lab/field pairs. The link is drawn first and neutral: it is the distance
+ * between two readings, not a reading itself, and colouring it would imply the
+ * gap has a verdict of its own.
+ */
+.pair-links line {
+	stroke: var(--border-strong);
+	stroke-width: 1;
+}
+
+/* The lab end, deliberately plain. The verdict belongs to the field dot, and a
+   second coloured end would leave the eye reading whichever sits further right. */
+.pair-lab circle {
+	fill: var(--text-muted);
+	fill-opacity: 0.55;
+}
+
+.pair-field circle {
+	fill-opacity: 0.95;
+}
+
+/*
+ * A whole row, not a dot: the pair is the unit being read, and a 4px row is
+ * already the smallest thing on this chart worth aiming at.
+ *
+ * Written as `.plot-hit.pair-hit` rather than `.pair-hit`. Both carry the same
+ * single-class weight, and `.plot-hit` is declared further down the file, so the
+ * bare selector lost every property the two share — the rows came out as 8px
+ * circles pinned to the left edge, which is to say unhittable. Qualifying it
+ * settles the question by weight rather than by which rule happens to be lower
+ * in the file.
+ */
+.plot-hit.pair-hit {
+	left: 0;
+	width: 100%;
+	/* Height comes from the template as a percentage of the frame, so one target
+	   is exactly one row however wide the chart is drawn. */
+	border-radius: 0;
+	transform: translateY(-50%);
+}
+
+.plot-hit.pair-hit .plot-tip {
+	left: 1rem;
+}
+
+.pair-key-lab {
+	color: var(--text-muted);
+}
+
+.plot-identity line {
+	stroke: var(--text-muted);
+	stroke-width: 1;
+	opacity: 0.45;
+}
+
+.plot-threshold text {
+	fill: var(--text-muted);
+	font-size: 13px;
+	font-variant-numeric: tabular-nums;
+}
+
+.plot-axis text {
+	fill: var(--text-muted);
+	font-size: 13px;
+	font-variant-numeric: tabular-nums;
+}
+
+/* The name of each scale, set apart from its numbers: same size, more weight,
+   so it reads as a heading for the ticks rather than as another one of them. */
+.plot-axis-title text {
+	fill: var(--text-muted);
+	font-size: 13px;
+	font-weight: 600;
+}
+
+/*
+ * Partly transparent because the dots overlap heavily — nine hundred of them
+ * land in the same corner. Opacity turns that pile-up into shading that shows
+ * where the corpus actually sits, which a solid fill would flatten into one
+ * undifferentiated blob.
+ */
+.plot-dots circle {
+	fill-opacity: 0.55;
+}
+
+/*
+ * The outlier tooltips: HTML over the SVG rather than an SVG `<title>`.
+ *
+ * A `<title>` waits about a second, cannot be styled, cannot be reached from
+ * the keyboard, and cannot hold a link. This is a real hit target with a real
+ * card, and no JavaScript — the positions are percentages of the same box the
+ * viewBox uses, so the overlay tracks the plot at every width.
+ */
+.plot-frame {
+	position: relative;
+}
+
+.plot-hits {
+	position: absolute;
+	inset: 0;
+	/* The layer is only a coordinate space; the links inside it take the
+	   pointer, so the rest of the plot stays inert. */
+	pointer-events: none;
+}
+
+/*
+ * Sized to the dot, not to the finger. Nine hundred of these sit in the cloud,
+ * and at a 24px target twenty of them overlap any given point — the hover would
+ * land on whichever the DOM happened to paint last rather than the one under the
+ * cursor. At 8px the average overlap is three, which is as low as it goes while
+ * the data itself overplots.
+ */
+.plot-hit {
+	position: absolute;
+	width: 0.5rem;
+	height: 0.5rem;
+	/* Centred on its dot rather than starting at it. */
+	transform: translate(-50%, -50%);
+	border-radius: 50%;
+	pointer-events: auto;
+}
+
+/* Only the sampled ten can take focus, and the ring has to be findable against
+   a thousand dots — offset far enough to sit clear of the neighbours the dot is
+   buried among. */
+.plot-hit:focus-visible {
+	outline: 2px solid var(--accent);
+	outline-offset: 3px;
+	border-radius: 50%;
+}
+
+.plot-tip {
+	position: absolute;
+	bottom: 100%;
+	left: 50%;
+	z-index: 2;
+	display: grid;
+	gap: 0.1rem;
+	width: max-content;
+	max-width: 15rem;
+	margin-bottom: 0.2rem;
+	padding: 0.35rem 0.5rem;
+	/* Green, because only green dots are named — the card is recognisably
+	   attached to the mark it describes rather than floating free. */
+	border: 1px solid var(--good);
+	border-radius: var(--radius);
+	background: var(--surface);
+	box-shadow: 0 4px 14px rgb(0 0 0 / 0.18);
+	color: var(--text);
+	font-size: 0.8rem;
+	line-height: 1.3;
+	/* Hidden from the pointer as well as the eye, so a card cannot sit between
+	   the cursor and the dot underneath it. */
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.12s ease;
+}
+
+.plot-hit:hover .plot-tip,
+.plot-hit:focus-visible .plot-tip {
+	opacity: 1;
+}
+
+/* Near the right edge the card would run off the plot, and near the top it
+   would open above it. Which edge a dot is close to is decided when the
+   coordinates are, in lib/report.js — CSS cannot ask. */
+.plot-hit.is-right .plot-tip {
+	left: auto;
+	right: 50%;
+}
+
+.plot-hit.is-low .plot-tip {
+	top: 100%;
+	bottom: auto;
+	margin-top: 0.2rem;
+	margin-bottom: 0;
+}
+
+.plot-tip-name {
+	font-weight: 600;
+	overflow-wrap: anywhere;
+}
+
+.plot-tip-stats {
+	color: var(--text-muted);
+	font-variant-numeric: tabular-nums;
+}
+
+
+.plot-good circle {
+	fill: var(--good);
+}
+
+.plot-average circle {
+	fill: var(--average);
+}
+
+.plot-poor circle {
+	fill: var(--poor);
+}
+
+.plot-legend {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.35rem 1rem;
+	margin-top: 0.5rem;
+	color: var(--text-muted);
+	font-size: 0.85rem;
+}
+
+.plot-key {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4rem;
+}
+
+.plot-key::before {
+	content: "";
+	width: 0.6rem;
+	height: 0.6rem;
+	border-radius: 50%;
+	background: currentcolor;
+}
+
+.plot-legend .plot-good {
+	color: var(--good);
+}
+
+.plot-legend .plot-average {
+	color: var(--average);
+}
+
+.plot-legend .plot-poor {
+	color: var(--poor);
+}
+
 /*
  * Four figures about the measuring machines. A description list because that is
  * what it is — a label and its value, four times — rather than a table, which
@@ -908,6 +1191,122 @@ th.col-trend { text-align: center !important; }
 .bench-change.outside {
 	background: color-mix(in srgb, var(--average) 16%, transparent);
 	color: var(--average);
+}
+
+/*
+ * The tile holding the scatter thumbnail. Wider than the rest, because a scatter
+ * squeezed below this stops being a shape and becomes a blob — the 14em basis
+ * every other tile shrinks to is not enough for it.
+ *
+ * `min()` rather than a bare 260px: on a viewport narrower than that, a hard
+ * floor is the one thing here that would push the row off the side.
+ */
+/*
+ * The card holding both scatter thumbnails. Wide enough for the pair, because
+ * a scatter squeezed much below 240px stops being a shape and becomes a blob.
+ *
+ * `min()` rather than a bare width: on a viewport narrower than the card, a hard
+ * floor is the one thing on this row that would push the page sideways.
+ */
+.stat-plot {
+	min-width: min(260px, 100%);
+}
+
+/* Stacked, one above the other. Side by side would need a card twice the width
+   of every other tile on the bar; this way the card is an ordinary width and
+   simply taller, which a wrapping flex row absorbs without trouble. */
+.stat-charts {
+	display: grid;
+	gap: 0.6rem;
+}
+
+.stat-charts .stat-chart {
+	margin-top: 0.2rem;
+}
+
+/*
+ * Headings for the two charts. Their own class rather than `.stat-label-sub`:
+ * that one belongs to the histograms further down the bar, where it sets a top
+ * margin and a smaller size for a label sitting under a figure. These sit at the
+ * top of their own block and want neither, and sharing the class would mean any
+ * change made for one silently moved the other.
+ */
+.stat-chart-label {
+	margin-bottom: 0.15rem;
+}
+
+/* The second heading needs air above it, or it reads as a caption belonging to
+   the chart above rather than a title for the one below. */
+.stat-chart-item + .stat-chart-item .stat-chart-label {
+	margin-top: 0.7rem;
+}
+
+/* The scatter thumbnail in the stat bar. The link wraps both the picture and
+   its note so the whole tile is one target, and the dots take their colours from
+   the same .plot-good/.plot-average/.plot-poor rules the full chart uses. */
+.stat-chart {
+	display: block;
+	margin-top: 0.35rem;
+	color: var(--text-muted);
+	text-decoration: none;
+}
+
+.stat-chart svg {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+.stat-chart circle {
+	fill-opacity: 0.7;
+}
+
+/* The only thing left to react to a pointer, now that the caption is gone. */
+.stat-chart:hover circle {
+	fill-opacity: 1;
+}
+
+/* 9px in a 240-wide viewBox, which renders at 9px: small, but the tile is
+   capped at its own width so it never scales down from there. */
+.mini-axis text {
+	fill: var(--text-muted);
+	font-size: 9px;
+}
+
+.stat-chart:focus-visible {
+	outline: 2px solid var(--accent);
+	outline-offset: 3px;
+	border-radius: var(--radius);
+}
+
+/* ------------------------------------------------- charts by generator */
+
+/* Row labels in the plot's left margin. The count is set quieter than the name
+   so the eye reads the list of generators first and the sample size second —
+   but it is right there, because the samples are lopsided. */
+.gen-labels text {
+	fill: var(--text);
+	font-size: 13px;
+	font-weight: 600;
+}
+
+.gen-count {
+	fill: var(--text-muted);
+	font-weight: 400;
+	font-variant-numeric: tabular-nums;
+}
+
+/* Faint, because a row is hundreds of them overlapping and the shape is what is
+   being read, not any single site. */
+.gen-dots circle {
+	fill: var(--text-muted);
+	fill-opacity: 0.35;
+}
+
+.gen-medians line {
+	stroke: var(--accent);
+	stroke-width: 2.5;
+	stroke-linecap: round;
 }
 
 /* ----------------------------------------------------------------- recents */
@@ -1513,15 +1912,6 @@ th.col-rings { text-align: left !important; }
  */
 .masthead-subhed { max-width: 68ch; margin-inline: auto; }
 .panel > p, .group-head p, .detail-head p { max-width: 90ch; }
-
-/*
- * Narrow: the row of links, the theme toggle and the category form wrap onto
- * two or three lines, and a wrapped row packed left leaves a ragged edge under
- * a masthead that is otherwise centred. Centring the lines keeps it composed.
- */
-@media (max-width: 640px) {
-	.masthead-subhed { justify-content: center; }
-}
 
 /* ------------------------------------------------------- built with / host */
 

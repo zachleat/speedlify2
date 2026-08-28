@@ -4,6 +4,7 @@ permalink: /index.html
 ---
 
 {% from "statbar.njk" import statbar %}
+{% from "stacks.njk" import technology %}
 
 {#
 	The page's own sections, built from the same conditions the sections use so
@@ -113,87 +114,6 @@ permalink: /index.html
 	</p>
 </div>
 {% endif %}
-
-{% macro stacktally(tally, label, title) %}
-{% if tally.items.length %}
-<div class="tally">
-	<h3 class="tally-head">
-		{{ label }}
-		<span class="tally-meta">{{ tally.distinct }} distinct · {{ tally.detected }} of {{ tally.detected + tally.unknown }} detected</span>
-	</h3>
-	<ul class="tally-list">
-		{% for item in tally.items %}
-		<li class="tally-item" title="{{ item.count }} {{ item.count | plural('site') }} {{ title }} {{ item.name }}">
-			{% if item.icon %}{% stackIcon item %}{% endif %}
-			<span class="tally-name">{{ item.name }}</span>
-			<span class="tally-count">{{ item.count | num }}</span>
-		</li>
-		{% endfor %}
-		{% if tally.rare %}
-		{# One-offs with no brand mark, folded into a single row so the list stays
-		   readable without the count silently disagreeing with the heading. #}
-		<li class="tally-item tally-rare" title="{{ tally.rareNames | join(', ') }} — one site each">
-			<span class="tally-name">…and {{ tally.rare }} one-off{{ tally.rare | plural('', 's') }}</span>
-		</li>
-		{% endif %}
-	</ul>
-</div>
-{% endif %}
-{% endmacro %}
-
-
-{#
-	A bar per major Eleventy version. Proportional widths rather than a chart
-	library: five bars whose lengths are one number each do not need an axis, a
-	legend, or JavaScript.
-
-	Drawn from the sites that report a version, with the ones that do not stated
-	underneath — most of the corpus emits no version at all, and bars that quietly
-	represented two thirds of the sites they claim to would be the misleading kind
-	of chart.
-#}
-{% macro versionbars(data) %}
-{% if data.items.length %}
-<div class="tally versions">
-	<h3 class="tally-head">
-		{# Marks and word in one element: the heading is a flex row with
-		   space-between, and three children would push the icons away from the
-		   word they belong to. The marks stand in for naming both projects, which
-		   is the point — one count across a rename. #}
-		<span class="version-title">
-			{% for mark in data.marks %}{% stackIcon mark %}{% endfor %}
-			Versions
-		</span>
-		<span class="tally-meta">{{ data.versioned | num }} of {{ data.total | num }} detected</span>
-	</h3>
-	<ul class="version-list">
-		{% for item in data.items %}
-		<li class="version-row" title="{{ item.count }} {{ item.count | plural('site') }} on Eleventy {{ item.label }}">
-			<span class="version-label">{{ item.label }}</span>
-			<span class="version-bar"><span class="version-fill" style="width: {{ (item.share * 100) | round(1) }}%"></span></span>
-			<span class="version-count">{{ item.count | num }}</span>
-			{# Its own column so the pills line up on their left edge rather than
-			   drifting with the width of the count beside them. Of the sites that
-			   reported a version — the same denominator the bars are drawn from,
-			   not the total in the heading. #}
-			<span class="version-share">{{ (item.share * 100) | round }}%</span>
-		</li>
-		{% endfor %}
-		{% if data.unversioned %}
-		{# The same shape the stack tally uses for its one-offs: a last row saying
-		   what the rows above do not cover, so the bars and the heading's count
-		   cannot appear to disagree. #}
-		<li class="version-row version-rest" title="{{ data.unversioned | num }} {{ data.unversioned | plural('site') }} report the generator but no version">
-			{# Whole phrase in the bar column, under the bars rather than under the
-			   version labels: it is a note about the chart, not another version. #}
-			<span></span>
-			<span class="version-more">…and {{ data.unversioned | num }} more</span>
-		</li>
-		{% endif %}
-	</ul>
-</div>
-{% endif %}
-{% endmacro %}
 
 
 {#
@@ -397,23 +317,8 @@ permalink: /index.html
 	</p>
 </section>
 
-
 {% if sites.stacks.generators.items.length or sites.stacks.hosts.items.length %}
-<section class="group" id="stacks">
-	<div class="group-head">
-		<h2>Technology</h2>
-		<p class="muted">
-			What the measured sites are built with and served from, detected on the
-			same page load as everything else — a generator tag where one is emitted,
-			response headers for the host.
-		</p>
-	</div>
-	<div class="stacks">
-		{{ stacktally(sites.stacks.generators, "Built with", "built with") }}
-		{{ versionbars(sites.stacks.eleventyVersions) }}
-		{{ stacktally(sites.stacks.hosts, "Hosted by", "hosted by") }}
-	</div>
-</section>
+{{ technology(sites.stacks, "stacks") }}
 {% endif %}
 
 {% if sites.moving.length %}

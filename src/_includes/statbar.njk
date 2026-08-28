@@ -78,6 +78,13 @@
 					the link beside it goes to the page with the actual figures, and
 					six unlabelled colours read aloud would be noise.
 				#}
+				{#
+					The span stays even when a run produced no bands at all. The row is
+					a three-column grid, and dropping a child moves the age into the
+					middle column, where the gap before the empty third one holds it
+					half a rem off the right edge — so that row would sit out of line
+					with the rest.
+				#}
 				<span class="recents-dots" aria-hidden="true">
 					{% for band in site.bands %}<span class="recents-dot recents-dot-{{ band }}"></span>{% endfor %}
 				</span>
@@ -141,6 +148,64 @@
 		divide on the one bar real users set — and reading them side by side is
 		the point: 155 perfect against 1,261 CrUX has never heard of.
 	#}
+	{#
+		Two thumbnails of the charts on /charts/, over this set's own sites.
+
+		A macro because they are the same picture of different columns — no axes,
+		no labels, no hit targets, none of which survive at 240px. The shape is the
+		whole point: a smear that turns amber as it climbs, or one that falls away
+		as it runs right.
+	#}
+	{#
+		The two thumbnails share one card rather than taking a tile each.
+
+		They are one thought — what a page's own weight costs it, and what other
+		people's code costs it — and they link to the same place. Two tiles would
+		have spent two of the bar's slots saying "there are charts over there".
+
+		Each keeps its own heading, and they stack rather than sitting side by side
+		— two 240px charts in a row need a card twice the width of every other tile
+		on the bar, and one of them would have been the odd shape out.
+	#}
+	{% macro minichart(mini, label, anchor, xTitle, yTitle) %}
+	<div class="stat-chart-item">
+	<span class="stat-label stat-chart-label">{{ label }}</span>
+	{#
+		Straight to its own section rather than the top of the page. There are
+		eight charts there, and landing on the first one leaves a reader who
+		clicked the second thumbnail to go looking for what they just pointed at.
+	#}
+	<a class="stat-chart" href="/charts/#{{ anchor }}"
+		aria-label="{{ mini.count | num }} {{ mini.count | plural('site') }} by {{ xTitle | lower }} and {{ yTitle | lower }} — see the full chart">
+		<svg viewBox="0 0 {{ mini.w }} {{ mini.h }}" aria-hidden="true" focusable="false">
+			{%- for band in ["poor", "average", "good"] %}
+			<g class="plot-{{ band }}">
+				{%- for dot in mini.dots[band] %}<circle cx="{{ dot.x }}" cy="{{ dot.y }}" r="1.6"/>{% endfor %}
+			</g>
+			{%- endfor %}
+			{#
+				Names only, no numbers: at this size tick values are illegible, but
+				which scale is which still has to be said — the more so with two
+				charts side by side whose vertical axes run opposite ways.
+			#}
+			<g class="mini-axis">
+				<text x="{{ mini.axis.xLabel.x }}" y="{{ mini.axis.xLabel.y }}" text-anchor="middle">{{ xTitle }}</text>
+				<text x="{{ mini.axis.yLabel.x }}" y="{{ mini.axis.yLabel.y }}" text-anchor="middle"
+					transform="rotate(-90 {{ mini.axis.yLabel.x }} {{ mini.axis.yLabel.y }})">{{ yTitle }}</text>
+			</g>
+		</svg>
+	</a>
+	</div>
+	{% endmacro %}
+
+	{% if stats.scatterPreview or stats.thirdPartyPreview %}
+	<div class="stat stat-plot">
+		<div class="stat-charts">
+			{% if stats.scatterPreview %}{{ minichart(stats.scatterPreview, "Page weight vs LCP", "weight-lcp", "Page Weight", "LCP") }}{% endif %}
+			{% if stats.thirdPartyPreview %}{{ minichart(stats.thirdPartyPreview, "Third party vs performance", "third-party", "Third Party", "Score") }}{% endif %}
+		</div>
+	</div>
+	{% endif %}
 	<div class="stat">
 		<span class="stat-label">Perfect {{ stats.perfect | plural("score") }}</span>
 		<span class="stat-headline">

@@ -10,6 +10,7 @@ eleventyComputed:
 ---
 
 {% from "statbar.njk" import statbar %}
+{% from "stacks.njk" import technology %}
 
 <header class="detail-head">
 	{#
@@ -304,4 +305,12 @@ eleventyComputed:
 	</p>
 	{% endif %}
 </section>
+
+{#
+	After the leaderboard, matching the home page's order: the tables are what
+	someone came for, and this is the summary you read once you have looked. Over
+	this category's sites alone, so it answers what a category is usually for —
+	what these particular sites have in common.
+#}
+{{ technology(group.stacks, "stacks") }}
 {% endif %}
