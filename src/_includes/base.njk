@@ -207,7 +207,7 @@ speedlifyThemeColor();
 			<a href="{{ meta.repo }}">Source on GitHub</a>{% endif %}
 			{%- if sites.coverage.measured %} ·
 			<strong>{{ sites.coverage.measured | num }}/{{ sites.coverage.total | num }}</strong>
-			{{ sites.coverage.measured | plural("site") }}
+			{{ sites.coverage.measured | plural("site") }} measured
 			{#- The running total, which used to head its own line above. It is a
 			    fact about the same set of sites, so it reads as a gloss on the
 			    coverage fraction rather than as a separate statistic. #}
