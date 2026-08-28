@@ -7,10 +7,7 @@ title: Charts
 <header class="detail-head">
 	<h2 class="page-hed">Charts</h2>
 	<p class="lede">
-		The corpus seen all at once rather than one site at a time. Every chart
-		here is drawn from the most recent measurement of every site, so it
-		describes where things stand today &mdash; not how any one site got there,
-		which is what its own page is for.
+		Pulls the most recent measurement of every site (excluding starters). Tooltips are only shown on green (well scoring) circles.
 	</p>
 </header>
 
@@ -49,23 +46,7 @@ title: Charts
 		<h2>Page Weight vs LCP <span class="tag">{{ plot.count | num }} sites</span></h2>
 	</div>
 	<p class="muted small">
-		Every site's most recent measurement: how much the page weighed against how
-		long its largest element took to paint. Both scales are logarithmic &mdash;
-		the corpus runs from a few hundred bytes to 53&nbsp;MB, and no linear axis
-		can show that and the detail at the same time.
-	</p>
-	{#
-		Said rather than left to be inferred. A reader who hovers a red dot and
-		gets nothing will assume the page is broken; told first, the silence reads
-		as deliberate — which it is. These are other people's sites, and a chart
-		about a relationship should not double as a list of who is worst.
-	#}
-	<p class="muted small">
-		Only the {{ plot.labeled | num }} dots that painted within 2.5&nbsp;s are
-		named &mdash; hover one for the site and its figures, or follow it through
-		to that site's page. The slower dots are plotted but deliberately left
-		unlabeled. Without a mouse, {{ plot.keyboardCount }} of them spread across
-		the weight axis are in the tab order.
+		Both scales are logarithmic.
 	</p>
 	{{ scatterfigure(plot, "Page Weight") }}
 </section>
@@ -77,31 +58,6 @@ title: Charts
 	<div class="group-head">
 		<h2>JavaScript Weight vs LCP <span class="tag">{{ js.count | num }} sites</span></h2>
 	</div>
-	<p class="muted small">
-		The same picture drawn against scripts alone rather than the whole page.
-		Total weight is mostly images, which a site can defer or resize; script
-		weight is the part it chose to run before anything could paint.
-	</p>
-	{#
-		The zero column is the finding, so it is named rather than left as an
-		oddity in the corner of the axis. A fifth of the corpus ships no script at
-		all, and a log scale has no coordinate for that — without a column of
-		their own those sites would simply be missing, and the chart would show a
-		relationship with its clearest counter-example deleted.
-	#}
-	{% if js.zero %}
-	<p class="muted small">
-		The column left of the break is the {{ js.zero.count | num }}
-		{{ js.zero.count | plural("site") }} that ship no JavaScript at all. Zero
-		has no place on a logarithmic scale &mdash; it is not a small number there
-		but an absent one &mdash; so they are set apart rather than dropped or
-		flattened in against the smallest measured value.
-	</p>
-	{% endif %}
-	<p class="muted small">
-		Naming works as above: the {{ js.labeled | num }} dots inside 2.5&nbsp;s
-		are named on hover, {{ js.keyboardCount }} of them in the tab order.
-	</p>
 	{{ scatterfigure(js, "JavaScript Weight") }}
 </section>
 {% endif %}
@@ -112,27 +68,6 @@ title: Charts
 	<div class="group-head">
 		<h2>TTFB vs LCP <span class="tag">{{ ttfb.count | num }} sites</span></h2>
 	</div>
-	<p class="muted small">
-		Time to First Byte along the bottom, largest contentful paint up the side
-		&mdash; the wait before the browser had anything at all, against the wait
-		until the page looked loaded. This is the part of LCP a site cannot fix by
-		shipping less: nothing renders until the server replies.
-	</p>
-	{#
-		An earlier draft said every dot must sit above the line where the two are
-		equal, since nothing can paint before the first byte. Four sites say
-		otherwise — seccl.tech reports a 27.7 s first byte against a 3.1 s paint —
-		because the two figures come from different runs of the same measurement,
-		and the median of each is taken separately. A tempting claim, and checking
-		it was cheaper than being wrong in public.
-
-		Both axes are milliseconds here, unlike the two charts above, so the
-		numbers on them are directly comparable.
-	#}
-	<p class="muted small">
-		Naming works as above: the {{ ttfb.labeled | num }} dots inside 2.5&nbsp;s
-		are named on hover, {{ ttfb.keyboardCount }} of them in the tab order.
-	</p>
 	{{ scatterfigure(ttfb, "Time to First Byte") }}
 </section>
 {% endif %}
@@ -143,27 +78,6 @@ title: Charts
 	<div class="group-head">
 		<h2>Web Font Weight vs CLS <span class="tag">{{ fonts.count | num }} sites</span></h2>
 	</div>
-	<p class="muted small">
-		Font bytes along the bottom, cumulative layout shift up the side &mdash; the
-		question being whether the text arriving late drags the page around under
-		the reader. Colors and the two lines are the CLS thresholds, 0.1 and 0.25,
-		not the paint-time ones used above.
-	</p>
-	{#
-		Both zero bands are stated plainly. Between them they cover most of the
-		corpus, and a reader who takes the log scales at face value would badly
-		misjudge how much of the picture is "none of this happens at all".
-	#}
-	<p class="muted small">
-		{% if fonts.zero %}The column left of the vertical break is the
-		{{ fonts.zero.count | num }} {{ fonts.zero.count | plural("site") }} loading
-		no font file.{% endif %}
-		{% if fonts.zeroY %}The row below the horizontal one is the
-		{{ fonts.zeroY.count | num }} that never shift at all &mdash; more than half
-		of everything measured.{% endif %}
-		Neither zero has a place on a logarithmic scale, so both are set apart
-		rather than dropped.
-	</p>
 	{{ scatterfigure(fonts, "Web Font Weight", "Cumulative Layout Shift") }}
 </section>
 {% endif %}
@@ -176,29 +90,7 @@ title: Charts
 	</div>
 	<p class="muted small">
 		Bytes served from somebody else's domain, against the Lighthouse
-		performance score &mdash; analytics, embeds, fonts, tag managers, ads.
-		Every other chart here plots a measurement against a measurement; this one
-		ends in a verdict, which is why it reads the other way round.
-	</p>
-	{#
-		Two things differ from the charts above, and both would mislead if left
-		unsaid. The vertical scale is linear because a score is bounded — zero has
-		no place on a log axis and the step from 90 to 100 is not smaller than the
-		one from 10 to 20. And the colors are inverted, because on this axis a
-		high number is the good one.
-	#}
-	<p class="muted small">
-		The score runs 0 to 100 on a straight scale, and green is at the top:
-		<strong>{{ tp.counts.good | num }}</strong> sites score 90 or better,
-		{{ tp.counts.average | num }} land between 50 and 90, and
-		{{ tp.counts.poor | num }} fall below 50.
-		{% if tp.zero %}The column left of the break is the
-		{{ tp.zero.count | num }} {{ tp.zero.count | plural("site") }} that load
-		nothing from anyone else at all.{% endif %}
-	</p>
-	<p class="muted small">
-		Naming works as above: the {{ tp.labeled | num }} sites scoring 90 or
-		better are named on hover, {{ tp.keyboardCount }} of them in the tab order.
+		performance score: analytics, embeds, fonts, tag managers, ads.
 	</p>
 	{{ scatterfigure(tp, "Third-Party Weight", "Performance Score") }}
 </section>
@@ -211,9 +103,7 @@ title: Charts
 		<h2>JavaScript Weight by Site Generator <span class="tag">{{ jg.count | num }} sites</span></h2>
 	</div>
 	<p class="muted small">
-		One row per generator, one dot per site, ordered by median. The dot behind
-		the label is that generator's median; the spread either side of it is the
-		part a single figure cannot show.
+		One row per generator, one dot per site, ordered by median.
 	</p>
 	{#
 		The caveat is not a footnote. Eleventy is four fifths of the sites that
@@ -222,13 +112,8 @@ title: Charts
 		counts before reading across the rows.
 	#}
 	<p class="muted small">
-		Across {{ jg.groups }} generators with at least five sites each &mdash;
-		twenty more were detected too rarely to say anything about.
-		{% if jg.zero %}The column left of the break is the
-		{{ jg.zero.count | num }} sites shipping no script at all.{% endif %}
-		Build Awesome and Eleventy are counted as one row, being one project under
-		two names. Sample sizes are on every row, and they are lopsided: this is an
-		Eleventy project's corpus, so it describes these sites rather than the web.
+		Across {{ jg.groups }} generators with at least five sites each:
+		twenty more were detected too rarely in this data set.
 	</p>
 
 	{{ stripfigure(jg, "JavaScript Weight") }}
@@ -241,28 +126,6 @@ title: Charts
 	<div class="group-head">
 		<h2>TTFB by Host <span class="tag">{{ th.count | num }} sites</span></h2>
 	</div>
-	<p class="muted small">
-		The same strip plot as above, over where a site is served from rather than
-		what built it. Time to first byte is the one figure on this page a host is
-		directly responsible for &mdash; everything else is a consequence of what
-		the page then does.
-	</p>
-	{#
-		The negative result is the point, so it is stated rather than left to be
-		inferred from rows that look alike. The generator chart's medians span
-		eighty-fold; these span one and a half, and the rows overlap almost
-		entirely. Choosing a host moves this number far less than the variation
-		within any one of them.
-	#}
-	<p class="muted small">
-		Across {{ th.groups }} hosts with at least five sites each. The medians run
-		from {{ th.rows[0].medianText }} to {{ th.rows[th.rows.length - 1].medianText }}
-		&mdash; a spread of {{ th.medianSpread }}&times;, against
-		{{ sites.jsByGenerator.medianSpread }}&times; between generators on the
-		chart above. The rows overlap almost entirely, which is worth reading as
-		the finding rather than as a flat picture: on this evidence, which host you
-		pick moves your first byte very little next to how much any one host varies.
-	</p>
 	{{ stripfigure(th, "Time to First Byte") }}
 </section>
 {% endif %}
@@ -275,10 +138,8 @@ title: Charts
 	</div>
 	<p class="muted small">
 		One row per site: a dot for what our throttled lab run measured, a dot for
-		what real users actually got &mdash; Chrome&rsquo;s field p75 &mdash; and a
-		line joining them. The line is the disagreement, and its length is that
-		site&rsquo;s error in seconds. Rows are ordered by the field figure, so the
-		colored dots form a curve and the lab dots scatter against it.
+		what real users actually saw (Chrome&rsquo;s field p75) and a
+		line joining them.
 	</p>
 	{#
 		The sampling bias is the first thing to say, not a footnote. CrUX only
@@ -288,13 +149,7 @@ title: Charts
 	#}
 	<p class="muted small">
 		The lab is slower than reality on <strong>{{ lf.labSlower | num }}</strong>
-		of these and faster on {{ lf.labFaster | num }}. Hovering names the
-		{{ lf.labeled | num }} whose real-user paint came inside 2.5&nbsp;s; the
-		slower rows are drawn but not identified. Only {{ lf.count | num }} sites
-		appear at all, because Chrome publishes field data only for sites with
-		enough traffic to anonymize &mdash; not a random sample of the
-		{{ sites.stats.measured | num }} measured here but the best-trafficked part
-		of it, so read the spread rather than the average.
+		of these and faster on {{ lf.labFaster | num }}.
 	</p>
 
 	<figure class="plot">
