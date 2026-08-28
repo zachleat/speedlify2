@@ -89,8 +89,7 @@ title: Charts
 		<h2>Third Party vs Performance <span class="tag">{{ tp.count | num }} sites</span></h2>
 	</div>
 	<p class="muted small">
-		Bytes served from somebody else's domain, against the Lighthouse
-		performance score: analytics, embeds, fonts, tag managers, ads.
+		Usually things like analytics, embeds, fonts, tag managers, ads weighted against Lighthouse’s Performance score.
 	</p>
 	{{ scatterfigure(tp, "Third-Party Weight", "Performance Score") }}
 </section>
