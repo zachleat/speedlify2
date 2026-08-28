@@ -124,7 +124,14 @@ body {
  * table needs ~1195px with the current columns, so this leaves headroom for
  * another one or two before it starts scrolling again.
  */
-.wrap { max-width: 1550px; margin: 0 auto; padding: 0 1.25rem; }
+/* The page gutter, named so anything bleeding to the viewport edge can cancel
+   it by reference rather than by repeating the number. */
+:root {
+	--page-gutter: 1.25rem;
+	--page-gutter-padding: 0.7rem;
+}
+
+.wrap { max-width: 1550px; margin: 0 auto; padding: 0 var(--page-gutter); }
 /* Content only. The masthead and footer share `.wrap` and set their own
    vertical rhythm, and the masthead is sticky — padding there would deepen the
    bar that follows you down the page. */
@@ -195,12 +202,15 @@ pre code { font-size: inherit; }
 	/* Matching .table-scroll and the sticky nav, so the tiles' outer edges line
 	   up with the tables and cards further down rather than sitting inside them
 	   by the width of a cell's padding. */
-	margin-inline: -0.7rem;
+	margin-inline: calc(-1 * var(--page-gutter-padding));
 }
 .stat {
 	/* Grow and shrink around a 14em basis, so a row of tiles fills the width
 	   rather than leaving a ragged right edge. */
 	flex: 1 1 14em;
+	/* Named so the narrow-viewport rule below can pin it without repeating the
+	   basis in two places. */
+	--stat-basis: 14em;
 	background: var(--surface);
 	border: 1px solid var(--border);
 	border-radius: var(--radius);
@@ -281,7 +291,7 @@ pre code { font-size: inherit; }
 	border: 1px solid var(--border);
 	border-radius: var(--radius);
 	background: var(--surface);
-	margin-inline: -0.7rem;
+	margin-inline: calc(-1 * var(--page-gutter-padding));
 }
 
 table.grid { width: 100%; border-collapse: collapse; font-size: 0.87rem; }
@@ -292,14 +302,14 @@ table.grid th {
 	letter-spacing: 0.05em;
 	color: var(--text-muted);
 	font-weight: 600;
-	padding: 0.6rem 0.7rem;
+	padding: 0.6rem var(--page-gutter-padding);
 	border-bottom: 1px solid var(--border);
 	white-space: nowrap;
 }
-table.grid td { padding: 0.6rem 0.7rem; border-bottom: 1px solid var(--border); text-align: right; white-space: nowrap; }
+table.grid td { padding: 0.6rem var(--page-gutter-padding); border-bottom: 1px solid var(--border); text-align: right; white-space: nowrap; }
 table.grid tbody tr:last-child td { border-bottom: 0; }
 table.grid tbody tr:hover { background: color-mix(in srgb, var(--accent) 5%, transparent); }
-table.grid.compact td, table.grid.compact th { padding: 0.4rem 0.7rem; font-size: 0.82rem; }
+table.grid.compact td, table.grid.compact th { padding: 0.4rem var(--page-gutter-padding); font-size: 0.82rem; }
 
 .col-site { text-align: left !important; white-space: normal !important; min-width: 150px; }
 
@@ -1393,6 +1403,36 @@ th.col-trend { text-align: center !important; }
 	font-variant-numeric: tabular-nums;
 }
 
+/*
+ * Narrow: scroll the bar sideways rather than wrapping it.
+ *
+ * Wrapping turned eight tiles into eight stacked rows and pushed the leaderboard
+ * — the thing the page is for — most of a screen down. Scrolling keeps the bar
+ * one line tall at any width, and a tile cut off at the right edge says there is
+ * more without needing a control to say it.
+ *
+ * The same pull-out margins as `.table-scroll`, with matching padding inside so
+ * the first and last tiles clear the screen edge rather than butting against it.
+ */
+@media (width < 700px) {
+	.statbar {
+		flex-wrap: nowrap;
+		overflow-x: auto;
+		margin-inline: calc(-1 * var(--page-gutter));
+		padding-inline: var(--page-gutter-padding);
+		align-items: stretch;
+	}
+
+	.statbar > .stat {
+		flex: 0 0 clamp(14em, 78vw, 20em);
+	}
+
+	.statbar > .stat-plot {
+		flex: 0 0 auto;
+		max-width: 18em;
+	}
+}
+
 /* ----------------------------------------------------------------- recents */
 
 /* Ten URLs and their ages, in a stat tile. Each row is one line — the URLs run
@@ -2071,7 +2111,7 @@ th.col-rings { text-align: left !important; }
    rather than sitting a few pixels inside their edges. On the sticky one only:
    the home page's category nav sits in the flow with the text around it, and
    pulling that out would leave it hanging past its neighbors. */
-.contents-sticky { margin-inline: -0.7rem; }
+.contents-sticky { margin-inline: calc(-1 * var(--page-gutter-padding)); }
 
 
 /*
@@ -2240,7 +2280,7 @@ th.col-rings { text-align: left !important; }
 	margin-bottom: 1rem;
 	/* Same pull as .statbar and .table-scroll: every card on the page lines up
 	   on one pair of edges. */
-	margin-inline: -0.7rem;
+	margin-inline: calc(-1 * var(--page-gutter-padding));
 }
 /* --------------------------------------------- the rows a big table leaves out */
 
