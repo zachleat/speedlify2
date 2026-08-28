@@ -7,7 +7,7 @@ title: Charts
 <header class="detail-head">
 	<h2 class="page-hed">Charts</h2>
 	<p class="lede">
-		Pulls the most recent measurement of every site (excluding starters). Tooltips are only shown on green (well scoring) circles.
+		Pulls the most recent measurement of every site (excluding starter projects). Tooltips are only shown on green (well scoring) data points.
 	</p>
 </header>
 
@@ -45,9 +45,6 @@ title: Charts
 	<div class="group-head">
 		<h2>Page Weight vs LCP <span class="tag">{{ plot.count | num }} sites</span></h2>
 	</div>
-	<p class="muted small">
-		Both scales are logarithmic.
-	</p>
 	{{ scatterfigure(plot, "Page Weight") }}
 </section>
 {% endif %}
