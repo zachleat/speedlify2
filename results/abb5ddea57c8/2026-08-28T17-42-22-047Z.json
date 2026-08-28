@@ -1,0 +1,307 @@
+{
+  "url": "https://www.microsoft.com/",
+  "name": "Microsoft",
+  "group": "big-tech",
+  "groupName": "Big Tech",
+  "timestamp": 1787938942047,
+  "date": "2026-08-28T17:42:22.047Z",
+  "runId": "2026-08-28T17-29-00-560Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 93391,
+  "error": null,
+  "variance": {
+    "min": 5,
+    "max": 28,
+    "spread": 23,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://www.microsoft.com/",
+    "finalUrl": "https://www.microsoft.com/en-us",
+    "redirect": {
+      "from": "https://www.microsoft.com/",
+      "to": "https://www.microsoft.com/en-us",
+      "chain": [
+        {
+          "url": "https://www.microsoft.com/",
+          "status": 302
+        },
+        {
+          "url": "https://www.microsoft.com/en-us",
+          "status": 200
+        }
+      ],
+      "statuses": [
+        302
+      ],
+      "change": "path",
+      "permanent": false,
+      "schemeUpgrade": false,
+      "hops": 1
+    },
+    "statusCode": "ok",
+    "scores": {
+      "performance": 27,
+      "accessibility": 100,
+      "best-practices": 54,
+      "seo": 92,
+      "agentic-browsing": 100
+    },
+    "timings": {
+      "fcp": 5589,
+      "lcp": 22098,
+      "si": 11997,
+      "tbt": 2725,
+      "tti": 34914,
+      "cls": 0.025,
+      "ttfb": 638,
+      "maxPotentialFid": 521,
+      "serverResponseTime": 161,
+      "networkRtt": 71.1,
+      "networkServerLatency": 2300.8
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 180.6,
+      "resourceLoadDelay": 17.9,
+      "resourceLoadDuration": 216.6,
+      "elementRenderDelay": 2006.6
+    },
+    "weight": {
+      "total": 7083328,
+      "requests": 267,
+      "mainDocument": 46657,
+      "byType": {
+        "total": {
+          "bytes": 6885760,
+          "requests": 266
+        },
+        "image": {
+          "bytes": 3668851,
+          "requests": 47
+        },
+        "script": {
+          "bytes": 2679622,
+          "requests": 169
+        },
+        "stylesheet": {
+          "bytes": 279654,
+          "requests": 13
+        },
+        "font": {
+          "bytes": 181058,
+          "requests": 8
+        },
+        "document": {
+          "bytes": 47573,
+          "requests": 2
+        },
+        "other": {
+          "bytes": 29002,
+          "requests": 27
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 6885760,
+          "requests": 266
+        }
+      },
+      "scripts": 169,
+      "stylesheets": 13,
+      "fonts": 9
+    },
+    "thirdParty": {
+      "count": 12,
+      "bytes": 547641,
+      "mainThreadMs": 1068.7,
+      "top": [
+        {
+          "entity": "Clicktale",
+          "bytes": 218555,
+          "mainThreadMs": 541.8
+        },
+        {
+          "entity": "s-microsoft.com",
+          "bytes": 180283,
+          "mainThreadMs": 0
+        },
+        {
+          "entity": "Google Tag Manager",
+          "bytes": 89702,
+          "mainThreadMs": 14.6
+        },
+        {
+          "entity": "Clarity",
+          "bytes": 36921,
+          "mainThreadMs": 505.6
+        },
+        {
+          "entity": "ContentSquare",
+          "bytes": 20037,
+          "mainThreadMs": 6.4
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 36226.4,
+      "byGroup": {
+        "scriptEvaluation": 30186.4,
+        "other": 3037.6,
+        "styleLayout": 1522.5,
+        "scriptParseCompile": 784.5,
+        "garbageCollection": 298,
+        "parseHTML": 214.6,
+        "paintCompositeRender": 182.7
+      },
+      "bootupMs": 22243.3,
+      "longTasks": 20,
+      "longestTaskMs": 521
+    },
+    "dom": {
+      "elements": 3950,
+      "depth": 22,
+      "maxChildren": 48
+    },
+    "waste": {
+      "unusedJsBytes": 634317,
+      "unusedCssBytes": 246941,
+      "legacyJsBytes": 49026,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 647536,
+      "unminifiedCssBytes": 6536,
+      "renderBlockingMs": 4982,
+      "renderBlockingCount": 13,
+      "poorlyCachedBytes": 4207756.162443933,
+      "poorlyCachedCount": 213
+    },
+    "accessibility": {
+      "failingCount": 1,
+      "applicableCount": 38,
+      "failingNodes": 5,
+      "failing": [
+        {
+          "id": "label-content-name-mismatch",
+          "title": "Elements with visible text labels do not have matching accessible names.",
+          "nodes": 5
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 0,
+      "bfCacheFailures": 1,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 788.4,
+      "consoleErrors": 7,
+      "baselineLimitedFeatures": 54
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2313,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-08-28T17:43:11.437Z",
+      "runtimeMs": 35198.6
+    }
+  },
+  "field": {
+    "source": "crux",
+    "scope": "origin",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-07-30",
+      "last": "2026-08-26"
+    },
+    "metrics": {
+      "cls": {
+        "p75": 0.11,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 74.5,
+          "needsImprovement": 10.8,
+          "poor": 14.7
+        }
+      },
+      "ttfb": {
+        "p75": 1389,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 43.2,
+          "needsImprovement": 42.1,
+          "poor": 14.8
+        }
+      },
+      "fcp": {
+        "p75": 2495,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 56.8,
+          "needsImprovement": 26,
+          "poor": 17.2
+        }
+      },
+      "inp": {
+        "p75": 1374,
+        "rating": "poor",
+        "distribution": {
+          "good": 55.3,
+          "needsImprovement": 11.9,
+          "poor": 32.8
+        }
+      },
+      "lcp": {
+        "p75": 3087,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 63.1,
+          "needsImprovement": 22.2,
+          "poor": 14.7
+        }
+      },
+      "rtt": {
+        "p75": 155,
+        "rating": null,
+        "distribution": {
+          "good": 34.6,
+          "needsImprovement": 56.4,
+          "poor": 9
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "interstitial": null,
+    "host": null,
+    "headers": {},
+    "violations": 1,
+    "passes": 1648,
+    "incomplete": 17,
+    "violationRules": 1,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "empty-heading",
+        "impact": "minor",
+        "nodes": 1,
+        "help": "Headings should not be empty"
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
