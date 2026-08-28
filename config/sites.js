@@ -468,7 +468,7 @@ export default {
 			name: "Developer Tooling",
 			enabled: true,
 			description:
-				"Site generators, test runners, package managers and web hosts together. The people who build the tools, measured on the sites they use to sell them.",
+				"Site generators, test runners, package managers and web hosts together.",
 			...DAILY,
 			sites: [
 				...SSG_SITES,
@@ -500,7 +500,7 @@ export default {
 			name: "Big Tech",
 			enabled: true,
 			description:
-				"The largest technology companies by market capitalisation, on their own corporate sites — measured on the same terms as everything else here.",
+				"The largest technology companies by market capitalisation.",
 			...DAILY,
 			...POLITE,
 			sites: BIG_TECH_SITES,
@@ -510,7 +510,7 @@ export default {
 			showOnHomePageCategoryList: true,
 			name: "Site Generators",
 			enabled: true,
-			description: "Home pages for popular site generators and frameworks.",
+			description: "Popular site generators and frameworks.",
 			...DAILY,
 			// The list from https://www.speedlify.dev/ssg/, in its order.
 			sites: SSG_SITES,
@@ -521,7 +521,7 @@ export default {
 			name: "Frameworks and Libraries",
 			enabled: true,
 			description:
-				"What pages are built with, measured on the pages that sell them. A framework's own site is the one page its authors control completely — and the one place the tradeoffs they chose are on display rather than described.",
+				"Tools that developers use to build the frontends of websites.",
 			...DAILY,
 
 			sites: FRAMEWORK_SITES,
@@ -530,7 +530,7 @@ export default {
 		"test-runners": {
 			name: "Test Runners",
 			enabled: true,
-			description: "Home pages for JavaScript test runners and linters.",
+			description: "Test runners, linters, and other testing tools.",
 			...DAILY,
 
 
@@ -541,7 +541,7 @@ export default {
 			name: "Package Managers",
 			enabled: true,
 			description:
-				"Package browsers: the searchable front ends to a package registry. Every one of these has a similar job \u2014 a search box over a package index.",
+				"Package browsers: the searchable front ends to package registries.",
 			...DAILY,
 			sites: PACKAGE_MANAGER_SITES,
 		},
@@ -551,7 +551,7 @@ export default {
 			name: "Web Hosts",
 			enabled: true,
 			description:
-				"Home pages of the hosting and deploy platforms this project detects in the Host column.",
+				"Web hosting and deployment platforms.",
 			...DAILY,
 			sites: HOST_SITES,
 		},
@@ -561,7 +561,7 @@ export default {
 			name: "Website Builders",
 			enabled: true,
 			description:
-				"Hosted tools that build and serve a site for you. The counterweight to every other category here: these pages are what a site looks like when the person making it never sees the output.",
+				"Hosted tools that help nontechnical users build and serve websites.",
 			...DAILY,
 			sites: [
 				{ name: "WordPress.com", url: "https://wordpress.com/" },
@@ -657,7 +657,7 @@ export default {
 			showOnHomePageCategoryList: true,
 			name: "Build Awesome Starters",
 			description:
-				"Starter projects and templates built with Eleventy. Measured apart from the community list because a starter is a demonstration of a stack rather than a site someone runs.",
+				"Starter projects and templates built with Build Awesome and Eleventy.",
 
 			// A directory of data files in 11ty/docs rather than an issue form:
 			// this list is imported from there, so a starter is added by adding a
@@ -715,7 +715,7 @@ export default {
 
 			enabled: true,
 			description:
-				"Sites that were previously built with Eleventy or Build Awesome but have moved away (since April 2018).",
+				"Sites that were previously built with Build Awesome or Eleventy but have migrated to use something else (since April 2018).",
 
 			...POLITE,
 			...WEEKLY,
