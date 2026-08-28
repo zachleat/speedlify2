@@ -36,7 +36,7 @@ eleventyComputed:
 		as a schedule doing its job — the second half says which it is.
 	#}
 	<p class="muted">
-		{{ group.measured }} of {{ group.entries.length | countOf("site") }} measured
+		{{ group.measured | num }} of {{ group.entries.length | countOf("site") }} measured
 		{%- if group.freshnessHours %} · each site {{ group.freshnessHours | cadence }}
 		{%- if group.lastMeasured %}, most recently <time datetime="{{ group.lastMeasured | iso }}">{{ group.lastMeasured | since }}</time> ago{% endif %}
 		{%- endif %}
@@ -152,7 +152,7 @@ eleventyComputed:
 	<p class="muted small">
 		Ranked by the circles first — the four Lighthouse categories and axe: all green
 		beats any row carrying an amber, and an amber beats a red, whatever the points
-		say. Core Web Vitals is left out of that, being unknown for most sites here.
+		say. Sites are not penalized for unknown Core Web Vitals.
 		Rows level on colour are then ranked by the sum of all four Lighthouse
 		categories, then fewest failing Core Web Vitals from real users, then fewest
 		axe violations, then Speed Index per KB — so a fast heavy site outranks a fast

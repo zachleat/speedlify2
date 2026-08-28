@@ -773,6 +773,37 @@ th.col-trend { text-align: center !important; }
    rule the fill would inherit nothing and the bar would read as zero-length. */
 .lvf-fill-none { background: var(--border-strong); }
 
+/*
+ * Four figures about the measuring machines. A description list because that is
+ * what it is — a label and its value, four times — rather than a table, which
+ * would imply rows worth comparing across.
+ */
+.bench-stats {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem 2rem;
+	margin-block: 0.75rem 1rem;
+}
+
+.bench-stats div {
+	display: flex;
+	flex-direction: column;
+	gap: 0.1rem;
+}
+
+.bench-stats dt {
+	font-size: 0.78rem;
+	color: var(--text-muted);
+}
+
+.bench-stats dd {
+	margin: 0;
+	font-size: 1.35rem;
+	font-weight: 650;
+	font-variant-numeric: tabular-nums;
+	letter-spacing: -0.02em;
+}
+
 /* ------------------------------------------------------ site of the day */
 
 /* Inside a stat tile now, so it stacks rather than sitting beside its facts.
@@ -871,7 +902,10 @@ th.col-trend { text-align: center !important; }
 	font-variant-numeric: tabular-nums;
 	white-space: nowrap;
 }
-.bench-change.worse {
+/* Outside the band the drift notice draws — in either direction, because a
+   machine that ran fast distorts the CPU-bound numbers just as one that ran
+   slow does. Not a "worse" state: the site did nothing, the runner did. */
+.bench-change.outside {
 	background: color-mix(in srgb, var(--average) 16%, transparent);
 	color: var(--average);
 }

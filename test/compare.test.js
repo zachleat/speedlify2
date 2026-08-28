@@ -150,9 +150,56 @@ describe("environmentDrift", () => {
 		assert.equal(environmentDrift(h).suspect, false);
 	});
 
-	test("needs at least two measurements", () => {
+	test("needs at least two measurements without a supplied baseline", () => {
 		assert.equal(environmentDrift(history([[90, 0]])), null);
 	});
+
+	test("judges a first measurement against a supplied baseline", () => {
+		const h = history([[90, 0]], { benchmarks: [500] });
+		const drift = environmentDrift(h, { baseline: 1000 });
+
+		assert.equal(drift.suspect, true);
+		assert.equal(drift.direction, "slower");
+		assert.equal(drift.baseline, 1000);
+		assert.equal(drift.scope, "fleet");
+	});
+
+	test("prefers the supplied baseline over the site's own history", () => {
+		// Steady on its own terms, and half the speed of the fleet: the site
+		// baseline sees nothing, the project baseline sees a slow machine.
+		const h = history([[90, 0], [90, 0], [90, 0]], { benchmarks: [500, 500, 500] });
+
+		assert.equal(environmentDrift(h).suspect, false);
+		assert.equal(environmentDrift(h).scope, "site");
+
+		const drift = environmentDrift(h, { baseline: 1000 });
+		assert.equal(drift.suspect, true);
+		assert.equal(drift.direction, "slower");
+		assert.equal(drift.scope, "fleet");
+	});
+
+	test("honours a custom threshold", () => {
+		const h = history([[90, 0]], { benchmarks: [1300] });
+
+		assert.equal(environmentDrift(h, { baseline: 1000 }).suspect, true);
+		assert.equal(environmentDrift(h, { baseline: 1000, threshold: 0.5 }).suspect, false);
+	});
+
+	test("defaults to 25% off the baseline", () => {
+		const drift = (bench) => environmentDrift(history([[90, 0]], { benchmarks: [bench] }), { baseline: 1000 });
+
+		// The boundary is exclusive, so exactly 25% off is still ordinary.
+		assert.equal(drift(1250).suspect, false);
+		assert.equal(drift(1251).suspect, true);
+		assert.equal(drift(750).suspect, false);
+		assert.equal(drift(749).suspect, true);
+		assert.equal(drift(749).direction, "slower");
+	});
+
+	test("returns null when there is nothing to measure", () => {
+		assert.equal(environmentDrift([], { baseline: 1000 }), null);
+	});
+
 });
 
 describe("lowerIsBetter", () => {

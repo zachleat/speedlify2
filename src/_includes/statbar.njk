@@ -144,7 +144,7 @@
 	<div class="stat">
 		<span class="stat-label">Perfect {{ stats.perfect | plural("score") }}</span>
 		<span class="stat-headline">
-			<span class="stat-value">{{ stats.perfect }}<span class="stat-suffix">/{{ stats.measured }}</span></span>
+			<span class="stat-value">{{ stats.perfect | num }}<span class="stat-suffix">/{{ stats.measured | num }}</span></span>
 			{#
 				How the count has moved. Every site, judged on its most recent
 				measurement as of each day — the same rule as the number beside it,

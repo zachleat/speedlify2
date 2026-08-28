@@ -13,6 +13,66 @@ title: Runs
 	</p>
 </header>
 
+{#
+	The machines, before the runs on them.
+
+	This belongs here rather than on a site page because it is a fact about the
+	instrument, not about any site: every CPU-bound number published — TBT, the
+	performance score, anything derived from them — was produced on one of these,
+	and a run on a slow one reports a worse site having measured nothing
+	different.
+#}
+{% if sites.benchmark %}
+<section class="panel">
+	<h2>The measuring machines <span class="tag">Lighthouse benchmark index</span></h2>
+	<p class="muted small">
+		Recorded once per measurement, from the run whose numbers were kept.
+		Higher is faster.
+	</p>
+
+	<dl class="bench-stats">
+		<div>
+			<dt>Median</dt>
+			<dd>{{ sites.benchmark.median | num }}</dd>
+		</div>
+		<div>
+			{#
+				Second, against the median it is drawn from: the pair reads as one
+				statement about which machines count as ordinary here.
+			#}
+			<dt>&plusmn;{{ sites.benchmark.driftBand.pct }}% Median</dt>
+			<dd>{{ sites.benchmark.driftBand.low | num }}&ndash;{{ sites.benchmark.driftBand.high | num }}</dd>
+		</div>
+		<div>
+			<dt>Mean</dt>
+			<dd>{{ sites.benchmark.mean | num }}</dd>
+		</div>
+		<div>
+			<dt>Range</dt>
+			<dd>{{ sites.benchmark.min | num }}&ndash;{{ sites.benchmark.max | num }}</dd>
+		</div>
+	</dl>
+
+	<p class="muted small">
+		{#
+			Both averages, because they disagree: the mean sits above the median
+			because a thin tail of fast runners pulls it there, while most runs
+			cluster within a few percent of each other. Saying so is the difference
+			between a statistic and a number.
+		#}
+		From {{ sites.benchmark.count | num }} {{ sites.benchmark.count | plural("measurement") }}.
+		The mean sits above the median because a few unusually fast machines pull it
+		there; most runs land close together. A site is told
+		<em>&ldquo;the measuring machine was faster than most in this project&rdquo;</em>
+		when its run lands outside that band.
+		That is a distance rather than a percentile because the notice claims the
+		CPU-bound numbers moved, and how far off the machine was decides that; how
+		rare it was does not. These machines vary by running fast rather than slow,
+		so in practice the notice is a fast-machine one.
+	</p>
+</section>
+{% endif %}
+
 {% if not runs.recent.length %}
 <div class="empty">
 	<p>No runs logged yet. Run <code>npm run measure</code> to create one.</p>

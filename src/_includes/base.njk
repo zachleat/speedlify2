@@ -205,7 +205,7 @@ speedlifyThemeColor();
 			Built <time datetime="{{ sites.generated | iso }}">{{ sites.generated | date("long") }}</time>{% if meta.repo %} ·
 			<a href="{{ meta.repo }}">Source on GitHub</a>{% endif %}
 			{%- if sites.coverage.measured %} ·
-			<strong>{{ sites.coverage.measured }}/{{ sites.coverage.total }}</strong>
+			<strong>{{ sites.coverage.measured | num }}/{{ sites.coverage.total | num }}</strong>
 			{{ sites.coverage.measured | plural("site") }} {{ sites.coverage.measured | verb("has", "have") }} data
 			{#- The running total, which used to head its own line above. It is a
 			    fact about the same set of sites, so it reads as a gloss on the

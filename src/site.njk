@@ -246,18 +246,34 @@ eleventyComputed:
 
 {% if entry.environmentDrift and entry.environmentDrift.suspect %}
 <div class="notice notice-warn">
-	<strong>The measuring machine was {{ entry.environmentDrift.direction }} than usual.</strong>
+	{#
+		"Than usual" would be a claim about this site's own past. The baseline is
+		the median across every measurement in the project, so the comparison is
+		against the fleet — said plainly, because a reader who assumes the wrong
+		baseline draws the wrong conclusion from the same number.
+	#}
+	<strong>
+		The measuring machine was {{ entry.environmentDrift.direction }} than
+		{% if entry.environmentDrift.scope == "fleet" %}most in this project{% else %}usual for this site{% endif %}.
+	</strong>
 	<p>
-		Lighthouse benchmark index was {{ entry.environmentDrift.current }} against a
-		baseline of {{ entry.environmentDrift.baseline }}
+		Lighthouse benchmark index was {{ entry.environmentDrift.current | num }},
 		{#
-			Parenthesised. A filter binds tighter than the multiplication in
+			The percentage was parenthesised in an earlier version, and the reason
+			survives the rewrite: a filter binds tighter than the multiplication in
 			Nunjucks, so `ratio * 100 | round` rounded 100 and left the product
 			alone — printing "34.300000000000004%".
 		#}
-		({{ (entry.environmentDrift.ratio * 100) | round }}%). CPU-bound metrics — TBT,
-		TTI, main thread work — are affected by this and may have moved without the
-		site changing at all.
+		{{ (entry.environmentDrift.ratio * 100) | round | abs }}%
+		{{ entry.environmentDrift.direction }} than
+		{% if entry.environmentDrift.scope == "fleet" %}
+			this project's median of {{ entry.environmentDrift.baseline | num }}.
+		{% else %}
+			this site's baseline of {{ entry.environmentDrift.baseline | num }}.
+		{% endif %}
+		CPU-bound metrics — TBT, TTI,
+		main thread work — are affected by this and may have moved without the site
+		changing at all.
 	</p>
 </div>
 {% endif %}
@@ -961,20 +977,23 @@ eleventyComputed:
 					<td class="num muted">{{ point.completedRuns }}/{{ point.requestedRuns }}</td>
 					<td class="num muted">{{ ("±" + point.spread) if point.spread != null else "—" }}</td>
 					{#
-						The benchmark index, and how far it moved from the run before.
-						On its own the number means nothing to a reader — 2470 is not
-						good or bad — but "+27%" between two rows explains a TBT that
-						jumped without the site changing, which is the only reason
-						this column is here.
+						The benchmark index, and how far off the project median it
+						sat. On its own the number means nothing to a reader — 2470 is
+						not good or bad — but "+27%" explains a TBT that jumped
+						without the site changing, which is the only reason this
+						column is here.
 
-						Against the previous row rather than the site's baseline: the
-						notice above the page already gives the baseline comparison,
-						and what a log wants is the step.
+						Against the project median rather than the row above, so each
+						row stands alone: the step between two rows says nothing about
+						whether either machine was a fair one to measure on. Marked
+						when it falls outside the same band the notice at the top of
+						the page draws, so a reader can see which rows that notice is
+						about.
 					#}
-					<td class="num muted" title="Lighthouse benchmark index of the measuring machine{% if point.benchChange != null %} — {{ point.benchChange | signed }}% against the previous run{% endif %}">
+					<td class="num muted" title="Lighthouse benchmark index of the measuring machine{% if point.benchVsMedian != null %} — {{ point.benchVsMedian | signed }}% against this project's median{% if point.benchOutside %}, outside the {{ sites.benchmark.driftBand.pct }}% band{% endif %}{% endif %}">
 						{{ point.bench | num }}
-						{%- if point.benchChange != null %}
-						<span class="bench-change {{ 'worse' if point.benchChange < 0 }}">{{ point.benchChange | signed }}%</span>
+						{%- if point.benchVsMedian != null %}
+						<span class="bench-change {{ 'outside' if point.benchOutside }}">{{ point.benchVsMedian | signed }}%</span>
 						{%- endif %}
 					</td>
 					<td class="num muted">{{ (point.durationMs / 1000) | round(1) }}s</td>
