@@ -1,0 +1,342 @@
+{
+  "url": "https://www.sap.com/",
+  "name": "SAP",
+  "group": "big-tech",
+  "groupName": "Big Tech",
+  "timestamp": 1787939097380,
+  "date": "2026-08-28T17:44:57.380Z",
+  "runId": "2026-08-28T17-29-00-560Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 317914,
+  "error": null,
+  "variance": {
+    "min": 8,
+    "max": 27,
+    "spread": 19,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://www.sap.com/",
+    "finalUrl": "https://www.sap.com/index.html",
+    "redirect": {
+      "from": "https://www.sap.com/",
+      "to": "https://www.sap.com/index.html",
+      "chain": [
+        {
+          "url": "https://www.sap.com/",
+          "status": 301
+        },
+        {
+          "url": "https://www.sap.com/index.html",
+          "status": 200
+        }
+      ],
+      "statuses": [
+        301
+      ],
+      "change": "path",
+      "permanent": true,
+      "schemeUpgrade": false,
+      "hops": 1
+    },
+    "statusCode": "ok",
+    "scores": {
+      "performance": 13,
+      "accessibility": 90,
+      "best-practices": 50,
+      "seo": 92,
+      "agentic-browsing": 44
+    },
+    "timings": {
+      "fcp": 9833,
+      "lcp": 18533,
+      "si": 18335,
+      "tbt": 1328,
+      "tti": 25121,
+      "cls": 0.344,
+      "ttfb": 648,
+      "maxPotentialFid": 371,
+      "serverResponseTime": 144,
+      "networkRtt": 164.5,
+      "networkServerLatency": 328.2
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 293.5,
+      "resourceLoadDelay": 1352.7,
+      "resourceLoadDuration": 61.2,
+      "elementRenderDelay": 837.7
+    },
+    "weight": {
+      "total": 4532216,
+      "requests": 258,
+      "mainDocument": 15522,
+      "byType": {
+        "total": {
+          "bytes": 4530190,
+          "requests": 255
+        },
+        "script": {
+          "bytes": 2440130,
+          "requests": 109
+        },
+        "media": {
+          "bytes": 986362,
+          "requests": 5
+        },
+        "image": {
+          "bytes": 627816,
+          "requests": 48
+        },
+        "other": {
+          "bytes": 222667,
+          "requests": 68
+        },
+        "stylesheet": {
+          "bytes": 140844,
+          "requests": 21
+        },
+        "font": {
+          "bytes": 92902,
+          "requests": 1
+        },
+        "document": {
+          "bytes": 19469,
+          "requests": 3
+        },
+        "third-party": {
+          "bytes": 1150243,
+          "requests": 95
+        }
+      },
+      "scripts": 110,
+      "stylesheets": 21,
+      "fonts": 1
+    },
+    "thirdParty": {
+      "count": 21,
+      "bytes": 1175453,
+      "mainThreadMs": 904,
+      "top": [
+        {
+          "entity": "net.sap",
+          "bytes": 739959,
+          "mainThreadMs": 0
+        },
+        {
+          "entity": "Qualtrics",
+          "bytes": 64691,
+          "mainThreadMs": 11.6
+        },
+        {
+          "entity": "mPulse",
+          "bytes": 62310,
+          "mainThreadMs": 20.3
+        },
+        {
+          "entity": "Microad",
+          "bytes": 53941,
+          "mainThreadMs": 12.2
+        },
+        {
+          "entity": "TrustArc",
+          "bytes": 49443,
+          "mainThreadMs": 24.7
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 13399.5,
+      "byGroup": {
+        "scriptEvaluation": 9417.6,
+        "other": 2073.5,
+        "scriptParseCompile": 724.3,
+        "styleLayout": 416.9,
+        "garbageCollection": 307.4,
+        "paintCompositeRender": 292,
+        "parseHTML": 167.6
+      },
+      "bootupMs": 9249.6,
+      "longTasks": 20,
+      "longestTaskMs": 467
+    },
+    "dom": {
+      "elements": 1996,
+      "depth": 28,
+      "maxChildren": 85
+    },
+    "waste": {
+      "unusedJsBytes": 807937,
+      "unusedCssBytes": 63435,
+      "legacyJsBytes": 36696,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 2471,
+      "renderBlockingMs": 3624,
+      "renderBlockingCount": 29,
+      "poorlyCachedBytes": 412394.32598303986,
+      "poorlyCachedCount": 39
+    },
+    "accessibility": {
+      "failingCount": 3,
+      "applicableCount": 34,
+      "failingNodes": 5,
+      "failing": [
+        {
+          "id": "heading-order",
+          "title": "Heading elements are not in a sequentially-descending order",
+          "nodes": 3
+        },
+        {
+          "id": "aria-allowed-attr",
+          "title": "`[aria-*]` attributes do not match their roles",
+          "nodes": 1
+        },
+        {
+          "id": "aria-valid-attr",
+          "title": "`[aria-*]` attributes are not valid or misspelled",
+          "nodes": 1
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 0,
+      "bfCacheFailures": 1,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 816.5,
+      "consoleErrors": 4,
+      "baselineLimitedFeatures": 54
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2314.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-08-28T17:44:58.678Z",
+      "runtimeMs": 62204.2
+    }
+  },
+  "field": {
+    "source": "crux",
+    "scope": "origin",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-07-30",
+      "last": "2026-08-26"
+    },
+    "metrics": {
+      "cls": {
+        "p75": 0,
+        "rating": "good",
+        "distribution": {
+          "good": 96.3,
+          "needsImprovement": 1.3,
+          "poor": 2.4
+        }
+      },
+      "ttfb": {
+        "p75": 1426,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 49.8,
+          "needsImprovement": 33.8,
+          "poor": 16.4
+        }
+      },
+      "fcp": {
+        "p75": 2674,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 55.1,
+          "needsImprovement": 24.9,
+          "poor": 20
+        }
+      },
+      "inp": {
+        "p75": 284,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 64.2,
+          "needsImprovement": 24,
+          "poor": 11.8
+        }
+      },
+      "lcp": {
+        "p75": 2716,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 71.5,
+          "needsImprovement": 15.8,
+          "poor": 12.7
+        }
+      },
+      "rtt": {
+        "p75": 150,
+        "rating": null,
+        "distribution": {
+          "good": 35.5,
+          "needsImprovement": 56.2,
+          "poor": 8.4
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": true,
+    "generator": null,
+    "interstitial": null,
+    "host": {
+      "id": null,
+      "name": "AkamaiGHost",
+      "icon": null,
+      "source": "server"
+    },
+    "headers": {
+      "server": "AkamaiGHost"
+    },
+    "violations": 6,
+    "passes": 1283,
+    "incomplete": 9,
+    "violationRules": 4,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "heading-order",
+        "impact": "moderate",
+        "nodes": 3,
+        "help": "Heading levels should only increase by one"
+      },
+      {
+        "id": "aria-allowed-attr",
+        "impact": "critical",
+        "nodes": 1,
+        "help": "Elements must only use supported ARIA attributes"
+      },
+      {
+        "id": "landmark-no-duplicate-banner",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Document should not have more than one banner landmark"
+      },
+      {
+        "id": "landmark-unique",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination"
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}

@@ -1,0 +1,406 @@
+{
+  "url": "https://www.ibm.com/",
+  "name": "IBM",
+  "group": "big-tech",
+  "groupName": "Big Tech",
+  "timestamp": 1787938586371,
+  "date": "2026-08-28T17:36:26.371Z",
+  "runId": "2026-08-28T17-29-00-560Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 352674,
+  "error": null,
+  "variance": {
+    "min": 25,
+    "max": 25,
+    "spread": 0,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://www.ibm.com/",
+    "finalUrl": "https://www.ibm.com/us-en",
+    "redirect": {
+      "from": "https://www.ibm.com/",
+      "to": "https://www.ibm.com/us-en",
+      "chain": [
+        {
+          "url": "https://www.ibm.com/",
+          "status": 303
+        },
+        {
+          "url": "https://www.ibm.com/us-en",
+          "status": 200
+        }
+      ],
+      "statuses": [
+        303
+      ],
+      "change": "path",
+      "permanent": false,
+      "schemeUpgrade": false,
+      "hops": 1
+    },
+    "statusCode": "ok",
+    "scores": {
+      "performance": 25,
+      "accessibility": 76,
+      "best-practices": 73,
+      "seo": 92,
+      "agentic-browsing": 50
+    },
+    "timings": {
+      "fcp": 8826,
+      "lcp": 21764,
+      "si": 17154,
+      "tbt": 7718,
+      "tti": 52211,
+      "cls": 0.038,
+      "ttfb": 650,
+      "maxPotentialFid": 922,
+      "serverResponseTime": 28,
+      "networkRtt": 78.2,
+      "networkServerLatency": 114
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 52.4,
+      "elementRenderDelay": 1745.4
+    },
+    "weight": {
+      "total": 8239339,
+      "requests": 277,
+      "mainDocument": 40777,
+      "byType": {
+        "total": {
+          "bytes": 8239303,
+          "requests": 274
+        },
+        "script": {
+          "bytes": 6747934,
+          "requests": 133
+        },
+        "other": {
+          "bytes": 476744,
+          "requests": 97
+        },
+        "font": {
+          "bytes": 436402,
+          "requests": 7
+        },
+        "stylesheet": {
+          "bytes": 327078,
+          "requests": 8
+        },
+        "image": {
+          "bytes": 207431,
+          "requests": 25
+        },
+        "document": {
+          "bytes": 43714,
+          "requests": 4
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 4732169,
+          "requests": 168
+        }
+      },
+      "scripts": 135,
+      "stylesheets": 8,
+      "fonts": 7
+    },
+    "thirdParty": {
+      "count": 28,
+      "bytes": 4686845,
+      "mainThreadMs": 1978.1,
+      "top": [
+        {
+          "entity": "IBM Digital Analytics",
+          "bytes": 3004353,
+          "mainThreadMs": 1174.7
+        },
+        {
+          "entity": "Google Tag Manager",
+          "bytes": 469865,
+          "mainThreadMs": 203.1
+        },
+        {
+          "entity": "Fastly",
+          "bytes": 393789,
+          "mainThreadMs": 0.2
+        },
+        {
+          "entity": "TrustArc",
+          "bytes": 218552,
+          "mainThreadMs": 26.2
+        },
+        {
+          "entity": "Adobe Tag Manager",
+          "bytes": 171241,
+          "mainThreadMs": 57.5
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 35382.9,
+      "byGroup": {
+        "scriptEvaluation": 14314.2,
+        "other": 7845.9,
+        "styleLayout": 7359.7,
+        "scriptParseCompile": 3130.3,
+        "paintCompositeRender": 1652.8,
+        "garbageCollection": 737.8,
+        "parseHTML": 342.2
+      },
+      "bootupMs": 15573.1,
+      "longTasks": 20,
+      "longestTaskMs": 922
+    },
+    "dom": {
+      "elements": 2830,
+      "depth": 25,
+      "maxChildren": 64
+    },
+    "waste": {
+      "unusedJsBytes": 1673643,
+      "unusedCssBytes": 1763509,
+      "legacyJsBytes": 64681,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 36981,
+      "unminifiedCssBytes": 67145,
+      "renderBlockingMs": 6845,
+      "renderBlockingCount": 20,
+      "poorlyCachedBytes": 3329426.215973805,
+      "poorlyCachedCount": 97
+    },
+    "accessibility": {
+      "failingCount": 9,
+      "applicableCount": 31,
+      "failingNodes": 20,
+      "failing": [
+        {
+          "id": "svg-img-alt",
+          "title": "SVG elements with an `img` role do not have an accessible text alternative",
+          "nodes": 8
+        },
+        {
+          "id": "aria-required-parent",
+          "title": "`[role]`s are not contained by their required parent element",
+          "nodes": 3
+        },
+        {
+          "id": "heading-order",
+          "title": "Heading elements are not in a sequentially-descending order",
+          "nodes": 2
+        },
+        {
+          "id": "list",
+          "title": "Lists do not contain only `<li>` elements and script supporting elements (`<script>` and `<template>`).",
+          "nodes": 2
+        },
+        {
+          "id": "aria-command-name",
+          "title": "`button`, `link`, and `menuitem` elements do not have accessible names.",
+          "nodes": 1
+        },
+        {
+          "id": "aria-required-children",
+          "title": "Elements with an ARIA `[role]` that require children to contain a specific `[role]` are missing some or all of those required children.",
+          "nodes": 1
+        },
+        {
+          "id": "link-in-text-block",
+          "title": "Links rely on color to be distinguishable.",
+          "nodes": 1
+        },
+        {
+          "id": "target-size",
+          "title": "Touch targets do not have sufficient size or spacing.",
+          "nodes": 1
+        },
+        {
+          "id": "landmark-one-main",
+          "title": "Document does not have a main landmark.",
+          "nodes": 1
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 10,
+      "redirectMs": 800.5,
+      "consoleErrors": 3,
+      "baselineLimitedFeatures": 77
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2372.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-08-28T17:39:00.627Z",
+      "runtimeMs": 76920.2
+    }
+  },
+  "field": {
+    "source": "crux",
+    "scope": "origin",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-07-30",
+      "last": "2026-08-26"
+    },
+    "metrics": {
+      "cls": {
+        "p75": 0.15,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 68.2,
+          "needsImprovement": 16.2,
+          "poor": 15.6
+        }
+      },
+      "ttfb": {
+        "p75": 2785,
+        "rating": "poor",
+        "distribution": {
+          "good": 40.4,
+          "needsImprovement": 24.3,
+          "poor": 35.3
+        }
+      },
+      "fcp": {
+        "p75": 4701,
+        "rating": "poor",
+        "distribution": {
+          "good": 27.8,
+          "needsImprovement": 24.2,
+          "poor": 48
+        }
+      },
+      "inp": {
+        "p75": 319,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 54.9,
+          "needsImprovement": 33,
+          "poor": 12.2
+        }
+      },
+      "lcp": {
+        "p75": 4952,
+        "rating": "poor",
+        "distribution": {
+          "good": 37.8,
+          "needsImprovement": 26.2,
+          "poor": 36
+        }
+      },
+      "rtt": {
+        "p75": 267,
+        "rating": null,
+        "distribution": {
+          "good": 16.8,
+          "needsImprovement": 59.4,
+          "poor": 23.9
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": true,
+    "generator": null,
+    "interstitial": null,
+    "host": {
+      "id": null,
+      "name": "AkamaiGHost",
+      "icon": null,
+      "source": "server"
+    },
+    "headers": {
+      "server": "AkamaiGHost"
+    },
+    "violations": 96,
+    "passes": 1640,
+    "incomplete": 32,
+    "violationRules": 11,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 75,
+        "help": "All page content should be contained by landmarks"
+      },
+      {
+        "id": "svg-img-alt",
+        "impact": "serious",
+        "nodes": 8,
+        "help": "<svg> elements with an img or image role must have alternative text"
+      },
+      {
+        "id": "aria-required-parent",
+        "impact": "critical",
+        "nodes": 3,
+        "help": "Certain ARIA roles must be contained by particular parents"
+      },
+      {
+        "id": "heading-order",
+        "impact": "moderate",
+        "nodes": 2,
+        "help": "Heading levels should only increase by one"
+      },
+      {
+        "id": "list",
+        "impact": "serious",
+        "nodes": 2,
+        "help": "<ul> and <ol> must only directly contain <li>, <script> or <template> elements"
+      },
+      {
+        "id": "aria-command-name",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "ARIA commands must have an accessible name"
+      },
+      {
+        "id": "aria-required-children",
+        "impact": "critical",
+        "nodes": 1,
+        "help": "Certain ARIA roles must contain particular children"
+      },
+      {
+        "id": "landmark-banner-is-top-level",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Banner landmark should not be contained in another landmark"
+      },
+      {
+        "id": "landmark-no-duplicate-banner",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Document should not have more than one banner landmark"
+      },
+      {
+        "id": "landmark-one-main",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Document should have one main landmark"
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
