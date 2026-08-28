@@ -138,11 +138,7 @@ eleventyComputed:
 	<h2>{{ "Leaderboard" if group.ranked else "Sites" }}</h2>
 	{% if filtered %}
 	<p class="muted small">
-		{{ group.entries.length | num }} sites is more table than anyone reads, so
-		this shows the {{ rows.length | num }} whose circles are all green — every
-		Lighthouse category at 90 or above, no axe violations, no Core Web Vital
-		failing. The other {{ rest.length | num }} are listed below. Ranks, and the
-		figures above, cover the whole category either way.
+		Limited to {{ group.entries.length | num }} the {{ rows.length | num }} websites with “good” scores (all green circles): every Lighthouse category at 90 or above, no axe violations, no Core Web Vital failing. The other {{ rest.length | num }} are included in an overflow list below.
 	</p>
 	{% endif %}
 	{% if not group.ranked %}
@@ -151,13 +147,7 @@ eleventyComputed:
 	</p>
 	{% else %}
 	<p class="muted small">
-		Ranked by the circles first — the four Lighthouse categories and axe: all green
-		beats any row carrying an amber, and an amber beats a red, whatever the points
-		say. Sites are not penalized for unknown Core Web Vitals.
-		Rows level on colour are then ranked by the sum of all four Lighthouse
-		categories, then fewest failing Core Web Vitals from real users, then fewest
-		axe violations, then Speed Index per KB — so a fast heavy site outranks a fast
-		empty one.
+		Ranked by the circle color first: all green beats a row with amber, which beats red. Sites are not penalized for unknown Core Web Vitals. Tiebreakers include: sum of all four Lighthouse categories, fewest failing Core Web Vitals, then fewest axe violations, then Speed Index per KB — a heavy site outranks an empty one.
 	</p>
 	{% endif %}
 	<div class="table-scroll">
