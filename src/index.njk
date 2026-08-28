@@ -297,16 +297,6 @@ permalink: /index.html
 		</tbody>
 	</table>
 	</div>
-
-	<p class="see-all">
-		{% if shown.length %}
-		{{ shown.length | countOf("site") }} of {{ sites.stats.measured | num }} measured
-		{{ shown.length | verb("is", "are") }} {{ shown.length | verb("a perfect score", "perfect scores") }}.
-		The full lists are on the category pages.
-		{% else %}
-		No site is a perfect score yet. The full lists are on the category pages.
-		{% endif %}
-	</p>
 </section>
 
 {% if sites.stacks.generators.items.length or sites.stacks.hosts.items.length %}
