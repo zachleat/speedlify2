@@ -1,0 +1,225 @@
+{
+  "url": "https://css-auditors.com/",
+  "name": "css-auditors.com",
+  "group": "11ty-community",
+  "groupName": "Built Awesome",
+  "timestamp": 1787959514584,
+  "date": "2026-08-28T23:25:14.584Z",
+  "runId": "2026-08-28T23-24-27-545Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 22496,
+  "error": null,
+  "variance": {
+    "min": 99,
+    "max": 100,
+    "spread": 1,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://css-auditors.com/",
+    "finalUrl": "https://css-auditors.com/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 100,
+      "accessibility": 98,
+      "best-practices": 100,
+      "seo": 100,
+      "agentic-browsing": 67
+    },
+    "timings": {
+      "fcp": 915,
+      "lcp": 1812,
+      "si": 962,
+      "tbt": 0,
+      "tti": 1812,
+      "cls": 0,
+      "ttfb": 592,
+      "maxPotentialFid": 16,
+      "serverResponseTime": 259,
+      "networkRtt": 0.2,
+      "networkServerLatency": 142.3
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 260.5,
+      "resourceLoadDelay": 7.5,
+      "resourceLoadDuration": 21.4,
+      "elementRenderDelay": 18.6
+    },
+    "weight": {
+      "total": 34482,
+      "requests": 12,
+      "mainDocument": 4622,
+      "byType": {
+        "total": {
+          "bytes": 34482,
+          "requests": 12
+        },
+        "script": {
+          "bytes": 9596,
+          "requests": 1
+        },
+        "image": {
+          "bytes": 8970,
+          "requests": 6
+        },
+        "stylesheet": {
+          "bytes": 8935,
+          "requests": 1
+        },
+        "document": {
+          "bytes": 4622,
+          "requests": 1
+        },
+        "other": {
+          "bytes": 2359,
+          "requests": 3
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "font": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 27501,
+          "requests": 8
+        }
+      },
+      "scripts": 1,
+      "stylesheets": 1,
+      "fonts": 0
+    },
+    "thirdParty": {
+      "count": 2,
+      "bytes": 27501,
+      "mainThreadMs": 3.3,
+      "top": [
+        {
+          "entity": "cloudfront.net",
+          "bytes": 17905,
+          "mainThreadMs": 0
+        },
+        {
+          "entity": "Cloudflare",
+          "bytes": 9596,
+          "mainThreadMs": 3.3
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 209.6,
+      "byGroup": {
+        "other": 105.8,
+        "styleLayout": 47.5,
+        "scriptEvaluation": 35,
+        "paintCompositeRender": 10.9,
+        "parseHTML": 9.4,
+        "scriptParseCompile": 1
+      },
+      "bootupMs": 19.4,
+      "longTasks": 0,
+      "longestTaskMs": null
+    },
+    "dom": {
+      "elements": 112,
+      "depth": 9,
+      "maxChildren": 10
+    },
+    "waste": {
+      "unusedJsBytes": 0,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 0,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 0,
+      "renderBlockingCount": 0,
+      "poorlyCachedBytes": 3838.4,
+      "poorlyCachedCount": 1
+    },
+    "accessibility": {
+      "failingCount": 1,
+      "applicableCount": 17,
+      "failingNodes": 1,
+      "failing": [
+        {
+          "id": "landmark-one-main",
+          "title": "Document does not have a main landmark.",
+          "nodes": 1
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h3",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 11
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2999,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-08-28T23:25:29.914Z",
+      "runtimeMs": 6485.7
+    }
+  },
+  "field": null,
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "interstitial": null,
+    "host": {
+      "id": "cloudflare",
+      "name": "Cloudflare",
+      "icon": "Cloudflare",
+      "source": "server"
+    },
+    "headers": {
+      "cf-ray": "a32713692e391974-DFW",
+      "server": "cloudflare"
+    },
+    "violations": 12,
+    "passes": 227,
+    "incomplete": 0,
+    "violationRules": 3,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 10,
+        "help": "All page content should be contained by landmarks"
+      },
+      {
+        "id": "landmark-one-main",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Document should have one main landmark"
+      },
+      {
+        "id": "landmark-unique",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination"
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
