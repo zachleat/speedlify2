@@ -233,6 +233,61 @@ const HOST_SITES = [
 			];
 
 /*
+ * The largest technology companies, by market capitalisation.
+ *
+ * Ordered by rank at the time of writing (2026), which is a moving target — the
+ * top of this list reshuffles every few months and the bottom of it turns over
+ * every year. The order is therefore a record of when the list was made rather
+ * than a claim about today; what matters for the category is that these are all
+ * unambiguously in the top tier, not that number nine is really ninth.
+ *
+ * Each company's primary public site, which for most of them is a storefront or
+ * a marketing site — apple.com and samsung.com sell things, and there is no
+ * reason to hold amazon.com to a different rule than the ones beside it.
+ *
+ * Alphabet is the exception that proves it: the holding company's page and the
+ * search page it is famous for are different enough to be worth measuring as two
+ * entries rather than choosing between them.
+ *
+ * A note on what to expect: some of these sit behind bot protection and will
+ * come back as an interstitial rather than a page. That is recorded honestly
+ * where it happens rather than hidden, and a site that never resolves will fall
+ * out on the usual failure count.
+ */
+const BIG_TECH_SITES = [
+				{ name: "Nvidia", url: "https://www.nvidia.com/" },
+				{ name: "Apple", url: "https://www.apple.com/" },
+				{ name: "Microsoft", url: "https://www.microsoft.com/" },
+				{ name: "Alphabet", url: "https://about.google/" },
+				// The same company's search page, listed separately. It is the most
+				// requested page on the web and one of the lightest, which makes it
+				// the useful end of every chart here — and nothing about the holding
+				// company's own site would tell you that.
+				{ name: "Google", url: "https://www.google.com/" },
+				{ name: "Amazon", url: "https://www.amazon.com/" },
+				{ name: "Meta", url: "https://www.meta.com/" },
+				{ name: "Broadcom", url: "https://www.broadcom.com/" },
+				{ name: "TSMC", url: "https://www.tsmc.com/english" },
+				{ name: "Tesla", url: "https://www.tesla.com/" },
+				{ name: "Oracle", url: "https://www.oracle.com/" },
+				{ name: "Netflix", url: "https://www.netflix.com/" },
+				{ name: "SAP", url: "https://www.sap.com/" },
+				{ name: "Salesforce", url: "https://www.salesforce.com/" },
+				{ name: "AMD", url: "https://www.amd.com/" },
+				{ name: "Adobe", url: "https://www.adobe.com/" },
+				{ name: "Cisco", url: "https://www.cisco.com/" },
+				{ name: "IBM", url: "https://www.ibm.com/" },
+				{ name: "Qualcomm", url: "https://www.qualcomm.com/" },
+				{ name: "Intel", url: "https://www.intel.com/" },
+				{ name: "Texas Instruments", url: "https://www.ti.com/" },
+				{ name: "Samsung", url: "https://www.samsung.com/" },
+				{ name: "Sony", url: "https://www.sony.com/" },
+				{ name: "ServiceNow", url: "https://www.servicenow.com/" },
+				{ name: "Uber", url: "https://www.uber.com/" },
+				{ name: "Palantir", url: "https://www.palantir.com/" },
+			];
+
+/*
  * UI frameworks, which none of the four lists above is the right home for: not
  * generators, not runners, not registries, not hosts. They exist so Developer
  * Tooling can carry them — the category is about the people who build the tools,
@@ -429,6 +484,26 @@ export default {
 				// that does the measuring is the least it can do.
 				{ name: "Speedlify", url: "https://www.speedlify.dev/" },
 			],
+		},
+
+		/*
+		 * The other end of the corpus.
+		 *
+		 * Every other category here is people who build for the web: generators,
+		 * hosts, starters, personal sites. These are the companies with the most
+		 * money and the largest engineering organisations on earth, measured on
+		 * exactly the same terms — same runner, same throttling, same thresholds.
+		 *
+		 */
+		"big-tech": {
+			showOnHomePageCategoryList: true,
+			name: "Big Tech",
+			enabled: true,
+			description:
+				"The largest technology companies by market capitalisation, on their own corporate sites — measured on the same terms as everything else here.",
+			...DAILY,
+			...POLITE,
+			sites: BIG_TECH_SITES,
 		},
 
 		ssg: {
