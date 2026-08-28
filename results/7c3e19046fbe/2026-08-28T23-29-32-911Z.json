@@ -1,0 +1,299 @@
+{
+  "url": "https://erickdavid.net/",
+  "name": "erickdavid.net",
+  "group": "11ty-community",
+  "groupName": "Built Awesome",
+  "timestamp": 1787959772911,
+  "date": "2026-08-28T23:29:32.911Z",
+  "runId": "2026-08-28T23-24-29-202Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 2,
+  "durationMs": 286257,
+  "error": null,
+  "partialErrors": [
+    "NO_FCP: The page did not paint any content. Please ensure you keep the browser window in the foreground during the load and try again. (NO_FCP)"
+  ],
+  "variance": {
+    "min": 52,
+    "max": 57,
+    "spread": 5,
+    "runs": 2
+  },
+  "lab": {
+    "requestedUrl": "https://erickdavid.net/",
+    "finalUrl": "https://ed.ponce.info/",
+    "redirect": {
+      "from": "https://erickdavid.net/",
+      "to": "https://ed.ponce.info/",
+      "chain": [
+        {
+          "url": "https://erickdavid.net/",
+          "status": 301
+        },
+        {
+          "url": "https://ed.ponce.info/",
+          "status": 200
+        }
+      ],
+      "statuses": [
+        301
+      ],
+      "change": "host",
+      "permanent": true,
+      "schemeUpgrade": false,
+      "hops": 1
+    },
+    "statusCode": "ok",
+    "scores": {
+      "performance": 52,
+      "accessibility": 84,
+      "best-practices": 100,
+      "seo": 100,
+      "agentic-browsing": 50
+    },
+    "timings": {
+      "fcp": 2766,
+      "lcp": 2766,
+      "si": 30242,
+      "tbt": 11709,
+      "tti": 14675,
+      "cls": 0,
+      "ttfb": 803,
+      "maxPotentialFid": 10000,
+      "serverResponseTime": 338,
+      "networkRtt": 76.8,
+      "networkServerLatency": 131.9
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 803.2,
+      "elementRenderDelay": 374.2
+    },
+    "weight": {
+      "total": 528590,
+      "requests": 67,
+      "mainDocument": 94777,
+      "byType": {
+        "total": {
+          "bytes": 527617,
+          "requests": 59
+        },
+        "media": {
+          "bytes": 265642,
+          "requests": 1
+        },
+        "image": {
+          "bytes": 155296,
+          "requests": 50
+        },
+        "document": {
+          "bytes": 94777,
+          "requests": 1
+        },
+        "stylesheet": {
+          "bytes": 9273,
+          "requests": 4
+        },
+        "script": {
+          "bytes": 2528,
+          "requests": 2
+        },
+        "other": {
+          "bytes": 101,
+          "requests": 1
+        },
+        "font": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 421039,
+          "requests": 52
+        }
+      },
+      "scripts": 2,
+      "stylesheets": 4,
+      "fonts": 0
+    },
+    "thirdParty": {
+      "count": 2,
+      "bytes": 528489,
+      "mainThreadMs": 34.6,
+      "top": [
+        {
+          "entity": "sanity.io",
+          "bytes": 420938,
+          "mainThreadMs": 0
+        },
+        {
+          "entity": "ponce.info",
+          "bytes": 107551,
+          "mainThreadMs": 34.6
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 90147,
+      "byGroup": {
+        "styleLayout": 89065.6,
+        "other": 810.7,
+        "scriptEvaluation": 121,
+        "parseHTML": 103.7,
+        "paintCompositeRender": 43.2,
+        "scriptParseCompile": 2.8
+      },
+      "bootupMs": 115,
+      "longTasks": 6,
+      "longestTaskMs": 10000
+    },
+    "dom": {
+      "elements": 3527,
+      "depth": 10,
+      "maxChildren": 40
+    },
+    "waste": {
+      "unusedJsBytes": 0,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 0,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 0,
+      "renderBlockingCount": 4,
+      "poorlyCachedBytes": 0,
+      "poorlyCachedCount": 0
+    },
+    "accessibility": {
+      "failingCount": 4,
+      "applicableCount": 30,
+      "failingNodes": 10,
+      "failing": [
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "nodes": 5
+        },
+        {
+          "id": "target-size",
+          "title": "Touch targets do not have sufficient size or spacing.",
+          "nodes": 3
+        },
+        {
+          "id": "aria-command-name",
+          "title": "`button`, `link`, and `menuitem` elements do not have accessible names.",
+          "nodes": 1
+        },
+        {
+          "id": "meta-viewport",
+          "title": "`[user-scalable=\"no\"]` is used in the `<meta name=\"viewport\">` element or the `[maximum-scale]` attribute is less than 5.",
+          "nodes": 1
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 1005.2,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 39
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2325,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-08-28T23:29:34.179Z",
+      "runtimeMs": 64393.2
+    }
+  },
+  "field": null,
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": {
+      "id": "eleventy",
+      "name": "Eleventy",
+      "icon": "Eleventy",
+      "version": "3.1.6",
+      "source": "meta",
+      "raw": "Eleventy v3.1.6"
+    },
+    "interstitial": null,
+    "host": {
+      "id": "self-hosted",
+      "name": "Self-hosted",
+      "icon": null,
+      "detail": "OpenResty",
+      "detailIcon": null,
+      "source": "server"
+    },
+    "headers": {
+      "server": "openresty"
+    },
+    "violations": 12,
+    "passes": 2506,
+    "incomplete": 97,
+    "violationRules": 8,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 5,
+        "help": "Elements must meet minimum color contrast ratio thresholds"
+      },
+      {
+        "id": "aria-allowed-role",
+        "impact": "minor",
+        "nodes": 1,
+        "help": "ARIA role should be appropriate for the element"
+      },
+      {
+        "id": "aria-command-name",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "ARIA commands must have an accessible name"
+      },
+      {
+        "id": "landmark-banner-is-top-level",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Banner landmark should not be contained in another landmark"
+      },
+      {
+        "id": "landmark-no-duplicate-banner",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Document should not have more than one banner landmark"
+      },
+      {
+        "id": "landmark-unique",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination"
+      },
+      {
+        "id": "meta-viewport",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Zooming and scaling must not be disabled"
+      },
+      {
+        "id": "scrollable-region-focusable",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "Scrollable region must have keyboard access"
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
