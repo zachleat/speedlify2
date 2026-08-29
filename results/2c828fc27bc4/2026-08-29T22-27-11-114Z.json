@@ -1,0 +1,235 @@
+{
+  "url": "https://ninerakes.com/",
+  "name": "ninerakes.com",
+  "group": "11ty-community",
+  "groupName": "Built Awesome",
+  "timestamp": 1788042431114,
+  "date": "2026-08-29T22:27:11.114Z",
+  "runId": "2026-08-29T22-23-03-118Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 1,
+  "durationMs": 16747,
+  "error": null,
+  "partialErrors": [
+    "ERRORED_DOCUMENT_REQUEST: Lighthouse was unable to reliably load the page you requested. Make sure you are testing the correct URL and that the server is properly responding to all requests. (Status code: 429)",
+    "ERRORED_DOCUMENT_REQUEST: Lighthouse was unable to reliably load the page you requested. Make sure you are testing the correct URL and that the server is properly responding to all requests. (Status code: 429)"
+  ],
+  "variance": null,
+  "lab": {
+    "requestedUrl": "https://ninerakes.com/",
+    "finalUrl": "https://www.ninerakes.com/",
+    "redirect": {
+      "from": "https://ninerakes.com/",
+      "to": "https://www.ninerakes.com/",
+      "chain": [
+        {
+          "url": "https://ninerakes.com/",
+          "status": 307
+        },
+        {
+          "url": "https://www.ninerakes.com/",
+          "status": 200
+        }
+      ],
+      "statuses": [
+        307
+      ],
+      "change": "host",
+      "permanent": false,
+      "schemeUpgrade": false,
+      "hops": 1
+    },
+    "statusCode": "ok",
+    "scores": {
+      "performance": 98,
+      "accessibility": 83,
+      "best-practices": 100,
+      "seo": 100,
+      "agentic-browsing": 100
+    },
+    "timings": {
+      "fcp": 1540,
+      "lcp": 2317,
+      "si": 1540,
+      "tbt": 0,
+      "tti": 2317,
+      "cls": 0,
+      "ttfb": 611,
+      "maxPotentialFid": 47,
+      "serverResponseTime": 3,
+      "networkRtt": 0.1,
+      "networkServerLatency": 22.9
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 14.5,
+      "elementRenderDelay": 82.3
+    },
+    "weight": {
+      "total": 72548,
+      "requests": 10,
+      "mainDocument": 3757,
+      "byType": {
+        "total": {
+          "bytes": 69198,
+          "requests": 9
+        },
+        "script": {
+          "bytes": 55448,
+          "requests": 4
+        },
+        "stylesheet": {
+          "bytes": 9477,
+          "requests": 2
+        },
+        "document": {
+          "bytes": 3757,
+          "requests": 1
+        },
+        "image": {
+          "bytes": 435,
+          "requests": 1
+        },
+        "other": {
+          "bytes": 81,
+          "requests": 1
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "font": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 12738,
+          "requests": 3
+        }
+      },
+      "scripts": 4,
+      "stylesheets": 2,
+      "fonts": 0
+    },
+    "thirdParty": {
+      "count": 2,
+      "bytes": 12738,
+      "mainThreadMs": 2.5,
+      "top": [
+        {
+          "entity": "JSDelivr CDN",
+          "bytes": 9547,
+          "mainThreadMs": 0.9
+        },
+        {
+          "entity": "Fathom Analytics",
+          "bytes": 3191,
+          "mainThreadMs": 1.6
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 243.1,
+      "byGroup": {
+        "other": 85.2,
+        "scriptEvaluation": 62,
+        "styleLayout": 54.8,
+        "scriptParseCompile": 23.6,
+        "parseHTML": 9.1,
+        "paintCompositeRender": 8.4
+      },
+      "bootupMs": 14.8,
+      "longTasks": 0,
+      "longestTaskMs": null
+    },
+    "dom": {
+      "elements": 90,
+      "depth": 10,
+      "maxChildren": 8
+    },
+    "waste": {
+      "unusedJsBytes": 0,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 0,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 7170,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 0,
+      "renderBlockingCount": 2,
+      "poorlyCachedBytes": 954.6999999999998,
+      "poorlyCachedCount": 1
+    },
+    "accessibility": {
+      "failingCount": 2,
+      "applicableCount": 11,
+      "failingNodes": 2,
+      "failing": [
+        {
+          "id": "meta-viewport",
+          "title": "`[user-scalable=\"no\"]` is used in the `<meta name=\"viewport\">` element or the `[maximum-scale]` attribute is less than 5.",
+          "nodes": 1
+        },
+        {
+          "id": "landmark-one-main",
+          "title": "Document does not have a main landmark.",
+          "nodes": 1
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 758.5,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 10
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2424,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-08-29T22:27:21.127Z",
+      "runtimeMs": 5921.8
+    }
+  },
+  "field": null,
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "interstitial": null,
+    "host": {
+      "id": "vercel",
+      "name": "Vercel",
+      "icon": "Vercel",
+      "source": "x-vercel-id"
+    },
+    "headers": {
+      "server": "Vercel",
+      "x-vercel-id": "iad1::1788042446-nJ9B1jL8PmRqZeSvkWJGPDFoh84pRioi"
+    },
+    "violations": 1,
+    "passes": 39,
+    "incomplete": 0,
+    "violationRules": 1,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "page-has-heading-one",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Page should contain a level-one heading"
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
