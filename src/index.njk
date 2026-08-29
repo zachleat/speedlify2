@@ -153,7 +153,7 @@ permalink: /index.html
 			<span class="head-count" title="{{ shown.length | num }} of {{ sites.stats.measured | num }} measured {{ sites.stats.measured | plural('site') }} score {{ perfectTotal }} with nothing amber or red beside it">{{ shown.length | num }} {{ shown.length | plural('site') }}</span>
 		</h2>
 		<p class="muted">
-			These websites score {{ perfectTotal }} in all {{ metrics.SCORES.length }} Lighthouse categories, have no Axe CLI violations, and have passing or unknown Core Web Vital. Tiebreakers on Speed Index per KB, plus TTFB and blocking time — a heavy site outranks an empty site.
+			These websites score {{ perfectTotal }} in all {{ metrics.SCORES.length }} Lighthouse categories, have no Axe CLI violations, and have passing (or unknown) Core Web Vitals. Tiebreakers on Speed Index per KB, plus TTFB and blocking time — a heavy site outranks an empty site.
 		</p>
 		{#
 			Stated rather than left to be noticed. A starter is a near-empty
