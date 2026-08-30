@@ -192,17 +192,29 @@ pre code { font-size: inherit; }
 .hero h1 { font-size: clamp(1.6rem, 4vw, 2.2rem); margin: 0 0 0.4rem; letter-spacing: -0.02em; }
 .lede { color: var(--text-muted); max-width: 62ch; margin: 0; }
 
+/*
+ * One row that scrolls sideways, at every width.
+ *
+ * Eight tiles never fit a line, so wrapping meant two or three rows of cards
+ * above the leaderboard on a desktop and eight of them on a phone. Scrolling is
+ * the same shape at every size, and a card cut off at the right edge says there
+ * is more without needing a control to say so.
+ *
+ * The negative margin cancels the page gutter so the track reaches the viewport
+ * edge; the smaller padding inside sets the cards a little further out than the
+ * text above them, which buys width on the screens that need it.
+ */
 .statbar {
 	display: flex;
-	/* Without this the tiles all crush onto one line — flex does not wrap by
-	   default the way an auto-fill grid does. */
-	flex-wrap: wrap;
+	flex-wrap: nowrap;
+	overflow-x: auto;
 	gap: 0.75rem;
 	margin-bottom: 2.5rem;
-	/* Matching .table-scroll and the sticky nav, so the tiles' outer edges line
-	   up with the tables and cards further down rather than sitting inside them
-	   by the width of a cell's padding. */
-	margin-inline: calc(-1 * var(--page-gutter-padding));
+	margin-inline: calc(-1 * var(--page-gutter));
+	padding-inline: var(--page-gutter-padding);
+	/* Full height, so the cards read as one row rather than a ragged line of
+	   different-sized boxes. */
+	align-items: stretch;
 }
 .stat {
 	/* Grow and shrink around a 14em basis, so a row of tiles fills the width
@@ -223,17 +235,13 @@ pre code { font-size: inherit; }
  * width than the other tiles and does not want their vertical rhythm — the
  * rings carry their own.
  */
-.stat-rings { grid-column: span 2; }
-/* Two labeled rows in one tile, so the median and the mean read as the same
-   six measurements taken two ways rather than as separate statistics. */
-.ring-row + .ring-row { margin-top: 0.2rem; }
 .ring-row .rings { margin-bottom: 0.2rem; }
-.stat-sub-note { margin: 0.4rem 0 0; }
 
-/* Below the point where two tile columns fit, spanning two is spanning the
-   whole row anyway — but the rings still have to be allowed to wrap. */
+/* Six rings do not fit a narrow card in one line. Targeted at the row itself
+   rather than the tile that used to hold it — the rings moved into the Perfect
+   scores card, and the old `.stat-rings` selector went with the tile. */
 @media (max-width: 32rem) {
-	.stat-rings .rings { flex-wrap: wrap; row-gap: 0.3rem; }
+	.ring-row .rings { flex-wrap: wrap; row-gap: 0.3rem; }
 }
 /* The margin gives whatever follows — a sub-figure, a sparkline, the mean row —
    room to sit apart from the label rather than crowding under it. Harmless on
@@ -254,7 +262,6 @@ pre code { font-size: inherit; }
 	gap: 0.3rem;
 	margin: 0.5rem 0 0;
 	font-size: 0.95rem;
-	font-weight: 650;
 	font-variant-numeric: tabular-nums;
 	color: var(--text-muted);
 }
@@ -1103,10 +1110,37 @@ th.col-trend { text-align: center !important; }
    The screenshot is a banner crop: the tile is a few hundred pixels wide, and a
    whole page scaled into that is a gray rectangle — the top of the page is the
    part anyone recognizes. */
-.sotd-shot { display: block; line-height: 0; margin: 0.15rem 0 0.5rem; }
+/*
+ * The screenshot takes whatever height the card has left.
+ *
+ * Cards in the bar stretch to the tallest of them, and this one is shorter than
+ * the Perfect scores card beside it — so a fixed 10rem image left a band of
+ * empty tile below the rings. A flex column with the shot as the growing child
+ * hands that space to the only thing here that can use it.
+ *
+ * The floor matters: on a narrow viewport this card is the tallest, nothing is
+ * left over to grow into, and without a minimum the image would collapse to
+ * whatever `object-fit` could get away with.
+ */
+.stat-sotd {
+	display: flex;
+	flex-direction: column;
+}
+
+.sotd-shot {
+	display: block;
+	line-height: 0;
+	margin: 0.15rem 0 0.5rem;
+	min-height: 10rem;
+}
+
 .sotd-shot img {
 	width: 100%;
-	height: 10rem;
+	height: 100%;
+	/* A ceiling as well as a floor. Growing without one made this card the tallest
+	   in the bar, so the image was setting the height it was meant to be filling
+	   and every other card gained a hundred pixels of empty space to match. */
+	max-height: 17.5em;
 	object-fit: cover;
 	object-position: top center;
 	border-radius: 5px;
@@ -1129,43 +1163,6 @@ th.col-trend { text-align: center !important; }
    ignores `width: min-content` on a cell, so the count column got half the tile
    for three digits. Auto plus the `width: 1%` below is the idiom that actually
    shrinks a column to its contents. */
-.stat-tally {
-	width: 100%;
-	border-collapse: collapse;
-	margin: 0.15rem 0 0;
-	font-variant-numeric: tabular-nums;
-}
-
-/* Marks and name on one line, with the icons aligned to the text rather than
-   sitting on the baseline and pushing the row taller. */
-.stat-tally th {
-	display: flex;
-	align-items: center;
-	gap: 0.3rem;
-	text-align: left;
-	font-weight: 500;
-	font-size: 0.82rem;
-	color: var(--text-muted);
-	padding: 0.08rem 0;
-}
-
-/* The max-width is what lets the ellipsis fire. Without it the table's
-   min-content width is the full name, and a table in auto layout will not
-   shrink below that — so the tile overflowed rather than truncating. Capping
-   the name gives the table a smaller minimum to collapse to. */
-.stat-tally-name { max-width: 8rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-
-/* 1% is not a real width — it is under any content's minimum, so the column
-   collapses to exactly what the number needs and the name column takes the
-   rest. `nowrap` stops a long count wrapping to make itself narrower still. */
-.stat-tally td {
-	width: 1%;
-	white-space: nowrap;
-	text-align: right;
-	font-weight: 700;
-	font-size: 0.9rem;
-	padding: 0.08rem 0;
-}
 
 /* A number and its trend on one line, so the sparkline reads as belonging to
    the figure rather than as a second statistic under it. */
@@ -1174,6 +1171,43 @@ th.col-trend { text-align: center !important; }
 	align-items: baseline;
 	justify-content: space-between;
 	gap: 0.6rem;
+	/* The figure is the card's opening statement; whatever follows should not
+	   start against it. */
+	margin-bottom: 0.35rem;
+}
+
+/*
+ * A headline whose label shares the line with its figure.
+ *
+ * Top-aligned rather than on the baseline: the figure is twice the label's size,
+ * so sharing a baseline dropped the label to the bottom of a tall row and left
+ * it looking like a caption under nothing. Aligned to the top it reads as the
+ * heading it is.
+ */
+.stat-headline-inline {
+	align-items: start;
+}
+
+/* The bottom margin is for the block layout this label normally sits in; on a
+   single row it only adds height below the text. */
+.stat-headline-inline .stat-label {
+	margin-bottom: 0;
+}
+
+/*
+ * Pushed right, and set as one unbreakable figure so "147" and "/1,516" cannot
+ * land on different lines when the card is narrow.
+ *
+ * `line-height: 1` is what actually top-aligns it. Both boxes already started at
+ * the same y, but the figure's inherited 1.5 line-height left a band of empty
+ * space above its digits, so the number read as sitting lower than the label
+ * beside it. Hugging the glyphs puts the two at the same height rather than
+ * merely in the same box.
+ */
+.stat-headline-inline .stat-value {
+	margin-left: auto;
+	white-space: nowrap;
+	line-height: 1;
 }
 .stat-headline .stat-spark { flex: none; align-self: center; }
 
@@ -1245,11 +1279,9 @@ th.col-trend { text-align: center !important; }
 	margin-bottom: 0.15rem;
 }
 
-/* The second heading needs air above it, or it reads as a caption belonging to
-   the chart above rather than a title for the one below. */
-.stat-chart-item + .stat-chart-item .stat-chart-label {
-	margin-top: 0.7rem;
-}
+/* The second chart's heading is covered by the shared rule above, via the
+   `.stat-chart-item` selector — it is the first child of its own wrapper, so the
+   label-level `:not(:first-child)` alone would never match it. */
 
 /* The scatter thumbnail in the stat bar. The link wraps both the picture and
    its note so the whole tile is one target, and the dots take their colors from
@@ -1261,9 +1293,13 @@ th.col-trend { text-align: center !important; }
 	text-decoration: none;
 }
 
+/* 15em is the viewBox's own 240px, so the thumbnail renders at the size it was
+   laid out for rather than being scaled to whatever the card happens to be.
+   Capped at the card's width so a narrow card shrinks it rather than clipping. */
 .stat-chart svg {
 	display: block;
-	width: 100%;
+	width: 15em;
+	max-width: 100%;
 	height: auto;
 }
 
@@ -1404,33 +1440,138 @@ th.col-trend { text-align: center !important; }
 }
 
 /*
- * Narrow: scroll the bar sideways rather than wrapping it.
+ * Each card as wide as its contents want, between bounds — not all of them
+ * pinned to one width.
  *
- * Wrapping turned eight tiles into eight stacked rows and pushed the leaderboard
- * — the thing the page is for — most of a screen down. Scrolling keeps the bar
- * one line tall at any width, and a tile cut off at the right edge says there is
- * more without needing a control to say it.
+ * Measured: the sparkline and histogram tiles ask for about 10em, while
+ * Recently Measured and the score rings ask for over 20em. One width for all of
+ * them meant either squeezing the URLs to a single letter or giving a lone
+ * histogram twice the room it uses, and across eight cards the waste is most of
+ * a screen of scrolling.
  *
- * The same pull-out margins as `.table-scroll`, with matching padding inside so
- * the first and last tiles clear the screen edge rather than butting against it.
+ * The floor keeps a narrow card from becoming a sliver; the ceiling stops a
+ * greedy one taking the whole viewport and hiding that there are others.
  */
-@media (width < 700px) {
-	.statbar {
-		flex-wrap: nowrap;
-		overflow-x: auto;
-		margin-inline: calc(-1 * var(--page-gutter));
-		padding-inline: var(--page-gutter-padding);
-		align-items: stretch;
-	}
+.statbar > .stat {
+	/* Grow, but never shrink. Where the cards do not fill the row they share the
+	   slack out instead of leaving a gap at the end; where they overflow, growth
+	   has nothing to give and the row scrolls as before. */
+	flex: 1 0 auto;
+	min-width: 14em;
+	max-width: min(20em, 78vw);
+}
 
-	.statbar > .stat {
-		flex: 0 0 clamp(14em, 78vw, 20em);
-	}
+/* The chart card sizes to its contents, which runs wider than a tile. */
+.statbar > .stat-plot {
+	flex: 0 0 auto;
+	max-width: 18em;
+}
 
-	.statbar > .stat-plot {
-		flex: 0 0 auto;
-		max-width: 18em;
-	}
+/* The line under a histogram naming its denominator. Quieter than the ticks,
+   which are labels for the bars; this is a note about the whole chart. */
+.stat-sub {
+	margin: 0.1rem 0 0;
+	color: var(--text-muted);
+	font-size: 0.72rem;
+	line-height: 1.4;
+}
+
+/*
+ * The verdict histograms are shorter than the distribution ones.
+ *
+ * Three of them stack in the Perfect scores card, under the rings and the
+ * generator pills — at the full 52px they made that card the tallest in the bar
+ * and every other card grew to match. Three or four bars need less height than a
+ * seven-bucket distribution to be read anyway: the comparison is between a
+ * handful of columns, not across a curve.
+ *
+ * Qualified with `.histogram` so this wins on weight rather than on being lower
+ * in the file than the rule it overrides.
+ */
+.histogram.histogram-tiers {
+	height: 28px;
+}
+
+/* 16px of bar. Three or four columns whose heights differ by tens of percent
+   are still legible at this size — the shortest bar in either chart is Bad at
+   4% of the tallest, and 1px of it still reads as "almost none". */
+.histogram-tiers .histogram-track {
+	height: 16px;
+}
+
+/*
+ * The four quality bars, coloured by the verdict each stands for rather than by
+ * the accent the other histograms use — these are the same green, amber and red
+ * as the rings, and painting them one colour would throw away the only thing
+ * that makes the shape readable at a glance.
+ *
+ * Perfect is green too, one step deeper: it is a subset of all-green, not a
+ * different kind of result, and a fifth hue would imply otherwise.
+ *
+ * Written as `.histogram-bar.histogram-bar-*` rather than the modifier alone.
+ * Both carry one class's weight and `.histogram-bar` is declared further down
+ * the file, so the bare selector lost every one of these to the accent it sets —
+ * four bars, all blue. Qualifying settles it by weight instead of by which rule
+ * happens to sit lower.
+ */
+/*
+ * A bar that is divided rather than solid. Its own background is dropped so the
+ * segments show through, and the rounded top is clipped from the container so
+ * the topmost segment inherits it rather than poking out square.
+ */
+.histogram-bar.histogram-bar-green {
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	/* Qualified, like the colour rules below: `.histogram-bar` sets an accent
+	   background further down the file, and an unqualified selector here loses to
+	   it — the container kept its own fill and showed through as blue. */
+	background: none;
+}
+
+.histogram-seg {
+	display: block;
+	width: 100%;
+}
+
+/*
+ * Perfect carries a faint noise over its green.
+ *
+ * The two greens in the stacked bar are close by design — perfect is a subset of
+ * passing, not a different verdict — but close colours are hard to tell apart in
+ * a 27px segment. Texture separates them without introducing a hue that would
+ * imply a different kind of result.
+ *
+ * An inline SVG turbulence rather than an image file: it costs no request, and
+ * the alternative of a repeating gradient reads as stripes at this size rather
+ * than as grain. `background-color` and `background-image` are set separately so
+ * the colour still comes from the same `color-mix` and the noise sits over it.
+ */
+.histogram-bar.histogram-bar-perfect,
+.histogram-seg.histogram-bar-perfect {
+	background-color: color-mix(in srgb, var(--good) 78%, var(--text));
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='60' height='60' filter='url(%23n)' opacity='0.28'/%3E%3C/svg%3E");
+}
+
+.histogram-bar.histogram-bar-good,
+.histogram-seg.histogram-bar-good {
+	background: var(--good);
+}
+
+.histogram-bar.histogram-bar-warn {
+	background: var(--average);
+}
+
+.histogram-bar.histogram-bar-bad {
+	background: var(--poor);
+}
+
+/* No verdict, so no colour from the scale — the same neutral the gray rings use
+   for a Core Web Vital CrUX has never sampled. It sits at the end of the row
+   rather than among the four, because it is not a worse result than red; it is
+   not a result. */
+.histogram-bar.histogram-bar-unknown {
+	background: color-mix(in srgb, var(--text-muted) 45%, transparent);
 }
 
 /* ----------------------------------------------------------------- recents */
@@ -1491,38 +1632,6 @@ th.col-trend { text-align: center !important; }
 	color: var(--text-muted);
 }
 
-/* ---------------------------------------------------------------- verdicts */
-
-/* The three Core Web Vitals outcomes as a small table. Color carries the
-   verdict, so the label is not the only thing distinguishing the rows — but
-   the words are there too, because color alone is not a distinction. */
-.verdicts {
-	width: 100%;
-	border-collapse: collapse;
-	/* The heading sits above this table rather than under a value, and brings
-	   its own bottom margin, so the table starts flush. */
-	margin: 0 0 0.1rem;
-	font-variant-numeric: tabular-nums;
-}
-
-.verdicts th {
-	text-align: left;
-	font-weight: 500;
-	font-size: 0.82rem;
-	padding: 0.1rem 0;
-}
-
-.verdicts td {
-	text-align: right;
-	font-weight: 700;
-	font-size: 0.95rem;
-	padding: 0.1rem 0;
-}
-
-.verdict-good th, .verdict-good td { color: var(--good); }
-.verdict-poor th, .verdict-poor td { color: var(--poor-text); }
-.verdict-none th, .verdict-none td { color: var(--text-muted); }
-
 /* --------------------------------------------------------------- histogram */
 
 /* Page weight across the fleet, as a shape. Small on purpose — it sits in a
@@ -1561,13 +1670,56 @@ th.col-trend { text-align: center !important; }
 /* The second histogram in the same tile, so it reads as a different measure
    rather than more of the first. */
 .histogram-bar-script { background: var(--lcp-load-delay); }
+/* Third party sits between the script and LCP bars in this card and needs to be
+   told apart from both. Mixing toward the muted gray was not enough — at 55% it
+   still read as the same purple as the scripts above it — so it takes the amber
+   the rest of the site uses for third-party cost. */
+.histogram-bar-thirdparty { background: color-mix(in srgb, var(--average) 70%, var(--text-muted)); }
 /* A third measure in the same card, so a third color — the teal from the LCP
    phase ramp, since this is the metric those phases add up to. */
 .histogram-bar-lcp { background: var(--lcp-load-duration); }
 
 /* A heading inside a card that already has one. Smaller and spaced above, so it
    divides the tile instead of competing with the label at the top. */
-.stat-label-sub { margin-top: 0.6rem; font-size: 0.7rem; }
+/*
+ * A heading that follows other content needs air above it; one that opens a card
+ * does not. The second selector catches the row-wrapped case — the median rings
+ * put their label inside `.ring-row`, so it is the first child of that and the
+ * rule on the label alone would never see it.
+ *
+ * One rule rather than a margin per label class, which is how the sub-headings
+ * and the chart headings ended up with three different values for the same gap.
+ */
+.stat-label:not(:first-child),
+.ring-row:not(:first-child) .stat-label,
+.stat-chart-item:not(:first-child) .stat-label {
+	margin-top: 0.7rem;
+}
+
+.stat-label-sub { font-size: 0.7rem; }
+
+/*
+ * How many things the section below is counting, on the heading itself.
+ *
+ * Each of these three headings sits over a different denominator — 1,516 sites,
+ * 7,811 circles, 254 sites with field data — and reading them stacked in one
+ * card without that stated invites the assumption they share one. Reuses `.tag`
+ * so it matches the pills elsewhere on the site.
+ */
+/*
+ * Leading, not trailing. A trailing multiplication sign already means a ratio on
+ * this site — the lab-versus-field column reads "1.2×" — so "1,516×" here would
+ * read as a comparison rather than a quantity.
+ */
+.stat-count {
+	margin-left: 0.3rem;
+	font-variant-numeric: tabular-nums;
+	/* The heading is uppercase and tracked; the count is a number and should be
+	   neither. */
+	text-transform: none;
+	letter-spacing: 0;
+	vertical-align: 0.05em;
+}
 
 .histogram-tick {
 	font-size: 0.52rem;

@@ -20,81 +20,6 @@
 {% macro statbar(stats, metrics, siteOfTheDay=null, screenshotService=null) %}
 <section class="statbar">
 	{#
-		Six medians, each computed on its own column — so this is a summary of the
-		fleet rather than a portrait of any one site, and no site necessarily has
-		this exact row.
-
-		The Core Web Vitals ring rests on far fewer sites than the other five,
-		since most of this corpus is too small for CrUX to sample. Its own tooltip
-		says how many rather than letting the row imply they are all equally
-		grounded.
-	#}
-	{#
-		Both rows, because they disagree and the disagreement is the point: the
-		median says what the middle site scores, the mean is dragged by a long
-		tail. Across the whole fleet that is 98 against 90 for performance, and 2
-		against 13 for axe violations — one row alone would be a different claim.
-	#}
-	<div class="stat stat-rings">
-		<div class="ring-row">
-			<span class="stat-label">Median scores</span>
-			<span class="rings">
-				{% for score in metrics.SCORES %}
-				{% scoreRing stats.medians.scores[score.key], "Median " + score.label %}
-				{% endfor %}
-				{% axeRing stats.medians.axe, 37, "Median axe violations: " + (stats.medians.axe | default("no data")) + ", across " + (stats.medians.counts.axe | num) + " sites" %}
-				{% cwvRing stats.medians.cwvFailures, null, 37, "Median Core Web Vitals: " + (stats.medians.cwvFailures | default("no data")) + " failing, across " + (stats.medians.counts.cwv | num) + " sites with real-user data" %}
-			</span>
-		</div>
-		<div class="ring-row">
-			<span class="stat-label">Mean scores</span>
-			<span class="rings">
-				{% for score in metrics.SCORES %}
-				{% scoreRing stats.means.scores[score.key], "Mean " + score.label %}
-				{% endfor %}
-				{% axeRing stats.means.axe, 37, "Mean axe violations: " + (stats.means.axe | default("no data")) + " per site, rounded, across " + (stats.means.counts.axe | num) + " sites" %}
-				{% cwvRing stats.means.cwvFailures, null, 37, "Mean Core Web Vitals: " + (stats.means.cwvFailures | default("no data")) + " failing per site, rounded, across " + (stats.means.counts.cwv | num) + " sites with real-user data" %}
-			</span>
-		</div>
-		<p class="stat-sub-note muted small">
-			Across {{ stats.medians.counts.scores | num }} sites.
-			<span title="Only sites CrUX has real-user data for can have a Core Web Vitals figure at all">Core Web Vitals across {{ stats.medians.counts.cwv | num }} sites.</span>
-		</p>
-	</div>
-	{% if stats.recentlyMeasured.length %}
-	<div class="stat">
-		{#
-			What the measurement loop has just done. Everything else on this bar is
-			a state of the corpus; this is the only thing that shows it moving.
-		#}
-		<span class="stat-label">Recently measured</span>
-		<ol class="recents">
-			{% for site in stats.recentlyMeasured %}
-			<li>
-				<a href="/site/{{ site.slug }}/">{{ site.displayUrl }}</a>
-				{#
-					The six rings reduced to their colors — the shape of that run at a
-					glance, in the width a number would need. Decorative on purpose:
-					the link beside it goes to the page with the actual figures, and
-					six unlabeled colors read aloud would be noise.
-				#}
-				{#
-					The span stays even when a run produced no bands at all. The row is
-					a three-column grid, and dropping a child moves the age into the
-					middle column, where the gap before the empty third one holds it
-					half a rem off the right edge — so that row would sit out of line
-					with the rest.
-				#}
-				<span class="recents-dots" aria-hidden="true">
-					{% for band in site.bands %}<span class="recents-dot recents-dot-{{ band }}"></span>{% endfor %}
-				</span>
-				<span class="recents-age"><time datetime="{{ site.timestamp | iso }}">{{ site.timestamp | since }}</time></span>
-			</li>
-			{% endfor %}
-		</ol>
-	</div>
-	{% endif %}
-	{#
 		One of the perfect scores, held for the whole UTC day. Every eligible site
 		is featured once before any is featured twice — see siteOfTheDay in
 		lib/report.js. A picture rather than a row, because the leaderboard below
@@ -106,7 +31,7 @@
 	#}
 	{% if siteOfTheDay %}
 	{% set sotd = siteOfTheDay.entry %}
-	<div class="stat">
+	<div class="stat stat-sotd">
 		<span class="stat-label">Perfect site of the day</span>
 		{#
 			Our own capture first: the same page load that produced the scores under
@@ -142,6 +67,51 @@
 		</span>
 	</div>
 	{% endif %}
+
+	{% if stats.recentlyMeasured.length %}
+	<div class="stat">
+		{#
+			What the measurement loop has just done. Everything else on this bar is
+			a state of the corpus; this is the only thing that shows it moving.
+		#}
+		<span class="stat-label">Recently measured</span>
+		<ol class="recents">
+			{% for site in stats.recentlyMeasured %}
+			<li>
+				<a href="/site/{{ site.slug }}/">{{ site.displayUrl }}</a>
+				{#
+					The six rings reduced to their colors — the shape of that run at a
+					glance, in the width a number would need. Decorative on purpose:
+					the link beside it goes to the page with the actual figures, and
+					six unlabeled colors read aloud would be noise.
+				#}
+				{#
+					The span stays even when a run produced no bands at all. The row is
+					a three-column grid, and dropping a child moves the age into the
+					middle column, where the gap before the empty third one holds it
+					half a rem off the right edge — so that row would sit out of line
+					with the rest.
+				#}
+				<span class="recents-dots" aria-hidden="true">
+					{% for band in site.bands %}<span class="recents-dot recents-dot-{{ band }}"></span>{% endfor %}
+				</span>
+				<span class="recents-age"><time datetime="{{ site.timestamp | iso }}">{{ site.timestamp | since }}</time></span>
+			</li>
+			{% endfor %}
+		</ol>
+	</div>
+	{% endif %}
+
+	{#
+		Six medians, each computed on its own column — so this is a summary of the
+		fleet rather than a portrait of any one site, and no site necessarily has
+		this exact row.
+
+		The Core Web Vitals ring rests on far fewer sites than the other five,
+		since most of this corpus is too small for CrUX to sample. Its own tooltip
+		says how many rather than letting the row imply they are all equally
+		grounded.
+	#}
 	{#
 		Two verdicts on the same fleet, in one card. They answer the same question
 		from opposite ends — how many sites clear every bar, and how the rest
@@ -167,6 +137,38 @@
 		— two 240px charts in a row need a card twice the width of every other tile
 		on the bar, and one of them would have been the odd shape out.
 	#}
+	{#
+		A banded distribution: one bar per verdict, over the sites that have one.
+
+		Three of these now — performance, axe, Core Web Vitals — so it is a macro
+		rather than a fourth copy of the same twenty lines. A bar may carry
+		`segments`, in which case it is one column divided rather than several
+		stacked beside each other; the segment heights are shares of that bar and
+		the bar's height is its share of the tallest.
+	#}
+	{% macro tierbars(tiers, label) %}
+	{% if tiers and tiers.rated %}
+	<span class="stat-label">{{ label }} <span class="tag stat-count">&times;{{ tiers.rated | num }}</span></span>
+	{% set tierMax = tiers.bars | maxValue("count") %}
+	<span class="histogram histogram-tiers" role="img"
+		aria-label="{{ label }} across {{ tiers.rated | num }} sites{% for b in tiers.bars %}. {{ b.tick }}, {{ b.label }}: {{ b.count | num }}{% endfor %}">
+		{% for b in tiers.bars %}
+		<span class="histogram-col" title="{{ b.tick }} — {{ b.label }}: {{ b.count | num }} {{ b.count | plural('site') }} ({{ b.share }}%)">
+			<span class="histogram-track">
+				<span class="histogram-bar histogram-bar-{{ b.key }}" style="height:{{ (b.count / tierMax * 100) | round(1) }}%">
+					{%- for seg in b.segments %}
+					<span class="histogram-seg histogram-bar-{{ seg.key }}" style="height:{{ seg.height }}%"
+						title="{{ seg.label }}: {{ seg.count | num }} {{ seg.count | plural('site') }}"></span>
+					{%- endfor %}
+				</span>
+			</span>
+			<span class="histogram-tick">{{ b.tick }}</span>
+		</span>
+		{% endfor %}
+	</span>
+	{% endif %}
+	{% endmacro %}
+
 	{% macro minichart(mini, label, anchor, xTitle, yTitle) %}
 	<div class="stat-chart-item">
 	<span class="stat-label stat-chart-label">{{ label }}</span>
@@ -207,8 +209,13 @@
 	</div>
 	{% endif %}
 	<div class="stat">
-		<span class="stat-label">Perfect {{ stats.perfect | plural("score") }}</span>
-		<span class="stat-headline">
+		{#
+			Label and figure on one line, the figure pushed to the right edge — the
+			card carries four sections now, and a heading that owns a line of its
+			own before its own number made the first of them the tallest.
+		#}
+		<span class="stat-headline stat-headline-inline">
+			<span class="stat-label">Perfect {{ stats.perfect | plural("score") }}</span>
 			<span class="stat-value">{{ stats.perfect | num }}<span class="stat-suffix">/{{ stats.measured | num }}</span></span>
 			{#
 				How the count has moved. Every site, judged on its most recent
@@ -238,48 +245,53 @@
 		#}
 		{% if stats.perfectGenerators.length %}
 		{#
-			`stat-tally` rather than `tally`: that class is the Technology section's
-			card, with its own border and padding, and reusing the name here drew a
-			box around this table and would have reformatted that one.
+			The same pill list the Technology section uses, over the generators that
+			produced a perfect score. A row of pills rather than a two-column table:
+			this is three or four short names and their counts, which reads as a set
+			rather than as a ranking, and it wraps where a table would not.
 		#}
-		<table class="stat-tally">
+		<ul class="tally-list">
 			{% for g in stats.perfectGenerators %}
-			<tr>
-				<th scope="row">
-					{% for mark in g.marks %}{% stackIcon mark, 14 %}{% endfor %}
-					{#- No generator at all is the absence of a value, not a brand
-					    called "None" — italics say so without a second column. #}
-					<span class="stat-tally-name">{% if g.id %}{{ g.name }}{% else %}<em>{{ g.name }}</em>{% endif %}</span>
-				</th>
-				<td title="{{ g.count | num }} of the {{ stats.perfect | num }} perfect {{ stats.perfect | plural('score') }} ({{ (g.count / stats.perfect * 100) | round }}%)">{{ g.count | num }}</td>
-			</tr>
+			<li class="tally-item" title="{{ g.count | num }} of the {{ stats.perfect | num }} perfect {{ stats.perfect | plural('score') }} ({{ (g.count / stats.perfect * 100) | round }}%)">
+				{% for mark in g.marks %}{% stackIcon mark, 14 %}{% endfor %}
+				{#- No generator at all is the absence of a value, not a brand called
+				    "None" — italics say so without a second column. #}
+				<span class="tally-name">{% if g.id %}{{ g.name }}{% else %}<em>{{ g.name }}</em>{% endif %}</span>
+				<span class="tally-count">{{ g.count | num }}</span>
+			</li>
 			{% endfor %}
-		</table>
+		</ul>
 		{% endif %}
 
-		{% if stats.measured %}
-		<span class="stat-label stat-label-sub">Core Web Vitals</span>
 		{#
-			Three states rather than a fraction. "890 of 1,441 passing" implied the
-			other 551 were failing, when almost all of them have no real-user data
-			at all — CrUX only reports sites with enough Chrome traffic, which most
-			of this corpus does not have. Unknown is the majority answer here, and
-			hiding it inside a denominator overstated both of the other two.
+			Each Lighthouse circle as a distribution, banded the way the ring beside
+			every row is banded — so a bar here cannot disagree with the circle it
+			summarizes. Built in lib/report.js.
 		#}
-		<table class="verdicts">
-			<tr class="verdict verdict-good">
-				<th scope="row">Passing</th>
-				<td title="Every Core Web Vital CrUX reports for this site is good at p75">{{ stats.cwvVerdicts.passing | num }}</td>
-			</tr>
-			<tr class="verdict verdict-poor">
-				<th scope="row">Failing</th>
-				<td title="At least one Core Web Vital is not good at p75">{{ stats.cwvVerdicts.failing | num }}</td>
-			</tr>
-			<tr class="verdict verdict-none">
-				<th scope="row">Unknown</th>
-				<td title="Too little Chrome traffic for CrUX to report on — no real-user verdict either way">{{ stats.cwvVerdicts.unknown | num }}</td>
-			</tr>
-		</table>
+
+		{% if stats.measured %}
+		<div class="ring-row">
+			<span class="stat-label">Median scores <span class="tag stat-count">&times;{{ stats.medians.counts.scores | num }}</span></span>
+			<span class="rings">
+				{% for score in metrics.SCORES %}
+				{% scoreRing stats.medians.scores[score.key], "Median " + score.label %}
+				{% endfor %}
+				{% axeRing stats.medians.axe, 37, "Median axe violations: " + (stats.medians.axe | default("no data")) + ", across " + (stats.medians.counts.axe | num) + " sites" %}
+				{% cwvRing stats.medians.cwvFailures, null, 37, "Median Core Web Vitals: " + (stats.medians.cwvFailures | default("no data")) + " failing, across " + (stats.medians.counts.cwv | num) + " sites with real-user data" %}
+			</span>
+		</div>
+
+		{{ tierbars(stats.ringTiers, "Performance") }}
+		{#
+			"Axe", not "Accessibility". Lighthouse has an accessibility category of
+			its own, and its ring is in the median row a few lines above — labelling
+			this one "Accessibility" would put two different measurements under one
+			word inside a single card. The scores are a sampled subset of the rules;
+			this is the full violation count.
+		#}
+		{{ tierbars(stats.axeTiers, "Axe") }}
+
+		{{ tierbars(stats.cwvVerdicts, "Core Web Vitals") }}
 		{% endif %}
 	</div>
 	<div class="stat">
@@ -317,6 +329,25 @@
 			<span class="histogram-col" title="{{ b.label }} — {{ b.count | num }} {{ b.count | plural("site") }} ({{ b.share }}%)">
 				<span class="histogram-track">
 					<span class="histogram-bar histogram-bar-script" style="height:{{ (b.count / scriptMax * 100) | round(1) }}%"></span>
+				</span>
+				<span class="histogram-tick">{{ b.tick }}</span>
+			</span>
+			{% endfor %}
+		</span>
+
+		{#
+			Bytes from somebody else's domain, on the same scale as the two above it.
+			The zero bucket is a real answer here — a third of these sites load
+			nothing third-party at all — rather than a rounding of something small.
+		#}
+		<span class="stat-label stat-label-sub">Third Party Weight</span>
+		{% set thirdPartyMax = stats.thirdPartyBuckets | maxValue("count") %}
+		<span class="histogram" role="img"
+			aria-label="Third party weight distribution across {{ stats.measured | num }} sites{% for b in stats.thirdPartyBuckets %}. {{ b.label }}: {{ b.count | num }}{% endfor %}">
+			{% for b in stats.thirdPartyBuckets %}
+			<span class="histogram-col" title="{{ b.label }} — {{ b.count | num }} {{ b.count | plural("site") }} ({{ b.share }}%)">
+				<span class="histogram-track">
+					<span class="histogram-bar histogram-bar-thirdparty" style="height:{{ (b.count / thirdPartyMax * 100) | round(1) }}%"></span>
 				</span>
 				<span class="histogram-tick">{{ b.tick }}</span>
 			</span>
