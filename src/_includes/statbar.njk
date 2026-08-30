@@ -99,6 +99,29 @@
 			</li>
 			{% endfor %}
 		</ol>
+
+		{#
+			The other half of the same story. The list above says what was measured;
+			this says what changed — a site that was a point short and now is not.
+
+			Kept short and quiet: a footnote to the list it sits under, not a second
+			list competing with it. Absent entirely where nothing has flipped, which is
+			most category pages most days.
+		#}
+		{% if stats.newlyPerfect.length %}
+		<span class="stat-label">Newly perfect <span class="tag stat-count">&times;{{ stats.newlyPerfect | length }}</span></span>
+		<ol class="recents recents-flipped">
+			{% for site in stats.newlyPerfect %}
+			<li>
+				<a href="/site/{{ site.slug }}/">{{ site.displayUrl }}</a>
+				<span class="recents-dots" aria-hidden="true">
+					{% for band in site.bands %}<span class="recents-dot recents-dot-{{ band }}"></span>{% endfor %}
+				</span>
+				<span class="recents-age"><time datetime="{{ site.timestamp | iso }}">{{ site.timestamp | since }}</time></span>
+			</li>
+			{% endfor %}
+		</ol>
+		{% endif %}
 	</div>
 	{% endif %}
 
