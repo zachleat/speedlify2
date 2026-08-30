@@ -35,12 +35,12 @@ const ICONS_DIR = "src/icons";
  * available.
  */
 /**
- * Brand colours, overriding or supplying what simple-icons ships.
+ * Brand colors, overriding or supplying what simple-icons ships.
  *
- * The colour normally comes from simple-icons, which ships a hex with every
+ * The color normally comes from simple-icons, which ships a hex with every
  * icon. Two cases need this table instead: a brand that only exists in Font
- * Awesome, whose marks are monochrome by design and so have no colour to
- * inherit, and a brand whose official colour does not survive this page's dark
+ * Awesome, whose marks are monochrome by design and so have no color to
+ * inherit, and a brand whose official color does not survive this page's dark
  * background.
  */
 const BRAND_COLORS = {
@@ -182,8 +182,8 @@ function fontAwesomeSlug(name) {
  * without. Drop a square-viewBox, single-path SVG in `src/icons/<Name>.svg`
  * and any host or generator with `icon: "<Name>"` picks it up.
  *
- * The brand colour is read from `data-hex="RRGGBB"` on the root `<svg>` if
- * present; otherwise the mark follows the theme's text colour, which is what
+ * The brand color is read from `data-hex="RRGGBB"` on the root `<svg>` if
+ * present; otherwise the mark follows the theme's text color, which is what
  * the luminance guard below would do for a black mark anyway.
  */
 function loadLocalIcons(dir = ICONS_DIR) {
@@ -257,7 +257,7 @@ export default async function ($config) {
 	 * bundle manager by hand. Rewriting the finished HTML needs none of that.
 	 *
 	 * failOnError stays on: a class this config emits that Font Awesome cannot
-	 * resolve would be a bug in fontAwesomeSlug, and the default behaviour —
+	 * resolve would be a bug in fontAwesomeSlug, and the default behavior —
 	 * leaving the `<i>` in place — would ship an invisible empty element instead
 	 * of a logo, on every row of a leaderboard, silently.
 	 */
@@ -357,7 +357,7 @@ export default async function ($config) {
 	});
 
 	/**
-	 * A timestamp, formatted in UTC and labelled as such.
+	 * A timestamp, formatted in UTC and labeled as such.
 	 *
 	 * The zone is pinned rather than left to the machine. Everything here is
 	 * rendered once at build time, so "local" would mean local to whoever ran
@@ -547,7 +547,7 @@ export default async function ($config) {
 	 *
 	 * Display casing is the stylesheet's job, so what lands in the markup is
 	 * ordinary words — a copy-paste gives "time to first byte", not the
-	 * half-capitalised "time To First Byte" the split leaves behind.
+	 * half-capitalized "time To First Byte" the split leaves behind.
 	 */
 	$config.addFilter("humanize", (value) => {
 		return String(value ?? "")
@@ -630,7 +630,7 @@ export default async function ($config) {
 	 *
 	 * `pct` is what fills the arc, and it is not always the value: an axe count
 	 * and a Core Web Vitals verdict have no percentage, so they pass 1 and read
-	 * as a closed ring whose colour carries the answer. `null` leaves the track
+	 * as a closed ring whose color carries the answer. `null` leaves the track
 	 * bare, which is how "no data" looks in both renderers.
 	 */
 	function ring({ band, text, label, pct, sublabel = "", size = 37 }) {
@@ -643,7 +643,7 @@ export default async function ($config) {
 
 		/*
 		 * A sublabel shifts the value up to make room beneath it, both still
-		 * inside the ring. The pair is centred as a block rather than the value
+		 * inside the ring. The pair is centered as a block rather than the value
 		 * staying put: a glyph pinned to the middle with text under it reads as
 		 * top-heavy, and there is only so much room before the descender of the
 		 * label meets the stroke.
@@ -686,7 +686,7 @@ export default async function ($config) {
 	 * 100 and Core Web Vitals is a glyph, but axe counts violating *nodes* — one
 	 * bad rule on a long table is thousands — and four digits at this size render
 	 * 32 units wide in a 31-unit hole, spilling over the stroke and onto the
-	 * neighbouring rings, which do not clip because the stroke's round cap needs
+	 * neighboring rings, which do not clip because the stroke's round cap needs
 	 * overflow visible.
 	 *
 	 * The exact number stays in the label, so this costs nothing but precision no
@@ -730,7 +730,7 @@ export default async function ($config) {
 			// ✓ clean · ! some · ✗ many. The bands are unchanged, so the glyph and
 			// the ranking always agree — see axeBand in lib/rank.js.
 			text: band === "good" ? "✓" : band === "average" ? "!" : "✗",
-			// Labelled like the CWV ring beside it: without it a tick is read by
+			// Labeled like the CWV ring beside it: without it a tick is read by
 			// guesswork, and the others are read by position.
 			sublabel: "AXE",
 			label:
@@ -913,12 +913,12 @@ export default async function ($config) {
 		let label = detected.version ? `${detected.name} ${detected.version}` : detected.name;
 		if (detected.detail) label += ` · ${detected.detail}`;
 		// A presumption is the category's claim, not a measurement. Same glyph so
-		// it is recognisable, faded so it never reads as a detection.
+		// it is recognizable, faded so it never reads as a detection.
 		if (detected.presumed) label = `Listed as ${detected.name} — no generator tag found on the page`;
 		const presumed = detected.presumed ? " stack-presumed" : "";
 		// Font Awesome first where it has the brand: one symbol per page and a
 		// short reference per row, rather than the same path inlined once per
-		// site. Brand colour is carried over from simple-icons when that project
+		// site. Brand color is carried over from simple-icons when that project
 		// has an entry, since Font Awesome's marks are monochrome by design.
 		const faName = fontAwesomeSlug(detected.icon);
 		if (faName) {
@@ -966,10 +966,10 @@ export default async function ($config) {
 		}
 
 		// Several brands — Vercel, Next.js, GitHub, Eleventy — are pure black, and
-		// a black mark on a #2e2e2e page is invisible. Any brand colour too close
+		// a black mark on a #2e2e2e page is invisible. Any brand color too close
 		// to either end of the range is dropped in favour of `currentColor`, so
-		// the icon follows the theme's text colour instead. Those marks are
-		// recognisable by shape, and a visible glyph beats an accurate one.
+		// the icon follows the theme's text color instead. Those marks are
+		// recognizable by shape, and a visible glyph beats an accurate one.
 		// BRAND_COLORS wins over the icon's own hex, same as in the Font Awesome
 		// branch above — an override there has to mean the same thing here.
 		const hex = BRAND_COLORS[detected.icon] ?? icon.hex;
@@ -1107,7 +1107,7 @@ function escapeAttr(s) {
 	return String(s).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
 }
 
-/** WCAG relative luminance for a 6-digit hex colour, 0 (black) to 1 (white). */
+/** WCAG relative luminance for a 6-digit hex color, 0 (black) to 1 (white). */
 function relativeLuminance(hex) {
 	const n = Number.parseInt(hex, 16);
 	if (!Number.isFinite(n)) return 0.5;

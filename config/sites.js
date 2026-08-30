@@ -9,7 +9,7 @@ import starters from "./11ty-starters.json" with { type: "json" };
  *
  * Mostly imported from 11ty/docs, which is the canonical list — its `demo`
  * field is the deployed site, and entries it marks `excludedFromLeaderboards`
- * are honoured rather than second-guessed. `EXTRA_STARTERS` is for anything
+ * are honored rather than second-guessed. `EXTRA_STARTERS` is for anything
  * spotted in the community list that upstream does not carry.
  *
  * The union also filters the community category: a starter that appears in both

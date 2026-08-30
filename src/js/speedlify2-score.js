@@ -502,7 +502,7 @@ class SpeedlifyScore extends HTMLElement {
 		return this.ring({
 			band,
 			text: band === "good" ? "✓" : band === "average" ? "!" : "✗",
-			// Labelled like the CWV ring beside it: without it a tick is read by
+			// Labeled like the CWV ring beside it: without it a tick is read by
 			// guesswork, and the others are read by position.
 			sublabel: "AXE",
 			label: `Axe: ${value} violating node${value === 1 ? "" : "s"}`,

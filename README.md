@@ -75,7 +75,7 @@ Three independent steps. None waits for another, and none needs a previous one t
 
 ```
 speedlify measure            →  results/      collect
-speedlify report             →  report.json   analyse
+speedlify report             →  report.json   analyze
 npx @awesome.me/buildawesome →  _site/        render
 ```
 
@@ -85,7 +85,7 @@ npx @awesome.me/buildawesome →  _site/        render
 
 `npm run build` runs steps 2 and 3.
 
-The report renders **whatever successful data exists, newest first**. Missing, stale, and currently-failing sites all render — labelled — rather than blocking the build. Nothing is fetched at runtime; the published site is plain HTML, CSS, and build-time inline SVG, with no client-side JavaScript, including for the sparklines.
+The report renders **whatever successful data exists, newest first**. Missing, stale, and currently-failing sites all render — labeled — rather than blocking the build. Nothing is fetched at runtime; the published site is plain HTML, CSS, and build-time inline SVG, with no client-side JavaScript, including for the sparklines.
 
 ### The report
 
@@ -103,7 +103,7 @@ Two things it deliberately does *not* duplicate: trends carry a bare `values` ar
 
 ### Freshness on the page
 
-Because sites are measured on a rolling schedule, the report is always a snapshot of an uneven dataset. Every table has an **Updated** column showing how old that site's figures are, amber past `staleAfterHours`, and each site page states the age of the data it's showing. The home page summarises coverage: how many sites have data, the median age, how many are stale, how many have never been measured.
+Because sites are measured on a rolling schedule, the report is always a snapshot of an uneven dataset. Every table has an **Updated** column showing how old that site's figures are, amber past `staleAfterHours`, and each site page states the age of the data it's showing. The home page summarizes coverage: how many sites have data, the median age, how many are stale, how many have never been measured.
 
 Sites are identified by their **URL** rather than a configured name — `11ty.dev`, `developer.mozilla.org/en-US`. If stripping `www.` would make two tracked URLs render identically, both keep it.
 
@@ -223,7 +223,7 @@ If you change a URL without a redirect ever being observed, the old history isn'
 
 ## Appearance
 
-Modelled on [the Eleventy Leaderboards](https://www.11ty.dev/speedlify/): centered masthead, URL-as-name in monospace with a favicon, `#1` ranks with 🥇🥈🥉 for the podium, and the four Lighthouse categories as score rings.
+Modeled on [the Eleventy Leaderboards](https://www.11ty.dev/speedlify/): centered masthead, URL-as-name in monospace with a favicon, `#1` ranks with 🥇🥈🥉 for the podium, and the four Lighthouse categories as score rings.
 
 **Dark by default, light on request.** Dark is unconditional — not "dark unless your OS says light" — so every reader gets the same thing on first visit. Light is an explicit choice: the toggle sets `data-theme="light"` on `<html>` and stores it in `localStorage`.
 
@@ -237,7 +237,7 @@ The favicons are the **one external request** the built site makes, via the same
 
 Ports the leaderboard algorithm from [performance-leaderboard](https://github.com/zachleat/performance-leaderboard), as described in [Eleventy Leaderboard](https://www.zachleat.com/web/eleventy-leaderboard-speedlify/#the-algorithm-and-tiebreaker-changes):
 
-1. **Band profile**, worst ring first. The four Lighthouse categories and axe are each reduced to green / amber / red / grey and compared worst-first. All five green beats any site carrying an amber; any amber beats any red.
+1. **Band profile**, worst ring first. The four Lighthouse categories and axe are each reduced to green / amber / red / gray and compared worst-first. All five green beats any site carrying an amber; any amber beats any red.
 2. **Sum of all four Lighthouse categories** (0–400), higher wins. Using all four rather than Performance alone stops a fast but inaccessible site outranking a well-rounded one. This settles order *within* a band profile rather than across profiles.
 3. **Fewest axe violations**, counted as violating *nodes* — one rule broken across eight elements is eight violations.
 4. **Tiebreaker value**, lower wins:
@@ -256,9 +256,9 @@ Sites with no successful measurement sort last rather than being treated as a ze
 
 A total treats the categories as a currency, so one can be sold off to buy points elsewhere: 100/100/100/80 sums to 380 and beats 90/90/90/90 on 360, while showing an amber ring against four greens — a row that looks worse than the row beneath it. Banding first says that a ring dropping out of green is a fact about the site that no amount of points elsewhere buys back.
 
-Grey — no data — ranks with red on both banded rings. A Lighthouse category with no score and an axe run that never happened are both unchecked, and unchecked is not clean: a site must not climb by failing to be measured.
+Gray — no data — ranks with red on both banded rings. A Lighthouse category with no score and an axe run that never happened are both unchecked, and unchecked is not clean: a site must not climb by failing to be measured.
 
-**Core Web Vitals is not banded.** Most of this corpus is too small for CrUX to sample, so that ring is grey more often than it is any colour, and a criterion unknown for most rows cannot carry the top tier of a ranking. It remains a tiebreaker at its own tier, below the total, where a missing assessment costs nothing. One consequence worth knowing: because axe *is* banded, a green axe ring beats an amber one before any vitals are read.
+**Core Web Vitals is not banded.** Most of this corpus is too small for CrUX to sample, so that ring is gray more often than it is any color, and a criterion unknown for most rows cannot carry the top tier of a ranking. It remains a tiebreaker at its own tier, below the total, where a missing assessment costs nothing. One consequence worth knowing: because axe *is* banded, a green axe ring beats an amber one before any vitals are read.
 
 ### Archiving a URL
 
@@ -294,7 +294,7 @@ A `.env` file in the project root is loaded automatically by every command and b
 cp .env.example .env
 ```
 
-Two behaviours worth knowing:
+Two behaviors worth knowing:
 
 - **Real environment variables win.** A value set by your shell or by CI is never overwritten by the file, so a stray local `.env` cannot shadow a `CRUX_API_KEY` secret in GitHub Actions. (Note that an *empty* variable still counts as set.)
 - **A missing `.env` is not an error.** It is optional and gitignored; every variable it can set has a working default.
@@ -341,7 +341,7 @@ npx speedlify backfill
 
 Core Web Vitals are **skipped entirely** — no panel, no badge, no home-page stat. Without CrUX there is no INP, so the only thing left to show would be a lab approximation, and labelling that "Core Web Vitals" implies a measurement that isn't happening. Everything else (scores, lab timings, weight, main thread, a11y, hygiene) is unaffected.
 
-With a key set, sites that lack Chrome traffic return no data individually. That is expected, not an error — those fall back to a clearly-labelled lab approximation using TBT in place of INP, because in that case CrUX *is* configured and this URL simply isn't covered.
+With a key set, sites that lack Chrome traffic return no data individually. That is expected, not an error — those fall back to a clearly-labeled lab approximation using TBT in place of INP, because in that case CrUX *is* configured and this URL simply isn't covered.
 
 Field data already stored in `results/` always renders, even if the key isn't present for a later build.
 
@@ -460,7 +460,7 @@ lib/
   schedule.js          which sites a limited batch should measure
   series.js            record → flat series point projection
   report.js            measurements -> report.json (all the analysis)
-  report-metrics.js    which metrics are charted, and how they are labelled
+  report-metrics.js    which metrics are charted, and how they are labeled
   rank.js              the leaderboard algorithm and its tiebreakers
   axe.js               standalone axe-core accessibility pass
   env.js               loads .env, without clobbering real env vars

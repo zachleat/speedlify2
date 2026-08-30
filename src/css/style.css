@@ -332,7 +332,7 @@ table.grid.compact td, table.grid.compact th { padding: 0.4rem var(--page-gutter
 /* Left, unlike every other numeric column: the cell is a number plus a chart
    that grows rightwards, so its natural origin is the left edge. */
 .col-lcp { text-align: left !important; }
-/* The sparkline fills its cell, so the heading centres over the chart rather
+/* The sparkline fills its cell, so the heading centers over the chart rather
    than sitting against one end of it. */
 th.col-trend { text-align: center !important; }
 .col-dist { text-align: left !important; min-width: 200px; }
@@ -501,7 +501,7 @@ th.col-trend { text-align: center !important; }
 	 * wants anyway.
 	 */
 	align-items: center;
-	/* Centred under a centered masthead, at every width — the row is short enough
+	/* Centered under a centered masthead, at every width — the row is short enough
 	   that packing it left reads as a stray edge rather than as alignment. */
 	justify-content: center;
 	flex-wrap: wrap;
@@ -953,7 +953,7 @@ th.col-trend { text-align: center !important; }
 	position: absolute;
 	width: 0.5rem;
 	height: 0.5rem;
-	/* Centred on its dot rather than starting at it. */
+	/* Centered on its dot rather than starting at it. */
 	transform: translate(-50%, -50%);
 	border-radius: 50%;
 	pointer-events: auto;
@@ -1500,9 +1500,9 @@ th.col-trend { text-align: center !important; }
 }
 
 /*
- * The four quality bars, coloured by the verdict each stands for rather than by
+ * The four quality bars, colored by the verdict each stands for rather than by
  * the accent the other histograms use — these are the same green, amber and red
- * as the rings, and painting them one colour would throw away the only thing
+ * as the rings, and painting them one color would throw away the only thing
  * that makes the shape readable at a glance.
  *
  * Perfect is green too, one step deeper: it is a subset of all-green, not a
@@ -1523,7 +1523,7 @@ th.col-trend { text-align: center !important; }
 	display: flex;
 	flex-direction: column;
 	overflow: hidden;
-	/* Qualified, like the colour rules below: `.histogram-bar` sets an accent
+	/* Qualified, like the color rules below: `.histogram-bar` sets an accent
 	   background further down the file, and an unqualified selector here loses to
 	   it — the container kept its own fill and showed through as blue. */
 	background: none;
@@ -1538,14 +1538,14 @@ th.col-trend { text-align: center !important; }
  * Perfect carries a faint noise over its green.
  *
  * The two greens in the stacked bar are close by design — perfect is a subset of
- * passing, not a different verdict — but close colours are hard to tell apart in
+ * passing, not a different verdict — but close colors are hard to tell apart in
  * a 27px segment. Texture separates them without introducing a hue that would
  * imply a different kind of result.
  *
  * An inline SVG turbulence rather than an image file: it costs no request, and
  * the alternative of a repeating gradient reads as stripes at this size rather
  * than as grain. `background-color` and `background-image` are set separately so
- * the colour still comes from the same `color-mix` and the noise sits over it.
+ * the color still comes from the same `color-mix` and the noise sits over it.
  */
 .histogram-bar.histogram-bar-perfect,
 .histogram-seg.histogram-bar-perfect {
@@ -1566,7 +1566,7 @@ th.col-trend { text-align: center !important; }
 	background: var(--poor);
 }
 
-/* No verdict, so no colour from the scale — the same neutral the gray rings use
+/* No verdict, so no color from the scale — the same neutral the gray rings use
    for a Core Web Vital CrUX has never sampled. It sits at the end of the row
    rather than among the four, because it is not a worse result than red; it is
    not a result. */
@@ -1598,7 +1598,7 @@ th.col-trend { text-align: center !important; }
 
 /* Block padding sized to clear 24px — WCAG 2.2's minimum target size — rather
    than a min-height. The text is 0.76rem on a 1.5 line box, so 18.2px of
-   content; 0.2rem top and bottom brings the box to 24.6px and centres the label
+   content; 0.2rem top and bottom brings the box to 24.6px and centers the label
    in it, which a min-height would not do. */
 .recents a {
 	padding: 0.2rem 0.15rem;
@@ -2011,7 +2011,7 @@ th.col-trend { text-align: center !important; }
 
 /* Flex so the mark sits beside the name rather than on its baseline: the glyph
    is a solid block with no descender, and baseline alignment drops it low
-   against a 3rem word. Centred, and sized in `em` so it tracks the clamp. */
+   against a 3rem word. Centered, and sized in `em` so it tracks the clamp. */
 .masthead-hed a {
 	color: var(--text);
 	text-decoration: none;
@@ -2734,7 +2734,7 @@ a.cat-chip:hover, a.cat-chip:focus-visible { color: var(--text); border-color: v
  * the distance from one to the other, and reading it in the gap makes that
  * relationship the sentence rather than a caption above the pair.
  *
- * A flex item among the frames, so it takes the middle column and centres
+ * A flex item among the frames, so it takes the middle column and centers
  * against them. It stays legible when the row wraps on a narrow screen, where
  * source order puts it between the two stacked pictures.
  */
