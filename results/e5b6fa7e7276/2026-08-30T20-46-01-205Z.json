@@ -1,0 +1,279 @@
+{
+  "url": "https://www.dsev.dk/",
+  "name": "www.dsev.dk",
+  "group": "11ty-community",
+  "groupName": "Built Awesome",
+  "timestamp": 1788122761205,
+  "date": "2026-08-30T20:46:01.205Z",
+  "runId": "2026-08-30T20-39-57-003Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 2,
+  "durationMs": 69340,
+  "error": null,
+  "partialErrors": [
+    "NO_FCP: The page did not paint any content. Please ensure you keep the browser window in the foreground during the load and try again. (NO_FCP)"
+  ],
+  "variance": {
+    "min": 47,
+    "max": 57,
+    "spread": 10,
+    "runs": 2
+  },
+  "lab": {
+    "requestedUrl": "https://www.dsev.dk/",
+    "finalUrl": "https://dsev.dk/",
+    "redirect": {
+      "from": "https://www.dsev.dk/",
+      "to": "https://dsev.dk/",
+      "chain": [
+        {
+          "url": "https://www.dsev.dk/",
+          "status": 301
+        },
+        {
+          "url": "https://dsev.dk/",
+          "status": 200
+        }
+      ],
+      "statuses": [
+        301
+      ],
+      "change": "host",
+      "permanent": true,
+      "schemeUpgrade": false,
+      "hops": 1
+    },
+    "statusCode": "ok",
+    "scores": {
+      "performance": 47,
+      "accessibility": 85,
+      "best-practices": 96,
+      "seo": 91,
+      "agentic-browsing": 33
+    },
+    "timings": {
+      "fcp": 7536,
+      "lcp": 10398,
+      "si": 23724,
+      "tbt": 64,
+      "tti": 10413,
+      "cls": 0.183,
+      "ttfb": 14371,
+      "maxPotentialFid": 114,
+      "serverResponseTime": 25,
+      "networkRtt": 1432.1,
+      "networkServerLatency": 160.2
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 14370.9,
+      "resourceLoadDelay": 240.8,
+      "resourceLoadDuration": 58.6,
+      "elementRenderDelay": 57.8
+    },
+    "weight": {
+      "total": 1051825,
+      "requests": 29,
+      "mainDocument": 14732,
+      "byType": {
+        "total": {
+          "bytes": 1051825,
+          "requests": 29
+        },
+        "script": {
+          "bytes": 800096,
+          "requests": 10
+        },
+        "image": {
+          "bytes": 116187,
+          "requests": 3
+        },
+        "stylesheet": {
+          "bytes": 52896,
+          "requests": 5
+        },
+        "document": {
+          "bytes": 45438,
+          "requests": 3
+        },
+        "font": {
+          "bytes": 35540,
+          "requests": 1
+        },
+        "other": {
+          "bytes": 1668,
+          "requests": 7
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 912532,
+          "requests": 22
+        }
+      },
+      "scripts": 10,
+      "stylesheets": 5,
+      "fonts": 1
+    },
+    "thirdParty": {
+      "count": 7,
+      "bytes": 486464,
+      "mainThreadMs": 281.3,
+      "top": [
+        {
+          "entity": "Google CDN",
+          "bytes": 352323,
+          "mainThreadMs": 222.2
+        },
+        {
+          "entity": "Netlify",
+          "bytes": 55190,
+          "mainThreadMs": 23.5
+        },
+        {
+          "entity": "Google Fonts",
+          "bytes": 36782,
+          "mainThreadMs": 0
+        },
+        {
+          "entity": "Unpkg",
+          "bytes": 35863,
+          "mainThreadMs": 30.5
+        },
+        {
+          "entity": "zgo.at",
+          "bytes": 4533,
+          "mainThreadMs": 3.6
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 1872.4,
+      "byGroup": {
+        "scriptEvaluation": 998.2,
+        "scriptParseCompile": 498.2,
+        "other": 197.5,
+        "styleLayout": 128.6,
+        "parseHTML": 30.7,
+        "paintCompositeRender": 19.1
+      },
+      "bootupMs": 1389.1,
+      "longTasks": 8,
+      "longestTaskMs": 529
+    },
+    "dom": {
+      "elements": 597,
+      "depth": 18,
+      "maxChildren": 8
+    },
+    "waste": {
+      "unusedJsBytes": 438907,
+      "unusedCssBytes": 21305,
+      "legacyJsBytes": 0,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 13107,
+      "renderBlockingMs": 3872,
+      "renderBlockingCount": 5,
+      "poorlyCachedBytes": 0,
+      "poorlyCachedCount": 0
+    },
+    "accessibility": {
+      "failingCount": 3,
+      "applicableCount": 22,
+      "failingNodes": 8,
+      "failing": [
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "nodes": 4
+        },
+        {
+          "id": "aria-hidden-focus",
+          "title": "`[aria-hidden=\"true\"]` elements contain focusable descendents",
+          "nodes": 3
+        },
+        {
+          "id": "button-name",
+          "title": "Buttons do not have an accessible name",
+          "nodes": 1
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 5076.3,
+      "consoleErrors": 2,
+      "baselineLimitedFeatures": 24
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2706,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-08-30T20:46:45.024Z",
+      "runtimeMs": 22876.3
+    }
+  },
+  "field": null,
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "interstitial": null,
+    "host": {
+      "id": "netlify",
+      "name": "Netlify",
+      "icon": "Netlify",
+      "source": "x-nf-request-id"
+    },
+    "headers": {
+      "server": "Netlify",
+      "x-nf-request-id": "01M1A6STSYA6DR70E82DZYR8M2"
+    },
+    "violations": 9,
+    "passes": 489,
+    "incomplete": 5,
+    "violationRules": 4,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 4,
+        "help": "Elements must meet minimum color contrast ratio thresholds"
+      },
+      {
+        "id": "aria-hidden-focus",
+        "impact": "serious",
+        "nodes": 3,
+        "help": "ARIA hidden element must not be focusable or contain focusable elements"
+      },
+      {
+        "id": "button-name",
+        "impact": "critical",
+        "nodes": 1,
+        "help": "Buttons must have discernible text"
+      },
+      {
+        "id": "landmark-unique",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination"
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
