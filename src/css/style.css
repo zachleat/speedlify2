@@ -1662,7 +1662,10 @@ th.col-trend { text-align: center !important; }
 .histogram-bar {
 	display: block;
 	width: 100%;
-	min-height: 2px;
+	/* A floor, so a bucket with something in it never renders as nothing — but
+	   1px rather than 2, since the tier tracks are only 16px tall and a 2px floor
+	   made a bar worth 4% look like one worth 12%. */
+	min-height: 1px;
 	border-radius: 2px 2px 0 0;
 	background: var(--accent);
 }
