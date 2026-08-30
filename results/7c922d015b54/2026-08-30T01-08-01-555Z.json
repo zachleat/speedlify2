@@ -1,0 +1,315 @@
+{
+  "url": "https://progressionapp.com/blog",
+  "name": "progressionapp.com",
+  "group": "11ty-community",
+  "groupName": "Built Awesome",
+  "timestamp": 1788052081555,
+  "date": "2026-08-30T01:08:01.555Z",
+  "runId": "2026-08-30T01-05-03-133Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 43469,
+  "error": null,
+  "variance": {
+    "min": 28,
+    "max": 39,
+    "spread": 11,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://progressionapp.com/blog",
+    "finalUrl": "https://progression.co/blog/",
+    "redirect": {
+      "from": "https://progressionapp.com/blog",
+      "to": "https://progression.co/blog",
+      "chain": [
+        {
+          "url": "https://progressionapp.com/blog",
+          "status": 301
+        },
+        {
+          "url": "https://progression.co/blog",
+          "status": 301
+        },
+        {
+          "url": "https://progression.co/blog/",
+          "status": 200
+        }
+      ],
+      "statuses": [
+        301,
+        301
+      ],
+      "change": "host+path",
+      "permanent": true,
+      "schemeUpgrade": false,
+      "hops": 2
+    },
+    "statusCode": "ok",
+    "scores": {
+      "performance": 39,
+      "accessibility": 79,
+      "best-practices": 73,
+      "seo": 82,
+      "agentic-browsing": 50
+    },
+    "timings": {
+      "fcp": 5561,
+      "lcp": 12800,
+      "si": 5561,
+      "tbt": 978,
+      "tti": 37375,
+      "cls": 0.004,
+      "ttfb": 605,
+      "maxPotentialFid": 361,
+      "serverResponseTime": 3,
+      "networkRtt": 7.2,
+      "networkServerLatency": 204.3
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 85,
+      "resourceLoadDelay": 11.6,
+      "resourceLoadDuration": 14.8,
+      "elementRenderDelay": 218.6
+    },
+    "weight": {
+      "total": 8270931,
+      "requests": 128,
+      "mainDocument": 12841,
+      "byType": {
+        "total": {
+          "bytes": 8270931,
+          "requests": 128
+        },
+        "image": {
+          "bytes": 5246165,
+          "requests": 41
+        },
+        "script": {
+          "bytes": 2158101,
+          "requests": 51
+        },
+        "font": {
+          "bytes": 627226,
+          "requests": 7
+        },
+        "stylesheet": {
+          "bytes": 149628,
+          "requests": 6
+        },
+        "document": {
+          "bytes": 44968,
+          "requests": 3
+        },
+        "other": {
+          "bytes": 39543,
+          "requests": 19
+        },
+        "media": {
+          "bytes": 5300,
+          "requests": 1
+        },
+        "third-party": {
+          "bytes": 2464478,
+          "requests": 84
+        }
+      },
+      "scripts": 51,
+      "stylesheets": 6,
+      "fonts": 7
+    },
+    "thirdParty": {
+      "count": 18,
+      "bytes": 7717041,
+      "mainThreadMs": 628.1,
+      "top": [
+        {
+          "entity": "progression.co",
+          "bytes": 5806311,
+          "mainThreadMs": 76.6
+        },
+        {
+          "entity": "Hubspot",
+          "bytes": 1121249,
+          "mainThreadMs": 202.3
+        },
+        {
+          "entity": "Google Tag Manager",
+          "bytes": 317306,
+          "mainThreadMs": 153
+        },
+        {
+          "entity": "Google Optimize",
+          "bytes": 114265,
+          "mainThreadMs": 18.8
+        },
+        {
+          "entity": "Facebook",
+          "bytes": 113455,
+          "mainThreadMs": 93.5
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 3973.9,
+      "byGroup": {
+        "scriptEvaluation": 2311.8,
+        "other": 619.2,
+        "scriptParseCompile": 582.3,
+        "styleLayout": 291.9,
+        "parseHTML": 75,
+        "garbageCollection": 49.2,
+        "paintCompositeRender": 44.4
+      },
+      "bootupMs": 2618.5,
+      "longTasks": 20,
+      "longestTaskMs": 361
+    },
+    "dom": {
+      "elements": 740,
+      "depth": 15,
+      "maxChildren": 50
+    },
+    "waste": {
+      "unusedJsBytes": 670474,
+      "unusedCssBytes": 13447,
+      "legacyJsBytes": 25810,
+      "duplicatedJsBytes": 8686,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 2189,
+      "renderBlockingMs": 8316,
+      "renderBlockingCount": 6,
+      "poorlyCachedBytes": 440705.7,
+      "poorlyCachedCount": 19
+    },
+    "accessibility": {
+      "failingCount": 6,
+      "applicableCount": 27,
+      "failingNodes": 36,
+      "failing": [
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "nodes": 30
+        },
+        {
+          "id": "heading-order",
+          "title": "Heading elements are not in a sequentially-descending order",
+          "nodes": 2
+        },
+        {
+          "id": "aria-dialog-name",
+          "title": "Elements with `role=\"dialog\"` or `role=\"alertdialog\"` do not have accessible names.",
+          "nodes": 1
+        },
+        {
+          "id": "image-alt",
+          "title": "Image elements do not have `[alt]` attributes",
+          "nodes": 1
+        },
+        {
+          "id": "link-name",
+          "title": "Links do not have a discernible name",
+          "nodes": 1
+        },
+        {
+          "id": "target-size",
+          "title": "Touch targets do not have sufficient size or spacing.",
+          "nodes": 1
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 1510.4,
+      "consoleErrors": 1,
+      "baselineLimitedFeatures": 53
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2487.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-08-30T01:08:29.855Z",
+      "runtimeMs": 11876.5
+    }
+  },
+  "field": null,
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "interstitial": null,
+    "host": {
+      "id": "netlify",
+      "name": "Netlify",
+      "icon": "Netlify",
+      "source": "x-nf-request-id"
+    },
+    "headers": {
+      "server": "Netlify",
+      "x-nf-request-id": "01M183C9RPJGS6Z7C04EWXB3SK"
+    },
+    "violations": 42,
+    "passes": 901,
+    "incomplete": 5,
+    "violationRules": 7,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 30,
+        "help": "Elements must meet minimum color contrast ratio thresholds"
+      },
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 4,
+        "help": "All page content should be contained by landmarks"
+      },
+      {
+        "id": "image-redundant-alt",
+        "impact": "minor",
+        "nodes": 3,
+        "help": "Alternative text of images should not be repeated as text"
+      },
+      {
+        "id": "heading-order",
+        "impact": "moderate",
+        "nodes": 2,
+        "help": "Heading levels should only increase by one"
+      },
+      {
+        "id": "aria-dialog-name",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "ARIA dialog and alertdialog nodes should have an accessible name"
+      },
+      {
+        "id": "image-alt",
+        "impact": "critical",
+        "nodes": 1,
+        "help": "Images must have alternative text"
+      },
+      {
+        "id": "link-name",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "Links must have discernible text"
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
