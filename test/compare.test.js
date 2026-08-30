@@ -178,22 +178,26 @@ describe("environmentDrift", () => {
 		assert.equal(drift.scope, "fleet");
 	});
 
-	test("honours a custom threshold", () => {
-		const h = history([[90, 0]], { benchmarks: [1300] });
+	test("honors a custom threshold", () => {
+		const h = history([[90, 0]], { benchmarks: [1400] });
 
 		assert.equal(environmentDrift(h, { baseline: 1000 }).suspect, true);
 		assert.equal(environmentDrift(h, { baseline: 1000, threshold: 0.5 }).suspect, false);
 	});
 
-	test("defaults to 25% off the baseline", () => {
+	test("defaults to 35% off the baseline", () => {
 		const drift = (bench) => environmentDrift(history([[90, 0]], { benchmarks: [bench] }), { baseline: 1000 });
 
-		// The boundary is exclusive, so exactly 25% off is still ordinary.
-		assert.equal(drift(1250).suspect, false);
-		assert.equal(drift(1251).suspect, true);
-		assert.equal(drift(750).suspect, false);
-		assert.equal(drift(749).suspect, true);
-		assert.equal(drift(749).direction, "slower");
+		// The boundary is exclusive, so exactly 35% off is still ordinary.
+		assert.equal(drift(1350).suspect, false);
+		assert.equal(drift(1351).suspect, true);
+		assert.equal(drift(650).suspect, false);
+		assert.equal(drift(649).suspect, true);
+		assert.equal(drift(649).direction, "slower");
+
+		// The old 25% band is inside the new one, so it no longer flags.
+		assert.equal(drift(1251).suspect, false);
+		assert.equal(drift(749).suspect, false);
 	});
 
 	test("returns null when there is nothing to measure", () => {
