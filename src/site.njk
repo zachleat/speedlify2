@@ -507,6 +507,27 @@ eleventyComputed:
 		apart they are.
 	#}
 	<div class="nojs-pair">
+		{% if entry.clientRendered %}
+		{#
+			Ahead of the frames, so the reader knows what they are looking at before
+			they look. A blank capture beside a full one is ambiguous on sight — it
+			could as easily be a load that failed — and the caption under it only
+			says "Scripts disabled", not that the emptiness is the finding.
+
+			The same notice treatment the page uses above for stale data and
+			redirects, because it is the same kind of statement: a caveat about what
+			follows, not a caption on it.
+		#}
+		<div class="notice notice-warn nojs-verdict">
+			<strong><i class="fa-solid fa-triangle-exclamation csr-icon" width="12" height="12" aria-hidden="true"></i> This page is client rendered.</strong>
+			<p>
+				Nothing was painted until the scripts ran. This is a web performance and robustness issue!
+				{# The capture on the left is
+				{{ entry.ownScreenshot.noJsColors }} distinct
+				{{ entry.ownScreenshot.noJsColors | plural("color") }}. #}
+			</p>
+		</div>
+		{% endif %}
 		<figure class="nojs-shot">
 			<figcaption>Scripts disabled</figcaption>
 			<img src="{{ entry.ownScreenshot.noJs.src }}"

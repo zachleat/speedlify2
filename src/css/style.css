@@ -2095,6 +2095,44 @@ th.col-trend { text-align: center !important; }
 .col-nojs { white-space: nowrap; }
 
 /*
+ * Under the delta, not beside it: the percentage is the measurement and this is
+ * what it turned out to mean, which is a caption on the number rather than part
+ * of it. Beside it the pair also had to share one line, and a word plus a mark
+ * plus a figure is wider than the column wants to be.
+ *
+ * Only the warning case is marked. A table where most rows carry a symbol says
+ * nothing; the plain percentages are the ordinary outcome this is the exception
+ * to.
+ *
+ * `line-height: 1` for the same reason the rank climb has it — a quarter of
+ * rows at most carry this, and every pixel it adds is a pixel those rows stand
+ * taller than the rest.
+ */
+.csr-yes {
+	display: flex;
+	/* A flex container ignores the cell's `text-align: right`, so the row has to
+	   be pushed to the end explicitly or the note would sit under the left edge
+	   of a right-aligned column. */
+	justify-content: flex-end;
+	align-items: center;
+	line-height: 1;
+	margin-top: 0.25em;
+	font-size: 0.75em;
+	font-weight: 500;
+	color: var(--average);
+	white-space: nowrap;
+}
+/* Sized and aligned like `.rest-error`, the other Font Awesome mark that sits
+   inside a table cell. Baseline rather than the line box, so the rows that
+   carry one do not stand taller than the rest. */
+.csr-icon {
+	width: 12px;
+	height: 12px;
+	vertical-align: baseline;
+	margin-right: 0.15em;
+}
+
+/*
  * Lab against field, as a multiplier: lab LCP over field p75.
  *
  * Uncolored on purpose. Every other colored thing on these rows is a verdict —
@@ -2821,6 +2859,19 @@ a.cat-chip:hover, a.cat-chip:focus-visible { color: var(--text); border-color: v
 	text-align: left;
 	gap: 0.25rem;
 	max-width: 26em;
+}
+
+/*
+ * The finding the pair demonstrates, above both frames.
+ *
+ * `.notice` supplies the box; this only has to make it span the row rather than
+ * stand as a third column beside the two images, and drop the bottom margin a
+ * standalone notice carries — inside the flex row the gap already separates it
+ * from the frames below.
+ */
+.nojs-verdict {
+	flex: 1 1 100%;
+	margin-bottom: 0;
 }
 
 .nojs-diff strong {

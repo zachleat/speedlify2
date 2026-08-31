@@ -164,7 +164,7 @@ eleventyComputed:
 				<th>CLS</th><th>TBT</th>
 				<th>Weight</th><th>Req</th>
 				<th class="col-lvf" title="The lab LCP as a multiple of the real-user p75. Above 1x the lab is slower than reality; below 1x the lab number is flattering the site. Only where CrUX has field data">Lab vs field</th>
-				<th class="col-nojs" title="Share of pixels that differ between the page as rendered and the same page with scripts disabled. A shifted layout counts, so a noscript banner alone can account for a large figure. Only measured where a no-JS capture is stored">No-JS ∆</th>
+				<th class="col-nojs" title="Share of pixels that differ between the page as rendered and the same page with scripts disabled. A shifted layout counts, so a noscript banner alone can account for a large figure. A warning mark means the page drew nothing at all without JavaScript. Only measured where a no-JS capture is stored">No-JS ∆</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -227,7 +227,7 @@ eleventyComputed:
 					<td class="num">{{ entry.latest.lab.weight.total | bytes }}</td>
 					<td class="num">{{ entry.latest.lab.weight.requests | num }}</td>
 					<td class="num">{% if entry.labVsField %}<span class="lvf" title="Lab LCP {{ entry.labVsField.lab | ms }}, field p75 {{ entry.labVsField.field | ms }}">{{ entry.labVsField.ratio }}&times;</span>{% else %}<span class="muted">&mdash;</span>{% endif %}</td>
-					<td class="num">{% if entry.ownScreenshot and entry.ownScreenshot.difference !== null %}{{ entry.ownScreenshot.difference }}%{% else %}<span class="muted">&mdash;</span>{% endif %}</td>
+					<td class="num col-nojs">{% if entry.ownScreenshot and entry.ownScreenshot.difference !== null %}{{ entry.ownScreenshot.difference }}%{% if entry.clientRendered %}<span class="csr-yes" title="The no-JS capture is {{ entry.ownScreenshot.noJsColors }} distinct {{ entry.ownScreenshot.noJsColors | plural('color') }}, so the page drew nothing without its scripts"><i class="fa-solid fa-triangle-exclamation csr-icon" width="12" height="12" aria-hidden="true"></i>EMPTY</span>{% endif %}{% else %}<span class="muted">&mdash;</span>{% endif %}</td>
 				{% else %}
 					{# 11 either way: dropping the rank column removes a cell from this row too,
    so the span covers the same remainder. #}

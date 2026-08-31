@@ -303,7 +303,7 @@
 
 		{% if stats.measured %}
 		<div class="ring-row">
-			<span class="stat-label">Median scores <span class="tag stat-count">&times;{{ stats.medians.counts.scores | num }}</span></span>
+			<span class="stat-label">Median Score <span class="tag stat-count">&times;{{ stats.medians.counts.scores | num }}</span></span>
 			<span class="rings">
 				{% for score in metrics.SCORES %}
 				{% scoreRing stats.medians.scores[score.key], "Median " + score.label %}
