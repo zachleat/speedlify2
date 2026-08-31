@@ -146,12 +146,7 @@ title: Charts
 		reason.
 	#}
 	<p class="muted small">
-		{{ cr.flagged }} of {{ cr.judged | num }} judged
-		{{ cr.judged | plural("site") }} across {{ cr.tools }}
-		{{ cr.tools | plural("tool") }}, of which {{ cr.withFlagged }}
-		{{ cr.withFlagged | verb("has", "have") }} a blank one. Only sites whose
-		category stores a no-JS screenshot can be judged at all, so this is a
-		slice of the corpus rather than all of it.
+		{{ cr.flagged }} empty pre-JavaScript blank pages from {{ cr.judged | num }} measured {{ cr.judged | plural("site") }}.
 	</p>
 
 	<ul class="crbars">
