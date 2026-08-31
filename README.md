@@ -243,10 +243,11 @@ The favicons are the **one external request** the built site makes, via the same
 
 Ports the leaderboard algorithm from [performance-leaderboard](https://github.com/zachleat/performance-leaderboard), as described in [Eleventy Leaderboard](https://www.zachleat.com/web/eleventy-leaderboard-speedlify/#the-algorithm-and-tiebreaker-changes):
 
-1. **Ring counts**, worst color first. All six rings — the four Lighthouse categories, axe, and Core Web Vitals — are reduced to green / amber / red / gray and counted. Fewest red wins, then fewest gray, then fewest amber, then most green. A site showing any red ranks below a site showing none, whatever else it has.
-2. **Sum of all four Lighthouse categories** (0–400), higher wins. Using all four rather than Performance alone stops a fast but inaccessible site outranking a well-rounded one. This settles order *within* a band profile rather than across profiles.
-3. **Fewest axe violations**, counted as violating *nodes* — one rule broken across eight elements is eight violations.
-4. **Tiebreaker value**, lower wins:
+1. **Ring counts**, worst color first — the whole row of circles, read as counts rather than as a total. All six rings — the four Lighthouse categories, axe, and Core Web Vitals — are reduced to green / amber / red / gray and counted. Fewest red wins, then fewest gray, then fewest amber, then most green. A site showing any red ranks below a site showing none, whatever else it has.
+2. **Fewest axe violations**, counted as violating *nodes* — one rule broken across eight elements is eight violations. Second only to the rings, and ahead of every measure of speed: a slow site is a better site than an inaccessible one.
+3. **Core Web Vitals** from real users — how badly first, then how many. A vital that is merely short of the good threshold beats one that is poor. A site CrUX has never sampled is not assessed here and falls through to the next step, neither credited nor blamed for data that does not exist.
+4. **Sum of all four Lighthouse categories** (0–400), higher wins. Read only once two sites have shown the same circles, the same accessibility count and the same real-user verdict — at which point the points are all that is left to separate them.
+5. **Tiebreaker value**, lower wins:
 
 ```
 50000 * speedIndex / weight + TTFB + TBT
@@ -262,9 +263,11 @@ Sites with no successful measurement sort last rather than being treated as a ze
 
 A total treats the categories as a currency, so one can be sold off to buy points elsewhere: 100/100/100/80 sums to 380 and beats 90/90/90/90 on 360, while showing an amber ring against four greens — a row that looks worse than the row beneath it. Banding first says that a ring dropping out of green is a fact about the site that no amount of points elsewhere buys back.
 
+The same reasoning puts axe above the total. An axe violation costs nothing in the Lighthouse score — axe is a separate run — so a site could carry four violations alongside a perfect 400 and outrank a site whose only fault was the ring its total was docked for. preactjs.com sat six places above typescriptlang.org on exactly that trade. Counting the violations before the points ends it.
+
 Gray — no data — is counted in its own bucket, between red and amber. A Lighthouse category with no score and an axe run that never happened are both unchecked, and unchecked is not clean: a site must not climb by failing to be measured. But a check that did not run is not a measured failure either, so it costs less than a red.
 
-**Core Web Vitals is counted like any other ring**, with one exception: an unsampled vital is not a gray ring. Most of this corpus is too small for CrUX to sample, and that is a fact about a site's traffic rather than about the site, so it goes in no bucket at all — where a missing axe run does cost you. A vital that *was* sampled and failed is a red circle like any other. It also stays a tiebreaker further down, where how badly a site fails separates two sites the rings could not.
+**Core Web Vitals is counted like any other ring**, with one exception: an unsampled vital is not a gray ring. Most of this corpus is too small for CrUX to sample, and that is a fact about a site's traffic rather than about the site, so it goes in no bucket at all — where a missing axe run does cost you. A vital that *was* sampled and failed is a red circle like any other. It is also read again a step below the rings, where how badly a site fails separates two sites the counts could not.
 
 ### Archiving a URL
 
