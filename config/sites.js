@@ -530,7 +530,6 @@ export default {
 		 * category for a model lab, however true it is of Cursor and Ollama.
 		 */
 		ai: {
-			showOnHomePageCategoryList: true,
 			name: "AI",
 			enabled: true,
 			description:
