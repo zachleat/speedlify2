@@ -244,10 +244,11 @@ The favicons are the **one external request** the built site makes, via the same
 Ports the leaderboard algorithm from [performance-leaderboard](https://github.com/zachleat/performance-leaderboard), as described in [Eleventy Leaderboard](https://www.zachleat.com/web/eleventy-leaderboard-speedlify/#the-algorithm-and-tiebreaker-changes):
 
 1. **Ring counts**, worst color first — the whole row of circles, read as counts rather than as a total. All six rings — the four Lighthouse categories, axe, and Core Web Vitals — are reduced to green / amber / red / gray and counted. Fewest red wins, then fewest gray, then fewest amber, then most green. A site showing any red ranks below a site showing none, whatever else it has.
-2. **Fewest axe violations**, counted as violating *nodes* — one rule broken across eight elements is eight violations. Second only to the rings, and ahead of every measure of speed: a slow site is a better site than an inaccessible one.
+2. **The axe ring's color** — green, then amber, then gray, then red. The band, not the count: two sites showing the same six colors can still differ in *which* ring is the amber one, and this asks whose amber is the accessibility ring. Second only to the rings, and ahead of every measure of speed: a slow site is a better site than an inaccessible one.
 3. **Core Web Vitals** from real users — how badly first, then how many. A vital that is merely short of the good threshold beats one that is poor. A site CrUX has never sampled is not assessed here and falls through to the next step, neither credited nor blamed for data that does not exist.
-4. **Sum of all four Lighthouse categories** (0–400), higher wins. Read only once two sites have shown the same circles, the same accessibility count and the same real-user verdict — at which point the points are all that is left to separate them.
-5. **Tiebreaker value**, lower wins:
+4. **Sum of all four Lighthouse categories** (0–400), higher wins. Read only once two sites have shown the same circles, the same accessibility ring and the same real-user verdict — at which point the points are all that is left to separate them.
+5. **Fewest axe violations**, counted as violating *nodes* — one rule broken across eight elements is eight violations. The same ring as step 2 at full resolution: up there one violation and thirty are the same color, and here the difference between them decides. It settles about a fifth of the board, and without it those pairs fall to speed — putting a site with four violations above one with a single violation.
+6. **Tiebreaker value**, lower wins:
 
 ```
 50000 * speedIndex / weight + TTFB + TBT
@@ -263,7 +264,7 @@ Sites with no successful measurement sort last rather than being treated as a ze
 
 A total treats the categories as a currency, so one can be sold off to buy points elsewhere: 100/100/100/80 sums to 380 and beats 90/90/90/90 on 360, while showing an amber ring against four greens — a row that looks worse than the row beneath it. Banding first says that a ring dropping out of green is a fact about the site that no amount of points elsewhere buys back.
 
-The same reasoning puts axe above the total. An axe violation costs nothing in the Lighthouse score — axe is a separate run — so a site could carry four violations alongside a perfect 400 and outrank a site whose only fault was the ring its total was docked for. preactjs.com sat six places above typescriptlang.org on exactly that trade. Counting the violations before the points ends it.
+The same reasoning puts the axe ring above the total. An axe violation costs nothing in the Lighthouse score — axe is a separate run — so a site could carry four violations alongside a perfect 400 and outrank a site whose only fault was the ring its total was docked for. preactjs.com sat six places above typescriptlang.org on exactly that trade. Reading the ring's color before the points ends it, and the violation count settles the rest below the total.
 
 Gray — no data — is counted in its own bucket, between red and amber. A Lighthouse category with no score and an axe run that never happened are both unchecked, and unchecked is not clean: a site must not climb by failing to be measured. But a check that did not run is not a measured failure either, so it costs less than a red.
 
