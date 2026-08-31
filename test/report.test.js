@@ -43,7 +43,7 @@ function fixture({ sites = 1, points = 4, url = (i) => `https://site${i}.example
 					requestedUrl: url(s),
 					finalUrl: url(s),
 					redirect: null,
-					scores: { performance: performance(p), accessibility: 100, "best-practices": 100, seo: 100 },
+					scores: { performance: performance(p, s), accessibility: 100, "best-practices": 100, seo: 100 },
 					timings: { lcp: 2000 - p * 50, cls: 0.01, tbt: 30, fcp: 1000, si: 1200, ttfb: 200 },
 					weight: { total: 500000, requests: 40, byType: { script: { bytes: 1000, requests: 2 } } },
 					thirdParty: { count: 0, bytes: 0, mainThreadMs: 0, top: [] },
@@ -1025,5 +1025,63 @@ describe("rank movement", () => {
 
 	test("a site measured once has not moved", () => {
 		assert.equal(rankClimb({ ...site(100, 0), previous: null }, 9), null);
+	});
+});
+
+describe("newly perfect window", () => {
+	// The last point is perfect, the one before it is not — the transition the
+	// card reports. Points are written on 2026-01-01 and 2026-01-02.
+	const flipped = () =>
+		fixture({ points: 2, performance: (p) => (p === 0 ? 99 : 100), axe: { violations: 0, passes: 30 } });
+	const LAST_POINT = Date.UTC(2026, 0, 2);
+	const HOUR = 3600 * 1000;
+
+	test("lists a site that turned perfect inside the window", async () => {
+		const f = flipped();
+		const r = await buildReport({ resultsDir: f.resultsDir, configFile: f.configFile, now: LAST_POINT + 24 * HOUR });
+
+		assert.equal(r.stats.newlyPerfect.length, 1);
+		assert.equal(r.stats.newlyPerfect[0].displayUrl, "site0.example");
+	});
+
+	test("drops it once it is older than the window", async () => {
+		const f = flipped();
+		const r = await buildReport({ resultsDir: f.resultsDir, configFile: f.configFile, now: LAST_POINT + 72 * HOUR });
+
+		assert.equal(r.stats.newlyPerfect.length, 0);
+	});
+
+	test("the boundary is inclusive", async () => {
+		const f = flipped();
+		const at = await buildReport({ resultsDir: f.resultsDir, configFile: f.configFile, now: LAST_POINT + 48 * HOUR });
+		const past = await buildReport({ resultsDir: f.resultsDir, configFile: f.configFile, now: LAST_POINT + 48 * HOUR + 1 });
+
+		assert.equal(at.stats.newlyPerfect.length, 1, "exactly 48h old still counts");
+		assert.equal(past.stats.newlyPerfect.length, 0, "a millisecond later does not");
+	});
+
+	test("recently measured yields its rows to the list below", async () => {
+		// Fourteen sites so the twelve-row cap actually binds, of which only the
+		// first four turn perfect — the rest stay a point short on both runs.
+		const f = fixture({
+			sites: 14,
+			points: 2,
+			performance: (p, s) => (s < 4 && p === 1 ? 100 : 99),
+			axe: { violations: 0, passes: 30 },
+		});
+		const r = await buildReport({ resultsDir: f.resultsDir, configFile: f.configFile, now: LAST_POINT + 24 * HOUR });
+
+		assert.equal(r.stats.newlyPerfect.length, 4);
+		// Twelve rows between them, so four perfect rows leave room for eight.
+		assert.equal(r.stats.recentlyMeasured.length, 8);
+	});
+
+	test("recently measured disappears when the list below fills the card", async () => {
+		const f = fixture({ sites: 14, points: 2, performance: (p) => (p === 0 ? 99 : 100), axe: { violations: 0, passes: 30 } });
+		const r = await buildReport({ resultsDir: f.resultsDir, configFile: f.configFile, now: LAST_POINT + 24 * HOUR });
+
+		assert.equal(r.stats.newlyPerfect.length, 14);
+		// Not one row, and not a negative slice: the section is simply absent.
+		assert.equal(r.stats.recentlyMeasured.length, 0);
 	});
 });
