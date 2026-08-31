@@ -268,7 +268,7 @@ The same reasoning puts the axe ring above the total. An axe violation costs not
 
 Gray — no data — is counted in its own bucket, between red and amber. A Lighthouse category with no score and an axe run that never happened are both unchecked, and unchecked is not clean: a site must not climb by failing to be measured. But a check that did not run is not a measured failure either, so it costs less than a red.
 
-**Core Web Vitals is counted like any other ring**, with one exception: an unsampled vital is not a gray ring. Most of this corpus is too small for CrUX to sample, and that is a fact about a site's traffic rather than about the site, so it goes in no bucket at all — where a missing axe run does cost you. A vital that *was* sampled and failed is a red circle like any other. It is also read again a step below the rings, where how badly a site fails separates two sites the counts could not.
+**Core Web Vitals is counted like any other ring**, with one exception: an unsampled vital counts as green. Most of this corpus is too small for CrUX to sample, and that is a fact about a site's traffic rather than about the site — where a missing axe run is a measurement that did not finish and does cost you. Counting it as absent instead sank 171 of the 179 perfect sites below rank 36, behind the eight that happened to have field data. A vital that *was* sampled and failed is a red circle like any other. It is also read again a step below the rings, where how badly a site fails separates two sites the counts could not.
 
 ### Archiving a URL
 

@@ -347,18 +347,18 @@ describe("score bands", () => {
 
 	// Counted by color across all six rings.
 	test("counts the four categories, axe and the vital", () => {
-		assert.deepEqual(bandCounts(entry()), { good: 5, average: 0, poor: 0, unchecked: 0 }, "an unsampled vital is not a gray ring");
-		assert.deepEqual(bandCounts(entry({ seo: 80 })), { good: 4, average: 1, poor: 0, unchecked: 0 });
-		assert.deepEqual(bandCounts(entry({ seo: 30 })), { good: 4, average: 0, poor: 1, unchecked: 0 });
-		assert.deepEqual(bandCounts(entry({ violations: 3 })), { good: 4, average: 1, poor: 0, unchecked: 0 }, "the axe ring counts too");
-		assert.deepEqual(bandCounts(entry({ violations: 40 })), { good: 4, average: 0, poor: 1, unchecked: 0 });
+		assert.deepEqual(bandCounts(entry()), { good: 6, average: 0, poor: 0, unchecked: 0 }, "an unsampled vital counts green");
+		assert.deepEqual(bandCounts(entry({ seo: 80 })), { good: 5, average: 1, poor: 0, unchecked: 0 });
+		assert.deepEqual(bandCounts(entry({ seo: 30 })), { good: 5, average: 0, poor: 1, unchecked: 0 });
+		assert.deepEqual(bandCounts(entry({ violations: 3 })), { good: 5, average: 1, poor: 0, unchecked: 0 }, "the axe ring counts too");
+		assert.deepEqual(bandCounts(entry({ violations: 40 })), { good: 5, average: 0, poor: 1, unchecked: 0 });
 	});
 
 	test("a gray ring is counted, not dropped", () => {
 		// Left uncounted, a site could climb by not being measured: zero ambers
 		// would beat a site that was measured and got one.
-		assert.deepEqual(bandCounts(entry({ seo: null })), { good: 4, average: 0, poor: 0, unchecked: 1 });
-		assert.deepEqual(bandCounts(entry({ axe: false })), { good: 4, average: 0, poor: 0, unchecked: 1 });
+		assert.deepEqual(bandCounts(entry({ seo: null })), { good: 5, average: 0, poor: 0, unchecked: 1 });
+		assert.deepEqual(bandCounts(entry({ axe: false })), { good: 5, average: 0, poor: 0, unchecked: 1 });
 	});
 
 	test("a gray ring loses to a measured amber and to a measured red", () => {
@@ -384,7 +384,18 @@ describe("score bands", () => {
 		assert.deepEqual(bandCounts(withCwv(["good", "good", "good"])), { good: 6, average: 0, poor: 0, unchecked: 0 });
 		assert.deepEqual(bandCounts(withCwv(["poor", "poor", "poor"])), { good: 5, average: 0, poor: 1, unchecked: 0 });
 		assert.deepEqual(bandCounts(withCwv(["needs-improvement", "good", "good"])), { good: 5, average: 1, poor: 0, unchecked: 0 });
-		assert.deepEqual(bandCounts(entry()), { good: 5, average: 0, poor: 0, unchecked: 0 }, "no sample is not a gray ring");
+
+		// The one that matters: a site CrUX has never sampled must not show one
+		// fewer green than a site it has. Nearly every perfect site here is too
+		// small to be sampled, and counting the ring as missing sank all of them.
+		assert.deepEqual(bandCounts(entry()), { good: 6, average: 0, poor: 0, unchecked: 0 }, "no sample counts as green");
+
+		// Green in the counts, but not a pass: the ring count must not demote a
+		// site for being small, while the vitals step still prefers a site shown
+		// to pass for real users. Below a measured pass, above any measured fail.
+		assert.ok(compareEntries(withCwv(["good", "good", "good"]), entry()) < 0, "a sampled pass beats an unsampled site");
+		assert.ok(compareEntries(entry(), withCwv(["needs-improvement", "good", "good"])) < 0, "but an unsampled site beats a failure");
+		assert.ok(compareEntries(entry(), withCwv(["poor", "good", "good"])) < 0, "and beats a poor one");
 	});
 
 	test("greens first, then ambers, then reds", () => {
