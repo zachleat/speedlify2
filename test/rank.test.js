@@ -390,11 +390,11 @@ describe("score bands", () => {
 		// small to be sampled, and counting the ring as missing sank all of them.
 		assert.deepEqual(bandCounts(entry()), { good: 6, average: 0, poor: 0, unchecked: 0 }, "no sample counts as green");
 
-		// Green in the counts, but not a pass: the ring count must not demote a
-		// site for being small, while the vitals step still prefers a site shown
-		// to pass for real users. Below a measured pass, above any measured fail.
-		assert.ok(compareEntries(withCwv(["good", "good", "good"]), entry()) < 0, "a sampled pass beats an unsampled site");
-		assert.ok(compareEntries(entry(), withCwv(["needs-improvement", "good", "good"])) < 0, "but an unsampled site beats a failure");
+		// Unsampled ranks with a pass, not below it: the vitals step sits above
+		// the Lighthouse total, so preferring sites that have CrUX data put a 399
+		// above 171 perfect sites. It still beats any measured failure.
+		assert.equal(compareEntries(withCwv(["good", "good", "good"]), entry()), 0, "an unsampled site ties with a sampled pass");
+		assert.ok(compareEntries(entry(), withCwv(["needs-improvement", "good", "good"])) < 0, "and beats a failure");
 		assert.ok(compareEntries(entry(), withCwv(["poor", "good", "good"])) < 0, "and beats a poor one");
 	});
 
