@@ -210,7 +210,21 @@ pre code { font-size: inherit; }
 	overflow-x: auto;
 	gap: 0.75rem;
 	margin-bottom: 2.5rem;
-	margin-inline: calc(-1 * var(--page-gutter));
+	/*
+	 * Full-bleed: out of the 1550px content column and across the viewport.
+	 *
+	 * The cards could already grow, but the column they sit in could not — past
+	 * 1550px the bar simply stopped and the page kept going, 505px of margin
+	 * either side at 2560px. Pulling half the difference off each edge lets the
+	 * row span the window, and the cards fill it because they were always
+	 * willing to.
+	 *
+	 * `50vw` counts the classic scrollbar, so on a platform that reserves space
+	 * for one this overshoots by its width; `min()` against the gutter pull-out
+	 * keeps it from ever being positive, which is what would push the page into
+	 * a horizontal scroll.
+	 */
+	margin-inline: min(calc(-1 * var(--page-gutter)), calc(50% - 50vw));
 	padding-inline: var(--page-gutter-padding);
 	/* Full height, so the cards read as one row rather than a ragged line of
 	   different-sized boxes. */
@@ -1293,12 +1307,14 @@ th.col-trend { text-align: center !important; }
 	text-decoration: none;
 }
 
-/* 15em is the viewBox's own 240px, so the thumbnail renders at the size it was
-   laid out for rather than being scaled to whatever the card happens to be.
-   Capped at the card's width so a narrow card shrinks it rather than clipping. */
+/* A fixed width so the thumbnail is the size it was laid out for rather than
+   whatever the card happens to be. Slightly over the viewBox's own 240px, which
+   scales the plot up a few percent — the dots are 1.6 units and read better with
+   the extra room. Capped at the card's width so a narrow card shrinks it rather
+   than clipping. */
 .stat-chart svg {
 	display: block;
-	width: 15em;
+	width: 16em;
 	max-width: 100%;
 	height: auto;
 }
@@ -1466,6 +1482,35 @@ th.col-trend { text-align: center !important; }
 	flex: 0 0 auto;
 	max-width: 18em;
 }
+
+/*
+ * Quantity queries, so a short row still spans the width.
+ *
+ * The 20em ceiling above stops one greedy card filling the viewport and hiding
+ * that there are others. At four cards it does the wrong job: four times 20em
+ * stops well short of the content column, leaving 269px of dead space at
+ * 1700px wide.
+ *
+ * These raise the ceiling as the count falls. They are ceilings, not widths —
+ * `flex-grow` still decides the actual sizes and fills the row exactly, and
+ * these only stop any one card running away with the slack. Which is why they
+ * are not simply `100% / N`: the chart card is `flex: 0 0 auto` and sizes to
+ * its contents, so it never takes its share, and the cards that do grow have to
+ * be allowed past a strict fraction to cover for it.
+ */
+.statbar:has(> .stat:nth-child(2):last-child) > .stat {
+	max-width: 75%;
+}
+.statbar:has(> .stat:nth-child(3):last-child) > .stat {
+	max-width: 55%;
+}
+.statbar:has(> .stat:nth-child(4):last-child) > .stat {
+	max-width: 42%;
+}
+.statbar:has(> .stat:nth-child(5):last-child) > .stat {
+	max-width: 34%;
+}
+
 
 /* The line under a histogram naming its denominator. Quieter than the ticks,
    which are labels for the bars; this is a note about the whole chart. */
