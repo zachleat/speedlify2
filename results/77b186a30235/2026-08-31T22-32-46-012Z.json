@@ -1,0 +1,338 @@
+{
+  "url": "https://www.amazon.com/",
+  "name": "Amazon",
+  "group": "big-tech",
+  "groupName": "Big Tech",
+  "timestamp": 1788215566012,
+  "date": "2026-08-31T22:32:46.012Z",
+  "runId": "2026-08-31T22-30-15-563Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 52769,
+  "error": null,
+  "variance": {
+    "min": 51,
+    "max": 59,
+    "spread": 8,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://www.amazon.com/",
+    "finalUrl": "https://www.amazon.com/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 55,
+      "accessibility": 89,
+      "best-practices": 54,
+      "seo": 92,
+      "agentic-browsing": 50
+    },
+    "timings": {
+      "fcp": 4007,
+      "lcp": 10847,
+      "si": 4007,
+      "tbt": 427,
+      "tti": 10914,
+      "cls": 0.011,
+      "ttfb": 672,
+      "maxPotentialFid": 189,
+      "serverResponseTime": 61,
+      "networkRtt": 21.5,
+      "networkServerLatency": 135.7
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 63.8,
+      "resourceLoadDelay": 2362.4,
+      "resourceLoadDuration": 11.4,
+      "elementRenderDelay": 31.6
+    },
+    "weight": {
+      "total": 5786747,
+      "requests": 120,
+      "mainDocument": 357025,
+      "byType": {
+        "total": {
+          "bytes": 5766768,
+          "requests": 113
+        },
+        "media": {
+          "bytes": 4037169,
+          "requests": 6
+        },
+        "script": {
+          "bytes": 573895,
+          "requests": 31
+        },
+        "image": {
+          "bytes": 562206,
+          "requests": 39
+        },
+        "document": {
+          "bytes": 360245,
+          "requests": 3
+        },
+        "font": {
+          "bytes": 91946,
+          "requests": 4
+        },
+        "stylesheet": {
+          "bytes": 78655,
+          "requests": 12
+        },
+        "other": {
+          "bytes": 62652,
+          "requests": 18
+        },
+        "third-party": {
+          "bytes": 5766768,
+          "requests": 113
+        }
+      },
+      "scripts": 31,
+      "stylesheets": 12,
+      "fonts": 5
+    },
+    "thirdParty": {
+      "count": 2,
+      "bytes": 5450551,
+      "mainThreadMs": 205.4,
+      "top": [
+        {
+          "entity": "media-amazon.com",
+          "bytes": 5446048,
+          "mainThreadMs": 204.6,
+          "byType": {
+            "script": 188758,
+            "image": 559243,
+            "media": 4146812,
+            "font": 91946,
+            "stylesheet": 7414
+          },
+          "typedBytes": 4994173
+        },
+        {
+          "entity": "Marketplace Web Service",
+          "bytes": 4503,
+          "mainThreadMs": 0.8,
+          "byType": {
+            "script": 4503
+          },
+          "typedBytes": 4503
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 4551.6,
+      "byGroup": {
+        "scriptEvaluation": 1717,
+        "other": 1345.4,
+        "styleLayout": 579.1,
+        "scriptParseCompile": 337.5,
+        "paintCompositeRender": 332.2,
+        "parseHTML": 199.2,
+        "garbageCollection": 41.1
+      },
+      "bootupMs": 1839.1,
+      "longTasks": 9,
+      "longestTaskMs": 189
+    },
+    "dom": {
+      "elements": 1266,
+      "depth": 25,
+      "maxChildren": 40
+    },
+    "waste": {
+      "unusedJsBytes": 255002,
+      "unusedCssBytes": 177526,
+      "legacyJsBytes": 84989,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 1363,
+      "renderBlockingCount": 12,
+      "poorlyCachedBytes": 3484.1929953703707,
+      "poorlyCachedCount": 10
+    },
+    "accessibility": {
+      "failingCount": 4,
+      "applicableCount": 35,
+      "failingNodes": 8,
+      "failing": [
+        {
+          "id": "target-size",
+          "title": "Touch targets do not have sufficient size or spacing.",
+          "nodes": 4
+        },
+        {
+          "id": "aria-allowed-attr",
+          "title": "`[aria-*]` attributes do not match their roles",
+          "nodes": 2
+        },
+        {
+          "id": "aria-roles",
+          "title": "`[role]` values are not valid",
+          "nodes": 1
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "title": "Elements with visible text labels do not have matching accessible names.",
+          "nodes": 1
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": null,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 3,
+      "baselineLimitedFeatures": 39
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2395.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-08-31T22:33:03.646Z",
+      "runtimeMs": 15086.7
+    }
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-08-02",
+      "last": "2026-08-29"
+    },
+    "metrics": {
+      "rtt": {
+        "p75": 147,
+        "rating": null,
+        "distribution": {
+          "good": 41.2,
+          "needsImprovement": 48.1,
+          "poor": 10.7
+        }
+      },
+      "cls": {
+        "p75": 0.01,
+        "rating": "good",
+        "distribution": {
+          "good": 94.4,
+          "needsImprovement": 4.1,
+          "poor": 1.5
+        }
+      },
+      "ttfb": {
+        "p75": 731,
+        "rating": "good",
+        "distribution": {
+          "good": 78,
+          "needsImprovement": 16.1,
+          "poor": 5.9
+        }
+      },
+      "fcp": {
+        "p75": 1140,
+        "rating": "good",
+        "distribution": {
+          "good": 87.7,
+          "needsImprovement": 7.6,
+          "poor": 4.8
+        }
+      },
+      "inp": {
+        "p75": 169,
+        "rating": "good",
+        "distribution": {
+          "good": 79.5,
+          "needsImprovement": 14.5,
+          "poor": 6
+        }
+      },
+      "lcp": {
+        "p75": 1442,
+        "rating": "good",
+        "distribution": {
+          "good": 88,
+          "needsImprovement": 6.9,
+          "poor": 5.2
+        }
+      }
+    },
+    "cwvPass": true,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "interstitial": null,
+    "host": {
+      "id": null,
+      "name": "Server",
+      "icon": null,
+      "source": "server"
+    },
+    "headers": {
+      "server": "Server",
+      "via": "1.1 8bc8701b373a25ffd828711cdb8fd72a.cloudfront.net (CloudFront)",
+      "x-amz-cf-id": "92bztDTsVyizO0pWz2s3nx5Sq7b-r-IH_tc-GS2cX6slojhoJN5jUQ=="
+    },
+    "violations": 18,
+    "passes": 1634,
+    "incomplete": 19,
+    "violationRules": 6,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "image-redundant-alt",
+        "impact": "minor",
+        "nodes": 12,
+        "help": "Alternative text of images should not be repeated as text"
+      },
+      {
+        "id": "aria-allowed-attr",
+        "impact": "critical",
+        "nodes": 2,
+        "help": "Elements must only use supported ARIA attributes"
+      },
+      {
+        "id": "aria-roles",
+        "impact": "critical",
+        "nodes": 1,
+        "help": "ARIA roles used must conform to valid values"
+      },
+      {
+        "id": "landmark-unique",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination"
+      },
+      {
+        "id": "meta-viewport-large",
+        "impact": "minor",
+        "nodes": 1,
+        "help": "Users should be able to zoom and scale the text up to 500%"
+      },
+      {
+        "id": "page-has-heading-one",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Page should contain a level-one heading"
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
