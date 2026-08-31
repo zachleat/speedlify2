@@ -68,12 +68,17 @@
 	</div>
 	{% endif %}
 
-	{% if stats.recentlyMeasured.length %}
+	{% if stats.recentlyMeasured.length or stats.newlyPerfect.length %}
 	<div class="stat">
 		{#
 			What the measurement loop has just done. Everything else on this bar is
 			a state of the corpus; this is the only thing that shows it moving.
+
+			Gives up its rows to the newly-perfect list below when that one is long,
+			and drops out entirely rather than printing a heading over nothing — so
+			the card is gated on either list having something to say, not on this one.
 		#}
+		{% if stats.recentlyMeasured.length %}
 		<span class="stat-label">Recently measured</span>
 		<ol class="recents">
 			{% for site in stats.recentlyMeasured %}
@@ -99,17 +104,21 @@
 			</li>
 			{% endfor %}
 		</ol>
+		{% endif %}
 
 		{#
 			The other half of the same story. The list above says what was measured;
 			this says what changed — a site that was a point short and now is not.
 
-			Kept short and quiet: a footnote to the list it sits under, not a second
-			list competing with it. Absent entirely where nothing has flipped, which is
-			most category pages most days.
+			Every site that qualifies, however many that is — a site whose scores just
+			went green should be able to find itself here, and a cap ordered by recency
+			meant that on a busy day it silently missed the cut. On a quiet day this is
+			a footnote under a list of twelve; on a busy one it is the whole card, and
+			the list above stands down. Absent entirely where nothing has flipped, which
+			is most category pages most days.
 		#}
 		{% if stats.newlyPerfect.length %}
-		<span class="stat-label">Newly perfect <span class="tag stat-count">&times;{{ stats.newlyPerfect | length }}</span></span>
+		<span class="stat-label">Newly perfect <span class="tag stat-count" title="{{ stats.newlyPerfect | length }} {{ "site" if stats.newlyPerfect | length == 1 else "sites" }} just reached perfect scores">&times;{{ stats.newlyPerfect | length }}</span></span>
 		<ol class="recents recents-flipped">
 			{% for site in stats.newlyPerfect %}
 			<li>
