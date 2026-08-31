@@ -63,7 +63,7 @@
 			{% scoreRing sotd.latest.lab.scores[score.key], score.label %}
 			{% endfor %}
 			{% axeRing sotd.axe %}
-			{% cwvRing sotd.cwvFailures, sotd.cwv.assessed %}
+			{% cwvRing sotd.cwvFailures, sotd.cwv.assessed, sotd.cwvWorst %}
 		</span>
 	</div>
 	{% endif %}
@@ -309,7 +309,7 @@
 				{% scoreRing stats.medians.scores[score.key], "Median " + score.label %}
 				{% endfor %}
 				{% axeRing stats.medians.axe, 37, "Median axe violations: " + (stats.medians.axe | default("no data")) + ", across " + (stats.medians.counts.axe | num) + " sites" %}
-				{% cwvRing stats.medians.cwvFailures, null, 37, "Median Core Web Vitals: " + (stats.medians.cwvFailures | default("no data")) + " failing, across " + (stats.medians.counts.cwv | num) + " sites with real-user data" %}
+				{% cwvRing stats.medians.cwvFailures, null, "poor", 37, "Median Core Web Vitals: " + (stats.medians.cwvFailures | default("no data")) + " failing, across " + (stats.medians.counts.cwv | num) + " sites with real-user data" %}
 			</span>
 		</div>
 

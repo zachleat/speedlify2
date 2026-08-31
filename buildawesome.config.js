@@ -749,7 +749,7 @@ export default async function ($config) {
 	 * is three separate metrics, and one of them failing is the whole answer as
 	 * far as the ranking is concerned. How many, and which, is in the label.
 	 */
-	$config.addShortcode("cwvRing", function (failures, assessed, size = 37, label = null) {
+	$config.addShortcode("cwvRing", function (failures, assessed, worst = "poor", size = 37, label = null) {
 		if (typeof failures !== "number") {
 			return ring({
 				band: "none",
@@ -761,16 +761,27 @@ export default async function ($config) {
 			});
 		}
 
+		const band = cwvBand(failures, worst ?? "poor");
+
 		return ring({
-			band: cwvBand(failures),
-			text: failures === 0 ? "✓" : "✗",
+			band,
+			/*
+			 * Three glyphs for three bands, so the mark carries the verdict on its
+			 * own rather than leaning on color: a tick passes, a cross fails badly,
+			 * and "!" is the middle case — every metric short of the good threshold
+			 * but none of them poor. Without it amber and red both read "✗" and the
+			 * only difference between "2ms over" and "six seconds" is a hue.
+			 */
+			text: band === "good" ? "✓" : band === "average" ? "!" : "✗",
 			// The one ring whose value is a verdict rather than a number, so it is
 			// the one that does not say what it is measuring. The others are read
 			// by position; a tick is read by guesswork without this.
 			sublabel: "CWV",
 			// Overridable because the same ring serves a site's own verdict and a
 			// median across the fleet, and "0 of ? failing" is only true of one.
-			label: label ?? `Core Web Vitals: ${failures} of ${assessed ?? "?"} failing at p75`,
+			label:
+				label ??
+				`Core Web Vitals: ${failures} of ${assessed ?? "?"} failing at p75${worst === "needs-improvement" ? ", all short of the good threshold rather than poor" : ""}`,
 			pct: 1,
 			size,
 		});
