@@ -1698,6 +1698,30 @@ th.col-trend { text-align: center !important; }
 }
 .recents a:hover, .recents a:focus-visible { color: var(--text); text-decoration: underline; }
 
+/*
+ * The same list, across columns, where a page has the width a card does not.
+ *
+ * CSS columns rather than a grid: every row is one line and they are ordered by
+ * time, so column flow — down the first column, then the second — keeps the
+ * newest rows together at the top left. A grid with `auto-fill` would order
+ * them across the rows instead, and "newest first" would zigzag.
+ *
+ * `break-inside: avoid` because a row is a three-column grid of its own, and a
+ * column break through the middle of one would strand its dots.
+ *
+ * The floor is 18em rather than something narrower: below that the URL column
+ * gets squeezed to nothing by the two fixed columns beside it, and long domains
+ * end up clipped in every row at once.
+ */
+.recents-wide {
+	columns: 18em;
+	column-gap: 2rem;
+	margin-top: 0.5rem;
+}
+.recents-wide li {
+	break-inside: avoid;
+}
+
 .recents-dots { display: flex; gap: 2px; }
 
 .recents-dot {

@@ -13,6 +13,36 @@ title: Runs
 	</p>
 </header>
 
+{% if sites.recentlyMeasured.length %}
+<section class="panel">
+	{#
+		The same rows as the stat bar's card on the home page — the link, the six
+		band colors, the age — laid out across columns rather than down one.
+
+		This page is about the measurement loop, so the list earns more room here
+		than it gets in a card that has to share a scrolling row with five others.
+		Columns rather than a longer single list: sixty rows in one column is a
+		screen of scrolling to learn something a reader takes in at a glance.
+	#}
+	<h2>Recently measured <span class="tag">{{ sites.recentlyMeasured | length }} sites</span></h2>
+	<p class="muted small">
+		Newest first, across the whole corpus. The dots are the four Lighthouse
+		categories, then axe and Core Web Vitals, in the colors that run carried.
+	</p>
+	<ol class="recents recents-wide">
+		{% for site in sites.recentlyMeasured %}
+		<li>
+			<a href="/site/{{ site.slug }}/">{{ site.displayUrl }}</a>
+			<span class="recents-dots" aria-hidden="true">
+				{% for band in site.bands %}<span class="recents-dot recents-dot-{{ band }}"></span>{% endfor %}
+			</span>
+			<span class="recents-age"><time datetime="{{ site.timestamp | iso }}">{{ site.timestamp | since }}</time></span>
+		</li>
+		{% endfor %}
+	</ol>
+</section>
+{% endif %}
+
 {#
 	The machines, before the runs on them.
 
