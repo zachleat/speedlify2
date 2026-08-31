@@ -523,12 +523,33 @@ export default {
 		 * The sites are the same objects the four use, so a URL added to one of
 		 * them appears here on the next build without a second edit.
 		 */
+		/*
+		 * Ahead of Developer Tooling, which also carries these sites. `groups` is
+		 * walked in order and the first match wins, so this is what makes "AI" the
+		 * chip a reader sees first — Developer Tooling reads oddly as the primary
+		 * category for a model lab, however true it is of Cursor and Ollama.
+		 */
+		ai: {
+			showOnHomePageCategoryList: true,
+			name: "AI",
+			enabled: true,
+			description:
+				"Model labs, coding agents, and the infrastructure that serves them.",
+			...DAILY,
+			/*
+			 * Polite, like Big Tech: these are commercial sites that did not ask to
+			 * be measured, and several of them are already behind bot protection.
+			 */
+			...POLITE,
+			sites: AI_SITES,
+		},
+
 		"dev-tooling": {
 			showOnHomePageCategoryList: true,
 			name: "Developer Tooling",
 			enabled: true,
 			description:
-				"Site generators, test runners, package managers and web hosts together.",
+				"Site generators, test runners, package managers, web hosts and AI together.",
 			...DAILY,
 			sites: [
 				...SSG_SITES,
@@ -538,6 +559,7 @@ export default {
 				...FRAMEWORK_SITES,
 				...BUILD_TOOL_SITES,
 				...PACKAGE_TOOL_SITES,
+				...AI_SITES,
 
 				// This instance, in its own leaderboard. Not in any of the lists
 				// above because there is no list of one — and measuring the thing
@@ -555,21 +577,6 @@ export default {
 		 * exactly the same terms — same runner, same throttling, same thresholds.
 		 *
 		 */
-		ai: {
-			showOnHomePageCategoryList: true,
-			name: "AI",
-			enabled: true,
-			description:
-				"Model labs, coding agents, and the infrastructure that serves them.",
-			...DAILY,
-			/*
-			 * Polite, like Big Tech: these are commercial sites that did not ask to
-			 * be measured, and several of them are already behind bot protection.
-			 */
-			...POLITE,
-			sites: AI_SITES,
-		},
-
 		"big-tech": {
 			showOnHomePageCategoryList: true,
 			name: "Big Tech",
