@@ -2,7 +2,7 @@ import { test, describe } from "node:test";
 import assert from "node:assert/strict";
 import {
 	scoreBand,
-	bandProfile,
+	bandCounts,
 	lighthouseSum,
 	tiebreakerWeight,
 	tiebreakerValue,
@@ -345,58 +345,58 @@ describe("score bands", () => {
 		assert.equal(scoreBand(null), "none");
 	});
 
-	// good 0, amber 2, red and gray 3. Five entries: the four categories and axe.
-	test("ranks the four categories and axe, worst first", () => {
-		assert.deepEqual(bandProfile(entry()), [0, 0, 0, 0, 0]);
-		assert.deepEqual(bandProfile(entry({ seo: 80 })), [2, 0, 0, 0, 0]);
-		assert.deepEqual(bandProfile(entry({ seo: 30 })), [3, 0, 0, 0, 0]);
-		assert.deepEqual(bandProfile(entry({ violations: 3 })), [2, 0, 0, 0, 0], "the axe ring counts too");
-		assert.deepEqual(bandProfile(entry({ violations: 40 })), [3, 0, 0, 0, 0]);
+	// Counted by color across all six rings.
+	test("counts the four categories, axe and the vital", () => {
+		assert.deepEqual(bandCounts(entry()), { good: 5, average: 0, poor: 0, unchecked: 0 }, "an unsampled vital is not a gray ring");
+		assert.deepEqual(bandCounts(entry({ seo: 80 })), { good: 4, average: 1, poor: 0, unchecked: 0 });
+		assert.deepEqual(bandCounts(entry({ seo: 30 })), { good: 4, average: 0, poor: 1, unchecked: 0 });
+		assert.deepEqual(bandCounts(entry({ violations: 3 })), { good: 4, average: 1, poor: 0, unchecked: 0 }, "the axe ring counts too");
+		assert.deepEqual(bandCounts(entry({ violations: 40 })), { good: 4, average: 0, poor: 1, unchecked: 0 });
 	});
 
-	test("a missing category ranks between amber and red", () => {
-		// Not scored is not green: an incomplete run must not outrank a complete
-		// one by having fewer rings to fail in. But it is not a measured failure
-		// either, so it costs more than any real amber and less than a real red.
-		assert.deepEqual(bandProfile(entry({ seo: null })), [2.5, 0, 0, 0, 0]);
+	test("a gray ring is counted, not dropped", () => {
+		// Left uncounted, a site could climb by not being measured: zero ambers
+		// would beat a site that was measured and got one.
+		assert.deepEqual(bandCounts(entry({ seo: null })), { good: 4, average: 0, poor: 0, unchecked: 1 });
+		assert.deepEqual(bandCounts(entry({ axe: false })), { good: 4, average: 0, poor: 0, unchecked: 1 });
 	});
 
-	test("a site axe never ran against ranks the same way", () => {
-		assert.deepEqual(bandProfile(entry({ axe: false })), [2.5, 0, 0, 0, 0]);
+	test("a gray ring loses to a measured amber and to a measured red", () => {
+		const unknown = entry({ axe: false });
+		const amber = entry({ seo: 75 });
+		const red = entry({ seo: 30 });
+
+		// Gray is counted in its own bucket, between red and amber: worse than a
+		// ring that came back middling, better than one that measurably failed.
+		assert.ok(compareEntries(amber, unknown) < 0, "a measured amber beats an unchecked ring");
+		assert.ok(compareEntries(unknown, red) < 0, "an unchecked ring beats a measured red");
 	});
 
-	test("unknown still loses to any amber, and beats any red", () => {
-		// The ordering this is all for: a gray ring must not let a site climb past
-		// one that was measured and scored, and must not be treated as proof of
-		// failure either.
-		const unknown = bandProfile(entry({ axe: false }));
-		const amber = bandProfile(entry({ seo: 75 }));
-		const red = bandProfile(entry({ seo: 30 }));
-
-		assert.ok(unknown[0] > amber[0], "worse than a measured amber");
-		assert.ok(unknown[0] < red[0], "better than a measured red");
-	});
-
-	test("Core Web Vitals do not enter the band profile", () => {
-		// Left out on purpose: CrUX has no sample for most of this corpus, so the
-		// ring is gray more often than it is any color, and a criterion that is
-		// unknown for most rows cannot carry the top tier. It still ranks a tier
-		// below, where a missing assessment costs nothing.
+	test("Core Web Vitals are counted like any other ring", () => {
+		// They used to be excluded, on the grounds that CrUX has no sample for most
+		// of the corpus. Gray is now simply uncounted, which handles that case
+		// without letting a measured failure go unrecorded.
 		const withCwv = (ratings) => ({
 			...entry(),
 			cwv: { source: "field-history", parts: ratings.map((rating, i) => ({ key: i, rating })) },
 		});
 
-		const green = bandProfile(withCwv(["good", "good", "good"]));
-		const red = bandProfile(withCwv(["poor", "poor", "poor"]));
-		const gray = bandProfile(entry());
+		assert.deepEqual(bandCounts(withCwv(["good", "good", "good"])), { good: 6, average: 0, poor: 0, unchecked: 0 });
+		assert.deepEqual(bandCounts(withCwv(["poor", "poor", "poor"])), { good: 5, average: 0, poor: 1, unchecked: 0 });
+		assert.deepEqual(bandCounts(withCwv(["needs-improvement", "good", "good"])), { good: 5, average: 1, poor: 0, unchecked: 0 });
+		assert.deepEqual(bandCounts(entry()), { good: 5, average: 0, poor: 0, unchecked: 0 }, "no sample is not a gray ring");
+	});
 
-		assert.deepEqual(green, gray);
-		assert.deepEqual(red, gray, "even three failing vitals leave the profile untouched");
+	test("greens first, then ambers, then reds", () => {
+		const four_two_zero = entry({ seo: 80, violations: 3 });
+		const four_zero_two = entry({ seo: 30, violations: 40 });
+
+		// Same green count, so the amber count settles it: amber beats red.
+		assert.ok(compareEntries(four_two_zero, four_zero_two) < 0);
 	});
 
 	test("is null when the site has no scores", () => {
-		assert.equal(bandProfile(entry({ measured: false })), null);
+		assert.equal(bandCounts(entry({ measured: false })), null);
 	});
 });
 
@@ -428,7 +428,7 @@ describe("bands outrank points", () => {
 	test("points still decide within the same band profile", () => {
 		const better = entry({ seo: 85 });
 		const worse = entry({ seo: 60 });
-		assert.deepEqual(bandProfile(better), bandProfile(worse));
+		assert.deepEqual(bandCounts(better), bandCounts(worse));
 		assert.equal(first(better, worse), "a");
 	});
 
@@ -442,5 +442,67 @@ describe("bands outrank points", () => {
 		];
 		const sorted = [...list].sort(compareEntries);
 		assert.deepEqual([...sorted].sort(compareEntries), sorted);
+	});
+});
+
+describe("Core Web Vitals severity in the ranking", () => {
+	const site = (scores, { axe = 0, vitals = null } = {}) => ({
+		latest: {
+			lab: {
+				scores,
+				timings: { si: 1000, ttfb: 100, tbt: 10 },
+				weight: { byType: { script: { bytes: 1000 } } },
+			},
+			axe: { violations: axe },
+		},
+		cwv: vitals ? { source: "field", parts: vitals.map((rating, i) => ({ key: i, rating })) } : null,
+	});
+
+	const GOOD = { performance: 100, accessibility: 100, "best-practices": 100, seo: 100 };
+	const MIXED = { performance: 39, accessibility: 84, "best-practices": 58, seo: 92 };
+	const STRONG = { performance: 38, accessibility: 100, "best-practices": 96, seo: 100 };
+
+	test("a failing vital is one ring, not a veto over the others", () => {
+		const passing = site(MIXED, { axe: 27, vitals: ["good", "good", "good"] });
+		const failing = site(GOOD, { vitals: ["needs-improvement", "good", "good"] });
+
+		// Two greens against five: passing vitals no longer buy a site past one
+		// showing more green. This is the rule the leaderboard states, and the
+		// reason a site with red rings stopped outranking a site with none.
+		assert.ok(compareEntries(failing, passing) < 0);
+	});
+
+	test("severity does not overturn the band profile", () => {
+		// The fastly.com / deno.com case: two red rings and two amber lost to one
+		// red and one amber, because the second site's CLS was poor.
+		const weakRingsMildVitals = site(MIXED, { axe: 27, vitals: ["needs-improvement", "needs-improvement", "good"] });
+		const strongRingsPoorVitals = site(STRONG, { axe: 2, vitals: ["needs-improvement", "needs-improvement", "poor"] });
+
+		assert.ok(compareEntries(strongRingsPoorVitals, weakRingsMildVitals) < 0);
+	});
+
+	test("but it settles two sites the rings cannot", () => {
+		// Identical rings and totals, so the comparison reaches severity.
+		const mild = site(GOOD, { vitals: ["needs-improvement", "needs-improvement", "good"] });
+		const poor = site(GOOD, { vitals: ["poor", "good", "good"] });
+
+		// Two mild failures beat one poor one, which the raw count would reverse.
+		assert.ok(compareEntries(mild, poor) < 0);
+	});
+
+	test("a red vital is one red ring, not a gate above the profile", () => {
+		// The neocities.org case: a red axe ring against a site whose worst is amber.
+		const oneRed = site({ performance: 95, accessibility: 85, "best-practices": 85, seo: 95 }, { axe: 27, vitals: ["good", "good", "good"] });
+		const noRed = site({ performance: 85, accessibility: 100, "best-practices": 100, seo: 100 }, { vitals: ["needs-improvement", "good", "good"] });
+
+		assert.ok(compareEntries(noRed, oneRed) < 0, "no red should outrank one red");
+	});
+
+	test("an unknown vital does not count as a red ring", () => {
+		// CrUX not sampling a site says nothing about it, so it bands with green.
+		const unsampled = site(GOOD);
+		const failing = site(GOOD, { vitals: ["poor", "good", "good"] });
+
+		assert.ok(compareEntries(unsampled, failing) < 0);
 	});
 });
