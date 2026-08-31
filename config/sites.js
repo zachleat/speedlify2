@@ -681,7 +681,10 @@ export default {
 			...WEEKLY,
 
 			// for storage reasons
-			screenshots: "none",
+			// A starter's whole point is what it renders, and half of these ship
+			// nothing without scripts — so this category keeps its pictures, both
+			// the filmstrip and the pair behind the Without JavaScript section.
+			screenshots: "filmstrip",
 
 			// The ones that came from the community list were filtered out of it,
 			// not missing from it. Without this they would be flagged "unlisted"
