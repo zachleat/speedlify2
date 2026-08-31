@@ -445,9 +445,36 @@ export default async function ($config) {
 		return "none";
 	});
 
+	/*
+	 * Which way a change is painted: better, worse, or neither.
+	 *
+	 * A move of under 5% is not painted worse. Every number here is a single
+	 * measurement of a live site on a shared runner, and small moves are mostly
+	 * the measurement rather than the site — flagging a 2% LCP drift red tells a
+	 * reader their site got worse when nothing about it changed.
+	 *
+	 * Asymmetric on purpose. A small improvement still reads as an improvement,
+	 * because being wrong in that direction costs nobody an afternoon chasing a
+	 * regression that is not there. The threshold is about not raising alarms.
+	 *
+	 * The arrow and the figure are unaffected: a 2% rise still shows as a rise
+	 * with its number. This is only the color.
+	 */
+	/*
+	 * How big a decline has to be before it is painted as one, in percent.
+	 *
+	 * Below this the change is shown — arrow, figure and all — but not colored,
+	 * because a couple of percent on a single run is noise more often than it is
+	 * the site. `significant` beside it in the measurement log answers the
+	 * sharper question, comparing against the metric's own run-to-run spread.
+	 */
+	const DELTA_WORSE_MIN_PCT = 5;
+
 	$config.addFilter("deltaClass", (d) => {
 		if (!d || d.unchanged || d.better === null) return "flat";
-		return d.better ? "better" : "worse";
+		if (d.better) return "better";
+
+		return typeof d.pct === "number" && Math.abs(d.pct) < DELTA_WORSE_MIN_PCT ? "flat" : "worse";
 	});
 
 	$config.addFilter("deltaArrow", (d) => {
