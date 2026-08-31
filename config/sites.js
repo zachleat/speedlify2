@@ -254,6 +254,66 @@ const HOST_SITES = [
  * where it happens rather than hidden, and a site that never resolves will fall
  * out on the usual failure count.
  */
+/*
+ * The AI companies, measured on the same terms as everyone else.
+ *
+ * A category with a particular reason to exist: these are the newest and
+ * best-funded engineering organizations on the web, most of them shipping
+ * heavily client-rendered product pages, and several of them selling tools that
+ * write other people's front ends. What they ship for themselves is worth a
+ * look beside the sites built with Eleventy.
+ *
+ * Chosen for public profile rather than from a ranking — there is no league
+ * table for this the way there is a market cap for Big Tech, so this is a
+ * judgment call about who is best known, not a measurement. Five labs, one
+ * answer engine, four places models are shared or written with, and three that
+ * serve them.
+ *
+ * Cohere was here and came out: real company, serious funding, but enterprise
+ * B2B with no product the public types into, which makes it the weakest fit for
+ * a list picked on public profile.
+ *
+ * No image, video or voice generators: Midjourney, ElevenLabs and Runway were
+ * here and came out. They are consumer media products rather than developer
+ * infrastructure, which is what the rest of this corpus is about.
+ *
+ * Four of the thirteen did not answer an ordinary fetch when this list was
+ * written: openai.com, x.ai and perplexity.ai returned 403, devin.ai 429.
+ * Lighthouse drives a real Chrome and may get through where a plain request
+ * does not; where it does not, the interstitial detection already flags the
+ * result as a challenge page rather than the site. Better to measure them and
+ * find out than to leave the category without OpenAI in it.
+ *
+ * windsurf.com is deliberately absent: it now redirects to devin.ai/desktop,
+ * so it would be the same site measured twice under two names.
+ */
+const AI_SITES = [
+	// The labs.
+	{ name: "OpenAI", url: "https://openai.com/" },
+	{ name: "Anthropic", url: "https://www.anthropic.com/" },
+	{ name: "xAI", url: "https://x.ai/" },
+	{ name: "Mistral", url: "https://mistral.ai/" },
+	{ name: "DeepSeek", url: "https://www.deepseek.com/" },
+
+	// Answers rather than models: the product is the thing you type into.
+	{ name: "Perplexity", url: "https://www.perplexity.ai/" },
+
+	// Where the models are shared, and the tools that write code with them.
+	{ name: "Hugging Face", url: "https://huggingface.co/" },
+	{ name: "Cursor", url: "https://cursor.com/" },
+	{ name: "Devin", url: "https://devin.ai/" },
+	{ name: "bolt.new", url: "https://bolt.new/" },
+
+	/*
+	 * Serving and running the models. Groq in particular belongs on a site that
+	 * measures speed for a living: it sells inference latency, so its own page
+	 * is a claim worth checking.
+	 */
+	{ name: "Groq", url: "https://groq.com/" },
+	{ name: "Replicate", url: "https://replicate.com/" },
+	{ name: "Ollama", url: "https://ollama.com/" },
+];
+
 const BIG_TECH_SITES = [
 				{ name: "Nvidia", url: "https://www.nvidia.com/" },
 				{ name: "Apple", url: "https://www.apple.com/" },
@@ -495,6 +555,21 @@ export default {
 		 * exactly the same terms — same runner, same throttling, same thresholds.
 		 *
 		 */
+		ai: {
+			showOnHomePageCategoryList: true,
+			name: "AI",
+			enabled: true,
+			description:
+				"Model labs, coding agents, and the infrastructure that serves them.",
+			...DAILY,
+			/*
+			 * Polite, like Big Tech: these are commercial sites that did not ask to
+			 * be measured, and several of them are already behind bot protection.
+			 */
+			...POLITE,
+			sites: AI_SITES,
+		},
+
 		"big-tech": {
 			showOnHomePageCategoryList: true,
 			name: "Big Tech",
