@@ -224,7 +224,7 @@ permalink: /index.html
 					hidden.
 				#}
 				<td class="col-rank" title="{% if entry.ranks.overall %}#{{ entry.ranks.overall }} of {{ sites.stats.measured | num }} overall{% else %}unranked{% endif %}">
-					<span class="trophy">{{ entry.ranks.overall | trophy }}</span><span class="hash">#</span>{{ loop.index }}
+					<span class="trophy">{{ entry.ranks.overall | trophy }}</span><span class="hash">#</span>{{ loop.index }}{% if entry.ranks.overallClimb %}<span class="rank-climb" title="Up {{ entry.ranks.overallClimb }} {{ "place" if entry.ranks.overallClimb == 1 else "places" }} since the previous measurement, from #{{ entry.ranks.overallPrevious }}">&#9650;{{ entry.ranks.overallClimb }}</span>{% endif %}
 				</td>
 				<td class="col-site">
 					<a class="site-link" href="/site/{{ entry.slug }}/">

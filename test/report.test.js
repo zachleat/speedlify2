@@ -4,7 +4,7 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 
-import { buildReport, REPORT_VERSION } from "../lib/report.js";
+import { buildReport, REPORT_VERSION, rankClimb } from "../lib/report.js";
 import { shortHash } from "../lib/hash.js";
 import { ResultStore } from "../lib/store.js";
 
@@ -980,5 +980,50 @@ describe("automatic archiving", () => {
 
 		assert.deepEqual(r.archived, []);
 		assert.equal(r.entries.length, 1);
+	});
+});
+
+describe("rank movement", () => {
+	const site = (perf, axe, si = 1000) => ({
+		latest: {
+			lab: {
+				scores: { performance: perf, accessibility: 100, "best-practices": 100, seo: 100 },
+				timings: { si, ttfb: 100, tbt: 0 },
+				weight: { byType: { document: 1000, stylesheet: 1000, script: 1000 } },
+			},
+			axe: { violations: axe },
+		},
+	});
+
+	test("a climb is reported when a scored input improved", () => {
+		const entry = { ...site(100, 0), previous: site(50, 0).latest };
+		assert.equal(rankClimb(entry, 12), 12);
+	});
+
+	test("stays silent when nothing scored changed", () => {
+		// Same scores, different Speed Index: the board is dense enough that this
+		// alone moves a site, but nothing about it actually improved.
+		const entry = { ...site(100, 0, 900), previous: site(100, 0, 1100).latest };
+		assert.equal(rankClimb(entry, 40), null);
+	});
+
+	test("counts an axe change as a scored input", () => {
+		const entry = { ...site(100, 0), previous: site(100, 9).latest };
+		assert.equal(rankClimb(entry, 5), 5);
+	});
+
+	test("never reports a fall", () => {
+		const entry = { ...site(50, 0), previous: site(100, 0).latest };
+		assert.equal(rankClimb(entry, -30), null);
+	});
+
+	test("ignores moves of one or two places", () => {
+		const entry = { ...site(100, 0), previous: site(99, 0).latest };
+		assert.equal(rankClimb(entry, 2), null);
+		assert.equal(rankClimb(entry, 3), 3);
+	});
+
+	test("a site measured once has not moved", () => {
+		assert.equal(rankClimb({ ...site(100, 0), previous: null }, 9), null);
 	});
 });

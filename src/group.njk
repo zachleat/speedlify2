@@ -173,7 +173,7 @@ eleventyComputed:
 				{% if group.ranked %}
 				<td class="col-rank">
 					{% if entry.groupRanks[group.id].overall %}
-					<span class="trophy">{{ entry.groupRanks[group.id].overall | trophy }}</span><span class="hash">#</span>{{ entry.groupRanks[group.id].overall }}
+					<span class="trophy">{{ entry.groupRanks[group.id].overall | trophy }}</span><span class="hash">#</span>{{ entry.groupRanks[group.id].overall }}{% if entry.groupRanks[group.id].overallClimb %}<span class="rank-climb" title="Up {{ entry.groupRanks[group.id].overallClimb }} {{ "place" if entry.groupRanks[group.id].overallClimb == 1 else "places" }} in this category since the previous measurement, from #{{ entry.groupRanks[group.id].overallPrevious }}">&#9650;{{ entry.groupRanks[group.id].overallClimb }}</span>{% endif %}
 					{% else %}—{% endif %}
 				</td>
 				{% endif %}

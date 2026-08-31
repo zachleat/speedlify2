@@ -2103,6 +2103,30 @@ th.col-rings { text-align: left !important; }
 .col-rank .trophy { margin-right: 0.15rem; }
 
 /*
+ * Rank movement, climbs only — see `rankClimb` in lib/report.js for why falls
+ * are not drawn and why a move has to be backed by a changed score.
+ *
+ * Stacked under the rank, sharing its right edge, so the column stays as narrow
+ * as "#1234" no matter how big a move is printed.
+ *
+ * `line-height: 1` rather than the inherited 1.5: only about a quarter of rows
+ * carry a badge, so every pixel it adds is a pixel those rows stand taller than
+ * their neighbors. Tightened, it costs 12px instead of 17px.
+ *
+ * Lighter and smaller than the rank: the position is the number the column is
+ * for, and the movement is an annotation on it.
+ */
+.rank-climb {
+	display: block;
+	line-height: 1;
+	font-size: 0.75em;
+	font-weight: 500;
+	color: var(--good);
+	font-variant-numeric: tabular-nums;
+	margin-top: 0.25em;
+}
+
+/*
  * An inline-flex box takes its baseline from its first flex item — here the
  * favicon — which sits well below the text baseline. Any inline sibling (the
  * CWV and failing badges) then aligns to that and drops. Aligning the link to
