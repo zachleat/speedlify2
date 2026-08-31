@@ -407,3 +407,43 @@ describe("detecting a bot check", () => {
 		assert.equal(detectInterstitial(null), null);
 	});
 });
+
+describe("Vite as a last-resort generator", () => {
+	const probe = (marks, metas = []) => detectGenerator({ metas, marks }, {});
+
+	test("names Vite when nothing else identified the site", () => {
+		// The mark is only ever present once lib/axe.js has read `__vitePreload`
+		// out of the bundle — the probe reports a candidate, not a mark.
+		assert.equal(probe(["vite"])?.name, "Vite");
+		assert.equal(probe(["vite"])?.source, "dom");
+	});
+
+	test("an unconfirmed candidate names nothing", () => {
+		const found = detectGenerator({ metas: [], marks: [], viteCandidate: "/assets/index-abc12345.js" }, {});
+
+		// Rollup's filename convention on its own is not evidence of Vite.
+		assert.equal(found, null);
+	});
+
+	test("a framework built on Vite wins over it", () => {
+		// All of these are Vite underneath and emit the same asset naming, so the
+		// fallback must never outrank them.
+		for (const mark of ["astro", "nuxt", "sveltekit", "vitepress"]) {
+			const found = probe([mark, "vite"]);
+			assert.notEqual(found?.id, "vite", `${mark} should win over vite`);
+		}
+	});
+
+	test("a recognized generator tag wins over it", () => {
+		assert.equal(probe(["vite"], ["Eleventy v3.0.0"])?.id, "eleventy");
+	});
+
+	test("even an unrecognized generator tag wins over it", () => {
+		// The site's own claim about itself beats our inference about its bundler.
+		assert.equal(probe(["vite"], ["Some Unknown CMS 2.1"])?.name, "Some Unknown CMS");
+	});
+
+	test("still nothing when there is no signal at all", () => {
+		assert.equal(probe([]), null);
+	});
+});

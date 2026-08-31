@@ -815,8 +815,14 @@ eleventyComputed:
 	<div class="stackbar" role="img"
 		aria-label="Page weight by resource type{% for t in entry.weightByType %}. {{ t.key | humanize }} {{ t.shareText }}, {{ t.bytes | bytes }} over {{ t.requests }} {{ t.requests | plural("request") }}{% endfor %}.">
 		{%- for t in entry.weightByType %}
+		{#
+			The name goes inside the segment, where it names the color without a
+			trip to the legend. Only above a share that can actually hold the word:
+			below that the text would be clipped mid-letter, which reads as a bug
+			rather than as a small segment. The legend still carries every row.
+		#}
 		<span class="stackbar-part type-{{ t.key }}" style="width: {{ t.share }}%"
-			title="{{ t.key | humanize }} — {{ t.bytes | bytes }} ({{ t.shareText }}) over {{ t.requests }} {{ t.requests | plural('request') }}"></span>
+			title="{{ t.key | humanize }} — {{ t.bytes | bytes }} ({{ t.shareText }}) over {{ t.requests }} {{ t.requests | plural('request') }}">{% if t.share >= 8 %}<span class="stackbar-name">{{ t.key | humanize }}</span>{% endif %}</span>
 		{%- endfor %}
 	</div>
 
@@ -843,11 +849,35 @@ eleventyComputed:
 		{{ entry.latest.lab.thirdParty.mainThreadMs | ms }} on the main thread.
 	</p>
 	<div class="breakdown">
-		{% set tpMax = entry.latest.lab.thirdParty.top | maxValue("bytes") %}
-		{% for tp in entry.latest.lab.thirdParty.top %}
+		{% set tpMax = entry.thirdPartyRows | maxValue("bytes") %}
+		{% for tp in entry.thirdPartyRows %}
 		<div class="breakdown-row">
 			<span class="breakdown-label">{{ tp.entity }}</span>
+			{#
+				Two bars, one shape. Where the request types are known the bar is
+				stacked and says what the third party is; where they are not — an
+				older record, or a row whose URLs the network audit did not report —
+				it falls back to the plain bar this section has always drawn.
+
+				The row's width is still its share of the largest third party, so
+				the rows compare with each other exactly as before. Only the fill
+				inside that width is new.
+			#}
+			{#
+				The label threshold is the segment's share of the *row width*, not
+				of its own bar: these bars are scaled against the largest third
+				party, so a segment that is all of a small third party is still only
+				a few pixels wide, and its own share says 100%.
+			#}
+			{% if tp.parts.length %}
+			<span class="tpbar" style="width: {{ (tp.bytes / tpMax * 100) | round(1) }}%"
+				title="{% for part in tp.parts %}{{ part.key }} {{ part.bytes | bytes }} ({{ part.shareText }}){% if not loop.last %}, {% endif %}{% endfor %}">
+				{%- for part in tp.parts %}<span class="stackbar-part type-{{ part.key }}" style="width: {{ part.share }}%">{% if part.share * tp.bytes / tpMax >= 15 %}<span class="stackbar-name">{{ part.key | humanize }}</span>{% endif %}</span>{% endfor -%}
+				{%- if tp.untyped %}<span class="stackbar-part type-other" style="width: {{ (tp.untyped / tp.bytes * 100) | round(1) }}%"></span>{% endif -%}
+			</span>
+			{% else %}
 			{% bar tp.bytes, tpMax, "warn" %}
+			{% endif %}
 			<span class="breakdown-value">{{ tp.bytes | bytes }} <span class="muted">· {{ tp.mainThreadMs | ms }} CPU</span></span>
 		</div>
 		{% endfor %}

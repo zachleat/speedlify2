@@ -1391,9 +1391,35 @@ th.col-trend { text-align: center !important; }
 /* No gaps between segments: they are parts of one quantity, and a gap would be
    width the bar claims but does not account for. */
 .stackbar-part {
-	display: block;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	min-width: 2px;
 	height: 100%;
+	/* A label the template judged wide enough can still be too wide on a narrow
+	   viewport. Clipping is the backstop; the threshold is the intent. */
+	overflow: hidden;
+}
+
+/*
+ * The type's name, inside its own segment.
+ *
+ * White on every segment rather than a per-type text color: these fills are
+ * chosen to be told apart from each other, not to carry text, and the light
+ * ones are still dark enough for white to clear contrast while a matched dark
+ * text would fail on the darker fills. One color that works everywhere beats
+ * seven that each need checking.
+ */
+.stackbar-name {
+	font-size: 0.62rem;
+	font-weight: 600;
+	letter-spacing: 0.01em;
+	color: #fff;
+	white-space: nowrap;
+	padding-inline: 0.35em;
+	/* The fills are mid-tone; a faint shadow keeps the text legible on the
+	   lightest of them without darkening the bar itself. */
+	text-shadow: 0 1px 1px rgb(0 0 0 / 0.25);
 }
 
 .type-image { background: var(--type-image); }
@@ -1403,6 +1429,28 @@ th.col-trend { text-align: center !important; }
 .type-document { background: var(--type-document); }
 .type-media { background: var(--type-media); }
 .type-other { background: var(--type-other); }
+
+/*
+ * A third party's bytes, split by kind.
+ *
+ * Shares the segment colors and the flat-segment rule with `.stackbar` above,
+ * so a reader who has learned the page-weight key two sections up reads this
+ * without learning anything new. It differs in what its *width* means: the
+ * weight bar always fills its container, while this one is scaled to the row's
+ * share of the largest third party, because these bars are compared with each
+ * other down the column.
+ */
+.tpbar {
+	display: flex;
+	/* Tall enough to hold the type name the segments now carry. */
+	height: 1.15rem;
+	border-radius: 3px;
+	overflow: hidden;
+	/* Never nothing: a third party too small to round up to a pixel is still a
+	   third party, and an empty cell would read as missing data. */
+	min-width: 3px;
+	background: color-mix(in srgb, var(--text-muted) 15%, transparent);
+}
 
 .stackkey {
 	list-style: none;
