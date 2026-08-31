@@ -1,0 +1,391 @@
+{
+  "url": "https://www.fastly.com/",
+  "name": "Fastly",
+  "group": "dev-tooling",
+  "groupName": "Developer Tooling",
+  "timestamp": 1788211444762,
+  "date": "2026-08-31T21:24:04.762Z",
+  "runId": "2026-08-31T21-00-39-023Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 58834,
+  "error": null,
+  "variance": {
+    "min": 36,
+    "max": 38,
+    "spread": 2,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://www.fastly.com/",
+    "finalUrl": "https://www.fastly.com/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 38,
+      "accessibility": 88,
+      "best-practices": 58,
+      "seo": 100,
+      "agentic-browsing": 66
+    },
+    "timings": {
+      "fcp": 3494,
+      "lcp": 10866,
+      "si": 3523,
+      "tbt": 2304,
+      "tti": 21845,
+      "cls": 0.055,
+      "ttfb": 606,
+      "maxPotentialFid": 803,
+      "serverResponseTime": 3,
+      "networkRtt": 67.8,
+      "networkServerLatency": 131.2
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 4.6,
+      "resourceLoadDelay": 20.2,
+      "resourceLoadDuration": 22.8,
+      "elementRenderDelay": 639.3
+    },
+    "weight": {
+      "total": 3295846,
+      "requests": 140,
+      "mainDocument": 144572,
+      "byType": {
+        "total": {
+          "bytes": 3289008,
+          "requests": 137
+        },
+        "script": {
+          "bytes": 2287263,
+          "requests": 42
+        },
+        "image": {
+          "bytes": 482793,
+          "requests": 30
+        },
+        "font": {
+          "bytes": 258087,
+          "requests": 5
+        },
+        "document": {
+          "bytes": 152605,
+          "requests": 4
+        },
+        "other": {
+          "bytes": 108033,
+          "requests": 55
+        },
+        "stylesheet": {
+          "bytes": 227,
+          "requests": 1
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 1336338,
+          "requests": 96
+        }
+      },
+      "scripts": 43,
+      "stylesheets": 1,
+      "fonts": 5
+    },
+    "thirdParty": {
+      "count": 24,
+      "bytes": 710682,
+      "mainThreadMs": 578.9,
+      "top": [
+        {
+          "entity": "Pendo",
+          "bytes": 193154,
+          "mainThreadMs": 84.7,
+          "byType": {
+            "script": 192692,
+            "other": 364,
+            "image": 98
+          },
+          "typedBytes": 193154
+        },
+        {
+          "entity": "Facebook",
+          "bytes": 151602,
+          "mainThreadMs": 91.2,
+          "byType": {
+            "script": 151585,
+            "image": 17
+          },
+          "typedBytes": 151602
+        },
+        {
+          "entity": "intellimize.co",
+          "bytes": 115518,
+          "mainThreadMs": 241.3,
+          "byType": {
+            "script": 111419,
+            "other": 4099
+          },
+          "typedBytes": 115518
+        },
+        {
+          "entity": "LinkedIn Ads",
+          "bytes": 41065,
+          "mainThreadMs": 25.9,
+          "byType": {
+            "script": 39968,
+            "other": 812,
+            "image": 285
+          },
+          "typedBytes": 41065
+        },
+        {
+          "entity": "zoominfo.com",
+          "bytes": 35835,
+          "mainThreadMs": 11.9,
+          "byType": {
+            "script": 32243,
+            "other": 3592
+          },
+          "typedBytes": 35835
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 7473.1,
+      "byGroup": {
+        "scriptEvaluation": 4548,
+        "other": 1379.5,
+        "scriptParseCompile": 602.8,
+        "styleLayout": 570.6,
+        "parseHTML": 147.6,
+        "garbageCollection": 118.9,
+        "paintCompositeRender": 105.7
+      },
+      "bootupMs": 4799.4,
+      "longTasks": 20,
+      "longestTaskMs": 803
+    },
+    "dom": {
+      "elements": 1167,
+      "depth": 17,
+      "maxChildren": 70
+    },
+    "waste": {
+      "unusedJsBytes": 687470,
+      "unusedCssBytes": 75736,
+      "legacyJsBytes": 21460,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 2202,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 0,
+      "renderBlockingCount": 0,
+      "poorlyCachedBytes": 457613.7375,
+      "poorlyCachedCount": 21
+    },
+    "accessibility": {
+      "failingCount": 5,
+      "applicableCount": 33,
+      "failingNodes": 13,
+      "failing": [
+        {
+          "id": "button-name",
+          "title": "Buttons do not have an accessible name",
+          "nodes": 6
+        },
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "nodes": 4
+        },
+        {
+          "id": "heading-order",
+          "title": "Heading elements are not in a sequentially-descending order",
+          "nodes": 1
+        },
+        {
+          "id": "link-name",
+          "title": "Links do not have a discernible name",
+          "nodes": 1
+        },
+        {
+          "id": "svg-img-alt",
+          "title": "SVG elements with an `img` role do not have an accessible text alternative",
+          "nodes": 1
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 0,
+      "bfCacheFailures": 1,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 43
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2494.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-08-31T21:24:39.962Z",
+      "runtimeMs": 18724.1
+    }
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-08-02",
+      "last": "2026-08-29"
+    },
+    "metrics": {
+      "fcp": {
+        "p75": 2501,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 50.3,
+          "needsImprovement": 34.1,
+          "poor": 15.5
+        }
+      },
+      "inp": {
+        "p75": 286,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 63.5,
+          "needsImprovement": 29.3,
+          "poor": 7.2
+        }
+      },
+      "lcp": {
+        "p75": 2911,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 65.5,
+          "needsImprovement": 21.6,
+          "poor": 12.9
+        }
+      },
+      "rtt": {
+        "p75": 232,
+        "rating": null,
+        "distribution": {
+          "good": 24,
+          "needsImprovement": 57.2,
+          "poor": 18.8
+        }
+      },
+      "cls": {
+        "p75": 0.05,
+        "rating": "good",
+        "distribution": {
+          "good": 94.6,
+          "needsImprovement": 4.3,
+          "poor": 1
+        }
+      },
+      "ttfb": {
+        "p75": 774,
+        "rating": "good",
+        "distribution": {
+          "good": 76,
+          "needsImprovement": 16.4,
+          "poor": 7.6
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": {
+      "id": "gatsby",
+      "name": "Gatsby",
+      "icon": "Gatsby",
+      "version": "5.16.1",
+      "source": "meta",
+      "raw": "Gatsby 5.16.1"
+    },
+    "interstitial": null,
+    "host": {
+      "id": null,
+      "name": "Artisanal bits",
+      "icon": null,
+      "source": "server"
+    },
+    "headers": {
+      "server": "Artisanal bits",
+      "x-served-by": "cache-sjc1000119-SJC"
+    },
+    "violations": 19,
+    "passes": 1467,
+    "incomplete": 52,
+    "violationRules": 8,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "button-name",
+        "impact": "critical",
+        "nodes": 6,
+        "help": "Buttons must have discernible text"
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 4,
+        "help": "Elements must meet minimum color contrast ratio thresholds"
+      },
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 4,
+        "help": "All page content should be contained by landmarks"
+      },
+      {
+        "id": "heading-order",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Heading levels should only increase by one"
+      },
+      {
+        "id": "image-alt",
+        "impact": "critical",
+        "nodes": 1,
+        "help": "Images must have alternative text"
+      },
+      {
+        "id": "link-name",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "Links must have discernible text"
+      },
+      {
+        "id": "nested-interactive",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "Interactive controls must not be nested"
+      },
+      {
+        "id": "svg-img-alt",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "<svg> elements with an img or image role must have alternative text"
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
