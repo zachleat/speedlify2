@@ -131,7 +131,11 @@ body {
 	--page-gutter-padding: 0.7rem;
 }
 
-.wrap { max-width: 1550px; margin: 0 auto; padding: 0 var(--page-gutter); }
+/* 1600px so the stat bar fits inside the column rather than escaping it: five
+   cards at a 19em floor, plus gaps and the row's own padding, come to 1591px on
+   the home page, and every category page fits well under that. Widen the floor
+   or add a sixth card and this has to move with it. */
+.wrap { max-width: 1600px; margin: 0 auto; padding: 0 var(--page-gutter); }
 /* Content only. The masthead and footer share `.wrap` and set their own
    vertical rhythm, and the masthead is sticky — padding there would deepen the
    bar that follows you down the page. */
@@ -210,21 +214,10 @@ pre code { font-size: inherit; }
 	overflow-x: auto;
 	gap: 0.75rem;
 	margin-bottom: 2.5rem;
-	/*
-	 * Full-bleed: out of the 1550px content column and across the viewport.
-	 *
-	 * The cards could already grow, but the column they sit in could not — past
-	 * 1550px the bar simply stopped and the page kept going, 505px of margin
-	 * either side at 2560px. Pulling half the difference off each edge lets the
-	 * row span the window, and the cards fill it because they were always
-	 * willing to.
-	 *
-	 * `50vw` counts the classic scrollbar, so on a platform that reserves space
-	 * for one this overshoots by its width; `min()` against the gutter pull-out
-	 * keeps it from ever being positive, which is what would push the page into
-	 * a horizontal scroll.
-	 */
-	margin-inline: min(calc(-1 * var(--page-gutter)), calc(50% - 50vw));
+	/* Out to the page gutter, no further. The row is a child of the content
+	   column and stays inside it: where it needs more room than the column has,
+	   the column is widened rather than the row escaping it. */
+	margin-inline: calc(-1 * var(--page-gutter));
 	padding-inline: var(--page-gutter-padding);
 	/* Full height, so the cards read as one row rather than a ragged line of
 	   different-sized boxes. */
@@ -234,9 +227,6 @@ pre code { font-size: inherit; }
 	/* Grow and shrink around a 14em basis, so a row of tiles fills the width
 	   rather than leaving a ragged right edge. */
 	flex: 1 1 14em;
-	/* Named so the narrow-viewport rule below can pin it without repeating the
-	   basis in two places. */
-	--stat-basis: 14em;
 	background: var(--surface);
 	border: 1px solid var(--border);
 	border-radius: var(--radius);
@@ -1473,7 +1463,12 @@ th.col-trend { text-align: center !important; }
 	   slack out instead of leaving a gap at the end; where they overflow, growth
 	   has nothing to give and the row scrolls as before. */
 	flex: 1 0 auto;
-	min-width: 14em;
+	/* A wide floor, deliberately: the cards carry lists and histograms, and a
+	   narrow one wraps its labels rather than reading as a card. The cost is that
+	   the row needs a wider window before it fits without scrolling — 1475px at
+	   14em against 1625px here — below which it scrolls, which it is built to do.
+	   Kept a hair under the 20em ceiling so the two never cross. */
+	min-width: 19em;
 	max-width: min(20em, 78vw);
 }
 
