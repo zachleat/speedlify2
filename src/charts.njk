@@ -25,6 +25,7 @@ title: Charts
 {% if sites.fontClsScatter %}{% set toc = (toc.push({ id: "font-cls", label: "Fonts and Layout Shift" }), toc) %}{% endif %}
 {% if sites.thirdPartyScatter %}{% set toc = (toc.push({ id: "third-party", label: "Third Party" }), toc) %}{% endif %}
 {% if sites.jsByGenerator %}{% set toc = (toc.push({ id: "js-by-generator", label: "JavaScript by Generator" }), toc) %}{% endif %}
+{% if sites.clientRenderedByGenerator %}{% set toc = (toc.push({ id: "client-rendered", label: "Client Rendering by Generator" }), toc) %}{% endif %}
 {% if sites.ttfbByHost %}{% set toc = (toc.push({ id: "ttfb-by-host", label: "TTFB by Host" }), toc) %}{% endif %}
 {% if sites.labFieldPairs %}{% set toc = (toc.push({ id: "lab-field", label: "Lab vs Field LCP" }), toc) %}{% endif %}
 
@@ -113,6 +114,61 @@ title: Charts
 	</p>
 
 	{{ stripfigure(jg, "JavaScript Weight") }}
+</section>
+{% endif %}
+
+{% if sites.clientRenderedByGenerator %}
+{% set cr = sites.clientRenderedByGenerator %}
+<section class="group" id="client-rendered">
+	<div class="group-head">
+		<h2>Client Rendering by Generator <span class="tag">{{ cr.judged | num }} sites</span></h2>
+	</div>
+	<p class="muted small">
+		Sites that painted nothing with scripts disabled, by the tool their page
+		reports building it. The pale bar is every site judged; the solid one is
+		how many of them came up blank.
+	</p>
+	{#
+		Three caveats, and none of them is a footnote.
+
+		The first is coverage: only a site with a no-JS capture can be judged, and
+		which sites have one is a property of the category, not of the site. This
+		is a slice of the corpus, not a census of it.
+
+		The second is that the largest row is not a tool. A page that renders
+		nothing server-side often ships no build-time generator tag either — the
+		same property produces both — so "no generator tag" collects much of what
+		this chart is looking for, and the tools named below it are the ones that
+		did declare themselves.
+
+		The third is scale: with a handful of flagged sites, one site moving is a
+		visible change in a bar. The counts are printed beside every row for that
+		reason.
+	#}
+	<p class="muted small">
+		{{ cr.flagged }} of {{ cr.judged | num }} judged
+		{{ cr.judged | plural("site") }} across {{ cr.tools }}
+		{{ cr.tools | plural("tool") }}, of which {{ cr.withFlagged }}
+		{{ cr.withFlagged | verb("has", "have") }} a blank one. Only sites whose
+		category stores a no-JS screenshot can be judged at all, so this is a
+		slice of the corpus rather than all of it.
+	</p>
+
+	<ul class="crbars">
+		{% for row in cr.rows %}
+		<li class="crbar{% if not row.detected %} crbar-untagged{% endif %}">
+			<span class="crbar-name">
+				{% if row.icon %}{% stackIcon row %}{% endif %}{{ row.name }}
+			</span>
+			<span class="crbar-track" title="{{ row.flagged }} of {{ row.judged }} judged {{ row.judged | plural('site') }} drew nothing without JavaScript">
+				<span class="crbar-judged" style="width: {{ row.judgedPct }}%">
+					<span class="crbar-flagged" style="width: {% if row.judged %}{{ (row.flagged / row.judged * 100) | round(1) }}{% else %}0{% endif %}%"></span>
+				</span>
+			</span>
+			<span class="crbar-count">{{ row.flagged }}<span class="muted">/{{ row.judged }}</span></span>
+		</li>
+		{% endfor %}
+	</ul>
 </section>
 {% endif %}
 

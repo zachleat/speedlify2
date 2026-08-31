@@ -2978,3 +2978,69 @@ a.cat-chip:hover, a.cat-chip:focus-visible { color: var(--text); border-color: v
 		align-items: flex-start;
 	}
 }
+
+/*
+ * Client rendering by generator: a count per tool, as nested bars.
+ *
+ * Nested rather than side by side, because the two numbers are a part and its
+ * whole — the flagged sites are a subset of the judged ones, and drawing them
+ * as separate bars would invite reading them as two populations. The pale bar
+ * is scaled against the largest row so tools compare with each other; the solid
+ * one fills its own share of that, so its length is the rate and the pale bar
+ * behind it is the sample size.
+ */
+.crbars {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: grid;
+	/* Name, bar, count. The name column sizes to the longest label so the bars
+	   all start on the same line; the count is fixed so the digits line up. */
+	grid-template-columns: max-content 1fr max-content;
+	align-items: center;
+	gap: 0.35rem 0.75rem;
+}
+.crbar {
+	display: grid;
+	grid-column: 1 / -1;
+	grid-template-columns: subgrid;
+	align-items: center;
+}
+.crbar-name {
+	display: flex;
+	align-items: center;
+	gap: 0.4rem;
+	font-size: 0.85rem;
+	white-space: nowrap;
+}
+/* Not a tool, and said so quietly rather than left to look like one. */
+.crbar-untagged .crbar-name { color: var(--text-muted); font-style: italic; }
+.crbar-track {
+	display: block;
+	height: 14px;
+	background: var(--surface-2, var(--surface));
+	border-radius: 3px;
+	overflow: hidden;
+}
+.crbar-judged {
+	display: block;
+	height: 100%;
+	/* The sample: present but recessive, so a long pale bar reads as "plenty of
+	   evidence here" rather than as a result of its own. */
+	background: color-mix(in srgb, var(--text-muted) 22%, transparent);
+	border-radius: 3px;
+	/* A row with one judged site still shows something to hang the count on. */
+	min-width: 2px;
+}
+.crbar-flagged {
+	display: block;
+	height: 100%;
+	background: var(--average);
+	border-radius: 3px;
+}
+.crbar-count {
+	font-size: 0.8rem;
+	font-variant-numeric: tabular-nums;
+	white-space: nowrap;
+	text-align: right;
+}

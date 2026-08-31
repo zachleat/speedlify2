@@ -5,6 +5,7 @@ import os from "node:os";
 import path from "node:path";
 
 import { ResultStore } from "../lib/store.js";
+import { keepsScreenshots } from "../lib/runner.js";
 
 /**
  * The two screenshots a measurement stores: the page as rendered, and the same
@@ -107,5 +108,39 @@ describe("screenshot storage", () => {
 		assert.equal(written.length, 1);
 		assert.ok(!("pageShots" in written[0]), "pageShots stripped before serialization");
 		assert.ok(!JSON.stringify(written[0]).includes("Buffer"), "no encoded buffer anywhere in the record");
+	});
+});
+
+describe("who keeps their pictures", () => {
+	const perfect = { scores: { performance: 100, accessibility: 100, "best-practices": 100, seo: 100 } };
+	const nearly = { scores: { performance: 99, accessibility: 100, "best-practices": 100, seo: 100 } };
+
+	test("a category that wants pictures keeps them at any score", () => {
+		assert.equal(keepsScreenshots({ screenshots: "filmstrip" }, nearly), true);
+		assert.equal(keepsScreenshots({ screenshots: "filmstrip" }, null), true);
+	});
+
+	test("a category that opted out keeps none", () => {
+		assert.equal(keepsScreenshots({ screenshots: "none" }, nearly), false);
+	});
+
+	test("full marks overrides the opt-out", () => {
+		assert.equal(keepsScreenshots({ screenshots: "none" }, perfect), true);
+	});
+
+	test("one point short is not full marks", () => {
+		// The override is for 400 exactly — otherwise the opt-out would leak.
+		assert.equal(keepsScreenshots({ screenshots: "none" }, nearly), false);
+	});
+
+	test("no measurement is not full marks", () => {
+		assert.equal(keepsScreenshots({ screenshots: "none" }, null), false);
+		assert.equal(keepsScreenshots({ screenshots: "none" }, { scores: null }), false);
+		assert.equal(keepsScreenshots({ screenshots: "none" }, { scores: {} }), false);
+	});
+
+	test("the default is to keep them", () => {
+		assert.equal(keepsScreenshots({}, null), true);
+		assert.equal(keepsScreenshots(undefined, null), true);
 	});
 });
