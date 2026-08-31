@@ -1308,10 +1308,10 @@ th.col-trend { text-align: center !important; }
 }
 
 /* A fixed width so the thumbnail is the size it was laid out for rather than
-   whatever the card happens to be. Slightly over the viewBox's own 240px, which
-   scales the plot up a few percent — the dots are 1.6 units and read better with
-   the extra room. Capped at the card's width so a narrow card shrinks it rather
-   than clipping. */
+   whatever the card happens to be. These cards inherit a 15px font-size, so 16em
+   lands on the viewBox's own 240px and the plot renders 1:1 — no resampling of a
+   drawing whose dots are 1.6 units across. Capped at the card's width so a narrow
+   card shrinks it rather than clipping. */
 .stat-chart svg {
 	display: block;
 	width: 16em;
