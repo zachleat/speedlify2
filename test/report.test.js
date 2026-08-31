@@ -1085,3 +1085,87 @@ describe("newly perfect window", () => {
 		assert.equal(r.stats.recentlyMeasured.length, 0);
 	});
 });
+
+describe("embed opt-in", () => {
+	/** Two categories, only one of which asks for the embed section. */
+	function embedFixture({ showEmbed = undefined, second = null } = {}) {
+		const dir = fs.mkdtempSync(path.join(os.tmpdir(), "speedlify-embed-"));
+		tmp.push(dir);
+
+		const store = new ResultStore(path.join(dir, "results"));
+		for (const url of ["https://a.example/", "https://b.example/"]) {
+			store.write({
+				url,
+				name: url,
+				group: "one",
+				timestamp: Date.UTC(2026, 0, 1),
+				date: new Date(Date.UTC(2026, 0, 1)).toISOString(),
+				completedRuns: 3,
+				requestedRuns: 3,
+				durationMs: 1000,
+				error: null,
+				variance: { spread: 1 },
+				lab: {
+					requestedUrl: url,
+					finalUrl: url,
+					redirect: null,
+					scores: { performance: 90, accessibility: 100, "best-practices": 100, seo: 100 },
+					timings: { lcp: 2000, cls: 0.01, tbt: 30, fcp: 1000, si: 1200, ttfb: 200 },
+					weight: { total: 1000, requests: 10, byType: {} },
+					thirdParty: { count: 0, bytes: 0, mainThreadMs: 0, top: [] },
+					waste: { unusedJsBytes: 0, unusedCssBytes: 0 },
+					mainThread: { total: 100, longTasks: 0, byGroup: {} },
+					dom: { elements: 100, depth: 5, maxChildren: 3 },
+					accessibility: { failingCount: 0, applicableCount: 10, failingNodes: 0, failing: [] },
+					hygiene: { https: 1, protocol: "h2", consoleErrors: 0 },
+					environment: { benchmarkIndex: 3000, lighthouseVersion: "13.4.1" },
+					lcpBreakdown: { timeToFirstByte: 100 },
+				},
+			});
+		}
+
+		const flag = showEmbed === undefined ? "" : `showEmbed: ${showEmbed},`;
+		const configFile = path.join(dir, "sites.js");
+		fs.writeFileSync(
+			configFile,
+			`export default { runs: 3, formFactor: "mobile", groups: {
+				one: { name: "One", ${flag} sites: [{ url: "https://a.example/" }, { url: "https://b.example/" }] },
+				${second ? `two: { name: "Two", ${second}, sites: [{ url: "https://b.example/" }] },` : ""}
+			} };`,
+		);
+
+		return { resultsDir: path.join(dir, "results"), configFile };
+	}
+
+	const bySite = (r) => Object.fromEntries(r.entries.map((e) => [e.displayUrl, e.showEmbed]));
+
+	test("a category has to ask for it", async () => {
+		const f = embedFixture();
+		const r = await buildReport(f);
+
+		// Opt-in: silence is off, not on.
+		assert.deepEqual(bySite(r), { "a.example": false, "b.example": false });
+	});
+
+	test("showEmbed: true turns it on for that category's sites", async () => {
+		const f = embedFixture({ showEmbed: true });
+		const r = await buildReport(f);
+
+		assert.deepEqual(bySite(r), { "a.example": true, "b.example": true });
+	});
+
+	test("membership in any opted-in category is enough", async () => {
+		const f = embedFixture({ showEmbed: false, second: "showEmbed: true" });
+		const r = await buildReport(f);
+
+		// b is in both; only the second category asks, which carries it.
+		assert.deepEqual(bySite(r), { "a.example": false, "b.example": true });
+	});
+
+	test("only an exact true counts, not any truthy value", async () => {
+		const f = embedFixture({ showEmbed: '"yes"' });
+		const r = await buildReport(f);
+
+		assert.deepEqual(bySite(r), { "a.example": false, "b.example": false });
+	});
+});

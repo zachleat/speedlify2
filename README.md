@@ -186,6 +186,7 @@ export default {
   groups: {
     ssg: {
       name: "Static Site Generators",
+      showEmbed: true,     // offer the embed snippet on these sites' pages
       sites: [{ name: "Eleventy", url: "https://www.11ty.dev/" }],
     },
   },
@@ -193,6 +194,11 @@ export default {
 ```
 
 History is keyed by URL, not by name. Renaming a site keeps its history.
+
+`showEmbed` is opt-in: a site page carries the "Embed this score" section only if
+one of its categories asks for it. The snippet invites a reader to publish a live
+badge for that site, which suits a register people submit their own sites to and
+does not suit a list of companies nobody here speaks for.
 
 ### When a site moves
 

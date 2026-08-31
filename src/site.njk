@@ -320,7 +320,7 @@ eleventyComputed:
 {% set toc = (toc.push({ id: "health", label: "Page health" }), toc) %}
 {% set toc = (toc.push({ id: "hygiene", label: "Hygiene" }), toc) %}
 {% set toc = (toc.push({ id: "log", label: "Measurement log" }), toc) %}
-{% set toc = (toc.push({ id: "embed", label: "Embed" }), toc) %}
+{% if entry.showEmbed %}{% set toc = (toc.push({ id: "embed", label: "Embed" }), toc) %}{% endif %}
 
 <nav class="contents contents-sticky" aria-label="On this page">
 	<span class="contents-label">On this page</span>
@@ -1022,6 +1022,12 @@ eleventyComputed:
 
 {% endif %}
 
+{#
+	Only where a category asks for it — see `showEmbed` in config/sites.js. The
+	table of contents entry above is behind the same condition, so a page without
+	the section does not advertise one.
+#}
+{% if entry.showEmbed %}
 <section class="panel" id="embed">
 	<h2>Embed this score</h2>
 	<p class="muted small">
@@ -1045,5 +1051,6 @@ eleventyComputed:
 
 	<pre><code>&lt;speedlify2-score speedlify-url="{{ meta.url }}/" url="{{ entry.url }}"&gt;&lt;/speedlify2-score&gt;</code></pre>
 </section>
+{% endif %}
 
 </article>

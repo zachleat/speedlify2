@@ -577,6 +577,9 @@ export default {
 		},
 
 		zachleat: {
+			// Your own pages, so there is nobody else to ask. Same rule as the two
+			// community registers below.
+			showEmbed: true,
 			name: "zachleat.com",
 			enabled: true,
 			description: "Pages from zachleat.com.",
@@ -599,6 +602,10 @@ export default {
 
 		"11ty-community": {
 			showOnHomePageCategoryList: true,
+			// These are sites people submitted themselves, so offering a live badge
+			// for one is offering it to whoever put it here. See `showEmbed` in the
+			// README: the section is off everywhere it is not asked for.
+			showEmbed: true,
 			name: "Built Awesome",
 			enabled: true,
 			description:
@@ -655,6 +662,10 @@ export default {
 
 		"11ty-starters": {
 			showOnHomePageCategoryList: true,
+			// These are sites people submitted themselves, so offering a live badge
+			// for one is offering it to whoever put it here. See `showEmbed` in the
+			// README: the section is off everywhere it is not asked for.
+			showEmbed: true,
 			name: "Build Awesome Starters",
 			description:
 				"Starter projects and templates built with Build Awesome and Eleventy.",
