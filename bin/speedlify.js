@@ -102,7 +102,7 @@ Usage:
   speedlify list                  Show configured sites and their latest result
   speedlify runs [--limit=N]      Show recent measurement runs from the log
   speedlify redirects             Show detected redirects and confirmed site moves
-  speedlify reindex               Rebuild series.json from the raw records
+  speedlify reindex [--replace]   Rebuild series.json from the raw records
   speedlify prune [options]       Delete old result files
 
 Options:
@@ -122,6 +122,8 @@ Options:
   --days=<n>        Prune: delete results older than this (default 365)
   --keep=<n>        Prune: always keep this many per site (default 30)
   --dry-run         Prune: report what would be deleted
+  --replace         reindex: drop points whose raw record is gone. Destructive
+                    to pruned history, which the series exists to outlive
   --quiet           Suppress console output (the log file is still written)
 
 Environment:
@@ -149,6 +151,7 @@ const { values: flags, positionals } = parseArgs({
 		force: { type: "boolean" },
 		"no-field": { type: "boolean" },
 		"dry-run": { type: "boolean" },
+		replace: { type: "boolean" },
 		quiet: { type: "boolean" },
 		help: { type: "boolean", short: "h" },
 	},
@@ -822,9 +825,34 @@ async function redirects() {
  * after changing the projection in lib/series.js, or after restoring results
  * from a backup.
  */
+/**
+ * Rebuild every series from the raw records.
+ *
+ * Merging by default is not a shortcut: pruning deletes old raw records on
+ * purpose and the series is what outlives them, so rebuilding from what is left
+ * would quietly erase the history pruning exists to keep.
+ *
+ * `--replace` is for the other case — a record deliberately deleted, where the
+ * point should go with it. Without it, a series keeps points for measurements
+ * that no longer exist and nothing can remove them: three sites here kept
+ * sparklines and log rows for bot-check runs whose records had been deleted.
+ *
+ * It is destructive to pruned history, so it says what it will do and counts
+ * what it dropped rather than reporting a rebuild that looks like any other.
+ */
 async function reindex() {
 	const store = new ResultStore(RESULTS_DIR);
 	const hashes = store.hashes();
+	const replace = Boolean(flags.replace);
+
+	if (replace) {
+		process.stdout.write(
+			"\n  --replace: points whose raw record is gone will be dropped.\n" +
+				"  That includes anything pruning removed on purpose.\n"
+		);
+	}
+
+	let dropped = 0;
 
 	let rebuilt = 0;
 	let empty = 0;
@@ -852,10 +880,12 @@ async function reindex() {
 			continue;
 		}
 
-		const series = store.rebuildSeries(url);
+		const before = store.readSeries(url)?.points.length ?? 0;
+		const series = store.rebuildSeries(url, { replace });
 		if (series) {
 			rebuilt++;
 			points += series.points.length;
+			dropped += Math.max(0, before - series.points.length);
 		} else {
 			empty++;
 		}
@@ -863,6 +893,7 @@ async function reindex() {
 
 	process.stdout.write(
 		`\n  rebuilt ${rebuilt} series (${points.toLocaleString()} points)` +
+			`${dropped ? ` · ${dropped.toLocaleString()} orphaned ${dropped === 1 ? "point" : "points"} dropped` : ""}` +
 			`${empty ? ` · ${empty} skipped` : ""}` +
 			`  (${((Date.now() - started) / 1000).toFixed(1)}s)\n\n`
 	);

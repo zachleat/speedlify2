@@ -281,3 +281,63 @@ describe("metric definitions", () => {
 		);
 	});
 });
+
+describe("rebuilding a series after records are deleted", () => {
+	const tmp = [];
+	afterEach(() => {
+		while (tmp.length) fs.rmSync(tmp.pop(), { recursive: true, force: true });
+	});
+
+	const record = (day, performance) => ({
+		url: "https://example.com/",
+		name: "Example",
+		group: "g",
+		timestamp: Date.UTC(2026, 0, day),
+		date: new Date(Date.UTC(2026, 0, day)).toISOString(),
+		completedRuns: 1,
+		requestedRuns: 1,
+		durationMs: 1000,
+		error: null,
+		lab: { scores: { performance }, timings: {}, weight: { byType: {} } },
+	});
+
+	function store() {
+		const dir = fs.mkdtempSync(path.join(os.tmpdir(), "speedlify-series-"));
+		tmp.push(dir);
+		const s = new ResultStore(path.join(dir, "results"));
+		s.write(record(1, 80));
+		s.write(record(2, 90));
+		return s;
+	}
+
+	const files = (s) =>
+		fs.readdirSync(s.dirFor("https://example.com/")).filter((f) => /^\d{4}-/.test(f));
+
+	test("merging keeps a point whose record has been deleted", () => {
+		const s = store();
+		fs.rmSync(path.join(s.dirFor("https://example.com/"), files(s)[0]));
+
+		const series = s.rebuildSeries("https://example.com/");
+
+		// The default, and deliberate: pruning deletes old records on purpose and
+		// the series is what outlives them.
+		assert.equal(series.points.length, 2, "the pruned point survives");
+	});
+
+	test("--replace drops it", () => {
+		const s = store();
+		fs.rmSync(path.join(s.dirFor("https://example.com/"), files(s)[0]));
+
+		const series = s.rebuildSeries("https://example.com/", { replace: true });
+
+		assert.equal(series.points.length, 1, "only points with a record behind them");
+		assert.equal(series.points[0].t, Date.UTC(2026, 0, 2));
+	});
+
+	test("replace on an intact archive changes nothing", () => {
+		const s = store();
+		const before = s.rebuildSeries("https://example.com/").points.length;
+
+		assert.equal(s.rebuildSeries("https://example.com/", { replace: true }).points.length, before);
+	});
+});
