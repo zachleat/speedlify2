@@ -2161,6 +2161,24 @@ fieldset[disabled] select {
 }
 .age-pill.stale { color: var(--average); background: color-mix(in srgb, var(--average) 16%, transparent); }
 
+/*
+ * How often the site is measured, beside how old the data is.
+ *
+ * Quieter than the age pill next to it: that one is about this site right now
+ * and can turn amber, while this is a fact about the category that does not
+ * change between visits. Same shape so they read as a pair.
+ */
+.cadence-pill {
+	display: inline-block;
+	padding: 0.05rem 0.45rem;
+	border-radius: var(--pill);
+	background: color-mix(in srgb, var(--text-muted) 10%, transparent);
+	color: var(--text-muted);
+	font-size: 0.92em;
+	white-space: nowrap;
+	vertical-align: baseline;
+}
+
 /* --------------------------------------------------- leaderboard columns */
 
 /* ==================================================== leaderboard look ==== */

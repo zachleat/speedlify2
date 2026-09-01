@@ -112,18 +112,7 @@ eleventyComputed:
 		</span>
 	</div>
 	{% endif %}
-	<p class="data-age {{ 'stale-age' if entry.dataStale }}">
-		{% if entry.latest %}
-			{#- No dash and no full stop: the age is a pill rather than the end of a
-			    sentence, and punctuation either side of it reads as stray marks. #}
-			Data from {{ entry.latest.date | date("long") }}
-			<span class="age-pill{{ ' stale' if entry.dataStale }}"><time datetime="{{ entry.latest.date | iso }}">{{ entry.latest.date | since }}</time> old</span>
-			{%- if entry.dataStale %}, older than this category's {{ entry.staleAfterHours | duration }} freshness target{% endif %}
-		{% else %}
-			No successful measurement yet.
-		{% endif %}
-	</p>
-	<p class="muted">
+	<p>
 		{#
 			Where this site currently places inside each category it belongs to —
 			which is not its global rank, and is usually a much better position:
@@ -144,6 +133,7 @@ eleventyComputed:
 			above already say plainly how it is doing — this line exists to give
 			credit, not to rank the bottom of the board to its face.
 		#}
+		<strong>Ranks</strong>
 		{% if entry.ranks.overall %}
 		Overall
 		<span class="cat-rank" title="Ranked {{ entry.ranks.overall | num }} of {{ sites.stats.measured | num }} measured sites overall">#{{ entry.ranks.overall | num }}</span>
@@ -157,10 +147,31 @@ eleventyComputed:
 		    and a comma after the pill reads as punctuation belonging to the
 		    number rather than to the list. #}
 		{%- endif %}
-		{% endfor %} ·
-		{{ entry.totalCount }} measurement{{ "s" if entry.totalCount != 1 }}
+		{% endfor %}
+	</p>
+	<p class="muted data-age {{ 'stale-age' if entry.dataStale }}">
+		{% if entry.latest %}
+			{#- No dash and no full stop: the age is a pill rather than the end of a
+			    sentence, and punctuation either side of it reads as stray marks. #}
+			Data from {{ entry.latest.date | date("long") }}
+			<span class="age-pill{{ ' stale' if entry.dataStale }}"><time datetime="{{ entry.latest.date | iso }}">{{ entry.latest.date | since }}</time> old</span>
+			{%- if entry.dataStale %}, older than this category's {{ entry.staleAfterHours | duration }} freshness target{% endif %}
+		{% else %}
+			No successful measurement yet.
+		{% endif %}
+		{#
+			How often this site comes round, beside how old its data is — the
+			second number is what makes the first readable. Six days old is
+			alarming on a daily site and ordinary on a weekly one.
+
+			The window is the strictest across the categories it belongs to, so
+			the title names which ones set it rather than stating a figure with
+			no provenance.
+		#}
+		{% if entry.freshnessHours %}Measured {{ entry.freshnessHours | cadence }}{% endif %}
+		· {{ entry.totalCount }} run{{ "s" if entry.totalCount != 1 }}
 		{% if entry.windowed %}<span title="The report charts the most recent {{ entry.historyCount }}; the rest stay on disk">(charting last {{ entry.historyCount }})</span>{% endif %}
-		{% if entry.firstMeasured %}· since {{ entry.firstMeasured | date }}{% endif %}
+		{% if entry.firstMeasured %} since {{ entry.firstMeasured | date }}{% endif %}
 	</p>
 	</div>
 	{#
