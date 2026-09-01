@@ -1722,6 +1722,12 @@ th.col-trend { text-align: center !important; }
 	break-inside: avoid;
 }
 
+/* The log's copy of the six circles. Left-aligned against the numeric columns
+   beside it: the dots start at the cell's left edge, so they line up down the
+   column however wide the timestamps beside them run. */
+.col-logdots { text-align: left !important; width: 1%; white-space: nowrap; }
+.col-logdots .recents-dots { justify-content: flex-start; }
+
 .recents-dots { display: flex; gap: 2px; }
 
 .recents-dot {

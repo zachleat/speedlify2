@@ -1014,6 +1014,7 @@ eleventyComputed:
 		<thead>
 			<tr>
 				<th class="col-site">When</th>
+				<th class="col-logdots" title="The four Lighthouse categories, then violating nodes from the axe run and the Core Web Vitals verdict, as they stood at this measurement">Scores</th>
 				<th>Perf</th><th>LCP</th><th>CLS</th><th>TBT</th><th>Weight</th>
 				<th>Runs</th><th>Spread</th><th>Bench</th><th>Took</th>
 			</tr>
@@ -1030,7 +1031,7 @@ eleventyComputed:
 			{% for change in entry.generatorHistory %}
 			{% if change.date == point.date %}
 			<tr class="row-change">
-				<td colspan="11">
+				<td colspan="12">
 					<span class="change-mark">{{ "↩" if change.returnedToEleventy else "→" }}</span>
 					Generator changed from <strong>{{ change.from }}</strong> to
 					<strong>{{ change.to }}</strong>
@@ -1046,6 +1047,17 @@ eleventyComputed:
 					{{ point.date | date("long") }}
 					{% if entry.movedFrom and point.via != entry.url %}
 					<span class="badge" title="Measured at {{ point.via }}, before the move">old URL</span>
+					{% endif %}
+				</td>
+				{#
+					This run's own circles, not the site's current ones. A row is a
+					measurement, and the point of a log is that rows differ.
+				#}
+				<td class="col-logdots">
+					{% if not point.error %}
+					<span class="recents-dots" aria-hidden="true">
+						{% for band in point.bands %}<span class="recents-dot recents-dot-{{ band }}"></span>{% endfor %}
+					</span>
 					{% endif %}
 				</td>
 				{% if point.error %}
