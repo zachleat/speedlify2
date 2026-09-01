@@ -476,3 +476,43 @@ describe("Vite as a last-resort generator", () => {
 		assert.equal(probe([]), null);
 	});
 });
+
+describe("Angular", () => {
+	test("is detected from the version attribute on the root", () => {
+		const found = detectGenerator({
+			metas: [],
+			marks: ["angular"],
+			markVersions: { angular: "22.1.4+sha-36fc3f0" },
+		});
+
+		assert.equal(found.name, "Angular");
+		assert.equal(found.source, "dom");
+		// The build hash is not part of the version a reader wants.
+		assert.equal(found.version, "22.1.4");
+	});
+
+	test("names the framework even when no version is offered", () => {
+		// The `_nghost` / `_ngcontent` fallback proves Angular without ng-version.
+		const found = detectGenerator({ metas: [], marks: ["angular"] });
+
+		assert.equal(found.name, "Angular");
+		assert.equal(found.version, null);
+	});
+
+	test("a generator tag still outranks it", () => {
+		const found = detectGenerator({
+			metas: ["Eleventy v3.0.0"],
+			marks: ["angular"],
+			markVersions: { angular: "22.1.4" },
+		});
+
+		assert.equal(found.name, "Eleventy");
+	});
+
+	test("other marks are unaffected by the version plumbing", () => {
+		const found = detectGenerator({ metas: [], marks: ["next"] });
+
+		assert.equal(found.name, "Next.js");
+		assert.equal(found.version, null, "a mark carries no version unless the page offers one");
+	});
+});
