@@ -2,74 +2,11 @@
   "url": "https://atomic.financial/",
   "name": "atomic.financial",
   "group": "11ty-community",
-  "fetchedAt": "2026-08-26T22:45:30.006Z",
+  "fetchedAt": "2026-09-01T23:22:58.163Z",
   "source": "crux-history",
   "scope": "url",
   "formFactor": "PHONE",
   "series": [
-    {
-      "period": {
-        "first": "2026-02-08",
-        "last": "2026-03-07"
-      },
-      "date": "2026-03-07",
-      "metrics": {
-        "cls": {
-          "p75": 0.02,
-          "rating": "good",
-          "distribution": {
-            "good": 87,
-            "needsImprovement": 10.5,
-            "poor": 2.5
-          }
-        },
-        "ttfb": {
-          "p75": 477,
-          "rating": "good",
-          "distribution": {
-            "good": 91.5,
-            "needsImprovement": 7.3,
-            "poor": 1.3
-          }
-        },
-        "fcp": {
-          "p75": 3114,
-          "rating": "poor",
-          "distribution": {
-            "good": 48.8,
-            "needsImprovement": 25.5,
-            "poor": 25.7
-          }
-        },
-        "inp": {
-          "p75": 343,
-          "rating": "needs-improvement",
-          "distribution": {
-            "good": 55.5,
-            "needsImprovement": 33.4,
-            "poor": 11.1
-          }
-        },
-        "lcp": {
-          "p75": 3148,
-          "rating": "needs-improvement",
-          "distribution": {
-            "good": 61.8,
-            "needsImprovement": 21.7,
-            "poor": 16.6
-          }
-        },
-        "rtt": {
-          "p75": 132,
-          "rating": null,
-          "distribution": {
-            "good": 32.7,
-            "needsImprovement": 60.2,
-            "poor": 7.2
-          }
-        }
-      }
-    },
     {
       "period": {
         "first": "2026-02-15",
@@ -1602,9 +1539,76 @@
         }
       },
       "borrowedFromOrigin": [
-        "lcp",
-        "rtt",
         "ttfb",
+        "inp",
+        "lcp",
+        "rtt"
+      ]
+    },
+    {
+      "period": {
+        "first": "2026-08-02",
+        "last": "2026-08-29"
+      },
+      "date": "2026-08-29",
+      "metrics": {
+        "cls": {
+          "p75": 0.02,
+          "rating": "good",
+          "distribution": {
+            "good": 86.1,
+            "needsImprovement": 9.2,
+            "poor": 4.6
+          }
+        },
+        "ttfb": {
+          "p75": 537,
+          "rating": "good",
+          "distribution": {
+            "good": 86.2,
+            "needsImprovement": 9.2,
+            "poor": 4.6
+          }
+        },
+        "fcp": {
+          "p75": 2537,
+          "rating": "needs-improvement",
+          "distribution": {
+            "good": 62.7,
+            "needsImprovement": 17.7,
+            "poor": 19.6
+          }
+        },
+        "inp": {
+          "p75": 203,
+          "rating": "needs-improvement",
+          "distribution": {
+            "good": 74.9,
+            "needsImprovement": 17.5,
+            "poor": 7.6
+          },
+          "scope": "origin"
+        },
+        "lcp": {
+          "p75": 2376,
+          "rating": "good",
+          "distribution": {
+            "good": 76.1,
+            "needsImprovement": 11.4,
+            "poor": 12.5
+          }
+        },
+        "rtt": {
+          "p75": 132,
+          "rating": null,
+          "distribution": {
+            "good": 46,
+            "needsImprovement": 48.4,
+            "poor": 5.6
+          }
+        }
+      },
+      "borrowedFromOrigin": [
         "inp"
       ]
     }
