@@ -87,9 +87,17 @@ speedlifyThemeColor();
 			<a href="/charts/">Charts</a>
 			<a href="/runs/">Measurement runs</a>
 			<a href="/embed/">Embed a score</a>
-			<!-- Hidden until scripted: without JS the choice cannot be stored,
-			     and a button that silently does nothing is worse than none. -->
-			<button class="theme-toggle" type="button" id="theme-toggle" hidden>
+			<!-- Disabled until scripted, like the category select: without JS the
+			     choice cannot be stored, so the button cannot do what it says.
+
+			     It used to be `hidden`, which never took effect — `.theme-toggle`
+			     sets `display: inline-flex`, and an author display beats the UA
+			     stylesheet's `[hidden] { display: none }`. So the button rendered
+			     anyway and did nothing when clicked, which is the outcome that
+			     comment was written to prevent. `disabled` cannot be overridden by
+			     a stylesheet. -->
+			<button class="theme-toggle" type="button" id="theme-toggle" disabled
+				title="Switching theme needs JavaScript. Without it the page follows your system setting.">
 			{#
 				Font Awesome, via the transform — these become <use> references
 				against the same spritesheet the stack marks use, so the two glyphs
@@ -115,8 +123,23 @@ speedlifyThemeColor();
 
 			Labeled by `aria-label` rather than a visible <label>: the control sits
 			in a row of links where a word in front of it would read as another one.
+
+			Disabled until scripted. Submitting it unscripted lands on the home
+			page's Categories list rather than the category you picked — a static
+			host cannot turn `?group=hosts` into `/group/hosts/` — and offering a
+			control that answers a different question than the one asked is worse
+			than offering none. The list it would have sent you to is on that page
+			anyway, in full, as links.
 		#}
 		<form class="cat-switch" method="get" action="/#categories">
+		{#
+			A fieldset, purely to carry `disabled` for everything inside it. A form
+			has no disabled attribute; this is the mechanism HTML gives for turning
+			off a whole group of controls at once, and it means the script has one
+			attribute to remove rather than one per control.
+		#}
+		<fieldset disabled
+			title="Jumping to a category needs JavaScript. Every category is linked from the list on the home page.">
 			<select id="cat-switch" name="group" aria-label="Jump to a category">
 				{#
 					A prompt only where nothing is selected. On a category page the
@@ -157,22 +180,33 @@ speedlifyThemeColor();
 					{% endif %}
 				{% endfor %}
 			</select>
-			{#
-				The unscripted path. Hidden by the script below, which navigates on
-				change and leaves nothing for it to do — the inverse of the theme
-				toggle above, which is hidden until scripted for the same reason:
-				a control that does nothing is worse than no control.
-			#}
-			<button type="submit">Go</button>
+		</fieldset>
 		</form>
 		</div>
 		<script>
-		/* Upgrade the fallback submit into the navigation it wants to be. Also on
-		   change, so a mouse needs one action rather than two. */
+		/* Turn the select into navigation, and switch it on.
+		
+		   There is no unscripted path to upgrade any more: a GET form cannot turn
+		   `?group=hosts` into `/group/hosts/` on a static host, so the form is
+		   shipped disabled and this is what makes it a control rather than a
+		   decoration. The home page's Categories list is the no-JS route, and the
+		   disabled select says so in its title.
+		
+		   `submit` as well as `change`: change covers the mouse in one action, and
+		   submit catches Enter from the keyboard. */
 		(function () {
 			var form = document.querySelector(".cat-switch");
 			if (!form) return;
 			var select = form.elements.group;
+
+			/* Now it can do what it says. Enabled here rather than in CSS, so a
+			   reader the script never reached is never shown a live control that
+			   would take them somewhere they did not ask for. */
+			var fieldset = form.querySelector("fieldset");
+			if (fieldset) {
+				fieldset.disabled = false;
+				fieldset.removeAttribute("title");
+			}
 			function go(event) {
 				var value = select.value;
 				if (!value) return;
@@ -182,10 +216,21 @@ speedlifyThemeColor();
 			form.addEventListener("submit", go);
 			select.addEventListener("change", go);
 
-			/* Nothing left for it to do once change navigates. Hidden here rather
-			   than in CSS so it survives for anyone the script did not reach. */
-			var submit = form.querySelector("button[type=submit]");
-			if (submit) submit.hidden = true;
+			/* Nothing left for it to do once change navigates.
+
+			   `visibility`, not `hidden`: the button is 40px wide and taller than
+			   the select beside it, so removing it from the layout reflowed the
+			   masthead row the moment this ran — and left the unscripted row 4px
+			   taller than the scripted one, which is a difference readers can see
+			   between two pages. Reserving the space keeps both identical and
+			   makes the upgrade invisible.
+
+			   Still gone for every other purpose: `visibility: hidden` takes an
+			   element out of the tab order and out of the accessibility tree, so
+			   nobody can reach a control that no longer does anything.
+
+			   Set here rather than in CSS so it survives for anyone the script did
+			   not reach — they get a working button, as they should. */
 		})();
 		</script>
 	</div>
@@ -243,7 +288,8 @@ speedlifyThemeColor();
 		button.setAttribute("aria-pressed", String(light));
 	}
 
-	button.hidden = false;
+	button.disabled = false;
+	button.removeAttribute("title");
 	label();
 
 	button.addEventListener("click", function () {

@@ -520,8 +520,7 @@ th.col-trend { text-align: center !important; }
 	}
 }
 
-.cat-switch select,
-.cat-switch button {
+.cat-switch select {
 	font: inherit;
 	color: var(--text);
 	background: var(--surface);
@@ -531,9 +530,52 @@ th.col-trend { text-align: center !important; }
 	padding: 0.2rem 0.4rem;
 }
 
+/* The fieldset exists only to carry `disabled`, so it must not look like one:
+   browsers give it a border, margin and padding by default. `display: contents`
+   would be tidier still, but it is unreliable for form controls, so it becomes a
+   flex row with the same gap the form itself uses. */
+.cat-switch fieldset {
+	display: inline-flex;
+	align-items: baseline;
+	gap: 0.35rem;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	min-width: 0;
+}
+
+/*
+ * A control that is off should say so before it is clicked.
+ *
+ * Three signals rather than one: the cursor on contact, the reduced opacity at a
+ * glance, and — where a control is colored like a link — a muted color, because
+ * accent blue reads as "click me" however dead the control is.
+ *
+ * The inherited case needs naming separately: a control inside a disabled
+ * fieldset is disabled for every purpose except matching `[disabled]`, which
+ * reads the attribute and nothing else.
+ *
+ * 0.55 rather than something fainter: these sit in a masthead against a
+ * low-contrast background, and a disabled control still has to be readable —
+ * the title attribute on it explains why it is off, which is no use to someone
+ * who cannot make out the label to hover it.
+ */
+[disabled],
+fieldset[disabled] select {
+	cursor: not-allowed;
+	opacity: 0.55;
+}
+
+/* `cursor` repeated here on purpose: `.theme-toggle` sets `pointer` and is
+   declared later in this file, so at equal specificity it wins over the bare
+   `[disabled]` above. The attribute selector qualifies it back. */
+.theme-toggle[disabled] {
+	color: var(--text-muted);
+	cursor: not-allowed;
+}
+.theme-toggle[disabled] .theme-toggle-text { text-decoration-style: dotted; }
+
 .cat-switch select { color-scheme: inherit; accent-color: var(--accent, currentColor); }
-.cat-switch button { cursor: pointer; }
-.cat-switch button:hover { border-color: var(--border-strong); }
 .detail-head h1 { margin: 0 0 0.25rem; font-size: clamp(1.5rem, 4vw, 2rem); letter-spacing: -0.02em; }
 /* The site's place in a category, beside that category's name. A pill, matching
    the counts elsewhere, so it reads as a label on the link rather than as part
@@ -2519,6 +2561,9 @@ th.col-rings { text-align: left !important; }
 .contents-age {
 	font-size: 0.72rem;
 	font-variant-numeric: tabular-nums;
+	/* "41h ago" is two words and a pill: broken across lines the background
+	   splits into two boxes and the second one carries a lone "ago". */
+	white-space: nowrap;
 	color: var(--text-muted-strong);
 	background: color-mix(in srgb, var(--text-muted) 15%, transparent);
 	padding: 0.05rem 0.35rem;
