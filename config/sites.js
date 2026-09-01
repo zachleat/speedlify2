@@ -681,7 +681,7 @@ export default {
 			showEmbed: true,
 			name: "zachleat",
 			enabled: true,
-			description: "Pages from zachleat.com.",
+			description: "Pages from zachleat.com, and the other sites Zach maintains.",
 			...WEEKLY,
 			...POLITE,
 			sites: [
@@ -696,6 +696,19 @@ export default {
 				{ url: "https://www.zachleat.com/web/lighthouse-in-footer/" },
 				{ url: "https://www.zachleat.com/web/comprehensive-webfonts/" },
 				{ url: "https://www.zachleat.com/web/google-fonts-display/" },
+
+				/*
+				 * Not on zachleat.com, but the same person answers for them.
+				 *
+				 * Each is already measured under another category — 11ty.dev and
+				 * speedlify.dev in Developer Tooling, the Font Awesome blog in Built
+				 * Awesome — so this adds a membership rather than a site, and the
+				 * cadence stays whatever the strictest of those categories asks for.
+				 */
+				{ url: "https://www.11ty.dev/" },
+				{ url: "https://www.speedlify.dev/" },
+				{ url: "https://blog.fontawesome.com/" },
+				{ url: "https://esif.dev/" },
 			],
 		},
 
