@@ -134,6 +134,13 @@ eleventyComputed:
 
 {% set rows = [] %}
 {% set rest = [] %}
+{#
+	Clean rows only. A site with no figures — never measured, or failing every
+	attempt — has nothing to put in eleven columns, and a run of rows reading "not
+	measured yet" is a worse answer than a name in the list below, which at least
+	does not promise a table's worth of data. The list marks both cases with an
+	icon.
+#}
 {% for entry in source %}
 	{% if not filtered or entry.allGreen %}
 		{% set rows = (rows.push(entry), rows) %}
@@ -146,7 +153,7 @@ eleventyComputed:
 	<h2>{{ "Leaderboard" if group.ranked else "Sites" }}</h2>
 	{% if filtered %}
 	<p class="muted small">
-		Limited to {{ group.entries.length | num }} the {{ rows.length | num }} websites with “good” scores (all green circles): every Lighthouse category at 90 or above, no axe violations, no Core Web Vital failing. The other {{ rest.length | num }} are included in an overflow list below.
+		Of {{ group.entries.length | num }} sites, showing the {{ rows.length | num }} with “good” scores (all green circles): every Lighthouse category at 90 or above, no axe violations, no Core Web Vital failing. The other {{ rest.length | num }} are in an overflow list below.
 	</p>
 	{% endif %}
 	{% if not group.ranked %}
@@ -284,6 +291,22 @@ eleventyComputed:
 				the table because the site is down, rather than because its scores
 				are middling. The title carries the error itself.
 			#}
+			{#
+				Two independent marks, because they answer different questions and a
+				site can need both. The hourglass says there are no figures on the
+				page this links to; the triangle says the last attempt errored, and
+				carries the error itself. Most of the sites with no figures have both
+				— nothing to show, and a reason why — but each stands alone: a site
+				measured months ago can be failing today, and a site added this
+				morning has neither been tried nor refused.
+
+				The hourglass first: what is missing, then why. Muted rather than red,
+				since a site nobody has measured yet is a gap in our data and not a
+				verdict on theirs.
+			#}
+			{%- if not entry.latest %}
+			<i class="fa-solid fa-hourglass-start rest-pending" title="No successful measurement yet" width="12" height="12">No results yet</i>
+			{%- endif %}
 			{%- if entry.currentlyFailing %}
 			<i class="fa-solid fa-triangle-exclamation rest-error" title="{{ entry.lastError }}" width="12" height="12">Currently failing</i>
 			{%- endif %}

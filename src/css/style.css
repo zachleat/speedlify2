@@ -2761,6 +2761,17 @@ th.col-rings { text-align: left !important; }
 	margin-left: 0.15rem;
 }
 
+/* Same size and place as .rest-error, deliberately muted rather than red: this
+   marks a site nothing has been tried on yet, which is a gap in our data and not
+   a verdict on theirs. */
+.rest-pending {
+	width: 12px;
+	height: 12px;
+	color: var(--text-muted);
+	vertical-align: baseline;
+	margin-left: 0.15rem;
+}
+
 .rest-list li {
 	break-inside: avoid;
 	padding: 0.1rem 0;
