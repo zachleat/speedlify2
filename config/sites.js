@@ -43,7 +43,25 @@ const STARTERS = [...new Set([...starters.urls, ...EXTRA_STARTERS])];
  *
  * Normalized form: https, trailing slash on a bare origin, none on a path.
  */
-const EXTRA_EMERITUS = ["https://annotator.incubator.apache.org/"];
+const EXTRA_EMERITUS = [
+	"https://annotator.incubator.apache.org/",
+	/*
+	 * Redirects to scottpdawson.substack.com, and deleted from the community
+	 * repo upstream.
+	 *
+	 * Needed here for both halves. The generator rule cannot move it: every
+	 * measurement of the old URL came back a Cloudflare bot check, so the page
+	 * never reported a generator at all — and a redirect off the domain is not
+	 * something that rule reads anyway.
+	 *
+	 * And the deletion upstream does not place it either. `11ty-emeritus.json` is
+	 * hand-curated, recovered once from the community repo's history rather than
+	 * regenerated, so nothing picks up a deletion made after that. Without this
+	 * line the site simply leaves the corpus on the next import: no page, no
+	 * history, no record that it was ever built with Eleventy.
+	 */
+	"https://scottpdawson.com/",
+];
 
 /**
  * Community sites added by hand.
