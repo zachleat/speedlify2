@@ -19,7 +19,15 @@ eleventyComputed:
 		have come to *do* — everything else here is something to read.
 	#}
 	<div class="group-title">
-		<h2 class="page-hed">{{ group.name }}</h2>
+		{#
+			The category's health beside its name: the share of its measured sites
+			showing no red ring, which is the same question the leaderboard's first
+			step asks of a single site.
+
+			A proportion, so a curated dozen and a community list of a thousand are
+			judged on the same terms — a category cannot look healthy by being small.
+		#}
+		<h2 class="page-hed">{{ group.name }}{% if group.health %}<span class="health-pill health-{{ group.health.band }}" title="{{ group.health.clean | num }} of {{ group.health.measured | num }} measured {{ group.health.measured | plural('site') }} in {{ group.name }} show no red ring ({{ group.health.pct }}%). Good is 50% or more, Warn 28% or more.">{{ "Good" if group.health.band == "good" else ("Warn" if group.health.band == "average" else "Bad") }}</span>{% endif %}</h2>
 		{% if group.submitUrl %}
 		<a class="cta" href="{{ group.submitUrl }}">{{ group.submitLabel }}</a>
 		{% endif %}

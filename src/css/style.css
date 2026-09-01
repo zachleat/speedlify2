@@ -2147,6 +2147,30 @@ fieldset[disabled] select {
    qualifying facts on a page all look like one kind of thing. Carries its own
    color when stale rather than inheriting the paragraph's, so the pill is
    what reads as the warning. */
+/*
+ * A category's health, beside its name.
+ *
+ * Sized in `em` so it tracks the heading rather than fighting it, and set on the
+ * baseline rather than centred: it reads as an annotation on the title, not as
+ * part of it. Colored like the rings it summarizes, so a reader who knows what
+ * an amber circle means already knows what an amber badge means.
+ */
+.health-pill {
+	display: inline-block;
+	margin-left: 0.5em;
+	padding: 0.1em 0.55em;
+	border-radius: var(--pill);
+	font-size: 0.42em;
+	font-weight: 700;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	vertical-align: middle;
+	white-space: nowrap;
+}
+.health-good { color: var(--good); background: color-mix(in srgb, var(--good) 16%, transparent); }
+.health-average { color: var(--average); background: color-mix(in srgb, var(--average) 16%, transparent); }
+.health-poor { color: var(--poor); background: color-mix(in srgb, var(--poor) 16%, transparent); }
+
 .age-pill {
 	display: inline-block;
 	padding: 0.05rem 0.45rem;

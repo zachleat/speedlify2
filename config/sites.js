@@ -548,6 +548,16 @@ export default {
 		 * category for a model lab, however true it is of Cursor and Ollama.
 		 */
 		ai: {
+			/*
+			 * `showHealth: true` puts a Good/Warn/Bad badge beside the category's
+			 * name, from the share of its measured sites showing no red ring — the
+			 * same question the leaderboard's first ranking step asks of one site.
+			 *
+			 * Opt-in on every category here, but a flag rather than a default: it
+			 * is a verdict on sites other people maintain, and a category should
+			 * ask for one. Omit it and the badge simply does not render.
+			 */
+			showHealth: true,
 			name: "AI",
 			enabled: true,
 			description:
@@ -562,6 +572,7 @@ export default {
 		},
 
 		"dev-tooling": {
+			showHealth: true,
 			showOnHomePageCategoryList: true,
 			name: "Developer Tooling",
 			enabled: true,
@@ -595,6 +606,7 @@ export default {
 		 *
 		 */
 		"big-tech": {
+			showHealth: true,
 			showOnHomePageCategoryList: true,
 			name: "Big Tech",
 			enabled: true,
@@ -606,6 +618,7 @@ export default {
 		},
 
 		ssg: {
+			showHealth: true,
 			showOnHomePageCategoryList: true,
 			name: "Site Generators",
 			enabled: true,
@@ -616,6 +629,7 @@ export default {
 		},
 
 		frameworks: {
+			showHealth: true,
 			showOnHomePageCategoryList: true,
 			name: "Frameworks and Libraries",
 			enabled: true,
@@ -627,6 +641,7 @@ export default {
 		},
 
 		"test-runners": {
+			showHealth: true,
 			name: "Test Runners",
 			enabled: true,
 			description: "Test runners, linters, and other testing tools.",
@@ -637,6 +652,7 @@ export default {
 		},
 
 		"package-managers": {
+			showHealth: true,
 			name: "Package Managers",
 			enabled: true,
 			description:
@@ -646,6 +662,7 @@ export default {
 		},
 
 		hosts: {
+			showHealth: true,
 			showOnHomePageCategoryList: true,
 			name: "Web Hosts",
 			enabled: true,
@@ -656,6 +673,7 @@ export default {
 		},
 
 		builders: {
+			showHealth: true,
 			showOnHomePageCategoryList: true,
 			name: "Website Builders",
 			enabled: true,
@@ -676,6 +694,7 @@ export default {
 		},
 
 		zachleat: {
+			showHealth: true,
 			// Your own pages, so there is nobody else to ask. Same rule as the two
 			// community registers below.
 			showEmbed: true,
@@ -713,6 +732,7 @@ export default {
 		},
 
 		"11ty-community": {
+			showHealth: true,
 			showOnHomePageCategoryList: true,
 			// These are sites people submitted themselves, so offering a live badge
 			// for one is offering it to whoever put it here. See `showEmbed` in the
@@ -773,6 +793,7 @@ export default {
 		},
 
 		"11ty-starters": {
+			showHealth: true,
 			showOnHomePageCategoryList: true,
 			// These are sites people submitted themselves, so offering a live badge
 			// for one is offering it to whoever put it here. See `showEmbed` in the
@@ -827,6 +848,7 @@ export default {
 		},
 
 		"11ty-emeritus": {
+			showHealth: true,
 			name: "11ty Emeritus",
 
 			// Not a competition. These sites left, and ranking what they scored on
