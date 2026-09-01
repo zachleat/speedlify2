@@ -57,7 +57,20 @@ eleventyComputed:
 	renders on a timer and photographs half-drawn pages, and our capture is a
 	byproduct of a measurement that already finished.
 #}
-{% if not entry.interstitial and entry.ownScreenshot %}
+{#
+	A bot check is shown, not hidden.
+
+	It used to be suppressed, on the reasoning that a picture of Cloudflare's
+	waiting room is not a picture of the site. True — but the page now says so in
+	a notice above, and with that said the picture is the evidence for it: a
+	reader who is told the numbers describe a bot check can see the bot check.
+	Hidden, the claim was unsupported and the missing image looked like a bug.
+
+	Only our own capture, never the screenshot service: that service would be
+	photographing the site as *it* sees it, which may be the real page, and
+	putting that under a notice about a bot check would contradict the notice.
+#}
+{% if entry.ownScreenshot %}
 	{% set screenshot = entry.ownScreenshot.src %}
 	{% set shotWidth = entry.ownScreenshot.width or 650 %}
 	{% set shotHeight = entry.ownScreenshot.height or 650 %}
@@ -169,6 +182,29 @@ eleventyComputed:
 	</a>
 	{% endif %}
 </header>
+
+{#
+	A bot check, measured instead of the site.
+
+	First among the notices because it is the strongest caveat on the page: the
+	figures below are real measurements of a real page, and that page is a
+	waiting room. Everything else here — stale data, a redirect — qualifies
+	numbers that still describe the site.
+
+	The screenshot, filmstrip and Without JavaScript section are already hidden
+	further down, which without this reads as three things mysteriously missing.
+#}
+{% if entry.interstitial %}
+<div class="notice notice-error">
+	<strong>This measurement is of a bot check, not the site.</strong>
+	<p>
+		The page served to the measuring browser was titled
+		<code>{{ entry.interstitial }}</code> — an automated-traffic check rather
+		than {{ entry.displayUrl }}. Every figure below describes that page: its
+		scores, its weight, its timings.
+	</p>
+</div>
+{% endif %}
 
 {% if entry.stale and entry.latest %}
 <div class="notice notice-warn">
@@ -401,7 +437,7 @@ eleventyComputed:
 {% endif %}
 
 <section class="panel" id="scores">
-	<h2>Scores</h2>
+	<h2>Lighthouse Scores</h2>
 	<div class="cards">
 		{% for score in metrics.SCORES %}
 		{% set t = entry.trends[score.key] %}
@@ -522,9 +558,8 @@ eleventyComputed:
 			<strong><i class="fa-solid fa-triangle-exclamation csr-icon" width="12" height="12" aria-hidden="true"></i> This page is client rendered.</strong>
 			<p>
 				Nothing was painted until the scripts ran. This is a web performance and robustness issue!
-				{# The capture on the left is
-				{{ entry.ownScreenshot.noJsColors }} distinct
-				{{ entry.ownScreenshot.noJsColors | plural("color") }}. #}
+				{# {{ entry.ownScreenshot.noJsEmpty }}% of the capture on the left is
+				empty rows. #}
 			</p>
 		</div>
 		{% endif %}
