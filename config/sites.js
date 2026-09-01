@@ -679,7 +679,7 @@ export default {
 			// Your own pages, so there is nobody else to ask. Same rule as the two
 			// community registers below.
 			showEmbed: true,
-			name: "zachleat.com",
+			name: "zachleat",
 			enabled: true,
 			description: "Pages from zachleat.com.",
 			...WEEKLY,
