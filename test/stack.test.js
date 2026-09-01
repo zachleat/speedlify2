@@ -102,6 +102,27 @@ describe("generator detection", () => {
 
 		const nuxt = withDom(`<script src="/_nuxt/entry.abc123.js"></script>`, pageProbe);
 		assert.ok(nuxt.marks.includes("nuxt"));
+
+		// Under a basePath, which cursor.com serves and an anchored selector missed.
+		const based = withDom(
+			`<script src="/marketing-static/_next/static/chunks/main.js"></script>`,
+			pageProbe,
+		);
+		assert.ok(based.marks.includes("next"), "a basePath still reads as Next.js");
+	});
+
+	test("recognizes the App Router, which has no __NEXT_DATA__", () => {
+		// The Pages Router's hydration payload is absent in the App Router, which
+		// streams into __next_f instead.
+		const probe = withDom("", pageProbe, { __next_f: [] });
+		assert.ok(probe.marks.includes("next"));
+	});
+
+	test("recognizes React Router in framework mode", () => {
+		// What Remix became at v7: a different family of globals entirely.
+		const probe = withDom("", pageProbe, { __reactRouterManifest: {} });
+		assert.ok(probe.marks.includes("reactrouter"));
+		assert.ok(!probe.marks.includes("remix"), "and is not mistaken for Remix");
 	});
 
 	test("a known generator tag beats an unknown one earlier in the document", () => {
@@ -257,7 +278,7 @@ describe("pickHostHeaders", () => {
  * touches `document` and `window` — enough that a couple of stubs stand in for
  * a DOM here and keep the test suite free of a headless browser.
  */
-function withDom(html, fn) {
+function withDom(html, fn, windowGlobals = {}) {
 	const scripts = [...html.matchAll(/src="([^"]+)"/g)].map((m) => m[1]);
 	const metas = [...html.matchAll(/<meta[^>]*name="generator"[^>]*content="([^"]*)"/gi)].map(
 		(m) => ({ getAttribute: () => m[1] }),
@@ -266,14 +287,22 @@ function withDom(html, fn) {
 	const document = {
 		querySelector(query) {
 			if (isMetaQuery(query)) return metas[0] ?? null;
-			const prefixes = [...query.matchAll(/src\^='([^']+)'/g)].map((m) => m[1]);
-			return scripts.some((src) => prefixes.some((p) => src.startsWith(p))) ? {} : null;
+
+			// Both forms the probe uses: `^=` for a path anchored at the root, and
+			// `*=` for build output served under a basePath or a CDN prefix.
+			const prefixes = [...query.matchAll(/(?:src|href)\^='([^']+)'/g)].map((m) => m[1]);
+			const contains = [...query.matchAll(/(?:src|href)\*='([^']+)'/g)].map((m) => m[1]);
+
+			const hit = scripts.some(
+				(src) => prefixes.some((p) => src.startsWith(p)) || contains.some((c) => src.includes(c)),
+			);
+			return hit ? {} : null;
 		},
 		querySelectorAll(query) {
 			return isMetaQuery(query) ? metas : [];
 		},
 	};
-	const globals = { document, window: {} };
+	const globals = { document, window: windowGlobals };
 	const restore = {};
 	for (let [key, value] of Object.entries(globals)) {
 		restore[key] = globalThis[key];
