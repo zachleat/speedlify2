@@ -728,6 +728,7 @@ export default {
 				{ url: "https://www.speedlify.dev/" },
 				{ url: "https://blog.fontawesome.com/" },
 				{ url: "https://esif.dev/" },
+				{ url: "https://nejsconf.com/" },
 			],
 		},
 
