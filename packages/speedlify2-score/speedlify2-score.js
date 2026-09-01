@@ -109,10 +109,21 @@ const store = new SpeedlifyStore();
 class SpeedlifyScore extends HTMLElement {
 	static tagName = "speedlify2-score";
 
+	/*
+	 * Registers the element, unless something already claimed the name.
+	 *
+	 * The optional-chain checks whether a definition exists; it does not check
+	 * whether `customElements` does. Somewhere without it — a worker, a test
+	 * harness with a partial DOM — the guard passed and the line below threw.
+	 * Now it is a no-op there, which is what a component asked to register in a
+	 * place with no registry should do.
+	 */
 	static register(tagName) {
-		if (!globalThis.customElements?.get(tagName || SpeedlifyScore.tagName)) {
-			customElements.define(tagName || SpeedlifyScore.tagName, SpeedlifyScore);
-		}
+		const registry = globalThis.customElements;
+		if (!registry) return;
+
+		const name = tagName || SpeedlifyScore.tagName;
+		if (!registry.get(name)) registry.define(name, SpeedlifyScore);
 	}
 
 	static attrs = {
@@ -644,6 +655,15 @@ class SpeedlifyScore extends HTMLElement {
 	}
 }
 
+/*
+ * Registers on import, which is what makes `import "speedlify2-score"` enough.
+ *
+ * The guard inside `register` handles a missing registry. Note this module
+ * still cannot be evaluated somewhere without a DOM at all — the class extends
+ * HTMLElement, which is resolved when this file is parsed, long before any of
+ * this runs. It is a browser component; a server rendering one should import it
+ * from a client-only entry point.
+ */
 SpeedlifyScore.register();
 
 export { SpeedlifyScore, SpeedlifyStore };

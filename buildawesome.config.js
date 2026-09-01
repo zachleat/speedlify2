@@ -268,7 +268,12 @@ export default async function ($config) {
 	});
 
 	$config.addPassthroughCopy({ "src/css": "css" });
-	$config.addPassthroughCopy({ "src/js": "js" });
+	/*
+	 * The embed component, which lives in packages/ because it is published to
+	 * npm as `speedlify2-score` rather than only served from here. Copied to the
+	 * same /js/ path it has always had, so existing embeds keep working.
+	 */
+	$config.addPassthroughCopy({ "packages/speedlify2-score/speedlify2-score.js": "js/speedlify2-score.js" });
 
 	// Lighthouse's filmstrip frames for each site, captured during measurement
 	// and stored beside the numbers. Copied rather than passed through an image
