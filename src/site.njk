@@ -513,6 +513,29 @@ eleventyComputed:
 #}
 <section class="panel" id="without-javascript">
 	<h2>Without JavaScript</h2>
+	{% if entry.clientRendered %}
+	{#
+		Directly under the heading, ahead of the caption and the frames, so the
+		reader knows what they are looking at before they look. A blank capture
+		beside a full one is ambiguous on sight — it could as easily be a load
+		that failed — and the caption under it only says "Scripts disabled", not
+		that the emptiness is the finding.
+
+		A sibling of the heading rather than a member of the frame row: it is a
+		statement about the section, and inside the row it was a flex item that
+		had to be told to span the width. The same notice treatment the page uses
+		above for stale data and redirects, because it is the same kind of
+		statement — a caveat about what follows, not a caption on it.
+	#}
+	<div class="notice notice-warn nojs-verdict">
+		<strong><i class="fa-solid fa-triangle-exclamation csr-icon" width="12" height="12" aria-hidden="true"></i> This page is client rendered.</strong>
+		<p>
+			Nothing was painted until the scripts ran. This is a web performance and robustness issue!
+			{# {{ entry.ownScreenshot.noJsEmpty }}% of the capture on the left is
+			empty rows. #}
+		</p>
+	</div>
+	{% endif %}
 	<p class="muted small">
 		The same load, photographed twice at
 		{{ entry.ownScreenshot.width or 800 }}&times;{{ entry.ownScreenshot.height or 600 }}: once with
@@ -543,26 +566,6 @@ eleventyComputed:
 		apart they are.
 	#}
 	<div class="nojs-pair">
-		{% if entry.clientRendered %}
-		{#
-			Ahead of the frames, so the reader knows what they are looking at before
-			they look. A blank capture beside a full one is ambiguous on sight — it
-			could as easily be a load that failed — and the caption under it only
-			says "Scripts disabled", not that the emptiness is the finding.
-
-			The same notice treatment the page uses above for stale data and
-			redirects, because it is the same kind of statement: a caveat about what
-			follows, not a caption on it.
-		#}
-		<div class="notice notice-warn nojs-verdict">
-			<strong><i class="fa-solid fa-triangle-exclamation csr-icon" width="12" height="12" aria-hidden="true"></i> This page is client rendered.</strong>
-			<p>
-				Nothing was painted until the scripts ran. This is a web performance and robustness issue!
-				{# {{ entry.ownScreenshot.noJsEmpty }}% of the capture on the left is
-				empty rows. #}
-			</p>
-		</div>
-		{% endif %}
 		<figure class="nojs-shot">
 			<figcaption>Scripts disabled</figcaption>
 			<img src="{{ entry.ownScreenshot.noJs.src }}"

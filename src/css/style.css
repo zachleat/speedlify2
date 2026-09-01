@@ -2934,16 +2934,18 @@ a.cat-chip:hover, a.cat-chip:focus-visible { color: var(--text); border-color: v
 }
 
 /*
- * The finding the pair demonstrates, above both frames.
+ * The finding the pair demonstrates, under the heading and ahead of the frames.
  *
- * `.notice` supplies the box; this only has to make it span the row rather than
- * stand as a third column beside the two images, and drop the bottom margin a
- * standalone notice carries — inside the flex row the gap already separates it
- * from the frames below.
+ * `.notice` supplies the box, and out here it is an ordinary block rather than a
+ * flex item — it used to sit inside the frame row and needed `flex: 1 1 100%` to
+ * stop it standing as a third column beside the two images. As a sibling of the
+ * heading it needs none of that.
+ *
+ * A tighter bottom margin than a standalone notice, because the caption line
+ * follows immediately and the two belong to the same thought.
  */
 .nojs-verdict {
-	flex: 1 1 100%;
-	margin-bottom: 0;
+	margin-bottom: 0.9rem;
 }
 
 .nojs-diff strong {
