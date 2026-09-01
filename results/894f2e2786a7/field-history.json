@@ -2,74 +2,11 @@
   "url": "https://worldwideweb.cern.ch/",
   "name": "worldwideweb.cern.ch",
   "group": "11ty-community",
-  "fetchedAt": "2026-08-26T19:03:30.012Z",
+  "fetchedAt": "2026-09-01T20:37:42.535Z",
   "source": "crux-history",
   "scope": "url",
   "formFactor": "PHONE",
   "series": [
-    {
-      "period": {
-        "first": "2026-02-08",
-        "last": "2026-03-07"
-      },
-      "date": "2026-03-07",
-      "metrics": {
-        "cls": {
-          "p75": 0,
-          "rating": "good",
-          "distribution": {
-            "good": 97.7,
-            "needsImprovement": 2,
-            "poor": 0.3
-          }
-        },
-        "ttfb": {
-          "p75": 1037,
-          "rating": "needs-improvement",
-          "distribution": {
-            "good": 63.7,
-            "needsImprovement": 28.6,
-            "poor": 7.7
-          }
-        },
-        "fcp": {
-          "p75": 1483,
-          "rating": "good",
-          "distribution": {
-            "good": 83.8,
-            "needsImprovement": 12.4,
-            "poor": 3.8
-          }
-        },
-        "inp": {
-          "p75": 71,
-          "rating": "good",
-          "distribution": {
-            "good": 96,
-            "needsImprovement": 3.1,
-            "poor": 0.9
-          }
-        },
-        "lcp": {
-          "p75": 1471,
-          "rating": "good",
-          "distribution": {
-            "good": 93,
-            "needsImprovement": 5.3,
-            "poor": 1.6
-          }
-        },
-        "rtt": {
-          "p75": 105,
-          "rating": null,
-          "distribution": {
-            "good": 60.3,
-            "needsImprovement": 36,
-            "poor": 3.7
-          }
-        }
-      }
-    },
     {
       "period": {
         "first": "2026-02-15",
@@ -1711,6 +1648,75 @@
           }
         }
       }
+    },
+    {
+      "period": {
+        "first": "2026-08-02",
+        "last": "2026-08-29"
+      },
+      "date": "2026-08-29",
+      "metrics": {
+        "cls": {
+          "p75": 0,
+          "rating": "good",
+          "distribution": {
+            "good": 91.3,
+            "needsImprovement": 7.5,
+            "poor": 1.2
+          }
+        },
+        "ttfb": {
+          "p75": 1311,
+          "rating": "needs-improvement",
+          "distribution": {
+            "good": 57.2,
+            "needsImprovement": 27.2,
+            "poor": 15.6
+          }
+        },
+        "fcp": {
+          "p75": 2184,
+          "rating": "needs-improvement",
+          "distribution": {
+            "good": 66.6,
+            "needsImprovement": 22.2,
+            "poor": 11.3
+          }
+        },
+        "inp": {
+          "p75": 138,
+          "rating": "good",
+          "distribution": {
+            "good": 83.8,
+            "needsImprovement": 10.9,
+            "poor": 5.3
+          },
+          "scope": "origin"
+        },
+        "lcp": {
+          "p75": 2184,
+          "rating": "good",
+          "distribution": {
+            "good": 82.7,
+            "needsImprovement": 10,
+            "poor": 7.4
+          }
+        },
+        "rtt": {
+          "p75": 135,
+          "rating": null,
+          "distribution": {
+            "good": 45.1,
+            "needsImprovement": 50.9,
+            "poor": 4
+          },
+          "scope": "origin"
+        }
+      },
+      "borrowedFromOrigin": [
+        "inp",
+        "rtt"
+      ]
     }
   ]
 }
