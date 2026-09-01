@@ -283,9 +283,11 @@ permalink: /index.html
 					<td class="num">{% if entry.labVsField %}<span class="lvf" title="Lab LCP {{ entry.labVsField.lab | ms }}, field p75 {{ entry.labVsField.field | ms }}">{{ entry.labVsField.ratio }}&times;</span>{% else %}<span class="muted">&mdash;</span>{% endif %}</td>
 					<td class="num col-nojs">{% if entry.ownScreenshot and entry.ownScreenshot.difference !== null %}{{ entry.ownScreenshot.difference }}%{% if entry.clientRendered %}<span class="csr-yes" title="only {{ entry.ownScreenshot.noJsText }}% of the no-JS capture is text, so the page said nothing without its scripts"><i class="fa-solid fa-triangle-exclamation csr-icon" width="12" height="12" aria-hidden="true"></i>EMPTY</span>{% endif %}{% else %}<span class="muted">&mdash;</span>{% endif %}</td>
 					<td class="col-cats">
-						{#- Names and ids are index-aligned, so the id for a name is its
-						    position in the other list. #}
-						<span class="cat-chips">{% for name in entry.groupNames %}<a class="cat-chip" href="/group/{{ entry.groups[loop.index0] }}/">{{ name }}</a>{% endfor %}</span>
+						{#- Biggest category first — see `entry.categories` in lib/report.js.
+						    Not `groups`, which is in config declaration order: that would
+						    make the chip a reader sees first an artefact of where a group
+						    happens to sit in a file. #}
+						<span class="cat-chips">{% for cat in entry.categories %}<a class="cat-chip" href="/group/{{ cat.id }}/">{{ cat.name }}</a>{% endfor %}</span>
 					</td>
 				{% else %}
 					<td class="num muted" colspan="12">

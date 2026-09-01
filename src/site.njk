@@ -138,11 +138,13 @@ eleventyComputed:
 		Overall
 		<span class="cat-rank" title="Ranked {{ entry.ranks.overall | num }} of {{ sites.stats.measured | num }} measured sites overall">#{{ entry.ranks.overall | num }}</span>
 		{% endif %}
-		{% for g in entry.groups %}
+		{#- Biggest first, matching the chips on the leaderboard. #}
+		{% for cat in entry.categories %}
+		{% set g = cat.id %}
 		{% set grp = sites.groups | groupById(g) %}
-		<a href="/group/{{ g }}/">{{ entry.groupNames[loop.index0] }}</a>
+		<a href="/group/{{ g }}/">{{ cat.name }}</a>
 		{%- if grp.ranked and entry.groupRanks[g].overall %}
-		<span class="cat-rank" title="Ranked {{ entry.groupRanks[g].overall | num }} of {{ grp.measured | num }} measured sites in {{ entry.groupNames[loop.index0] }}">#{{ entry.groupRanks[g].overall | num }}</span>
+		<span class="cat-rank" title="Ranked {{ entry.groupRanks[g].overall | num }} of {{ grp.measured | num }} measured sites in {{ cat.name }}">#{{ entry.groupRanks[g].overall | num }}</span>
 		{#- No separator between them: each name is followed by its own rank pill,
 		    and a comma after the pill reads as punctuation belonging to the
 		    number rather than to the list. #}
