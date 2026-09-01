@@ -113,7 +113,7 @@ title: Charts
 		twenty more were detected too rarely in this data set.
 	</p>
 
-	{{ stripfigure(jg, "JavaScript Weight") }}
+	{{ stripfigure(jg, "JavaScript Weight", true) }}
 </section>
 {% endif %}
 
@@ -173,7 +173,13 @@ title: Charts
 	<div class="group-head">
 		<h2>TTFB by Host <span class="tag">{{ th.count | num }} sites</span></h2>
 	</div>
-	{{ stripfigure(th, "Time to First Byte") }}
+	{#
+		Worth the number here more than anywhere: these medians sit within 1.5x of
+		each other with the rows almost entirely overlapping, so the tick is the
+		only thing telling one host from the next, and "almost the same" is exactly
+		the finding.
+	#}
+	{{ stripfigure(th, "Time to First Byte", true) }}
 </section>
 {% endif %}
 

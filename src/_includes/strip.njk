@@ -3,8 +3,12 @@
 	byte by host. Same picture of different columns, so one definition.
 
 	`strip` is whichever set lib/report.js built and `xTitle` names its scale.
+	`showMedianValues` prints each row's median beside its tick. On by choice at
+	both call sites rather than by default, so a future strip can leave it off:
+	it earns its place where the summary is a number worth reading exactly, and a
+	log axis is not something anyone reads a value off precisely.
 #}
-{% macro stripfigure(strip, xTitle) %}
+{% macro stripfigure(strip, xTitle, showMedianValues = false) %}
 	<figure class="plot">
 		<div class="plot-frame">
 		<svg viewBox="0 0 {{ strip.box.w }} {{ strip.box.h }}" role="img"
@@ -59,6 +63,27 @@
 			<g class="gen-medians">
 				{%- for row in strip.rows %}<line x1="{{ row.medianX }}" x2="{{ row.medianX }}" y1="{{ row.y - 9 }}" y2="{{ row.y + 9 }}"/>{% endfor %}
 			</g>
+			{%- if showMedianValues %}
+			{#
+				The number beside its own tick, in the tick's color so the two read as
+				one mark. Beside rather than above: a row is a drift of overlapping
+				dots and the space above the tick belongs to the row above it.
+
+				Flipped to the left of the tick near the right edge, where a label
+				drawn outward would run off the frame — 70 units is wider than any
+				value this formats to.
+
+				Haloed in the page background (see .gen-median-values) because it is
+				drawn over the dots by definition: the tick sits in the thick of the
+				distribution, which is the whole reason for printing it there.
+			#}
+			<g class="gen-median-values">
+				{%- for row in strip.rows %}
+				{%- set flip = row.medianX > strip.box.w - strip.box.right - 70 %}
+				<text x="{{ row.medianX - 7 if flip else row.medianX + 7 }}" y="{{ row.y + 4 }}" text-anchor="{{ "end" if flip else "start" }}">{{ row.medianText }}</text>
+				{%- endfor %}
+			</g>
+			{%- endif %}
 		</svg>
 		</div>
 	</figure>
