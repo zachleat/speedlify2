@@ -227,7 +227,7 @@ eleventyComputed:
 					<td class="num">{{ entry.latest.lab.weight.total | bytes }}</td>
 					<td class="num">{{ entry.latest.lab.weight.requests | num }}</td>
 					<td class="num">{% if entry.labVsField %}<span class="lvf" title="Lab LCP {{ entry.labVsField.lab | ms }}, field p75 {{ entry.labVsField.field | ms }}">{{ entry.labVsField.ratio }}&times;</span>{% else %}<span class="muted">&mdash;</span>{% endif %}</td>
-					<td class="num col-nojs">{% if entry.ownScreenshot and entry.ownScreenshot.difference !== null %}{{ entry.ownScreenshot.difference }}%{% if entry.clientRendered %}<span class="csr-yes" title="{{ entry.ownScreenshot.noJsEmpty }}% of the no-JS capture is empty rows, so the page drew nothing without its scripts"><i class="fa-solid fa-triangle-exclamation csr-icon" width="12" height="12" aria-hidden="true"></i>EMPTY</span>{% endif %}{% else %}<span class="muted">&mdash;</span>{% endif %}</td>
+					<td class="num col-nojs">{% if entry.ownScreenshot and entry.ownScreenshot.difference !== null %}{{ entry.ownScreenshot.difference }}%{% if entry.clientRendered %}<span class="csr-yes" title="only {{ entry.ownScreenshot.noJsText }}% of the no-JS capture is text, so the page said nothing without its scripts"><i class="fa-solid fa-triangle-exclamation csr-icon" width="12" height="12" aria-hidden="true"></i>EMPTY</span>{% endif %}{% else %}<span class="muted">&mdash;</span>{% endif %}</td>
 				{% else %}
 					{# 11 either way: dropping the rank column removes a cell from this row too,
    so the span covers the same remainder. #}

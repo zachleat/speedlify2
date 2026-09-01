@@ -531,8 +531,8 @@ eleventyComputed:
 		<strong><i class="fa-solid fa-triangle-exclamation csr-icon" width="12" height="12" aria-hidden="true"></i> This page is client rendered.</strong>
 		<p>
 			Nothing was painted until the scripts ran. This is a web performance and robustness issue!
-			{# {{ entry.ownScreenshot.noJsEmpty }}% of the capture on the left is
-			empty rows. #}
+			{# Only {{ entry.ownScreenshot.noJsText }}% of the capture on the left is
+			text. #}
 		</p>
 	</div>
 	{% endif %}
