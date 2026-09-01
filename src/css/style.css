@@ -600,6 +600,20 @@ fieldset[disabled] select {
 
 .detail-url { margin: 0 0 0.35rem; font-family: var(--mono); font-size: 0.85rem; word-break: break-all; }
 
+/* A second opinion on the site, offered at the size of an aside rather than of
+   a call to action — the page's own numbers are the subject here. Not mono, and
+   not break-all: unlike the URL above it this is a sentence. */
+.detail-actions { margin: 0.75rem 0 0.35rem; font-size: 0.85rem; }
+/* Sized in em, like .page-hed-mark: these sit inside a line of text and should
+   scale with it rather than hold a pixel size against it. */
+.action-mark {
+	inline-size: 0.95em;
+	block-size: 0.95em;
+	border-radius: 2px;
+	vertical-align: -0.1em;
+	margin-right: 0.3em;
+}
+
 /* line-height: 0 so the row of rings contributes no descender space of its own
    — the margins here are the whole spacing. */
 .detail-rings {
@@ -3210,4 +3224,13 @@ a.cat-chip:hover, a.cat-chip:focus-visible { color: var(--text); border-color: v
 	font-variant-numeric: tabular-nums;
 	white-space: nowrap;
 	text-align: right;
+}
+
+/* A run of weeks CrUX reported nothing for, merged into one row. Quieter than a
+   data row and centered under the columns it spans, so it reads as the gap it is
+   rather than as a value that failed to load. */
+.gap-cell {
+	text-align: center;
+	font-size: 0.9em;
+	font-style: italic;
 }

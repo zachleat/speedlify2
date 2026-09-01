@@ -1137,6 +1137,20 @@ export default async function ($config) {
 
 	$config.addFilter("limit", (list, n) => (list || []).slice(0, n));
 
+	/*
+	 * The host of a URL, for links to services that key on an origin rather than
+	 * on a page. Deliberately keeps the `www.` that `displayUrl` drops: CrUX
+	 * treats www.example.com and example.com as separate origins, so a dashboard
+	 * looked up under the wrong one reports no data for a site that has plenty.
+	 */
+	$config.addFilter("hostname", (url) => {
+		try {
+			return new URL(url).hostname;
+		} catch {
+			return url;
+		}
+	});
+
 	$config.addFilter("json", (v) => JSON.stringify(v, null, 2));
 
 	return {

@@ -175,6 +175,49 @@ eleventyComputed:
 		{% if entry.windowed %}<span title="The report charts the most recent {{ entry.historyCount }}; the rest stay on disk">(charting last {{ entry.historyCount }})</span>{% endif %}
 		{% if entry.firstMeasured %} since {{ entry.firstMeasured | date }}{% endif %}
 	</p>
+	{#
+		Somewhere else to run the same question.
+
+		These are links rather than rivals. The numbers on this page are a median
+		of repeated runs on one rig held deliberately still, so that a change in
+		them means a change in the site — a different question from "what does it
+		score right now", which is the one anyone asks first when a figure here
+		looks wrong.
+
+		Four because they answer different halves of it. PageSpeed Insights runs
+		Lighthouse on demand on Google's machines and reports this URL's CrUX field
+		data beside it; `analysis?url=` is PSI's own permalink shape, so it arrives
+		at a report rather than at the form. The other three are field data — Calibre
+		and Treo keyed on a host, CrUX Vis on the origin behind the URL — which
+		is why they take the hostname, and why they are the ones to reach for when
+		the Field history table below is empty. Calibre and Treo in that order for
+		no better reason than that it reads better.
+
+		CrUX Vis carries its parameters in the fragment, so they never reach a
+		server: the whole query is read by the page itself. `periodStart=0` and
+		`periodEnd=-1` ask for the full history rather than a fixed window, so the
+		link keeps working as months pass instead of aging into a stale range.
+	#}
+	{#
+		Each service wearing its own mark, from the same avatar service the site
+		names above use. Four links in a row read as four words otherwise, and the
+		marks are how you find the one you already know by sight.
+
+		Decorative, and named in text right beside them: "PageSpeed Insights logo,
+		PageSpeed Insights" is a thing to listen past. Not lazy — this sits in the
+		header, above the fold, where lazy means visibly late.
+	#}
+	<p class="detail-actions">
+		Test elsewhere:
+		<a href="https://pagespeed.web.dev/analysis?url={{ entry.url | urlencode }}"
+			title="Lighthouse run on demand by Google, with this URL's CrUX field data beside it"><img class="action-mark" src="{{ "https://pagespeed.web.dev/" | avatar(meta.avatarService) }}" width="16" height="16" alt="" decoding="async">PageSpeed Insights</a> ·
+		<a href="https://calibreapp.com/tools/core-web-vitals-test/{{ entry.url | hostname }}"
+			title="Calibre's free Core Web Vitals check for {{ entry.url | hostname }}"><img class="action-mark" src="{{ "https://calibreapp.com/" | avatar(meta.avatarService) }}" width="16" height="16" alt="" decoding="async">Calibre</a> ·
+		<a href="https://treo.sh/sitespeed/{{ entry.url | hostname }}"
+			title="CrUX field data charted for {{ entry.url | hostname }} — history rather than a fresh lab run"><img class="action-mark" src="{{ "https://treo.sh/" | avatar(meta.avatarService) }}" width="16" height="16" alt="" decoding="async">Treo</a> ·
+		<a href="https://cruxvis.withgoogle.com/#/?view=cwvsummary&amp;url={{ entry.url | urlencode }}&amp;identifier=origin&amp;device=ALL&amp;periodStart=0&amp;periodEnd=-1&amp;display=p75s"
+			title="Every month of CrUX p75s for this origin, charted by Google's CrUX Vis"><img class="action-mark" src="{{ "https://cruxvis.withgoogle.com/" | avatar(meta.avatarService) }}" width="16" height="16" alt="" decoding="async">CrUX Vis</a>
+	</p>
 	</div>
 	{#
 		After the text, not before it: the heading is what the page is about and
@@ -831,14 +874,35 @@ eleventyComputed:
 			</tr>
 		</thead>
 		<tbody>
-		{% for point in entry.fieldHistory.series | reverse | limit(12) %}
+		{#
+			`rows`, not `series`: consecutive weeks CrUX had no data for arrive here
+			already merged into one row. The limit then counts merged rows, so a site
+			whose older weeks are blank spends one row on the gap and the rest on
+			weeks that have numbers.
+		#}
+		{% for row in entry.fieldHistory.rows | reverse | limit(12) %}
+			{% if row.metrics %}
 			<tr>
-				<td class="col-site muted">{{ point.date }}</td>
-				{% for key in ["lcp", "inp", "cls", "fcp", "ttfb"] %}
-				{% set m = point.metrics[key] %}
-				<td class="num"><span class="pill pill-{{ m.rating | ratingClass }}">{{ m.p75 | unit("" if key == "cls" else "ms") }}</span></td>
+				<td class="col-site muted">{{ row.date }}</td>
+				{% for m in metrics.FIELD_METRICS %}
+				{% set v = row.metrics[m.key] %}
+				<td class="num"><span class="pill pill-{{ v.rating | ratingClass }}">{{ v.p75 | unit(m.unit) }}</span></td>
 				{% endfor %}
 			</tr>
+			{% else %}
+			{#
+				One cell across the metric columns rather than five empty pills. There
+				is a single fact in this row — CrUX saw too little traffic that week to
+				report anything — and five blank pills state it five times while looking
+				like the table failed to render.
+			#}
+			<tr>
+				<td class="col-site muted">{% if row.weeks > 1 %}{{ row.from }} → {{ row.to }}{% else %}{{ row.date }}{% endif %}</td>
+				<td class="muted gap-cell" colspan="{{ metrics.FIELD_METRICS.length }}">
+					No data — {{ row.weeks }} {{ row.weeks | plural("week") }} under the CrUX reporting threshold
+				</td>
+			</tr>
+			{% endif %}
 		{% endfor %}
 		</tbody>
 	</table>
