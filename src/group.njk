@@ -177,7 +177,7 @@ eleventyComputed:
 				<th class="col-trend">Perf trend</th>
 				<th class="col-lcp"><span class="lcp-head">LCP</span></th>
 				<th>CLS</th><th>TBT</th>
-				<th>Weight</th><th>Req</th>
+				<th title="Total bytes transferred, with the page's DOM element count beneath it. Element count is only shown where the DOM snapshot looked like a page that actually loaded">Weight</th><th>Req</th>
 				<th class="col-lvf" title="The lab LCP as a multiple of the real-user p75. Above 1x the lab is slower than reality; below 1x the lab number is flattering the site. Only where CrUX has field data">Lab vs field</th>
 				<th class="col-nojs" title="Share of pixels that differ between the page as rendered and the same page with scripts disabled. A shifted layout counts, so a noscript banner alone can account for a large figure. A warning mark means the page drew nothing at all without JavaScript. Only measured where a no-JS capture is stored">No-JS ∆</th>
 			</tr>
@@ -239,7 +239,7 @@ eleventyComputed:
 					<td class="num col-lcp"><span class="lcp-cell"><span class="lcp-value">{{ entry.latest.lab.timings.lcp | ms }}</span>{% lcpBar entry.latest.lab.lcpBreakdown, entry.latest.lab.timings.lcp %}</span></td>
 					<td class="num">{{ entry.latest.lab.timings.cls | unit("") }}</td>
 					<td class="num">{{ entry.latest.lab.timings.tbt | ms }}</td>
-					<td class="num">{{ entry.latest.lab.weight.total | bytes }}</td>
+					<td class="num">{% set domCount = entry.latest.lab.dom.elements %}{{ entry.latest.lab.weight.total | bytes }}{% if domCount %}<span class="weight-dom" title="{{ domCount | num }} DOM elements">{{ domCount | num }} elements</span>{% endif %}</td>
 					<td class="num">{{ entry.latest.lab.weight.requests | num }}</td>
 					<td class="num">{% if entry.labVsField %}<span class="lvf" title="Lab LCP {{ entry.labVsField.lab | ms }}, field p75 {{ entry.labVsField.field | ms }}">{{ entry.labVsField.ratio }}&times;</span>{% else %}<span class="muted">&mdash;</span>{% endif %}</td>
 					<td class="num col-nojs">{% if entry.ownScreenshot and entry.ownScreenshot.difference !== null %}{{ entry.ownScreenshot.difference }}%{% if entry.clientRendered %}<span class="csr-yes" title="only {{ entry.ownScreenshot.noJsText }}% of the no-JS capture is text, so the page said nothing without its scripts"><i class="fa-solid fa-triangle-exclamation csr-icon" width="12" height="12" aria-hidden="true"></i>EMPTY</span>{% endif %}{% else %}<span class="muted">&mdash;</span>{% endif %}</td>

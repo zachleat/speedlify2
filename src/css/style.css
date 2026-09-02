@@ -345,6 +345,22 @@ th.col-trend { text-align: center !important; }
 .col-dist { text-align: left !important; min-width: 200px; }
 .num { font-variant-numeric: tabular-nums; }
 
+/* The DOM element count under the byte total. Two ways of measuring how much
+   page there is, so they share a cell rather than the second one earning a
+   column of its own — the table is already twelve columns wide.
+
+   Muted and smaller because the byte total is what the column is scanned for;
+   the element count is context for a row you have already stopped on. Absent
+   rather than zero where the DOM snapshot failed, so a blank second line means
+   "not known", never "no elements". */
+.weight-dom {
+	display: block;
+	font-size: 0.72em;
+	line-height: 1.3;
+	color: var(--text-muted);
+	font-variant-numeric: tabular-nums;
+}
+
 .row-failing { background: var(--poor-bg); }
 /* The row's tint lifts the background under every cell, which takes plain muted
    text to 4.49:1 — under the line by a hundredth. */
