@@ -1,6 +1,12 @@
 import { test, describe } from "node:test";
 import assert from "node:assert/strict";
-import { extractRedirect, confirmRedirect, classifyChange, isRetiredDestination } from "../lib/redirect.js";
+import {
+	extractRedirect,
+	confirmRedirect,
+	classifyChange,
+	isRetiredDestination,
+	isLandingRedirect,
+} from "../lib/redirect.js";
 import { resolveHistoryUrls, danglingAliases, resolveCurrentUrl, applyAliases } from "../lib/aliases.js";
 
 /** Minimal LHR with a redirect chain and per-hop status codes. */
@@ -275,6 +281,47 @@ describe("applyAliases", () => {
 		assert.equal(out.length, 1);
 		assert.equal(out[0].url, "https://c.com/");
 		assert.equal(out[0].previousUrls.length, 2);
+	});
+});
+
+describe("isLandingRedirect", () => {
+	/**
+	 * A root origin pointing at the page it serves there is not a move. Following
+	 * one re-keys the site onto a locale path, forks its history, and renames it
+	 * after a CMS detail — the case that put Intel at
+	 * /site/www-intel-com-content-www-us-en-homepage-html/.
+	 */
+	test("recognizes a root origin pointing at its own landing path", () => {
+		assert.equal(isLandingRedirect("https://www.sap.com/", "https://www.sap.com/index.html"), true);
+		assert.equal(isLandingRedirect("https://www.amd.com/", "https://www.amd.com/en.html"), true);
+		assert.equal(isLandingRedirect("https://www.samsung.com/", "https://www.samsung.com/us"), true);
+		assert.equal(
+			isLandingRedirect("https://www.intel.com/", "https://www.intel.com/content/www/us/en/homepage.html"),
+			true
+		);
+	});
+
+	test("covers a root that negotiates with a query string instead of a path", () => {
+		assert.equal(isLandingRedirect("https://a.com/", "https://a.com/?locale=us"), true);
+	});
+
+	test("a configured deep path that relocates is still a move", () => {
+		assert.equal(isLandingRedirect("https://a.com/docs", "https://a.com/guide"), false);
+	});
+
+	test("a different host is a move even from a root", () => {
+		assert.equal(isLandingRedirect("https://a.com/", "https://b.com/en"), false);
+		assert.equal(isLandingRedirect("https://a.com/", "https://www.a.com/en"), false, "www is a separate site here");
+	});
+
+	test("is false when nothing moved and for unparseable input", () => {
+		assert.equal(isLandingRedirect("https://a.com/", "https://a.com/"), false);
+		assert.equal(isLandingRedirect("not a url", "https://a.com/en"), false);
+		assert.equal(isLandingRedirect(null, undefined), false);
+	});
+
+	test("a scheme upgrade onto a landing path is still not a move", () => {
+		assert.equal(isLandingRedirect("http://a.com/", "https://a.com/en.html"), true);
 	});
 });
 

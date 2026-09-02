@@ -15,7 +15,7 @@ import { stamp, urlHash } from "../lib/hash.js";
 import { selectBatch, parseShard, nextFailureCount } from "../lib/schedule.js";
 import { readQueue, dropFromQueue } from "../lib/priority.js";
 import { learnAliases, readAliases, applyAliases } from "../lib/aliases.js";
-import { confirmRedirect } from "../lib/redirect.js";
+import { confirmRedirect, isLandingRedirect } from "../lib/redirect.js";
 import { buildReport } from "../lib/report.js";
 
 const RESULTS_DIR = process.env.SPEEDLIFY_RESULTS_DIR || "results";
@@ -342,7 +342,10 @@ async function measure() {
 			const file = store.write(record);
 
 			const redirect = record.lab?.redirect;
-			if (redirect) {
+			// A root origin serving its homepage from a landing path does so on
+			// every run forever. Warning about it each time buries the redirects
+			// that do mean something.
+			if (redirect && !isLandingRedirect(redirect.from, redirect.to)) {
 				logger.warn(`${prefix} ${site.name} redirects to ${redirect.to}`, {
 					from: redirect.from,
 					to: redirect.to,
@@ -774,7 +777,8 @@ async function redirects() {
 		if (!latest?.to) continue;
 
 		const verdict = confirmRedirect(points, { confirmations: config.redirectConfirmations });
-		observed.push({ site, to: latest.to, permanent: latest.perm === 1, verdict });
+		const landing = isLandingRedirect(site.url, latest.to);
+		observed.push({ site, to: latest.to, permanent: latest.perm === 1, verdict, landing });
 	}
 
 	if (!observed.length && !aliases.length) {
@@ -785,12 +789,22 @@ async function redirects() {
 	if (observed.length) {
 		process.stdout.write("\n  Currently redirecting\n  ─────────────────────\n");
 		for (let o of observed) {
-			const state = o.verdict.confirmed
-				? "confirmed move"
-				: `not yet confirmed (${o.verdict.reason}, ${o.verdict.observations}/${config.redirectConfirmations})`;
+			// A landing redirect is never aliased however stable it looks, so
+			// reporting it as a confirmed move would promise something that is not
+			// going to happen.
+			const state = o.landing
+				? "landing path — not a move, will not be aliased"
+				: o.verdict.confirmed
+					? "confirmed move"
+					: `not yet confirmed (${o.verdict.reason}, ${o.verdict.observations}/${config.redirectConfirmations})`;
+			// Whether a landing redirect is permanent changes nothing about what
+			// happens to it, so the permanence clause is dropped rather than
+			// contradicting the line beside it.
+			const permanence = o.landing ? null : o.permanent ? "permanent" : "TEMPORARY — will not be aliased";
+
 			process.stdout.write(
 				`  ${o.site.name}\n    ${o.site.url}\n    → ${o.to}\n` +
-					`    ${o.permanent ? "permanent" : "TEMPORARY — will not be aliased"} · ${state}\n\n`
+					`    ${[permanence, state].filter(Boolean).join(" · ")}\n\n`
 			);
 		}
 	}
