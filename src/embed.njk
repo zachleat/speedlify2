@@ -7,8 +7,8 @@ title: Embed
 <header class="detail-head">
 	<h2 class="page-hed">Embed a score</h2>
 	<p class="lede">
-		A standalone custom element that shows one site's Lighthouse scores, with a
-		summary on hover or focus. Drop it on any page — it needs nothing but the
+		A standalone custom element that shows one site's Lighthouse scores and
+		links to its full report. Drop it on any page — it needs nothing but the
 		script and this instance's URL.
 	</p>
 </header>
@@ -105,12 +105,7 @@ title: Embed
 			#}
 			<speedlify2-score speedlify-url="{{ '/' | htmlBaseUrl }}" url="{{ entry.url }}"></speedlify2-score>
 			<code>{{ entry.displayUrl }}</code>
-			{#
-				Only where the page said so itself. A site whose mark is presumed from
-				a listing has no generator in its data file and no "Built with" row in
-				the tooltip, so naming one here would promise something the hover does
-				not deliver.
-			#}
+			{# Only where the page said so itself, rather than presumed from a listing. #}
 			{% if entry.generator %}<span class="muted small">Built with {{ entry.generator.name }}</span>{% endif %}
 		</div>
 		{% endfor %}
@@ -148,7 +143,7 @@ title: Embed
 		output: every instance renders the same six circles — the four Lighthouse
 		categories, Core Web Vitals, and axe violations — so a page carrying
 		several reads as one table rather than a row of different shapes.
-		Everything else is in the tooltip.
+		Everything else is one click away in the full report.
 	</p>
 	<div class="table-scroll">
 	<table class="grid">

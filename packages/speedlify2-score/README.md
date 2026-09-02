@@ -2,7 +2,7 @@
 
 A zero-dependency web component that shows the Lighthouse scores a
 [speedlify2](https://github.com/zachleat/speedlify2) instance has measured for a
-URL, with the rest of the site's numbers in a tooltip on hover or focus.
+URL, linking to that site's full report.
 
 ```sh
 npm install speedlify2-score
@@ -30,16 +30,27 @@ straight from a `<script type="module">` if you would rather not install it.
 
 ## What it renders
 
-Four Lighthouse scores as rings: Performance, Accessibility, Best Practices and
-SEO and two additional rings for Axe (CLI run) and CWV. Additional data is shown
-in a tooltip.
+Six rings: the four Lighthouse scores — Performance, Accessibility, Best
+Practices, SEO — then two more for axe (a full CLI run) and Core Web Vitals, the
+two things those four do not cover. The rings link to the site's report on the
+instance, where everything else it knows lives.
+
+There is nothing to configure about the output, so a page carrying several
+badges reads as one table rather than a row of different shapes.
 
 ## Attributes
 
-| Attribute       | Required | Description                                                        |
-| --------------- | -------- | ------------------------------------------------------------------ |
-| `speedlify-url` | yes      | The root of the speedlify2 instance to read data from.              |
-| `url`           | no       | The measured URL to describe. Defaults to the current page's URL.   |
+| Attribute       | Required | Description                                                       |
+| --------------- | -------- | ----------------------------------------------------------------- |
+| `speedlify-url` | yes      | The root of the speedlify2 instance to read data from.             |
+| `url`           | no       | The measured URL to describe. Defaults to the current page's URL.  |
+| `theme`         | no       | `light` or `dark`. Absent, the badge follows the host page.        |
+
+## Colors
+
+The band colors are custom properties on the host, so a page can override any of
+them: `--spdl-good`, `--spdl-average`, `--spdl-poor`, `--spdl-none` and
+`--spdl-track`.
 
 ## One request, no index
 
