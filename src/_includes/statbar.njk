@@ -119,7 +119,10 @@
 			is most category pages most days.
 		#}
 		{% if stats.newlyPerfect.length %}
-		<span class="stat-label">Newly perfect <span class="tag stat-count" title="{{ stats.newlyPerfect | length }} {{ "site" if stats.newlyPerfect | length == 1 else "sites" }} just reached perfect scores">&times;{{ stats.newlyPerfect | length }}</span></span>
+		{#- Count and window in one pill: two chips said one thing twice, and the
+		    window is what the count is counting over. The number comes from the
+		    report so it cannot drift. -#}
+		<span class="stat-label">Newly perfect <span class="tag stat-count" title="{{ stats.newlyPerfect | length }} {{ "site" if stats.newlyPerfect | length == 1 else "sites" }} reached perfect scores in the last {{ stats.newlyPerfectWindowHours }} hours">&times;{{ stats.newlyPerfect | length }} in {{ stats.newlyPerfectWindowHours }}h</span></span>
 		<ol class="recents recents-flipped">
 			{% for site in stats.newlyPerfect %}
 			<li>
