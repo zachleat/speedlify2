@@ -1080,10 +1080,24 @@ fieldset[disabled] select {
 	bottom: 100%;
 	left: 50%;
 	z-index: 2;
-	display: grid;
+	/*
+	 * Out of the layout until it is wanted.
+	 *
+	 * These cards are absolutely positioned but were still being laid out, and
+	 * there are 1,304 of them on /charts/. The ones anchored to dots on the right
+	 * of a plot stick out past their frame, which at 375px made the page itself
+	 * 492px wide and scrollable sideways — an overflow with no visible cause,
+	 * since every card producing it was at zero opacity.
+	 *
+	 * Only one is ever shown, so only one ever needs a box.
+	 */
+	display: none;
 	gap: 0.1rem;
 	width: max-content;
-	max-width: 15rem;
+	/* Narrow screens get a narrower card: the flip to the left edge is decided
+	   at build time as a fraction of the plot, and a card that is 19% of the
+	   plot's width on a desktop is half of it on a phone. */
+	max-width: min(15rem, 70vw);
 	margin-bottom: 0.2rem;
 	padding: 0.35rem 0.5rem;
 	/* Green, because only green dots are named — the card is recognizably
@@ -1099,12 +1113,25 @@ fieldset[disabled] select {
 	   the cursor and the dot underneath it. */
 	opacity: 0;
 	pointer-events: none;
-	transition: opacity 0.12s ease;
+	/* `display` is transitioned rather than simply swapped, so the fade survives
+	   being taken out of the layout. Browsers without `allow-discrete` fall back
+	   to the card appearing at once — a fade lost, not a card lost. */
+	transition: opacity 0.12s ease, display 0.12s allow-discrete;
 }
 
 .plot-hit:hover .plot-tip,
 .plot-hit:focus-visible .plot-tip {
+	display: grid;
 	opacity: 1;
+}
+
+/* The value the fade starts from. An element that was `display: none` a moment
+   ago has no previous opacity to animate out of without this. */
+@starting-style {
+	.plot-hit:hover .plot-tip,
+	.plot-hit:focus-visible .plot-tip {
+		opacity: 0;
+	}
 }
 
 /* Near the right edge the card would run off the plot, and near the top it
