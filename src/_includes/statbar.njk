@@ -6,10 +6,11 @@
 	behind. `stats` is whatever set is being summarized — `sites.stats` for the
 	whole fleet, `group.stats` for one category.
 
-	Everything here degrades on its own: the weight sparkline only exists for the
-	whole fleet, the Eleventy share only appears when there is one, and the Core
-	Web Vitals tile only appears where CrUX has sampled anything. So a category
-	page shows fewer tiles than the home page without the caller deciding which.
+	Everything here degrades on its own: the perfect-score trend only exists for
+	the whole fleet, the Eleventy share only appears when there is one, and the
+	Core Web Vitals tile only appears where CrUX has sampled anything. So a
+	category page shows fewer tiles than the home page without the caller
+	deciding which.
 #}
 {#
 	Note the arguments. This is imported without `with context`, so the macro
@@ -248,12 +249,15 @@
 		#}
 		<span class="stat-headline stat-headline-inline">
 			<span class="stat-label">Perfect {{ stats.perfect | plural("score") }}</span>
-			<span class="stat-value">{{ stats.perfect | num }}<span class="stat-suffix">/{{ stats.measured | num }}</span></span>
 			{#
 				How the count has moved. Every site, judged on its most recent
 				measurement as of each day — the same rule as the number beside it,
 				so the last point of the line is that number. Absent until there are
-				enough days to be a trend, like the weight sparkline.
+				enough days to be a trend — see MIN_HISTORY_DAYS in lib/report.js.
+
+				Left of the number rather than right of it: the line ends where the
+				figure begins, so the two read as one sentence about the same count
+				rather than as a number with a decoration after it.
 			#}
 			{% if stats.perfectHistory.length %}
 			{% set perfectTrend = { values: [] } %}
@@ -261,9 +265,10 @@
 				{% set perfectTrend = (perfectTrend.values.push(point.perfect), perfectTrend) %}
 			{% endfor %}
 			<span class="stat-spark" title="Perfect scores from {{ stats.perfectHistory[0].date }} to {{ stats.perfectHistory[stats.perfectHistory.length - 1].date }}">
-				{% sparkline perfectTrend, { width: 110, height: 24 } %}
+				{% sparkline perfectTrend, { width: 64, height: 14 } %}
 			</span>
 			{% endif %}
+			<span class="stat-value">{{ stats.perfect | num }}<span class="stat-suffix">/{{ stats.measured | num }}</span></span>
 		</span>
 		{#
 			What built them, rather than one figure for Eleventy and nothing about
@@ -404,19 +409,6 @@
 				<span class="histogram-tick">{{ b.tick }}</span>
 			</span>
 			{% endfor %}
-		</span>
-		{% endif %}
-		{#
-			Absent until the report has enough days to be worth drawing — see
-			MIN_WEIGHT_HISTORY_DAYS in lib/report.js.
-		#}
-		{% if stats.weightHistory.length %}
-		{% set weightTrend = { values: [] } %}
-		{% for point in stats.weightHistory %}
-			{% set weightTrend = (weightTrend.values.push(point.avgWeight), weightTrend) %}
-		{% endfor %}
-		<span class="stat-spark" title="Daily average across every site measured that day, {{ stats.weightHistory[0].date }} to {{ stats.weightHistory[stats.weightHistory.length - 1].date }}">
-			{% sparkline weightTrend, { width: 150, height: 24 } %}
 		</span>
 		{% endif %}
 	</div>

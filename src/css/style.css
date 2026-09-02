@@ -272,7 +272,10 @@ pre code { font-size: inherit; }
 .stat-sub .stack-icon { flex: none; }
 /* A shape under a stat, not a chart in its own right: no axes, no labels, and
    the value above it is the number that matters. */
-.stat-spark { display: block; margin-top: 0.5rem; }
+/* No top margin: the only sparkline left sits inline in .stat-headline, where
+   a flex row centers it against the number and any margin only pushes it off
+   that line. */
+.stat-spark { display: block; }
 .stat-sub-pct { font-weight: 400; font-size: 0.85rem; }
 
 /* ------------------------------------------------------------------ groups */
@@ -1270,6 +1273,13 @@ fieldset[disabled] select {
 	line-height: 1;
 }
 .stat-headline .stat-spark { flex: none; align-self: center; }
+/* The sparkline sits immediately left of the figure, and the pair is pushed to
+   the right edge together. The auto margin has to move onto whichever of them
+   comes first — two auto margins would split the free space between them and
+   leave a gap in the middle of the pair — so the value gives its up whenever a
+   sparkline precedes it, and keeps it on the cards that have none. */
+.stat-headline-inline .stat-spark { margin-left: auto; }
+.stat-headline-inline .stat-spark + .stat-value { margin-left: 0; }
 
 /* The benchmark step, beside the index it belongs to. A pill, like the other
    small qualifying figures on these pages — it is a note on the number next to
