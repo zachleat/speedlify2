@@ -1,32 +1,20 @@
 /**
- * <speedlify2-score> — Lighthouse scores for one URL, with a summary on hover.
- *
- * Inspired by https://github.com/zachleat/speedlify-score, with one deliberate
- * difference: there is no `urls.json` index to download. The data file for a
- * URL is found by slugifying the URL in the browser with the same rules the
- * generator uses, so a page needs exactly one request for exactly the data it
- * shows — and no index, no crypto, and no secure context to get it.
+ * <speedlify2-score> — Lighthouse, axe and Core Web Vitals scores for one URL,
+ * with a summary on hover or focus.
  *
  *   <script type="module" src="https://your-speedlify/js/speedlify2-score.js"></script>
  *   <speedlify2-score speedlify-url="https://your-speedlify/"></speedlify2-score>
  *
- * With no `url`, it describes the page it is embedded on.
+ * With no `url` attribute it describes the page it is embedded on.
  *
- *   <speedlify2-score speedlify-url="https://your-speedlify/" url="https://example.com/"></speedlify2-score>
- *
- * Always renders the same four Lighthouse scores. Everything else about the
- * site is in the tooltip on hover or focus.
- *
- * A site whose slug collided with another is published under its hash instead,
- * and will read here as unmeasured rather than as the wrong site. That is the
- * deliberate trade for a filename a browser can work out on its own.
+ * The data file is found by slugifying the URL in the browser with the generator's
+ * own rules, so a page makes one request for the data it shows. A site whose slug
+ * collided is published under its hash instead, and reads here as unmeasured
+ * rather than as the wrong site.
  */
 
 /**
  * Shared across every instance on the page.
- *
- * Ten components pointing at the same URL should make one request, so both the
- * in-flight promise and the parsed body are cached by URL.
  */
 class SpeedlifyStore {
 	constructor() {
@@ -39,9 +27,7 @@ class SpeedlifyStore {
 	}
 
 	/**
-	 * Normalize exactly as lib/hash.js does — trailing slash, lowercase host,
-	 * no fragment. A mismatch here means a 404 rather than a wrong answer,
-	 * which is at least loud.
+	 * Normalize trailing slash, lowercase host, no fragment.
 	 */
 	static normalizeUrl(url) {
 		try {
@@ -57,8 +43,7 @@ class SpeedlifyStore {
 
 	/**
 	 * The published filename for a URL. Must match `siteSlug()` in lib/slug.js
-	 * exactly — a drift here is a 404, not a wrong answer, which is at least
-	 * loud. There is a test asserting the two agree.
+	 * exactly — a drift here is a 404.
 	 *
 	 * Host, path and query; scheme dropped, `www.` kept. A literal `-` doubles
 	 * so a dash in a path stays distinct from a path boundary, and every
@@ -109,15 +94,6 @@ const store = new SpeedlifyStore();
 class SpeedlifyScore extends HTMLElement {
 	static tagName = "speedlify2-score";
 
-	/*
-	 * Registers the element, unless something already claimed the name.
-	 *
-	 * The optional-chain checks whether a definition exists; it does not check
-	 * whether `customElements` does. Somewhere without it — a worker, a test
-	 * harness with a partial DOM — the guard passed and the line below threw.
-	 * Now it is a no-op there, which is what a component asked to register in a
-	 * place with no registry should do.
-	 */
 	static register(tagName) {
 		const registry = globalThis.customElements;
 		if (!registry) return;
@@ -131,57 +107,41 @@ class SpeedlifyScore extends HTMLElement {
 		url: "url",
 		// "light" or "dark". Absent means follow the reader's system setting.
 		theme: "theme",
-		// Present at all — `no-tooltip` — suppresses the hover card.
+		// `tooltip="none"` suppresses the hover card. Absent, or any other value,
+		// keeps it — an enum rather than a boolean, so a second behavior later
+		// needs a new value rather than a new attribute.
+		tooltip: "tooltip",
+		// Backwards compatibility
 		noTooltip: "no-tooltip",
 	};
 
 	/**
 	 * Whether to render the hover card at all.
 	 *
-	 * For a page that wants the six rings as a badge and nothing more — an
-	 * author's own site, say, where the numbers are the point and a card of
-	 * measurement detail is somebody else's furniture. With the card hidden the
-	 * rings link straight to the full report instead, so the detail is one click
-	 * away rather than gone.
+	 * `tooltip="none"` — or the older `no-tooltip`
 	 */
 	get noTooltip() {
-		return this.hasAttribute(SpeedlifyScore.attrs.noTooltip);
+		if (this.hasAttribute(SpeedlifyScore.attrs.noTooltip)) return true;
+		return (this.getAttribute(SpeedlifyScore.attrs.tooltip) ?? "").trim().toLowerCase() === "none";
 	}
 
 	static css = `
 /*
  * Colors come from custom properties so the same stylesheet can render on a
- * light page or a dark one.
- *
- * light-dark() resolves against the element's used color-scheme, which is
- * an inherited property — so it crosses the shadow boundary and picks up
- * whatever the *host page* declares. That is the behavior this needs. A media
- * query would follow the reader's operating system instead, which is a
- * different question and gets it wrong exactly when it matters: a dark site
- * read on a machine set to light rendered a light badge in the middle of a dark
- * page. Following the page also means the badge tracks a theme toggle live,
- * with no script and no attribute to keep in sync.
- *
- * theme forces it either way by setting color-scheme outright, which is
- * what a page embedding this on a background it controls will want.
- *
- * This matters more than it looks. The numerals inside the rings are drawn in
- * the band color directly onto the host page's background — there is no card
- * behind them — and the dark-page greens and ambers measure about 2:1 on white.
- * The light values are the leaderboard's own, at 5.1:1 or better.
+ * light page or a dark one. Uses light-dark() and a theme attribute for overrides.
  */
 :host {
-	--ss-good: light-dark(#0a7c42, #0cce6b);
-	--ss-average: light-dark(#9a6200, #ffa400);
-	--ss-poor: light-dark(#c02026, #ff4e42);
-	--ss-none: light-dark(#6b6b6b, #888);
-	--ss-track: light-dark(rgb(0 0 0 / .18), rgb(136 136 136 / .35));
-	--ss-tip-bg: light-dark(#ffffff, #1c1c1c);
-	--ss-tip-text: light-dark(#14161a, #fff);
-	--ss-tip-link: light-dark(#1a5fd0, #7cc0ff);
-	--ss-tip-shadow: light-dark(rgb(0 0 0 / .18), rgb(0 0 0 / .35));
-	--ss-age-text: light-dark(rgb(0 0 0 / .68), rgb(255 255 255 / .72));
-	--ss-age-bg: light-dark(rgb(0 0 0 / .08), rgb(255 255 255 / .12));
+	--spdl-good: light-dark(#0a7c42, #0cce6b);
+	--spdl-average: light-dark(#9a6200, #ffa400);
+	--spdl-poor: light-dark(#c02026, #ff4e42);
+	--spdl-none: light-dark(#6b6b6b, #888);
+	--spdl-track: light-dark(rgb(0 0 0 / .18), rgb(136 136 136 / .35));
+	--spdl-tip-bg: light-dark(#ffffff, #1c1c1c);
+	--spdl-tip-text: light-dark(#14161a, #fff);
+	--spdl-tip-link: light-dark(#1a5fd0, #7cc0ff);
+	--spdl-tip-shadow: light-dark(rgb(0 0 0 / .18), rgb(0 0 0 / .35));
+	--spdl-age-text: light-dark(rgb(0 0 0 / .68), rgb(255 255 255 / .72));
+	--spdl-age-bg: light-dark(rgb(0 0 0 / .08), rgb(255 255 255 / .12));
 
 	display: inline-flex;
 	align-items: center;
@@ -214,7 +174,7 @@ class SpeedlifyScore extends HTMLElement {
 	width: 2.467em;
 	height: 2.467em;
 }
-.ring-track { stroke: var(--ss-track); }
+.ring-track { stroke: var(--spdl-track); }
 .ring-arc { stroke: currentColor; }
 .ring-text {
 	font-family: inherit;
@@ -232,13 +192,9 @@ class SpeedlifyScore extends HTMLElement {
 	letter-spacing: .04em;
 	fill: currentColor;
 }
-/*
- * The placeholder: the track alone, at the size the finished ring occupies —
- * that is what stops the swap from moving anything — with the arc, the value
- * and the color all withheld until they are known.
- */
+
 .skeleton {
-	color: var(--ss-none);
+	color: var(--spdl-none);
 	opacity: .45;
 	animation: speedlify-pulse 1.4s ease-in-out infinite;
 }
@@ -250,10 +206,10 @@ class SpeedlifyScore extends HTMLElement {
 	.skeleton { animation: none; }
 }
 
-.good    { color: var(--ss-good); }
-.average { color: var(--ss-average); }
-.poor    { color: var(--ss-poor); }
-.none    { color: var(--ss-none); }
+.good    { color: var(--spdl-good); }
+.average { color: var(--spdl-average); }
+.poor    { color: var(--spdl-poor); }
+.none    { color: var(--spdl-none); }
 
 /* The trigger is a button so it is reachable by keyboard, not just hover. */
 .trigger {
@@ -274,30 +230,23 @@ class SpeedlifyScore extends HTMLElement {
 
 .tip {
 	position: absolute;
-	/* Flush against the trigger. Any gap here is a dead zone — the pointer
-	   leaves the host before it reaches the card, the hover drops, and the card
-	   the pointer was travelling to disappears mid-journey. */
 	bottom: 100%;
 	left: 0;
 	z-index: 20;
 	min-width: 15em;
 	padding: .6em .75em;
 	border-radius: 6px;
-	background: var(--ss-tip-bg);
-	color: var(--ss-tip-text);
+	background: var(--spdl-tip-bg);
+	color: var(--spdl-tip-text);
 	font-size: .8rem;
 	line-height: 1.45;
 	text-align: left;
-	box-shadow: 0 4px 16px var(--ss-tip-shadow);
+	box-shadow: 0 4px 16px var(--spdl-tip-shadow);
 	opacity: 0;
 	visibility: hidden;
 	transition: opacity .12s ease;
 }
-/*
- * :focus-within is what makes the links inside reachable by keyboard: tabbing
- * off the trigger moves focus into the tooltip, at which point .trigger:focus
- * no longer matches and the card would otherwise vanish under the cursor.
- */
+/* Reachable by keyboard */
 :host(:hover) .tip, .trigger:focus ~ .tip, .tip:hover, .tip:focus-within { opacity: 1; visibility: visible; }
 @media (prefers-reduced-motion: reduce) { .tip { transition: none; } }
 
@@ -305,12 +254,7 @@ class SpeedlifyScore extends HTMLElement {
 .tip dt { opacity: .65; }
 .tip dd { margin: 0; text-align: right; font-variant-numeric: tabular-nums; }
 .tip .name { display: inline-block; font-weight: 700; word-break: break-all; }
-/*
- * The age reads as a pill, the same shape the leaderboard gives it, so a badge
- * and the page it links to label freshness the same way. Translucent black or
- * white rather than a fixed gray, so it sits on whichever tooltip surface the
- * theme picked.
- */
+
 .age {
 	display: inline-block;
 	margin-top: .2em;
@@ -318,21 +262,16 @@ class SpeedlifyScore extends HTMLElement {
 	border-radius: 50px;
 	font-size: .85em;
 	font-variant-numeric: tabular-nums;
-	color: var(--ss-age-text);
-	background: var(--ss-age-bg);
+	color: var(--spdl-age-text);
+	background: var(--spdl-age-bg);
 	white-space: nowrap;
 }
-.age.stale { color: var(--ss-average); background: rgb(255 164 0 / .16); }
-.tip a { color: var(--ss-tip-link); }
+.age.stale { color: var(--spdl-average); background: rgb(255 164 0 / .16); }
+.tip a { color: var(--spdl-tip-link); }
 `;
 
 	/**
-	 * The one description of a ring, in viewBox units, shared with the build-time
-	 * scoreRing shortcode in eleventy.config.js.
-	 *
-	 * 31 units of hole for 12 units of text: "100" is three bold tabular digits
-	 * that fill roughly 21 of them, which leaves a comfortable five either side.
-	 * A tighter ring is legible but reads as cramped, and these sit six in a row.
+	 * The one description of a ring, in viewBox units.
 	 */
 	static geometry = (() => {
 		const size = 37;
@@ -383,10 +322,6 @@ class SpeedlifyScore extends HTMLElement {
 		const wrapper = document.createElement("div");
 		wrapper.style.display = "contents";
 		// Six, matching render(): four Lighthouse categories, Core Web Vitals, axe.
-		// A button, matching render() exactly — `all: unset` normalizes most of it,
-		// but a span and a button are not guaranteed the same box, and any
-		// difference here is the shift this method exists to prevent. Inert while
-		// loading: there is nothing to describe yet.
 		const placeholder = this.ring({ band: "skeleton", text: "", label: "", pct: null });
 		wrapper.innerHTML =
 			`<button class="trigger" type="button" tabindex="-1" aria-hidden="true">` +
@@ -476,16 +411,6 @@ class SpeedlifyScore extends HTMLElement {
 
 	/**
 	 * A violation count short enough to fit inside a ring.
-	 *
-	 * The only ring value that can outgrow its circle. Lighthouse scores stop at
-	 * 100 and Core Web Vitals is a glyph, but axe counts violating *nodes* — one
-	 * bad rule on a long table is thousands — and four digits at this size render
-	 * 32 units wide in a 31-unit hole, spilling over the stroke and onto the
-	 * neighboring rings, which do not clip because the stroke's round cap needs
-	 * overflow visible.
-	 *
-	 * The exact number stays in the label, so this costs nothing but precision no
-	 * one reads off a 12-unit glyph anyway.
 	 */
 	shortCount(n) {
 		if (n < 1000) return String(n);
@@ -496,11 +421,7 @@ class SpeedlifyScore extends HTMLElement {
 	}
 
 	/**
-	 * Axe violations, where the scale runs the other way.
-	 *
-	 * A Lighthouse score is better when higher; a violation count is better when
-	 * zero. Banding it by the same thresholds would paint "2 violations" green
-	 * for being a small number, so it gets its own: clean, or not clean.
+	 * Axe violations
 	 */
 	axeHtml(value) {
 		if (typeof value !== "number") {
@@ -522,11 +443,7 @@ class SpeedlifyScore extends HTMLElement {
 	}
 
 	/**
-	 * Core Web Vitals, which is a verdict rather than a number.
-	 *
-	 * A glyph instead of a value, because the underlying figure is three
-	 * separate metrics and no single number represents them. The tooltip below
-	 * carries the detail for anyone who wants it.
+	 * Core Web Vitals
 	 */
 	cwvHtml(cwv) {
 		if (!cwv || cwv.pass === null || cwv.pass === undefined) {
@@ -609,15 +526,6 @@ class SpeedlifyScore extends HTMLElement {
 	/**
 	 * Six circles: the four Lighthouse scores, Core Web Vitals, and axe
 	 * violations.
-	 *
-	 * There is no configuration here on purpose: every instance of the component
-	 * looks the same, so a page carrying several of them reads as one table
-	 * rather than as a row of differently-shaped badges.
-	 *
-	 * These six are the ones the leaderboard ranks by — the four categories,
-	 * then axe and Core Web Vitals, the two things Lighthouse's own four do not
-	 * cover. Total, rank, weight and requests are all in the tooltip, which
-	 * costs nothing until asked for.
 	 */
 	render(data) {
 		const parts = [
@@ -625,22 +533,11 @@ class SpeedlifyScore extends HTMLElement {
 			this.scoreHtml("Accessibility", data.lighthouse?.accessibility),
 			this.scoreHtml("Best Practices", data.lighthouse?.bestPractices),
 			this.scoreHtml("SEO", data.lighthouse?.seo),
-			// The two things Lighthouse's own four do not cover: a full axe run,
-			// then real-user Core Web Vitals. Display order only — the ranking
-			// still breaks ties on Core Web Vitals before axe.
 			this.axeHtml(data.axe),
 			this.cwvHtml(data.cwv),
 		];
 
-		// Without the tooltip, the rings become the link the tooltip used to
-		// contain: a button that opens nothing would be a trap for anyone tabbing
-		// through, and the full report is where the detail went. Same destination
-		// as the tooltip's "Full report" link, so hiding the card moves that link
-		// rather than losing it.
-		//
-		// Falls back to a plain span if the payload has no page — an older API, or
-		// a site published under a hash — because a link with nowhere to go is
-		// worse than no link.
+		// Without the tooltip, the rings become the full report link
 		if (this.noTooltip) {
 			if (!data.page) return `<span class="trigger trigger-static">${parts.join("")}</span>`;
 

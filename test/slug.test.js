@@ -114,7 +114,7 @@ describe("browser parity", () => {
 	 * failure mode we chose — but a silent 404 renders as "not measured", so it
 	 * still needs catching here.
 	 */
-	const source = fs.readFileSync(new URL("../src/js/speedlify2-score.js", import.meta.url), "utf8");
+	const source = fs.readFileSync(new URL("../packages/speedlify2-score/speedlify2-score.js", import.meta.url), "utf8");
 
 	// Pull the two static methods the slug depends on out of the module and
 	// rebuild them standalone, so this does not need a DOM to import into.
