@@ -345,7 +345,7 @@ const BIG_TECH_SITES = [
 				{ name: "Amazon", url: "https://www.amazon.com/" },
 				{ name: "Meta", url: "https://www.meta.com/" },
 				{ name: "Broadcom", url: "https://www.broadcom.com/" },
-				{ name: "TSMC", url: "https://www.tsmc.com/english" },
+				{ name: "TSMC", url: "https://www.tsmc.com/" },
 				{ name: "Tesla", url: "https://www.tesla.com/" },
 				{ name: "Oracle", url: "https://www.oracle.com/" },
 				{ name: "Netflix", url: "https://www.netflix.com/" },
