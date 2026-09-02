@@ -4,6 +4,10 @@
   "description": "Measure web performance metrics across a list of sites and compare them over time. Static output.",
   "type": "module",
   "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "bin": {
     "speedlify": "./bin/speedlify.js"
   },
