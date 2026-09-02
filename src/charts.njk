@@ -24,6 +24,7 @@ title: Charts
 {% if sites.ttfbScatter %}{% set toc = (toc.push({ id: "ttfb-lcp", label: "Time to First Byte" }), toc) %}{% endif %}
 {% if sites.fontClsScatter %}{% set toc = (toc.push({ id: "font-cls", label: "Fonts and Layout Shift" }), toc) %}{% endif %}
 {% if sites.thirdPartyScatter %}{% set toc = (toc.push({ id: "third-party", label: "Third Party" }), toc) %}{% endif %}
+{% if sites.domScatter %}{% set toc = (toc.push({ id: "dom-performance", label: "DOM Elements" }), toc) %}{% endif %}
 {% if sites.jsByGenerator %}{% set toc = (toc.push({ id: "js-by-generator", label: "JavaScript by Generator" }), toc) %}{% endif %}
 {% if sites.clientRenderedByGenerator %}{% set toc = (toc.push({ id: "client-rendered", label: "Client Rendering by Generator" }), toc) %}{% endif %}
 {% if sites.ttfbByHost %}{% set toc = (toc.push({ id: "ttfb-by-host", label: "TTFB by Host" }), toc) %}{% endif %}
@@ -93,6 +94,29 @@ title: Charts
 </section>
 {% endif %}
 
+{% if sites.domScatter %}
+{% set dom = sites.domScatter %}
+<section class="group" id="dom-performance">
+	<div class="group-head">
+		<h2>DOM Elements vs Performance <span class="tag">{{ dom.count | num }} sites</span></h2>
+	</div>
+	<p class="muted small">
+		DOM element count against Lighthouse&rsquo;s
+		Performance score. A big document is paid for in style and layout work on
+		every frame.
+	</p>
+	{#
+		The drift is real and the spread is the caveat, so both are said above
+		rather than left for a reader to infer from a cloud of dots. The median
+		falls from 99 under a hundred elements to 58 past three thousand — but the
+		green band runs the whole width of the chart, some sites past three
+		thousand still score 100, and one under a hundred scores 12. Node count
+		moves the odds; it does not decide the number.
+	#}
+	{{ scatterfigure(dom, "DOM Elements", "Performance Score") }}
+</section>
+{% endif %}
+
 {% if sites.jsByGenerator %}
 {% set jg = sites.jsByGenerator %}
 <section class="group" id="js-by-generator">
@@ -125,8 +149,10 @@ title: Charts
 	</div>
 	<p class="muted small">
 		Sites that painted nothing with scripts disabled, by the tool their page
-		reports building it. The pale bar is every site judged; the solid one is
-		how many of them came up blank.
+		reports building it. One row per generator: a dot for how many of its
+		sites were judged, a dot for how many came up blank, and a line joining
+		them &mdash; so the length of the row is the size of the sample the finding
+		came out of.
 	</p>
 	{#
 		Three caveats, and none of them is a footnote.
@@ -142,28 +168,111 @@ title: Charts
 		did declare themselves.
 
 		The third is scale: with a handful of flagged sites, one site moving is a
-		visible change in a bar. The counts are printed beside every row for that
-		reason.
+		visible change in a row. Both counts are printed beside every row for that
+		reason, and the axis is a count of sites rather than a rate — the shortest
+		row here is one site out of one, which as a percentage would be the far end
+		of the chart.
 	#}
 	<p class="muted small">
 		{{ cr.flagged }} empty pre-JavaScript blank pages from {{ cr.judged | num }} measured {{ cr.judged | plural("site") }}.
 	</p>
 
-	<ul class="crbars">
-		{% for row in cr.rows %}
-		<li class="crbar{% if not row.detected %} crbar-untagged{% endif %}">
-			<span class="crbar-name">
-				{% if row.icon %}{% stackIcon row %}{% endif %}{{ row.name }}
-			</span>
-			<span class="crbar-track" title="{{ row.flagged }} of {{ row.judged }} judged {{ row.judged | plural('site') }} drew nothing without JavaScript">
-				<span class="crbar-judged" style="width: {{ row.judgedPct }}%">
-					<span class="crbar-flagged" style="width: {% if row.judged %}{{ (row.flagged / row.judged * 100) | round(1) }}{% else %}0{% endif %}%"></span>
-				</span>
-			</span>
-			<span class="crbar-count">{{ row.flagged }}<span class="muted">/{{ row.judged }}</span></span>
-		</li>
-		{% endfor %}
-	</ul>
+	{% if cr.pairs %}
+	{% set crp = cr.pairs %}
+	{#
+		A dumbbell rather than the nested bars this used to be, and only the rows
+		that flagged something. The bar version drew all twenty-nine generators,
+		which meant twenty-three rows of an empty track — and it scaled every bar
+		against the largest row, so the mark a reader compared was sample size
+		wearing the costume of a finding.
+
+		Here the sample is the line and the finding is the left dot, and a row of
+		one site is visibly a row of one site.
+	#}
+	<figure class="plot plot-scroll">
+		<div class="plot-frame" tabindex="0" role="group"
+			aria-label="Blank pre-JavaScript pages by generator, scrollable">
+		<svg viewBox="0 0 {{ crp.box.w }} {{ crp.box.h }}" role="img"
+			aria-label="Sites judged and sites that drew nothing without JavaScript, by generator{% for pair in crp.pairs %}. {{ pair.name }}, {{ pair.rate }}{% endfor %}.">
+			<g class="plot-grid">
+				{%- for tick in crp.xTicks %}
+				<line x1="{{ tick.x }}" x2="{{ tick.x }}" y1="{{ crp.box.top }}" y2="{{ crp.box.top + crp.plot.h }}"/>
+				{%- endfor %}
+			</g>
+
+			<g class="plot-axis">
+				{%- for tick in crp.xTicks %}
+				<text x="{{ tick.x }}" y="{{ crp.axis.tickY }}" text-anchor="middle">{{ tick.label }}</text>
+				{%- endfor %}
+			</g>
+			<g class="plot-axis-title">
+				<text x="{{ crp.axis.xLabel.x }}" y="{{ crp.axis.xLabel.y }}" text-anchor="middle">Sites</text>
+			</g>
+
+			{#
+				Names in the margin, as on the strip plots above — a row is read
+				against its own label, and a legend would make that a lookup.
+			#}
+			<g class="gen-labels">
+				{%- for pair in crp.pairs %}
+				<text x="{{ crp.box.left - 12 }}" y="{{ pair.y + 4 }}" text-anchor="end">{{ pair.name }}</text>
+				{%- endfor %}
+			</g>
+
+			{#
+				Line, then the judged dot, then the flagged dot on top — the flagged
+				end carries the finding, so nothing is allowed to sit over it. On a
+				row where every judged site came up blank the two coincide, which is
+				the true picture of "1 of 1" and not something to nudge apart.
+			#}
+			<g class="pair-links">
+				{%- for pair in crp.pairs %}<line x1="{{ pair.flaggedX }}" x2="{{ pair.judgedX }}" y1="{{ pair.y }}" y2="{{ pair.y }}"/>{% endfor %}
+			</g>
+			<g class="pair-lab">
+				{%- for pair in crp.pairs %}<circle cx="{{ pair.judgedX }}" cy="{{ pair.y }}" r="5"/>{% endfor %}
+			</g>
+			<g class="pair-field plot-poor">
+				{%- for pair in crp.pairs %}<circle cx="{{ pair.flaggedX }}" cy="{{ pair.y }}" r="5"/>{% endfor %}
+			</g>
+
+			{#
+				"10 of 59" beside the row, because the rate is the number a reader
+				wants and the one thing that must not be plotted: as a coordinate it
+				would put a single site at the far end of the axis, ahead of a row of
+				thirteen. Printed next to its own sample it cannot be read that way.
+
+				Flipped inward near the right edge, where a label drawn outward would
+				run off the frame.
+			#}
+			<g class="gen-median-values">
+				{%- for pair in crp.pairs %}
+				{%- set flip = pair.judgedX > crp.box.w - crp.box.right - 70 %}
+				<text x="{{ pair.judgedX - 12 if flip else pair.judgedX + 12 }}" y="{{ pair.y + 4 }}"
+					text-anchor="{{ "end" if flip else "start" }}">{{ pair.rate }}</text>
+				{%- endfor %}
+			</g>
+		</svg>
+		</div>
+
+		<figcaption class="plot-legend">
+			<span class="plot-key pair-key-lab">Sites judged</span>
+			<span class="plot-key plot-poor">Drew nothing without JavaScript</span>
+			<span class="plot-key plot-scroll-note">Scroll sideways for the rest of the scale.</span>
+		</figcaption>
+	</figure>
+
+	{#
+		The rows that are not drawn, said rather than shown. Twenty-three
+		generators with nothing flagged would be twenty-three rows of a dot on a
+		dot at zero — and "Hugo, 0 of 2" drawn at the same weight as "Next.js, 4 of
+		13" claims a great deal more about Hugo than two sites can support.
+	#}
+	<p class="muted small">
+		The other {{ cr.clean.generators }} {{ cr.clean.generators | plural("generator") }}
+		flagged nothing across {{ cr.clean.judged | num }} judged {{ cr.clean.judged | plural("site") }}
+		between them — mostly on samples of a handful of sites each.
+	</p>
+	{% endif %}
 </section>
 {% endif %}
 

@@ -1,6 +1,7 @@
 import { test, describe } from "node:test";
 import assert from "node:assert/strict";
-import { retryBotCheck, throttleWait, hostOf } from "../lib/runner.js";
+import { asBotCheckFailure, labLooksChallenged, throttleWait, hostOf } from "../lib/runner.js";
+import { challengedAxe } from "../lib/stack.js";
 
 /**
  * Pacing rules for measuring other people's servers. Pure, so these run
@@ -117,51 +118,86 @@ describe("hostOf", () => {
 	});
 });
 
-describe("bot check retries", () => {
-	const blocked = { axe: { interstitial: "Just a moment..." }, lab: { scores: { performance: 99 } } };
-	const real = { axe: { interstitial: null }, lab: { scores: { performance: 42 } } };
-	const site = { url: "https://example.com/" };
+describe("bot checks are per page load", () => {
+	// Both challenged sites in this corpus look like this: the Lighthouse runs
+	// measured the real page and only the separate accessibility pass was
+	// served a waiting room.
+	const realPage = { weight: { requests: 72 }, dom: { elements: 1164 }, scores: { performance: 65 } };
+	const waitingRoom = { weight: { requests: 4 }, dom: { elements: 18 }, scores: { performance: 99 } };
 
-	const spy = (...results) => {
-		const calls = [];
-		const attempt = async (s) => {
-			calls.push(s.url);
-			return results[calls.length - 1];
+	test("a challenged probe does not condemn the Lighthouse runs", () => {
+		assert.equal(labLooksChallenged(realPage), false);
+	});
+
+	test("a lab run the size of a waiting room is recognized as one", () => {
+		assert.equal(labLooksChallenged(waitingRoom), true);
+	});
+
+	test("a small but real page is not called a bot check on size alone", () => {
+		// jakebeamish.com: 526 bytes and three elements, and entirely real. It is
+		// only ever tested at all when its probe was already challenged, but the
+		// request count is what keeps it out.
+		assert.equal(labLooksChallenged({ weight: { requests: 12 }, dom: { elements: 3 } }), false);
+	});
+
+	test("missing numbers are never read as a bot check", () => {
+		assert.equal(labLooksChallenged(null), false);
+		assert.equal(labLooksChallenged({ weight: {}, dom: {} }), false);
+	});
+
+	test("a challenged axe pass keeps the host and drops the findings", () => {
+		const axe = {
+			interstitial: "Vercel Security Checkpoint",
+			generator: { name: "Next.js" },
+			host: { id: "vercel", name: "Vercel" },
+			headers: { server: "Vercel" },
+			violations: 1,
+			passes: 39,
+			incomplete: 0,
+			violationRules: 1,
+			top: [{ id: "page-has-heading-one" }],
 		};
-		return { attempt, calls };
-	};
 
-	test("a clean measurement is not repeated", async () => {
-		const { attempt, calls } = spy(real);
-		const out = await retryBotCheck(attempt, site);
+		const out = challengedAxe(axe);
 
-		assert.equal(calls.length, 1, "no second request to a site that answered normally");
-		assert.equal(out, real);
+		// The checkpoint's accessibility is not this site's, and null reads as
+		// "not judged" downstream rather than as a clean result.
+		assert.equal(out.violations, null);
+		assert.equal(out.passes, null);
+		assert.deepEqual(out.top, []);
+		assert.equal(out.generator, null, "read out of the challenge page's markup");
+
+		// A challenge is served by whatever sits in front of the site, so this
+		// stays true.
+		assert.deepEqual(out.host, axe.host);
+		assert.deepEqual(out.headers, axe.headers);
+		assert.equal(out.interstitial, "Vercel Security Checkpoint");
 	});
 
-	test("a bot check is measured again, and the real page wins", async () => {
-		const { attempt, calls } = spy(blocked, real);
-		const out = await retryBotCheck(attempt, site);
+	test("a measurement challenged on every load is stored as a failure", () => {
+		const record = {
+			url: "https://example.com/",
+			timestamp: 1,
+			axe: { interstitial: "Just a moment..." },
+			field: { metrics: { lcp: { p75: 1200 } } },
+			pageShots: { js: "buffer" },
+			screenshots: ["frame"],
+			lab: waitingRoom,
+			variance: { spread: 2 },
+		};
 
-		assert.equal(calls.length, 2);
-		assert.equal(out, real, "the retry got the site, so that is what is kept");
-	});
+		const out = asBotCheckFailure(record);
 
-	test("challenged twice, the second result is kept and reported", async () => {
-		const { attempt, calls } = spy(blocked, { ...blocked, lab: { scores: { performance: 50 } } });
-		const out = await retryBotCheck(attempt, site);
+		// A waiting room has no images and no third parties, so it scores well —
+		// keeping its numbers ranks a page nobody served.
+		assert.equal(out.lab, undefined);
+		assert.equal(out.variance, undefined);
+		assert.equal(out.completedRuns, 0);
+		assert.equal(out.error, "bot check: Just a moment...");
+		assert.equal(out.botCheck, "Just a moment...");
 
-		// Not discarded: a site challenged every time should say so on its page,
-		// with the capture as evidence, rather than silently having no data.
-		assert.equal(calls.length, 2, "and never a third — it has asked us to stop");
-		assert.equal(out.axe.interstitial, "Just a moment...");
-	});
-
-	test("a failed measurement is not retried as though it were a bot check", async () => {
-		const failed = { error: "ERRORED_DOCUMENT_REQUEST", axe: null };
-		const { attempt, calls } = spy(failed);
-
-		assert.equal((await retryBotCheck(attempt, site)), failed);
-		assert.equal(calls.length, 1);
+		// CrUX came from real users of the real site and never touched our request.
+		assert.deepEqual(out.field, record.field);
+		assert.equal(out.screenshots, undefined, "eight frames of a spinner");
 	});
 });

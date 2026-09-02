@@ -240,24 +240,37 @@ eleventyComputed:
 </header>
 
 {#
-	A bot check, measured instead of the site.
+	A bot check on one of the page loads this measurement makes.
 
-	First among the notices because it is the strongest caveat on the page: the
-	figures below are real measurements of a real page, and that page is a
-	waiting room. Everything else here — stale data, a redirect — qualifies
-	numbers that still describe the site.
+	Downgraded from an error to a warning, because it no longer means what it
+	used to. A site is loaded four times here — three Lighthouse runs and the
+	accessibility pass — and a challenge fires on them independently. Both sites
+	this has ever applied to were challenged on the last load only, and the old
+	notice told a reader that every figure on the page described a waiting room
+	when the figures were a correct measurement of the real site.
 
-	The screenshot, filmstrip and Without JavaScript section are already hidden
-	further down, which without this reads as three things mysteriously missing.
+	Still first among the notices, and still worth one: the screenshot, filmstrip
+	and Without JavaScript section are hidden further down, which without this
+	reads as three things mysteriously missing.
+
+	A site challenged on every load has no measurement at all — that record is
+	stored as an error and this page never reaches here.
 #}
 {% if entry.interstitial %}
-<div class="notice notice-error">
-	<strong>This measurement is of a bot check, not the site.</strong>
+<div class="notice notice-warn">
+	<strong>The accessibility pass was served a bot check.</strong>
 	<p>
-		The page served to the measuring browser was titled
-		<code>{{ entry.interstitial }}</code> — an automated-traffic check rather
-		than {{ entry.displayUrl }}. Every figure below describes that page: its
-		scores, its weight, its timings.
+		This site is loaded several times per measurement, and one of those loads
+		&mdash; the accessibility pass &mdash; was answered with
+		<code>{{ entry.interstitial }}</code>, an automated-traffic check rather
+		than {{ entry.displayUrl }}. It was tried twice.
+	</p>
+	<p>
+		The performance figures below are unaffected: they come from the runs that
+		were served the real page. What is missing is everything that pass
+		produces &mdash; the accessibility result, the screenshot and the
+		without-JavaScript comparison &mdash; because those would describe the
+		waiting room rather than the site.
 	</p>
 </div>
 {% endif %}

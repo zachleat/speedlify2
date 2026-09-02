@@ -9,10 +9,24 @@
 	log axis is not something anyone reads a value off precisely.
 #}
 {% macro stripfigure(strip, xTitle, showMedianValues = false) %}
-	<figure class="plot">
-		<div class="plot-frame">
+	{#
+		`plot-scroll` rather than a second phone layout: the whole SVG scales with
+		its container, so at 375px a 13-unit label renders at 4.5 pixels and the
+		axis ticks go with it — the names are not the only casualty. A minimum
+		width holds the type at a readable size and the frame scrolls to it.
+
+		Scoped to this macro because the scatter's tooltips overflow their frame
+		on purpose, and a scroll container would clip them.
+
+		The frame is focusable so the chart can be panned with arrow keys: a
+		scroll region that only a pointer can move is a piece of the page that
+		keyboard users cannot reach.
+	#}
+	<figure class="plot plot-scroll">
+		<div class="plot-frame" tabindex="0" role="group"
+			aria-label="{{ xTitle }} by {{ strip.label }}, scrollable">
 		<svg viewBox="0 0 {{ strip.box.w }} {{ strip.box.h }}" role="img"
-			aria-label="Median JavaScript weight by site generator{% for row in strip.rows %}. {{ row.name }}, {{ row.count }} sites, median {{ row.medianText }}{% endfor %}.">
+			aria-label="Median {{ xTitle }} by {{ strip.label }}{% for row in strip.rows %}. {{ row.name }}, {{ row.count }} sites, median {{ row.medianText }}{% endfor %}.">
 			<g class="plot-grid">
 				{%- for tick in strip.xTicks %}
 				<line x1="{{ tick.x }}" x2="{{ tick.x }}" y1="{{ strip.box.top }}" y2="{{ strip.box.top + strip.plot.h }}"/>
@@ -86,5 +100,14 @@
 			{%- endif %}
 		</svg>
 		</div>
+
+		{#
+			Shown only at the widths where the chart actually overflows, which CSS
+			can answer and the template cannot — see `.plot-scroll-note`. macOS
+			hides its scrollbars until something moves, so on the machines most
+			likely to be reading this there is otherwise no sign the chart
+			continues past the edge.
+		#}
+		<figcaption class="plot-scroll-note">Scroll sideways for the rest of the scale.</figcaption>
 	</figure>
 {% endmacro %}

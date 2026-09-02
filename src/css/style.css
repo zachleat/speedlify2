@@ -876,6 +876,50 @@ fieldset[disabled] select {
 	min-height: 0;
 }
 
+/*
+ * The strip plots, which do not survive being scaled to a phone.
+ *
+ * Every chart here is one SVG sized to its container, so its 13-unit type is
+ * rendered at 13 * width / 1000 pixels — about four and a half at 375px. The
+ * scatters lose only their tick labels that way and still read as a shape; a
+ * strip plot is a list of named rows, so losing the type loses the chart.
+ *
+ * A floor on the width and a scroll on the frame, rather than a second layout
+ * built for narrow screens: the plot stays the plot, and the reader pans it.
+ * 50rem holds the row names at about 10.4px, which is small but legible, and is
+ * narrow enough that most tablets and every desktop never scroll at all.
+ */
+.plot-scroll .plot-frame {
+	overflow-x: auto;
+	overscroll-behavior-x: contain;
+}
+
+.plot-scroll .plot-frame svg {
+	min-width: 50rem;
+}
+
+.plot-scroll .plot-frame:focus-visible {
+	outline: 2px solid var(--accent);
+	outline-offset: 3px;
+	border-radius: var(--radius);
+}
+
+/* Hidden wherever the chart fits, which is the only place the advice would be
+   wrong. The breakpoint is the min-width above plus room for the page's own
+   gutters — below it the frame is guaranteed to be scrolling. */
+.plot-scroll-note {
+	display: none;
+	margin-top: 0.5rem;
+	color: var(--text-muted);
+	font-size: 0.8125rem;
+}
+
+@media (max-width: 56rem) {
+	.plot-scroll-note {
+		display: block;
+	}
+}
+
 .plot-grid line {
 	stroke: var(--border);
 	stroke-width: 1;
@@ -3194,72 +3238,6 @@ a.cat-chip:hover, a.cat-chip:focus-visible { color: var(--text); border-color: v
 		grid-column: 1 / -1;
 		align-items: flex-start;
 	}
-}
-
-/*
- * Client rendering by generator: a count per tool, as nested bars.
- *
- * Nested rather than side by side, because the two numbers are a part and its
- * whole — the flagged sites are a subset of the judged ones, and drawing them
- * as separate bars would invite reading them as two populations. The pale bar
- * is scaled against the largest row so tools compare with each other; the solid
- * one fills its own share of that, so its length is the rate and the pale bar
- * behind it is the sample size.
- */
-.crbars {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-	display: grid;
-	/* Name, bar, count. The name column sizes to the longest label so the bars
-	   all start on the same line; the count is fixed so the digits line up. */
-	grid-template-columns: max-content 1fr max-content;
-	align-items: center;
-	gap: 0.35rem 0.75rem;
-}
-.crbar {
-	display: grid;
-	grid-column: 1 / -1;
-	grid-template-columns: subgrid;
-	align-items: center;
-}
-.crbar-name {
-	display: flex;
-	align-items: center;
-	gap: 0.4rem;
-	font-size: 0.85rem;
-	white-space: nowrap;
-}
-/* Not a tool, and said so quietly rather than left to look like one. */
-.crbar-untagged .crbar-name { color: var(--text-muted); font-style: italic; }
-.crbar-track {
-	display: block;
-	height: 14px;
-	background: var(--surface-2, var(--surface));
-	border-radius: 3px;
-	overflow: hidden;
-}
-.crbar-judged {
-	display: block;
-	height: 100%;
-	/* The sample: present but recessive, so a long pale bar reads as "plenty of
-	   evidence here" rather than as a result of its own. */
-	background: color-mix(in srgb, var(--text-muted) 22%, transparent);
-	border-radius: 3px;
-	/* A row with one judged site still shows something to hang the count on. */
-	min-width: 2px;
-}
-.crbar-flagged {
-	display: block;
-	height: 100%;
-	background: var(--average);
-	border-radius: 3px;
-}
-.crbar-count {
-	font-size: 0.8rem;
-	font-variant-numeric: tabular-nums;
-	white-space: nowrap;
-	text-align: right;
 }
 
 /* A run of weeks CrUX reported nothing for, merged into one row. Quieter than a

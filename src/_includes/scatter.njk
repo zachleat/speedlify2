@@ -19,8 +19,14 @@
 	#}
 	<figure class="plot">
 		<div class="plot-frame">
+		{#
+			The description is assembled from the axis names and the bands the plot
+			was built with, not written out here: five charts share this macro and
+			they do not share a vertical axis, so a sentence about paint times was
+			read aloud over the layout-shift and score charts too.
+		#}
 		<svg viewBox="0 0 {{ plot.box.w }} {{ plot.box.h }}" role="img"
-			aria-label="Scatter plot of page weight against largest contentful paint for {{ plot.count | num }} sites. {{ plot.counts.good | num }} paint within 2.5 seconds, {{ plot.counts.average | num }} between 2.5 and 4 seconds, and {{ plot.counts.poor | num }} take longer than 4 seconds.">
+			aria-label="Scatter plot of {{ xTitle }} against {{ yTitle }} for {{ plot.count | num }} sites: {{ plot.summary }}.">
 			<g class="plot-grid">
 				{%- for tick in plot.xTicks %}
 				<line x1="{{ tick.x }}" x2="{{ tick.x }}" y1="{{ plot.box.top }}" y2="{{ plot.box.top + plot.plot.h }}"/>
@@ -163,9 +169,9 @@
 	</div>
 
 	<figcaption class="plot-legend">
-			<span class="plot-key plot-good">{{ plot.counts.good | num }} within 2.5&nbsp;s</span>
-			<span class="plot-key plot-average">{{ plot.counts.average | num }} to 4&nbsp;s</span>
-			<span class="plot-key plot-poor">{{ plot.counts.poor | num }} over 4&nbsp;s</span>
+			{%- for key in plot.legend %}
+			<span class="plot-key plot-{{ key.band }}">{{ key.count | num }} {{ key.label }}</span>
+			{%- endfor %}
 	</figcaption>
 	</figure>
 {% endmacro %}
