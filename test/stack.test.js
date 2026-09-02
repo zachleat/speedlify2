@@ -169,6 +169,21 @@ describe("generator detection", () => {
 		assert.equal(found.name, "Astro");
 	});
 
+	test("recognizes Pandoc, which writes the tag from its standalone template", () => {
+		// jakebeamish.com: rebuilt on pandoc, and reported as "pandoc" with no
+		// version. Known rather than unknown so the id exists — an unknown name
+		// displays fine but counts for nothing and moves nothing between
+		// categories.
+		const found = detectGenerator({ meta: "pandoc" });
+		assert.equal(found.id, "pandoc");
+		assert.equal(found.name, "Pandoc");
+		assert.equal(found.icon, "Pandoc");
+		assert.equal(found.version, null);
+
+		// Not the word inside another name: Pandoc's tag leads with it.
+		assert.equal(detectGenerator({ meta: "notpandoc 1.0" }).id, null);
+	});
+
 	test("keeps the name of a generator it does not know", () => {
 		const found = detectGenerator({ meta: "SomeNewThing v.2.1" });
 		assert.equal(found.name, "SomeNewThing");
@@ -395,6 +410,14 @@ describe("a page declaring more than one generator", () => {
 		const found = detectGenerator({ metas: ["Silex v3.0.0"] });
 		assert.equal(found.name, "Silex");
 		assert.equal(found.version, "3.0.0", "deferred keeps its version, unlike secondary");
+	});
+
+	test("Pandoc loses to the tool that renders through it", () => {
+		// Quarto runs pandoc, so a page can name both and both are true. The
+		// wrapper is the more specific answer, in either document order.
+		for (let metas of [["pandoc", "quarto-1.4.5"], ["quarto-1.4.5", "pandoc"]]) {
+			assert.equal(detectGenerator({ metas }).id, "quarto", metas.join(", "));
+		}
 	});
 
 	test("a secondary tag still yields to the CMS and drops its version", () => {
