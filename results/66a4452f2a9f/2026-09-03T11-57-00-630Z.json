@@ -1,0 +1,244 @@
+{
+  "url": "https://scottpdawson.com/",
+  "name": "scottpdawson.com",
+  "group": "11ty-emeritus",
+  "groupName": "11ty Emeritus",
+  "timestamp": 1788436620630,
+  "date": "2026-09-03T11:57:00.630Z",
+  "runId": "2026-09-03T11-56-40-780Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 1,
+  "durationMs": 28387,
+  "error": null,
+  "partialErrors": [
+    "ERRORED_DOCUMENT_REQUEST: Lighthouse was unable to reliably load the page you requested. Make sure you are testing the correct URL and that the server is properly responding to all requests. (Status code: 403)",
+    "ERRORED_DOCUMENT_REQUEST: Lighthouse was unable to reliably load the page you requested. Make sure you are testing the correct URL and that the server is properly responding to all requests. (Status code: 403)"
+  ],
+  "variance": null,
+  "lab": {
+    "requestedUrl": "https://scottpdawson.com/",
+    "finalUrl": "https://scottpdawson.substack.com/",
+    "redirect": {
+      "from": "https://scottpdawson.com/",
+      "to": "https://scottpdawson.substack.com/",
+      "chain": [
+        {
+          "url": "https://scottpdawson.com/",
+          "status": 301
+        },
+        {
+          "url": "https://scottpdawson.substack.com/",
+          "status": 307
+        },
+        {
+          "url": "https://scottpdawson.com/",
+          "status": 301
+        },
+        {
+          "url": "https://scottpdawson.substack.com/",
+          "status": 307
+        }
+      ],
+      "statuses": [
+        301,
+        307,
+        301
+      ],
+      "change": "host",
+      "permanent": false,
+      "schemeUpgrade": false,
+      "hops": 3
+    },
+    "statusCode": "error",
+    "scores": {
+      "performance": 45,
+      "accessibility": 93,
+      "best-practices": 96,
+      "seo": 40,
+      "agentic-browsing": 100
+    },
+    "timings": {
+      "fcp": 1870,
+      "lcp": 6992,
+      "si": 2857,
+      "tbt": 4204,
+      "tti": 7528,
+      "cls": 0,
+      "ttfb": 475,
+      "maxPotentialFid": 3493,
+      "serverResponseTime": 20,
+      "networkRtt": 47.3,
+      "networkServerLatency": 25.3
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 458.2,
+      "elementRenderDelay": 987.6
+    },
+    "weight": {
+      "total": 685800,
+      "requests": 20,
+      "mainDocument": 4940,
+      "byType": {
+        "total": {
+          "bytes": 680861,
+          "requests": 13
+        },
+        "other": {
+          "bytes": 458506,
+          "requests": 7
+        },
+        "script": {
+          "bytes": 108727,
+          "requests": 2
+        },
+        "document": {
+          "bytes": 100171,
+          "requests": 2
+        },
+        "image": {
+          "bytes": 13457,
+          "requests": 2
+        },
+        "stylesheet": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "font": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 555060,
+          "requests": 8
+        }
+      },
+      "scripts": 8,
+      "stylesheets": 0,
+      "fonts": 0
+    },
+    "thirdParty": {
+      "count": 2,
+      "bytes": 159031,
+      "mainThreadMs": 1172.9,
+      "top": [
+        {
+          "entity": "substack.com",
+          "bytes": 130678,
+          "mainThreadMs": 1163.1,
+          "byType": {
+            "script": 80374,
+            "document": 4940,
+            "other": 45364
+          },
+          "typedBytes": 130678
+        },
+        {
+          "entity": "cloudflare.com",
+          "bytes": 28353,
+          "mainThreadMs": 9.8,
+          "byType": {
+            "script": 28353
+          },
+          "typedBytes": 28353
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 5049,
+      "byGroup": {
+        "scriptEvaluation": 4701.1,
+        "other": 237.1,
+        "styleLayout": 40.8,
+        "garbageCollection": 27.6,
+        "scriptParseCompile": 22.9,
+        "paintCompositeRender": 11,
+        "parseHTML": 8.4
+      },
+      "bootupMs": 4685.8,
+      "longTasks": 8,
+      "longestTaskMs": 3493
+    },
+    "dom": {
+      "elements": 36,
+      "depth": 8,
+      "maxChildren": 7
+    },
+    "waste": {
+      "unusedJsBytes": 20919,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 0,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 0,
+      "renderBlockingCount": 0,
+      "poorlyCachedBytes": 7253,
+      "poorlyCachedCount": 1
+    },
+    "accessibility": {
+      "failingCount": 1,
+      "applicableCount": 20,
+      "failingNodes": 1,
+      "failing": [
+        {
+          "id": "meta-refresh",
+          "title": "The document uses `<meta http-equiv=\"refresh\">`",
+          "nodes": 1
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": null,
+      "trustedTypes": 1,
+      "bfCache": 0,
+      "bfCacheFailures": 1,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 1670.2,
+      "consoleErrors": 3,
+      "baselineLimitedFeatures": 35
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 3325,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-09-03T11:57:01.829Z",
+      "runtimeMs": 8433.3
+    }
+  },
+  "field": null,
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "interstitial": "Just a moment...",
+    "host": {
+      "id": "netlify",
+      "name": "Netlify",
+      "icon": "Netlify",
+      "source": "x-nf-request-id"
+    },
+    "headers": {
+      "server": "Netlify",
+      "x-nf-request-id": "01M1KJ3289MYFZAEZR7VEV8T8G"
+    },
+    "violations": null,
+    "passes": null,
+    "incomplete": null,
+    "violationRules": null,
+    "version": "4.13.0",
+    "top": [],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
