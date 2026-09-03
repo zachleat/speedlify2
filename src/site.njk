@@ -313,10 +313,17 @@ eleventyComputed:
 <div class="notice notice-info">
 	<strong>This URL redirects to <code>{{ entry.canonicalUrl }}</code>.</strong>
 	<p>
-		A trailing slash only, so both forms are treated as one site rather than
-		two — one history, measured once. Lighthouse follows the redirect, so the
-		numbers below describe the canonical page; the only cost is an extra hop
-		on each run.
+		{% if entry.canonicalKind == "landing" %}
+		The site&rsquo;s front door pointing at the page it serves there &mdash; a
+		locale or CMS landing path, not a move. The origin is still the address of
+		the site, so history stays under it rather than forking to a path that
+		depends on where the measurement ran.
+		{% else %}
+		The same URL in a different form &mdash; a trailing slash &mdash; so both
+		are treated as one site rather than two: one history, measured once.
+		{% endif %}
+		Lighthouse follows the redirect, so the numbers below describe the page
+		actually served; the only cost is an extra hop on each run.
 	</p>
 </div>
 {% endif %}

@@ -1098,3 +1098,81 @@ describe("embed opt-in", () => {
 		assert.deepEqual(bySite(r), { "a.example": false, "b.example": false });
 	});
 });
+
+describe("canonical redirect kind", () => {
+	/**
+	 * `canonicalUrl` covers two unrelated redirects that both mean "not a move":
+	 * the same URL in another form, and an origin pointing at the landing path it
+	 * serves. The notice says something different about each, so the entry has to
+	 * say which one this is — reporting `www.ibm.com/` -> `www.ibm.com/us-en` as
+	 * a trailing slash is wrong on its face.
+	 */
+	function canonicalFixture(siteUrl, finalUrl) {
+		const dir = fs.mkdtempSync(path.join(os.tmpdir(), "speedlify-canonical-"));
+		tmp.push(dir);
+		const store = new ResultStore(path.join(dir, "results"));
+
+		store.write({
+			url: siteUrl,
+			name: "Site",
+			group: "g",
+			timestamp: Date.UTC(2026, 0, 1),
+			date: new Date(Date.UTC(2026, 0, 1)).toISOString(),
+			completedRuns: 3,
+			requestedRuns: 3,
+			durationMs: 1000,
+			error: null,
+			lab: {
+				requestedUrl: siteUrl,
+				finalUrl,
+				scores: { performance: 100, accessibility: 100, "best-practices": 100, seo: 100 },
+				timings: { lcp: 1000, cls: 0, tbt: 0, fcp: 500, si: 600, ttfb: 100 },
+				weight: { total: 1000, requests: 1, byType: {} },
+				environment: { benchmarkIndex: 3800, lighthouseVersion: "13.4.1" },
+			},
+			axe: null,
+			field: null,
+		});
+
+		const configFile = path.join(dir, "sites.js");
+		fs.writeFileSync(
+			configFile,
+			`export default { groups: { g: { name: "Group", sites: [{ url: ${JSON.stringify(siteUrl)} }] } } };`,
+		);
+
+		return { resultsDir: path.join(dir, "results"), configFile };
+	}
+
+	const only = (report) => report.groups.find((g) => g.id === "g").entries[0];
+
+	test("a locale landing path is reported as a landing redirect", async () => {
+		const r = await buildReport(canonicalFixture("https://www.ibm.com/", "https://www.ibm.com/us-en"));
+		const entry = only(r);
+
+		assert.equal(entry.canonicalUrl, "https://www.ibm.com/us-en");
+		assert.equal(entry.canonicalKind, "landing", "not a trailing slash");
+	});
+
+	test("a trailing slash is reported as a normalized form", async () => {
+		const r = await buildReport(canonicalFixture("https://example.com/en", "https://example.com/en/"));
+		const entry = only(r);
+
+		assert.equal(entry.canonicalUrl, "https://example.com/en/");
+		assert.equal(entry.canonicalKind, "normalized");
+	});
+
+	test("no redirect leaves both fields null", async () => {
+		const entry = only(await buildReport(canonicalFixture("https://example.com/", "https://example.com/")));
+
+		assert.equal(entry.canonicalUrl, null);
+		assert.equal(entry.canonicalKind, null);
+	});
+
+	test("a real move is not treated as a canonical form", async () => {
+		// Handled by the redirect machinery instead — this branch must not claim it.
+		const entry = only(await buildReport(canonicalFixture("https://old.example/", "https://new.example/")));
+
+		assert.equal(entry.canonicalUrl, null);
+		assert.equal(entry.canonicalKind, null);
+	});
+});
