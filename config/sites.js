@@ -519,7 +519,7 @@ export default {
 		"/test-runners/": "/group/test-runners/",
 		"/zachleat.com/": "/group/zachleat/",
 		"/sample/": "/site/www-speedlify-dev/",
-
+		"/eleventy-starters/": "/group/11ty-starters/",
 	},
 
 	groups: {
