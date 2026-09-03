@@ -286,8 +286,15 @@ permalink: /index.html
 						{#- Biggest category first — see `entry.categories` in lib/report.js.
 						    Not `groups`, which is in config declaration order: that would
 						    make the chip a reader sees first an artefact of where a group
-						    happens to sit in a file. #}
-						<span class="cat-chips">{% for cat in entry.categories %}<a class="cat-chip" href="/group/{{ cat.id }}/">{{ cat.name }}</a>{% endfor %}</span>
+						    happens to sit in a file.
+
+						    `homeCategories`, not `categories`: this table sits right below
+						    the category list above, and a chip naming a category left off
+						    that list — AI, 11ty Emeritus — points somewhere the reader has
+						    had no chance to hear of yet. A site whose categories are all
+						    hidden this way simply shows no chips, same as it always could
+						    for a site in one category alone. #}
+						<span class="cat-chips">{% for cat in entry.homeCategories %}<a class="cat-chip" href="/group/{{ cat.id }}/">{{ cat.name }}</a>{% endfor %}</span>
 					</td>
 				{% else %}
 					<td class="num muted" colspan="12">
