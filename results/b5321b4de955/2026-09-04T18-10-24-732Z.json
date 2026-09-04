@@ -1,0 +1,323 @@
+{
+  "url": "https://chromatic.live/",
+  "name": "chromatic.live",
+  "group": "11ty-community",
+  "groupName": "Built Awesome",
+  "timestamp": 1788545424732,
+  "date": "2026-09-04T18:10:24.732Z",
+  "runId": "2026-09-04T18-07-22-750Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 39176,
+  "error": null,
+  "variance": {
+    "min": 46,
+    "max": 55,
+    "spread": 9,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://chromatic.live/",
+    "finalUrl": "https://chromatichq.com/",
+    "redirect": {
+      "from": "https://chromatic.live/",
+      "to": "https://chromatichq.com/",
+      "chain": [
+        {
+          "url": "https://chromatic.live/",
+          "status": 301
+        },
+        {
+          "url": "https://chromatichq.com/",
+          "status": 200
+        }
+      ],
+      "statuses": [
+        301
+      ],
+      "change": "host",
+      "permanent": true,
+      "schemeUpgrade": false,
+      "hops": 1
+    },
+    "statusCode": "ok",
+    "scores": {
+      "performance": 47,
+      "accessibility": 93,
+      "best-practices": 77,
+      "seo": 100,
+      "agentic-browsing": 50
+    },
+    "timings": {
+      "fcp": 1959,
+      "lcp": 15411,
+      "si": 3645,
+      "tbt": 1321,
+      "tti": 15479,
+      "cls": 0,
+      "ttfb": 606,
+      "maxPotentialFid": 330,
+      "serverResponseTime": 5,
+      "networkRtt": 0.5,
+      "networkServerLatency": 43.2
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 11.7,
+      "elementRenderDelay": 2033.6
+    },
+    "weight": {
+      "total": 1984484,
+      "requests": 93,
+      "mainDocument": 5593,
+      "byType": {
+        "total": {
+          "bytes": 1984484,
+          "requests": 93
+        },
+        "script": {
+          "bytes": 1301888,
+          "requests": 31
+        },
+        "font": {
+          "bytes": 319027,
+          "requests": 7
+        },
+        "image": {
+          "bytes": 236517,
+          "requests": 36
+        },
+        "stylesheet": {
+          "bytes": 73015,
+          "requests": 4
+        },
+        "document": {
+          "bytes": 36274,
+          "requests": 3
+        },
+        "other": {
+          "bytes": 17763,
+          "requests": 12
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 1444435,
+          "requests": 44
+        }
+      },
+      "scripts": 31,
+      "stylesheets": 4,
+      "fonts": 7
+    },
+    "thirdParty": {
+      "count": 8,
+      "bytes": 1475456,
+      "mainThreadMs": 459.6,
+      "top": [
+        {
+          "entity": "chromatichq.com",
+          "bytes": 539948,
+          "mainThreadMs": 12.4,
+          "byType": {
+            "document": 5593,
+            "script": 21810,
+            "image": 188600,
+            "font": 284327,
+            "stylesheet": 30627,
+            "other": 8991
+          },
+          "typedBytes": 539948
+        },
+        {
+          "entity": "Google CDN",
+          "bytes": 352779,
+          "mainThreadMs": 44.5,
+          "byType": {
+            "script": 352779
+          },
+          "typedBytes": 352779
+        },
+        {
+          "entity": "Hubspot",
+          "bytes": 336885,
+          "mainThreadMs": 88.6,
+          "byType": {
+            "script": 330118,
+            "other": 4379,
+            "image": 2388
+          },
+          "typedBytes": 336885
+        },
+        {
+          "entity": "Google Tag Manager",
+          "bytes": 177238,
+          "mainThreadMs": 33.7,
+          "byType": {
+            "script": 177238
+          },
+          "typedBytes": 177238
+        },
+        {
+          "entity": "LinkedIn Ads",
+          "bytes": 40572,
+          "mainThreadMs": 16.9,
+          "byType": {
+            "script": 39980,
+            "image": 326,
+            "other": 266
+          },
+          "typedBytes": 40572
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 5272.4,
+      "byGroup": {
+        "scriptEvaluation": 2894.8,
+        "other": 1252.3,
+        "styleLayout": 505,
+        "scriptParseCompile": 295,
+        "paintCompositeRender": 182.8,
+        "garbageCollection": 95,
+        "parseHTML": 47.5
+      },
+      "bootupMs": 2957.3,
+      "longTasks": 19,
+      "longestTaskMs": 330
+    },
+    "dom": {
+      "elements": 336,
+      "depth": 12,
+      "maxChildren": 31
+    },
+    "waste": {
+      "unusedJsBytes": 323660,
+      "unusedCssBytes": 24683,
+      "legacyJsBytes": 13035,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 2334,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 150,
+      "renderBlockingCount": 2,
+      "poorlyCachedBytes": 331663.27499999997,
+      "poorlyCachedCount": 14
+    },
+    "accessibility": {
+      "failingCount": 3,
+      "applicableCount": 33,
+      "failingNodes": 5,
+      "failing": [
+        {
+          "id": "aria-required-attr",
+          "title": "`[role]`s do not have all required `[aria-*]` attributes",
+          "nodes": 3
+        },
+        {
+          "id": "heading-order",
+          "title": "Heading elements are not in a sequentially-descending order",
+          "nodes": 1
+        },
+        {
+          "id": "landmark-one-main",
+          "title": "Document does not have a main landmark.",
+          "nodes": 1
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 753.4,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 45
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2332,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-09-04T18:10:37.771Z",
+      "runtimeMs": 11304.2
+    }
+  },
+  "field": null,
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": {
+      "id": "eleventy",
+      "name": "Eleventy",
+      "icon": "Eleventy",
+      "version": "2.0.1",
+      "source": "meta",
+      "raw": "Eleventy v2.0.1"
+    },
+    "interstitial": null,
+    "host": {
+      "id": "netlify",
+      "name": "Netlify",
+      "icon": "Netlify",
+      "source": "x-nf-request-id"
+    },
+    "headers": {
+      "server": "Netlify",
+      "x-nf-request-id": "01M1PSVTA1B11ERJRST8K29N7S"
+    },
+    "violations": 39,
+    "passes": 488,
+    "incomplete": 1,
+    "violationRules": 6,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 29,
+        "help": "All page content should be contained by landmarks"
+      },
+      {
+        "id": "aria-required-attr",
+        "impact": "critical",
+        "nodes": 3,
+        "help": "Required ARIA attributes must be provided"
+      },
+      {
+        "id": "nested-interactive",
+        "impact": "serious",
+        "nodes": 3,
+        "help": "Interactive controls must not be nested"
+      },
+      {
+        "id": "landmark-one-main",
+        "impact": "moderate",
+        "nodes": 2,
+        "help": "Document should have one main landmark"
+      },
+      {
+        "id": "aria-allowed-role",
+        "impact": "minor",
+        "nodes": 1,
+        "help": "ARIA role should be appropriate for the element"
+      },
+      {
+        "id": "heading-order",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Heading levels should only increase by one"
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
