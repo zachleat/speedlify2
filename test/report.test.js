@@ -213,6 +213,44 @@ describe("buildReport", () => {
 	});
 });
 
+describe("biggest movers", () => {
+	/**
+	 * The panel points at sites worth looking at. A site whose score fell is not
+	 * one of them, so a regression — however large, however significant — never
+	 * earns a card.
+	 */
+	const RISER = [50, 51, 52, 80];
+	const FALLER = [80, 79, 78, 50];
+
+	async function movers(performance) {
+		const f = fixture({ sites: 2, points: 4, performance });
+		const r = await buildReport({ resultsDir: f.resultsDir, configFile: f.configFile });
+		return r.groups[0].topMovers;
+	}
+
+	test("carries a site whose score improved", async () => {
+		const m = await movers((p, s) => (s === 0 ? RISER[p] : 80));
+
+		assert.equal(m.length, 1);
+		assert.equal(m[0].previous, 52);
+		assert.equal(m[0].current, 80);
+		assert.equal(m[0].vsPrevious.better, true);
+	});
+
+	test("leaves out a site whose score fell, significant or not", async () => {
+		const m = await movers((p, s) => (s === 0 ? FALLER[p] : 80));
+
+		assert.deepEqual(m, []);
+	});
+
+	test("keeps the riser when both moved in the same run", async () => {
+		const m = await movers((p, s) => (s === 0 ? RISER[p] : FALLER[p]));
+
+		assert.equal(m.length, 1);
+		assert.equal(m[0].vsPrevious.better, true);
+	});
+});
+
 describe("generator-driven reclassification", () => {
 	/**
 	 * A curated list records what was submitted, which drifts from what is true.

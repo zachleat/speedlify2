@@ -83,15 +83,15 @@ eleventyComputed:
 	permanent empty panel trains you to scroll past it.
 #}
 {#
-	The four sites whose performance score moved furthest since the run before,
-	in either direction. Chosen and ordered in lib/report.js — by absolute change,
-	which a template cannot sort on.
+	The four sites whose performance score improved most since the run before.
+	Improvements only — regressions are deliberately left out, see lib/report.js,
+	which also does the ordering a template cannot.
 #}
 {% if group.topMovers.length %}
 <section class="panel">
 	<h2>Biggest movers</h2>
 	<p class="muted small">
-		Sites whose performance score moved more than this group's normal
+		Sites whose performance score improved by more than this group's normal
 		run-to-run noise. Everything else is jitter and is deliberately hidden.
 	</p>
 	<ul class="mover-cards">
