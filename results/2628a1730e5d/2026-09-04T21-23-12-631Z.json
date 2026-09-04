@@ -1,0 +1,337 @@
+{
+  "url": "https://www.uber.com/",
+  "name": "Uber",
+  "group": "big-tech",
+  "groupName": "Big Tech",
+  "timestamp": 1788556992631,
+  "date": "2026-09-04T21:23:12.631Z",
+  "runId": "2026-09-04T21-15-20-802Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 60703,
+  "error": null,
+  "variance": {
+    "min": 36,
+    "max": 39,
+    "spread": 3,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://www.uber.com/",
+    "finalUrl": "https://www.uber.com/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 38,
+      "accessibility": 84,
+      "best-practices": 100,
+      "seo": 92,
+      "agentic-browsing": 50
+    },
+    "timings": {
+      "fcp": 2891,
+      "lcp": 15862,
+      "si": 6379,
+      "tbt": 1704,
+      "tti": 16090,
+      "cls": 0.007,
+      "ttfb": 644,
+      "maxPotentialFid": 554,
+      "serverResponseTime": 135,
+      "networkRtt": 3.9,
+      "networkServerLatency": 43.5
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 157.5,
+      "elementRenderDelay": 1615.7
+    },
+    "weight": {
+      "total": 2637518,
+      "requests": 101,
+      "mainDocument": 101932,
+      "byType": {
+        "total": {
+          "bytes": 2637518,
+          "requests": 100
+        },
+        "script": {
+          "bytes": 1434002,
+          "requests": 36
+        },
+        "image": {
+          "bytes": 919066,
+          "requests": 28
+        },
+        "font": {
+          "bytes": 119120,
+          "requests": 4
+        },
+        "document": {
+          "bytes": 101932,
+          "requests": 1
+        },
+        "other": {
+          "bytes": 63398,
+          "requests": 31
+        },
+        "stylesheet": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 138684,
+          "requests": 3
+        }
+      },
+      "scripts": 36,
+      "stylesheets": 0,
+      "fonts": 4
+    },
+    "thirdParty": {
+      "count": 2,
+      "bytes": 138684,
+      "mainThreadMs": 37.2,
+      "top": [
+        {
+          "entity": "Other Google APIs/SDKs",
+          "bytes": 101322,
+          "mainThreadMs": 10.2,
+          "byType": {
+            "script": 101322
+          },
+          "typedBytes": 101322
+        },
+        {
+          "entity": "Tealium",
+          "bytes": 37362,
+          "mainThreadMs": 27,
+          "byType": {
+            "script": 37362
+          },
+          "typedBytes": 37362
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 7917.6,
+      "byGroup": {
+        "scriptEvaluation": 4965.9,
+        "other": 1265.9,
+        "styleLayout": 665.1,
+        "paintCompositeRender": 395.1,
+        "scriptParseCompile": 352.8,
+        "garbageCollection": 165.4,
+        "parseHTML": 107.4
+      },
+      "bootupMs": 5133.3,
+      "longTasks": 20,
+      "longestTaskMs": 554
+    },
+    "dom": {
+      "elements": 2203,
+      "depth": 34,
+      "maxChildren": 33
+    },
+    "waste": {
+      "unusedJsBytes": 759123,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 26736,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 0,
+      "renderBlockingCount": 0,
+      "poorlyCachedBytes": 158040.2600558659,
+      "poorlyCachedCount": 28
+    },
+    "accessibility": {
+      "failingCount": 5,
+      "applicableCount": 36,
+      "failingNodes": 7,
+      "failing": [
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "nodes": 2
+        },
+        {
+          "id": "listitem",
+          "title": "List items (`<li>`) are not contained within `<ul>`, `<ol>` or `<menu>` parent elements.",
+          "nodes": 2
+        },
+        {
+          "id": "aria-dialog-name",
+          "title": "Elements with `role=\"dialog\"` or `role=\"alertdialog\"` do not have accessible names.",
+          "nodes": 1
+        },
+        {
+          "id": "list",
+          "title": "Lists do not contain only `<li>` elements and script supporting elements (`<script>` and `<template>`).",
+          "nodes": 1
+        },
+        {
+          "id": "target-size",
+          "title": "Touch targets do not have sufficient size or spacing.",
+          "nodes": 1
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 0,
+      "bfCacheFailures": 3,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 26
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2336,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-09-04T21:23:13.944Z",
+      "runtimeMs": 18873.4
+    }
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-08-06",
+      "last": "2026-09-02"
+    },
+    "metrics": {
+      "rtt": {
+        "p75": 129,
+        "rating": null,
+        "distribution": {
+          "good": 42,
+          "needsImprovement": 49.3,
+          "poor": 8.8
+        }
+      },
+      "cls": {
+        "p75": 0.01,
+        "rating": "good",
+        "distribution": {
+          "good": 97.3,
+          "needsImprovement": 1.4,
+          "poor": 1.3
+        }
+      },
+      "ttfb": {
+        "p75": 808,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 74.6,
+          "needsImprovement": 19.4,
+          "poor": 6
+        }
+      },
+      "fcp": {
+        "p75": 1290,
+        "rating": "good",
+        "distribution": {
+          "good": 86,
+          "needsImprovement": 8.7,
+          "poor": 5.3
+        }
+      },
+      "inp": {
+        "p75": 229,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 70.5,
+          "needsImprovement": 20.8,
+          "poor": 8.7
+        }
+      },
+      "lcp": {
+        "p75": 2489,
+        "rating": "good",
+        "distribution": {
+          "good": 75.2,
+          "needsImprovement": 13.4,
+          "poor": 11.5
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": {
+      "id": "reactrouter",
+      "name": "React Router",
+      "icon": "Reactrouter",
+      "version": null,
+      "source": "dom",
+      "raw": null
+    },
+    "interstitial": null,
+    "host": {
+      "id": "cloudflare",
+      "name": "Cloudflare",
+      "icon": "Cloudflare",
+      "source": "server"
+    },
+    "headers": {
+      "cf-ray": "a3600f317c1ef304-IAD",
+      "server": "cloudflare"
+    },
+    "violations": 12,
+    "passes": 1667,
+    "incomplete": 14,
+    "violationRules": 5,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "image-redundant-alt",
+        "impact": "minor",
+        "nodes": 6,
+        "help": "Alternative text of images should not be repeated as text"
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 2,
+        "help": "Elements must meet minimum color contrast ratio thresholds"
+      },
+      {
+        "id": "listitem",
+        "impact": "serious",
+        "nodes": 2,
+        "help": "<li> elements must be contained in a <ul> or <ol>"
+      },
+      {
+        "id": "aria-dialog-name",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "ARIA dialog and alertdialog nodes should have an accessible name"
+      },
+      {
+        "id": "list",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "<ul> and <ol> must only directly contain <li>, <script> or <template> elements"
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
