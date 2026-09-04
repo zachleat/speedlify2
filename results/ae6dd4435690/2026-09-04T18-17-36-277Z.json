@@ -1,0 +1,367 @@
+{
+  "url": "https://www.netflix.com/",
+  "name": "Netflix",
+  "group": "big-tech",
+  "groupName": "Big Tech",
+  "timestamp": 1788545856277,
+  "date": "2026-09-04T18:17:36.277Z",
+  "runId": "2026-09-04T18-07-23-874Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 63739,
+  "error": null,
+  "variance": {
+    "min": 35,
+    "max": 44,
+    "spread": 9,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://www.netflix.com/",
+    "finalUrl": "https://www.netflix.com/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 43,
+      "accessibility": 87,
+      "best-practices": 73,
+      "seo": 100,
+      "agentic-browsing": 33
+    },
+    "timings": {
+      "fcp": 3230,
+      "lcp": 7072,
+      "si": 3767,
+      "tbt": 1513,
+      "tti": 23438,
+      "cls": 0.042,
+      "ttfb": 668,
+      "maxPotentialFid": 1014,
+      "serverResponseTime": 394,
+      "networkRtt": 17.3,
+      "networkServerLatency": 75.5
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 396.1,
+      "resourceLoadDelay": 41.9,
+      "resourceLoadDuration": 15.9,
+      "elementRenderDelay": 119.8
+    },
+    "weight": {
+      "total": 3396922,
+      "requests": 107,
+      "mainDocument": 96744,
+      "byType": {
+        "total": {
+          "bytes": 3396922,
+          "requests": 107
+        },
+        "script": {
+          "bytes": 1885167,
+          "requests": 22
+        },
+        "font": {
+          "bytes": 715223,
+          "requests": 7
+        },
+        "image": {
+          "bytes": 358837,
+          "requests": 22
+        },
+        "other": {
+          "bytes": 222894,
+          "requests": 42
+        },
+        "document": {
+          "bytes": 170639,
+          "requests": 11
+        },
+        "stylesheet": {
+          "bytes": 44162,
+          "requests": 3
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 3290087,
+          "requests": 94
+        }
+      },
+      "scripts": 22,
+      "stylesheets": 3,
+      "fonts": 7
+    },
+    "thirdParty": {
+      "count": 5,
+      "bytes": 2514540,
+      "mainThreadMs": 891.3,
+      "top": [
+        {
+          "entity": "NetFlix",
+          "bytes": 1471847,
+          "mainThreadMs": 489.5,
+          "byType": {
+            "script": 916002,
+            "other": 205829,
+            "image": 184695,
+            "font": 163546,
+            "stylesheet": 1775
+          },
+          "typedBytes": 1471847
+        },
+        {
+          "entity": "nflxso.net",
+          "bytes": 688682,
+          "mainThreadMs": 0,
+          "byType": {
+            "image": 171705,
+            "font": 516977
+          },
+          "typedBytes": 688682
+        },
+        {
+          "entity": "Google CDN",
+          "bytes": 352779,
+          "mainThreadMs": 399.1,
+          "byType": {
+            "other": 352779
+          },
+          "typedBytes": 352779
+        },
+        {
+          "entity": "Other Google APIs/SDKs",
+          "bytes": 1079,
+          "mainThreadMs": 2.6,
+          "byType": {
+            "script": 1079
+          },
+          "typedBytes": 1079
+        },
+        {
+          "entity": "Optanon",
+          "bytes": 153,
+          "mainThreadMs": 0.1,
+          "byType": {
+            "other": 153
+          },
+          "typedBytes": 153
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 6778.7,
+      "byGroup": {
+        "scriptEvaluation": 3534.2,
+        "other": 1150.1,
+        "scriptParseCompile": 993.2,
+        "styleLayout": 470,
+        "paintCompositeRender": 374.4,
+        "parseHTML": 136.7,
+        "garbageCollection": 120.1
+      },
+      "bootupMs": 4392.2,
+      "longTasks": 18,
+      "longestTaskMs": 1014
+    },
+    "dom": {
+      "elements": 921,
+      "depth": 25,
+      "maxChildren": 33
+    },
+    "waste": {
+      "unusedJsBytes": 764644,
+      "unusedCssBytes": 25847,
+      "legacyJsBytes": 9022,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 1512,
+      "renderBlockingCount": 2,
+      "poorlyCachedBytes": 784741.0677135327,
+      "poorlyCachedCount": 21
+    },
+    "accessibility": {
+      "failingCount": 4,
+      "applicableCount": 24,
+      "failingNodes": 4,
+      "failing": [
+        {
+          "id": "aria-hidden-focus",
+          "title": "`[aria-hidden=\"true\"]` elements contain focusable descendents",
+          "nodes": 1
+        },
+        {
+          "id": "heading-order",
+          "title": "Heading elements are not in a sequentially-descending order",
+          "nodes": 1
+        },
+        {
+          "id": "meta-viewport",
+          "title": "`[user-scalable=\"no\"]` is used in the `<meta name=\"viewport\">` element or the `[maximum-scale]` attribute is less than 5.",
+          "nodes": 1
+        },
+        {
+          "id": "landmark-one-main",
+          "title": "Document does not have a main landmark.",
+          "nodes": 1
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 0,
+      "bfCacheFailures": 3,
+      "protocol": "h2",
+      "legacyHttpRequests": 23,
+      "redirectMs": 0,
+      "consoleErrors": 1,
+      "baselineLimitedFeatures": 39
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2304.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-09-04T18:17:57.067Z",
+      "runtimeMs": 18408.7
+    }
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-08-06",
+      "last": "2026-09-02"
+    },
+    "metrics": {
+      "lcp": {
+        "p75": 1891,
+        "rating": "good",
+        "distribution": {
+          "good": 85.2,
+          "needsImprovement": 9.5,
+          "poor": 5.3
+        }
+      },
+      "rtt": {
+        "p75": 168,
+        "rating": null,
+        "distribution": {
+          "good": 39.3,
+          "needsImprovement": 47.5,
+          "poor": 13.3
+        }
+      },
+      "cls": {
+        "p75": 0,
+        "rating": "good",
+        "distribution": {
+          "good": 96.9,
+          "needsImprovement": 2,
+          "poor": 1
+        }
+      },
+      "ttfb": {
+        "p75": 906,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 68.1,
+          "needsImprovement": 26.4,
+          "poor": 5.5
+        }
+      },
+      "fcp": {
+        "p75": 1658,
+        "rating": "good",
+        "distribution": {
+          "good": 78.7,
+          "needsImprovement": 13.8,
+          "poor": 7.5
+        }
+      },
+      "inp": {
+        "p75": 154,
+        "rating": "good",
+        "distribution": {
+          "good": 81.4,
+          "needsImprovement": 13.3,
+          "poor": 5.3
+        }
+      }
+    },
+    "cwvPass": true,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "interstitial": null,
+    "host": {
+      "id": "self-hosted",
+      "name": "Self-hosted",
+      "icon": null,
+      "detail": "Envoy",
+      "detailIcon": "Envoyproxy",
+      "source": "server"
+    },
+    "headers": {
+      "server": "envoy",
+      "via": "2 i-0e5cbec446703bb36 (us-east-2), 1.1 c000.mia006.ix.nflxvideo.net (FTL-L4-C2Zn)"
+    },
+    "violations": 18,
+    "passes": 1098,
+    "incomplete": 38,
+    "violationRules": 6,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 13,
+        "help": "All page content should be contained by landmarks"
+      },
+      {
+        "id": "aria-hidden-focus",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "ARIA hidden element must not be focusable or contain focusable elements"
+      },
+      {
+        "id": "heading-order",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Heading levels should only increase by one"
+      },
+      {
+        "id": "landmark-one-main",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Document should have one main landmark"
+      },
+      {
+        "id": "landmark-unique",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination"
+      },
+      {
+        "id": "meta-viewport",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Zooming and scaling must not be disabled"
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
