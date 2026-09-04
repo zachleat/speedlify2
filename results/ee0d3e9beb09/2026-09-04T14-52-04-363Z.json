@@ -1,0 +1,307 @@
+{
+  "url": "https://colorjs.io/",
+  "name": "colorjs.io",
+  "group": "11ty-community",
+  "groupName": "Built Awesome",
+  "timestamp": 1788533524363,
+  "date": "2026-09-04T14:52:04.363Z",
+  "runId": "2026-09-04T14-48-28-825Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 2,
+  "durationMs": 33317,
+  "error": null,
+  "partialErrors": [
+    "ERRORED_DOCUMENT_REQUEST: Lighthouse was unable to reliably load the page you requested. Make sure you are testing the correct URL and that the server is properly responding to all requests. (Status code: 403)"
+  ],
+  "variance": {
+    "min": 71,
+    "max": 90,
+    "spread": 19,
+    "runs": 2
+  },
+  "lab": {
+    "requestedUrl": "https://colorjs.io/",
+    "finalUrl": "https://colorjs.io/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 71,
+      "accessibility": 66,
+      "best-practices": 100,
+      "seo": 73,
+      "agentic-browsing": 47
+    },
+    "timings": {
+      "fcp": 3595,
+      "lcp": 4669,
+      "si": 5081,
+      "tbt": 70,
+      "tti": 4669,
+      "cls": 0.086,
+      "ttfb": 671,
+      "maxPotentialFid": 70,
+      "serverResponseTime": 36,
+      "networkRtt": 68.7,
+      "networkServerLatency": 382.4
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 110.2,
+      "elementRenderDelay": 2229.4
+    },
+    "weight": {
+      "total": 385046,
+      "requests": 161,
+      "mainDocument": 5599,
+      "byType": {
+        "total": {
+          "bytes": 385046,
+          "requests": 161
+        },
+        "script": {
+          "bytes": 239303,
+          "requests": 140
+        },
+        "font": {
+          "bytes": 104077,
+          "requests": 3
+        },
+        "image": {
+          "bytes": 26424,
+          "requests": 8
+        },
+        "stylesheet": {
+          "bytes": 9542,
+          "requests": 8
+        },
+        "document": {
+          "bytes": 5599,
+          "requests": 1
+        },
+        "other": {
+          "bytes": 101,
+          "requests": 1
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 221841,
+          "requests": 33
+        }
+      },
+      "scripts": 140,
+      "stylesheets": 8,
+      "fonts": 3
+    },
+    "thirdParty": {
+      "count": 7,
+      "bytes": 221841,
+      "mainThreadMs": 0,
+      "top": [
+        {
+          "entity": "Google Fonts",
+          "bytes": 105712,
+          "mainThreadMs": 0,
+          "byType": {
+            "font": 104077,
+            "stylesheet": 1635
+          },
+          "typedBytes": 105712
+        },
+        {
+          "entity": "JSDelivr CDN",
+          "bytes": 70813,
+          "mainThreadMs": 0,
+          "byType": {
+            "script": 70813
+          },
+          "typedBytes": 70813
+        },
+        {
+          "entity": "blissfuljs.com",
+          "bytes": 14079,
+          "mainThreadMs": 0,
+          "byType": {
+            "script": 14079
+          },
+          "typedBytes": 14079
+        },
+        {
+          "entity": "opencollective.com",
+          "bytes": 12901,
+          "mainThreadMs": 0,
+          "byType": {
+            "image": 12901
+          },
+          "typedBytes": 12901
+        },
+        {
+          "entity": "prismjs.com",
+          "bytes": 10457,
+          "mainThreadMs": 0,
+          "byType": {
+            "script": 9493,
+            "stylesheet": 964
+          },
+          "typedBytes": 10457
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 2447,
+      "byGroup": {
+        "other": 1008.9,
+        "paintCompositeRender": 752.5,
+        "styleLayout": 514.9,
+        "scriptEvaluation": 126,
+        "parseHTML": 27.2,
+        "scriptParseCompile": 17.5
+      },
+      "bootupMs": 123.4,
+      "longTasks": 2,
+      "longestTaskMs": 123
+    },
+    "dom": {
+      "elements": 908,
+      "depth": 8,
+      "maxChildren": 52
+    },
+    "waste": {
+      "unusedJsBytes": 42592,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 0,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 33578,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 949,
+      "renderBlockingCount": 7,
+      "poorlyCachedBytes": 21972.033333333336,
+      "poorlyCachedCount": 12
+    },
+    "accessibility": {
+      "failingCount": 5,
+      "applicableCount": 18,
+      "failingNodes": 28,
+      "failing": [
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "nodes": 24
+        },
+        {
+          "id": "heading-order",
+          "title": "Heading elements are not in a sequentially-descending order",
+          "nodes": 1
+        },
+        {
+          "id": "html-has-lang",
+          "title": "`<html>` element does not have a `[lang]` attribute",
+          "nodes": 1
+        },
+        {
+          "id": "image-alt",
+          "title": "Image elements do not have `[alt]` attributes",
+          "nodes": 1
+        },
+        {
+          "id": "link-name",
+          "title": "Links do not have a discernible name",
+          "nodes": 1
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 0,
+      "bfCacheFailures": 2,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 26
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2501.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-09-04T14:52:05.656Z",
+      "runtimeMs": 11273.5
+    }
+  },
+  "field": null,
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "interstitial": null,
+    "host": {
+      "id": "netlify",
+      "name": "Netlify",
+      "icon": "Netlify",
+      "source": "x-nf-request-id"
+    },
+    "headers": {
+      "server": "Netlify",
+      "x-nf-request-id": "01M1PEGEMFCQK9CH4YVSQEYXEG"
+    },
+    "violations": 40,
+    "passes": 1164,
+    "incomplete": 305,
+    "violationRules": 7,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 24,
+        "help": "Elements must meet minimum color contrast ratio thresholds"
+      },
+      {
+        "id": "scrollable-region-focusable",
+        "impact": "serious",
+        "nodes": 11,
+        "help": "Scrollable region must have keyboard access"
+      },
+      {
+        "id": "heading-order",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Heading levels should only increase by one"
+      },
+      {
+        "id": "html-has-lang",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "<html> element must have a lang attribute"
+      },
+      {
+        "id": "image-alt",
+        "impact": "critical",
+        "nodes": 1,
+        "help": "Images must have alternative text"
+      },
+      {
+        "id": "landmark-unique",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination"
+      },
+      {
+        "id": "link-name",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "Links must have discernible text"
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
