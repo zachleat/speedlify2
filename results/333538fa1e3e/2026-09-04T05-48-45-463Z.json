@@ -1,0 +1,228 @@
+{
+  "url": "https://benediktmeurer.de/",
+  "name": "benediktmeurer.de",
+  "group": "11ty-community",
+  "groupName": "Built Awesome",
+  "timestamp": 1788500925463,
+  "date": "2026-09-04T05:48:45.463Z",
+  "runId": "2026-09-04T05-36-46-488Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 22762,
+  "error": null,
+  "variance": {
+    "min": 93,
+    "max": 93,
+    "spread": 0,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://benediktmeurer.de/",
+    "finalUrl": "https://benediktmeurer.de/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 93,
+      "accessibility": 81,
+      "best-practices": 100,
+      "seo": 100,
+      "agentic-browsing": 37
+    },
+    "timings": {
+      "fcp": 818,
+      "lcp": 818,
+      "si": 818,
+      "tbt": 0,
+      "tti": 818,
+      "cls": 0.161,
+      "ttfb": 630,
+      "maxPotentialFid": 16,
+      "serverResponseTime": 30,
+      "networkRtt": 0,
+      "networkServerLatency": 29.9
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 31.4,
+      "elementRenderDelay": 69.9
+    },
+    "weight": {
+      "total": 181221,
+      "requests": 10,
+      "mainDocument": 3948,
+      "byType": {
+        "total": {
+          "bytes": 180188,
+          "requests": 9
+        },
+        "font": {
+          "bytes": 112385,
+          "requests": 3
+        },
+        "other": {
+          "bytes": 60170,
+          "requests": 3
+        },
+        "document": {
+          "bytes": 3948,
+          "requests": 1
+        },
+        "stylesheet": {
+          "bytes": 3120,
+          "requests": 1
+        },
+        "script": {
+          "bytes": 565,
+          "requests": 1
+        },
+        "image": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 0,
+          "requests": 0
+        }
+      },
+      "scripts": 1,
+      "stylesheets": 1,
+      "fonts": 3
+    },
+    "thirdParty": {
+      "count": 0,
+      "bytes": 0,
+      "mainThreadMs": 0,
+      "top": []
+    },
+    "mainThread": {
+      "total": 230.3,
+      "byGroup": {
+        "other": 109.7,
+        "styleLayout": 79.2,
+        "paintCompositeRender": 19.1,
+        "scriptEvaluation": 12.8,
+        "parseHTML": 8.7,
+        "scriptParseCompile": 0.9
+      },
+      "bootupMs": 7.4,
+      "longTasks": 0,
+      "longestTaskMs": null
+    },
+    "dom": {
+      "elements": 192,
+      "depth": 8,
+      "maxChildren": 10
+    },
+    "waste": {
+      "unusedJsBytes": 0,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 0,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 0,
+      "renderBlockingCount": 1,
+      "poorlyCachedBytes": 0,
+      "poorlyCachedCount": 0
+    },
+    "accessibility": {
+      "failingCount": 3,
+      "applicableCount": 18,
+      "failingNodes": 48,
+      "failing": [
+        {
+          "id": "link-in-text-block",
+          "title": "Links rely on color to be distinguishable.",
+          "nodes": 29
+        },
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "nodes": 18
+        },
+        {
+          "id": "label",
+          "title": "Form elements do not have associated labels",
+          "nodes": 1
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 5
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2312,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-09-04T05:49:00.963Z",
+      "runtimeMs": 6238.3
+    }
+  },
+  "field": null,
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "interstitial": null,
+    "host": {
+      "id": "netlify",
+      "name": "Netlify",
+      "icon": "Netlify",
+      "source": "x-nf-request-id"
+    },
+    "headers": {
+      "server": "Netlify",
+      "x-nf-request-id": "01M1NFD6N5QJA9TPMC34973W16"
+    },
+    "violations": 49,
+    "passes": 344,
+    "incomplete": 2,
+    "violationRules": 4,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "link-in-text-block",
+        "impact": "serious",
+        "nodes": 29,
+        "help": "Links must be distinguishable without relying on color"
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 18,
+        "help": "Elements must meet minimum color contrast ratio thresholds"
+      },
+      {
+        "id": "label",
+        "impact": "critical",
+        "nodes": 1,
+        "help": "Form elements must have labels"
+      },
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "All page content should be contained by landmarks"
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
