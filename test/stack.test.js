@@ -539,3 +539,42 @@ describe("Angular", () => {
 		assert.equal(found.version, null, "a mark carries no version unless the page offers one");
 	});
 });
+
+describe("htmx", () => {
+	test("is detected from the global, with the version it carries", () => {
+		const probe = withDom("", pageProbe, { htmx: { version: "1.9.5" } });
+		assert.ok(probe.marks.includes("htmx"));
+		assert.equal(probe.markVersions.htmx, "1.9.5");
+
+		// ollama.com: no generator tag, no framework marker, htmx behind a
+		// self-hosted bundle.
+		const found = detectGenerator(probe, {});
+		assert.equal(found.name, "htmx");
+		assert.equal(found.version, "1.9.5");
+		assert.equal(found.source, "dom");
+	});
+
+	test("an element named htmx is not the library", () => {
+		// `id="htmx"` puts the element on `window.htmx` by itself, and a page
+		// about htmx is exactly where someone writes that id.
+		const probe = withDom("", pageProbe, { htmx: { tagName: "DIV" } });
+		assert.ok(!probe.marks.includes("htmx"));
+	});
+
+	test("the attributes stand in when the global is absent", () => {
+		// A build that exports the module without touching `window` still has to
+		// put the attributes in the markup for htmx to do anything at all.
+		const found = detectGenerator({ metas: [], marks: ["htmx"] }, {});
+		assert.equal(found.name, "htmx");
+		assert.equal(found.version, null);
+	});
+
+	test("anything the site says about itself wins", () => {
+		// A last resort, like Vite: htmx is what a page uses, not what built it,
+		// so any generator tag — even one we do not recognize — outranks it.
+		const withMeta = (metas) => detectGenerator({ metas, marks: ["htmx"] }, {});
+		assert.equal(withMeta(["Hugo 0.120.0"])?.id, "hugo");
+		assert.equal(withMeta(["Some Unknown CMS 2.1"])?.name, "Some Unknown CMS");
+		assert.equal(detectGenerator({ metas: [], marks: ["nuxt", "htmx"] }, {})?.id, "nuxt");
+	});
+});
