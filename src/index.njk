@@ -233,6 +233,14 @@ permalink: /index.html
 						<span title="{{ entry.displayUrl }}">{{ entry.displayUrl }}</span>
 					</a>
 					{% if entry.latest %}<span class="updated-tag {{ 'stale-age' if entry.dataStale }}" title="Measured {{ entry.latest.date | date('long') }}"><time datetime="{{ entry.latest.date | iso }}">{{ entry.latest.date | since }}</time></span>{% else %}<span class="updated-tag never">never</span>{% endif %}
+					{#
+						Straight after the name, ahead of the other badges: it is the
+						one thing on the row that is news rather than a caveat, and the
+						same sites are listed on the stat bar's "Newly perfect" card —
+						`entry.newlyPerfect` is that card's own rule, so a site cannot
+						wear the pill without appearing there.
+					#}
+					{% if entry.newlyPerfect %}<span class="badge badge-new" title="Reached perfect scores in the last {{ sites.stats.newlyPerfectWindowHours }} hours — its previous measurement was not perfect">new</span>{% endif %}
 					{% if entry.currentlyFailing %}<span class="badge badge-error" title="{{ entry.lastError }}">failing</span>{% endif %}
 					{% if entry.redirectTo and entry.redirectTo != entry.url %}<span class="badge badge-redirect" title="Measured through a redirect to {{ entry.redirectTo }}{% if entry.redirectConfirmed %} — confirmed, so history will follow it{% else %} — {{ entry.redirectReason }}{% endif %}">&#8618; redirect</span>
 					{% elif entry.canonicalUrl %}<span class="badge badge-redirect" title="Measured through a redirect to {{ entry.canonicalUrl }} — the site's canonical form of this URL">&#8618; redirect</span>{% endif %}
