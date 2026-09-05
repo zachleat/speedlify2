@@ -1,0 +1,237 @@
+{
+  "url": "https://ninerakes.com/",
+  "name": "ninerakes.com",
+  "group": "11ty-community",
+  "groupName": "Built Awesome",
+  "timestamp": 1788648224262,
+  "date": "2026-09-05T22:43:44.262Z",
+  "runId": "2026-09-05T22-38-58-190Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 1,
+  "durationMs": 16718,
+  "error": null,
+  "partialErrors": [
+    "ERRORED_DOCUMENT_REQUEST: Lighthouse was unable to reliably load the page you requested. Make sure you are testing the correct URL and that the server is properly responding to all requests. (Status code: 429)",
+    "ERRORED_DOCUMENT_REQUEST: Lighthouse was unable to reliably load the page you requested. Make sure you are testing the correct URL and that the server is properly responding to all requests. (Status code: 429)"
+  ],
+  "variance": null,
+  "lab": {
+    "requestedUrl": "https://ninerakes.com/",
+    "finalUrl": "https://www.ninerakes.com/",
+    "redirect": {
+      "from": "https://ninerakes.com/",
+      "to": "https://www.ninerakes.com/",
+      "chain": [
+        {
+          "url": "https://ninerakes.com/",
+          "status": 307
+        },
+        {
+          "url": "https://www.ninerakes.com/",
+          "status": 200
+        }
+      ],
+      "statuses": [
+        307
+      ],
+      "change": "host",
+      "permanent": false,
+      "schemeUpgrade": false,
+      "hops": 1
+    },
+    "statusCode": "ok",
+    "scores": {
+      "performance": 98,
+      "accessibility": 83,
+      "best-practices": 100,
+      "seo": 100,
+      "agentic-browsing": 100
+    },
+    "timings": {
+      "fcp": 1665,
+      "lcp": 2296,
+      "si": 1665,
+      "tbt": 0,
+      "tti": 2296,
+      "cls": 0,
+      "ttfb": 609,
+      "maxPotentialFid": 16,
+      "serverResponseTime": 2,
+      "networkRtt": 0,
+      "networkServerLatency": 31.3
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 10.6,
+      "elementRenderDelay": 62.8
+    },
+    "weight": {
+      "total": 72340,
+      "requests": 10,
+      "mainDocument": 3715,
+      "byType": {
+        "total": {
+          "bytes": 68990,
+          "requests": 9
+        },
+        "script": {
+          "bytes": 55220,
+          "requests": 4
+        },
+        "stylesheet": {
+          "bytes": 9476,
+          "requests": 2
+        },
+        "document": {
+          "bytes": 3715,
+          "requests": 1
+        },
+        "image": {
+          "bytes": 434,
+          "requests": 1
+        },
+        "other": {
+          "bytes": 145,
+          "requests": 1
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "font": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 12496,
+          "requests": 3
+        }
+      },
+      "scripts": 4,
+      "stylesheets": 2,
+      "fonts": 0
+    },
+    "thirdParty": {
+      "count": 2,
+      "bytes": 12496,
+      "mainThreadMs": 2,
+      "top": [
+        {
+          "entity": "JSDelivr CDN",
+          "bytes": 9306,
+          "mainThreadMs": 0.5,
+          "byType": {
+            "script": 9306
+          },
+          "typedBytes": 9306
+        },
+        {
+          "entity": "Fathom Analytics",
+          "bytes": 3190,
+          "mainThreadMs": 1.5,
+          "byType": {
+            "script": 2756,
+            "image": 434
+          },
+          "typedBytes": 3190
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 206.3,
+      "byGroup": {
+        "other": 73.5,
+        "styleLayout": 51.1,
+        "scriptEvaluation": 49.6,
+        "scriptParseCompile": 16.2,
+        "parseHTML": 8.6,
+        "paintCompositeRender": 7.4
+      },
+      "bootupMs": 12.4,
+      "longTasks": 0,
+      "longestTaskMs": null
+    },
+    "dom": {
+      "elements": 90,
+      "depth": 10,
+      "maxChildren": 8
+    },
+    "waste": {
+      "unusedJsBytes": 0,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 0,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 7170,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 150,
+      "renderBlockingCount": 3,
+      "poorlyCachedBytes": 930.5999999999998,
+      "poorlyCachedCount": 1
+    },
+    "accessibility": {
+      "failingCount": 2,
+      "applicableCount": 11,
+      "failingNodes": 2,
+      "failing": [
+        {
+          "id": "meta-viewport",
+          "title": "`[user-scalable=\"no\"]` is used in the `<meta name=\"viewport\">` element or the `[maximum-scale]` attribute is less than 5.",
+          "nodes": 1
+        },
+        {
+          "id": "landmark-one-main",
+          "title": "Document does not have a main landmark.",
+          "nodes": 1
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 755.9,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 10
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2969,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-09-05T22:43:53.661Z",
+      "runtimeMs": 5731.1
+    }
+  },
+  "field": null,
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "interstitial": "Vercel Security Checkpoint",
+    "host": {
+      "id": "vercel",
+      "name": "Vercel",
+      "icon": "Vercel",
+      "source": "x-vercel-id"
+    },
+    "headers": {
+      "server": "Vercel",
+      "x-vercel-id": "iad1::1788648239-5k9wsNGlAozBtzXXoL3k1eIEUIq1rUXC"
+    },
+    "violations": null,
+    "passes": null,
+    "incomplete": null,
+    "violationRules": null,
+    "version": "4.13.0",
+    "top": [],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
