@@ -1,0 +1,354 @@
+{
+  "url": "https://www.duda.co/",
+  "name": "Duda",
+  "group": "builders",
+  "groupName": "Website Builders",
+  "timestamp": 1788713567786,
+  "date": "2026-09-06T16:52:47.786Z",
+  "runId": "2026-09-06T16-45-24-261Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 1,
+  "durationMs": 367072,
+  "error": null,
+  "partialErrors": [
+    "lighthouse timed out after 120000ms",
+    "The \"start lh:gather:getBenchmarkIndex\" performance mark has not been set"
+  ],
+  "variance": null,
+  "lab": {
+    "requestedUrl": "https://www.duda.co/",
+    "finalUrl": "https://www.duda.co/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 25,
+      "accessibility": 93,
+      "best-practices": 73,
+      "seo": 92,
+      "agentic-browsing": 50
+    },
+    "timings": {
+      "fcp": 15438,
+      "lcp": 27430,
+      "si": 29690,
+      "tbt": 78881,
+      "tti": 108293,
+      "cls": 0,
+      "ttfb": 629,
+      "maxPotentialFid": 2036,
+      "serverResponseTime": 26,
+      "networkRtt": 53.3,
+      "networkServerLatency": 180.9
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 28.6,
+      "resourceLoadDelay": 439.7,
+      "resourceLoadDuration": 18.4,
+      "elementRenderDelay": 1718.1
+    },
+    "weight": {
+      "total": 11668613,
+      "requests": 370,
+      "mainDocument": 74064,
+      "byType": {
+        "total": {
+          "bytes": 11662637,
+          "requests": 224
+        },
+        "other": {
+          "bytes": 7718736,
+          "requests": 59
+        },
+        "script": {
+          "bytes": 2751659,
+          "requests": 85
+        },
+        "image": {
+          "bytes": 620504,
+          "requests": 54
+        },
+        "font": {
+          "bytes": 391351,
+          "requests": 11
+        },
+        "stylesheet": {
+          "bytes": 105098,
+          "requests": 13
+        },
+        "document": {
+          "bytes": 75289,
+          "requests": 2
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 11584689,
+          "requests": 220
+        }
+      },
+      "scripts": 85,
+      "stylesheets": 13,
+      "fonts": 12
+    },
+    "thirdParty": {
+      "count": 32,
+      "bytes": 11223201,
+      "mainThreadMs": 2984.2,
+      "top": [
+        {
+          "entity": "cdn-website.com",
+          "bytes": 7923941,
+          "mainThreadMs": 68.8,
+          "byType": {
+            "image": 612134,
+            "script": 252776,
+            "other": 6746755,
+            "font": 243094,
+            "stylesheet": 69182
+          },
+          "typedBytes": 7923941
+        },
+        {
+          "entity": "Unpkg",
+          "bytes": 966433,
+          "mainThreadMs": 1273.7,
+          "byType": {
+            "script": 98108,
+            "other": 868325
+          },
+          "typedBytes": 966433
+        },
+        {
+          "entity": "Google Tag Manager",
+          "bytes": 692552,
+          "mainThreadMs": 250.7,
+          "byType": {
+            "script": 692552
+          },
+          "typedBytes": 692552
+        },
+        {
+          "entity": "audioeye.com",
+          "bytes": 296199,
+          "mainThreadMs": 981.9,
+          "byType": {
+            "script": 280401,
+            "stylesheet": 15736,
+            "other": 62
+          },
+          "typedBytes": 296199
+        },
+        {
+          "entity": "multiscreensite.com",
+          "bytes": 247252,
+          "mainThreadMs": 0.1,
+          "byType": {
+            "script": 183309,
+            "font": 63439,
+            "other": 504
+          },
+          "typedBytes": 247252
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 176281.3,
+      "byGroup": {
+        "other": 155184.8,
+        "scriptEvaluation": 18328.5,
+        "styleLayout": 1273.1,
+        "scriptParseCompile": 561.2,
+        "paintCompositeRender": 489.6,
+        "garbageCollection": 335.2,
+        "parseHTML": 108.9
+      },
+      "bootupMs": 18263.4,
+      "longTasks": 20,
+      "longestTaskMs": 2036
+    },
+    "dom": {
+      "elements": 1567,
+      "depth": 31,
+      "maxChildren": 55
+    },
+    "waste": {
+      "unusedJsBytes": 935386,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 53856,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 86658,
+      "unminifiedCssBytes": 7210,
+      "renderBlockingMs": 11819,
+      "renderBlockingCount": 10,
+      "poorlyCachedBytes": 699314.71,
+      "poorlyCachedCount": 35
+    },
+    "accessibility": {
+      "failingCount": 3,
+      "applicableCount": 30,
+      "failingNodes": 5,
+      "failing": [
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "nodes": 2
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "title": "Elements with visible text labels do not have matching accessible names.",
+          "nodes": 2
+        },
+        {
+          "id": "link-name",
+          "title": "Links do not have a discernible name",
+          "nodes": 1
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 2,
+      "baselineLimitedFeatures": 75
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 3068,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-09-06T16:54:51.781Z",
+      "runtimeMs": 120106.3
+    }
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-08-08",
+      "last": "2026-09-04"
+    },
+    "metrics": {
+      "ttfb": {
+        "p75": 1054,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 62.4,
+          "needsImprovement": 27.5,
+          "poor": 10.1
+        }
+      },
+      "fcp": {
+        "p75": 2307,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 64.4,
+          "needsImprovement": 22.3,
+          "poor": 13.3
+        }
+      },
+      "inp": {
+        "p75": 282,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 64.8,
+          "needsImprovement": 25.8,
+          "poor": 9.4
+        }
+      },
+      "lcp": {
+        "p75": 2628,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 71.6,
+          "needsImprovement": 16.8,
+          "poor": 11.7
+        }
+      },
+      "rtt": {
+        "p75": 162,
+        "rating": null,
+        "distribution": {
+          "good": 36.9,
+          "needsImprovement": 51.8,
+          "poor": 11.4
+        }
+      },
+      "cls": {
+        "p75": 0.02,
+        "rating": "good",
+        "distribution": {
+          "good": 89.4,
+          "needsImprovement": 7,
+          "poor": 3.6
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": true,
+    "generator": null,
+    "interstitial": null,
+    "host": {
+      "id": "self-hosted",
+      "name": "Self-hosted",
+      "icon": null,
+      "detail": "nginx",
+      "detailIcon": "Nginx",
+      "source": "server"
+    },
+    "headers": {
+      "server": "nginx",
+      "via": "1.1 3e9aa8a6ace9483e7f68e0efee5ef228.cloudfront.net (CloudFront)",
+      "x-amz-cf-id": "wf6G14aiuJqm2BPHsgtQMJjecEQMZdfYgDBcBFN062zGCBoO5u647w=="
+    },
+    "violations": 5,
+    "passes": 1833,
+    "incomplete": 12,
+    "violationRules": 4,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 2,
+        "help": "Elements must meet minimum color contrast ratio thresholds"
+      },
+      {
+        "id": "link-name",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "Links must have discernible text"
+      },
+      {
+        "id": "nested-interactive",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "Interactive controls must not be nested"
+      },
+      {
+        "id": "page-has-heading-one",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Page should contain a level-one heading"
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
