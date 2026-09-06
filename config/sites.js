@@ -134,10 +134,8 @@ const PINNED = pinned.urls;
  * reconstruct.
  */
 
-/** Hand-maintained handfuls: measured daily, stale after two days. */
-const DAILY = { freshnessHours: 24, staleAfterHours: 48 };
-
-/** The big imported lists: weekly, stale after a fortnight. */
+// const DAILY = { freshnessHours: 24, staleAfterHours: 24 * 2 };
+const EVERY_OTHER_DAY = { freshnessHours: 24 * 2, staleAfterHours: 24 * 3 };
 const WEEKLY = { freshnessHours: 24 * 7, staleAfterHours: 24 * 7 * 2 };
 
 /**
@@ -562,7 +560,7 @@ export default {
 			enabled: true,
 			description:
 				"Model labs, coding agents, and the infrastructure that serves them.",
-			...DAILY,
+			...EVERY_OTHER_DAY,
 			/*
 			 * Polite, like Big Tech: these are commercial sites that did not ask to
 			 * be measured, and several of them are already behind bot protection.
@@ -578,7 +576,7 @@ export default {
 			enabled: true,
 			description:
 				"Site generators, test runners, package managers, web hosts and AI together.",
-			...DAILY,
+			...EVERY_OTHER_DAY,
 			sites: [
 				...SSG_SITES,
 				...TEST_RUNNER_SITES,
@@ -612,7 +610,7 @@ export default {
 			enabled: true,
 			description:
 				"The largest technology companies by market capitalization.",
-			...DAILY,
+			...EVERY_OTHER_DAY,
 			...POLITE,
 			sites: BIG_TECH_SITES,
 		},
@@ -623,7 +621,7 @@ export default {
 			name: "Site Generators",
 			enabled: true,
 			description: "Popular site generators and frameworks.",
-			...DAILY,
+			...EVERY_OTHER_DAY,
 			// The list from https://www.speedlify.dev/ssg/, in its order.
 			sites: SSG_SITES,
 		},
@@ -635,7 +633,7 @@ export default {
 			enabled: true,
 			description:
 				"Tools that developers use to build the frontends of websites.",
-			...DAILY,
+			...EVERY_OTHER_DAY,
 
 			sites: FRAMEWORK_SITES,
 		},
@@ -645,7 +643,7 @@ export default {
 			name: "Test Runners",
 			enabled: true,
 			description: "Test runners, linters, and other testing tools.",
-			...DAILY,
+			...EVERY_OTHER_DAY,
 
 
 			sites: TEST_RUNNER_SITES,
@@ -657,7 +655,7 @@ export default {
 			enabled: true,
 			description:
 				"Package browsers: the searchable front ends to package registries.",
-			...DAILY,
+			...EVERY_OTHER_DAY,
 			sites: PACKAGE_MANAGER_SITES,
 		},
 
@@ -668,7 +666,7 @@ export default {
 			enabled: true,
 			description:
 				"Web hosting and deployment platforms.",
-			...DAILY,
+			...EVERY_OTHER_DAY,
 			sites: HOST_SITES,
 		},
 
@@ -679,7 +677,7 @@ export default {
 			enabled: true,
 			description:
 				"Hosted tools that help nontechnical users build and serve websites.",
-			...DAILY,
+			...EVERY_OTHER_DAY,
 			sites: [
 				{ name: "WordPress.com", url: "https://wordpress.com/" },
 				{ name: "Shopify", url: "https://www.shopify.com/" },
