@@ -1,0 +1,261 @@
+{
+  "url": "https://fffuel.co/",
+  "name": "fffuel.co",
+  "group": "11ty-community",
+  "groupName": "Built Awesome",
+  "timestamp": 1788595771595,
+  "date": "2026-09-05T08:09:31.595Z",
+  "runId": "2026-09-05T08-04-32-655Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 25536,
+  "error": null,
+  "variance": {
+    "min": 81,
+    "max": 87,
+    "spread": 6,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://fffuel.co/",
+    "finalUrl": "https://www.fffuel.co/",
+    "redirect": {
+      "from": "https://fffuel.co/",
+      "to": "https://www.fffuel.co/",
+      "chain": [
+        {
+          "url": "https://fffuel.co/",
+          "status": 308
+        },
+        {
+          "url": "https://www.fffuel.co/",
+          "status": 200
+        }
+      ],
+      "statuses": [
+        308
+      ],
+      "change": "host",
+      "permanent": true,
+      "schemeUpgrade": false,
+      "hops": 1
+    },
+    "statusCode": "ok",
+    "scores": {
+      "performance": 87,
+      "accessibility": 92,
+      "best-practices": 100,
+      "seo": 100,
+      "agentic-browsing": 50
+    },
+    "timings": {
+      "fcp": 2358,
+      "lcp": 3640,
+      "si": 2358,
+      "tbt": 0,
+      "tti": 3700,
+      "cls": 0.008,
+      "ttfb": 500,
+      "maxPotentialFid": 22,
+      "serverResponseTime": 33,
+      "networkRtt": 0,
+      "networkServerLatency": 98.4
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 76.7,
+      "resourceLoadDelay": 68.2,
+      "resourceLoadDuration": 67.7,
+      "elementRenderDelay": 111.6
+    },
+    "weight": {
+      "total": 442838,
+      "requests": 77,
+      "mainDocument": 8926,
+      "byType": {
+        "total": {
+          "bytes": 435879,
+          "requests": 76
+        },
+        "image": {
+          "bytes": 328700,
+          "requests": 65
+        },
+        "font": {
+          "bytes": 49883,
+          "requests": 1
+        },
+        "script": {
+          "bytes": 30597,
+          "requests": 3
+        },
+        "stylesheet": {
+          "bytes": 14776,
+          "requests": 2
+        },
+        "document": {
+          "bytes": 8926,
+          "requests": 1
+        },
+        "other": {
+          "bytes": 2997,
+          "requests": 4
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 12644,
+          "requests": 3
+        }
+      },
+      "scripts": 3,
+      "stylesheets": 2,
+      "fonts": 1
+    },
+    "thirdParty": {
+      "count": 2,
+      "bytes": 12644,
+      "mainThreadMs": 5,
+      "top": [
+        {
+          "entity": "Cloudflare",
+          "bytes": 10212,
+          "mainThreadMs": 3.3,
+          "byType": {
+            "script": 10212
+          },
+          "typedBytes": 10212
+        },
+        {
+          "entity": "Plausible",
+          "bytes": 2432,
+          "mainThreadMs": 1.7,
+          "byType": {
+            "script": 1913,
+            "other": 519
+          },
+          "typedBytes": 2432
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 1020,
+      "byGroup": {
+        "other": 583.6,
+        "styleLayout": 260.3,
+        "paintCompositeRender": 76.1,
+        "scriptEvaluation": 66.4,
+        "parseHTML": 18.5,
+        "garbageCollection": 8.3,
+        "scriptParseCompile": 6.8
+      },
+      "bootupMs": 11.2,
+      "longTasks": 1,
+      "longestTaskMs": 80
+    },
+    "dom": {
+      "elements": 336,
+      "depth": 8,
+      "maxChildren": 68
+    },
+    "waste": {
+      "unusedJsBytes": 0,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 10708,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 850,
+      "renderBlockingCount": 2,
+      "poorlyCachedBytes": 4084.8,
+      "poorlyCachedCount": 1
+    },
+    "accessibility": {
+      "failingCount": 2,
+      "applicableCount": 17,
+      "failingNodes": 2,
+      "failing": [
+        {
+          "id": "aria-prohibited-attr",
+          "title": "Elements use prohibited ARIA attributes",
+          "nodes": 1
+        },
+        {
+          "id": "landmark-one-main",
+          "title": "Document does not have a main landmark.",
+          "nodes": 1
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h3",
+      "legacyHttpRequests": 0,
+      "redirectMs": 790.5,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 18
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 3313.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-09-05T08:09:41.375Z",
+      "runtimeMs": 7213.4
+    }
+  },
+  "field": null,
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "interstitial": null,
+    "host": {
+      "id": "vercel",
+      "name": "Vercel",
+      "icon": "Vercel",
+      "source": "x-vercel-id"
+    },
+    "headers": {
+      "cf-ray": "a363c129ef9b3a69-LAX",
+      "server": "cloudflare",
+      "x-vercel-id": "sfo1::hvjgq-1788595795520-6ebfc5a7e50f"
+    },
+    "violations": 73,
+    "passes": 595,
+    "incomplete": 135,
+    "violationRules": 3,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 71,
+        "help": "All page content should be contained by landmarks"
+      },
+      {
+        "id": "aria-prohibited-attr",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "Elements must only use permitted ARIA attributes"
+      },
+      {
+        "id": "landmark-one-main",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Document should have one main landmark"
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
