@@ -1,0 +1,213 @@
+{
+  "url": "https://webglossary.info/",
+  "name": "webglossary.info",
+  "group": "11ty-community",
+  "groupName": "Built Awesome",
+  "timestamp": 1788720934515,
+  "date": "2026-09-06T18:55:34.515Z",
+  "runId": "2026-09-06T18-51-15-264Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 37034,
+  "error": null,
+  "variance": {
+    "min": 92,
+    "max": 94,
+    "spread": 2,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://webglossary.info/",
+    "finalUrl": "https://webglossary.info/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 93,
+      "accessibility": 95,
+      "best-practices": 100,
+      "seo": 92,
+      "agentic-browsing": 100
+    },
+    "timings": {
+      "fcp": 2395,
+      "lcp": 2702,
+      "si": 2395,
+      "tbt": 0,
+      "tti": 2717,
+      "cls": 0.011,
+      "ttfb": 658,
+      "maxPotentialFid": 16,
+      "serverResponseTime": 220,
+      "networkRtt": 106.1,
+      "networkServerLatency": 57.8
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 437.4,
+      "elementRenderDelay": 196.9
+    },
+    "weight": {
+      "total": 80740,
+      "requests": 7,
+      "mainDocument": 49737,
+      "byType": {
+        "total": {
+          "bytes": 74148,
+          "requests": 6
+        },
+        "document": {
+          "bytes": 49737,
+          "requests": 1
+        },
+        "image": {
+          "bytes": 13536,
+          "requests": 3
+        },
+        "font": {
+          "bytes": 9490,
+          "requests": 1
+        },
+        "stylesheet": {
+          "bytes": 1385,
+          "requests": 1
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "script": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "other": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 24411,
+          "requests": 5
+        }
+      },
+      "scripts": 0,
+      "stylesheets": 1,
+      "fonts": 1
+    },
+    "thirdParty": {
+      "count": 1,
+      "bytes": 24411,
+      "mainThreadMs": 0,
+      "top": [
+        {
+          "entity": "cloudfront.net",
+          "bytes": 24411,
+          "mainThreadMs": 0,
+          "byType": {
+            "image": 13536,
+            "font": 9490,
+            "stylesheet": 1385
+          },
+          "typedBytes": 24411
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 505.3,
+      "byGroup": {
+        "scriptEvaluation": 153.4,
+        "other": 150.2,
+        "styleLayout": 129.5,
+        "scriptParseCompile": 44,
+        "parseHTML": 18.3,
+        "paintCompositeRender": 9.9
+      },
+      "bootupMs": 196,
+      "longTasks": 2,
+      "longestTaskMs": 195
+    },
+    "dom": {
+      "elements": 4719,
+      "depth": 5,
+      "maxChildren": 4632
+    },
+    "waste": {
+      "unusedJsBytes": 0,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 0,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 757,
+      "renderBlockingCount": 1,
+      "poorlyCachedBytes": 2306.0312849162005,
+      "poorlyCachedCount": 5
+    },
+    "accessibility": {
+      "failingCount": 1,
+      "applicableCount": 20,
+      "failingNodes": 2,
+      "failing": [
+        {
+          "id": "link-in-text-block",
+          "title": "Links rely on color to be distinguishable.",
+          "nodes": 2
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 14
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2446.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-09-06T18:55:44.191Z",
+      "runtimeMs": 7752.4
+    }
+  },
+  "field": null,
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "interstitial": null,
+    "host": {
+      "id": "self-hosted",
+      "name": "Self-hosted",
+      "icon": null,
+      "detail": "Apache",
+      "detailIcon": "Apache",
+      "source": "server"
+    },
+    "headers": {
+      "server": "Apache"
+    },
+    "violations": 2,
+    "passes": 9497,
+    "incomplete": 0,
+    "violationRules": 1,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "link-in-text-block",
+        "impact": "serious",
+        "nodes": 2,
+        "help": "Links must be distinguishable without relying on color"
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
