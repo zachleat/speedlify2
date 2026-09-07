@@ -1,0 +1,373 @@
+{
+  "url": "https://www.sap.com/",
+  "name": "SAP",
+  "group": "big-tech",
+  "groupName": "Big Tech",
+  "timestamp": 1788750344023,
+  "date": "2026-09-07T03:05:44.023Z",
+  "runId": "2026-09-07T03-04-11-664Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 313352,
+  "error": null,
+  "variance": {
+    "min": 10,
+    "max": 28,
+    "spread": 18,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://www.sap.com/",
+    "finalUrl": "https://www.sap.com/index.html",
+    "redirect": {
+      "from": "https://www.sap.com/",
+      "to": "https://www.sap.com/index.html",
+      "chain": [
+        {
+          "url": "https://www.sap.com/",
+          "status": 301
+        },
+        {
+          "url": "https://www.sap.com/index.html",
+          "status": 200
+        }
+      ],
+      "statuses": [
+        301
+      ],
+      "change": "path",
+      "permanent": true,
+      "schemeUpgrade": false,
+      "hops": 1
+    },
+    "statusCode": "ok",
+    "scores": {
+      "performance": 26,
+      "accessibility": 94,
+      "best-practices": 50,
+      "seo": 92,
+      "agentic-browsing": 50
+    },
+    "timings": {
+      "fcp": 9453,
+      "lcp": 37858,
+      "si": 15895,
+      "tbt": 2808,
+      "tti": 37986,
+      "cls": 0,
+      "ttfb": 723,
+      "maxPotentialFid": 547,
+      "serverResponseTime": 606,
+      "networkRtt": 166,
+      "networkServerLatency": 293.3
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 710.5,
+      "resourceLoadDelay": 3710.7,
+      "resourceLoadDuration": 440.3,
+      "elementRenderDelay": 75.8
+    },
+    "weight": {
+      "total": 5810024,
+      "requests": 310,
+      "mainDocument": 64968,
+      "byType": {
+        "total": {
+          "bytes": 5808001,
+          "requests": 308
+        },
+        "script": {
+          "bytes": 3403647,
+          "requests": 123
+        },
+        "media": {
+          "bytes": 986362,
+          "requests": 5
+        },
+        "image": {
+          "bytes": 662585,
+          "requests": 67
+        },
+        "other": {
+          "bytes": 447240,
+          "requests": 84
+        },
+        "stylesheet": {
+          "bytes": 142817,
+          "requests": 20
+        },
+        "font": {
+          "bytes": 92900,
+          "requests": 1
+        },
+        "document": {
+          "bytes": 72450,
+          "requests": 8
+        },
+        "third-party": {
+          "bytes": 1992893,
+          "requests": 138
+        }
+      },
+      "scripts": 124,
+      "stylesheets": 20,
+      "fonts": 1
+    },
+    "thirdParty": {
+      "count": 26,
+      "bytes": 2010700,
+      "mainThreadMs": 1046.9,
+      "top": [
+        {
+          "entity": "net.sap",
+          "bytes": 739967,
+          "mainThreadMs": 0,
+          "byType": {
+            "script": 739515,
+            "other": 452
+          },
+          "typedBytes": 739967
+        },
+        {
+          "entity": "Google Tag Manager",
+          "bytes": 526387,
+          "mainThreadMs": 183.1,
+          "byType": {
+            "script": 526387
+          },
+          "typedBytes": 526387
+        },
+        {
+          "entity": "Facebook",
+          "bytes": 269344,
+          "mainThreadMs": 178.1,
+          "byType": {
+            "script": 269324,
+            "image": 20
+          },
+          "typedBytes": 269344
+        },
+        {
+          "entity": "Qualtrics",
+          "bytes": 64636,
+          "mainThreadMs": 8.6,
+          "byType": {
+            "script": 63137,
+            "other": 1499
+          },
+          "typedBytes": 64636
+        },
+        {
+          "entity": "mPulse",
+          "bytes": 63019,
+          "mainThreadMs": 41.5,
+          "byType": {
+            "script": 61451,
+            "other": 1568
+          },
+          "typedBytes": 63019
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 80743,
+      "byGroup": {
+        "other": 67195.1,
+        "scriptEvaluation": 11056.4,
+        "scriptParseCompile": 795.5,
+        "paintCompositeRender": 748.7,
+        "styleLayout": 475.8,
+        "garbageCollection": 303.6,
+        "parseHTML": 167.8
+      },
+      "bootupMs": 11000.6,
+      "longTasks": 20,
+      "longestTaskMs": 547
+    },
+    "dom": {
+      "elements": 2385,
+      "depth": 21,
+      "maxChildren": 79
+    },
+    "waste": {
+      "unusedJsBytes": 1096555,
+      "unusedCssBytes": 74228,
+      "legacyJsBytes": 63180,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 2480,
+      "renderBlockingMs": 3187,
+      "renderBlockingCount": 29,
+      "poorlyCachedBytes": 699515.7971627115,
+      "poorlyCachedCount": 48
+    },
+    "accessibility": {
+      "failingCount": 2,
+      "applicableCount": 32,
+      "failingNodes": 3,
+      "failing": [
+        {
+          "id": "heading-order",
+          "title": "Heading elements are not in a sequentially-descending order",
+          "nodes": 2
+        },
+        {
+          "id": "aria-allowed-attr",
+          "title": "`[aria-*]` attributes do not match their roles",
+          "nodes": 1
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 0,
+      "bfCacheFailures": 1,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 873.3,
+      "consoleErrors": 3,
+      "baselineLimitedFeatures": 61
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 3337.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-09-07T03:07:50.490Z",
+      "runtimeMs": 65553.7
+    }
+  },
+  "field": {
+    "source": "crux",
+    "scope": "origin",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-08-08",
+      "last": "2026-09-04"
+    },
+    "metrics": {
+      "cls": {
+        "p75": 0,
+        "rating": "good",
+        "distribution": {
+          "good": 96.2,
+          "needsImprovement": 1.4,
+          "poor": 2.4
+        }
+      },
+      "ttfb": {
+        "p75": 1368,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 51.8,
+          "needsImprovement": 33,
+          "poor": 15.2
+        }
+      },
+      "fcp": {
+        "p75": 2625,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 55.7,
+          "needsImprovement": 25.1,
+          "poor": 19.3
+        }
+      },
+      "inp": {
+        "p75": 292,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 63.1,
+          "needsImprovement": 24.6,
+          "poor": 12.3
+        }
+      },
+      "lcp": {
+        "p75": 2680,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 72.2,
+          "needsImprovement": 15.4,
+          "poor": 12.4
+        }
+      },
+      "rtt": {
+        "p75": 149,
+        "rating": null,
+        "distribution": {
+          "good": 35.7,
+          "needsImprovement": 56.2,
+          "poor": 8.1
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": true,
+    "generator": null,
+    "interstitial": null,
+    "host": {
+      "id": "akamai",
+      "name": "Akamai",
+      "icon": "Akamai",
+      "source": "server"
+    },
+    "headers": {
+      "server": "AkamaiGHost"
+    },
+    "violations": 7,
+    "passes": 1271,
+    "incomplete": 8,
+    "violationRules": 6,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "heading-order",
+        "impact": "moderate",
+        "nodes": 2,
+        "help": "Heading levels should only increase by one"
+      },
+      {
+        "id": "aria-allowed-attr",
+        "impact": "critical",
+        "nodes": 1,
+        "help": "Elements must only use supported ARIA attributes"
+      },
+      {
+        "id": "landmark-banner-is-top-level",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Banner landmark should not be contained in another landmark"
+      },
+      {
+        "id": "landmark-no-duplicate-banner",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Document should not have more than one banner landmark"
+      },
+      {
+        "id": "landmark-unique",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination"
+      },
+      {
+        "id": "page-has-heading-one",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Page should contain a level-one heading"
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
