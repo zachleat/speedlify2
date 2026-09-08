@@ -19,7 +19,7 @@ afterEach(() => {
 	while (tmp.length) fs.rmSync(tmp.pop(), { recursive: true, force: true });
 });
 
-function fixture({ sites = 1, points = 4, url = (i) => `https://site${i}.example/`, performance = (p) => 80 + p, axe = null, field = null, generator = () => null, error = () => null, consecutiveFailures = 0 } = {}) {
+function fixture({ sites = 1, points = 4, url = (i) => `https://site${i}.example/`, performance = (p) => 80 + p, lcp = (p) => 2000 - p * 50, axe = null, field = null, generator = () => null, error = () => null, consecutiveFailures = 0 } = {}) {
 	const dir = fs.mkdtempSync(path.join(os.tmpdir(), "speedlify-report-"));
 	tmp.push(dir);
 
@@ -44,7 +44,7 @@ function fixture({ sites = 1, points = 4, url = (i) => `https://site${i}.example
 					finalUrl: url(s),
 					redirect: null,
 					scores: { performance: performance(p, s), accessibility: 100, "best-practices": 100, seo: 100 },
-					timings: { lcp: 2000 - p * 50, cls: 0.01, tbt: 30, fcp: 1000, si: 1200, ttfb: 200 },
+					timings: { lcp: lcp(p, s), cls: 0.01, tbt: 30, fcp: 1000, si: 1200, ttfb: 200 },
 					weight: { total: 500000, requests: 40, byType: { script: { bytes: 1000, requests: 2 } } },
 					thirdParty: { count: 0, bytes: 0, mainThreadMs: 0, top: [] },
 					waste: { unusedJsBytes: 0, unusedCssBytes: 0 },
@@ -55,7 +55,9 @@ function fixture({ sites = 1, points = 4, url = (i) => `https://site${i}.example
 					environment: { benchmarkIndex: 3800, lighthouseVersion: "13.4.1" },
 					lcpBreakdown: { timeToFirstByte: 100 },
 				},
-				field,
+				// A function lets one fixture give each site its own CrUX numbers,
+				// which is what the pair charts need to have anything to sort.
+				field: typeof field === "function" ? field(s) : field,
 				// The generator tag rides on the axe record, which is where the
 				// measurement step puts it.
 				axe: generator(p) ? { ...(axe ?? {}), generator: generator(p) } : axe,
@@ -1212,5 +1214,61 @@ describe("canonical redirect kind", () => {
 
 		assert.equal(entry.canonicalUrl, null);
 		assert.equal(entry.canonicalKind, null);
+	});
+});
+
+describe("lab and field pairs", () => {
+	/*
+	 * One row per site, ordered by the lab run. Deliberately opposed numbers: the
+	 * site with the fastest lab run has the slowest field p75, so a chart sorted
+	 * off the wrong end is not one that happens to look the same.
+	 */
+	const pairFixture = () =>
+		fixture({
+			sites: 3,
+			points: 1,
+			lcp: (_p, s) => [1000, 2000, 3000][s],
+			field: (s) => ({
+				metrics: { lcp: { p75: [3000, 2000, 1000][s], rating: "good" } },
+				collectionPeriod: { first: "2025-12-01", last: "2025-12-28" },
+				scope: "origin",
+			}),
+		});
+
+	test("rows run from the fastest lab run to the slowest", async () => {
+		const f = pairFixture();
+		const r = await buildReport({ resultsDir: f.resultsDir, configFile: f.configFile });
+
+		assert.equal(r.labFieldPairs.count, 3);
+		assert.deepEqual(
+			r.labFieldPairs.pairs.map((p) => p.labText),
+			["1.0 s", "2.0 s", "3.0 s"]
+		);
+		// Which is not the field order, so the sort is doing something.
+		assert.deepEqual(
+			r.labFieldPairs.pairs.map((p) => p.fieldText),
+			["3.0 s", "2.0 s", "1.0 s"]
+		);
+	});
+
+	test("the lab end is the one banded and named", async () => {
+		const f = pairFixture();
+		const r = await buildReport({ resultsDir: f.resultsDir, configFile: f.configFile });
+
+		// 3 s lab against a 1 s field: banded on the lab reading, and so not named.
+		const slow = r.labFieldPairs.pairs.at(-1);
+		assert.equal(slow.labText, "3.0 s");
+		assert.equal(slow.band, "average");
+		assert.equal(slow.named, false);
+		assert.equal(r.labFieldPairs.pairs[0].named, true);
+	});
+
+	test("the scale sits above the plot", async () => {
+		const f = pairFixture();
+		const r = await buildReport({ resultsDir: f.resultsDir, configFile: f.configFile });
+
+		const lf = r.labFieldPairs;
+		assert.ok(lf.axis.tickY < lf.box.top);
+		assert.ok(lf.axis.xLabel.y < lf.axis.tickY);
 	});
 });

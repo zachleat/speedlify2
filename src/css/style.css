@@ -974,14 +974,15 @@ fieldset[disabled] select {
 	stroke-width: 1;
 }
 
-/* The lab end, deliberately plain. The verdict belongs to the field dot, and a
-   second colored end would leave the eye reading whichever sits further right. */
-.pair-lab circle {
+/* The unsorted end, deliberately plain. The verdict belongs to the end the rows
+   are ordered by, and a second colored end would leave the eye reading whichever
+   sits further right. */
+.pair-secondary circle {
 	fill: var(--text-muted);
 	fill-opacity: 0.55;
 }
 
-.pair-field circle {
+.pair-primary circle {
 	fill-opacity: 0.95;
 }
 
@@ -1009,7 +1010,7 @@ fieldset[disabled] select {
 	left: 1rem;
 }
 
-.pair-key-lab {
+.pair-key-secondary {
 	color: var(--text-muted);
 }
 

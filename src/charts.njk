@@ -28,7 +28,7 @@ title: Charts
 {% if sites.jsByGenerator %}{% set toc = (toc.push({ id: "js-by-generator", label: "JavaScript by Generator" }), toc) %}{% endif %}
 {% if sites.clientRenderedByGenerator %}{% set toc = (toc.push({ id: "client-rendered", label: "Client Rendering by Generator" }), toc) %}{% endif %}
 {% if sites.ttfbByHost %}{% set toc = (toc.push({ id: "ttfb-by-host", label: "TTFB by Host" }), toc) %}{% endif %}
-{% if sites.labFieldPairs %}{% set toc = (toc.push({ id: "lab-field", label: "Lab vs Field LCP" }), toc) %}{% endif %}
+{% if sites.labFieldPairs %}{% set toc = (toc.push({ id: "lab-field", label: "Field vs Lab LCP" }), toc) %}{% endif %}
 
 {% if toc.length > 1 %}
 <nav class="contents contents-sticky" aria-label="On this page">
@@ -228,10 +228,10 @@ title: Charts
 			<g class="pair-links">
 				{%- for pair in crp.pairs %}<line x1="{{ pair.flaggedX }}" x2="{{ pair.judgedX }}" y1="{{ pair.y }}" y2="{{ pair.y }}"/>{% endfor %}
 			</g>
-			<g class="pair-lab">
+			<g class="pair-secondary">
 				{%- for pair in crp.pairs %}<circle cx="{{ pair.judgedX }}" cy="{{ pair.y }}" r="5"/>{% endfor %}
 			</g>
-			<g class="pair-field plot-poor">
+			<g class="pair-primary plot-poor">
 				{%- for pair in crp.pairs %}<circle cx="{{ pair.flaggedX }}" cy="{{ pair.y }}" r="5"/>{% endfor %}
 			</g>
 
@@ -255,7 +255,7 @@ title: Charts
 		</div>
 
 		<figcaption class="plot-legend">
-			<span class="plot-key pair-key-lab">Sites judged</span>
+			<span class="plot-key pair-key-secondary">Sites judged</span>
 			<span class="plot-key plot-poor">Drew nothing without JavaScript</span>
 			<span class="plot-key plot-scroll-note">Scroll sideways for the rest of the scale.</span>
 		</figcaption>
@@ -296,12 +296,13 @@ title: Charts
 {% set lf = sites.labFieldPairs %}
 <section class="group" id="lab-field">
 	<div class="group-head">
-		<h2>Lab vs Field LCP <span class="tag">{{ lf.count | num }} sites</span></h2>
+		<h2>Field vs Lab LCP <span class="tag">{{ lf.count | num }} sites</span></h2>
 	</div>
 	<p class="muted small">
-		One row per site: a dot for what our throttled lab run measured, a dot for
-		what real users actually saw (Chrome&rsquo;s field p75) and a
-		line joining them.
+		One row per site, ordered by our throttled lab run: a dot for what the lab
+		measured, a dot for what real users actually saw (Chrome&rsquo;s field p75)
+		and a line joining them. Sorting by the lab figure straightens it into a
+		curve, and the field dots scatter across it.
 	</p>
 	{#
 		The sampling bias is the first thing to say, not a footnote. CrUX only
@@ -317,17 +318,22 @@ title: Charts
 	<figure class="plot">
 		<div class="plot-frame">
 		<svg viewBox="0 0 {{ lf.box.w }} {{ lf.box.h }}" role="img"
-			aria-label="Lab and field largest contentful paint for {{ lf.count | num }} sites, each pair joined by a line. The lab figure is slower than the field figure on {{ lf.labSlower | num }} of them.">
+			aria-label="Lab and field largest contentful paint for {{ lf.count | num }} sites, one row per site ordered by the lab run, each pair joined by a line. The lab figure is slower than the field figure on {{ lf.labSlower | num }} of them.">
 			<g class="plot-grid">
 				{%- for tick in lf.xTicks %}
 				<line x1="{{ tick.x }}" x2="{{ tick.x }}" y1="{{ lf.box.top }}" y2="{{ lf.box.top + lf.plot.h }}"/>
 				{%- endfor %}
 			</g>
 
+			{#
+				On the same baseline as the decade ticks. The whole scale reads as one
+				row above the plot: split across the two ends of a chart this tall,
+				half of it is off screen for the entire read.
+			#}
 			<g class="plot-threshold">
 				{%- for line in lf.thresholds %}
 				<line x1="{{ line.x }}" x2="{{ line.x }}" y1="{{ lf.box.top }}" y2="{{ lf.box.top + lf.plot.h }}"/>
-				<text x="{{ line.x + 5 }}" y="{{ lf.box.top + 12 }}" text-anchor="start">{{ line.label }}</text>
+				<text x="{{ line.x + 5 }}" y="{{ lf.axis.tickY }}" text-anchor="start">{{ line.label }}</text>
 				{%- endfor %}
 			</g>
 
@@ -341,19 +347,19 @@ title: Charts
 			</g>
 
 			{#
-				Lines first, then the lab dots, then the field dots on top — the
-				field end is the one that carries the verdict, so nothing is allowed
-				to sit over it.
+				Lines first, then the field dots, then the lab dots on top — the lab
+				end is the one the rows are ordered by, so nothing is allowed to sit
+				over it.
 			#}
 			<g class="pair-links">
 				{%- for pair in lf.pairs %}<line x1="{{ pair.labX }}" x2="{{ pair.fieldX }}" y1="{{ pair.y }}" y2="{{ pair.y }}"/>{% endfor %}
 			</g>
-			<g class="pair-lab">
-				{%- for pair in lf.pairs %}<circle cx="{{ pair.labX }}" cy="{{ pair.y }}" r="2"/>{% endfor %}
+			<g class="pair-secondary">
+				{%- for pair in lf.pairs %}<circle cx="{{ pair.fieldX }}" cy="{{ pair.y }}" r="2"/>{% endfor %}
 			</g>
 			{%- for band in ["poor", "average", "good"] %}
-			<g class="pair-field plot-{{ band }}">
-				{%- for pair in lf.pairs %}{% if pair.band == band %}<circle cx="{{ pair.fieldX }}" cy="{{ pair.y }}" r="2.2"/>{% endif %}{% endfor %}
+			<g class="pair-primary plot-{{ band }}">
+				{%- for pair in lf.pairs %}{% if pair.band == band %}<circle cx="{{ pair.labX }}" cy="{{ pair.y }}" r="2.2"/>{% endif %}{% endfor %}
 			</g>
 			{%- endfor %}
 		</svg>
@@ -362,9 +368,9 @@ title: Charts
 			One hit target per row rather than per dot: the pair is the unit being
 			read, and a 4px row is already the smallest thing here worth aiming at.
 
-			Only the rows real users found fast are named, as on every chart here.
-			The others are still drawn, and still every bit as legible — they are
-			simply not identified.
+			Only the rows the lab found fast are named, as on every chart here. The
+			others are still drawn, and still every bit as legible — they are simply
+			not identified.
 		#}
 		<div class="plot-hits">
 			{%- for pair in lf.pairs %}{% if pair.named %}
@@ -381,10 +387,10 @@ title: Charts
 		</div>
 
 		<figcaption class="plot-legend">
-			<span class="plot-key pair-key-lab">Lab</span>
-			<span class="plot-key plot-good">Field, within 2.5&nbsp;s</span>
-			<span class="plot-key plot-average">Field, to 4&nbsp;s</span>
-			<span class="plot-key plot-poor">Field, over 4&nbsp;s</span>
+			<span class="plot-key pair-key-secondary">Field</span>
+			<span class="plot-key plot-good">Lab, within 2.5&nbsp;s</span>
+			<span class="plot-key plot-average">Lab, to 4&nbsp;s</span>
+			<span class="plot-key plot-poor">Lab, over 4&nbsp;s</span>
 		</figcaption>
 	</figure>
 </section>
