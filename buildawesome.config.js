@@ -386,6 +386,26 @@ export default async function ($config) {
 				timeZoneName: "short",
 			});
 		}
+		// Year first, then the month by name: "2026 Aug 30". Big-endian like the
+		// ISO form, so a column of them sorts and scans, without reading as a
+		// serial number the way all-numeric does.
+		//
+		// Assembled from parts because no en-US format puts them in this order.
+		if (style === "ymd") {
+			const parts = Object.fromEntries(
+				new Intl.DateTimeFormat("en-US", {
+					year: "numeric",
+					month: "short",
+					day: "numeric",
+					timeZone: "UTC",
+				})
+					.formatToParts(d)
+					.map((part) => [part.type, part.value]),
+			);
+
+			return `${parts.year} ${parts.month} ${parts.day}`;
+		}
+
 		return d.toLocaleDateString("en-US", {
 			month: "short",
 			day: "numeric",
@@ -1157,6 +1177,26 @@ export default async function ($config) {
 		} catch {
 			return url;
 		}
+	});
+
+	/**
+	 * A Wayback Machine URL for a page, optionally at a moment in time.
+	 *
+	 * With a timestamp the archive redirects to its nearest capture, which is a
+	 * weaker promise than it looks: nearest can be months away, or nothing at
+	 * all. That is the archive's answer to the question rather than ours, so the
+	 * link is worth offering with the caveat said in the title beside it.
+	 *
+	 * Without one, `*` asks for the calendar of every capture.
+	 */
+	$config.addFilter("wayback", (url, when = null) => {
+		if (!url) return "";
+
+		const at = when ? new Date(when) : null;
+		const stamp =
+			at && !Number.isNaN(at.getTime()) ? at.toISOString().replace(/[-:T]/g, "").slice(0, 14) : "*";
+
+		return `https://web.archive.org/web/${stamp}/${url}`;
 	});
 
 	$config.addFilter("json", (v) => JSON.stringify(v, null, 2));

@@ -58,7 +58,7 @@ body { margin: 0; padding: 0; }
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	gap: 24px;
+	gap: 20px;
 	overflow: hidden;
 	background: var(--bg);
 	color: var(--text);
@@ -98,7 +98,9 @@ body { margin: 0; padding: 0; }
 	gap: 20px;
 	font-size: 76px; /* resized to fit by the script */
 	font-weight: 700;
-	line-height: 1.05;
+	/* Enough for descenders: the line box is also the clipping box here, and at
+	   1.05 a `g` or `y` in a domain lost its tail. */
+	line-height: 1.25;
 	letter-spacing: -0.02em;
 	overflow: hidden;
 	white-space: nowrap;
@@ -151,6 +153,9 @@ body { margin: 0; padding: 0; }
 /* Width and height rather than a bigger `size` argument, so the stroke and the
    text scale with the box — the same trick .detail-rings uses. */
 .og-rings { display: flex; gap: 22px; }
+/* An author `display` beats the UA stylesheet's `[hidden]`, as with the figure
+   row below. */
+.og-rings[hidden] { display: none; }
 /* Fixed to the ring's own width, so a long label wraps inside its column
    instead of widening it — six labels of six different lengths otherwise space
    the row six different ways. */
@@ -319,7 +324,7 @@ body { margin: 0; padding: 0; }
 		has to produce an arc: the shortcode omits the arc entirely for a null,
 		and the script cannot fill in an element that was never rendered.
 	#}
-	<div class="og-rings" id="og-rings">
+	<div class="og-rings" id="og-rings" hidden>
 		{% for score in metrics.SCORES %}
 		<span class="og-ring">
 			{% scoreRing 100, score.label %}
@@ -503,7 +508,7 @@ body { margin: 0; padding: 0; }
 		(lab.timings.lcp | ms) if lab else null,
 		noJs,
 		entry.clientRendered or false,
-		(entry.latest.date | date) if entry.latest else null,
+		(entry.latest.date | date("ymd")) if entry.latest else null,
 		generator.name or null,
 		hostName,
 		(generator.presumed or false) if generator else false,
@@ -588,7 +593,8 @@ const nameLine = document.getElementById("og-name");
 const domain = document.getElementById("og-domain");
 const favicon = document.getElementById("og-favicon");
 const meta = document.getElementById("og-meta");
-const rings = document.querySelectorAll("#og-rings .ring");
+const ringRow = document.getElementById("og-rings");
+const rings = ringRow.querySelectorAll(".ring");
 const figures = document.getElementById("og-figures");
 const unmeasured = document.getElementById("og-unmeasured");
 const dateOut = document.getElementById("og-date");
@@ -672,6 +678,7 @@ function fitName() {
 }
 
 function render(site) {
+	ringRow.hidden = false;
 	eyebrow.textContent = site[GROUP] || "";
 	domain.textContent = site[NAME];
 
@@ -741,6 +748,25 @@ function render(site) {
 	fitName();
 }
 
+/* The card with nothing in it: the wordmark and the rule it hangs on, and empty
+   space where a site's figures would be. */
+function renderBlank() {
+	eyebrow.textContent = "";
+	domain.textContent = "";
+	favicon.removeAttribute("src");
+	meta.replaceChildren();
+
+	/* Six empty circles rather than no circles: the card keeps its shape, and
+	   the gray band is the one that already means "nothing measured". */
+	ringRow.hidden = false;
+	rings.forEach((svg, index) => setRing(svg, "none", "", null, SCORE_LABELS[index]));
+
+	figures.hidden = true;
+	unmeasured.hidden = true;
+	runsFigure.hidden = true;
+	dateOut.textContent = "";
+}
+
 /* One row of six dots per run, oldest on top. */
 function renderRuns(runs) {
 	runsFigure.hidden = !runs.length;
@@ -767,6 +793,11 @@ function renderRuns(runs) {
 }
 
 function buildCategoryOptions() {
+	/* The blank card, and the state the page opens in. A generator whose default
+	   is somebody's site puts that site on every link anyone shares before they
+	   have picked anything. */
+	category.append(new Option("Select a category\u2026", ""));
+
 	for (let label of CATEGORIES) {
 		category.append(new Option(label, label));
 	}
@@ -783,22 +814,40 @@ function buildSiteOptions(label) {
 		: "";
 }
 
+/* The image URL for one card. Built against the deployed origin rather than
+   location: the screenshot service fetches a public URL, so a localhost one
+   would not resolve. */
+function showScreenshotUrl(query) {
+	let screenshotUrl = "https://v1.screenshot.11ty.dev/" +
+		encodeURIComponent(new URL("/opengraph/" + query, ORIGIN).toString()) + "/opengraph/";
+
+	screenshotOut.textContent = screenshotUrl;
+	openScreenshot.href = screenshotUrl;
+}
+
 function update() {
-	let site = BY_SLUG.get(field.value) || SITES[0];
+	let site = BY_SLUG.get(field.value);
 
 	/* Before rendering, not after. These two are independent — the address bar
 	   should name the selected site whether or not drawing its card works — and
 	   with the order the other way round anything thrown while rendering leaves
 	   the URL pointing at the previous site. */
+	if (!site) {
+		/* No site, no parameter: the bare URL is the blank card, and it has to
+		   stay shareable as that rather than acquiring a site on arrival. */
+		history.replaceState(null, "", location.pathname);
+		showScreenshotUrl("");
+		openReport.hidden = true;
+		openCategory.hidden = true;
+		document.title = "Open Graph card generator";
+		renderBlank();
+		return;
+	}
+
 	history.replaceState(null, "", "?site=" + encodeURIComponent(site[SLUG]));
+	showScreenshotUrl("?site=" + encodeURIComponent(site[SLUG]));
 
-	let cardUrl = new URL("/opengraph/?site=" + encodeURIComponent(site[SLUG]), ORIGIN).toString();
-	/* Built against the deployed origin rather than location: the screenshot
-	   service fetches a public URL, so a localhost one would not resolve. */
-	let screenshotUrl = "https://v1.screenshot.11ty.dev/" + encodeURIComponent(cardUrl) + "/opengraph/";
-
-	screenshotOut.textContent = screenshotUrl;
-	openScreenshot.href = screenshotUrl;
+	openReport.hidden = false;
 	openReport.href = "/site/" + site[SLUG] + "/";
 	openReport.textContent = "Full report for " + site[NAME];
 
@@ -821,20 +870,20 @@ function update() {
    there would let the two contradict each other. */
 function selectFromUrl() {
 	let requested = new URLSearchParams(location.search).get("site");
-	let site = BY_SLUG.get(requested) || BY_SLUG.get(DEFAULT_SLUG);
+	let site = BY_SLUG.get(requested);
 
-	category.value = site[GROUP] || "Uncategorized";
+	/* No parameter, or one naming nothing: the blank card rather than a guess. */
+	category.value = site ? site[GROUP] || "Uncategorized" : "";
 	buildSiteOptions(category.value);
-	field.value = site[SLUG];
+
+	if (site) {
+		field.value = site[SLUG];
+	}
 }
 
 buildCategoryOptions();
 
-/* Seeded from the query string, checked against the build-time list — an
-   unknown slug falls back rather than rendering a half-empty card. The default
-   is the top-ranked site, which is the one worth looking at cold. */
-const DEFAULT_SLUG = (SITES.find(site => site[RANK] === 1) || SITES[0])[SLUG];
-
+/* Seeded from the query string, checked against the build-time list. */
 selectFromUrl();
 
 /* A new category means a new list, and the first site in it is the one the

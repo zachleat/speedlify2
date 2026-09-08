@@ -200,7 +200,7 @@ eleventyComputed:
 	#}
 	{#
 		Each service wearing its own mark, from the same avatar service the site
-		names above use. Four links in a row read as four words otherwise, and the
+		names above use. Five links in a row read as five words otherwise, and the
 		marks are how you find the one you already know by sight.
 
 		Decorative, and named in text right beside them: "PageSpeed Insights logo,
@@ -208,7 +208,7 @@ eleventyComputed:
 		header, above the fold, where lazy means visibly late.
 	#}
 	<p class="detail-actions">
-		Test elsewhere:
+		Elsewhere:
 		<a href="https://pagespeed.web.dev/analysis?url={{ entry.url | urlencode }}"
 			title="Lighthouse run on demand by Google, with this URL's CrUX field data beside it"><img class="action-mark" src="{{ "https://pagespeed.web.dev/" | avatar(meta.avatarService) }}" width="16" height="16" alt="" decoding="async">PageSpeed Insights</a> ·
 		<a href="https://calibreapp.com/tools/core-web-vitals-test/{{ entry.url | hostname }}"
@@ -216,7 +216,21 @@ eleventyComputed:
 		<a href="https://treo.sh/sitespeed/{{ entry.url | hostname }}"
 			title="CrUX field data charted for {{ entry.url | hostname }} — history rather than a fresh lab run"><img class="action-mark" src="{{ "https://treo.sh/" | avatar(meta.avatarService) }}" width="16" height="16" alt="" decoding="async">Treo</a> ·
 		<a href="https://cruxvis.withgoogle.com/#/?view=cwvsummary&amp;url={{ entry.url | urlencode }}&amp;identifier=origin&amp;device=ALL&amp;periodStart=0&amp;periodEnd=-1&amp;display=p75s"
-			title="Every month of CrUX p75s for this origin, charted by Google's CrUX Vis"><img class="action-mark" src="{{ "https://cruxvis.withgoogle.com/" | avatar(meta.avatarService) }}" width="16" height="16" alt="" decoding="async">CrUX Vis</a>
+			title="Every month of CrUX p75s for this origin, charted by Google's CrUX Vis"><img class="action-mark" src="{{ "https://cruxvis.withgoogle.com/" | avatar(meta.avatarService) }}" width="16" height="16" alt="" decoding="async">CrUX Vis</a> ·
+		{#
+			Last, because it is the one that does not re-run anything: the four
+			above ask this question somewhere else, and this asks what the page used
+			to be. A site that has gone, or one whose scores moved for no reason the
+			data explains, is a case where what it looked like is the only thing
+			left to look at. "Elsewhere" rather than "Test elsewhere" above is what
+			makes room for it.
+
+			`/web/*/` is the Wayback Machine's own shape for "every snapshot of
+			this URL" — a calendar rather than one capture, since which date
+			matters is the thing you came to find out.
+		#}
+		<a href="{{ entry.url | wayback }}"
+			title="Every archived snapshot of this URL in the Internet Archive's Wayback Machine"><img class="action-mark" src="{{ "https://web.archive.org/" | avatar(meta.avatarService) }}" width="16" height="16" alt="" decoding="async">Wayback Machine</a>
 	</p>
 	</div>
 	{#
@@ -1114,6 +1128,7 @@ eleventyComputed:
 				<th class="col-logdots" title="The four Lighthouse categories, then violating nodes from the axe run and the Core Web Vitals verdict, as they stood at this measurement">Scores</th>
 				<th>Perf</th><th>LCP</th><th>CLS</th><th>TBT</th><th>Weight</th>
 				<th>Runs</th><th>Spread</th><th>Bench</th><th>Took</th>
+				<th class="col-archive" title="The Wayback Machine's nearest capture to each measurement">Archive</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -1190,6 +1205,16 @@ eleventyComputed:
 					</td>
 					<td class="num muted">{{ (point.durationMs / 1000) | round(1) }}s</td>
 				{% endif %}
+				{#
+					Outside the error branch: a run that failed is exactly when what
+					the page looked like is worth seeing. `point.via` rather than the
+					site's current URL, so a row taken before a move points at the
+					address that was actually measured then.
+				#}
+				<td class="col-archive">
+					<a href="{{ (point.via or entry.url) | wayback(point.date) }}"
+						title="The Wayback Machine's nearest capture to this measurement — it may be far from this date, or missing entirely"><img class="action-mark" src="{{ "https://web.archive.org/" | avatar(meta.avatarService) }}" width="16" height="16" alt="" decoding="async" loading="lazy">Wayback</a>
+				</td>
 			</tr>
 		{% endfor %}
 		</tbody>
