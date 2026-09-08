@@ -218,19 +218,13 @@ permalink: /index.html
 		{% for entry in shown %}
 			<tr{% if entry.currentlyFailing %} class="row-failing"{% endif %}>
 				{#
-					Position in this table, not the global rank. The board is a filtered
-					view — perfect scores only, starters excluded — so the global rank
-					skips every row that was filtered out, and a list of 130 rows ending
-					at #158 reads as a bug rather than as a leaderboard.
-
-					`shown` preserves the global ordering, so counting rows says the same
-					thing about who beat whom while staying contiguous. The real rank is
-					on hover, and the trophies follow it rather than the row number: an
-					actual site's medal should not move because a starter above it was
-					hidden.
+					The global rank rather than the row number: the board is a filtered
+					view, so the numbers skip wherever an excluded site ranks, and a
+					site's position is where it stands against every measured site — the
+					same number the trophies already follow.
 				#}
-				<td class="col-rank" title="{% if entry.ranks.overall %}#{{ entry.ranks.overall }} of {{ sites.stats.measured | num }} overall{% else %}unranked{% endif %}">
-					<span class="trophy">{{ entry.ranks.overall | trophy }}</span><span class="hash">#</span>{{ loop.index }}{% if entry.ranks.overallClimb %}<span class="rank-climb" title="Up {{ entry.ranks.overallClimb }} {{ "place" if entry.ranks.overallClimb == 1 else "places" }} since the previous measurement, from #{{ entry.ranks.overallPrevious }}">&#9650;{{ entry.ranks.overallClimb }}</span>{% endif %}
+				<td class="col-rank" title="{% if entry.ranks.overall %}#{{ entry.ranks.overall }} of {{ sites.stats.measured | num }} measured sites — the numbers skip where a site that is not on this board ranks between two that are{% else %}unranked{% endif %}">
+					{% if entry.ranks.overall %}<span class="trophy">{{ entry.ranks.overall | trophy }}</span><span class="hash">#</span>{{ entry.ranks.overall }}{% if entry.ranks.overallClimb %}<span class="rank-climb" title="Up {{ entry.ranks.overallClimb }} {{ "place" if entry.ranks.overallClimb == 1 else "places" }} since the previous measurement, from #{{ entry.ranks.overallPrevious }}">&#9650;{{ entry.ranks.overallClimb }}</span>{% endif %}{% else %}—{% endif %}
 				</td>
 				<td class="col-site">
 					<a class="site-link" href="/site/{{ entry.slug }}/">
