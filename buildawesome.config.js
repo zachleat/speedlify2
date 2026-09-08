@@ -234,6 +234,18 @@ function formatBytes(v) {
 
 export default async function ($config) {
 	/*
+	 * The per-site JSON is half of everything this build writes — one file per
+	 * site, plus the legacy hash routes — and nothing on the site fetches it
+	 * except the `<speedlify2-score>` demo on /embed/. Skipping it under
+	 * `--serve` halves the writes on every rebuild; set `SPEEDLIFY_API=1` to
+	 * keep them when that demo is what you are working on.
+	 */
+	if (process.env.BUILDAWESOME_RUN_MODE === "serve" && process.env.SPEEDLIFY_API !== "1") {
+		$config.ignores.add("src/api-site.njk");
+		$config.ignores.add("src/api-compat-site.njk");
+	}
+
+	/*
 	 * Where this instance is served from.
 	 *
 	 * "/" for a custom domain, which is what speedlify.dev is. A fork on GitHub
