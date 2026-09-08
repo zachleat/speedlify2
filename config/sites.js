@@ -696,6 +696,12 @@ export default {
 			// Your own pages, so there is nobody else to ask. Same rule as the two
 			// community registers below.
 			showEmbed: true,
+
+			// Kept out of the home page's Perfect Scores board. That board is for
+			// showing other people's work, and the person who keeps the list
+			// putting their own pages on it reads as marking your own homework.
+			// They still rank normally here and in the global leaderboard.
+			excludeFromPerfectScores: true,
 			name: "zachleat",
 			enabled: true,
 			description: "Pages from zachleat.com, and the other sites Zach maintains.",

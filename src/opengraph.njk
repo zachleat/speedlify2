@@ -1,0 +1,872 @@
+---
+permalink: /opengraph/
+eleventyExcludeFromCollections: true
+---
+{#
+	The Open Graph card generator: one page, 1200×630 at the top left, showing
+	whichever tracked site is asked for.
+
+	The same shape as the card page on 11ty-website — a page sized exactly to the
+	image, screenshotted by a service rather than composited by a build step,
+	with the editor UI kept below the fold. `?site=<slug>` picks the site, so a
+	card has a stable URL; the select is how you find the slug.
+
+	Everything a card can say is computed here and carried as data: the script
+	below draws no conclusions, it only puts values into an existing skeleton.
+	The ring bands in particular come from the same `lib/rank.js` the site's own
+	rings use, through the `scoreClass`/`axeClass`/`cwvClass` filters, so a card
+	cannot paint a circle a different color from the page it depicts.
+-#}
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Open Graph card generator · {{ meta.title }}</title>
+<meta name="robots" content="noindex">
+{#- Linked rather than inlined: the card borrows the site's own tokens, ring
+    rules and stack-mark rules, and there is no reason to duplicate them. -#}
+<link rel="stylesheet" href="/css/style.css">
+<style>
+/* Dark unconditionally. A card is one image on somebody else's timeline, so it
+   cannot follow a reader's preference the way the site does. */
+/* Everything outside the 1200×630 frame is painted darker than the card, so the
+   capture area is visible as a rectangle while you work. Nothing of this reaches
+   the image — the card covers the whole capture — it exists to show you where
+   the edge is. The card itself keeps --bg, which is the site's own page color.
+
+   On both html and body, and body is the one that matters: style.css already
+   sets `body { background: var(--bg) }`, which paints the full content box and
+   would otherwise cover an html background entirely. */
+html,
+body {
+	background: #141414;
+}
+html {
+	/* A scrollbar would eat 15px off the right edge of a 1200px capture. */
+	scrollbar-width: none;
+}
+html::-webkit-scrollbar { display: none; }
+body { margin: 0; padding: 0; }
+
+/* The capture target, at the top left of the viewport so a 1200×630 screenshot
+   takes it edge to edge. */
+.og {
+	box-sizing: border-box;
+	width: 1200px;
+	height: 630px;
+	padding: 42px 64px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	gap: 24px;
+	overflow: hidden;
+	background: var(--bg);
+	color: var(--text);
+	font-family: var(--sans);
+	-webkit-font-smoothing: antialiased;
+}
+.og > * { flex: none; }
+.og p { margin: 0; }
+
+.og-top {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+	font-size: 30px;
+	font-weight: 650;
+}
+.og-mark { width: 34px; height: 34px; color: var(--brand); }
+.og-eyebrow {
+	margin-left: auto;
+	font-size: 24px;
+	font-weight: 600;
+	color: var(--text-muted-strong);
+	padding: 0.35em 0.9em;
+	border: 2px solid var(--border-strong);
+	border-radius: var(--pill);
+	white-space: nowrap;
+	overflow: hidden;
+	max-width: 42%;
+	text-overflow: ellipsis;
+}
+.og-eyebrow:empty { display: none; }
+
+/* Two classes, to outweigh the `.og p` margin reset above — this is a <p>. */
+.og .og-name {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+	font-size: 76px; /* resized to fit by the script */
+	font-weight: 700;
+	line-height: 1.05;
+	letter-spacing: -0.02em;
+	overflow: hidden;
+	white-space: nowrap;
+	margin-bottom: 18px;
+}
+.og-name img {
+	flex: none;
+	width: 1em;
+	height: 1em;
+	border-radius: 6px;
+}
+.og-name img:not([src]) { display: none; }
+/* Spacing lives on .og-name above: these are adjacent block boxes, so a margin
+   here would collapse with that one rather than add to it. */
+.og-meta {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	font-size: 24px;
+	color: var(--text-muted-strong);
+}
+.og-rank {
+	font-weight: 650;
+	color: var(--text);
+	border: 2px solid var(--border-strong);
+	border-radius: var(--pill);
+	padding: 0.2em 0.7em;
+}
+.og-stack {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	color: var(--text);
+	font-weight: 600;
+}
+/* The separator is a flex child of the item it precedes, so the row's own gap
+   sits before it and this one after. Never on the first item, which happens on
+   a site with no rank line to follow. */
+.og-stack:not(:first-child)::before {
+	content: "\00b7";
+	color: var(--text-muted);
+}
+/* The letter-pair fallback for a brand with no mark is sized for a table row. */
+.og-stack .stack-chip {
+	font-size: 15px;
+	line-height: 30px;
+	min-width: 30px;
+}
+
+/* Width and height rather than a bigger `size` argument, so the stroke and the
+   text scale with the box — the same trick .detail-rings uses. */
+.og-rings { display: flex; gap: 22px; }
+/* Fixed to the ring's own width, so a long label wraps inside its column
+   instead of widening it — six labels of six different lengths otherwise space
+   the row six different ways. */
+.og-ring {
+	width: 116px;
+	text-align: center;
+}
+.og-ring .ring { width: 116px; height: 116px; }
+.og-ring-label {
+	display: block;
+	margin-top: 10px;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 1.25;
+	letter-spacing: 0.02em;
+	text-transform: uppercase;
+	color: var(--text-muted-strong);
+}
+
+.og-bottom {
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-between;
+	gap: 32px;
+	padding-top: 26px;
+	border-top: 3px solid var(--border);
+}
+.og-figures { display: flex; gap: 44px; }
+/* An author `display` beats the UA stylesheet's `[hidden] { display: none }`,
+   so hiding this row needs saying explicitly. */
+.og-figures[hidden] { display: none; }
+.og-figure[hidden] { display: none; }
+.og-figure-label {
+	display: block;
+	font-size: 17px;
+	font-weight: 600;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	color: var(--text-muted);
+}
+.og-figure-value {
+	display: block;
+	margin-top: 4px;
+	font-size: 34px;
+	font-weight: 650;
+	font-variant-numeric: tabular-nums;
+}
+/* The last runs as two rows of six dots — the same mark the Recently measured
+   list uses, scaled up from its 5px table size. */
+.og-runs {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	margin-top: 6px;
+}
+.og-runs .recents-dots { gap: 5px; }
+.og-runs .recents-dot { width: 12px; height: 12px; }
+
+.og-empty {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	margin-left: 8px;
+	font-size: 17px;
+	font-weight: 700;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	color: var(--poor-text);
+	vertical-align: 0.15em;
+}
+.og-date { font-size: 22px; color: var(--text-muted); white-space: nowrap; }
+/* The unmeasured state takes the figures' place rather than sitting beside
+   them, so the rule above it still spans the card. */
+.og-unmeasured { font-size: 34px; color: var(--text-muted-strong); }
+
+/* Editor UI, below the fold so it stays out of every capture. */
+.ui {
+	max-width: 1200px;
+	padding: 44px 64px 90px;
+	font-size: 16px;
+	line-height: 1.5;
+	color: var(--text-muted-strong);
+	font-family: var(--sans);
+}
+.ui h2 { font-size: 18px; margin: 0 0 0.4em; color: var(--text); }
+.ui p { margin: 0 0 1.2em; }
+.ui-fields {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+	gap: 1rem;
+	max-width: 44rem;
+	margin-bottom: 1.2em;
+}
+.ui label { display: grid; gap: 0.4em; font-weight: 600; color: var(--text); min-width: 0; }
+/* The select takes the room, the count sits beside it and never wraps. */
+.ui-field-row {
+	display: flex;
+	align-items: center;
+	gap: 0.6em;
+	min-width: 0;
+}
+.ui-field-row select { flex: 1; min-width: 0; }
+.ui-count { font-weight: 500; color: var(--text-muted); white-space: nowrap; }
+.ui select {
+	font: inherit;
+	padding: 0.5em 0.6em;
+	border: 2px solid var(--border-strong);
+	border-radius: 6px;
+	background: var(--surface);
+	color: var(--text);
+}
+.ui code { font-family: var(--mono); word-break: break-all; color: var(--text); }
+.ui-problem {
+	font-family: var(--mono);
+	font-size: 14px;
+	white-space: pre-wrap;
+	padding: 1em 1.2em;
+	border: 2px solid var(--poor);
+	border-radius: 6px;
+	color: var(--poor-text);
+	background: var(--poor-bg);
+}
+.ui-problem[hidden] { display: none; }
+.ui-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin: 20px 0 24px; }
+.ui-actions a[hidden] { display: none; }
+.ui button,
+.ui-actions a {
+	font: inherit;
+	font-weight: 600;
+	cursor: pointer;
+	padding: 0.55em 1.2em;
+	border: 2px solid var(--border-strong);
+	border-radius: var(--pill);
+	background: var(--button);
+	color: var(--text);
+	text-decoration: none;
+	line-height: 1;
+}
+</style>
+</head>
+<body>
+
+<div class="og" id="og">
+	<div class="og-top">
+		<i class="fa-solid fa-forward-fast og-mark" width="34" height="34" aria-hidden="true"></i>
+		{{ meta.title }}
+		<span class="og-eyebrow" id="og-eyebrow"></span>
+	</div>
+
+	<div>
+		<p class="og-name" id="og-name">
+			<img id="og-favicon" width="64" height="64" alt="" decoding="async">
+			<span id="og-domain">{{ meta.url | hostname }}</span>
+		</p>
+		<p class="og-meta" id="og-meta"></p>
+	</div>
+
+	{#
+		The rings are rendered here by the same shortcodes the site's own pages
+		use, with placeholder values, and the script only rewrites what varies:
+		the band class, the arc's dash and the text in the middle. So there is no
+		copy of the ring geometry in the browser — the circumference is read back
+		off the arc it is already drawn with.
+
+		Placeholders rather than a real site's figures because every one of them
+		has to produce an arc: the shortcode omits the arc entirely for a null,
+		and the script cannot fill in an element that was never rendered.
+	#}
+	<div class="og-rings" id="og-rings">
+		{% for score in metrics.SCORES %}
+		<span class="og-ring">
+			{% scoreRing 100, score.label %}
+			<span class="og-ring-label">{{ score.label }}</span>
+		</span>
+		{% endfor %}
+		<span class="og-ring">
+			{% axeRing 0 %}
+			<span class="og-ring-label">Axe</span>
+		</span>
+		<span class="og-ring">
+			{% cwvRing 0, 3 %}
+			<span class="og-ring-label">Core Web Vitals</span>
+		</span>
+	</div>
+
+	<div class="og-bottom">
+		<div class="og-figures" id="og-figures">
+			<span class="og-figure" id="og-fig-weight">
+				<span class="og-figure-label">Page weight</span>
+				<span class="og-figure-value"></span>
+			</span>
+			<span class="og-figure" id="og-fig-requests">
+				<span class="og-figure-label">Requests</span>
+				<span class="og-figure-value"></span>
+			</span>
+			<span class="og-figure" id="og-fig-lcp">
+				<span class="og-figure-label">LCP</span>
+				<span class="og-figure-value"></span>
+			</span>
+			{#- Only where a no-JS capture was stored, and never behind an
+			    interstitial, where the pair compares two bot checks rather than two
+			    renderings of the site. Same gate as the site page's own section. -#}
+			<span class="og-figure" id="og-fig-nojs" hidden>
+				<span class="og-figure-label">No-JS &#8710;</span>
+				<span class="og-figure-value"></span>
+			</span>
+			{#- The two most recent runs, oldest row first, as the six bands each
+			    one produced. A shape rather than a figure: what it says is whether
+			    the last run looks like the one before it. -#}
+			<span class="og-figure" id="og-fig-runs" hidden>
+				<span class="og-figure-label"></span>
+				<span class="og-runs"></span>
+			</span>
+		</div>
+		<p class="og-unmeasured" id="og-unmeasured" hidden>Not yet measured.</p>
+		<p class="og-date" id="og-date"></p>
+	</div>
+</div>
+
+<div class="ui">
+	<h2>Open Graph card</h2>
+	<p>The card above is exactly 1200&times;630 at the top left of this page; everything from here down, and the darker area around it, stays out of the shot.</p>
+
+	{#- Two steps rather than one select of 1,500. The category narrows the list;
+	    only the site reaches the URL, and the category is read back off it. -#}
+	<div class="ui-fields">
+		<label>Category
+			<select id="field-category"></select>
+		</label>
+		<label>Site
+			<span class="ui-field-row">
+				<select id="field-site"></select>
+				<span class="ui-count" id="ui-site-count"></span>
+			</span>
+		</label>
+	</div>
+
+	<div class="ui-actions">
+		<button type="button" id="copy-link">Copy link to this card</button>
+		<a id="open-screenshot" href="" target="_blank" rel="noopener">Open screenshot URL</a>
+		<a id="open-report" href="">Full report</a>
+		<a id="open-category" href="">Category</a>
+	</div>
+
+	<p>Rendered as an image by: <code id="ui-screenshot-url"></code></p>
+
+	{#- A card that fails to draw still looks like a card: the skeleton below the
+	    script is a plausible one, all hundreds and this site's own domain. So a
+	    failure says so here rather than only in the console, where nobody looking
+	    at a wrong-looking image would think to check. -#}
+	<p id="ui-problem" class="ui-problem" hidden></p>
+</div>
+
+{#
+	One mark per distinct generator and host, rendered once and cloned by the
+	script. Not carried in the JSON below: `stackIcon` emits a Font Awesome `<i>`
+	for brands Font Awesome carries, and that only becomes a glyph because the
+	plugin transforms real markup — an element inside a JSON string is never
+	seen. Cloning also means a brand used by 700 sites is one copy of its path.
+
+	Keyed by name, which is what the stacks summary carries. A bucketed row like
+	"Self-hosted" therefore gets the bucket's own chip rather than the mark of
+	the daemon behind it, which the site pages do show.
+#}
+<div id="og-marks" hidden>
+	<span data-icon="warning">{#- Cloned into the No-JS figure. -#}<i class="fa-solid fa-triangle-exclamation" width="18" height="18" aria-hidden="true"></i></span>
+	{%- for item in sites.stacks.generators.items %}<span data-mark="{{ item.name }}">{% stackIcon item, 30 %}</span>{% endfor -%}
+	{%- for item in sites.stacks.hosts.items %}<span data-mark="{{ item.name }}">{% stackIcon item, 30 %}</span>{% endfor -%}
+</div>
+
+{#
+	Every tracked site, as arrays rather than objects — this is 1,500-odd records
+	and the keys would be most of the bytes. The legend is in the script below.
+
+	The leading 0 keeps the comma placement simple in the loop and is sliced off
+	on the other side, the same trick the 11ty-website card page uses.
+#}
+{#
+	The categories in the order the site puts them: the ones the home page lists,
+	in `sites.groups` order, then the rest. The same two passes the category
+	switcher in base.njk makes, for the same reason — a category kept off the
+	front page is still reachable, but it belongs after the ones a reader arrived
+	expecting. Sorting these alphabetically in the browser would have put this
+	page's list in an order nothing else on the site uses.
+
+	Each is a `[name, id]` pair: the records carry a category's name, and its page
+	is addressed by id.
+#}
+<script type="application/json" id="og-categories">
+[0
+{%- for g in sites.groups %}{% if g.showOnHomePageCategoryList %},{{ [g.name, g.id] | dump | replace("</", "<\\/") | safe }}{% endif %}{% endfor -%}
+{%- for g in sites.groups %}{% if not g.showOnHomePageCategoryList %},{{ [g.name, g.id] | dump | replace("</", "<\\/") | safe }}{% endif %}{% endfor -%}
+]
+</script>
+
+<script type="application/json" id="og-sites">
+[0
+{%- for entry in sites.entries -%}
+	{%- set lab = entry.latest.lab if entry.latest -%}
+	{%- set rings = [] -%}
+	{%- for score in metrics.SCORES -%}
+		{%- set v = lab.scores[score.key] if lab else null -%}
+		{%- set rings = (rings.push([v | scoreClass, v]), rings) -%}
+	{%- endfor -%}
+	{#- Mirrors axeRing: a run that errored has no count, and no count is "none". -#}
+	{%- set axeValue = entry.axe.violations if entry.axe and not entry.axe.error else null -%}
+	{%- set rings = (rings.push([axeValue | axeClass, null]), rings) -%}
+	{%- set rings = (rings.push([entry.cwvFailures | cwvClass(entry.cwvWorst or "poor"), null]), rings) -%}
+	{#- A rank is only worth putting on a card while it is a credit, and the rings
+	    beside it decide that: "#812" over an amber circle is a card arguing with
+	    itself. Green or gray only — an axe run that did not happen and a site
+	    CrUX has never sampled are absences, not marks against it.
+
+	    Read off the same six bands the card draws rather than `allGreen`, which
+	    answers a near-miss of this question: it wants axe green rather than green
+	    or unrun, and it lets an amber Core Web Vitals through. -#}
+	{%- set offBand = [] -%}
+	{%- for ring in rings -%}
+		{%- if ring[0] == "average" or ring[0] == "poor" -%}
+			{%- set offBand = (offBand.push(ring[0]), offBand) -%}
+		{%- endif -%}
+	{%- endfor -%}
+	{#- "Self-hosted" is the absence of a host rather than one — the bucket a bare
+	    daemon name falls into — so the card says nothing rather than naming it. -#}
+	{%- set hostName = entry.host.name if (entry.host and entry.host.id != "self-hosted") else null -%}
+	{%- set generator = entry.generator or entry.presumedGenerator -%}
+	{%- set noJs = entry.ownScreenshot.difference if (entry.ownScreenshot and not entry.interstitial) else null -%}
+	{#- The last three runs, each as its six bands reduced to their initials —
+	    good, average, poor, none are distinct in the first letter, so this is a
+	    wire format rather than a second opinion about banding. History is
+	    stored oldest first, so these come out in that order too. -#}
+	{%- set runs = [] -%}
+	{%- set runCount = entry.history | length -%}
+	{%- for run in entry.history -%}
+		{%- if loop.index0 >= runCount - 3 -%}
+			{%- set letters = [] -%}
+			{%- for band in run.bands -%}{%- set letters = (letters.push(band[0]), letters) -%}{%- endfor -%}
+			{%- set runs = (runs.push(letters | join("")), runs) -%}
+		{%- endif -%}
+	{%- endfor -%}
+	,{{ [
+		entry.slug,
+		entry.displayUrl,
+		entry.url,
+		entry.groupName,
+		entry.ranks.overall if (entry.ranks.overall and not offBand.length) else null,
+		rings,
+		(lab.weight.total | bytes) if lab else null,
+		(lab.weight.requests | num) if lab else null,
+		(lab.timings.lcp | ms) if lab else null,
+		noJs,
+		entry.clientRendered or false,
+		(entry.latest.date | date) if entry.latest else null,
+		generator.name or null,
+		hostName,
+		(generator.presumed or false) if generator else false,
+		runs
+	] | dump | replace("</", "<\\/") | safe }}
+{%- endfor -%}
+]
+</script>
+
+<script type="module">
+/* Field order in each record above. */
+/* SITE_URL, not URL: these are module-scope bindings, and `URL` would shadow
+   the global constructor that builds the screenshot link below. */
+const SLUG = 0, NAME = 1, SITE_URL = 2, GROUP = 3, RANK = 4, RINGS = 5,
+	WEIGHT = 6, REQUESTS = 7, LCP = 8, NOJS = 9, EMPTY = 10, DATE = 11,
+	GENERATOR = 12, HOST = 13, PRESUMED = 14, RUNS = 15;
+
+/* Decodes the run bands above, which travel as initials to keep 1,500 records
+   down to a page rather than a download. */
+const BANDS = { g: "good", a: "average", p: "poor", n: "none" };
+
+const SITES = JSON.parse(document.getElementById("og-sites").textContent).slice(1);
+const BY_SLUG = new Map(SITES.map(site => [site[SLUG], site]));
+
+/* The corpus grouped for the two selects. A site carries one category here —
+   its primary — so a site belongs to exactly one list and the category can be
+   derived from the site rather than tracked beside it. */
+const BY_CATEGORY = new Map();
+
+for (let site of SITES) {
+	let label = site[GROUP] || "Uncategorized";
+
+	if (!BY_CATEGORY.has(label)) {
+		BY_CATEGORY.set(label, []);
+	}
+
+	BY_CATEGORY.get(label).push(site);
+}
+
+for (let sites of BY_CATEGORY.values()) {
+	sites.sort((a, b) => a[NAME].localeCompare(b[NAME]));
+}
+
+/* The site's own order, with anything the report does not name — a category
+   with no sites left, or a site filed under none — kept at the end rather than
+   dropped. */
+const CATEGORY_LIST = JSON.parse(document.getElementById("og-categories").textContent).slice(1);
+const CATEGORY_ORDER = CATEGORY_LIST.map(([name]) => name);
+const CATEGORY_IDS = new Map(CATEGORY_LIST);
+const CATEGORIES = CATEGORY_ORDER.filter(label => BY_CATEGORY.has(label))
+	.concat(Array.from(BY_CATEGORY.keys()).filter(label => !CATEGORY_ORDER.includes(label)));
+
+const ORIGIN = "{{ meta.url }}";
+const AVATAR_SERVICE = "{{ meta.avatarService }}";
+const MEASURED_COUNT = {{ sites.stats.measured }};
+const SCORE_LABELS = [{% for score in metrics.SCORES %}{{ score.label | dump | safe }}, {% endfor %}"Axe", "Core Web Vitals"];
+
+/* The glyph for a verdict ring, matching axeRing and cwvRing: a tick passes, a
+   cross fails badly, "!" is the middle case. The band decides it, and the band
+   was decided by lib/rank.js at build time. */
+const GLYPHS = { good: "✓", average: "!", poor: "✗" };
+
+/* Anything thrown here leaves the card showing its placeholder values, which is
+   indistinguishable from a real card at a glance. Report it where it will be
+   seen. A window listener rather than a try/catch so it also catches a failure
+   while this module is still being evaluated. */
+window.addEventListener("error", event => showProblem(event.error || event.message));
+window.addEventListener("unhandledrejection", event => showProblem(event.reason));
+
+function showProblem(error) {
+	let out = document.getElementById("ui-problem");
+
+	if (out) {
+		out.hidden = false;
+		out.textContent = "This card did not render: " + ((error && error.stack) || error);
+	}
+}
+
+const card = document.getElementById("og");
+const eyebrow = document.getElementById("og-eyebrow");
+const nameLine = document.getElementById("og-name");
+const domain = document.getElementById("og-domain");
+const favicon = document.getElementById("og-favicon");
+const meta = document.getElementById("og-meta");
+const rings = document.querySelectorAll("#og-rings .ring");
+const figures = document.getElementById("og-figures");
+const unmeasured = document.getElementById("og-unmeasured");
+const dateOut = document.getElementById("og-date");
+const noJsFigure = document.getElementById("og-fig-nojs");
+const runsFigure = document.getElementById("og-fig-runs");
+const category = document.getElementById("field-category");
+const siteCount = document.getElementById("ui-site-count");
+const field = document.getElementById("field-site");
+const screenshotOut = document.getElementById("ui-screenshot-url");
+const openScreenshot = document.getElementById("open-screenshot");
+const openReport = document.getElementById("open-report");
+const openCategory = document.getElementById("open-category");
+
+function figureValue(id) {
+	return document.querySelector("#" + id + " .og-figure-value");
+}
+
+/* Only the band, the arc and the value change. The circumference is read back
+   off the dash the shortcode already wrote, so the geometry lives in exactly
+   one place — see `ring()` in buildawesome.config.js. */
+function setRing(svg, band, text, pct, label) {
+	svg.setAttribute("class", "ring ring-" + band);
+	svg.setAttribute("aria-label", label);
+
+	let arc = svg.querySelector(".ring-arc");
+	let circumference = Number(arc.getAttribute("stroke-dasharray").split(" ")[1]);
+	arc.setAttribute("stroke-dasharray", (circumference * (pct ?? 0)).toFixed(2) + " " + circumference);
+	/* A null has no arc at all in the shortcode's output; hiding it is the same
+	   picture, and keeps the element around for the next site. */
+	arc.style.visibility = pct === null ? "hidden" : "";
+
+	svg.querySelector(".ring-text").textContent = text;
+}
+
+function markFor(name, presumed) {
+	if (!name) {
+		return null;
+	}
+
+	let source = document.querySelector('#og-marks [data-mark="' + CSS.escape(name) + '"]');
+	let mark = source && source.firstElementChild;
+
+	if (!mark) {
+		return null;
+	}
+
+	let clone = mark.cloneNode(true);
+
+	/* A presumption is the category's claim rather than a measurement, faded
+	   here the same way the shortcode fades it everywhere else. */
+	if (presumed) {
+		clone.classList.add("stack-presumed");
+	}
+
+	return clone;
+}
+
+function stackItem(name, presumed) {
+	let item = document.createElement("span");
+	item.className = "og-stack";
+	let mark = markFor(name, presumed);
+
+	if (mark) {
+		item.append(mark);
+	}
+
+	item.append(name);
+	return item;
+}
+
+/* No fitting is possible before the element is in the document, so this measures
+   rather than guesses: shrink until the line stops overflowing its own box. */
+function fitName() {
+	let size = 76;
+	nameLine.style.fontSize = size + "px";
+
+	while (size > 32 && nameLine.scrollWidth > nameLine.clientWidth) {
+		size -= 2;
+		nameLine.style.fontSize = size + "px";
+	}
+}
+
+function render(site) {
+	eyebrow.textContent = site[GROUP] || "";
+	domain.textContent = site[NAME];
+
+	if (AVATAR_SERVICE) {
+		favicon.src = AVATAR_SERVICE.replace("{url}", encodeURIComponent(site[SITE_URL]));
+	}
+
+	meta.replaceChildren();
+
+	if (site[RANK]) {
+		let rank = document.createElement("span");
+		rank.className = "og-rank";
+		rank.textContent = "#" + site[RANK].toLocaleString("en-US");
+		meta.append(rank, "of " + MEASURED_COUNT.toLocaleString("en-US") + " measured sites");
+	}
+
+	if (site[GENERATOR]) {
+		meta.append(stackItem(site[GENERATOR], site[PRESUMED]));
+	}
+
+	if (site[HOST]) {
+		meta.append(stackItem(site[HOST], false));
+	}
+
+	rings.forEach((svg, index) => {
+		let [band, value] = site[RINGS][index];
+		let isScore = index < rings.length - 2;
+		let text = isScore ? (value ?? "–") : (GLYPHS[band] ?? "–");
+		let pct = band === "none" ? null : (isScore ? value / 100 : 1);
+		setRing(svg, band, text, pct, SCORE_LABELS[index] + ": " + text);
+	});
+
+	let measured = Boolean(site[DATE]);
+	figures.hidden = !measured;
+	unmeasured.hidden = measured;
+	dateOut.textContent = measured ? site[DATE] : "";
+
+	if (measured) {
+		figureValue("og-fig-weight").textContent = site[WEIGHT];
+		figureValue("og-fig-requests").textContent = site[REQUESTS];
+		figureValue("og-fig-lcp").textContent = site[LCP];
+
+		noJsFigure.hidden = site[NOJS] === null;
+
+		if (site[NOJS] !== null) {
+			let value = figureValue("og-fig-nojs");
+			value.replaceChildren(site[NOJS] + "%");
+
+			/* The page drew nothing without its scripts, which the percentage on
+			   its own understates. */
+			if (site[EMPTY]) {
+				let flag = document.createElement("span");
+				flag.className = "og-empty";
+				let warning = document.querySelector('#og-marks [data-icon="warning"] > *');
+
+				if (warning) {
+					flag.append(warning.cloneNode(true));
+				}
+
+				flag.append("Empty");
+				value.append(flag);
+			}
+		}
+	}
+
+	renderRuns(site[RUNS]);
+	fitName();
+}
+
+/* One row of six dots per run, oldest on top. */
+function renderRuns(runs) {
+	runsFigure.hidden = !runs.length;
+
+	if (!runs.length) {
+		return;
+	}
+
+	runsFigure.querySelector(".og-figure-label").textContent =
+		runs.length === 1 ? "Last run" : "Last " + runs.length + " runs";
+
+	runsFigure.querySelector(".og-runs").replaceChildren(...runs.map(run => {
+		let row = document.createElement("span");
+		row.className = "recents-dots";
+
+		for (let letter of run) {
+			let dot = document.createElement("span");
+			dot.className = "recents-dot recents-dot-" + (BANDS[letter] ?? "none");
+			row.append(dot);
+		}
+
+		return row;
+	}));
+}
+
+function buildCategoryOptions() {
+	for (let label of CATEGORIES) {
+		category.append(new Option(label, label));
+	}
+}
+
+/* Refills the site select for one category. Replacing the options resets the
+   select to its first one, which is what a category change should land on. */
+function buildSiteOptions(label) {
+	let sites = BY_CATEGORY.get(label) || [];
+
+	field.replaceChildren(...sites.map(site => new Option(site[NAME], site[SLUG])));
+	siteCount.textContent = sites.length
+		? sites.length.toLocaleString("en-US") + (sites.length === 1 ? " site" : " sites")
+		: "";
+}
+
+function update() {
+	let site = BY_SLUG.get(field.value) || SITES[0];
+
+	/* Before rendering, not after. These two are independent — the address bar
+	   should name the selected site whether or not drawing its card works — and
+	   with the order the other way round anything thrown while rendering leaves
+	   the URL pointing at the previous site. */
+	history.replaceState(null, "", "?site=" + encodeURIComponent(site[SLUG]));
+
+	let cardUrl = new URL("/opengraph/?site=" + encodeURIComponent(site[SLUG]), ORIGIN).toString();
+	/* Built against the deployed origin rather than location: the screenshot
+	   service fetches a public URL, so a localhost one would not resolve. */
+	let screenshotUrl = "https://v1.screenshot.11ty.dev/" + encodeURIComponent(cardUrl) + "/opengraph/";
+
+	screenshotOut.textContent = screenshotUrl;
+	openScreenshot.href = screenshotUrl;
+	openReport.href = "/site/" + site[SLUG] + "/";
+	openReport.textContent = "Full report for " + site[NAME];
+
+	/* Hidden rather than dead where the category has no page of its own — a site
+	   filed under none is the only case, and a link to /group// is worse than no
+	   link at all. */
+	let categoryId = CATEGORY_IDS.get(site[GROUP]);
+
+	openCategory.hidden = !categoryId;
+	openCategory.href = categoryId ? "/group/" + categoryId + "/" : "";
+	openCategory.textContent = "Category: " + site[GROUP];
+	document.title = site[NAME] + " · Open Graph card";
+
+	render(site);
+}
+
+/* Both selects follow the URL, so a slug typed into the address bar or reached
+   with the back button lands on that site rather than leaving them disagreeing.
+   The category is derived from the site — it is not in the URL, and having it
+   there would let the two contradict each other. */
+function selectFromUrl() {
+	let requested = new URLSearchParams(location.search).get("site");
+	let site = BY_SLUG.get(requested) || BY_SLUG.get(DEFAULT_SLUG);
+
+	category.value = site[GROUP] || "Uncategorized";
+	buildSiteOptions(category.value);
+	field.value = site[SLUG];
+}
+
+buildCategoryOptions();
+
+/* Seeded from the query string, checked against the build-time list — an
+   unknown slug falls back rather than rendering a half-empty card. The default
+   is the top-ranked site, which is the one worth looking at cold. */
+const DEFAULT_SLUG = (SITES.find(site => site[RANK] === 1) || SITES[0])[SLUG];
+
+selectFromUrl();
+
+/* A new category means a new list, and the first site in it is the one the
+   select is now showing — so the card and the URL follow it. */
+category.addEventListener("change", () => {
+	buildSiteOptions(category.value);
+	update();
+});
+
+field.addEventListener("change", update);
+window.addEventListener("popstate", () => {
+	selectFromUrl();
+	update();
+});
+
+document.getElementById("copy-link").addEventListener("click", async function () {
+	await navigator.clipboard.writeText(location.href);
+	this.textContent = "Copied!";
+	setTimeout(() => (this.textContent = "Copy link to this card"), 1500);
+});
+
+update();
+
+/* Fonts change the metrics, so measure the name again once they have loaded. */
+await document.fonts.ready;
+fitName();
+
+/* A screenshot service can wait on this rather than capturing mid-fit. */
+document.documentElement.classList.add("og-ready");
+</script>
+
+{% getBundle "fontawesome" %}
+
+</body>
+</html>

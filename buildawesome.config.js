@@ -443,6 +443,14 @@ export default async function ($config) {
 	 */
 	$config.addFilter("scoreClass", scoreBand);
 
+	/*
+	 * The other two bands, exposed for the same reason: the Open Graph card
+	 * picks its ring colors in the browser, and a copy of the thresholds in that
+	 * script is how a card ends up a different color from the page it depicts.
+	 */
+	$config.addFilter("axeClass", axeBand);
+	$config.addFilter("cwvClass", cwvBand);
+
 	$config.addFilter("ratingClass", (r) => {
 		if (r === "good") return "good";
 		if (r === "needs-improvement") return "average";

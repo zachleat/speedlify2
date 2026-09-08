@@ -156,23 +156,29 @@ permalink: /index.html
 			These websites score {{ perfectTotal }} in all {{ metrics.SCORES.length }} Lighthouse categories, have no Axe CLI violations, and have passing (or unknown) Core Web Vitals. Tiebreakers on Speed Index per KB, plus TTFB and blocking time — a heavy site outranks an empty site.
 		</p>
 		{#
-			Stated rather than left to be noticed. A starter is a near-empty
-			demonstration of a stack, so full marks there is the expected result
-			rather than an achievement, and enough of them would crowd out the sites
-			this board exists to show. They are still ranked on their own category
-			page and in the overall leaderboard below.
+			Stated rather than left to be noticed: a site with full marks that is
+			not on this board looks like an oversight otherwise. Each category that
+			opts out says why on its own page — the reasons are unrelated, and this
+			sentence only has room to name them.
 
-			Counted from the entries rather than hardcoded, so the sentence cannot
-			outlive the decision — a category dropping `excludeFromPerfectScores`
-			leaves nothing here to say.
+			Both halves are counted rather than hardcoded, so neither can outlive
+			the decision: a category dropping `excludeFromPerfectScores` takes its
+			name out of the list, and the last one doing so leaves nothing here to
+			say at all.
 		#}
 		{% set excluded = [] %}
 		{% for entry in sites.entries %}
 			{% if entry.perfect and entry.excludedFromPerfectScores %}{% set excluded = (excluded.push(entry), excluded) %}{% endif %}
 		{% endfor %}
+		{% set excludedGroups = [] %}
+		{% for g in sites.groups %}
+			{% if g.excludeFromPerfectScores %}{% set excludedGroups = (excludedGroups.push(g), excludedGroups) %}{% endif %}
+		{% endfor %}
 		{% if excluded.length %}
 		<p class="muted small">
-			Excludes {{ excluded.length }} perfect scoring <a href="/group/11ty-starters/">starter projects</a>. They are shown on their own category page.
+			Excludes {{ excluded.length }} perfect scoring {{ excluded.length | plural("site") }} from
+			{%- for g in excludedGroups %}{% if not loop.first %}{{ " and" if loop.last else "," }}{% endif %} <a href="/group/{{ g.id }}/">{{ g.name }}</a>{% endfor %}.
+			{{ "It is" if excluded.length == 1 else "They are" }} shown on {{ "that category's page" if excludedGroups.length == 1 else "those category pages" }}.
 		</p>
 		{% endif %}
 	</div>

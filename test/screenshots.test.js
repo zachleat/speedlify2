@@ -6,6 +6,7 @@ import path from "node:path";
 
 import { ResultStore } from "../lib/store.js";
 import { keepsScreenshots } from "../lib/runner.js";
+import { clientRendered } from "../lib/report.js";
 
 /**
  * The two screenshots a measurement stores: the page as rendered, and the same
@@ -142,5 +143,33 @@ describe("who keeps their pictures", () => {
 	test("the default is to keep them", () => {
 		assert.equal(keepsScreenshots({}, null), true);
 		assert.equal(keepsScreenshots(undefined, null), true);
+	});
+});
+
+describe("the client-rendering verdict", () => {
+	const empty = { noJs: {}, noJsText: 0.4, difference: 87.7 };
+
+	test("a page that said nothing and changed when scripted is flagged", () => {
+		assert.equal(clientRendered(empty), true);
+	});
+
+	test("a page that drew itself without scripts is not", () => {
+		assert.equal(clientRendered({ noJs: {}, noJsText: 34.6, difference: 0 }), false);
+	});
+
+	test("nothing to judge without a no-JS capture", () => {
+		assert.equal(clientRendered({ noJsText: 0, difference: 90 }), null);
+		assert.equal(clientRendered(null), null);
+	});
+
+	test("a bot check is unjudged rather than cleared", () => {
+		// tesla.com serves an Access Denied page to the crawler. It is textless
+		// and identical with scripts and without, so both measures read innocent
+		// and the site came back "not client-rendered" — an answer about the wall
+		// and not about the site.
+		const wall = { noJs: {}, noJsText: 2.2, difference: 0.1 };
+		assert.equal(clientRendered(wall), false);
+		assert.equal(clientRendered(wall, "Access Denied"), null);
+		assert.equal(clientRendered(empty, "Vercel Security Checkpoint"), null);
 	});
 });

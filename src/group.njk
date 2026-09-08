@@ -61,10 +61,10 @@ eleventyComputed:
 	#}
 	{% if group.excludeFromPerfectScores %}
 	<p class="muted small">
-		Perfect scores here are kept off the <a href="/#leaderboard">home page's board</a>.
-		These are demonstrations of a stack rather than sites someone runs, so full
-		marks is the expected result. They rank normally on this page and in the
-		overall leaderboard.
+		Perfect scores here are kept off the <a href="/#leaderboard">home page's board</a>,
+		unless the site is also listed in another category.
+		{% if group.excludeFromPerfectScoresNote %}{{ group.excludeFromPerfectScoresNote }}{% endif %}
+		They rank normally on this page and in the overall leaderboard.
 	</p>
 	{% endif %}
 </header>
