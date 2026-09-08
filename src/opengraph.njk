@@ -767,7 +767,9 @@ function renderBlank() {
 	dateOut.textContent = "";
 }
 
-/* One row of six dots per run, oldest on top. */
+/* One row of six dots per run, newest on top. The records carry them oldest
+   first, which is how history is stored; the reversal is a presentation choice
+   and belongs here rather than in the data. */
 function renderRuns(runs) {
 	runsFigure.hidden = !runs.length;
 
@@ -778,7 +780,7 @@ function renderRuns(runs) {
 	runsFigure.querySelector(".og-figure-label").textContent =
 		runs.length === 1 ? "Last run" : "Last " + runs.length + " runs";
 
-	runsFigure.querySelector(".og-runs").replaceChildren(...runs.map(run => {
+	runsFigure.querySelector(".og-runs").replaceChildren(...[...runs].reverse().map(run => {
 		let row = document.createElement("span");
 		row.className = "recents-dots";
 
