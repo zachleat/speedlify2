@@ -22,6 +22,25 @@
 <title>{% if title %}{{ title }} · {% endif %}{{ meta.title }}</title>
 <meta name="description" content="{{ description or meta.description }}">
 <meta name="generator" content="{{ buildawesome.generator }}">
+{#
+	The card a site page unfurls as, rendered by 11ty's screenshot service from
+	the generator at /opengraph/. Site pages only — `entry` is that template's
+	pagination alias, and it is the only page whose card is about one thing.
+
+	Built against `meta.url` rather than the page's own address: the service
+	fetches a public URL, so a localhost one would resolve to nothing. That means
+	the tag points at the deployed card even in dev, which is the right answer —
+	there is no other card to point at.
+#}
+{%- if entry %}
+{%- set ogCard = (meta.url + "/opengraph/?site=" + entry.slug) | urlencode %}
+<meta property="og:image" content="https://v1.screenshot.11ty.dev/{{ ogCard }}/opengraph/">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Lighthouse, Axe and Core Web Vitals scores for {{ entry.displayUrl }}">
+<meta name="twitter:card" content="summary_large_image">
+{%- endif %}
 {% if buildawesome.env.runMode == "build" %}
 <style>{% include "../css/style.css" %}</style>
 {% else %}
