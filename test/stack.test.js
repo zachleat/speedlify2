@@ -246,6 +246,18 @@ describe("host detection", () => {
 		}
 	});
 
+	test("reads a provider that only names itself in via", () => {
+		// alwaysdata's proxy, in front of an origin whose own header says Apache.
+		const found = detectHost({ server: "Apache", via: "2.0 alproxy" });
+		assert.equal(found.name, "alwaysdata");
+		assert.equal(found.source, "via");
+
+		// The generic entries in this header are not providers.
+		for (let via of ["1.1 varnish", "1.1 google", "1.1 Caddy"]) {
+			assert.equal(detectHost({ server: "nginx", via }).name, "Self-hosted");
+		}
+	});
+
 	test("a provider in front of a daemon still reads as the provider", () => {
 		// Cloudflare used to identify itself as cloudflare-nginx, and every host
 		// above runs one of these daemons underneath.
