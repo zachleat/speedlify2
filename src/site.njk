@@ -1206,14 +1206,18 @@ eleventyComputed:
 					<td class="num muted">{{ (point.durationMs / 1000) | round(1) }}s</td>
 				{% endif %}
 				{#
-					Outside the error branch: a run that failed is exactly when what
-					the page looked like is worth seeing. `point.via` rather than the
-					site's current URL, so a row taken before a move points at the
-					address that was actually measured then.
+					Only for runs that produced a measurement: a failed run says
+					nothing about what was archived, so the link is left off rather
+					than sending a reader to a capture that explains nothing.
+					`point.via` rather than the site's current URL, so a row taken
+					before a move points at the address that was actually measured
+					then.
 				#}
 				<td class="col-archive">
+					{% if not point.error %}
 					<a href="{{ (point.via or entry.url) | wayback(point.date) }}"
 						title="The Wayback Machine's nearest capture to this measurement — it may be far from this date, or missing entirely"><img class="action-mark" src="{{ "https://web.archive.org/" | avatar(meta.avatarService) }}" width="16" height="16" alt="" decoding="async" loading="lazy">Wayback</a>
+					{% endif %}
 				</td>
 			</tr>
 		{% endfor %}
