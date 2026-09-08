@@ -1,0 +1,357 @@
+{
+  "url": "https://www.google.com/",
+  "name": "Google",
+  "group": "big-tech",
+  "groupName": "Big Tech",
+  "timestamp": 1788829068621,
+  "date": "2026-09-08T00:57:48.621Z",
+  "runId": "2026-09-08T00-55-00-213Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 29000,
+  "error": null,
+  "variance": {
+    "min": 78,
+    "max": 82,
+    "spread": 4,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://www.google.com/",
+    "finalUrl": "https://www.google.com/?zx=1788829079298",
+    "redirect": {
+      "from": "https://www.google.com/",
+      "to": "https://www.google.com/?zx=1788829079298",
+      "chain": [
+        {
+          "url": "https://www.google.com/",
+          "status": 200
+        },
+        {
+          "url": "https://www.google.com/?zx=1788829079298",
+          "status": null
+        }
+      ],
+      "statuses": [
+        200
+      ],
+      "change": "query",
+      "permanent": false,
+      "schemeUpgrade": false,
+      "hops": 1
+    },
+    "statusCode": "ok",
+    "scores": {
+      "performance": 82,
+      "accessibility": 88,
+      "best-practices": 96,
+      "seo": 92,
+      "agentic-browsing": 50
+    },
+    "timings": {
+      "fcp": 1974,
+      "lcp": 2277,
+      "si": 2724,
+      "tbt": 576,
+      "tti": 8342,
+      "cls": 0.009,
+      "ttfb": 463,
+      "maxPotentialFid": 283,
+      "serverResponseTime": 75,
+      "networkRtt": 1.4,
+      "networkServerLatency": 37.8
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 76.6,
+      "resourceLoadDelay": 11.4,
+      "resourceLoadDuration": 6.6,
+      "elementRenderDelay": 54.6
+    },
+    "weight": {
+      "total": 998870,
+      "requests": 50,
+      "mainDocument": 66927,
+      "byType": {
+        "total": {
+          "bytes": 998870,
+          "requests": 49
+        },
+        "script": {
+          "bytes": 782939,
+          "requests": 8
+        },
+        "other": {
+          "bytes": 73496,
+          "requests": 30
+        },
+        "document": {
+          "bytes": 66927,
+          "requests": 1
+        },
+        "image": {
+          "bytes": 44562,
+          "requests": 7
+        },
+        "font": {
+          "bytes": 24525,
+          "requests": 1
+        },
+        "stylesheet": {
+          "bytes": 6421,
+          "requests": 2
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 122012,
+          "requests": 9
+        }
+      },
+      "scripts": 8,
+      "stylesheets": 2,
+      "fonts": 1
+    },
+    "thirdParty": {
+      "count": 3,
+      "bytes": 122012,
+      "mainThreadMs": 30.9,
+      "top": [
+        {
+          "entity": "Google CDN",
+          "bytes": 97433,
+          "mainThreadMs": 30.8,
+          "byType": {
+            "script": 88983,
+            "stylesheet": 6386,
+            "image": 2064
+          },
+          "typedBytes": 97433
+        },
+        {
+          "entity": "Google Fonts",
+          "bytes": 24525,
+          "mainThreadMs": 0,
+          "byType": {
+            "font": 24525
+          },
+          "typedBytes": 24525
+        },
+        {
+          "entity": "google.com",
+          "bytes": 54,
+          "mainThreadMs": 0.1,
+          "byType": {
+            "other": 54
+          },
+          "typedBytes": 54
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 2299,
+      "byGroup": {
+        "scriptEvaluation": 1237.1,
+        "other": 522.2,
+        "scriptParseCompile": 226.9,
+        "styleLayout": 138.2,
+        "paintCompositeRender": 64.9,
+        "garbageCollection": 58,
+        "parseHTML": 51.7
+      },
+      "bootupMs": 1429.2,
+      "longTasks": 10,
+      "longestTaskMs": 283
+    },
+    "dom": {
+      "elements": 498,
+      "depth": 23,
+      "maxChildren": 39
+    },
+    "waste": {
+      "unusedJsBytes": 436485,
+      "unusedCssBytes": 11822,
+      "legacyJsBytes": 0,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 0,
+      "renderBlockingCount": 0,
+      "poorlyCachedBytes": 0,
+      "poorlyCachedCount": 0
+    },
+    "accessibility": {
+      "failingCount": 4,
+      "applicableCount": 31,
+      "failingNodes": 10,
+      "failing": [
+        {
+          "id": "target-size",
+          "title": "Touch targets do not have sufficient size or spacing.",
+          "nodes": 7
+        },
+        {
+          "id": "aria-input-field-name",
+          "title": "ARIA input fields do not have accessible names",
+          "nodes": 1
+        },
+        {
+          "id": "list",
+          "title": "Lists do not contain only `<li>` elements and script supporting elements (`<script>` and `<template>`).",
+          "nodes": 1
+        },
+        {
+          "id": "landmark-one-main",
+          "title": "Document does not have a main landmark.",
+          "nodes": 1
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h3",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 32
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2683.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-09-08T00:57:58.718Z",
+      "runtimeMs": 8344.3
+    }
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-08-09",
+      "last": "2026-09-05"
+    },
+    "metrics": {
+      "fcp": {
+        "p75": 1084,
+        "rating": "good",
+        "distribution": {
+          "good": 89.8,
+          "needsImprovement": 6.5,
+          "poor": 3.8
+        }
+      },
+      "inp": {
+        "p75": 252,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 62.9,
+          "needsImprovement": 30.6,
+          "poor": 6.6
+        }
+      },
+      "lcp": {
+        "p75": 1871,
+        "rating": "good",
+        "distribution": {
+          "good": 84.1,
+          "needsImprovement": 10.1,
+          "poor": 5.7
+        }
+      },
+      "rtt": {
+        "p75": 184,
+        "rating": null,
+        "distribution": {
+          "good": 26.2,
+          "needsImprovement": 61.1,
+          "poor": 12.7
+        }
+      },
+      "cls": {
+        "p75": 0.04,
+        "rating": "good",
+        "distribution": {
+          "good": 94.7,
+          "needsImprovement": 3,
+          "poor": 2.3
+        }
+      },
+      "ttfb": {
+        "p75": 594,
+        "rating": "good",
+        "distribution": {
+          "good": 83.6,
+          "needsImprovement": 12.2,
+          "poor": 4.1
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "interstitial": null,
+    "host": {
+      "id": null,
+      "name": "gws",
+      "icon": null,
+      "source": "server"
+    },
+    "headers": {
+      "server": "gws"
+    },
+    "violations": 21,
+    "passes": 495,
+    "incomplete": 2,
+    "violationRules": 5,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 11,
+        "help": "All page content should be contained by landmarks"
+      },
+      {
+        "id": "aria-allowed-role",
+        "impact": "minor",
+        "nodes": 7,
+        "help": "ARIA role should be appropriate for the element"
+      },
+      {
+        "id": "aria-input-field-name",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "ARIA input fields must have an accessible name"
+      },
+      {
+        "id": "landmark-one-main",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Document should have one main landmark"
+      },
+      {
+        "id": "list",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "<ul> and <ol> must only directly contain <li>, <script> or <template> elements"
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
