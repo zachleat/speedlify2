@@ -6,6 +6,26 @@
 	`plot` is whichever set lib/report.js built; `xTitle` names its horizontal
 	scale. Everything else is identical between them.
 #}
+{#
+	Pearson's r as a pill beside a chart's heading, next to the site count — see
+	`correlation` in lib/report.js.
+
+	A macro rather than seven copies of the same markup, and separate from
+	`scatterfigure` because it sits in the section's `<h2>` while the figure sits
+	below it. Absent, rather than shown as "—", on a plot with too few points to
+	correlate: a heading is not the place to explain why a number is missing.
+
+	Spelled out in the title rather than left as a bare coefficient. r measures
+	scatter about a line and says nothing about cause, and a number this easy to
+	over-read should carry that where it is read.
+#}
+{% macro rtag(plot) %}
+	{%- if plot.correlation -%}
+	<span class="tag tag-r"
+		title="Pearson correlation over {{ plot.correlation.n | num }} points, on the axes as drawn. Measures how closely the points follow a straight line — not cause.">r = {{ plot.correlation.r | num(2) }}</span>
+	{%- endif -%}
+{% endmacro %}
+
 {% macro scatterfigure(plot, xTitle, yTitle="Largest Contentful Paint") %}
 	{#
 		Inline SVG rather than a canvas or an image: it is the only form that

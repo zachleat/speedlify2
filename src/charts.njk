@@ -11,7 +11,7 @@ title: Charts
 	</p>
 </header>
 
-{% from "scatter.njk" import scatterfigure %}
+{% from "scatter.njk" import scatterfigure, rtag %}
 {% from "strip.njk" import stripfigure %}
 
 {#
@@ -25,6 +25,7 @@ title: Charts
 {% if sites.fontClsScatter %}{% set toc = (toc.push({ id: "font-cls", label: "Fonts and Layout Shift" }), toc) %}{% endif %}
 {% if sites.thirdPartyScatter %}{% set toc = (toc.push({ id: "third-party", label: "Third Party" }), toc) %}{% endif %}
 {% if sites.domScatter %}{% set toc = (toc.push({ id: "dom-performance", label: "DOM Elements" }), toc) %}{% endif %}
+{% if sites.employeeScatter %}{% set toc = (toc.push({ id: "employees-lcp", label: "Company Size" }), toc) %}{% endif %}
 {% if sites.jsByGenerator %}{% set toc = (toc.push({ id: "js-by-generator", label: "JavaScript by Generator" }), toc) %}{% endif %}
 {% if sites.clientRenderedByGenerator %}{% set toc = (toc.push({ id: "client-rendered", label: "Client Rendering by Generator" }), toc) %}{% endif %}
 {% if sites.ttfbByHost %}{% set toc = (toc.push({ id: "ttfb-by-host", label: "TTFB by Host" }), toc) %}{% endif %}
@@ -45,7 +46,7 @@ title: Charts
 {% set plot = sites.lcpScatter %}
 <section class="group" id="weight-lcp">
 	<div class="group-head">
-		<h2>Page Weight vs LCP <span class="tag">{{ plot.count | num }} sites</span></h2>
+		<h2>Page Weight vs LCP <span class="tag">{{ plot.count | num }} sites</span> {{ rtag(plot) }}</h2>
 	</div>
 	{{ scatterfigure(plot, "Page Weight") }}
 </section>
@@ -55,7 +56,7 @@ title: Charts
 {% set js = sites.jsScatter %}
 <section class="group" id="js-lcp">
 	<div class="group-head">
-		<h2>JavaScript Weight vs LCP <span class="tag">{{ js.count | num }} sites</span></h2>
+		<h2>JavaScript Weight vs LCP <span class="tag">{{ js.count | num }} sites</span> {{ rtag(js) }}</h2>
 	</div>
 	{{ scatterfigure(js, "JavaScript Weight") }}
 </section>
@@ -65,7 +66,7 @@ title: Charts
 {% set ttfb = sites.ttfbScatter %}
 <section class="group" id="ttfb-lcp">
 	<div class="group-head">
-		<h2>TTFB vs LCP <span class="tag">{{ ttfb.count | num }} sites</span></h2>
+		<h2>TTFB vs LCP <span class="tag">{{ ttfb.count | num }} sites</span> {{ rtag(ttfb) }}</h2>
 	</div>
 	{{ scatterfigure(ttfb, "Time to First Byte") }}
 </section>
@@ -75,7 +76,7 @@ title: Charts
 {% set fonts = sites.fontClsScatter %}
 <section class="group" id="font-cls">
 	<div class="group-head">
-		<h2>Web Font Weight vs CLS <span class="tag">{{ fonts.count | num }} sites</span></h2>
+		<h2>Web Font Weight vs CLS <span class="tag">{{ fonts.count | num }} sites</span> {{ rtag(fonts) }}</h2>
 	</div>
 	{{ scatterfigure(fonts, "Web Font Weight", "Cumulative Layout Shift") }}
 </section>
@@ -85,12 +86,13 @@ title: Charts
 {% set tp = sites.thirdPartyScatter %}
 <section class="group" id="third-party">
 	<div class="group-head">
-		<h2>Third Party vs Performance <span class="tag">{{ tp.count | num }} sites</span></h2>
+		<h2>Performance vs Third Party <span class="tag">{{ tp.count | num }} sites</span> {{ rtag(tp) }}</h2>
 	</div>
 	<p class="muted small">
-		Usually things like analytics, embeds, fonts, tag managers, ads weighted against Lighthouse’s Performance score.
+		Lighthouse’s Performance score weighed against third-party weight — usually
+		things like analytics, embeds, fonts, tag managers, ads.
 	</p>
-	{{ scatterfigure(tp, "Third-Party Weight", "Performance Score") }}
+	{{ scatterfigure(tp, "Performance Score", "Third-Party Weight") }}
 </section>
 {% endif %}
 
@@ -98,22 +100,48 @@ title: Charts
 {% set dom = sites.domScatter %}
 <section class="group" id="dom-performance">
 	<div class="group-head">
-		<h2>DOM Elements vs Performance <span class="tag">{{ dom.count | num }} sites</span></h2>
+		<h2>Performance vs DOM Elements <span class="tag">{{ dom.count | num }} sites</span> {{ rtag(dom) }}</h2>
 	</div>
 	<p class="muted small">
-		DOM element count against Lighthouse&rsquo;s
-		Performance score. A big document is paid for in style and layout work on
-		every frame.
+		Lighthouse&rsquo;s Performance score against DOM element count. A big
+		document is paid for in style and layout work on every frame.
 	</p>
 	{#
 		The drift is real and the spread is the caveat, so both are said above
 		rather than left for a reader to infer from a cloud of dots. The median
 		falls from 99 under a hundred elements to 58 past three thousand — but the
-		green band runs the whole width of the chart, some sites past three
+		green band runs the whole height of the chart, some sites past three
 		thousand still score 100, and one under a hundred scores 12. Node count
 		moves the odds; it does not decide the number.
 	#}
-	{{ scatterfigure(dom, "DOM Elements", "Performance Score") }}
+	{{ scatterfigure(dom, "Performance Score", "DOM Elements") }}
+</section>
+{% endif %}
+
+{% if sites.employeeScatter %}
+{% set emp = sites.employeeScatter %}
+<section class="group" id="employees-lcp">
+	<div class="group-head">
+		<h2>Company Size vs LCP <span class="tag">{{ emp.count | num }} companies</span> {{ rtag(emp) }}</h2>
+	</div>
+	<p class="muted small">
+		Big Tech, Web Hosts and Website Builders only &mdash; the categories where
+		&ldquo;how many people work here&rdquo; has an answer. Headcount comes from
+		each company&rsquo;s own filings and disclosures. One dot per company,
+		using its canonical site.
+		{%- if sites.employeesUnknown.length %}
+		A further {{ sites.employeesUnknown.length }}
+		{{ "company is" if sites.employeesUnknown.length == 1 else "companies are" }}
+		measured but not plotted, having published no headcount.
+		{%- endif %}
+	</p>
+	{#
+		Unlike every other chart here, this one names its slow dots as well as its
+		fast ones — see `nameAll` in lib/report.js. These are the largest companies
+		on earth rather than someone's personal site, and the whole reading is
+		which company sits where.
+	#}
+	{{ scatterfigure(emp, "Employees") }}
 </section>
 {% endif %}
 

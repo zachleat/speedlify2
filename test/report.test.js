@@ -4,7 +4,7 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 
-import { buildReport, REPORT_VERSION, rankClimb } from "../lib/report.js";
+import { buildReport, REPORT_VERSION, rankClimb, pearson } from "../lib/report.js";
 import { shortHash } from "../lib/hash.js";
 import { ResultStore } from "../lib/store.js";
 
@@ -1270,5 +1270,41 @@ describe("lab and field pairs", () => {
 		const lf = r.labFieldPairs;
 		assert.ok(lf.axis.tickY < lf.box.top);
 		assert.ok(lf.axis.xLabel.y < lf.axis.tickY);
+	});
+});
+
+describe("pearson", () => {
+	const line = (n, f) => Array.from({ length: n }, (_, i) => [i, f(i)]);
+
+	test("returns 1 for a perfect ascending line", () => {
+		assert.equal(pearson(line(12, (i) => 2 * i + 5)).r, 1);
+	});
+
+	test("returns -1 for a perfect descending line", () => {
+		assert.equal(pearson(line(12, (i) => -3 * i)).r, -1);
+	});
+
+	test("is unmoved by the slope, only by the scatter", () => {
+		// Both are perfect lines; r cannot tell them apart, and should not try.
+		assert.equal(pearson(line(12, (i) => i)).r, pearson(line(12, (i) => 100 * i)).r);
+	});
+
+	test("reports the pair count it used", () => {
+		assert.equal(pearson(line(40, (i) => i)).n, 40);
+	});
+
+	// Better to say nothing than to print 0.00 over a handful of points and have
+	// it read as "measured, and there is no relationship".
+	test("declines a sample under eight pairs", () => {
+		assert.equal(pearson(line(7, (i) => i)), null);
+	});
+
+	test("declines an axis that never varies", () => {
+		assert.equal(pearson(line(12, () => 4)), null);
+	});
+
+	test("rounds to two decimals", () => {
+		const { r } = pearson([...line(11, (i) => i), [11, 4]]);
+		assert.equal(r, Math.round(r * 100) / 100);
 	});
 });

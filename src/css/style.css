@@ -1228,6 +1228,7 @@ fieldset[disabled] select {
 	color: var(--poor);
 }
 
+
 /*
  * Four figures about the measuring machines. A description list because that is
  * what it is — a label and its value, four times — rather than a table, which
@@ -2165,6 +2166,23 @@ fieldset[disabled] select {
 	background: color-mix(in srgb, var(--text-muted) 12%, transparent);
 	padding: 0.1rem 0.45rem;
 	border-radius: 4px;
+}
+
+/*
+ * The correlation pill, beside a chart's site count.
+ *
+ * Set apart from the plain `.tag` next to it because the two say different kinds
+ * of thing — one counts what was measured, the other interprets it — and a
+ * reader should not have to work out which is which. Monospaced figures so the
+ * sign and the two decimals line up down the page.
+ */
+.tag-r {
+	font-family: var(--mono);
+	font-variant-numeric: tabular-nums;
+	color: var(--text-muted);
+	background: transparent;
+	border: 1px solid var(--border);
+	cursor: help;
 }
 
 .chips { display: flex; flex-wrap: wrap; gap: 0.4rem; }
