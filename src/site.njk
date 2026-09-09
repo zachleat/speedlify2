@@ -620,17 +620,17 @@ eleventyComputed:
 			#}
 			{% set stillGood = (row.lab and row.lab.rating == "good") or (row.field and row.field.rating == "good") %}
 			<td class="num">
+				<span class="cell-main{% if t %} {{ t.vsPrevious | deltaClass(stillGood) }}{% endif %}">
+					{% if t and t.vsPrevious %}{{ t.vsPrevious | deltaArrow }} {{ t.vsPrevious | deltaText(row.unit) }}{% else %}&mdash;{% endif %}
+				</span>
 				{#
-					Above the figure it qualifies rather than trailing it: the badge is
+					Under the change it qualifies rather than trailing it: the badge is
 					a whole word against a number a few characters long, and inline it
 					set the width of the column to its own.
 				#}
 				{% if t and t.significant %}
 				<span class="cell-flag"><span class="badge badge-sig" title="Larger than this metric's normal run-to-run noise">significant</span></span>
 				{% endif %}
-				<span class="cell-main{% if t %} {{ t.vsPrevious | deltaClass(stillGood) }}{% endif %}">
-					{% if t and t.vsPrevious %}{{ t.vsPrevious | deltaArrow }} {{ t.vsPrevious | deltaText(row.unit) }}{% else %}&mdash;{% endif %}
-				</span>
 				{% if t %}
 				<span class="cell-sub" title="Best and worst across the measured window">
 					{{ (t.min if t.lowerIsBetter else t.max) | unit(row.unit) }} &ndash; {{ (t.max if t.lowerIsBetter else t.min) | unit(row.unit) }}
@@ -719,17 +719,17 @@ eleventyComputed:
 			<td class="num">{{ t.current | unit(row.unit) }}</td>
 			{#
 				Only the change line is colored — the range is neither good nor bad,
-				it is where this metric has been. The badge sits above the figure it
-				qualifies rather than inline, where a whole word set the width of the
-				column to its own.
+				it is where this metric has been. The badge sits on its own line under
+				the change it qualifies rather than inline, where a whole word set the
+				width of the column to its own.
 			#}
 			<td class="num">
-				{% if t.significant %}
-				<span class="cell-flag"><span class="badge badge-sig" title="Larger than this metric's normal run-to-run noise">significant</span></span>
-				{% endif %}
 				<span class="cell-main {{ t.vsPrevious | deltaClass }}">
 					{% if t.vsPrevious %}{{ t.vsPrevious | deltaArrow }} {{ t.vsPrevious | deltaText(row.unit) }}{% else %}&mdash;{% endif %}
 				</span>
+				{% if t.significant %}
+				<span class="cell-flag"><span class="badge badge-sig" title="Larger than this metric's normal run-to-run noise">significant</span></span>
+				{% endif %}
 				<span class="cell-sub" title="Best and worst across the measured window">
 					{{ (t.min if t.lowerIsBetter else t.max) | unit(row.unit) }} &ndash; {{ (t.max if t.lowerIsBetter else t.min) | unit(row.unit) }}
 				</span>
