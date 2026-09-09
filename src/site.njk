@@ -511,13 +511,19 @@ eleventyComputed:
 		{% for score in metrics.SCORES %}
 		{% set t = entry.trends[score.key] %}
 		{% set value = entry.latest.lab.scores[score.key] %}
+		{#
+			A card whose score still bands good gets the softened pink rather than
+			red, the same as the metrics table below and the leaderboard trends: 96
+			after 99 moved the wrong way, and the number above is green.
+		#}
+		{% set scoreGood = (value | scoreClass) == "good" %}
 		<div class="card">
 			<div class="card-value score-{{ value | scoreClass }}">{{ value if value != null else "—" }}</div>
 			<div class="card-label">{{ score.label }}</div>
 			{% if t %}
-			<div class="card-spark">{% sparkline t %}</div>
+			<div class="card-spark">{% sparkline t, { good: scoreGood } %}</div>
 			{% if t.vsPrevious and not t.vsPrevious.unchanged %}
-			<div class="card-delta {{ t.vsPrevious | deltaClass }}">
+			<div class="card-delta {{ t.vsPrevious | deltaClass(scoreGood) }}">
 				{{ t.vsPrevious | deltaArrow }} {{ t.vsPrevious | deltaText }}
 			</div>
 			{% else %}
