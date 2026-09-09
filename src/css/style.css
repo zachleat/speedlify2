@@ -2200,7 +2200,12 @@ fieldset[disabled] select {
    wrong for a word in parentheses after it. */
 .badge-qualifier { text-transform: none; letter-spacing: 0; font-weight: 500; }
 
-.badge-sig { background: var(--average-bg); color: var(--average); }
+/* Not a warning: a significant change can be an improvement, and the delta it
+   sits beside is already colored good or bad. Neutral, like the base badge. */
+.badge-sig {
+	background: color-mix(in srgb, var(--text-muted) 15%, transparent);
+	color: var(--text-muted-strong);
+}
 /* The measurement went somewhere other than the URL we asked for. Amber rather
    than red: the numbers are real, they just describe the destination. */
 .badge-redirect { background: var(--average-bg); color: var(--average); }
