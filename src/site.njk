@@ -606,7 +606,13 @@ eleventyComputed:
 
 				Only the change line is colored — the range is neither good nor bad,
 				it is where this metric has been.
+
+				And pink rather than red while either rating on the row says good. The
+				pills grade where the metric stands; a move inside the good band is
+				movement, not a regression, and red argues with the pill sitting two
+				cells to the left. The sparkline beside it is softened the same way.
 			#}
+			{% set stillGood = (row.lab and row.lab.rating == "good") or (row.field and row.field.rating == "good") %}
 			<td class="num">
 				{#
 					Above the figure it qualifies rather than trailing it: the badge is
@@ -616,7 +622,7 @@ eleventyComputed:
 				{% if t and t.significant %}
 				<span class="cell-flag"><span class="badge badge-sig" title="Larger than this metric's normal run-to-run noise">significant</span></span>
 				{% endif %}
-				<span class="cell-main{% if t %} {{ t.vsPrevious | deltaClass }}{% endif %}">
+				<span class="cell-main{% if t %} {{ t.vsPrevious | deltaClass(stillGood) }}{% endif %}">
 					{% if t and t.vsPrevious %}{{ t.vsPrevious | deltaArrow }} {{ t.vsPrevious | deltaText(row.unit) }}{% else %}&mdash;{% endif %}
 				</span>
 				{% if t %}
@@ -625,7 +631,7 @@ eleventyComputed:
 				</span>
 				{% endif %}
 			</td>
-			<td class="col-trend">{% if t %}{% sparkline t %}{% endif %}</td>
+			<td class="col-trend">{% if t %}{% sparkline t, { good: stillGood } %}{% endif %}</td>
 			{% if showField %}
 			<td class="num col-group-start">
 				{% if not row.field %}

@@ -37,6 +37,11 @@
 	   any one row. Pink rather than red: still clearly the bad news, without
 	   competing with the failing rows themselves. */
 	--poor-soft: #ff9fb0;
+	/* Softer again, for a move in the wrong direction on a metric still rated
+	   good. Half the pink of --poor-soft and half the muted gray, which is the
+	   weight this deserves: visible as a direction, not as a verdict. 6.56:1 on
+	   the page, 5.67:1 on a card. */
+	--poor-faint: #d8a8b0;
 
 	--accent: #7cc0ff;
 
@@ -94,6 +99,9 @@
 	   background is unreadable, so the hue carries the softness and the value
 	   carries the contrast. */
 	--poor-soft: #c2185b;
+	/* The same halfway mix as the dark theme, toward this theme's muted gray.
+	   6.26:1 on the page, 6.47:1 on a card. */
+	--poor-faint: #94426a;
 
 	--accent: #1a5fd0;
 
@@ -788,6 +796,10 @@ fieldset[disabled] select {
    count beside it and with the mover cards, which stay red. */
 .failing-note { color: var(--poor-soft); }
 .flat { color: var(--text-muted); }
+/* Worse, on a row whose rating still says good. A dusty pink rather than red:
+   the move went the wrong way and the reader should see that, but the metric is
+   inside its threshold and red would argue with the pill beside it. */
+.worse-soft { color: var(--poor-faint); }
 
 /* --------------------------------------------------------------- filmstrip */
 
@@ -840,6 +852,11 @@ fieldset[disabled] select {
 .spark-worse .spark-area { fill: var(--poor); }
 .spark-flat .spark-line, .spark-flat .spark-dot { stroke: var(--text-muted); fill: var(--text-muted); }
 .spark-flat .spark-area { fill: var(--text-muted); }
+/* The softened decline — see `.worse-soft`. The fill is lighter than the other
+   three: this pink sits closer to the page than red does, and at 12% it read as
+   a smudge rather than as a tint. */
+.spark-worse-soft .spark-line, .spark-worse-soft .spark-dot { stroke: var(--poor-faint); fill: var(--poor-faint); }
+.spark-worse-soft .spark-area { fill: var(--poor-faint); opacity: 0.08; }
 
 /* --------------------------------------------------------------------- cwv */
 

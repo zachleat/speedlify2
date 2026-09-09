@@ -286,7 +286,15 @@ permalink: /index.html
 						{% cwvRing entry.cwvFailures, entry.cwv.assessed, entry.cwvWorst %}
 						</span>
 					</td>
-					<td class="col-trend">{% sparkline entry.trends.performance %}</td>
+					{#
+						The line is softened, not grayed, on a site whose performance score
+						still bands good — the same treatment the detail page gives a metric
+						inside its threshold. A row scoring 96 after 99 has moved the wrong
+						way, and that is worth a color, but not the red kept for a site that
+						is actually slow.
+					#}
+					{% set perfGood = (entry.latest.lab.scores.performance | scoreClass) == "good" %}
+					<td class="col-trend">{% sparkline entry.trends.performance, { good: perfGood } %}</td>
 					<td class="num col-lcp"><span class="lcp-cell"><span class="lcp-value">{{ entry.latest.lab.timings.lcp | ms }}</span>{% lcpBar entry.latest.lab.lcpBreakdown, entry.latest.lab.timings.lcp %}</span></td>
 					<td class="num">{{ entry.latest.lab.timings.cls | unit("") }}</td>
 					<td class="num">{{ entry.latest.lab.timings.tbt | ms }}</td>

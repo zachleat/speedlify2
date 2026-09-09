@@ -525,11 +525,20 @@ export default async function ($config) {
 	 */
 	const DELTA_WORSE_MIN_PCT = 5;
 
-	$config.addFilter("deltaClass", (d) => {
+	/*
+	 * `stillGood` softens the red rather than removing it: a metric rated good is
+	 * a metric inside its threshold, and a move within the good band is not a
+	 * regression to paint as one. An LCP going from 0.9s to 1.4s is a 55% rise
+	 * and still good — red sends a reader after a problem the rating already says
+	 * they do not have, but gray says nothing moved in the wrong direction. Pink
+	 * is the direction without the alarm.
+	 */
+	$config.addFilter("deltaClass", (d, stillGood = false) => {
 		if (!d || d.unchanged || d.better === null) return "flat";
 		if (d.better) return "better";
+		if (typeof d.pct === "number" && Math.abs(d.pct) < DELTA_WORSE_MIN_PCT) return "flat";
 
-		return typeof d.pct === "number" && Math.abs(d.pct) < DELTA_WORSE_MIN_PCT ? "flat" : "worse";
+		return stillGood ? "worse-soft" : "worse";
 	});
 
 	$config.addFilter("deltaArrow", (d) => {
@@ -680,9 +689,15 @@ export default async function ($config) {
 		const line = points.map(([x, y], i) => `${i === 0 ? "M" : "L"}${x.toFixed(1)},${y.toFixed(1)}`).join(" ");
 		const area = `${line} L${points[points.length - 1][0].toFixed(1)},${height} L${points[0][0].toFixed(1)},${height} Z`;
 
-		// Color by whether the series moved in the good direction overall.
+		/*
+		 * Color by whether the series moved in the good direction overall — except
+		 * that `opts.good` softens the red the same way the change column does. A
+		 * metric rated good is inside its threshold, and a line that wandered the
+		 * wrong way inside the good band is a direction, not a decline.
+		 */
 		const better = trend.sinceFirst?.better;
-		const tone = better === null || better === undefined ? "flat" : better ? "better" : "worse";
+		let tone = better === null || better === undefined ? "flat" : better ? "better" : "worse";
+		if (tone === "worse" && opts.good) tone = "worse-soft";
 		const [lastX, lastY] = points[points.length - 1];
 
 		const label = `${trend.label || trend.key}: ${values.length} measurements, ${min} to ${max}`;
