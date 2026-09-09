@@ -437,40 +437,35 @@ eleventyComputed:
 {% set hasField = entry.latest.field %}
 {% set hasFieldHistory = entry.fieldHistory and entry.fieldHistory.series.length %}
 {#
-	The section holds the LCP comparison and the weekly history now that the p75
-	table has moved up into the metrics table, so it is gated on those two rather
-	than on field data existing — otherwise a site with a current p75 and nothing
-	else gets a heading over an empty panel.
-#}
-{% set hasFieldExtras = entry.labVsField or hasFieldHistory %}
-{#
 	One picture is a screenshot, not a filmstrip. A page that painted before the
 	first sample repeats that one frame for the rest of the strip, and the
 	section would be a heading over the same image eight times.
 #}
 {% set hasFilmstrip = entry.filmstrip and entry.filmstrip.distinct > 1 and not entry.interstitial %}
 
+{% set hasNoJs = entry.ownScreenshot.noJs and not entry.interstitial %}
+
+{#
+	The page in the order a reader works through it: what the site is built on,
+	the scores, the load as a picture, then the numbers behind it — weight, then
+	what the page does to the browser — and last the runs they were all read from.
+
+	One entry per panel. Field data is a subsection of Metrics, Hygiene one of
+	Page health and Field history one of the log, and a table of contents listing
+	a heading beside its own subheading reads as two destinations when it is one.
+#}
 {% set toc = [] %}
 {% if hasStack %}{% set toc = (toc.push({ id: "stack", label: "Stack" }), toc) %}{% endif %}
 {% set toc = (toc.push({ id: "scores", label: "Scores" }), toc) %}
+{% if hasFilmstrip %}{% set toc = (toc.push({ id: "filmstrip", label: "Filmstrip" }), toc) %}{% endif %}
 {#
-	One entry, not two. The Core Web Vitals verdict opens this section rather
-	than owning one, and listing both would read as two destinations a few
-	pixels apart.
+	The Core Web Vitals verdict opens this section rather than owning one, so it
+	is not a destination of its own either.
 #}
 {% set toc = (toc.push({ id: "lab", label: "Metrics" }), toc) %}
-{#
-	One entry: the history is a subsection of Field data now, and a table of
-	contents that lists a heading and its own subheading side by side reads as
-	two destinations when it is one.
-#}
-{% if hasFieldExtras %}{% set toc = (toc.push({ id: "field", label: "Field data" }), toc) %}{% endif %}
-{% if hasFilmstrip %}{% set toc = (toc.push({ id: "filmstrip", label: "Filmstrip" }), toc) %}{% endif %}
-{% set hasNoJs = entry.ownScreenshot.noJs and not entry.interstitial %}
-{% if hasNoJs %}{% set toc = (toc.push({ id: "without-javascript", label: "Without JavaScript" }), toc) %}{% endif %}
 {% set toc = (toc.push({ id: "weight", label: "Page weight" }), toc) %}
+{% if hasNoJs %}{% set toc = (toc.push({ id: "without-javascript", label: "Without JavaScript" }), toc) %}{% endif %}
 {% set toc = (toc.push({ id: "health", label: "Page health" }), toc) %}
-{% set toc = (toc.push({ id: "hygiene", label: "Hygiene" }), toc) %}
 {% set toc = (toc.push({ id: "log", label: "Measurement log" }), toc) %}
 {% if entry.showEmbed %}{% set toc = (toc.push({ id: "embed", label: "Embed" }), toc) %}{% endif %}
 
@@ -682,17 +677,21 @@ eleventyComputed:
 </div>
 {% endmacro %}
 
+{#
+	The same three columns the metrics table settled on: the value, the change
+	over the range it moved within, and the shape of the window. Current and
+	previous were two columns saying one thing — the delta beside them was
+	already the difference — and best and worst are the ends of a range, which
+	is one fact rather than two columns to scan.
+#}
 {% macro trendtable(rows, entryData, prefix="") %}
 <div class="table-scroll">
 <table class="grid">
 	<thead>
 		<tr>
 			<th class="col-site">Metric</th>
-			<th>Current</th>
-			<th>Previous</th>
-			<th>Change</th>
-			<th>Best</th>
-			<th>Worst</th>
+			<th>Value</th>
+			<th>Change / range</th>
 			<th class="col-trend">Trend</th>
 		</tr>
 	</thead>
@@ -706,13 +705,23 @@ eleventyComputed:
 				{% if row.note %}<span class="muted small block">{{ row.note }}</span>{% endif %}
 			</td>
 			<td class="num">{{ t.current | unit(row.unit) }}</td>
-			<td class="num muted">{{ t.previous | unit(row.unit) }}</td>
-			<td class="num {{ t.vsPrevious | deltaClass }}">
-				{% if t.vsPrevious %}{{ t.vsPrevious | deltaArrow }} {{ t.vsPrevious | deltaText(row.unit) }}{% else %}—{% endif %}
-				{% if t.significant %}<span class="badge badge-sig" title="Larger than this metric's normal run-to-run noise">significant</span>{% endif %}
+			{#
+				Only the change line is colored — the range is neither good nor bad,
+				it is where this metric has been. The badge sits above the figure it
+				qualifies rather than inline, where a whole word set the width of the
+				column to its own.
+			#}
+			<td class="num">
+				{% if t.significant %}
+				<span class="cell-flag"><span class="badge badge-sig" title="Larger than this metric's normal run-to-run noise">significant</span></span>
+				{% endif %}
+				<span class="cell-main {{ t.vsPrevious | deltaClass }}">
+					{% if t.vsPrevious %}{{ t.vsPrevious | deltaArrow }} {{ t.vsPrevious | deltaText(row.unit) }}{% else %}&mdash;{% endif %}
+				</span>
+				<span class="cell-sub" title="Best and worst across the measured window">
+					{{ (t.min if t.lowerIsBetter else t.max) | unit(row.unit) }} &ndash; {{ (t.max if t.lowerIsBetter else t.min) | unit(row.unit) }}
+				</span>
 			</td>
-			<td class="num muted">{{ (t.min if t.lowerIsBetter else t.max) | unit(row.unit) }}</td>
-			<td class="num muted">{{ (t.max if t.lowerIsBetter else t.min) | unit(row.unit) }}</td>
 			<td class="col-trend">{% sparkline t %}</td>
 		</tr>
 	{% endif %}
@@ -721,6 +730,41 @@ eleventyComputed:
 </table>
 </div>
 {% endmacro %}
+
+{% if hasFilmstrip %}
+{#
+	The page drawing itself, from the same Lighthouse run the scores above came
+	from. Frames are named by a hash of their bytes, so a page that finished
+	early and repeated its last frame to the end of the strip stores that frame
+	once — the strip still renders at full length from a fraction of the files.
+
+	Horizontally scrollable rather than wrapped: a filmstrip read in two rows is
+	no longer a timeline, and the frames are tall and narrow enough that eight of
+	them will not fit across a phone.
+
+	Decorative, like the screenshot at the top. The timings under each frame are
+	the information here and they are text.
+#}
+<section class="panel" id="filmstrip">
+	<h2>Filmstrip <span class="tag">Lighthouse, {{ entry.latest.formFactor }}</span></h2>
+	<p class="muted small">
+		How the page drew during the measured load, at
+		{{ entry.filmstrip.frames.length }} points across
+		{{ entry.filmstrip.frames[entry.filmstrip.frames.length - 1].timing | unit("ms") }}.
+	</p>
+	<div class="table-scroll">
+		<ol class="filmstrip">
+			{% for frame in entry.filmstrip.frames %}
+			<li class="filmstrip-frame">
+				<img src="{{ frame.src }}" width="{{ entry.filmstrip.width }}" height="{{ entry.filmstrip.height }}"
+					alt="" loading="lazy" decoding="async">
+				<span class="filmstrip-timing">{{ frame.timing | unit("ms") }}</span>
+			</li>
+			{% endfor %}
+		</ol>
+	</div>
+</section>
+{% endif %}
 
 <section class="panel" id="lab">
 	<h2>
@@ -814,21 +858,17 @@ eleventyComputed:
 		{% endfor %}
 	</div>
 	{% endif %}
-</section>
 
-{#
-	What the combined table above cannot hold: the lab-against-field comparison,
-	and the weeks behind the current p75.
+	{#
+		What the combined table above cannot hold: the same metric measured two
+		ways. It sits under the table rather than in a panel of its own, because it
+		is about the rows above it.
 
-	Either half is enough to earn the section. A site CrUX has stopped reporting
-	still has the weeks it did report, and that history is the whole reason to
-	come here. Each half is gated separately below.
-#}
-{% if hasFieldExtras %}
-<section class="panel" id="field">
-	<h2>Field data <span class="tag">Chrome UX Report</span></h2>
+		The weeks behind the current p75 are a log of past measurements, so they
+		are down in the measurement log with the rest of them.
+	#}
 	{% if entry.labVsField %}
-	<h3>Lab LCP vs Field LCP</h3>
+	<h3 id="field">Lab LCP vs Field LCP <span class="tag">Chrome UX Report</span></h3>
 	{#
 		Two bars against one scale, so the comparison is a length rather than a
 		subtraction the reader performs. Both are widths of the larger of the two,
@@ -899,92 +939,96 @@ eleventyComputed:
 		{% endif %}
 	</p>
 	{% endif %}
+</section>
 
-	{% if hasFieldHistory %}
-	<h3 id="field-history">Field history <span class="tag">{{ entry.fieldHistory.series.length }} weeks</span></h3>
-	<p class="muted small">
-		Weekly p75 from the CrUX History API, backfilled in a single request.
-	</p>
-	<div class="table-scroll">
-	<table class="grid compact">
-		<thead>
-			<tr>
-				<th class="col-site">Week ending</th>
-				<th>LCP</th><th>INP</th><th>CLS</th><th>FCP</th><th>TTFB</th>
-			</tr>
-		</thead>
-		<tbody>
+<section class="panel" id="weight">
+	<h2>Page weight</h2>
+	{{ trendtable(metrics.WEIGHT_METRICS, entry) }}
+
+	{% if entry.weightByType.length %}
+	<h3>By resource type</h3>
+	{#
+		One bar rather than a row per type. The question here is what the page is
+		made of, and that is a question about proportions — a stack answers it in
+		one line, where six bars scaled to the largest of them made the reader do
+		the dividing.
+
+		Shares come from lib/report.js, which also drops `third-party`: it is a
+		tally across the other types rather than one of them, and adding it here
+		would take the bar past its own total.
+	#}
+	<div class="stackbar" role="img"
+		aria-label="Page weight by resource type{% for t in entry.weightByType %}. {{ t.key | humanize }} {{ t.shareText }}, {{ t.bytes | bytes }} over {{ t.requests }} {{ t.requests | plural("request") }}{% endfor %}.">
+		{%- for t in entry.weightByType %}
 		{#
-			`rows`, not `series`: consecutive weeks CrUX had no data for arrive here
-			already merged into one row. The limit then counts merged rows, so a site
-			whose older weeks are blank spends one row on the gap and the rest on
-			weeks that have numbers.
+			The name goes inside the segment, where it names the color without a
+			trip to the legend. Only above a share that can actually hold the word:
+			below that the text would be clipped mid-letter, which reads as a bug
+			rather than as a small segment. The legend still carries every row.
 		#}
-		{% for row in entry.fieldHistory.rows | reverse | limit(12) %}
-			{% if row.metrics %}
-			<tr>
-				<td class="col-site muted">{{ row.date }}</td>
-				{% for m in metrics.FIELD_METRICS %}
-				{% set v = row.metrics[m.key] %}
-				<td class="num"><span class="pill pill-{{ v.rating | ratingClass }}">{{ v.p75 | unit(m.unit) }}</span></td>
-				{% endfor %}
-			</tr>
-			{% else %}
+		<span class="stackbar-part type-{{ t.key }}" style="width: {{ t.share }}%"
+			title="{{ t.key | humanize }} — {{ t.bytes | bytes }} ({{ t.shareText }}) over {{ t.requests }} {{ t.requests | plural('request') }}">{% if t.share >= 8 %}<span class="stackbar-name">{{ t.key | humanize }}</span>{% endif %}</span>
+		{%- endfor %}
+	</div>
+
+	{#
+		The legend carries the numbers the bar cannot. Ordered as the bar is, so
+		reading down the list walks left to right along it.
+	#}
+	<ul class="stackkey">
+		{%- for t in entry.weightByType %}
+		<li>
+			<span class="stackkey-swatch type-{{ t.key }}"></span>
+			<span class="stackkey-name">{{ t.key | humanize }}</span>
+			<span class="stackkey-share">{{ t.shareText }}</span>
+			<span class="stackkey-value muted">{{ t.bytes | bytes }} · {{ t.requests }} req</span>
+		</li>
+		{%- endfor %}
+	</ul>
+	{% endif %}
+
+	{% if entry.latest.lab.thirdParty and entry.latest.lab.thirdParty.count %}
+	<h3>Third parties <span class="tag">{{ entry.latest.lab.thirdParty.count }} entities</span></h3>
+	<p class="muted small">
+		{{ entry.latest.lab.thirdParty.bytes | bytes }} transferred,
+		{{ entry.latest.lab.thirdParty.mainThreadMs | ms }} on the main thread.
+	</p>
+	<div class="breakdown">
+		{% set tpMax = entry.thirdPartyRows | maxValue("bytes") %}
+		{% for tp in entry.thirdPartyRows %}
+		<div class="breakdown-row">
+			<span class="breakdown-label">{{ tp.entity }}</span>
 			{#
-				One cell across the metric columns rather than five empty pills. There
-				is a single fact in this row — CrUX saw too little traffic that week to
-				report anything — and five blank pills state it five times while looking
-				like the table failed to render.
+				Two bars, one shape. Where the request types are known the bar is
+				stacked and says what the third party is; where they are not — an
+				older record, or a row whose URLs the network audit did not report —
+				it falls back to the plain bar this section has always drawn.
+
+				The row's width is still its share of the largest third party, so
+				the rows compare with each other exactly as before. Only the fill
+				inside that width is new.
 			#}
-			<tr>
-				<td class="col-site muted">{% if row.weeks > 1 %}{{ row.from }} → {{ row.to }}{% else %}{{ row.date }}{% endif %}</td>
-				<td class="muted gap-cell" colspan="{{ metrics.FIELD_METRICS.length }}">
-					No data — {{ row.weeks }} {{ row.weeks | plural("week") }} under the CrUX reporting threshold
-				</td>
-			</tr>
+			{#
+				The label threshold is the segment's share of the *row width*, not
+				of its own bar: these bars are scaled against the largest third
+				party, so a segment that is all of a small third party is still only
+				a few pixels wide, and its own share says 100%.
+			#}
+			{% if tp.parts.length %}
+			<span class="tpbar" style="width: {{ (tp.bytes / tpMax * 100) | round(1) }}%"
+				title="{% for part in tp.parts %}{{ part.key }} {{ part.bytes | bytes }} ({{ part.shareText }}){% if not loop.last %}, {% endif %}{% endfor %}">
+				{%- for part in tp.parts %}<span class="stackbar-part type-{{ part.key }}" style="width: {{ part.share }}%">{% if part.share * tp.bytes / tpMax >= 15 %}<span class="stackbar-name">{{ part.key | humanize }}</span>{% endif %}</span>{% endfor -%}
+				{%- if tp.untyped %}<span class="stackbar-part type-other" style="width: {{ (tp.untyped / tp.bytes * 100) | round(1) }}%"></span>{% endif -%}
+			</span>
+			{% else %}
+			{% bar tp.bytes, tpMax, "warn" %}
 			{% endif %}
+			<span class="breakdown-value">{{ tp.bytes | bytes }} <span class="muted">· {{ tp.mainThreadMs | ms }} CPU</span></span>
+		</div>
 		{% endfor %}
-		</tbody>
-	</table>
 	</div>
 	{% endif %}
 </section>
-{% endif %}
-
-{% if hasFilmstrip %}
-{#
-	The page drawing itself, from the same Lighthouse run the scores above came
-	from. Frames are named by a hash of their bytes, so a page that finished
-	early and repeated its last frame to the end of the strip stores that frame
-	once — the strip still renders at full length from a fraction of the files.
-
-	Horizontally scrollable rather than wrapped: a filmstrip read in two rows is
-	no longer a timeline, and the frames are tall and narrow enough that eight of
-	them will not fit across a phone.
-
-	Decorative, like the screenshot at the top. The timings under each frame are
-	the information here and they are text.
-#}
-<section class="panel" id="filmstrip">
-	<h2>Filmstrip <span class="tag">Lighthouse, {{ entry.latest.formFactor }}</span></h2>
-	<p class="muted small">
-		How the page drew during the measured load, at
-		{{ entry.filmstrip.frames.length }} points across
-		{{ entry.filmstrip.frames[entry.filmstrip.frames.length - 1].timing | unit("ms") }}.
-	</p>
-	<div class="table-scroll">
-		<ol class="filmstrip">
-			{% for frame in entry.filmstrip.frames %}
-			<li class="filmstrip-frame">
-				<img src="{{ frame.src }}" width="{{ entry.filmstrip.width }}" height="{{ entry.filmstrip.height }}"
-					alt="" loading="lazy" decoding="async">
-				<span class="filmstrip-timing">{{ frame.timing | unit("ms") }}</span>
-			</li>
-			{% endfor %}
-		</ol>
-	</div>
-</section>
-{% endif %}
 
 {% if hasNoJs %}
 {#
@@ -1086,96 +1130,6 @@ eleventyComputed:
 </section>
 {% endif %}
 
-
-<section class="panel" id="weight">
-	<h2>Page weight</h2>
-	{{ trendtable(metrics.WEIGHT_METRICS, entry) }}
-
-	{% if entry.weightByType.length %}
-	<h3>By resource type</h3>
-	{#
-		One bar rather than a row per type. The question here is what the page is
-		made of, and that is a question about proportions — a stack answers it in
-		one line, where six bars scaled to the largest of them made the reader do
-		the dividing.
-
-		Shares come from lib/report.js, which also drops `third-party`: it is a
-		tally across the other types rather than one of them, and adding it here
-		would take the bar past its own total.
-	#}
-	<div class="stackbar" role="img"
-		aria-label="Page weight by resource type{% for t in entry.weightByType %}. {{ t.key | humanize }} {{ t.shareText }}, {{ t.bytes | bytes }} over {{ t.requests }} {{ t.requests | plural("request") }}{% endfor %}.">
-		{%- for t in entry.weightByType %}
-		{#
-			The name goes inside the segment, where it names the color without a
-			trip to the legend. Only above a share that can actually hold the word:
-			below that the text would be clipped mid-letter, which reads as a bug
-			rather than as a small segment. The legend still carries every row.
-		#}
-		<span class="stackbar-part type-{{ t.key }}" style="width: {{ t.share }}%"
-			title="{{ t.key | humanize }} — {{ t.bytes | bytes }} ({{ t.shareText }}) over {{ t.requests }} {{ t.requests | plural('request') }}">{% if t.share >= 8 %}<span class="stackbar-name">{{ t.key | humanize }}</span>{% endif %}</span>
-		{%- endfor %}
-	</div>
-
-	{#
-		The legend carries the numbers the bar cannot. Ordered as the bar is, so
-		reading down the list walks left to right along it.
-	#}
-	<ul class="stackkey">
-		{%- for t in entry.weightByType %}
-		<li>
-			<span class="stackkey-swatch type-{{ t.key }}"></span>
-			<span class="stackkey-name">{{ t.key | humanize }}</span>
-			<span class="stackkey-share">{{ t.shareText }}</span>
-			<span class="stackkey-value muted">{{ t.bytes | bytes }} · {{ t.requests }} req</span>
-		</li>
-		{%- endfor %}
-	</ul>
-	{% endif %}
-
-	{% if entry.latest.lab.thirdParty and entry.latest.lab.thirdParty.count %}
-	<h3>Third parties <span class="tag">{{ entry.latest.lab.thirdParty.count }} entities</span></h3>
-	<p class="muted small">
-		{{ entry.latest.lab.thirdParty.bytes | bytes }} transferred,
-		{{ entry.latest.lab.thirdParty.mainThreadMs | ms }} on the main thread.
-	</p>
-	<div class="breakdown">
-		{% set tpMax = entry.thirdPartyRows | maxValue("bytes") %}
-		{% for tp in entry.thirdPartyRows %}
-		<div class="breakdown-row">
-			<span class="breakdown-label">{{ tp.entity }}</span>
-			{#
-				Two bars, one shape. Where the request types are known the bar is
-				stacked and says what the third party is; where they are not — an
-				older record, or a row whose URLs the network audit did not report —
-				it falls back to the plain bar this section has always drawn.
-
-				The row's width is still its share of the largest third party, so
-				the rows compare with each other exactly as before. Only the fill
-				inside that width is new.
-			#}
-			{#
-				The label threshold is the segment's share of the *row width*, not
-				of its own bar: these bars are scaled against the largest third
-				party, so a segment that is all of a small third party is still only
-				a few pixels wide, and its own share says 100%.
-			#}
-			{% if tp.parts.length %}
-			<span class="tpbar" style="width: {{ (tp.bytes / tpMax * 100) | round(1) }}%"
-				title="{% for part in tp.parts %}{{ part.key }} {{ part.bytes | bytes }} ({{ part.shareText }}){% if not loop.last %}, {% endif %}{% endfor %}">
-				{%- for part in tp.parts %}<span class="stackbar-part type-{{ part.key }}" style="width: {{ part.share }}%">{% if part.share * tp.bytes / tpMax >= 15 %}<span class="stackbar-name">{{ part.key | humanize }}</span>{% endif %}</span>{% endfor -%}
-				{%- if tp.untyped %}<span class="stackbar-part type-other" style="width: {{ (tp.untyped / tp.bytes * 100) | round(1) }}%"></span>{% endif -%}
-			</span>
-			{% else %}
-			{% bar tp.bytes, tpMax, "warn" %}
-			{% endif %}
-			<span class="breakdown-value">{{ tp.bytes | bytes }} <span class="muted">· {{ tp.mainThreadMs | ms }} CPU</span></span>
-		</div>
-		{% endfor %}
-	</div>
-	{% endif %}
-</section>
-
 <section class="panel" id="health">
 	<h2>Page health</h2>
 	{{ trendtable(metrics.HEALTH_METRICS, entry) }}
@@ -1233,10 +1187,13 @@ eleventyComputed:
 		{% endfor %}
 	</ul>
 	{% endif %}
-</section>
 
-<section class="panel" id="hygiene">
-	<h2>Hygiene</h2>
+	{#
+		The checks a page either does or does not have, kept beside the numbers
+		they belong with rather than in a panel of their own — a row of chips was
+		never a section's worth of page.
+	#}
+	<h3 id="hygiene">Hygiene</h3>
 	<div class="chips">
 		{% set h = entry.latest.lab.hygiene %}
 		{% for check in [
@@ -1259,6 +1216,61 @@ eleventyComputed:
 
 <section class="panel" id="log">
 	<h2>Measurement log</h2>
+	{% if hasFieldHistory %}
+	<h3 id="field-history">Field history <span class="tag">{{ entry.fieldHistory.series.length }} weeks</span></h3>
+	<p class="muted small">
+		Weekly p75 from the CrUX History API, backfilled in a single request.
+	</p>
+	<div class="table-scroll">
+	<table class="grid compact">
+		<thead>
+			<tr>
+				<th class="col-site">Week ending</th>
+				<th>LCP</th><th>INP</th><th>CLS</th><th>FCP</th><th>TTFB</th>
+			</tr>
+		</thead>
+		<tbody>
+		{#
+			`rows`, not `series`: consecutive weeks CrUX had no data for arrive here
+			already merged into one row. The limit then counts merged rows, so a site
+			whose older weeks are blank spends one row on the gap and the rest on
+			weeks that have numbers.
+		#}
+		{% for row in entry.fieldHistory.rows | reverse | limit(12) %}
+			{% if row.metrics %}
+			<tr>
+				<td class="col-site muted">{{ row.date }}</td>
+				{% for m in metrics.FIELD_METRICS %}
+				{% set v = row.metrics[m.key] %}
+				<td class="num"><span class="pill pill-{{ v.rating | ratingClass }}">{{ v.p75 | unit(m.unit) }}</span></td>
+				{% endfor %}
+			</tr>
+			{% else %}
+			{#
+				One cell across the metric columns rather than five empty pills. There
+				is a single fact in this row — CrUX saw too little traffic that week to
+				report anything — and five blank pills state it five times while looking
+				like the table failed to render.
+			#}
+			<tr>
+				<td class="col-site muted">{% if row.weeks > 1 %}{{ row.from }} → {{ row.to }}{% else %}{{ row.date }}{% endif %}</td>
+				<td class="muted gap-cell" colspan="{{ metrics.FIELD_METRICS.length }}">
+					No data — {{ row.weeks }} {{ row.weeks | plural("week") }} under the CrUX reporting threshold
+				</td>
+			</tr>
+			{% endif %}
+		{% endfor %}
+		</tbody>
+	</table>
+	</div>
+	{% endif %}
+
+	{#
+		Named only when the field table sits above it: both halves are this URL over
+		time, and the reader has to be told which is which. Alone under the section
+		heading it is the measurement log, and a subheading would repeat it.
+	#}
+	{% if hasFieldHistory %}<h3>Runs</h3>{% endif %}
 	<p class="muted small">
 		Every stored run for this URL, newest first.
 	</p>
