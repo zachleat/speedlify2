@@ -2195,6 +2195,11 @@ fieldset[disabled] select {
 .badge-error { background: var(--poor-bg); color: var(--poor); }
 .badge-stale { background: var(--average-bg); color: var(--average); }
 .badge-pass, .badge-cwv { background: var(--good-bg); color: var(--good); }
+/* A qualifier inside a badge, in the badge's color but not its shout. Badges
+   are uppercase and letter-spaced, which is right for a three-letter marker and
+   wrong for a word in parentheses after it. */
+.badge-qualifier { text-transform: none; letter-spacing: 0; font-weight: 500; }
+
 .badge-sig { background: var(--average-bg); color: var(--average); }
 /* The measurement went somewhere other than the URL we asked for. Amber rather
    than red: the numbers are real, they just describe the destination. */
@@ -2233,15 +2238,6 @@ fieldset[disabled] select {
 	padding: 0.1rem 0.45rem;
 	border-radius: 4px;
 }
-/* A row whose verdict came from the lab rather than from real users. Amber
-   like the other "read this before you trust the number" markers, and never
-   green: the point is that the reader should not take it for the real
-   assessment, which a neutral tag beside a green pill would let them do. */
-.tag-approx {
-	background: var(--average-bg);
-	color: var(--average);
-}
-
 /*
  * The correlation pill, beside a chart's site count.
  *

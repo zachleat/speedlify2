@@ -427,6 +427,11 @@ eleventyComputed:
 #}
 {% set cwvSource = entry.cwv.source if hasCwv else null %}
 {% set showField = hasField or cwvSource == "field" or cwvSource == "field-history" %}
+{#
+	An assessment CrUX actually made, as against the lab approximation the report
+	falls back to. Only the former is shown as a Core Web Vitals verdict.
+#}
+{% set hasRealCwv = cwvSource == "field" or cwvSource == "field-history" %}
 {% set fieldPeriod = entry.latest.field.collectionPeriod if hasField else (entry.cwv.period if hasCwv else null) %}
 {% set fieldScope = entry.latest.field.scope if hasField else (fieldPeriod.scope if fieldPeriod else null) %}
 {% set hasField = entry.latest.field %}
@@ -537,9 +542,10 @@ eleventyComputed:
 	scrolling to the other — the comparison the page exists to make. Side by
 	side it is a glance.
 
-	Rows the lab cannot measure are dropped when there is no field data to fill
-	them, so a site CrUX has never heard of gets the lab table it had before
-	rather than a column of dashes and an empty INP row.
+	Every metric gets a row, including one neither half can fill. INP on a site
+	CrUX has never heard of is an empty row, and that is the honest rendering:
+	the metric exists, it is a Core Web Vital, and nothing here measures it —
+	which a reader should be told rather than left to notice the absence of.
 #}
 {% macro metricstable(rows, entryData, showField) %}
 <div class="table-scroll">
@@ -562,21 +568,22 @@ eleventyComputed:
 	</thead>
 	<tbody>
 	{% for row in rows %}
-	{% if row.lab or showField %}
 	{% set t = entryData.trends[row.trendKey] %}
 		<tr>
 			<td class="col-site">
 				<strong>{{ row.label }}</strong>
-				{% if row.coreWebVital %}<span class="badge badge-cwv">CWV</span>{% endif %}
 				{#
-					The two things the Core Web Vitals panel used to say that this
-					table cannot say by itself. A lab-approximated verdict reads
-					identically to a real one otherwise — same number, same colored
-					pill — so the row says which it is rather than leaving the banner
-					above to be remembered.
+					A Core Web Vital graded on the lab number because CrUX has nothing
+					for it. The pill beside it is a real rating on real thresholds, and
+					reads exactly like the field-backed one — the word on the badge is
+					what separates the measurement of this site's users from a
+					measurement of one simulated phone.
+
+					Per row, not per table: CrUX will report a site's LCP and stay
+					silent on its CLS, and only the silent one is an estimate.
 				#}
-				{% if row.cwv and row.cwv.approximated and not row.cwv.proxyFor %}<span class="tag tag-approx" title="No Chrome UX Report data for this URL, so this is graded from the Lighthouse run rather than from real users">approximated</span>{% endif %}
-				{% if row.cwv and row.cwv.proxyFor %}<span class="tag tag-approx" title="Lighthouse cannot measure {{ row.cwv.proxyFor | upper }} in a lab run, so this is graded in its place">stands in for {{ row.cwv.proxyFor | upper }}</span>{% endif %}
+				{% set cwvEstimated = row.coreWebVital and row.lab and row.lab.value !== null and not (row.field and row.field.value !== null) %}
+				{% if row.coreWebVital %}<span class="badge badge-cwv"{% if cwvEstimated %} title="No Chrome UX Report data for this metric, so the rating comes from the Lighthouse run rather than from real users"{% endif %}>CWV{% if cwvEstimated %} <span class="badge-qualifier">(estimate)</span>{% endif %}</span>{% endif %}
 				{% if row.note %}<span class="muted small block">{{ row.note }}</span>{% endif %}
 			</td>
 			{#
@@ -614,7 +621,7 @@ eleventyComputed:
 				{% if t and t.significant %}
 				<span class="cell-flag"><span class="badge badge-sig" title="Larger than this metric's normal run-to-run noise">significant</span></span>
 				{% endif %}
-				<span class="cell-main {% if t %}{{ t.vsPrevious | deltaClass }}{% endif %}">
+				<span class="cell-main{% if t %} {{ t.vsPrevious | deltaClass }}{% endif %}">
 					{% if t and t.vsPrevious %}{{ t.vsPrevious | deltaArrow }} {{ t.vsPrevious | deltaText(row.unit) }}{% else %}&mdash;{% endif %}
 				</span>
 				{% if t %}
@@ -669,7 +676,6 @@ eleventyComputed:
 			</td>
 			{% endif %}
 		</tr>
-	{% endif %}
 	{% endfor %}
 	</tbody>
 </table>
@@ -726,31 +732,23 @@ eleventyComputed:
 	{#
 		The Core Web Vitals verdict, above the table that now carries its numbers.
 		A panel of its own restated three rows of this table and put them a screen
-		apart from the rest; what it alone could say is the pass or fail and where
-		the assessment came from, and that is what is left here.
+		apart from the rest; what it alone could say is the pass or fail, and that
+		is what is left here.
+
+		Only for an assessment made of real-user data. A site CrUX has nothing for
+		gets no verdict here: its rows are marked `CWV (estimate)` and graded in
+		the Lab column, which is the column that says where the numbers came from.
+		A banner over those would be a claim about users nobody measured.
 
 		Keeps `id="cwv"` so links written against the old section still land on it.
 	#}
-	{% if hasCwv %}
+	{% if hasRealCwv %}
 	<div class="cwv-verdict cwv-verdict-{{ "pass" if entry.cwv.pass else ("fail" if entry.cwv.pass === false else "none") }}" id="cwv">
 		<strong>
 			Core Web Vitals:
 			{% if entry.cwv.pass %}passing{% elif entry.cwv.pass === false %}failing{% else %}not assessed{% endif %}
 		</strong>
-		<span class="muted small">
-			{% if entry.cwv.source == "lab" %}
-			{#
-				Two of the three, and the third is a stand-in. Spelled out because a
-				lab approximation and a real assessment render the same colored pill,
-				and only this sentence and the row tags separate them.
-			#}
-			Lab approximation &mdash; there is not enough Chrome UX Report data for this URL,
-			so LCP and CLS are graded from the Lighthouse run and TBT is graded in place of
-			the INP no lab run can measure. The rows below are marked.
-			{% else %}
-			{{ entry.cwv.assessed }} of 3 assessed from real Chrome users.
-			{% endif %}
-		</span>
+		<span class="muted small">{{ entry.cwv.assessed }} of 3 assessed from real Chrome users.</span>
 	</div>
 	{% endif %}
 
@@ -761,6 +759,23 @@ eleventyComputed:
 		{%- if fieldScope %}, {{ fieldScope }}-level{% endif %}.
 		{% if not hasField %}
 		From the backfilled CrUX history rather than this measurement, which predates the API key.
+		{% endif %}
+	</p>
+	{% else %}
+	{#
+		Why the table is half the width it is on other sites. Without this the
+		field columns are simply absent, which reads as a page that forgot them
+		rather than as a site too quiet for CrUX to report on — and it is the
+		commonest case in this corpus by a wide margin.
+	#}
+	<p class="muted small">
+		{% if sites.cruxEnabled %}
+		No field data: the Chrome UX Report has too few samples for this URL to report on,
+		so every figure below is from the Lighthouse run. This is ordinary for a site
+		without much traffic, and says nothing about how fast it is.
+		{% else %}
+		No field data: the Chrome UX Report is not being collected for this project,
+		so every figure below is from the Lighthouse run.
 		{% endif %}
 	</p>
 	{% endif %}
