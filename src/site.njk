@@ -1201,6 +1201,28 @@ eleventyComputed:
 	{% endif %}
 
 	{#
+		Best Practices and SEO are pass/fail checklists, so a score below 100 is
+		always one or two named checks — listed here because the number alone
+		never said which. Older measurements predate this and have no list.
+	#}
+	{% for cat in [
+		{data: entry.latest.lab.bestPractices, label: "Best Practices"},
+		{data: entry.latest.lab.seo, label: "SEO"}
+	] %}
+	{% if cat.data.failing.length %}
+	<h3>{{ cat.label }} failures <span class="tag">{{ cat.data.failingCount }} of {{ cat.data.applicableCount }} audits</span></h3>
+	<ul class="failures">
+		{% for fail in cat.data.failing %}
+		<li>
+			<code>{{ fail.id }}</code> — {{ fail.title }}
+			{% if fail.nodes %}<span class="badge">{{ fail.nodes }} item{{ "s" if fail.nodes != 1 }}</span>{% endif %}
+		</li>
+		{% endfor %}
+	</ul>
+	{% endif %}
+	{% endfor %}
+
+	{#
 		The checks a page either does or does not have, kept beside the numbers
 		they belong with rather than in a panel of their own — a row of chips was
 		never a section's worth of page.
