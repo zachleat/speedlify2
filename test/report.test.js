@@ -146,6 +146,125 @@ describe("buildReport", () => {
 		assert.equal(e.trends.performance.values.length, 50);
 	});
 
+	test("the metrics table pairs each metric's lab and field halves", async () => {
+		const f = fixture({
+			field: {
+				scope: "url",
+				collectionPeriod: { first: "2026-08-01", last: "2026-08-28" },
+				metrics: {
+					lcp: { p75: 3100, rating: "needs-improvement", distribution: { good: 60, needsImprovement: 25, poor: 15 } },
+					inp: { p75: 120, rating: "good" },
+					cls: { p75: 0.02, rating: "good" },
+				},
+			},
+		});
+		const r = await buildReport({ resultsDir: f.resultsDir, configFile: f.configFile, cruxEnabled: true });
+		const rows = r.entries[0].metricsTable;
+		const by = (k) => rows.find((row) => row.key === k);
+
+		assert.equal(by("lcp").lab.value, 1850);
+		assert.equal(by("lcp").lab.rating, "good");
+		assert.equal(by("lcp").field.value, 3100);
+		assert.equal(by("lcp").field.rating, "needs-improvement");
+
+		// A metric only one side reports is null there, which is what lets the
+		// page say "n/a" rather than print the dash a missing number gets.
+		assert.equal(by("inp").lab, null);
+		assert.equal(by("tbt").field, null);
+		assert.equal(by("si").field, null);
+
+		// Present but unreported: CrUX sent no FCP for this site.
+		assert.notEqual(by("fcp").field, null);
+		assert.equal(by("fcp").field.value, null);
+
+		// The lab half is graded on the same bands as the field half, and on
+		// Lighthouse's own where Google publishes none.
+		assert.equal(by("tbt").lab.rating, "good");
+		assert.equal(by("si").lab.rating, "good");
+
+		// How the template finds the lab half's history.
+		assert.equal(by("lcp").trendKey, "lcp");
+		assert.equal(by("inp").trendKey, null);
+	});
+
+	test("the metrics table carries the Core Web Vitals verdict per row", async () => {
+		const f = fixture({
+			field: {
+				scope: "url",
+				collectionPeriod: { first: "2026-08-01", last: "2026-08-28" },
+				metrics: {
+					lcp: { p75: 3100, rating: "needs-improvement" },
+					inp: { p75: 120, rating: "good" },
+					cls: { p75: 0.02, rating: "good" },
+				},
+			},
+		});
+		const r = await buildReport({ resultsDir: f.resultsDir, configFile: f.configFile, cruxEnabled: true });
+		const by = (k) => r.entries[0].metricsTable.find((row) => row.key === k);
+
+		assert.equal(by("lcp").cwv.rating, "needs-improvement");
+		assert.equal(by("lcp").cwv.source, "field");
+		assert.equal(by("lcp").cwv.approximated, false);
+		// Only the three carry a verdict; the rest of the table is diagnostics.
+		assert.equal(by("tbt").cwv, null);
+		assert.equal(by("fcp").cwv, null);
+	});
+
+	test("a lab-approximated verdict says so, and names the metric TBT stands in for", async () => {
+		const f = fixture();
+		const r = await buildReport({ resultsDir: f.resultsDir, configFile: f.configFile, cruxEnabled: true });
+		const by = (k) => r.entries[0].metricsTable.find((row) => row.key === k);
+
+		assert.equal(r.entries[0].cwv.source, "lab");
+		assert.equal(by("lcp").cwv.approximated, true);
+		assert.equal(by("cls").cwv.approximated, true);
+
+		// The whole reason the approximation is safe to show: it is labeled.
+		assert.equal(by("tbt").cwv.approximated, true);
+		assert.equal(by("tbt").cwv.proxyFor, "inp");
+		// INP itself is not assessed — TBT is assessed in its place.
+		assert.equal(by("inp").cwv, null);
+	});
+
+	test("field data reaches the table from the backfilled history", async () => {
+		const f = fixture();
+		// A site measured before the CrUX key existed: no field record on the
+		// measurement, real-user numbers only in the backfill.
+		const [hash] = fs.readdirSync(f.resultsDir);
+		fs.writeFileSync(
+			path.join(f.resultsDir, hash, "field-history.json"),
+			JSON.stringify({
+				scope: "url",
+				series: [{
+					date: "2026-08-28",
+					period: { first: "2026-08-01" },
+					metrics: {
+						lcp: { p75: 4200, rating: "poor", distribution: { good: 40, needsImprovement: 30, poor: 30 } },
+						inp: { p75: 90, rating: "good" },
+						cls: { p75: 0.3, rating: "poor" },
+					},
+				}],
+			})
+		);
+
+		const r = await buildReport({ resultsDir: f.resultsDir, configFile: f.configFile, cruxEnabled: true });
+		const e = r.entries[0];
+		const by = (k) => e.metricsTable.find((row) => row.key === k);
+
+		assert.equal(e.cwv.source, "field-history");
+		assert.equal(e.latest.field, null, "the measurement itself carries no field record");
+
+		// Without the fallback these cells would be empty and the numbers would
+		// have vanished with the panel that used to show them.
+		assert.equal(by("lcp").field.value, 4200);
+		assert.equal(by("lcp").field.source, "field-history");
+		assert.equal(by("inp").field.value, 90);
+		assert.ok(by("lcp").field.distribution);
+
+		// Nothing is invented for the metrics the assessment does not cover.
+		assert.equal(by("ttfb").field.value, null);
+	});
+
 	test("carries the metric definitions so the report renders standalone", async () => {
 		const f = fixture();
 		const r = await buildReport({ resultsDir: f.resultsDir, configFile: f.configFile });

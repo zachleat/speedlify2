@@ -419,8 +419,25 @@ eleventyComputed:
 #}
 {% set hasStack = entry.generator or entry.host %}
 {% set hasCwv = entry.cwv %}
+{#
+	Whether there is field data to show a column for. Not simply `hasField`: a
+	site measured before the CrUX key existed has no field record on the
+	measurement, and its real-user numbers reach the table through the backfilled
+	week the assessment fell back to.
+#}
+{% set cwvSource = entry.cwv.source if hasCwv else null %}
+{% set showField = hasField or cwvSource == "field" or cwvSource == "field-history" %}
+{% set fieldPeriod = entry.latest.field.collectionPeriod if hasField else (entry.cwv.period if hasCwv else null) %}
+{% set fieldScope = entry.latest.field.scope if hasField else (fieldPeriod.scope if fieldPeriod else null) %}
 {% set hasField = entry.latest.field %}
 {% set hasFieldHistory = entry.fieldHistory and entry.fieldHistory.series.length %}
+{#
+	The section holds the LCP comparison and the weekly history now that the p75
+	table has moved up into the metrics table, so it is gated on those two rather
+	than on field data existing — otherwise a site with a current p75 and nothing
+	else gets a heading over an empty panel.
+#}
+{% set hasFieldExtras = entry.labVsField or hasFieldHistory %}
 {#
 	One picture is a screenshot, not a filmstrip. A page that painted before the
 	first sample repeats that one frame for the rest of the strip, and the
@@ -430,18 +447,22 @@ eleventyComputed:
 
 {% set toc = [] %}
 {% if hasStack %}{% set toc = (toc.push({ id: "stack", label: "Stack" }), toc) %}{% endif %}
-{% if hasCwv %}{% set toc = (toc.push({ id: "cwv", label: "Core Web Vitals" }), toc) %}{% endif %}
 {% set toc = (toc.push({ id: "scores", label: "Scores" }), toc) %}
-{% if hasFilmstrip %}{% set toc = (toc.push({ id: "filmstrip", label: "Filmstrip" }), toc) %}{% endif %}
-{% set hasNoJs = entry.ownScreenshot.noJs and not entry.interstitial %}
-{% if hasNoJs %}{% set toc = (toc.push({ id: "without-javascript", label: "Without JavaScript" }), toc) %}{% endif %}
-{% set toc = (toc.push({ id: "lab", label: "Lab metrics" }), toc) %}
+{#
+	One entry, not two. The Core Web Vitals verdict opens this section rather
+	than owning one, and listing both would read as two destinations a few
+	pixels apart.
+#}
+{% set toc = (toc.push({ id: "lab", label: "Metrics" }), toc) %}
 {#
 	One entry: the history is a subsection of Field data now, and a table of
 	contents that lists a heading and its own subheading side by side reads as
 	two destinations when it is one.
 #}
-{% if hasField or hasFieldHistory %}{% set toc = (toc.push({ id: "field", label: "Field data" }), toc) %}{% endif %}
+{% if hasFieldExtras %}{% set toc = (toc.push({ id: "field", label: "Field data" }), toc) %}{% endif %}
+{% if hasFilmstrip %}{% set toc = (toc.push({ id: "filmstrip", label: "Filmstrip" }), toc) %}{% endif %}
+{% set hasNoJs = entry.ownScreenshot.noJs and not entry.interstitial %}
+{% if hasNoJs %}{% set toc = (toc.push({ id: "without-javascript", label: "Without JavaScript" }), toc) %}{% endif %}
 {% set toc = (toc.push({ id: "weight", label: "Page weight" }), toc) %}
 {% set toc = (toc.push({ id: "health", label: "Page health" }), toc) %}
 {% set toc = (toc.push({ id: "hygiene", label: "Hygiene" }), toc) %}
@@ -483,48 +504,6 @@ eleventyComputed:
 </section>
 {% endif %}
 
-{% if hasCwv %}
-<section class="panel" id="cwv">
-	<h2>
-		Core Web Vitals
-		{% if entry.cwv.source == "lab" %}
-		<span class="tag">lab approximation</span>
-		{% else %}
-		<span class="tag">field data{% if entry.cwv.period.scope %}, {{ entry.cwv.period.scope }}-level{% endif %}</span>
-		{% endif %}
-	</h2>
-
-	{% if entry.cwv.source == "lab" %}
-	<p class="muted small">
-		There is insufficient Chrome UX Report data for this URL, so the numbers shown here are lab approximations.
-	</p>
-	{% else %}
-	<p class="muted small">
-		Real Chrome users, 28-day window
-		{%- if entry.cwv.period.first %} ({{ entry.cwv.period.first }} → {{ entry.cwv.period.last }}){% endif %}.
-		{% if entry.cwv.source == "field-history" %}
-		From the backfilled CrUX history rather than this measurement, which predates the API key.
-		{% endif %}
-	</p>
-	{% endif %}
-	<div class="cwv">
-		{% for part in entry.cwv.parts %}
-		<div class="cwv-item cwv-{{ part.rating | ratingClass }}">
-			{#
-				A value borrowed from the origin is the whole site's number, not
-				this page's — CrUX did not have enough samples to report this one
-				here. Said out loud rather than left to the reader to assume,
-				since the difference matters most for INP, which is the metric
-				most often missing.
-			#}
-			<span class="cwv-key">{{ part.key | upper }}{% if part.proxyFor %} <span class="tag">for {{ part.proxyFor | upper }}</span>{% endif %}{% if part.scope == "origin" %} <span class="tag" title="Not enough samples for this page, so this is the figure for the whole origin">site-wide</span>{% endif %}</span>
-			<span class="cwv-value">{{ part.value | unit("ms" if part.key != "cls" else "") }}</span>
-			<span class="cwv-rating">{{ part.rating or "no data" }}</span>
-		</div>
-		{% endfor %}
-	</div>
-</section>
-{% endif %}
 
 <section class="panel" id="scores">
 	<h2>Lighthouse Scores</h2>
@@ -549,6 +528,413 @@ eleventyComputed:
 		{% endfor %}
 	</div>
 </section>
+
+{#
+	Lab and field in one table, a row per metric.
+
+	They were two tables reading top to bottom, which put the two measurements
+	of LCP a screen apart and left the reader to hold one in their head while
+	scrolling to the other — the comparison the page exists to make. Side by
+	side it is a glance.
+
+	Rows the lab cannot measure are dropped when there is no field data to fill
+	them, so a site CrUX has never heard of gets the lab table it had before
+	rather than a column of dashes and an empty INP row.
+#}
+{% macro metricstable(rows, entryData, showField) %}
+<div class="table-scroll">
+<table class="grid grid-grouped">
+	<thead>
+		<tr class="group-head">
+			<th rowspan="2" class="col-site">Metric</th>
+			<th colspan="3">Lab <span class="tag">Lighthouse</span></th>
+			{% if showField %}<th colspan="2" class="col-group-start">Field <span class="tag">Chrome UX Report</span></th>{% endif %}
+		</tr>
+		<tr>
+			<th>Value</th>
+			<th>Change / range</th>
+			<th class="col-trend">Trend</th>
+			{% if showField %}
+			<th class="col-group-start">p75</th>
+			<th class="col-dist">Distribution</th>
+			{% endif %}
+		</tr>
+	</thead>
+	<tbody>
+	{% for row in rows %}
+	{% if row.lab or showField %}
+	{% set t = entryData.trends[row.trendKey] %}
+		<tr>
+			<td class="col-site">
+				<strong>{{ row.label }}</strong>
+				{% if row.coreWebVital %}<span class="badge badge-cwv">CWV</span>{% endif %}
+				{#
+					The two things the Core Web Vitals panel used to say that this
+					table cannot say by itself. A lab-approximated verdict reads
+					identically to a real one otherwise — same number, same colored
+					pill — so the row says which it is rather than leaving the banner
+					above to be remembered.
+				#}
+				{% if row.cwv and row.cwv.approximated and not row.cwv.proxyFor %}<span class="tag tag-approx" title="No Chrome UX Report data for this URL, so this is graded from the Lighthouse run rather than from real users">approximated</span>{% endif %}
+				{% if row.cwv and row.cwv.proxyFor %}<span class="tag tag-approx" title="Lighthouse cannot measure {{ row.cwv.proxyFor | upper }} in a lab run, so this is graded in its place">stands in for {{ row.cwv.proxyFor | upper }}</span>{% endif %}
+				{% if row.note %}<span class="muted small block">{{ row.note }}</span>{% endif %}
+			</td>
+			{#
+				The value and its verdict in one cell, so the eye does not travel to
+				a rating column and back to work out which number it grades.
+			#}
+			<td class="num">
+				{% if not row.lab %}
+				<span class="muted" title="Lighthouse cannot measure this in a lab run">n/a</span>
+				{% elif row.lab.value === null %}
+				&mdash;
+				{% else %}
+				<span class="metric-pair">
+					{{ row.lab.value | unit(row.unit) }}
+					{% if row.lab.rating %}<span class="pill pill-{{ row.lab.rating | ratingClass }}">{{ row.lab.rating | ratingLabel }}</span>{% endif %}
+				</span>
+				{% endif %}
+			</td>
+			{#
+				The move since the last run, over the range across the whole window.
+				One cell rather than three columns: best and worst state the ends of
+				a range, which is one fact, and both are context for the change
+				rather than figures anyone scans a column of. The sparkline beside
+				them already draws the same shape.
+
+				Only the change line is colored — the range is neither good nor bad,
+				it is where this metric has been.
+			#}
+			<td class="num">
+				{#
+					Above the figure it qualifies rather than trailing it: the badge is
+					a whole word against a number a few characters long, and inline it
+					set the width of the column to its own.
+				#}
+				{% if t and t.significant %}
+				<span class="cell-flag"><span class="badge badge-sig" title="Larger than this metric's normal run-to-run noise">significant</span></span>
+				{% endif %}
+				<span class="cell-main {% if t %}{{ t.vsPrevious | deltaClass }}{% endif %}">
+					{% if t and t.vsPrevious %}{{ t.vsPrevious | deltaArrow }} {{ t.vsPrevious | deltaText(row.unit) }}{% else %}&mdash;{% endif %}
+				</span>
+				{% if t %}
+				<span class="cell-sub" title="Best and worst across the measured window">
+					{{ (t.min if t.lowerIsBetter else t.max) | unit(row.unit) }} &ndash; {{ (t.max if t.lowerIsBetter else t.min) | unit(row.unit) }}
+				</span>
+				{% endif %}
+			</td>
+			<td class="col-trend">{% if t %}{% sparkline t %}{% endif %}</td>
+			{% if showField %}
+			<td class="num col-group-start">
+				{% if not row.field %}
+				<span class="muted" title="Not reported by the Chrome UX Report">n/a</span>
+				{% elif row.field.value === null %}
+				&mdash;
+				{% else %}
+				<span class="metric-pair">
+					{{ row.field.value | unit(row.unit) }}
+					{% if row.field.rating %}<span class="pill pill-{{ row.field.rating | ratingClass }}">{{ row.field.rating | ratingLabel }}</span>{% endif %}
+					{#
+						A value borrowed from the origin is the whole site's number, not
+						this page's — CrUX had too few samples here.
+					#}
+					{% if row.field.scope == "origin" %}<span class="tag" title="Not enough samples for this page, so this is the figure for the whole origin">site-wide</span>{% endif %}
+				</span>
+				{% endif %}
+			</td>
+			{#
+				The bar over its own legend, which is why the header is one word now:
+				each share names its band with an icon instead of the column heading
+				spelling all three out. It also shows all three, where the line under
+				the bar used to show only the good share.
+
+				The icons carry the meaning for a reader who cannot tell the three
+				colors apart, so they are not decorative — each has its band in the
+				text beside it via the title, and the bar keeps its own summary.
+			#}
+			<td class="col-dist">
+				{% if row.field and row.field.distribution %}
+				{% set d = row.field.distribution %}
+				<span class="dist" title="{{ d.good }}% good, {{ d.needsImprovement }}% needs improvement, {{ d.poor }}% poor">
+					<span class="dist-good" style="width:{{ d.good }}%"></span>
+					<span class="dist-avg" style="width:{{ d.needsImprovement }}%"></span>
+					<span class="dist-poor" style="width:{{ d.poor }}%"></span>
+				</span>
+				<span class="dist-key">
+					<span class="dist-key-good" title="{{ d.good }}% of loads were good"><i class="fa-solid fa-circle-check" width="10" height="10" aria-hidden="true"></i>{{ d.good }}%</span>
+					<span class="dist-key-avg" title="{{ d.needsImprovement }}% of loads needed work"><i class="fa-solid fa-triangle-exclamation" width="10" height="10" aria-hidden="true"></i>{{ d.needsImprovement }}%</span>
+					<span class="dist-key-poor" title="{{ d.poor }}% of loads were poor"><i class="fa-solid fa-circle-xmark" width="10" height="10" aria-hidden="true"></i>{{ d.poor }}%</span>
+				</span>
+				{% else %}&mdash;{% endif %}
+			</td>
+			{% endif %}
+		</tr>
+	{% endif %}
+	{% endfor %}
+	</tbody>
+</table>
+</div>
+{% endmacro %}
+
+{% macro trendtable(rows, entryData, prefix="") %}
+<div class="table-scroll">
+<table class="grid">
+	<thead>
+		<tr>
+			<th class="col-site">Metric</th>
+			<th>Current</th>
+			<th>Previous</th>
+			<th>Change</th>
+			<th>Best</th>
+			<th>Worst</th>
+			<th class="col-trend">Trend</th>
+		</tr>
+	</thead>
+	<tbody>
+	{% for row in rows %}
+	{% set t = entryData.trends[prefix + row.key] %}
+	{% if t %}
+		<tr>
+			<td class="col-site">
+				<strong>{{ row.label }}</strong>
+				{% if row.note %}<span class="muted small block">{{ row.note }}</span>{% endif %}
+			</td>
+			<td class="num">{{ t.current | unit(row.unit) }}</td>
+			<td class="num muted">{{ t.previous | unit(row.unit) }}</td>
+			<td class="num {{ t.vsPrevious | deltaClass }}">
+				{% if t.vsPrevious %}{{ t.vsPrevious | deltaArrow }} {{ t.vsPrevious | deltaText(row.unit) }}{% else %}—{% endif %}
+				{% if t.significant %}<span class="badge badge-sig" title="Larger than this metric's normal run-to-run noise">significant</span>{% endif %}
+			</td>
+			<td class="num muted">{{ (t.min if t.lowerIsBetter else t.max) | unit(row.unit) }}</td>
+			<td class="num muted">{{ (t.max if t.lowerIsBetter else t.min) | unit(row.unit) }}</td>
+			<td class="col-trend">{% sparkline t %}</td>
+		</tr>
+	{% endif %}
+	{% endfor %}
+	</tbody>
+</table>
+</div>
+{% endmacro %}
+
+<section class="panel" id="lab">
+	<h2>
+		Metrics
+		<span class="tag">Lighthouse, {{ entry.latest.formFactor }}</span>
+		{%- if showField %} <span class="tag">Chrome UX Report</span>{% endif %}
+	</h2>
+
+	{#
+		The Core Web Vitals verdict, above the table that now carries its numbers.
+		A panel of its own restated three rows of this table and put them a screen
+		apart from the rest; what it alone could say is the pass or fail and where
+		the assessment came from, and that is what is left here.
+
+		Keeps `id="cwv"` so links written against the old section still land on it.
+	#}
+	{% if hasCwv %}
+	<div class="cwv-verdict cwv-verdict-{{ "pass" if entry.cwv.pass else ("fail" if entry.cwv.pass === false else "none") }}" id="cwv">
+		<strong>
+			Core Web Vitals:
+			{% if entry.cwv.pass %}passing{% elif entry.cwv.pass === false %}failing{% else %}not assessed{% endif %}
+		</strong>
+		<span class="muted small">
+			{% if entry.cwv.source == "lab" %}
+			{#
+				Two of the three, and the third is a stand-in. Spelled out because a
+				lab approximation and a real assessment render the same colored pill,
+				and only this sentence and the row tags separate them.
+			#}
+			Lab approximation &mdash; there is not enough Chrome UX Report data for this URL,
+			so LCP and CLS are graded from the Lighthouse run and TBT is graded in place of
+			the INP no lab run can measure. The rows below are marked.
+			{% else %}
+			{{ entry.cwv.assessed }} of 3 assessed from real Chrome users.
+			{% endif %}
+		</span>
+	</div>
+	{% endif %}
+
+	{% if showField %}
+	<p class="muted small">
+		Field figures are the p75 across real Chrome users over a 28-day trailing window
+		{%- if fieldPeriod.first %} ({{ fieldPeriod.first }} &rarr; {{ fieldPeriod.last }}){% endif %}
+		{%- if fieldScope %}, {{ fieldScope }}-level{% endif %}.
+		{% if not hasField %}
+		From the backfilled CrUX history rather than this measurement, which predates the API key.
+		{% endif %}
+	</p>
+	{% endif %}
+	{{ metricstable(entry.metricsTable, entry, showField) }}
+
+	{% if entry.latest.lab.lcpBreakdown %}
+	<h3>LCP Subparts <span class="tag">lab observed, unthrottled</span></h3>
+	<p class="muted small">
+		The subparts attribute LCP to your server, resource discovery, download, or rendering. Note that the Lab LCP shown above <em>is</em> throttled.
+	</p>
+	{#
+		These will not add up to the LCP above, and the gap is usually large — 225
+		milliseconds against 4.07 seconds on one site here. Both are honest; they
+		are measured in different worlds.
+
+		Lighthouse runs with `throttlingMethod: "simulate"`: it loads the page at
+		this machine's real speed, records that trace, and then models what the
+		load would have taken on an emulated phone over slow 4G. LCP above is the
+		model's answer. These subparts are read off the observed trace, before any
+		of that modelling. The same record shows the difference plainly — the
+		server answered in 44ms, and the model bills 620ms for it.
+
+		The ratio is not a constant to divide out: it depends on the request
+		graph, and runs from about 10x to 20x across this corpus. So the durations
+		are shown as measured and labeled for what they are, rather than scaled
+		to a total they were never part of.
+	#}
+	<div class="breakdown">
+		{% set lcpMax = entry.latest.lab.lcpBreakdown | sortByValue | maxValue("value") %}
+		{% for part in entry.latest.lab.lcpBreakdown | sortByValue %}
+		<div class="breakdown-row">
+			<span class="breakdown-label breakdown-key">{{ part.key | humanize }}</span>
+			{% bar part.value, lcpMax, "warn" %}
+			<span class="breakdown-value">{{ part.value | ms }}</span>
+		</div>
+		{% endfor %}
+	</div>
+	{% endif %}
+</section>
+
+{#
+	What the combined table above cannot hold: the lab-against-field comparison,
+	and the weeks behind the current p75.
+
+	Either half is enough to earn the section. A site CrUX has stopped reporting
+	still has the weeks it did report, and that history is the whole reason to
+	come here. Each half is gated separately below.
+#}
+{% if hasFieldExtras %}
+<section class="panel" id="field">
+	<h2>Field data <span class="tag">Chrome UX Report</span></h2>
+	{% if entry.labVsField %}
+	<h3>Lab LCP vs Field LCP</h3>
+	{#
+		Two bars against one scale, so the comparison is a length rather than a
+		subtraction the reader performs. Both are widths of the larger of the two,
+		which is the only scale on which "twice as long" looks twice as long.
+
+		The lab bar is neutral and the field bar carries its Core Web Vitals
+		rating: the lab number has no verdict attached — it is a simulation — while
+		the field number is the one Google grades.
+	#}
+	{% set lvfMax = entry.labVsField.lab if entry.labVsField.lab > entry.labVsField.field else entry.labVsField.field %}
+	{#
+		Recomputed from the two stored millisecond figures rather than read from
+		`labVsField.ratio`, which is rounded to a tenth for the leaderboards — a
+		column of a thousand rows wants a figure you can scan, and this is one
+		site, where 1.17 says more than 1.2. Both numbers it is derived from are on
+		screen directly above, so the arithmetic is checkable.
+	#}
+	{% set lvfRatio = entry.labVsField.lab / entry.labVsField.field %}
+	<div class="lvf-compare">
+		<div class="lvf-row">
+			<span class="lvf-name">Lab</span>
+			<span class="bar"><span class="bar-fill lvf-fill-lab" style="width: {{ (entry.labVsField.lab / lvfMax * 100) | round }}%"></span></span>
+			<span class="lvf-ms">{{ entry.labVsField.lab | ms }}</span>
+		</div>
+		<div class="lvf-row">
+			<span class="lvf-name">Field p75</span>
+			<span class="bar"><span class="bar-fill lvf-fill-{{ entry.latest.field.metrics.lcp.rating | ratingClass }}" style="width: {{ (entry.labVsField.field / lvfMax * 100) | round }}%"></span></span>
+			<span class="lvf-ms">{{ entry.labVsField.field | ms }}</span>
+		</div>
+	</div>
+	<p class="muted small">
+		{#
+			The multiple, then what it implies — rather than "N× faster", which only
+			reads correctly in one direction: a field number worse than the lab
+			gives a figure below 1, and "0.33× slower" is not a sentence.
+
+			And not "faster than the test says", which sounds like the test was
+			wrong. It was not: it measured a mid-range phone on a throttled
+			connection, deliberately. A field number better than that says something
+			about who is visiting, not about the accuracy of the lab — hence
+			"likely", since this is an inference about an audience rather than a
+			measurement of one.
+		#}
+		The lab LCP is <strong>{{ lvfRatio | round(2) }}×</strong> the field p75 —
+		{#
+			Within a tenth either way is not a finding. `fieldWorse` is a strict
+			comparison, so without this band a site a single millisecond apart would
+			be told its audience is below average.
+
+			Tested on the rounded ratio, which is the one displayed: a reader seeing
+			0.9x should get the same verdict as anyone else seeing 0.9x, rather than
+			two sites reading identically and being described differently.
+		#}
+		{% if lvfRatio >= 0.9 and lvfRatio <= 1.1 %}
+		real users likely have similar hardware or network connectivity to the lab test.
+		{%- else %}
+		real users likely have {{ "below" if entry.labVsField.fieldWorse else "above" }}-average
+		hardware or network connectivity.
+		{%- endif %}
+		{#
+			1.5x worse or more, expressed the way round the ratio now runs: 1/1.5
+			is 0.667, which one decimal renders as 0.7 — so the test has to include
+			it rather than sit below a value the data can no longer produce.
+		#}
+		{% if entry.labVsField.fieldWorse and lvfRatio <= 0.7 %}
+		A gap this wide usually means real users are on slower devices or networks
+		than the simulated ones — the lab number is flattering you.
+		{% endif %}
+	</p>
+	{% endif %}
+
+	{% if hasFieldHistory %}
+	<h3 id="field-history">Field history <span class="tag">{{ entry.fieldHistory.series.length }} weeks</span></h3>
+	<p class="muted small">
+		Weekly p75 from the CrUX History API, backfilled in a single request.
+	</p>
+	<div class="table-scroll">
+	<table class="grid compact">
+		<thead>
+			<tr>
+				<th class="col-site">Week ending</th>
+				<th>LCP</th><th>INP</th><th>CLS</th><th>FCP</th><th>TTFB</th>
+			</tr>
+		</thead>
+		<tbody>
+		{#
+			`rows`, not `series`: consecutive weeks CrUX had no data for arrive here
+			already merged into one row. The limit then counts merged rows, so a site
+			whose older weeks are blank spends one row on the gap and the rest on
+			weeks that have numbers.
+		#}
+		{% for row in entry.fieldHistory.rows | reverse | limit(12) %}
+			{% if row.metrics %}
+			<tr>
+				<td class="col-site muted">{{ row.date }}</td>
+				{% for m in metrics.FIELD_METRICS %}
+				{% set v = row.metrics[m.key] %}
+				<td class="num"><span class="pill pill-{{ v.rating | ratingClass }}">{{ v.p75 | unit(m.unit) }}</span></td>
+				{% endfor %}
+			</tr>
+			{% else %}
+			{#
+				One cell across the metric columns rather than five empty pills. There
+				is a single fact in this row — CrUX saw too little traffic that week to
+				report anything — and five blank pills state it five times while looking
+				like the table failed to render.
+			#}
+			<tr>
+				<td class="col-site muted">{% if row.weeks > 1 %}{{ row.from }} → {{ row.to }}{% else %}{{ row.date }}{% endif %}</td>
+				<td class="muted gap-cell" colspan="{{ metrics.FIELD_METRICS.length }}">
+					No data — {{ row.weeks }} {{ row.weeks | plural("week") }} under the CrUX reporting threshold
+				</td>
+			</tr>
+			{% endif %}
+		{% endfor %}
+		</tbody>
+	</table>
+	</div>
+	{% endif %}
+</section>
+{% endif %}
 
 {% if hasFilmstrip %}
 {#
@@ -685,265 +1071,6 @@ eleventyComputed:
 </section>
 {% endif %}
 
-{% macro trendtable(rows, entryData, prefix="") %}
-<div class="table-scroll">
-<table class="grid">
-	<thead>
-		<tr>
-			<th class="col-site">Metric</th>
-			<th>Current</th>
-			<th>Previous</th>
-			<th>Change</th>
-			<th>Best</th>
-			<th>Worst</th>
-			<th class="col-trend">Trend</th>
-		</tr>
-	</thead>
-	<tbody>
-	{% for row in rows %}
-	{% set t = entryData.trends[prefix + row.key] %}
-	{% if t %}
-		<tr>
-			<td class="col-site">
-				<strong>{{ row.label }}</strong>
-				{% if row.note %}<span class="muted small block">{{ row.note }}</span>{% endif %}
-			</td>
-			<td class="num">{{ t.current | unit(row.unit) }}</td>
-			<td class="num muted">{{ t.previous | unit(row.unit) }}</td>
-			<td class="num {{ t.vsPrevious | deltaClass }}">
-				{% if t.vsPrevious %}{{ t.vsPrevious | deltaArrow }} {{ t.vsPrevious | deltaText(row.unit) }}{% else %}—{% endif %}
-				{% if t.significant %}<span class="badge badge-sig" title="Larger than this metric's normal run-to-run noise">significant</span>{% endif %}
-			</td>
-			<td class="num muted">{{ (t.min if t.lowerIsBetter else t.max) | unit(row.unit) }}</td>
-			<td class="num muted">{{ (t.max if t.lowerIsBetter else t.min) | unit(row.unit) }}</td>
-			<td class="col-trend">{% sparkline t %}</td>
-		</tr>
-	{% endif %}
-	{% endfor %}
-	</tbody>
-</table>
-</div>
-{% endmacro %}
-
-<section class="panel" id="lab">
-	<h2>Lab metrics <span class="tag">Lighthouse, {{ entry.latest.formFactor }}</span></h2>
-	{{ trendtable(metrics.LAB_METRICS, entry) }}
-
-	{% if entry.latest.lab.lcpBreakdown %}
-	<h3>LCP Subparts <span class="tag">lab observed, unthrottled</span></h3>
-	<p class="muted small">
-		The subparts attribute LCP to your server, resource discovery, download, or rendering. Note that the Lab metrics LCP metric shown above <em>is</em> throttled.
-	</p>
-	{#
-		These will not add up to the LCP above, and the gap is usually large — 225
-		milliseconds against 4.07 seconds on one site here. Both are honest; they
-		are measured in different worlds.
-
-		Lighthouse runs with `throttlingMethod: "simulate"`: it loads the page at
-		this machine's real speed, records that trace, and then models what the
-		load would have taken on an emulated phone over slow 4G. LCP above is the
-		model's answer. These subparts are read off the observed trace, before any
-		of that modelling. The same record shows the difference plainly — the
-		server answered in 44ms, and the model bills 620ms for it.
-
-		The ratio is not a constant to divide out: it depends on the request
-		graph, and runs from about 10x to 20x across this corpus. So the durations
-		are shown as measured and labeled for what they are, rather than scaled
-		to a total they were never part of.
-	#}
-	<div class="breakdown">
-		{% set lcpMax = entry.latest.lab.lcpBreakdown | sortByValue | maxValue("value") %}
-		{% for part in entry.latest.lab.lcpBreakdown | sortByValue %}
-		<div class="breakdown-row">
-			<span class="breakdown-label breakdown-key">{{ part.key | humanize }}</span>
-			{% bar part.value, lcpMax, "warn" %}
-			<span class="breakdown-value">{{ part.value | ms }}</span>
-		</div>
-		{% endfor %}
-	</div>
-	{% endif %}
-</section>
-
-{#
-	Either half is enough to earn the section: a site CrUX has stopped reporting
-	still has the weeks it did report, and that history is the whole reason to
-	come here. Each half is gated separately below.
-#}
-{% if hasField or hasFieldHistory %}
-<section class="panel" id="field">
-	<h2>
-		Field data
-		{%- if hasField %} <span class="tag">Chrome UX Report, {{ entry.latest.field.scope }}-level</span>{% endif %}
-	</h2>
-	{% if hasField %}
-	<p class="muted small">
-		Real Chrome users, 28-day trailing window
-		({{ entry.latest.field.collectionPeriod.first }} → {{ entry.latest.field.collectionPeriod.last }}).
-	</p>
-
-	<div class="table-scroll">
-	<table class="grid">
-		<thead>
-			<tr>
-				<th class="col-site">Metric</th>
-				<th>p75</th>
-				<th>Rating</th>
-				<th class="col-dist">Distribution (good / needs work / poor)</th>
-			</tr>
-		</thead>
-		<tbody>
-		{% for row in metrics.FIELD_METRICS %}
-		{% set m = entry.latest.field.metrics[row.key] %}
-		{% if m %}
-			<tr>
-				<td class="col-site">
-					<strong>{{ row.label }}</strong>
-					{% if row.coreWebVital %}<span class="badge badge-cwv">CWV</span>{% endif %}
-					{% if row.note %}<span class="muted small block">{{ row.note }}</span>{% endif %}
-				</td>
-				<td class="num">{{ m.p75 | unit(row.unit) }}</td>
-				<td><span class="pill pill-{{ m.rating | ratingClass }}">{{ m.rating or "—" }}</span></td>
-				<td class="col-dist">
-					{% if m.distribution %}
-					<span class="dist" title="{{ m.distribution.good }}% good, {{ m.distribution.needsImprovement }}% needs improvement, {{ m.distribution.poor }}% poor">
-						<span class="dist-good" style="width:{{ m.distribution.good }}%"></span>
-						<span class="dist-avg" style="width:{{ m.distribution.needsImprovement }}%"></span>
-						<span class="dist-poor" style="width:{{ m.distribution.poor }}%"></span>
-					</span>
-					<span class="muted small">{{ m.distribution.good }}% good</span>
-					{% else %}—{% endif %}
-				</td>
-			</tr>
-		{% endif %}
-		{% endfor %}
-		</tbody>
-	</table>
-	</div>
-
-	{% if entry.labVsField %}
-	<h3>Lab LCP vs Field LCP</h3>
-	{#
-		Two bars against one scale, so the comparison is a length rather than a
-		subtraction the reader performs. Both are widths of the larger of the two,
-		which is the only scale on which "twice as long" looks twice as long.
-
-		The lab bar is neutral and the field bar carries its Core Web Vitals
-		rating: the lab number has no verdict attached — it is a simulation — while
-		the field number is the one Google grades.
-	#}
-	{% set lvfMax = entry.labVsField.lab if entry.labVsField.lab > entry.labVsField.field else entry.labVsField.field %}
-	{#
-		Recomputed from the two stored millisecond figures rather than read from
-		`labVsField.ratio`, which is rounded to a tenth for the leaderboards — a
-		column of a thousand rows wants a figure you can scan, and this is one
-		site, where 1.17 says more than 1.2. Both numbers it is derived from are on
-		screen directly above, so the arithmetic is checkable.
-	#}
-	{% set lvfRatio = entry.labVsField.lab / entry.labVsField.field %}
-	<div class="lvf-compare">
-		<div class="lvf-row">
-			<span class="lvf-name">Lab</span>
-			<span class="bar"><span class="bar-fill lvf-fill-lab" style="width: {{ (entry.labVsField.lab / lvfMax * 100) | round }}%"></span></span>
-			<span class="lvf-ms">{{ entry.labVsField.lab | ms }}</span>
-		</div>
-		<div class="lvf-row">
-			<span class="lvf-name">Field p75</span>
-			<span class="bar"><span class="bar-fill lvf-fill-{{ entry.latest.field.metrics.lcp.rating | ratingClass }}" style="width: {{ (entry.labVsField.field / lvfMax * 100) | round }}%"></span></span>
-			<span class="lvf-ms">{{ entry.labVsField.field | ms }}</span>
-		</div>
-	</div>
-	<p class="muted small">
-		{#
-			The multiple, then what it implies — rather than "N× faster", which only
-			reads correctly in one direction: a field number worse than the lab
-			gives a figure below 1, and "0.33× slower" is not a sentence.
-
-			And not "faster than the test says", which sounds like the test was
-			wrong. It was not: it measured a mid-range phone on a throttled
-			connection, deliberately. A field number better than that says something
-			about who is visiting, not about the accuracy of the lab — hence
-			"likely", since this is an inference about an audience rather than a
-			measurement of one.
-		#}
-		The lab LCP is <strong>{{ lvfRatio | round(2) }}×</strong> the field p75 —
-		{#
-			Within a tenth either way is not a finding. `fieldWorse` is a strict
-			comparison, so without this band a site a single millisecond apart would
-			be told its audience is below average.
-
-			Tested on the rounded ratio, which is the one displayed: a reader seeing
-			0.9x should get the same verdict as anyone else seeing 0.9x, rather than
-			two sites reading identically and being described differently.
-		#}
-		{% if lvfRatio >= 0.9 and lvfRatio <= 1.1 %}
-		real users likely have similar hardware or network connectivity to the lab test.
-		{%- else %}
-		real users likely have {{ "below" if entry.labVsField.fieldWorse else "above" }}-average
-		hardware or network connectivity.
-		{%- endif %}
-		{#
-			1.5x worse or more, expressed the way round the ratio now runs: 1/1.5
-			is 0.667, which one decimal renders as 0.7 — so the test has to include
-			it rather than sit below a value the data can no longer produce.
-		#}
-		{% if entry.labVsField.fieldWorse and lvfRatio <= 0.7 %}
-		A gap this wide usually means real users are on slower devices or networks
-		than the simulated ones — the lab number is flattering you.
-		{% endif %}
-	</p>
-	{% endif %}
-	{% endif %}
-
-	{% if hasFieldHistory %}
-	<h3 id="field-history">Field history <span class="tag">{{ entry.fieldHistory.series.length }} weeks</span></h3>
-	<p class="muted small">
-		Weekly p75 from the CrUX History API, backfilled in a single request.
-	</p>
-	<div class="table-scroll">
-	<table class="grid compact">
-		<thead>
-			<tr>
-				<th class="col-site">Week ending</th>
-				<th>LCP</th><th>INP</th><th>CLS</th><th>FCP</th><th>TTFB</th>
-			</tr>
-		</thead>
-		<tbody>
-		{#
-			`rows`, not `series`: consecutive weeks CrUX had no data for arrive here
-			already merged into one row. The limit then counts merged rows, so a site
-			whose older weeks are blank spends one row on the gap and the rest on
-			weeks that have numbers.
-		#}
-		{% for row in entry.fieldHistory.rows | reverse | limit(12) %}
-			{% if row.metrics %}
-			<tr>
-				<td class="col-site muted">{{ row.date }}</td>
-				{% for m in metrics.FIELD_METRICS %}
-				{% set v = row.metrics[m.key] %}
-				<td class="num"><span class="pill pill-{{ v.rating | ratingClass }}">{{ v.p75 | unit(m.unit) }}</span></td>
-				{% endfor %}
-			</tr>
-			{% else %}
-			{#
-				One cell across the metric columns rather than five empty pills. There
-				is a single fact in this row — CrUX saw too little traffic that week to
-				report anything — and five blank pills state it five times while looking
-				like the table failed to render.
-			#}
-			<tr>
-				<td class="col-site muted">{% if row.weeks > 1 %}{{ row.from }} → {{ row.to }}{% else %}{{ row.date }}{% endif %}</td>
-				<td class="muted gap-cell" colspan="{{ metrics.FIELD_METRICS.length }}">
-					No data — {{ row.weeks }} {{ row.weeks | plural("week") }} under the CrUX reporting threshold
-				</td>
-			</tr>
-			{% endif %}
-		{% endfor %}
-		</tbody>
-	</table>
-	</div>
-	{% endif %}
-</section>
-{% endif %}
 
 <section class="panel" id="weight">
 	<h2>Page weight</h2>

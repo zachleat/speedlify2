@@ -491,6 +491,16 @@ export default async function ($config) {
 	});
 
 	/*
+	 * The pill's text. Shortened because the pill now sits beside a number in a
+	 * shared column rather than owning one of its own — "needs-improvement"
+	 * spelled out made the Lab and Field columns twice as wide as their numbers.
+	 */
+	$config.addFilter("ratingLabel", (r) => {
+		if (r === "needs-improvement") return "needs work";
+		return r || "\u2014";
+	});
+
+	/*
 	 * Which way a change is painted: better, worse, or neither.
 	 *
 	 * A move of under 5% is not painted worse. Every number here is a single
