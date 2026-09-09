@@ -1,0 +1,331 @@
+{
+  "url": "https://about.google/",
+  "name": "Alphabet",
+  "group": "big-tech",
+  "groupName": "Big Tech",
+  "timestamp": 1788994857117,
+  "date": "2026-09-09T23:00:57.117Z",
+  "runId": "2026-09-09T22-57-22-217Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 25308,
+  "error": null,
+  "variance": {
+    "min": 80,
+    "max": 83,
+    "spread": 3,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://about.google/",
+    "finalUrl": "https://about.google/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 80,
+      "accessibility": 99,
+      "best-practices": 96,
+      "seo": 92,
+      "agentic-browsing": 100
+    },
+    "timings": {
+      "fcp": 3067,
+      "lcp": 3654,
+      "si": 3067,
+      "tbt": 217,
+      "tti": 6771,
+      "cls": 0,
+      "ttfb": 643,
+      "maxPotentialFid": 214,
+      "serverResponseTime": 14,
+      "networkRtt": 0.1,
+      "networkServerLatency": 42.8
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 17.5,
+      "resourceLoadDelay": 13.4,
+      "resourceLoadDuration": 14,
+      "elementRenderDelay": 90.7
+    },
+    "weight": {
+      "total": 789729,
+      "requests": 34,
+      "mainDocument": 26259,
+      "byType": {
+        "total": {
+          "bytes": 789729,
+          "requests": 33
+        },
+        "script": {
+          "bytes": 373418,
+          "requests": 13
+        },
+        "image": {
+          "bytes": 228536,
+          "requests": 8
+        },
+        "font": {
+          "bytes": 81674,
+          "requests": 3
+        },
+        "stylesheet": {
+          "bytes": 77414,
+          "requests": 3
+        },
+        "document": {
+          "bytes": 26259,
+          "requests": 1
+        },
+        "other": {
+          "bytes": 2428,
+          "requests": 5
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 763177,
+          "requests": 31
+        }
+      },
+      "scripts": 13,
+      "stylesheets": 3,
+      "fonts": 3
+    },
+    "thirdParty": {
+      "count": 3,
+      "bytes": 763177,
+      "mainThreadMs": 160.9,
+      "top": [
+        {
+          "entity": "Google CDN",
+          "bytes": 368571,
+          "mainThreadMs": 32.8,
+          "byType": {
+            "script": 65590,
+            "image": 228536,
+            "stylesheet": 72310,
+            "other": 2135
+          },
+          "typedBytes": 368571
+        },
+        {
+          "entity": "Google Tag Manager",
+          "bytes": 307828,
+          "mainThreadMs": 128.1,
+          "byType": {
+            "script": 307828
+          },
+          "typedBytes": 307828
+        },
+        {
+          "entity": "Google Fonts",
+          "bytes": 86778,
+          "mainThreadMs": 0,
+          "byType": {
+            "font": 81674,
+            "stylesheet": 5104
+          },
+          "typedBytes": 86778
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 1324.3,
+      "byGroup": {
+        "scriptEvaluation": 596.2,
+        "other": 350.9,
+        "styleLayout": 175,
+        "scriptParseCompile": 107.3,
+        "parseHTML": 52.6,
+        "paintCompositeRender": 34.7,
+        "garbageCollection": 7.5
+      },
+      "bootupMs": 616.6,
+      "longTasks": 5,
+      "longestTaskMs": 214
+    },
+    "dom": {
+      "elements": 503,
+      "depth": 17,
+      "maxChildren": 73
+    },
+    "waste": {
+      "unusedJsBytes": 147375,
+      "unusedCssBytes": 66918,
+      "legacyJsBytes": 0,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 2725,
+      "renderBlockingCount": 5,
+      "poorlyCachedBytes": 275829.55000000005,
+      "poorlyCachedCount": 19
+    },
+    "accessibility": {
+      "failingCount": 1,
+      "applicableCount": 31,
+      "failingNodes": 1,
+      "failing": [
+        {
+          "id": "heading-order",
+          "title": "Heading elements are not in a sequentially-descending order",
+          "weight": 3,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 1,
+      "applicableCount": 18,
+      "failing": [
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "weight": 1,
+          "nodes": 1
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 1,
+      "applicableCount": 10,
+      "failing": [
+        {
+          "id": "link-text",
+          "title": "Links do not have descriptive text",
+          "weight": 1,
+          "nodes": 1
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": null,
+      "clickjacking": 1,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 25
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2321.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-09-09T23:01:13.745Z",
+      "runtimeMs": 7449.5
+    }
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-08-11",
+      "last": "2026-09-07"
+    },
+    "metrics": {
+      "rtt": {
+        "p75": 244,
+        "rating": null,
+        "distribution": {
+          "good": 16.3,
+          "needsImprovement": 62.7,
+          "poor": 20.9
+        }
+      },
+      "cls": {
+        "p75": 0,
+        "rating": "good",
+        "distribution": {
+          "good": 97.8,
+          "needsImprovement": 1.2,
+          "poor": 1
+        }
+      },
+      "ttfb": {
+        "p75": 648,
+        "rating": "good",
+        "distribution": {
+          "good": 81.9,
+          "needsImprovement": 12.9,
+          "poor": 5.3
+        }
+      },
+      "fcp": {
+        "p75": 1768,
+        "rating": "good",
+        "distribution": {
+          "good": 75.7,
+          "needsImprovement": 14,
+          "poor": 10.2
+        }
+      },
+      "inp": {
+        "p75": 269,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 65.2,
+          "needsImprovement": 24.8,
+          "poor": 10
+        }
+      },
+      "lcp": {
+        "p75": 2821,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 69.4,
+          "needsImprovement": 17.9,
+          "poor": 12.8
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "interstitial": null,
+    "host": {
+      "id": "sffe",
+      "name": "Google",
+      "icon": "Google",
+      "source": "server"
+    },
+    "headers": {
+      "server": "sffe"
+    },
+    "violations": 2,
+    "passes": 423,
+    "incomplete": 4,
+    "violationRules": 2,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "empty-heading",
+        "impact": "minor",
+        "nodes": 1,
+        "help": "Headings should not be empty"
+      },
+      {
+        "id": "heading-order",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Heading levels should only increase by one"
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
