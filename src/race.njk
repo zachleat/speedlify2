@@ -464,6 +464,7 @@ title: Compare
 
 		renderComparisons();
 		renderResult(null);
+		observeLanes();
 	}
 
 	/* One row of flags, above the lanes they are there to be read against. */
@@ -922,11 +923,77 @@ title: Compare
 	function play() {
 		if (playing) return;
 		if (now >= timeline.end) restart();
+		/* Any start is a fresh decision, so a pause the page made on its own no
+		   longer applies. */
+		autoPaused = false;
 		playing = true;
 		follow = true;
 		lastFrameTime = 0;
 		playButton.textContent = "Pause";
 		raf = requestAnimationFrame(tick);
+	}
+
+	/*
+	 * Stop the clock while nobody can see it, and pick it back up when they can.
+	 *
+	 * Two ways out of sight: the comparison scrolled off the screen, or the tab in
+	 * the background. The second was also a bug — animation frames stop in a
+	 * background tab, so the first one back measured the whole absence as a
+	 * single frame's worth of elapsed time and the race leapt to its end.
+	 *
+	 * Only a pause this made is undone by this. A reader who paused it themselves
+	 * wants it to stay paused, and coming back to the tab is not a request to
+	 * start again.
+	 */
+	var autoPaused = false;
+	var inView = true;
+	/* The racer lanes currently on screen — see observeLanes. */
+	var visibleLanes = new Set();
+	var laneObserver = null;
+
+	function syncVisibility() {
+		var showing = inView && document.visibilityState !== "hidden";
+		if (!showing && playing) {
+			pause();
+			autoPaused = true;
+		} else if (showing && autoPaused) {
+			autoPaused = false;
+			if (now < timeline.end) play();
+		}
+	}
+
+	/*
+	 * Watched per lane rather than as one scroll area.
+	 *
+	 * The scroll area holds the ruler, the reference row and every label as well,
+	 * so any of those on screen counted as the comparison being visible — a race
+	 * would keep running with nothing but the ruler in view. What matters is
+	 * whether any of the frames are, so this counts the racer lanes themselves
+	 * and runs while at least one is on screen.
+	 */
+	function watchVisibility() {
+		document.addEventListener("visibilitychange", syncVisibility);
+		if (!window.IntersectionObserver) return;
+		laneObserver = new IntersectionObserver(function (entries) {
+			entries.forEach(function (entry) {
+				if (entry.isIntersecting) visibleLanes.add(entry.target);
+				else visibleLanes.delete(entry.target);
+			});
+			inView = visibleLanes.size > 0;
+			syncVisibility();
+		}, { threshold: 0 });
+		observeLanes();
+	}
+
+	/* The lanes are rebuilt on every render, so the observer is pointed at the
+	   new ones each time rather than left watching elements that are gone. */
+	function observeLanes() {
+		if (!laneObserver) return;
+		laneObserver.disconnect();
+		visibleLanes.clear();
+		lanes.forEach(function (lane) {
+			if (lane.laneEl) laneObserver.observe(lane.laneEl);
+		});
 	}
 
 	function pause() {
@@ -1536,6 +1603,8 @@ title: Compare
 		/* Asking for less motion is not asking for an empty page: the race is laid
 		   out finished instead, which is the same information without the
 		   animation. The controls still work if it is wanted. */
+		watchVisibility();
+
 		var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)");
 		if (reduced && reduced.matches) {
 			follow = false;
