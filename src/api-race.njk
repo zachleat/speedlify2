@@ -20,6 +20,7 @@ eleventyExcludeFromCollections: true
 			height: entry.filmstrip.height,
 			distinct: entry.filmstrip.distinct,
 			settledAt: entry.filmstrip.settledAt,
+			throttled: entry.filmstrip.throttled,
 			bands: entry | ringBands,
 			scores: [
 				entry.latest.lab.scores.performance,
@@ -32,22 +33,18 @@ eleventyExcludeFromCollections: true
 	{%- endif -%}
 {%- endfor -%}
 {#
-  The categories Shuffle is allowed to draw from, and the ones its category
-  select lists — one set, so the menu cannot offer something the pool refuses.
+  The categories /compare/ may offer unprompted: Shuffle draws from these, and
+  the select beside it lists them — one set, so the menu cannot name something
+  the pool refuses.
 
-  Two existing flags, neither restated here. `excludeFromPerfectScores` keeps out
-  the maintainer's own pages and the starter templates, whose near-empty demo
-  pages score well by construction — the same reasoning the home page's Perfect
-  Scores board uses, and it holds for an unprompted pairing too.
-  `showOnHomePageCategoryList` keeps out the categories the front page does not
-  put in front of anyone.
-
-  Everything else stays reachable by typing it or linking to it — this only
-  narrows what a random pairing offers on its own.
+  A category says so itself, with `compareEligible` in config/sites.js, rather
+  than being inferred here from flags that mean other things. Everything else
+  stays reachable by typing it or linking to it; this only narrows what the page
+  offers on its own.
 -#}
 {%- set shuffleGroups = [] -%}
 {%- for g in sites.groups -%}
-	{%- if g.showOnHomePageCategoryList and not g.excludeFromPerfectScores -%}
+	{%- if g.compareEligible -%}
 		{%- set shuffleGroups = (shuffleGroups.push({ id: g.id, name: g.name }), shuffleGroups) -%}
 	{%- endif -%}
 {%- endfor -%}

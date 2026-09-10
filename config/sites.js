@@ -437,15 +437,45 @@ export default {
 	// 3 is a decent tradeoff between noise and wall-clock time.
 	runs: 3,
 
-	// Whether to keep Lighthouse's loading filmstrip: "filmstrip" or "none",
-	// overridable per category and per site.
+	// How much of a site's pictures to keep, overridable per category and per
+	// site. Cheapest first:
+	//
+	//   "none"       the header screenshot every site page needs, and nothing else
+	//   "primary"    adds the no-JS capture the Without JavaScript section reads
+	//   "filmstrip"  adds Lighthouse's loading filmstrip on top
+	//
+	// A site in two categories gets the more complete of the two.
+	//
+	// One exception, and it is not configurable: a run that scores a straight 400
+	// — 100 in all four Lighthouse categories — is lifted to "primary" whatever
+	// mode says, so a category set to "none" still captures the no-JS pair for
+	// its perfect scorers. That site can be the perfect site of the day, and that
+	// card is a photograph. It lives in `keepsScreenshots` in lib/runner.js,
+	// because it is decided from the run's own scores and those are only known
+	// once the run has finished.
+	//
+	// Lifted to "primary" and no further: the card draws one viewport capture, so
+	// a filmstrip was never what the exception needed. It used to grant one, and
+	// the result was that Built Awesome — "none" across eleven hundred sites —
+	// accumulated 217 filmstrips, which are a sample of nothing and cost exactly
+	// the storage the setting was chosen to avoid.
 	//
 	// These files are committed, since measure and publish are separate
 	// workflows on separate checkouts and the repository is the only channel
-	// between them. A deduplicated strip measured 19–84 KB per site, so at this
-	// corpus size expect roughly 75 MB in the tree, rewritten weekly as sites
-	// are re-measured. Set a category to "none" to keep it out.
+	// between them. A deduplicated strip measured 19–84 KB per site against
+	// roughly 30 KB for the no-JS capture, so at this corpus size expect roughly
+	// 75 MB in the tree, rewritten weekly as sites are re-measured. "none" is the
+	// lever for a category that needs none of it, "primary" for one that wants
+	// the comparison without the strip behind it.
 	screenshots: "filmstrip",
+
+	// Whether a category's sites may turn up at /compare/, overridable per
+	// category. On by default; a category opts out with `compareEligible: false`.
+	//
+	// Only about what that page offers unprompted — its Shuffle button and the
+	// category menu beside it. Every site stays reachable there by typing its
+	// name or following a link, whatever this says.
+	compareEligible: true,
 
 	// "mobile" (throttled, Moto G Power emulation) or "desktop"
 	formFactor: "mobile",
@@ -696,6 +726,7 @@ export default {
 			// Your own pages, so there is nobody else to ask. Same rule as the two
 			// community registers below.
 			showEmbed: true,
+			compareEligible: false,
 
 			// Kept out of the home page's Perfect Scores board. That board is for
 			// showing other people's work, and the person who keeps the list
@@ -761,8 +792,16 @@ export default {
 
 			...POLITE,
 			...WEEKLY,
-			// for storage reasons
+
+			// For storage reasons, and "none" rather than "primary": at eleven
+			// hundred sites even the second capture alone is tens of megabytes
+			// rewritten every week.
 			screenshots: "none",
+
+			// The category is `screenshots: "none"`, so the only
+			// sites in it holding a filmstrip are the ones that scored full marks and
+			// kept their pictures that way — a field of perfect scorers.
+			compareEligible: true,
 
 			// The list is a record of what was submitted, not of what is true now.
 			// A site measured as something other than Eleventy has moved on, so it
@@ -798,6 +837,11 @@ export default {
 		},
 
 		"11ty-starters": {
+			// Kept off /compare/, for the reason it is kept off the Perfect Scores
+			// board below: a starter is a near-empty demonstration page, so it wins
+			// by construction rather than by doing anything well.
+			compareEligible: false,
+
 			showHealth: true,
 			showOnHomePageCategoryList: true,
 			// These are sites people submitted themselves, so offering a live badge
@@ -819,10 +863,7 @@ export default {
 			...WEEKLY,
 
 			// for storage reasons
-			// A starter's whole point is what it renders, and half of these ship
-			// nothing without scripts — so this category keeps its pictures, both
-			// the filmstrip and the pair behind the Without JavaScript section.
-			screenshots: "filmstrip",
+			screenshots: "primary",
 
 			// The ones that came from the community list were filtered out of it,
 			// not missing from it. Without this they would be flagged "unlisted"
@@ -853,6 +894,10 @@ export default {
 		},
 
 		"11ty-emeritus": {
+			// Kept off /compare/. The list is a record of sites that moved on, and it
+			// is unranked everywhere else for the same reason.
+			compareEligible: false,
+
 			showHealth: true,
 			name: "11ty Emeritus",
 
@@ -873,7 +918,8 @@ export default {
 			...POLITE,
 			...WEEKLY,
 
-			// for storage reasons
+			// For storage reasons, and "none" rather than "primary": these sites
+			// left, so there is no comparison here anyone is coming to look at.
 			screenshots: "none",
 
 			// Two ways in. Sites listed here were deleted from the community repo

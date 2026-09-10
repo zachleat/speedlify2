@@ -5,7 +5,7 @@ import os from "node:os";
 import path from "node:path";
 
 import { ResultStore } from "../lib/store.js";
-import { keepsScreenshots } from "../lib/runner.js";
+import { keepsScreenshots, keepsFilmstrip } from "../lib/runner.js";
 import { clientRendered } from "../lib/report.js";
 
 /**
@@ -143,6 +143,29 @@ describe("who keeps their pictures", () => {
 	test("the default is to keep them", () => {
 		assert.equal(keepsScreenshots({}, null), true);
 		assert.equal(keepsScreenshots(undefined, null), true);
+	});
+
+	test("primary keeps the no-JS capture but not the filmstrip", () => {
+		// The whole point of the middle mode: the Without JavaScript comparison
+		// without the frames, which are the expensive half.
+		assert.equal(keepsScreenshots({ screenshots: "primary" }, nearly), true);
+		assert.equal(keepsFilmstrip({ screenshots: "primary" }, nearly), false);
+	});
+
+	test("the filmstrip gate is stricter than the screenshot gate", () => {
+		assert.equal(keepsFilmstrip({ screenshots: "filmstrip" }), true);
+		assert.equal(keepsFilmstrip({ screenshots: "none" }), false);
+		// Default is the richest mode, so an unset site keeps everything.
+		assert.equal(keepsFilmstrip({}), true);
+		assert.equal(keepsFilmstrip(undefined), true);
+	});
+
+	test("full marks lifts a site to primary, not to filmstrip", () => {
+		// The perfect-site card draws one viewport capture, so the override grants
+		// the no-JS pair and stops there — a strip is not what it needs.
+		assert.equal(keepsScreenshots({ screenshots: "none" }, perfect), true);
+		assert.equal(keepsFilmstrip({ screenshots: "none" }), false);
+		assert.equal(keepsFilmstrip({ screenshots: "primary" }), false);
 	});
 });
 

@@ -1,11 +1,11 @@
 ---
 layout: base.njk
-permalink: /race/index.html
-title: Race
+permalink: /compare/index.html
+title: Compare
 ---
 
 <header class="detail-head">
-	<h2 class="page-hed">Race</h2>
+	<h2 class="page-hed">Compare</h2>
 	<p class="lede">
 		Two sites drawing side by side, replayed from the filmstrips Lighthouse
 		captured while measuring them. The clock is the load that was actually
@@ -29,6 +29,27 @@ title: Race
 
 <div class="race" id="race" hidden>
 	<form class="panel race-picker" id="race-picker" autocomplete="off">
+		{#
+			First, because it governs everything under it: the lanes, the names
+			offered, and the categories worth listing all come from one capture or
+			the other. Two sites measured under different throttling are two
+			different connections, and laying them on one axis would show the
+			unthrottled one finishing far sooner for no reason but how it was
+			measured. Hidden while the corpus holds only one kind — a control with
+			nothing to choose between.
+		#}
+		<fieldset class="race-throttle" id="race-throttle" hidden>
+			<legend>Capture</legend>
+			<label>
+				<input type="radio" name="race-throttle" value="false" checked>
+				Unthrottled <span class="race-throttle-count" data-capture="false"></span>
+			</label>
+			<label>
+				<input type="radio" name="race-throttle" value="true">
+				Throttled <span class="race-throttle-count" data-capture="true"></span>
+			</label>
+		</fieldset>
+
 		<div class="race-fields" id="race-fields"></div>
 		{#
 			One list for every lane. The value people type is the site's display
@@ -63,7 +84,7 @@ title: Race
 	</form>
 
 	<div class="race-controls">
-		<button type="button" class="race-play" id="race-play">Race</button>
+		<button type="button" class="race-play" id="race-play">Start</button>
 		<button type="button" id="race-restart">Restart</button>
 		<label class="race-speed">
 			Speed
@@ -79,7 +100,7 @@ title: Race
 	</div>
 
 	<input type="range" class="race-scrub" id="race-scrub" min="0" max="1000" value="0" step="1"
-		aria-label="Scrub through the race">
+		aria-label="Scrub through the comparison">
 
 	<div class="race-scroll" id="race-scroll">
 		<div class="race-grid" id="race-grid"></div>
@@ -227,6 +248,11 @@ title: Race
 	var categories = [];
 	/* One of their ids, when Shuffle has been narrowed to a single category. */
 	var shuffleCategory = "";
+	/*
+	 * Which capture the page is comparing: false for unthrottled, true for
+	 * throttled. Every lane has to be one or the other — see `matchesCapture`.
+	 */
+	var captureMode = false;
 	var compareMarkers = [];
 	var timeline = null;
 	var now = 0;
@@ -456,7 +482,7 @@ title: Race
 
 		var name = el("div", "race-name is-compare");
 		var title = el("span", "race-name-link");
-		title.textContent = "Comparison";
+		title.textContent = "Real world";
 		name.appendChild(title);
 
 		var lane = el("div", "race-lane is-compare");
@@ -707,7 +733,7 @@ title: Race
 	function pause() {
 		playing = false;
 		cancelAnimationFrame(raf);
-		playButton.textContent = now >= timeline.end ? "Replay" : now > 0 ? "Resume" : "Race";
+		playButton.textContent = now >= timeline.end ? "Replay" : now > 0 ? "Resume" : "Start";
 	}
 
 	function restart() {
@@ -716,7 +742,7 @@ title: Race
 		follow = true;
 		scroll.scrollLeft = 0;
 		setTime(0);
-		playButton.textContent = "Race";
+		playButton.textContent = "Start";
 		renderResult(null);
 	}
 
@@ -784,6 +810,9 @@ title: Race
 			input.addEventListener("change", function () {
 				var typed = input.value.trim();
 				var match = byName.get(typed.toLowerCase()) || bySlug.get(typed);
+				/* Refused rather than silently switching the whole field's capture
+				   under the other lanes. */
+				if (match && !matchesCapture(match)) match = null;
 				if (!match) {
 					input.setAttribute("aria-invalid", "true");
 					return;
@@ -870,6 +899,7 @@ title: Race
 		renderGrid();
 		restart();
 		writeAddress(push);
+		updateShuffleState();
 	}
 
 	/* ---------------------------------------------------------- the defaults */
@@ -891,7 +921,25 @@ title: Race
 	 * unaffected: this narrows what the page offers unprompted, not what it can
 	 * show.
 	 */
+	/*
+	 * Same capture as the rest of the field.
+	 *
+	 * The hard rule on this page. An unthrottled strip is a full-speed load and a
+	 * throttled one is a slow connection; put them in adjacent lanes and the
+	 * picture says one site is far quicker when all it had was a faster link.
+	 * Nothing in the frames reveals which is which, so the comparison has to
+	 * refuse the pairing rather than caption it.
+	 *
+	 * A strip with no recorded method — stored before the field existed — counts
+	 * as unthrottled, which is what it was: everything measured so far ran under
+	 * Lighthouse's simulated default.
+	 */
+	function matchesCapture(site) {
+		return (site.throttled === true) === captureMode;
+	}
+
 	function inShufflePool(site) {
+		if (!matchesCapture(site)) return false;
 		var groups = site.groups || [];
 		if (shuffleCategory) return groups.indexOf(shuffleCategory) >= 0;
 		if (!categories.length) return true;
@@ -910,13 +958,75 @@ title: Race
 
 	/* Only categories with enough racers to make a race — a name in the list that
 	   cannot fill two lanes is a dead end. */
+	/* Only sites of the current capture are offered by name, so a typed lane
+	   cannot land the field in a mixed comparison. */
+	function fillCatalogList() {
+		catalogList.innerHTML = "";
+		catalog.forEach(function (site) {
+			if (!matchesCapture(site)) return;
+			var option = el("option");
+			option.value = site.name;
+			catalogList.appendChild(option);
+		});
+	}
+
+	/*
+	 * Show the capture control only when there is a choice to make.
+	 *
+	 * Everything measured so far ran unthrottled, so until some of the corpus is
+	 * re-measured the other option leads to an empty field. The control appears
+	 * on its own the first time both kinds exist.
+	 */
+	function setUpCaptureControl() {
+		var fieldset = document.getElementById("race-throttle");
+		if (!fieldset) return;
+
+		var throttled = catalog.filter(function (s) { return s.throttled === true; }).length;
+		var unthrottled = catalog.length - throttled;
+
+		/* How much is behind each option, so an empty-looking side is explained
+		   rather than mysterious mid-rollout. */
+		fieldset.querySelectorAll(".race-throttle-count").forEach(function (span) {
+			span.textContent = "(" + (span.dataset.capture === "true" ? throttled : unthrottled) + ")";
+		});
+
+		if (!throttled || !unthrottled) {
+			// Whichever kind exists is the one to compare, control or no control.
+			captureMode = throttled > 0;
+			return;
+		}
+
+		fieldset.hidden = false;
+		fieldset.querySelectorAll("input").forEach(function (input) {
+			input.checked = (input.value === "true") === captureMode;
+			input.addEventListener("change", function () {
+				if (!this.checked) return;
+				captureMode = this.value === "true";
+				fillCatalogList();
+				fillCategorySelect();
+				shuffle();
+			});
+		});
+	}
+
 	function fillCategorySelect() {
 		var select = document.getElementById("race-category");
 		if (!select) return;
 
+		/* Rebuilt whenever the capture changes: a category with ten unthrottled
+		   sites may have none of the other kind, and offering it would be a menu
+		   entry that empties the field. */
+		select.innerHTML = "";
+		shuffleCategory = "";
+		var all = el("option");
+		all.value = "";
+		all.textContent = "all categories";
+		select.appendChild(all);
+
 		categories.forEach(function (category) {
 			var count = 0;
 			catalog.forEach(function (site) {
+				if (!matchesCapture(site)) return;
 				if ((site.groups || []).indexOf(category.id) >= 0) count += 1;
 			});
 			if (count < 2) return;
@@ -929,17 +1039,43 @@ title: Race
 
 		/* Picking a category is asking to see that category, so it draws a field
 		   straight away rather than arming a button to be pressed next. */
-		select.addEventListener("change", function () {
+		/* Assigned rather than added: this runs again on every capture change, and
+		   addEventListener would stack a handler per rebuild. */
+		select.onchange = function () {
 			shuffleCategory = this.value;
 			shuffle();
-		});
+		};
 	}
 
 	/* However many lanes are open stay open — shuffling is a reroll of the field,
 	   not a reset of it. */
 	function shuffle() {
-		lanes = randomLanes(Math.max(2, lanes.length)).map(function (site) { return { site: site }; });
+		var count = Math.max(2, lanes.length);
+		var pool = shufflePool();
+
+		/*
+		 * A category no bigger than the field is not something to shuffle: every
+		 * draw returns the same sites, so the button would only reorder lanes and
+		 * claim to have found something. Show the category whole instead, and do
+		 * nothing at all when that is already what is on screen.
+		 */
+		if (pool.length <= count && pool.length >= 2) {
+			if (sameSites(pool, lanes)) return;
+			lanes = pool.map(function (site) { return { site: site }; });
+			commit(true);
+			return;
+		}
+
+		lanes = randomLanes(count).map(function (site) { return { site: site }; });
 		commit(true);
+	}
+
+	/* Off when pressing it could not change anything — see `shuffle`. */
+	function updateShuffleState() {
+		var button = document.getElementById("race-shuffle");
+		if (!button) return;
+		var pool = shufflePool();
+		button.disabled = pool.length >= 2 && pool.length <= Math.max(2, lanes.length) && sameSites(pool, lanes);
 	}
 
 	/*
@@ -950,10 +1086,47 @@ title: Race
 	 * Sorting by settle time and taking one from each of `count` equal bands
 	 * generalises the fast-against-slow pairing to however many lanes are open.
 	 */
-	function randomLanes(count) {
-		var usable = catalog.filter(function (s) {
+	/*
+	 * The site a race opens against: this one.
+	 *
+	 * Held by slug rather than by name, since the slug is what the address uses
+	 * and what survives a display name changing. Null if it has no filmstrip yet,
+	 * which drops the page back to a random pairing rather than to an empty lane.
+	 */
+	var HOME_SLUG = "www-speedlify-dev";
+
+	function homeSite() {
+		return bySlug.get(HOME_SLUG) || null;
+	}
+
+	/* The opening field: this site against someone, so the page always shows the
+	   same question being asked of a different answer. */
+	function openingLanes() {
+		var home = homeSite();
+		if (!home || !matchesCapture(home)) return randomLanes(2);
+
+		var others = randomLanes(2).filter(function (site) { return site !== home; });
+		return others.length ? [home, others[0]] : randomLanes(2);
+	}
+
+	/* Everything a random draw is allowed to pick from, under the current
+	   category. Named because the count matters as well as the contents — see
+	   `shuffle`. */
+	function shufflePool() {
+		return catalog.filter(function (s) {
 			return typeof settledAt(s) === "number" && s.distinct > 1 && inShufflePool(s);
 		});
+	}
+
+	function sameSites(sites, currentLanes) {
+		if (sites.length !== currentLanes.length) return false;
+		var here = {};
+		currentLanes.forEach(function (lane) { here[lane.site.slug] = true; });
+		return sites.every(function (site) { return here[site.slug]; });
+	}
+
+	function randomLanes(count) {
+		var usable = shufflePool();
 		if (usable.length < count) usable = catalog.slice();
 		if (usable.length < count) return catalog.slice(0, count);
 
@@ -995,6 +1168,12 @@ title: Race
 			.map(function (slug) { return bySlug.get(slug); })
 			.filter(Boolean)
 			.slice(0, MAX_LANES);
+		if (picked.length < 2) return null;
+
+		/* A link decides its own capture: the first lane sets it and the rest have
+		   to match, so a hand-written address cannot open a mixed field. */
+		captureMode = picked[0].throttled === true;
+		picked = picked.filter(matchesCapture);
 		return picked.length >= 2 ? picked : null;
 	}
 
@@ -1012,16 +1191,16 @@ title: Race
 		catalog.forEach(function (site) {
 			bySlug.set(site.slug, site);
 			byName.set(site.name.toLowerCase(), site);
-			var option = el("option");
-			option.value = site.name;
-			catalogList.appendChild(option);
 		});
+		fillCatalogList();
 
 		count.textContent = catalog.length + " sites have a filmstrip to race.";
 
 		var initial = fromAddress();
-		lanes = (initial || randomLanes(2)).map(function (site) { return { site: site }; });
+		lanes = (initial || openingLanes()).map(function (site) { return { site: site }; });
 
+		setUpCaptureControl();
+		fillCatalogList();
 		fillCategorySelect();
 		applySpeed();
 
@@ -1104,7 +1283,7 @@ title: Race
 			follow = false;
 			setTime(timeline.end);
 			renderResult(rank());
-			playButton.textContent = "Race";
+			playButton.textContent = "Start";
 		} else {
 			play();
 		}

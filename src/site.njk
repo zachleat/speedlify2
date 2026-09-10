@@ -769,7 +769,18 @@ eleventyComputed:
 	the information here and they are text.
 #}
 <section class="panel" id="filmstrip">
-	<h2>Filmstrip <span class="tag">Lighthouse, {{ entry.latest.formFactor }}</span></h2>
+	{#
+		Throttled or not, said plainly beside the frames. Lighthouse's default
+		"simulate" does not slow the browser down — it loads the page at full speed
+		and models the metrics afterwards — so an unthrottled strip is a fast load,
+		and reading it as what a phone on a slow connection sees is the mistake
+		this label exists to prevent.
+	#}
+	<h2>Filmstrip <span class="tag">Lighthouse, {{ entry.latest.formFactor }}</span>
+		{%- if entry.filmstrip.throttled === true %} <span class="tag" title="Captured with the connection and processor actually throttled, so these frames are a slow load.">Throttled</span>
+		{%- elif entry.filmstrip.throttled === false %} <span class="tag tag-quiet" title="Captured with Lighthouse's default simulated throttling, which does not slow the browser: the page loaded at full speed and the metrics were estimated afterwards. These frames are a fast load.">Unthrottled</span>
+		{%- endif %}
+	</h2>
 	<p class="muted small">
 		How the page drew during the measured load, at
 		{{ entry.filmstrip.frames.length }} points across

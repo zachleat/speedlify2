@@ -2250,6 +2250,14 @@ fieldset[disabled] select {
 .pill-poor { background: var(--poor-bg); color: var(--poor); }
 .pill-none { color: var(--text-muted); }
 
+/* An "unthrottled" filmstrip label and the like: a fact about the capture rather
+   than a claim about the site, so it sits back from the tag beside it. */
+.tag-quiet {
+	background: none;
+	box-shadow: inset 0 0 0 1px var(--border);
+	color: var(--text-muted);
+}
+
 .tag {
 	font-size: 0.72rem;
 	font-weight: 500;
@@ -3573,6 +3581,51 @@ a.cat-chip:hover, a.cat-chip:focus-visible { color: var(--text); border-color: v
 	gap: 0.4rem;
 	font-size: 0.85rem;
 	color: var(--text-muted-strong);
+}
+
+/* The capture switch. A fieldset for the grouping semantics, stripped of the
+   border a fieldset brings so it sits in the row of controls like a label.
+
+   The `[hidden]` rule is not redundant: an author `display` beats the UA
+   stylesheet's `[hidden] { display: none }`, so without it the control renders
+   while the corpus holds one kind of capture — visible, and wired to nothing,
+   because the script binds its listeners only when there is a choice to make.
+   The theme toggle in base.njk hit the same thing. */
+.race-throttle[hidden] { display: none; }
+
+.race-throttle {
+	display: flex;
+	align-items: center;
+	gap: 0.6rem;
+	flex-wrap: wrap;
+	/* Sits above the lanes it governs, with a rule under it so the grouping is
+	   visible rather than implied by proximity. */
+	margin: 0 0 0.9rem;
+	padding: 0 0 0.9rem;
+	border: 0;
+	border-bottom: 1px solid var(--border);
+	font-size: 0.85rem;
+	color: var(--text-muted-strong);
+}
+
+.race-throttle legend {
+	float: left;
+	padding: 0;
+	margin-right: 0.5rem;
+}
+
+.race-throttle label {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.25rem;
+	cursor: pointer;
+}
+
+.race-throttle input { accent-color: var(--brand); margin: 0; }
+
+.race-throttle-count {
+	font-variant-numeric: tabular-nums;
+	color: var(--text-muted);
 }
 
 .race-category {
