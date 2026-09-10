@@ -117,6 +117,13 @@ title: Compare
 		lane simply stops where its capture stops rather than holding its last
 		frame across an axis built for a longer one.
 	</p>
+	{#
+		Two accounts of the same page, one per capture, swapped by the control at
+		the top of the form. They cannot be one paragraph hedged both ways: the
+		unthrottled note exists to warn that the frames are faster than any visitor
+		would see, and the throttled one exists to say the opposite.
+	#}
+	<div id="race-note-unthrottled">
 	<p class="muted small race-note">
 		<strong>These frames are barely throttled.</strong> The runs use Lighthouse's
 		default simulated throttling, which does not slow the connection or the
@@ -143,6 +150,30 @@ title: Compare
 		site's scores, which are about the site rather than about this clock. This
 		is a picture of two measurements, not a benchmark.
 	</p>
+	</div>
+
+	<div id="race-note-throttled" hidden>
+	<p class="muted small race-note">
+		<strong>These frames are of a throttled load.</strong> The runs applied
+		Lighthouse's Slow 4G profile and a 4&times; CPU slowdown to the browser
+		itself &mdash; not to a model afterwards &mdash; so the page arrived over a
+		deliberately slow connection on a deliberately slow processor. What you are
+		watching is much closer to what someone on a phone would sit through than
+		an unthrottled capture is.
+	</p>
+	<p class="muted small race-note">
+		Because the throttling was real, TTFB, FCP and LCP for these sites are read
+		from this same trace rather than estimated from a faster one, so for once
+		they describe the load in front of you. They are still not drawn on the
+		axis: the finish line here is the observed one &mdash; when a lane's
+		picture stops changing &mdash; which comes out of the frames themselves and
+		needs no second source. Numbers measured this way carry more run-to-run
+		variance than the modelled ones, so a close result is closer than it looks.
+		The rings beside each lane are that site's scores, which are about the site
+		rather than about this clock. This is a picture of two measurements, not a
+		benchmark.
+	</p>
+	</div>
 </div>
 
 <script>
@@ -794,7 +825,22 @@ title: Compare
 
 	function renderFields() {
 		fields.innerHTML = "";
-		lanes.forEach(function (lane, index) {
+
+		/* Always at least two rows, however few lanes are filled. A single racer
+		   with no second row would look like the page had lost a control rather
+		   than like there being nothing to put in it. */
+		var slots = Math.max(2, lanes.length);
+
+		for (var slot = 0; slot < slots; slot++) {
+			renderField(slot);
+		}
+
+		document.getElementById("race-add").disabled = lanes.length >= MAX_LANES;
+	}
+
+	function renderField(index) {
+		var lane = lanes[index] || null;
+		{
 			var row = el("div", "race-field");
 
 			var label = el("label", "race-field-label");
@@ -806,7 +852,8 @@ title: Compare
 			input.id = "race-site-" + index;
 			input.type = "text";
 			input.setAttribute("list", "race-catalog");
-			input.value = lane.site.name;
+			input.value = lane ? lane.site.name : "";
+			if (!lane) input.placeholder = "nothing eligible yet";
 			input.addEventListener("change", function () {
 				var typed = input.value.trim();
 				var match = byName.get(typed.toLowerCase()) || bySlug.get(typed);
@@ -823,7 +870,7 @@ title: Compare
 			});
 			row.appendChild(input);
 
-			if (lanes.length > 2) {
+			if (lane && lanes.length > 2) {
 				var remove = el("button", "race-field-remove");
 				remove.type = "button";
 				remove.innerHTML = trashIcon();
@@ -837,9 +884,7 @@ title: Compare
 			}
 
 			fields.appendChild(row);
-		});
-
-		document.getElementById("race-add").disabled = lanes.length >= MAX_LANES;
+		}
 	}
 
 	/* ---------------------------------------------------------- the address */
@@ -938,8 +983,21 @@ title: Compare
 		return (site.throttled === true) === captureMode;
 	}
 
-	function inShufflePool(site) {
-		if (!matchesCapture(site)) return false;
+	/*
+	 * What a draw can actually offer, category aside: the right capture, and a
+	 * strip worth animating.
+	 *
+	 * The category menu counts with this too, so the number beside a category is
+	 * the number of lanes it can fill. Counting plain membership instead made the
+	 * menu promise more than the pool held — Developer Tooling read 96 against 91
+	 * drawable — and Shuffle then disabled itself at a lane count the menu said
+	 * was fine.
+	 */
+	function drawable(site) {
+		return matchesCapture(site) && typeof settledAt(site) === "number" && site.distinct > 1;
+	}
+
+	function inChosenCategory(site) {
 		var groups = site.groups || [];
 		if (shuffleCategory) return groups.indexOf(shuffleCategory) >= 0;
 		if (!categories.length) return true;
@@ -947,6 +1005,10 @@ title: Compare
 			if (categoryIndex(groups[i]) >= 0) return true;
 		}
 		return false;
+	}
+
+	function inShufflePool(site) {
+		return drawable(site) && inChosenCategory(site);
 	}
 
 	function categoryIndex(id) {
@@ -977,6 +1039,15 @@ title: Compare
 	 * re-measured the other option leads to an empty field. The control appears
 	 * on its own the first time both kinds exist.
 	 */
+	/* Which account of the frames is showing — see the note markup. */
+	function setCaptureCopy() {
+		var unthrottled = document.getElementById("race-note-unthrottled");
+		var throttled = document.getElementById("race-note-throttled");
+		if (!unthrottled || !throttled) return;
+		unthrottled.hidden = captureMode;
+		throttled.hidden = !captureMode;
+	}
+
 	function setUpCaptureControl() {
 		var fieldset = document.getElementById("race-throttle");
 		if (!fieldset) return;
@@ -1002,6 +1073,7 @@ title: Compare
 			input.addEventListener("change", function () {
 				if (!this.checked) return;
 				captureMode = this.value === "true";
+				setCaptureCopy();
 				fillCatalogList();
 				fillCategorySelect();
 				shuffle();
@@ -1026,10 +1098,13 @@ title: Compare
 		categories.forEach(function (category) {
 			var count = 0;
 			catalog.forEach(function (site) {
-				if (!matchesCapture(site)) return;
+				if (!drawable(site)) return;
 				if ((site.groups || []).indexOf(category.id) >= 0) count += 1;
 			});
-			if (count < 2) return;
+			/* One is enough to list. A single-site field is a real state now — the
+			   lane fills and the second row stays empty — and hiding every category
+			   until two exist left the menu blank on a capture that has one. */
+			if (!count) return;
 
 			var option = el("option");
 			option.value = category.id;
@@ -1059,8 +1134,11 @@ title: Compare
 		 * claim to have found something. Show the category whole instead, and do
 		 * nothing at all when that is already what is on screen.
 		 */
-		if (pool.length <= count && pool.length >= 2) {
+		if (pool.length <= count) {
 			if (sameSites(pool, lanes)) return;
+			/* However few that is. One eligible site fills one lane and leaves the
+			   rest empty, which is the honest picture: there is nothing to compare
+			   it against yet. */
 			lanes = pool.map(function (site) { return { site: site }; });
 			commit(true);
 			return;
@@ -1070,12 +1148,21 @@ title: Compare
 		commit(true);
 	}
 
-	/* Off when pressing it could not change anything — see `shuffle`. */
+	/*
+	 * Off when pressing it could not produce a different field.
+	 *
+	 * Two ways that happens. Fewer eligible sites than lanes and a draw cannot
+	 * even fill them, so shuffling would shrink the field rather than change it.
+	 * Exactly as many and every draw returns the same set, so once those sites
+	 * are showing there is nothing left to find — see `shuffle`.
+	 */
 	function updateShuffleState() {
 		var button = document.getElementById("race-shuffle");
 		if (!button) return;
+
 		var pool = shufflePool();
-		button.disabled = pool.length >= 2 && pool.length <= Math.max(2, lanes.length) && sameSites(pool, lanes);
+		var count = Math.max(2, lanes.length);
+		button.disabled = pool.length < count || (pool.length === count && sameSites(pool, lanes));
 	}
 
 	/*
@@ -1113,9 +1200,7 @@ title: Compare
 	   category. Named because the count matters as well as the contents — see
 	   `shuffle`. */
 	function shufflePool() {
-		return catalog.filter(function (s) {
-			return typeof settledAt(s) === "number" && s.distinct > 1 && inShufflePool(s);
-		});
+		return catalog.filter(inShufflePool);
 	}
 
 	function sameSites(sites, currentLanes) {
@@ -1127,8 +1212,11 @@ title: Compare
 
 	function randomLanes(count) {
 		var usable = shufflePool();
-		if (usable.length < count) usable = catalog.slice();
-		if (usable.length < count) return catalog.slice(0, count);
+		/* Widening past the category is fine; widening past the capture is not —
+		   that is the one boundary the field cannot straddle, so a thin pool
+		   returns short rather than borrowing from the other side. */
+		if (usable.length < count) usable = catalog.filter(matchesCapture);
+		if (usable.length <= count) return usable.slice();
 
 		var sorted = usable.slice().sort(function (a, b) {
 			return settledAt(a) - settledAt(b);
@@ -1168,13 +1256,14 @@ title: Compare
 			.map(function (slug) { return bySlug.get(slug); })
 			.filter(Boolean)
 			.slice(0, MAX_LANES);
-		if (picked.length < 2) return null;
+		if (!picked.length) return null;
 
 		/* A link decides its own capture: the first lane sets it and the rest have
 		   to match, so a hand-written address cannot open a mixed field. */
 		captureMode = picked[0].throttled === true;
 		picked = picked.filter(matchesCapture);
-		return picked.length >= 2 ? picked : null;
+		/* One is a valid field — see `shuffle`. Zero is not a link worth honouring. */
+		return picked.length ? picked : null;
 	}
 
 	/* ------------------------------------------------------------------ boot */
@@ -1200,6 +1289,7 @@ title: Compare
 		lanes = (initial || openingLanes()).map(function (site) { return { site: site }; });
 
 		setUpCaptureControl();
+		setCaptureCopy();
 		fillCatalogList();
 		fillCategorySelect();
 		applySpeed();
