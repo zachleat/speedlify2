@@ -777,8 +777,13 @@ eleventyComputed:
 		this label exists to prevent.
 	#}
 	<h2>Filmstrip <span class="tag">Lighthouse, {{ entry.latest.formFactor }}</span>
-		{%- if entry.filmstrip.throttled === true %} <span class="tag" title="Captured with the connection and processor actually throttled, so these frames are a slow load.">Throttled</span>
-		{%- elif entry.filmstrip.throttled === false %} <span class="tag tag-quiet" title="Captured with Lighthouse's default simulated throttling, which does not slow the browser: the page loaded at full speed and the metrics were estimated afterwards. These frames are a fast load.">Unthrottled</span>
+		{#
+			Emoji rather than the Font Awesome transform used elsewhere: rabbit and
+			turtle are both Pro-only marks, and the project ships the free set.
+			Decorative — the word beside each one carries the meaning.
+		#}
+		{%- if entry.filmstrip.throttled === true %} <span class="tag" title="Captured with the connection and processor actually throttled, so these frames are a slow load."><span class="tag-mark" aria-hidden="true">🐢</span> Throttled</span>
+		{%- elif entry.filmstrip.throttled === false %} <span class="tag tag-quiet" title="Captured with Lighthouse's default simulated throttling, which does not slow the browser: the page loaded at full speed and the metrics were estimated afterwards. These frames are a fast load."><span class="tag-mark" aria-hidden="true">🐇</span> Unthrottled</span>
 		{%- endif %}
 	</h2>
 	<p class="muted small">

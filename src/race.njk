@@ -40,13 +40,20 @@ title: Compare
 		#}
 		<fieldset class="race-throttle" id="race-throttle" hidden>
 			<legend>Capture</legend>
+			{#
+				The same two marks the site pages put on a filmstrip, so the control
+				and the label it selects for read as one idea. Decorative: the word
+				beside each carries the meaning.
+			#}
 			<label>
 				<input type="radio" name="race-throttle" value="false" checked>
-				Unthrottled <span class="race-throttle-count" data-capture="false"></span>
+				Unthrottled <span class="tag-mark" aria-hidden="true">🐇</span>
+				<span class="race-throttle-count" data-capture="false"></span>
 			</label>
 			<label>
 				<input type="radio" name="race-throttle" value="true">
-				Throttled <span class="race-throttle-count" data-capture="true"></span>
+				Throttled <span class="tag-mark" aria-hidden="true">🐢</span>
+				<span class="race-throttle-count" data-capture="true"></span>
 			</label>
 		</fieldset>
 

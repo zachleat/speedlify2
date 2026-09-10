@@ -2250,6 +2250,15 @@ fieldset[disabled] select {
 .pill-poor { background: var(--poor-bg); color: var(--poor); }
 .pill-none { color: var(--text-muted); }
 
+/* The emoji inside a tag. Nudged down a hair: emoji sit high against a cap
+   height, and against a 0.72rem label the difference reads as a misalignment. */
+.tag-mark {
+	font-size: 0.9em;
+	line-height: 1;
+	position: relative;
+	top: 0.05em;
+}
+
 /* An "unthrottled" filmstrip label and the like: a fact about the capture rather
    than a claim about the site, so it sits back from the tag beside it. */
 .tag-quiet {
