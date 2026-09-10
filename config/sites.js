@@ -586,6 +586,7 @@ export default {
 			 * ask for one. Omit it and the badge simply does not render.
 			 */
 			showHealth: true,
+			showOnHomePageCategoryList: true,
 			name: "AI",
 			enabled: true,
 			description:
