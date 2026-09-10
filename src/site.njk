@@ -790,6 +790,14 @@ eleventyComputed:
 		How the page drew during the measured load, at
 		{{ entry.filmstrip.frames.length }} points across
 		{{ entry.filmstrip.frames[entry.filmstrip.frames.length - 1].timing | unit("ms") }}.
+		{#
+			Every site with a filmstrip section is in the compare catalog — that
+			catalog is built from the same stored strips — so the link can be
+			offered wherever this section renders. `compareEligible` only decides
+			what that page shuffles up unprompted; a link to a named site always
+			resolves.
+		#}
+		<a href="/compare/?sites={{ entry.slug | urlencode }}">Compare this filmstrip against another site</a>.
 	</p>
 	<div class="table-scroll">
 		<ol class="filmstrip">

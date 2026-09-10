@@ -73,6 +73,12 @@ title: Compare
 		<span class="race-icon-source" hidden>
 			<i class="fa-solid fa-trash-can" width="14" height="14" aria-hidden="true"></i>
 		</span>
+		<span class="race-icon-source-lock" hidden>
+			<i class="fa-solid fa-lock" width="14" height="14" aria-hidden="true"></i>
+		</span>
+		<span class="race-icon-source-unlock" hidden>
+			<i class="fa-solid fa-lock-open" width="14" height="14" aria-hidden="true"></i>
+		</span>
 		<div class="race-picker-actions">
 			<button type="button" id="race-add">Add a lane</button>
 			<button type="button" id="race-shuffle">Shuffle</button>
@@ -92,7 +98,7 @@ title: Compare
 
 	<div class="race-controls">
 		<button type="button" class="race-play" id="race-play">Start</button>
-		<button type="button" id="race-restart">Restart</button>
+		<button type="button" id="race-restart">Reset</button>
 		<label class="race-speed">
 			Speed
 			<select id="race-speed">
@@ -339,6 +345,11 @@ title: Compare
 	   broken one. */
 	function trashIcon() {
 		var source = document.querySelector(".race-icon-source");
+		return source ? source.innerHTML : "";
+	}
+
+	function lockIcon(locked) {
+		var source = document.querySelector(locked ? ".race-icon-source-lock" : ".race-icon-source-unlock");
 		return source ? source.innerHTML : "";
 	}
 
@@ -1101,12 +1112,44 @@ title: Compare
 					return;
 				}
 				input.removeAttribute("aria-invalid");
-				lanes[index] = { site: match };
+				/* The lock belongs to the slot, so choosing a different site for a
+				   locked lane keeps it locked. */
+				lanes[index] = { site: match, locked: lane ? Boolean(lane.locked) : false };
 				commit(true);
 			});
 			row.appendChild(input);
 
-			if (lane && lanes.length > 2) {
+			/*
+			 * Lock a lane to keep it through shuffles.
+			 *
+			 * A toggle rather than a checkbox: it changes what one button does to
+			 * one lane, so it sits in that lane's row and says so in its pressed
+			 * state. Toggling redraws the row and re-judges Shuffle and nothing
+			 * else — it is not a change to the comparison, so it touches neither
+			 * the address nor the animation.
+			 */
+			if (lane) {
+				var lock = el("button", "race-field-lock");
+				lock.type = "button";
+				lock.innerHTML = lockIcon(lane.locked);
+				lock.setAttribute("aria-pressed", lane.locked ? "true" : "false");
+				var lockLabel = (lane.locked ? "Unlock" : "Lock") + " lane " + (index + 1);
+				lock.title = lane.locked
+					? lockLabel + " — Shuffle will replace it"
+					: lockLabel + " — keep it when shuffling";
+				lock.setAttribute("aria-label", lockLabel);
+				lock.addEventListener("click", function () {
+					lane.locked = !lane.locked;
+					renderFields();
+					updateShuffleState();
+				});
+				row.appendChild(lock);
+				row.classList.toggle("is-locked", Boolean(lane.locked));
+			}
+
+			/* Lane 1 is kept until there are lanes to spare; any lane after it can go,
+			   down to a field of one — which is a real state now, not a broken one. */
+			if (lane && (lanes.length > 2 || index > 0)) {
 				var remove = el("button", "race-field-remove");
 				remove.type = "button";
 				remove.innerHTML = trashIcon();
@@ -1297,14 +1340,24 @@ title: Compare
 			span.textContent = "(" + (span.dataset.capture === "true" ? throttled : unthrottled) + ")";
 		});
 
-		if (!throttled || !unthrottled) {
-			// Whichever kind exists is the one to compare, control or no control.
-			captureMode = throttled > 0;
-			return;
-		}
-
+		/*
+		 * Always shown, both options, whatever they hold.
+		 *
+		 * Hiding the control while one side was empty made the distinction itself
+		 * invisible — nothing on the page said these frames were unthrottled, or
+		 * that throttled ones were a thing that could exist. An option with nothing
+		 * behind it is shown with its zero and disabled rather than removed, so the
+		 * choice is visible before it is available.
+		 */
 		fieldset.hidden = false;
+
+		// Land on a side that has something, whatever a link asked for.
+		if ((captureMode ? throttled : unthrottled) === 0) captureMode = throttled > 0;
+
 		fieldset.querySelectorAll("input").forEach(function (input) {
+			var count = input.value === "true" ? throttled : unthrottled;
+			input.disabled = count === 0;
+			input.closest("label").classList.toggle("is-empty", count === 0);
 			input.checked = (input.value === "true") === captureMode;
 			input.addEventListener("change", function () {
 				if (!this.checked) return;
@@ -1360,27 +1413,59 @@ title: Compare
 
 	/* However many lanes are open stay open — shuffling is a reroll of the field,
 	   not a reset of it. */
+	/*
+	 * Lanes a shuffle has to leave alone: locked, and still of the capture being
+	 * compared. A lock does not outrank the capture rule — a locked unthrottled
+	 * lane cannot stay in a throttled field — so one that no longer matches is
+	 * released rather than kept.
+	 */
+	function keptLanes(count) {
+		var kept = [];
+		for (var i = 0; i < count; i++) {
+			var lane = lanes[i];
+			kept.push(lane && lane.locked && matchesCapture(lane.site) ? lane : null);
+		}
+		return kept;
+	}
+
+	/* Everything a draw must not pick: the sites already locked in place. */
+	function takenBy(kept) {
+		var taken = {};
+		kept.forEach(function (lane) { if (lane) taken[lane.site.slug] = true; });
+		return taken;
+	}
+
+	/*
+	 * Reroll the unlocked lanes, leaving locked ones exactly where they are.
+	 *
+	 * However many lanes are open stay open — shuffling is a reroll of the field,
+	 * not a reset of it. The draw is from the category's pool less anything
+	 * already locked, so a locked site is never also drawn beside itself.
+	 *
+	 * A pool no bigger than the open slots is not something to shuffle: every
+	 * draw returns the same sites, so the button would only reorder lanes and
+	 * claim to have found something. Those slots take the pool whole instead —
+	 * however few that is — and nothing happens if that is already on screen.
+	 */
 	function shuffle() {
 		var count = Math.max(2, lanes.length);
-		var pool = shufflePool();
+		var kept = keptLanes(count);
+		var open = kept.filter(function (lane) { return !lane; }).length;
+		if (!open) return;
 
-		/*
-		 * A category no bigger than the field is not something to shuffle: every
-		 * draw returns the same sites, so the button would only reorder lanes and
-		 * claim to have found something. Show the category whole instead, and do
-		 * nothing at all when that is already what is on screen.
-		 */
-		if (pool.length <= count) {
-			if (sameSites(pool, lanes)) return;
-			/* However few that is. One eligible site fills one lane and leaves the
-			   rest empty, which is the honest picture: there is nothing to compare
-			   it against yet. */
-			lanes = pool.map(function (site) { return { site: site }; });
-			commit(true);
-			return;
+		var taken = takenBy(kept);
+		var pool = shufflePool().filter(function (site) { return !taken[site.slug]; });
+		var draws = pool.length <= open ? pool.slice() : randomLanes(open, taken);
+
+		var next = [];
+		var d = 0;
+		for (var i = 0; i < count; i++) {
+			if (kept[i]) next.push(kept[i]);
+			else if (d < draws.length) next.push({ site: draws[d++], locked: false });
 		}
 
-		lanes = randomLanes(count).map(function (site) { return { site: site }; });
+		if (sameSites(next.map(function (lane) { return lane.site; }), lanes)) return;
+		lanes = next;
 		commit(true);
 	}
 
@@ -1396,9 +1481,19 @@ title: Compare
 		var button = document.getElementById("race-shuffle");
 		if (!button) return;
 
-		var pool = shufflePool();
 		var count = Math.max(2, lanes.length);
-		button.disabled = pool.length < count || (pool.length === count && sameSites(pool, lanes));
+		var kept = keptLanes(count);
+		var open = kept.filter(function (lane) { return !lane; }).length;
+		if (!open) {
+			// Every lane is locked: there is nothing for a shuffle to touch.
+			button.disabled = true;
+			return;
+		}
+
+		var taken = takenBy(kept);
+		var pool = shufflePool().filter(function (site) { return !taken[site.slug]; });
+		var loose = lanes.filter(function (lane) { return !lane.locked; });
+		button.disabled = pool.length < open || (pool.length === open && sameSites(pool, loose));
 	}
 
 	/*
@@ -1446,12 +1541,15 @@ title: Compare
 		return sites.every(function (site) { return here[site.slug]; });
 	}
 
-	function randomLanes(count) {
-		var usable = shufflePool();
+	function randomLanes(count, exclude) {
+		exclude = exclude || {};
+		var free = function (site) { return !exclude[site.slug]; };
+
+		var usable = shufflePool().filter(free);
 		/* Widening past the category is fine; widening past the capture is not —
 		   that is the one boundary the field cannot straddle, so a thin pool
 		   returns short rather than borrowing from the other side. */
-		if (usable.length < count) usable = catalog.filter(matchesCapture);
+		if (usable.length < count) usable = catalog.filter(matchesCapture).filter(free);
 		if (usable.length <= count) return usable.slice();
 
 		var sorted = usable.slice().sort(function (a, b) {
@@ -1485,6 +1583,19 @@ title: Compare
 		}
 
 		return picked;
+	}
+
+	/*
+	 * Lanes for a list of sites.
+	 *
+	 * A link naming exactly one site is a request to compare that site, so its
+	 * lane starts locked: Shuffle then finds it opponents rather than replacing
+	 * it, which is the only reading of "compare this" that the button can honour.
+	 * The site page's filmstrip section links this way.
+	 */
+	function lanesFor(sites, fromLink) {
+		var single = fromLink && sites.length === 1;
+		return sites.map(function (site) { return { site: site, locked: single }; });
 	}
 
 	function fromAddress() {
@@ -1521,7 +1632,7 @@ title: Compare
 		count.textContent = catalog.length + " sites have a filmstrip to race.";
 
 		var initial = fromAddress();
-		lanes = (initial || openingLanes()).map(function (site) { return { site: site }; });
+		lanes = lanesFor(initial || openingLanes(), Boolean(initial));
 
 		setUpCaptureControl();
 		setCaptureCopy();
@@ -1594,7 +1705,7 @@ title: Compare
 			applySpeed();
 			var picked = fromAddress();
 			if (!picked) return;
-			lanes = picked.map(function (site) { return { site: site }; });
+			lanes = lanesFor(picked, true);
 			renderFields();
 			renderGrid();
 			restart();

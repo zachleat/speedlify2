@@ -3566,6 +3566,34 @@ a.cat-chip:hover, a.cat-chip:focus-visible { color: var(--text); border-color: v
 	color: var(--text-muted-strong);
 }
 .race-field-remove svg { display: block; width: 14px; height: 14px; }
+
+/* Same square, icon-only treatment as the trash can beside it. */
+.race-field-lock {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	flex: none;
+	padding: 0.45rem;
+	line-height: 1;
+	font: inherit;
+	color: var(--text-muted);
+	background: var(--button);
+	border: 1px solid var(--border-strong);
+	border-radius: 6px;
+	cursor: pointer;
+}
+.race-field-lock svg { display: block; width: 14px; height: 14px; }
+.race-field-lock:hover { border-color: var(--text-muted); }
+
+/* Pressed reads as pressed: the accent, so a locked lane is findable at a
+   glance in a field of eight. */
+.race-field-lock[aria-pressed="true"] {
+	color: var(--brand-text);
+	background: var(--accent);
+	border-color: var(--accent);
+}
+
+.race-field.is-locked .race-field-input { border-color: var(--accent); }
 .race-field-remove:hover { color: var(--poor-text); }
 
 .race-field-remove,
@@ -3663,6 +3691,12 @@ a.cat-chip:hover, a.cat-chip:focus-visible { color: var(--text); border-color: v
 }
 
 .race-throttle input { accent-color: var(--brand); margin: 0; }
+
+/* An option with no sites behind it: shown with its zero, not selectable. */
+.race-throttle label.is-empty {
+	opacity: 0.5;
+	cursor: default;
+}
 
 .race-throttle-count {
 	font-variant-numeric: tabular-nums;
