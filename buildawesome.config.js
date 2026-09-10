@@ -13,6 +13,7 @@ import path from "node:path";
 import * as simpleIcons from "simple-icons";
 import { lowerIsBetter } from "./lib/compare.js";
 import { scoreBand, axeBand, cwvBand } from "./lib/rank.js";
+import { ringBands } from "./lib/report.js";
 
 const ICONS_DIR = "src/icons";
 
@@ -482,6 +483,9 @@ export default async function ($config) {
 	 */
 	$config.addFilter("axeClass", axeBand);
 	$config.addFilter("cwvClass", cwvBand);
+	/* The six ring verdicts for one entry, in the order the pages draw them.
+	   Shared with the report so a dot here cannot disagree with a ring there. */
+	$config.addFilter("ringBands", ringBands);
 
 	$config.addFilter("ratingClass", (r) => {
 		if (r === "good") return "good";

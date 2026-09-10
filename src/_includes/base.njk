@@ -104,6 +104,7 @@ speedlifyThemeColor();
 		</p>
 		<div class="masthead-subhed masthead-tools">
 			<a href="/charts/">Charts</a>
+			<a href="/race/">Race</a>
 			<a href="/runs/">Measurement runs</a>
 			<a href="/embed/">Embed a score</a>
 			<!-- Disabled until scripted, like the category select: without JS the
@@ -176,9 +177,15 @@ speedlifyThemeColor();
 					can be trusted for this (its `selectattr` ignores the test it is
 					given), so anything cleverer would have to happen in the report.
 				#}
+				{#
+					Counts alongside the names, so the menu says how much is behind each
+					one. `measured` rather than the entry count — the same figure the
+					home page's Categories list shows, so a reader cannot be told two
+					different numbers for the same category.
+				#}
 				{% for g in sites.groups %}
 					{% if g.showOnHomePageCategoryList %}
-				<option value="{{ g.id }}"{% if group and g.id == group.id %} selected{% endif %}>{{ g.name }}</option>
+				<option value="{{ g.id }}"{% if group and g.id == group.id %} selected{% endif %}>{{ g.name }} ({{ g.measured | num }})</option>
 					{% endif %}
 				{% endfor %}
 				{#
@@ -195,7 +202,7 @@ speedlifyThemeColor();
 				{% if sites.hasSecondaryCategories %}<hr>{% endif %}
 				{% for g in sites.groups %}
 					{% if not g.showOnHomePageCategoryList %}
-				<option value="{{ g.id }}"{% if group and g.id == group.id %} selected{% endif %}>{{ g.name }}</option>
+				<option value="{{ g.id }}"{% if group and g.id == group.id %} selected{% endif %}>{{ g.name }} ({{ g.measured | num }})</option>
 					{% endif %}
 				{% endfor %}
 			</select>
@@ -267,8 +274,8 @@ speedlifyThemeColor();
 			the stamp and the source link rather than above every page's content.
 		#}
 		<p>
-			Built <time datetime="{{ sites.generated | iso }}">{{ sites.generated | date("long") }}</time>{% if meta.repo %} ·
-			<a href="{{ meta.repo }}">Source on GitHub</a>{% endif %}
+			This website was built with <a href="https://build.awesome.me/"><i class="fa-brands fa-build-awesome"></i>Build Awesome {{ buildawesome.version }}</a> on <time datetime="{{ sites.generated | iso }}">{{ sites.generated | date("long") }}</time>{% if meta.repo %} ·
+			<a href="{{ meta.repo }}">Source on <i class="fa-brands fa-github"></i>GitHub</a>{% endif %}
 			{#
 				The Open Graph card this page gets when it is shared. `entry` is
 				only in scope on a site page — it is that template's pagination

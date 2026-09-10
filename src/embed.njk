@@ -115,20 +115,38 @@ title: Embed
 <section class="panel">
 	<h2>Usage</h2>
 
-	<p>The upstream <code>&lt;speedlify-score&gt;</code> on npm is a different component; this one is <code>&lt;speedlify2-score&gt;</code> and is not published there.</p>
+	<p>Install it from npm — this is the version you want, pinned and served from your own site:</p>
 
-	<p>Download the zero dependency JavaScript file manually: <a href="{{ meta.url }}/js/speedlify2-score.js"><code>{{ meta.url }}/js/speedlify2-score.js</code></a></p>
+	<pre><code>npm install speedlify2-score</code></pre>
+
+	<p>Import it once, anywhere in your bundle. The element registers itself:</p>
+
+	<pre><code>import "speedlify2-score";</code></pre>
+
+	<p class="muted small">
+		Zero dependencies, one file, and a standard ES module, so no build step is
+		required. <a href="https://www.npmjs.com/package/speedlify2-score">speedlify2-score on npm</a> ·
+		<a href="https://github.com/zachleat/speedlify2/tree/main/packages/speedlify2-score">source</a>
+	</p>
+
+	<p>
+		Or skip the install and download the file manually:
+		<a href="{{ meta.url }}/js/speedlify2-score.js"><code>{{ meta.url }}/js/speedlify2-score.js</code></a>
+	</p>
 
 	<div class="notice notice-warn">
 		<strong>It would be unwise to hotlink the speedlify2-score component script.</strong>
 		<p>
-			Third party JavaScript is a big no-no! It also carries no versioning, no deprecation
+			Third party JavaScript is a big no-no! Hotlinking this copy also carries no versioning, no deprecation
 			policy and no uptime commitment: the file can change shape, move or stop
 			being served at any time, and a page embedding it directly would <strong>break with it and with no notice.</strong>
+			Installing from npm gives you a version you control.
 		</p>
 	</div>
 
-	<pre><code>&lt;!-- You need to fix this URL to point to your speedlify2-score.js --&gt;
+	<p>However you load it, the markup is the same:</p>
+
+	<pre><code>&lt;!-- If you are not bundling, point this at your own copy --&gt;
 &lt;script type="module" src="speedlify2-score.js"&gt;&lt;/script&gt;
 
 &lt;!-- Scores for the page it sits on --&gt;

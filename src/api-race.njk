@@ -1,0 +1,60 @@
+---
+permalink: "/api/race.json"
+eleventyExcludeFromCollections: true
+---
+{#
+  Every site that has a stored filmstrip, as the /race/ page needs it.
+
+  Built as its own document rather than inlined into the page because the
+  selection is a query parameter: the page is one static file for every pairing,
+  so the catalog has to be fetched rather than rendered.
+-#}
+{%- set racers = [] -%}
+{%- for entry in sites.entries -%}
+	{%- if entry.filmstrip and entry.filmstrip.frames.length and entry.latest -%}
+		{%- set racers = (racers.push({
+			slug: entry.slug,
+			name: entry.displayUrl,
+			groups: entry.groups,
+			width: entry.filmstrip.width,
+			height: entry.filmstrip.height,
+			distinct: entry.filmstrip.distinct,
+			settledAt: entry.filmstrip.settledAt,
+			bands: entry | ringBands,
+			scores: [
+				entry.latest.lab.scores.performance,
+				entry.latest.lab.scores.accessibility,
+				entry.latest.lab.scores["best-practices"],
+				entry.latest.lab.scores.seo
+			],
+			frames: entry.filmstrip.frames
+		}), racers) -%}
+	{%- endif -%}
+{%- endfor -%}
+{#
+  The categories Shuffle is allowed to draw from, and the ones its category
+  select lists — one set, so the menu cannot offer something the pool refuses.
+
+  Two existing flags, neither restated here. `excludeFromPerfectScores` keeps out
+  the maintainer's own pages and the starter templates, whose near-empty demo
+  pages score well by construction — the same reasoning the home page's Perfect
+  Scores board uses, and it holds for an unprompted pairing too.
+  `showOnHomePageCategoryList` keeps out the categories the front page does not
+  put in front of anyone.
+
+  Everything else stays reachable by typing it or linking to it — this only
+  narrows what a random pairing offers on its own.
+-#}
+{%- set shuffleGroups = [] -%}
+{%- for g in sites.groups -%}
+	{%- if g.showOnHomePageCategoryList and not g.excludeFromPerfectScores -%}
+		{%- set shuffleGroups = (shuffleGroups.push({ id: g.id, name: g.name }), shuffleGroups) -%}
+	{%- endif -%}
+{%- endfor -%}
+{{ {
+	version: 1,
+	formFactor: sites.config.formFactor,
+	scoreLabels: [ "Performance", "Accessibility", "Best Practices", "SEO" ],
+	categories: shuffleGroups,
+	sites: racers
+} | dump | safe }}

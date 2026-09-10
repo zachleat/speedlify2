@@ -1,0 +1,1123 @@
+---
+layout: base.njk
+permalink: /race/index.html
+title: Race
+---
+
+<header class="detail-head">
+	<h2 class="page-hed">Race</h2>
+	<p class="lede">
+		Two sites drawing side by side, replayed from the filmstrips Lighthouse
+		captured while measuring them. The clock is the load that was actually
+		recorded, so a lane that is further along really did get there first.
+	</p>
+</header>
+
+{#
+	The unscripted state, and the error state, are the same message: the animation
+	is the page. Replaced by the race itself once the catalog has loaded, so a
+	reader whose script never arrived is told where the frames are instead of
+	being left with dead controls.
+#}
+<div class="panel race-fallback" id="race-fallback">
+	<p id="race-fallback-text">
+		This page animates two filmstrips against each other, which needs
+		JavaScript. Each site's own filmstrip is on its site page, linked from
+		<a href="/">the leaderboard</a>.
+	</p>
+</div>
+
+<div class="race" id="race" hidden>
+	<form class="panel race-picker" id="race-picker" autocomplete="off">
+		<div class="race-fields" id="race-fields"></div>
+		{#
+			One list for every lane. The value people type is the site's display
+			URL; the address carries slugs, which is what /site/<slug>/ uses.
+		#}
+		<datalist id="race-catalog"></datalist>
+		{#
+			The trash mark, rendered once here so the Font Awesome transform can turn
+			it into a `<use>` against this page's spritesheet and the symbol gets
+			bundled. The lane rows are built in the browser and cannot call a
+			build-time shortcode, so each Remove button clones this instead of
+			carrying its own copy of the path data.
+		#}
+		<span class="race-icon-source" hidden>
+			<i class="fa-solid fa-trash-can" width="14" height="14" aria-hidden="true"></i>
+		</span>
+		<div class="race-picker-actions">
+			<button type="button" id="race-add">Add a lane</button>
+			<button type="button" id="race-shuffle">Shuffle</button>
+			{#
+				Narrows what Shuffle draws from. Not part of the race itself — the
+				address carries the sites, not how they were chosen — so it is a
+				control rather than state, and it is populated from the catalog
+				because only categories that actually have filmstrips can be raced.
+			#}
+			<label class="race-category">
+				from
+				<select id="race-category"><option value="">all categories</option></select>
+			</label>
+			<span class="race-count muted small" id="race-count"></span>
+		</div>
+	</form>
+
+	<div class="race-controls">
+		<button type="button" class="race-play" id="race-play">Race</button>
+		<button type="button" id="race-restart">Restart</button>
+		<label class="race-speed">
+			Speed
+			<select id="race-speed">
+				<option value="0.25">0.25&times;</option>
+				<option value="0.5">0.5&times;</option>
+				<option value="1" selected>1&times; real time</option>
+				<option value="2">2&times;</option>
+				<option value="4">4&times;</option>
+			</select>
+		</label>
+		<output class="race-clock" id="race-clock">0 ms</output>
+	</div>
+
+	<input type="range" class="race-scrub" id="race-scrub" min="0" max="1000" value="0" step="1"
+		aria-label="Scrub through the race">
+
+	<div class="race-scroll" id="race-scroll">
+		<div class="race-grid" id="race-grid"></div>
+	</div>
+
+	<p class="race-result" id="race-result" role="status"></p>
+
+	<p class="muted small race-note">
+		Frames are thumbnails from the median Lighthouse run on the emulated
+		{{ sites.config.formFactor }} profile, timed from navigation start and
+		resampled here onto one shared grid, since each run samples on its own
+		schedule. The clock is that recorded load. Each strip is only eight samples
+		of its own run, and Lighthouse sizes that run's timeline to the run, so a
+		lane simply stops where its capture stops rather than holding its last
+		frame across an axis built for a longer one.
+	</p>
+	<p class="muted small race-note">
+		<strong>These frames are barely throttled.</strong> The runs use Lighthouse's
+		default simulated throttling, which does not slow the connection or the
+		processor: it clears network throttling before the load and never applies
+		CPU throttling at all. Device emulation is real &mdash; a phone-sized
+		viewport and a mobile user agent, so this is genuinely the
+		{{ sites.config.formFactor }} layout &mdash; but the page otherwise arrives
+		as fast as the measuring machine and its connection allow. The one
+		exception is <code>requestIdleCallback</code>, which Lighthouse shims to
+		hand back a quarter of its usual budget per callback, so a page that
+		schedules work that way does spread it thinner here than it would on your
+		machine.
+	</p>
+	<p class="muted small race-note">
+		Slow 4G and a 4&times; CPU slowdown are applied afterwards instead, by
+		Lighthouse's Lantern model, as an estimate of what that load would have
+		been over a slow connection. That is where TTFB, FCP and LCP come from, and
+		it is why none of them are drawn on this axis: the frames are one load and
+		those numbers describe a different, slower one that never actually ran.
+		Both are correct about different things, and no offset reconciles them: a
+		page can be fully painted in these frames well before the FCP it reports.
+		So the finish line here is the observed one:
+		when a lane's picture stops changing. The rings beside each lane are that
+		site's scores, which are about the site rather than about this clock. This
+		is a picture of two measurements, not a benchmark.
+	</p>
+</div>
+
+<script>
+/*
+ * The race. Everything here is client-side because the pairing is a query
+ * parameter and the site is static: one built page has to serve every pairing.
+ */
+(function () {
+	var root = document.getElementById("race");
+	var fallback = document.getElementById("race-fallback");
+	if (!root || !window.fetch || !window.Map) return;
+
+	var MAX_LANES = 8;
+
+	/*
+	 * How far the frames shrink as lanes are added.
+	 *
+	 * Eight lanes at full size is a race nobody can see the end of without
+	 * scrolling past the start of it. The floor matters as much as the curve:
+	 * below about half size the label column's own contents set the row height
+	 * anyway, so shrinking further costs legibility and buys nothing.
+	 */
+	function laneScale(count) {
+		return Math.max(0.5, Math.min(1, 2.2 / count));
+	}
+	/* Enough columns to read a load as a sequence, few enough that each frame is
+	   still large enough to see. The grid step widens to hold this. */
+	var MAX_COLUMNS = 22;
+
+	/*
+	 * When the page stopped changing, read off the strip itself: the earliest
+	 * frame from which every later frame is the same picture.
+	 *
+	 * This is the only "finished" this page can honestly draw. It is observed —
+	 * it comes out of the same screenshots the lanes are made of — so it sits on
+	 * the same clock they do. Lighthouse's own timings do not, which is why none
+	 * of them appear on this page; see the note under the race.
+	 */
+	function settledAt(site) {
+		var frames = (site && site.frames) || [];
+		if (!frames.length) return null;
+
+		/* Measured on the pixels at measurement time — see settleTime in
+		   lib/metrics.js. Absent for strips captured before that landed, which
+		   fall back to comparing filenames below: exact, and so blind to a page
+		   that finished with one widget still moving. */
+		if (typeof site.settledAt === "number") return site.settledAt;
+
+		var last = frames[frames.length - 1].src;
+		var at = frames[frames.length - 1].timing;
+		for (var i = frames.length - 1; i >= 0; i--) {
+			if (frames[i].src !== last) break;
+			at = frames[i].timing;
+		}
+		return at;
+	}
+
+	/*
+	 * Real-world durations to read the lanes against.
+	 *
+	 * These belong on this axis in a way Lighthouse's own metrics do not: they
+	 * are wall-clock seconds, and so is the recorded load the frames come from.
+	 * That was the whole objection to drawing TTFB/FCP/LCP here — those are
+	 * Lantern estimates of a load that never ran.
+	 *
+	 * The axis is never stretched to fit one. A race between two fast sites
+	 * should not be squashed into a tenth of the page so that Bolt fits; markers
+	 * past the end of the race are simply not drawn.
+	 */
+	var COMPARISONS = [
+		{ label: "👁 Human blink", at: 150 },
+		/* 60 seconds over 70 beats. */
+		{ label: "💓 Human heartbeat", at: 857 },
+		/* 384,400 km at 299,792 km/s. */
+		{ label: "🌕 Light from Moon to Earth", at: 1282 },
+		/* 40,075 km of equator in one sidereal day — 465 m/s. */
+		{ label: "🌍 Earth spins 1 km at the equator", at: 2150 },
+		/* A mile at 343 m/s, the speed of sound at 20°C. */
+		{ label: "🔊 Sound travels one mile", at: 4692 },
+		{ label: "🍪 5s Rule", at: 5000 },
+		{ label: "📹 Vine video", at: 6000 },
+		{ label: "🏃 Usain Bolt runs 100m", at: 9580 }
+	];
+
+
+	var grid = document.getElementById("race-grid");
+	var scroll = document.getElementById("race-scroll");
+	var fields = document.getElementById("race-fields");
+	var catalogList = document.getElementById("race-catalog");
+	var clock = document.getElementById("race-clock");
+	var scrub = document.getElementById("race-scrub");
+	var playButton = document.getElementById("race-play");
+	var result = document.getElementById("race-result");
+	var count = document.getElementById("race-count");
+
+	var catalog = [];
+	var bySlug = new Map();
+	var byName = new Map();
+	var lanes = [];
+	var scoreLabels = ["Performance", "Accessibility", "Best Practices", "SEO"];
+	/* Categories a random pairing may draw from — see api-race.njk. Empty means
+	   no filter. */
+	var categories = [];
+	/* One of their ids, when Shuffle has been narrowed to a single category. */
+	var shuffleCategory = "";
+	var compareMarkers = [];
+	var timeline = null;
+	var now = 0;
+	var playing = false;
+	var speed = 1;
+	var raf = 0;
+	var lastFrameTime = 0;
+	var follow = true;
+
+	/* ------------------------------------------------------------ formatting */
+
+	function fmtMs(value) {
+		if (typeof value !== "number") return "—";
+		if (value >= 1000) return (value / 1000).toFixed(value >= 10000 ? 1 : 2) + " s";
+		return Math.round(value) + " ms";
+	}
+
+	function fmtClock(value) {
+		return String(Math.round(value)).replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " ms";
+	}
+
+	/*
+	 * The same six rings the leaderboard draws, rebuilt here.
+	 *
+	 * The pages render theirs from a Nunjucks shortcode at build time, which a
+	 * lane picked in the browser cannot call. Geometry and glyphs are repeated
+	 * below; the verdicts are not — the band on each ring comes from the catalog,
+	 * which takes it from the report's own `ringBands`, so a ring here cannot
+	 * disagree with the same site's ring on its own page.
+	 */
+	/* Small enough that six sit on one line in the label column, which is at most
+	   14rem wide and 42vw on a phone. */
+	var RING_SIZE = 24;
+
+	function ring(band, text, pct, sublabel, label) {
+		/* The leaderboard's ring is 37px with a 3px stroke and its two text
+		   baselines nudged 3.5 up and 7 down. Those are kept as ratios of the size
+		   rather than copied as pixels, so this one is the same drawing scaled
+		   rather than a smaller circle with the type in the wrong place. */
+		var stroke = Math.max(2, RING_SIZE * 3 / 37);
+		var r = (RING_SIZE - stroke) / 2;
+		var c = RING_SIZE / 2;
+		var circumference = 2 * Math.PI * r;
+		var dash = (circumference * Math.max(0, Math.min(1, pct || 0))).toFixed(2) + " " + circumference.toFixed(2);
+		var valueY = sublabel ? c - RING_SIZE * 3.5 / 37 : c;
+		var subY = c + RING_SIZE * 7 / 37;
+
+		return '<svg class="ring ring-' + band + '" width="' + RING_SIZE + '" height="' + RING_SIZE +
+			'" viewBox="0 0 ' + RING_SIZE + ' ' + RING_SIZE + '" role="img" aria-label="' + escapeHtml(label) + '">' +
+			'<circle class="ring-track" cx="' + c + '" cy="' + c + '" r="' + r + '" fill="none" stroke-width="' + stroke + '"/>' +
+			(typeof pct === "number"
+				? '<circle class="ring-arc" cx="' + c + '" cy="' + c + '" r="' + r + '" fill="none" stroke-width="' + stroke +
+					'" stroke-dasharray="' + dash + '" stroke-linecap="round" transform="rotate(-90 ' + c + ' ' + c + ')"/>'
+				: "") +
+			'<text class="ring-text" x="' + c + '" y="' + valueY.toFixed(2) + '" text-anchor="middle" dominant-baseline="central">' +
+			escapeHtml(text) + '</text>' +
+			(sublabel
+				? '<text class="ring-sublabel" x="' + c + '" y="' + subY.toFixed(2) +
+					'" text-anchor="middle" dominant-baseline="central">' + sublabel + '</text>'
+				: "") +
+			'</svg>';
+	}
+
+	/* A tick passes, "!" is the middle case, a cross fails — the same three
+	   glyphs the axe and CWV rings use, so the mark carries the verdict without
+	   leaning on color. */
+	function bandGlyph(band) {
+		return band === "good" ? "✓" : band === "average" ? "!" : band === "poor" ? "✗" : "–";
+	}
+
+	function ringsFor(site) {
+		var bands = site.bands || [];
+		var scores = site.scores || [];
+		var out = "";
+
+		for (var i = 0; i < 4; i++) {
+			var value = typeof scores[i] === "number" ? scores[i] : null;
+			out += ring(
+				bands[i] || "none",
+				value === null ? "–" : String(value),
+				value === null ? null : value / 100,
+				"",
+				scoreLabels[i] + ": " + (value === null ? "no data" : value)
+			);
+		}
+
+		out += ring(bands[4] || "none", bandGlyph(bands[4]), bands[4] === "none" ? null : 1, "AXE",
+			bands[4] === "none" ? "Axe: did not run" : "Axe: " + bands[4]);
+		out += ring(bands[5] || "none", bandGlyph(bands[5]), bands[5] === "none" ? null : 1, "CWV",
+			bands[5] === "none" ? "Core Web Vitals: no real-user data" : "Core Web Vitals: " + bands[5]);
+		return out;
+	}
+
+	/* The mark from the hidden source above. Empty string if it is missing, which
+	   leaves a button with a label and no icon rather than a broken one. */
+	function trashIcon() {
+		var source = document.querySelector(".race-icon-source");
+		return source ? source.innerHTML : "";
+	}
+
+	function el(tag, className) {
+		var node = document.createElement(tag);
+		if (className) node.className = className;
+		return node;
+	}
+
+	/* --------------------------------------------------------------- the axis */
+
+	/*
+	 * One grid for every lane.
+	 *
+	 * Lighthouse samples each run on its own schedule, so two strips laid out
+	 * frame by frame are not comparable — the site sampled every 900ms would look
+	 * slower than the one sampled every 375ms for no reason but the sampling. The
+	 * strips are resampled onto a single step instead: column i shows whatever
+	 * each site had painted by i steps in, which is the comparison the page
+	 * claims to be making.
+	 */
+	function buildTimeline(racers) {
+		var end = 0;
+		var step = Infinity;
+
+		racers.forEach(function (r) {
+			var frames = r.frames || [];
+			if (frames.length) end = Math.max(end, frames[frames.length - 1].timing);
+			for (var i = 1; i < frames.length; i++) {
+				var gap = frames[i].timing - frames[i - 1].timing;
+				if (gap > 0) step = Math.min(step, gap);
+			}
+		});
+
+		if (!isFinite(step) || step <= 0) step = 250;
+		if (!end) end = step * 4;
+		/* Never finer than the finest strip, and never more columns than fit. */
+		step = Math.max(step, Math.ceil(end / MAX_COLUMNS / 25) * 25);
+
+		var cols = Math.max(1, Math.ceil(end / step));
+		return { step: step, cols: cols, end: cols * step };
+	}
+
+	/*
+	 * The last frame at or before `t`, as stored, or null where this strip has
+	 * nothing to say about `t`.
+	 *
+	 * Lighthouse times its thumbnails from navigation start — it forces
+	 * `timeOrigin` as speedline's reference point — so the stored timings need no
+	 * correction to sit on this axis.
+	 *
+	 * A strip covers only its own eight samples, and every strip is a different
+	 * length: Lighthouse divides that run's own timeline into eight, so racing a
+	 * 3s capture against a 15s one leaves the shorter lane with nothing recorded
+	 * for most of the axis. It stops there rather than holding its last frame
+	 * across the gap, which would be showing a picture at a time nobody
+	 * photographed it.
+	 */
+	function frameAt(racer, t, step) {
+		var frames = racer.frames || [];
+		if (!frames.length) return null;
+
+		/*
+		 * One column past the strip's end, not zero.
+		 *
+		 * A column stands for the interval that ends at `t`, and the grid runs on
+		 * the finest step in the race, so a strip's last frame almost never lands
+		 * on a column boundary. Cutting at `t > last` therefore dropped the final
+		 * frame outright whenever it fell between two columns — which is the one
+		 * frame that matters, the finished page. salesforce.com's strip ends at
+		 * 4806ms and on a 375ms grid the columns either side are 4500 and 4875, so
+		 * its render was never drawn at all.
+		 *
+		 * The strip is shown through the column whose interval contains its end,
+		 * and goes dark after that.
+		 */
+		var last = frames[frames.length - 1].timing;
+		if (t - step >= last) return null;
+
+		var hit = null;
+		for (var i = 0; i < frames.length; i++) {
+			if (frames[i].timing > t) break;
+			hit = frames[i];
+		}
+		return hit;
+	}
+
+	/* ------------------------------------------------------------- the lanes */
+
+	function renderGrid() {
+		timeline = buildTimeline(lanes.map(function (l) { return l.site; }));
+		grid.innerHTML = "";
+		grid.style.setProperty("--cols", timeline.cols);
+
+		/* Widest frame in the race sets the column, so lanes stay in step even
+		   when two sites were captured at different sizes. */
+		var aspect = 0.5;
+		lanes.forEach(function (lane) {
+			var s = lane.site;
+			if (s.width && s.height) aspect = Math.max(aspect, s.width / s.height);
+		});
+		root.style.setProperty("--race-aspect", aspect.toFixed(4));
+		root.style.setProperty("--race-lane-scale", laneScale(lanes.length).toFixed(3));
+
+		grid.appendChild(el("div", "race-corner"));
+		grid.appendChild(renderRuler());
+
+		lanes.forEach(function (lane, index) {
+			lane.index = index;
+			/* Kept, so the clock can mark the winning row — see setTime. */
+			lane.nameEl = renderName(lane);
+			lane.laneEl = renderLane(lane);
+			grid.appendChild(lane.nameEl);
+			grid.appendChild(lane.laneEl);
+		});
+
+		renderComparisons();
+		renderResult(null);
+	}
+
+	/* One row of flags, above the lanes they are there to be read against. */
+	/*
+	 * One row of flags, above the lanes they are there to be read against.
+	 *
+	 * Built after the lanes and inserted in front of them, because packing the
+	 * labels needs a rendered frame to measure the column stride from.
+	 */
+	function renderComparisons() {
+		compareMarkers = [];
+
+		var name = el("div", "race-name is-compare");
+		var title = el("span", "race-name-link");
+		title.textContent = "Comparison";
+		name.appendChild(title);
+
+		var lane = el("div", "race-lane is-compare");
+		var built = [];
+
+		COMPARISONS.forEach(function (item) {
+			/* Off the end of this race — see COMPARISONS. */
+			if (item.at > timeline.end) return;
+
+			/* Pole and label as siblings under a wrapper that carries neither
+			   z-index nor opacity: anything on the wrapper would make a stacking
+			   context and trap the label inside it, leaving every label to be
+			   crossed by the poles of the flags after it. */
+			var marker = el("div", "race-flagpost");
+			marker.style.setProperty("--at", item.at / timeline.step);
+
+			marker.appendChild(el("i", "race-flagpost-pole"));
+
+			var label = el("span", "race-flagpost-label");
+			label.style.setProperty("--row", 0);
+			label.textContent = item.label + " · " + fmtMs(item.at);
+			marker.appendChild(label);
+			lane.appendChild(marker);
+
+			built.push({ at: item.at, label: label });
+			compareMarkers.push({ el: marker, time: item.at });
+		});
+
+		var firstLane = grid.querySelector(".race-name");
+		grid.insertBefore(name, firstLane);
+		grid.insertBefore(lane, firstLane);
+
+		packFlags(built, lane, name);
+	}
+
+	/*
+	 * Put each flag on the highest row where its label clears the one before it.
+	 *
+	 * Measured rather than estimated. A label's width is pixels and the gap
+	 * between two flags is time, and the exchange rate between them — the column
+	 * stride — is not fixed: frames shrink as lanes are added, so the same two
+	 * moments that clear each other in a two-lane race collide in an eight-lane
+	 * one. Reading the real stride and the real label widths is the only version
+	 * of this that holds at every size.
+	 */
+	function packFlags(built, lane, name) {
+		var stride = strideWidth() || 90;
+		/* Right edge of the last label on each row. */
+		var edges = [];
+		var used = 1;
+
+		built.forEach(function (flag) {
+			var x = (flag.at / timeline.step) * stride;
+			var width = flag.label.offsetWidth || 120;
+			var row = 0;
+
+			while (edges[row] !== undefined && x < edges[row]) row += 1;
+
+			/* A few pixels of daylight, so two labels never sit edge to edge. */
+			edges[row] = x + width + 6;
+			flag.label.style.setProperty("--row", row);
+			used = Math.max(used, row + 1);
+		});
+
+		lane.style.setProperty("--rows", used);
+		name.style.setProperty("--rows", used);
+	}
+
+	function renderRuler() {
+		var ruler = el("div", "race-ruler");
+		/* Every other label once the ticks are close enough to run together. */
+		var every = timeline.cols > 12 ? 2 : 1;
+		for (var i = 1; i <= timeline.cols; i++) {
+			var tick = el("span", "race-tick");
+			tick.style.setProperty("--at", i);
+			if (i % every === 0) tick.textContent = fmtMs(i * timeline.step);
+			ruler.appendChild(tick);
+		}
+		return ruler;
+	}
+
+	function renderName(lane) {
+		var cell = el("div", "race-name");
+		cell.style.setProperty("--lane", lane.index);
+
+		var title = el("a", "race-name-link");
+		title.href = "/site/" + encodeURIComponent(lane.site.slug) + "/";
+		title.textContent = lane.site.name;
+		cell.appendChild(title);
+
+		var rings = el("span", "rings");
+		rings.innerHTML = ringsFor(lane.site);
+		cell.appendChild(rings);
+
+		lane.flag = el("span", "race-flag");
+		lane.flag.textContent = "🏁";
+		cell.appendChild(lane.flag);
+
+		return cell;
+	}
+
+	function renderLane(lane) {
+		var cell = el("div", "race-lane");
+		cell.style.setProperty("--lane", lane.index);
+
+		var strip = el("div", "race-frames");
+		var settled = settledAt(lane.site);
+		lane.cells = [];
+		for (var i = 0; i < timeline.cols; i++) {
+			var t = (i + 1) * timeline.step;
+			var frame = frameAt(lane.site, t, timeline.step);
+			var slot = el("div", "race-frame");
+			/* Once the picture stops changing the lane is done, and the rest of the
+			   strip is the same frame repeating. Dimmed so the eye stays on the
+			   part of each lane that is still a race.
+
+			   Keyed off the frame this column actually shows rather than the
+			   column's own time: the grid runs on the finest step in the race, so
+			   a lane sampled more coarsely lags its columns, and comparing times
+			   would dim the column that first shows the settled frame. */
+			if (typeof settled === "number" && frame && frame.timing > settled) {
+				slot.classList.add("is-settled");
+			}
+			if (frame) {
+				var img = new Image();
+				img.src = frame.src;
+				img.alt = "";
+				img.decoding = "async";
+				slot.appendChild(img);
+			} else if (t < lane.site.frames[0].timing) {
+				/* Before this strip's first sample. A slower site is sampled more
+				   coarsely — its eight shots are spread over a longer load — so on a
+				   grid set by a faster lane its opening columns have no frame. Drawn
+				   as a blank page, which is what the screen was showing while the
+				   lane waited to be photographed. */
+				slot.classList.add("is-waiting");
+			} else {
+				/* Past the last sample. Absence rather than a blank page: a filled
+				   frame here would claim the page went blank, when the truth is only
+				   that the capture ended. */
+				slot.classList.add("is-absent");
+			}
+			strip.appendChild(slot);
+			lane.cells.push({ el: slot, time: t });
+		}
+		cell.appendChild(strip);
+
+		lane.head = el("div", "race-playhead");
+		cell.appendChild(lane.head);
+
+		return cell;
+	}
+
+	/* ------------------------------------------------------------- the clock */
+
+	function setTime(t) {
+		now = Math.max(0, Math.min(t, timeline.end));
+		clock.textContent = fmtClock(now);
+		if (document.activeElement !== scrub) {
+			scrub.value = String(Math.round((now / timeline.end) * 1000));
+		}
+
+		compareMarkers.forEach(function (marker) {
+			marker.el.classList.toggle("is-on", marker.time <= now);
+		});
+
+		var best = null;
+		lanes.forEach(function (lane) {
+			lane.cells.forEach(function (cell) {
+				cell.el.classList.toggle("is-on", cell.time <= now);
+			});
+			lane.head.style.setProperty("--now", now / timeline.step);
+
+			var settled = settledAt(lane.site);
+			if (typeof settled === "number" && settled <= now &&
+				(best === null || settled < best)) {
+				best = settled;
+			}
+		});
+
+		/* The flag goes to whoever stopped changing first, as soon as the clock
+		   says so rather than at the end.
+
+		   Every lane on the leading time, not the first one found: strips are
+		   sampled coarsely and a fifth of all pairings settle on the same frame,
+		   where picking one would be inventing a winner out of lane order. */
+		lanes.forEach(function (lane) {
+			var settled = settledAt(lane.site);
+			var won = best !== null && settled === best && lanes.length > 1;
+			lane.flag.classList.toggle("is-on", won);
+			/* The whole row, not just the flag: a 🏁 in the label column is easy to
+			   miss in an eight-lane race. `toggle` with a value is idempotent, so a
+			   row that is already the winner does not restart the animation on
+			   every frame — only crossing the line, or scrubbing back over it,
+			   plays it again. */
+			lane.nameEl.classList.toggle("is-winner", won);
+			lane.laneEl.classList.toggle("is-winner", won);
+		});
+
+		if (follow) followPlayhead();
+	}
+
+	function followPlayhead() {
+		var stride = strideWidth();
+		if (!stride) return;
+		var x = (now / timeline.step) * stride;
+		var visible = scroll.clientWidth - nameWidth();
+		var target = x - visible * 0.6;
+		if (target > scroll.scrollLeft) scroll.scrollLeft = target;
+	}
+
+	function strideWidth() {
+		var first = grid.querySelector(".race-frame");
+		if (!first) return 0;
+		var style = getComputedStyle(grid);
+		var gap = parseFloat(style.getPropertyValue("--race-gap")) || 0;
+		return first.getBoundingClientRect().width + gap;
+	}
+
+	function nameWidth() {
+		var name = grid.querySelector(".race-name");
+		return name ? name.getBoundingClientRect().width : 0;
+	}
+
+	function tick(stamp) {
+		if (!playing) return;
+		var delta = lastFrameTime ? stamp - lastFrameTime : 0;
+		lastFrameTime = stamp;
+		setTime(now + delta * speed);
+		if (now >= timeline.end) {
+			pause();
+			renderResult(rank());
+			return;
+		}
+		raf = requestAnimationFrame(tick);
+	}
+
+	function play() {
+		if (playing) return;
+		if (now >= timeline.end) restart();
+		playing = true;
+		follow = true;
+		lastFrameTime = 0;
+		playButton.textContent = "Pause";
+		raf = requestAnimationFrame(tick);
+	}
+
+	function pause() {
+		playing = false;
+		cancelAnimationFrame(raf);
+		playButton.textContent = now >= timeline.end ? "Replay" : now > 0 ? "Resume" : "Race";
+	}
+
+	function restart() {
+		cancelAnimationFrame(raf);
+		playing = false;
+		follow = true;
+		scroll.scrollLeft = 0;
+		setTime(0);
+		playButton.textContent = "Race";
+		renderResult(null);
+	}
+
+	/* ------------------------------------------------------------ the result */
+
+	/* Ranked on the axis the race is actually run on: when each lane's picture
+	   stopped changing. */
+	function rank() {
+		return lanes
+			.filter(function (l) { return typeof settledAt(l.site) === "number"; })
+			.slice()
+			.sort(function (a, b) { return settledAt(a.site) - settledAt(b.site); });
+	}
+
+	function renderResult(ranked) {
+		if (!ranked || ranked.length < 2) {
+			result.textContent = "";
+			result.hidden = true;
+			return;
+		}
+		var winner = ranked[0];
+		var next = ranked[1];
+		var winnerAt = settledAt(winner.site);
+		var margin = settledAt(next.site) - winnerAt;
+		result.hidden = false;
+
+		if (margin > 0) {
+			result.innerHTML = "🏁 <strong>" + escapeHtml(winner.site.name) +
+				"</strong> stopped changing first, at " + fmtMs(winnerAt) + " — " +
+				fmtMs(margin) + " ahead of " + escapeHtml(next.site.name) + ".";
+			return;
+		}
+
+		/* A dead heat is the honest reading when both settled on the same sample,
+		   which the strips are too coarse to separate. */
+		var tied = ranked.filter(function (l) { return settledAt(l.site) === winnerAt; });
+		result.innerHTML = "🏁 Dead heat at " + fmtMs(winnerAt) + " — " +
+			tied.map(function (l) { return "<strong>" + escapeHtml(l.site.name) + "</strong>"; }).join(" and ") +
+			" both settled on the same frame.";
+	}
+
+	function escapeHtml(value) {
+		return String(value).replace(/[&<>"]/g, function (c) {
+			return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c];
+		});
+	}
+
+	/* ------------------------------------------------------------ the picker */
+
+	function renderFields() {
+		fields.innerHTML = "";
+		lanes.forEach(function (lane, index) {
+			var row = el("div", "race-field");
+
+			var label = el("label", "race-field-label");
+			label.htmlFor = "race-site-" + index;
+			label.textContent = "Lane " + (index + 1);
+			row.appendChild(label);
+
+			var input = el("input", "race-field-input");
+			input.id = "race-site-" + index;
+			input.type = "text";
+			input.setAttribute("list", "race-catalog");
+			input.value = lane.site.name;
+			input.addEventListener("change", function () {
+				var typed = input.value.trim();
+				var match = byName.get(typed.toLowerCase()) || bySlug.get(typed);
+				if (!match) {
+					input.setAttribute("aria-invalid", "true");
+					return;
+				}
+				input.removeAttribute("aria-invalid");
+				lanes[index] = { site: match };
+				commit(true);
+			});
+			row.appendChild(input);
+
+			if (lanes.length > 2) {
+				var remove = el("button", "race-field-remove");
+				remove.type = "button";
+				remove.innerHTML = trashIcon();
+				remove.title = "Remove lane " + (index + 1);
+				remove.setAttribute("aria-label", "Remove lane " + (index + 1));
+				remove.addEventListener("click", function () {
+					lanes.splice(index, 1);
+					commit(true);
+				});
+				row.appendChild(remove);
+			}
+
+			fields.appendChild(row);
+		});
+
+		document.getElementById("race-add").disabled = lanes.length >= MAX_LANES;
+	}
+
+	/* ---------------------------------------------------------- the address */
+
+	function slugs() {
+		return lanes.map(function (l) { return l.site.slug; });
+	}
+
+	function readAddress() {
+		var params = new URLSearchParams(location.search);
+		var raw = params.get("sites") || "";
+		return raw.split(",").map(function (s) { return s.trim(); }).filter(Boolean);
+	}
+
+	function writeAddress(push) {
+		var query = "?sites=" + slugs().map(encodeURIComponent).join(",");
+		/* Only when it is not the default, so an ordinary link stays short and a
+		   shared one carries the speed only because someone chose it. */
+		if (speed !== 1) query += "&speed=" + speed;
+
+		var next = location.pathname + query;
+		if (push) history.pushState(null, "", next);
+		else history.replaceState(null, "", next);
+	}
+
+	/*
+	 * The speed from the address, if it names one the control offers.
+	 *
+	 * Checked against the select's own options rather than a list repeated here:
+	 * a query can say anything, and an arbitrary multiplier is a way to hand
+	 * someone a race that runs at 1000x or backwards.
+	 */
+	function readSpeed() {
+		var raw = new URLSearchParams(location.search).get("speed");
+		var value = parseFloat(raw);
+		if (!isFinite(value)) return 1;
+
+		var select = document.getElementById("race-speed");
+		for (var i = 0; i < select.options.length; i++) {
+			if (parseFloat(select.options[i].value) === value) return value;
+		}
+		return 1;
+	}
+
+	/* Address to control and variable, in one place — used on load and on Back. */
+	function applySpeed() {
+		speed = readSpeed();
+		document.getElementById("race-speed").value = String(speed);
+		lastFrameTime = 0;
+	}
+
+	/* Rebuild everything from `lanes`, and record it. `push` distinguishes a
+	   choice someone made — which belongs in history — from the page settling on
+	   a default, which does not. */
+	function commit(push) {
+		renderFields();
+		renderGrid();
+		restart();
+		writeAddress(push);
+	}
+
+	/* ---------------------------------------------------------- the defaults */
+
+	/*
+	 * A random pairing, drawn one from the faster half and one from the slower.
+	 * Two sites picked at random are usually within a few hundred milliseconds of
+	 * each other, which is not a race worth watching; and the alternative — always
+	 * opening on the slowest site in the corpus — puts one name in a pillory on a
+	 * page anyone can link to.
+	 */
+	/*
+	 * Whether a random pairing may offer this site.
+	 *
+	 * The categories held back from the home page's Perfect Scores board are held
+	 * back here too — the maintainer's own pages, and starter templates whose
+	 * demo pages are near-empty by design. A site in several categories counts if
+	 * any one of them is drawable. Typing a name and linking to a slug are
+	 * unaffected: this narrows what the page offers unprompted, not what it can
+	 * show.
+	 */
+	function inShufflePool(site) {
+		var groups = site.groups || [];
+		if (shuffleCategory) return groups.indexOf(shuffleCategory) >= 0;
+		if (!categories.length) return true;
+		for (var i = 0; i < groups.length; i++) {
+			if (categoryIndex(groups[i]) >= 0) return true;
+		}
+		return false;
+	}
+
+	function categoryIndex(id) {
+		for (var i = 0; i < categories.length; i++) {
+			if (categories[i].id === id) return i;
+		}
+		return -1;
+	}
+
+	/* Only categories with enough racers to make a race — a name in the list that
+	   cannot fill two lanes is a dead end. */
+	function fillCategorySelect() {
+		var select = document.getElementById("race-category");
+		if (!select) return;
+
+		categories.forEach(function (category) {
+			var count = 0;
+			catalog.forEach(function (site) {
+				if ((site.groups || []).indexOf(category.id) >= 0) count += 1;
+			});
+			if (count < 2) return;
+
+			var option = el("option");
+			option.value = category.id;
+			option.textContent = category.name + " (" + count + ")";
+			select.appendChild(option);
+		});
+
+		/* Picking a category is asking to see that category, so it draws a field
+		   straight away rather than arming a button to be pressed next. */
+		select.addEventListener("change", function () {
+			shuffleCategory = this.value;
+			shuffle();
+		});
+	}
+
+	/* However many lanes are open stay open — shuffling is a reroll of the field,
+	   not a reset of it. */
+	function shuffle() {
+		lanes = randomLanes(Math.max(2, lanes.length)).map(function (site) { return { site: site }; });
+		commit(true);
+	}
+
+	/*
+	 * `count` sites spread across the range, one drawn at random from each band.
+	 *
+	 * The spread is the point: sites picked uniformly are usually within a few
+	 * hundred milliseconds of each other, which is not a race worth watching.
+	 * Sorting by settle time and taking one from each of `count` equal bands
+	 * generalises the fast-against-slow pairing to however many lanes are open.
+	 */
+	function randomLanes(count) {
+		var usable = catalog.filter(function (s) {
+			return typeof settledAt(s) === "number" && s.distinct > 1 && inShufflePool(s);
+		});
+		if (usable.length < count) usable = catalog.slice();
+		if (usable.length < count) return catalog.slice(0, count);
+
+		var sorted = usable.slice().sort(function (a, b) {
+			return settledAt(a) - settledAt(b);
+		});
+
+		var band = sorted.length / count;
+		var picked = [];
+		var taken = {};
+
+		for (var i = 0; i < count; i++) {
+			var lo = Math.floor(i * band);
+			var hi = Math.max(lo + 1, Math.floor((i + 1) * band));
+			var pick = null;
+
+			for (var tries = 0; tries < 20 && !pick; tries++) {
+				var candidate = sorted[lo + Math.floor(Math.random() * (hi - lo))];
+				if (candidate && !taken[candidate.slug]) pick = candidate;
+			}
+			/* A band can be all duplicates of something already taken when the pool
+			   is small; anything unused keeps the lane count intact. */
+			if (!pick) {
+				for (var j = 0; j < sorted.length && !pick; j++) {
+					if (!taken[sorted[j].slug]) pick = sorted[j];
+				}
+			}
+			if (pick) {
+				taken[pick.slug] = true;
+				picked.push(pick);
+			}
+		}
+
+		return picked;
+	}
+
+	function fromAddress() {
+		var picked = readAddress()
+			.map(function (slug) { return bySlug.get(slug); })
+			.filter(Boolean)
+			.slice(0, MAX_LANES);
+		return picked.length >= 2 ? picked : null;
+	}
+
+	/* ------------------------------------------------------------------ boot */
+
+	function start(data) {
+		catalog = (data && data.sites) || [];
+		if (data && data.scoreLabels) scoreLabels = data.scoreLabels;
+		categories = (data && data.categories) || [];
+		if (catalog.length < 2) {
+			fail("No filmstrips have been captured yet, so there is nothing to race.");
+			return;
+		}
+
+		catalog.forEach(function (site) {
+			bySlug.set(site.slug, site);
+			byName.set(site.name.toLowerCase(), site);
+			var option = el("option");
+			option.value = site.name;
+			catalogList.appendChild(option);
+		});
+
+		count.textContent = catalog.length + " sites have a filmstrip to race.";
+
+		var initial = fromAddress();
+		lanes = (initial || randomLanes(2)).map(function (site) { return { site: site }; });
+
+		fillCategorySelect();
+		applySpeed();
+
+		fallback.hidden = true;
+		root.hidden = false;
+
+		commit(false);
+		bind();
+	}
+
+	function fail(message) {
+		document.getElementById("race-fallback-text").textContent = message;
+	}
+
+	function bind() {
+		/* The picker is a form for the sake of the controls in it, not to be
+		   submitted: Enter in a lane input would otherwise reload the page onto a
+		   query with no `sites` in it at all. */
+		document.getElementById("race-picker").addEventListener("submit", function (event) {
+			event.preventDefault();
+		});
+
+		playButton.addEventListener("click", function () {
+			if (playing) pause();
+			else play();
+		});
+
+		document.getElementById("race-restart").addEventListener("click", restart);
+
+		document.getElementById("race-speed").addEventListener("change", function () {
+			speed = parseFloat(this.value) || 1;
+			/* Rebased so the change takes effect from here rather than replaying
+			   the elapsed time at the new rate. */
+			lastFrameTime = 0;
+			/* Replaced rather than pushed: changing pace mid-race is not a place to
+			   come Back to, and it would otherwise stack an entry per adjustment. */
+			writeAddress(false);
+		});
+
+		document.getElementById("race-add").addEventListener("click", function () {
+			if (lanes.length >= MAX_LANES) return;
+			var taken = {};
+			slugs().forEach(function (s) { taken[s] = true; });
+			var free = catalog.filter(function (s) { return !taken[s.slug] && inShufflePool(s); });
+			if (!free.length) return;
+			lanes.push({ site: free[Math.floor(Math.random() * free.length)] });
+			commit(true);
+		});
+
+		document.getElementById("race-shuffle").addEventListener("click", shuffle);
+
+		scrub.addEventListener("input", function () {
+			pause();
+			follow = true;
+			setTime((parseInt(this.value, 10) / 1000) * timeline.end);
+		});
+
+		/* Scrolling by hand is a decision to look somewhere; the playhead stops
+		   dragging the view back until the race is restarted. */
+		["wheel", "touchstart", "pointerdown"].forEach(function (type) {
+			scroll.addEventListener(type, function () { follow = false; }, { passive: true });
+		});
+
+		/* The address is the state, so Back has to mean something here. */
+		window.addEventListener("popstate", function () {
+			applySpeed();
+			var picked = fromAddress();
+			if (!picked) return;
+			lanes = picked.map(function (site) { return { site: site }; });
+			renderFields();
+			renderGrid();
+			restart();
+		});
+
+		/* Asking for less motion is not asking for an empty page: the race is laid
+		   out finished instead, which is the same information without the
+		   animation. The controls still work if it is wanted. */
+		var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)");
+		if (reduced && reduced.matches) {
+			follow = false;
+			setTime(timeline.end);
+			renderResult(rank());
+			playButton.textContent = "Race";
+		} else {
+			play();
+		}
+	}
+
+	fetch("/api/race.json")
+		.then(function (response) {
+			if (!response.ok) throw new Error(response.status);
+			return response.json();
+		})
+		.then(start)
+		.catch(function () {
+			fail("The list of filmstrips could not be loaded, so the race cannot start. Each site's own filmstrip is on its site page.");
+		});
+})();
+</script>

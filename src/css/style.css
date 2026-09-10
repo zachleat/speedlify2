@@ -2370,6 +2370,15 @@ fieldset[disabled] select {
 	padding: 1.5rem 0 2.5rem;
 	font-size: 0.83rem;
 	color: var(--text-muted);
+
+	svg {
+		height: 1.125em; /* 18px /16 */
+		width: 1.125em; /* 18px /16 */
+		overflow: visible;
+		margin-inline-end: .125em;
+		vertical-align: middle;
+		line-height: 1;
+	}
 }
 .footer p { margin: 0 0 0.35rem; }
 
@@ -3409,4 +3418,508 @@ a.cat-chip:hover, a.cat-chip:focus-visible { color: var(--text); border-color: v
 	text-align: center;
 	font-size: 0.9em;
 	font-style: italic;
+}
+
+/* -------------------------------------------------------------------- race */
+
+/*
+ * Two filmstrips replayed against each other on one time axis.
+ *
+ * The whole layout is driven off three custom properties: the frame height,
+ * which a media query changes; the aspect ratio of the widest frame in the
+ * race, which the script sets; and the gap. Column width and the stride between
+ * columns fall out of those, which is what lets a marker sit at an arbitrary
+ * time — `left: calc(var(--race-stride) * var(--at))` — and stay there when the
+ * viewport changes size, without the script measuring anything.
+ */
+.race {
+	/* Pitch between stacked comparison flags. Comfortably more than a label's own
+	   height (0.6rem of text on 1.2, plus 0.2rem of padding, is 0.92rem) so two on
+	   consecutive rows keep a visible gap rather than touching. */
+	--race-flag-row: 1.35rem;
+	/* Frame height is a base times a scale. The base is the viewport's business
+	   and changes in a media query; the scale is the race's, set from the number
+	   of lanes — see renderGrid. Two properties rather than one so a script
+	   setting the count cannot overwrite the phone's smaller base. */
+	--race-frame-base: 170px;
+	--race-lane-scale: 1;
+	--race-frame-h: calc(var(--race-frame-base) * var(--race-lane-scale));
+	--race-aspect: 0.5;
+	--race-gap: 6px;
+	--race-col-w: calc(var(--race-frame-h) * var(--race-aspect));
+	--race-stride: calc(var(--race-col-w) + var(--race-gap));
+}
+
+@media (width < 700px) {
+	.race { --race-frame-base: 116px; }
+}
+
+.race-fallback p { max-width: 70ch; }
+
+/* ------------------------------------------------------------ race: picker */
+
+.race-picker {
+	border: 1px solid var(--border);
+	border-radius: var(--radius);
+	background: var(--surface);
+	padding: 1rem;
+	margin-bottom: 1rem;
+}
+
+/* Lanes side by side wherever two will fit. `auto-fit` rather than a media
+   query: the number of lanes is what decides this, and it changes at runtime —
+   two rows stacked under a wide picker reads as a form half-filled in. Empty
+   tracks collapse, so two lanes take half the width each rather than a quarter. */
+.race-fields {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+	gap: 0.6rem 1rem;
+}
+
+.race-field {
+	display: flex;
+	align-items: center;
+	gap: 0.6rem;
+	flex-wrap: wrap;
+}
+
+.race-field-label {
+	flex: 0 0 4.5rem;
+	font-size: 0.8rem;
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+	color: var(--text-muted-strong);
+}
+
+.race-field-input {
+	flex: 1 1 12rem;
+	min-width: 0;
+	font: inherit;
+	font-size: 0.9rem;
+	padding: 0.45rem 0.6rem;
+	color: var(--text);
+	background: var(--bg);
+	border: 1px solid var(--border-strong);
+	border-radius: 6px;
+}
+
+.race-field-input[aria-invalid="true"] { border-color: var(--poor); }
+
+/* Icon-only, so it is square rather than carrying the word's width. The label
+   lives in `aria-label` and `title` — see renderFields. */
+.race-field-remove {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	flex: none;
+	padding: 0.45rem;
+	line-height: 1;
+	color: var(--text-muted-strong);
+}
+.race-field-remove svg { display: block; width: 14px; height: 14px; }
+.race-field-remove:hover { color: var(--poor-text); }
+
+.race-field-remove,
+.race-picker-actions button,
+.race-controls button {
+	font: inherit;
+	font-size: 0.85rem;
+	padding: 0.45rem 0.8rem;
+	color: var(--text);
+	background: var(--button);
+	border: 1px solid var(--border-strong);
+	border-radius: 6px;
+	cursor: pointer;
+}
+
+.race-field-remove:hover,
+.race-picker-actions button:hover:not(:disabled),
+.race-controls button:hover:not(:disabled) { border-color: var(--text-muted); }
+
+.race-picker-actions button:disabled { opacity: 0.5; cursor: default; }
+
+.race-picker-actions {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	flex-wrap: wrap;
+	margin-top: 0.9rem;
+}
+
+.race-count { margin-left: auto; }
+
+/* ---------------------------------------------------------- race: controls */
+
+.race-controls {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	flex-wrap: wrap;
+	margin-bottom: 0.6rem;
+}
+
+.race-play {
+	background: var(--brand) !important;
+	color: var(--brand-text) !important;
+	border-color: var(--brand) !important;
+	font-weight: 600;
+	min-width: 6.5rem;
+}
+.race-play:hover { background: var(--brand-bright) !important; }
+
+.race-speed {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4rem;
+	font-size: 0.85rem;
+	color: var(--text-muted-strong);
+}
+
+.race-category {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4rem;
+	font-size: 0.85rem;
+	color: var(--text-muted-strong);
+}
+
+.race-category select,
+.race-speed select {
+	font: inherit;
+	font-size: 0.85rem;
+	padding: 0.35rem 0.4rem;
+	color: var(--text);
+	background: var(--button);
+	border: 1px solid var(--border-strong);
+	border-radius: 6px;
+}
+
+/* The clock, which is the point of the page: big, monospaced and fixed-width so
+   the digits do not shuffle the row beside them as they run. */
+.race-clock {
+	margin-left: auto;
+	font-family: var(--mono);
+	font-variant-numeric: tabular-nums;
+	font-size: clamp(1.2rem, 4vw, 1.9rem);
+	font-weight: 600;
+	letter-spacing: -0.02em;
+}
+
+.race-scrub {
+	display: block;
+	width: 100%;
+	margin: 0 0 1rem;
+	accent-color: var(--brand);
+}
+
+/* -------------------------------------------------------------- race: grid */
+
+.race-scroll {
+	overflow-x: auto;
+	overscroll-behavior-x: contain;
+	padding-block: 0.75rem 1rem;
+}
+
+.race-grid {
+	display: grid;
+	grid-template-columns: max-content max-content;
+	gap: 0.75rem 0.9rem;
+	align-items: center;
+	width: max-content;
+}
+
+/* Held above the frames as they slide under it. Painted with the page color
+   rather than left transparent, which is what a sticky column needs to be. */
+.race-name,
+.race-corner {
+	position: sticky;
+	left: 0;
+	z-index: 3;
+	background: var(--bg);
+	padding-right: 0.6rem;
+}
+
+.race-name {
+	display: grid;
+	gap: 0.35rem;
+	align-content: center;
+	width: min(14rem, 42vw);
+	/* min-height, so a shrunken lane cannot clip the name and its rings — the
+	   grid row grows to whichever of the two needs more. */
+	min-height: var(--race-frame-h);
+}
+
+.race-name-link {
+	font-weight: 600;
+	font-size: 0.9rem;
+	line-height: 1.25;
+	overflow-wrap: anywhere;
+}
+
+/* One line, always: six rings read as a row of verdicts, and wrapping three
+   under three turns them into a shape that has to be parsed. They are drawn at
+   24px rather than the leaderboard's 37 so that the row fits the label column at
+   every width — see RING_SIZE. */
+.race-name .rings { flex-wrap: nowrap; gap: 2px; }
+.race-name .rings .ring-text { font-size: 0.55rem; }
+.race-name .rings .ring-sublabel { font-size: 0.34rem; }
+
+.race-flag {
+	font-size: 0.9rem;
+	opacity: 0;
+	transition: opacity 0.25s ease;
+}
+.race-flag.is-on { opacity: 1; }
+
+/* --------------------------------------------------------- race: the ruler */
+
+.race-ruler {
+	position: relative;
+	height: 1.1rem;
+	width: calc(var(--race-stride) * var(--cols));
+}
+
+.race-tick {
+	position: absolute;
+	top: 0;
+	left: calc(var(--race-stride) * var(--at));
+	padding-left: 0.25rem;
+	border-left: 1px solid var(--border);
+	height: 100%;
+	font-size: 0.65rem;
+	font-variant-numeric: tabular-nums;
+	color: var(--text-muted);
+	white-space: nowrap;
+}
+
+/* --------------------------------------------------------- race: the lanes */
+
+.race-lane {
+	position: relative;
+	height: var(--race-frame-h);
+	width: calc(var(--race-stride) * var(--cols));
+}
+
+.race-frames {
+	display: flex;
+	gap: var(--race-gap);
+	height: 100%;
+}
+
+/* Frames arrive from the left as the clock passes them. Transform and opacity
+   only, so the row does not reflow eight times a second. */
+.race-frame {
+	flex: 0 0 auto;
+	width: var(--race-col-w);
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	opacity: 0;
+	transform: translateX(-10px) scale(0.9);
+	transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.race-frame.is-on { opacity: 1; transform: none; }
+
+/* The tail of a lane, after its picture stopped changing — see renderLane. Set
+   on the image rather than the cell so it does not fight the cell's own fade-in
+   as it arrives. */
+.race-frame.is-settled img,
+.race-frame.is-settled::after { opacity: 0.2; }
+
+.race-frame img {
+	display: block;
+	height: 100%;
+	width: auto;
+	border: 1px solid var(--border);
+	border-radius: 3px;
+	background: var(--surface);
+}
+
+/* Before a strip's first sample — see renderLane. Framed exactly like a real
+   thumbnail and filled flat: it stands for a page not yet drawn, and it sits in
+   a row of photographs of mostly-white pages, so a light gray reads as an empty
+   frame rather than as one more white screenshot. Fixed in both themes, like the
+   thumbnails beside it, which do not restyle for dark either. */
+.race-frame.is-waiting::after {
+	content: "";
+	width: 100%;
+	height: 100%;
+	border: 1px solid var(--border);
+	border-radius: 3px;
+	background: #e6e6e6;
+}
+
+/* Past a strip's last sample. An outline and no fill: a filled frame would read
+   as a blank page, and the honest claim is that nothing was captured here, not
+   that the screen was empty. */
+.race-frame.is-absent::after {
+	content: "";
+	width: 100%;
+	height: 100%;
+	border: 1px dashed var(--border);
+	border-radius: 3px;
+	opacity: 0.5;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.race-frame,
+	.race-flag { transition: none; }
+}
+
+/* The clock's own position in the lane. */
+.race-playhead {
+	position: absolute;
+	top: -0.35rem;
+	bottom: -0.35rem;
+	left: calc(var(--race-stride) * var(--now, 0));
+	width: 2px;
+	background: var(--text);
+	opacity: 0.55;
+	z-index: 4;
+	pointer-events: none;
+}
+
+
+/*
+ * The corpus median, drawn as a lane with no frames — there is no filmstrip to
+ * show because no single site is being shown. It is a reference the racers are
+ * read against, so it is quieter than they are and short enough not to compete
+ * with them: tall enough for three stacked marker labels and nothing more.
+ */
+/* ----------------------------------------------------- race: the comparison */
+
+/*
+ * A row of flags at real-world durations — a blink, light crossing from the
+ * Moon, Bolt's 100m. Wall-clock seconds, same as the recorded load the frames
+ * come from, which is what earns them a place on the axis.
+ */
+/* Only as tall as the flags actually need — `--rows` is set per race, since how
+   many stack depends on which of them fall inside this axis and how close the
+   column step puts them. */
+.race-lane.is-compare {
+	height: calc(var(--rows, 1) * var(--race-flag-row) + 1.1rem);
+	border-bottom: 1px solid var(--border);
+}
+
+.race-name.is-compare {
+	height: auto;
+	min-height: calc(var(--rows, 1) * var(--race-flag-row) + 1.1rem);
+}
+
+.race-name.is-compare .race-name-link {
+	color: var(--text-muted-strong);
+	font-weight: 600;
+}
+
+/*
+ * A pole and a label: the rule marks the instant, the pill says what it was.
+ *
+ * The wrapper positions the pair and nothing else — no z-index, no opacity —
+ * because either would make it a stacking context, and a label sealed inside one
+ * cannot lift above the poles of the flags drawn after it. The two children
+ * carry the fade and the layering instead: every label at 3, every pole at auto,
+ * so labels always win however the flags are ordered.
+ */
+.race-flagpost {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: calc(var(--race-stride) * var(--at));
+	width: 0;
+	pointer-events: none;
+}
+
+.race-flagpost-pole {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	border-left: 2px solid var(--accent);
+	/* A hairline of page color either side, so the rule stays visible where it
+	   crosses something the same hue. */
+	box-shadow: -1px 0 0 var(--bg), 1px 0 0 var(--bg);
+	opacity: 0;
+	transition: opacity 0.25s ease;
+}
+.race-flagpost.is-on .race-flagpost-pole { opacity: 1; }
+
+.race-flagpost-label {
+	position: absolute;
+	z-index: 3;
+	top: calc(var(--row) * var(--race-flag-row) + 0.1rem);
+	/* Flush to the pole: the label is the flag on it, not a note beside it. */
+	left: 0;
+	font-size: 0.6rem;
+	font-weight: 600;
+	font-variant-numeric: tabular-nums;
+	line-height: 1.2;
+	white-space: nowrap;
+	/* No halo around this pill, unlike the ones that used to sit in a site lane:
+	   this row has no filmstrip behind it, so the label is only ever on the page
+	   background and the fill alone separates it. */
+	padding: 0.1rem 0.35rem;
+	color: var(--brand-text);
+	background: var(--accent);
+	opacity: 0;
+	transition: opacity 0.25s ease;
+}
+.race-flagpost.is-on .race-flagpost-label { opacity: 1; }
+
+@media (prefers-reduced-motion: reduce) {
+	.race-flagpost-pole,
+	.race-flagpost-label { transition: none; }
+}
+
+/* ---------------------------------------------------------- race: the winner */
+
+/*
+ * A green wash across the winning row as it crosses the line.
+ *
+ * An overlay rather than a background: the label column paints `--bg` to work as
+ * a sticky column and the lane paints nothing, so animating `background-color`
+ * on either would have to know what to return to. A pseudo-element fades over
+ * the top and leaves both alone.
+ */
+.race-name.is-winner::before,
+.race-lane.is-winner::before {
+	content: "";
+	position: absolute;
+	inset: -0.25rem;
+	z-index: 1;
+	border-radius: 4px;
+	background: var(--good);
+	opacity: 0;
+	pointer-events: none;
+	animation: race-win 1.4s ease-out;
+}
+
+/* No horizontal bleed on the label column. It is sticky at the left edge of a
+   horizontally scrolling container, so anything reaching past that edge is
+   clipped — which squared off the two left corners and left the radius looking
+   uneven. Vertical bleed is safe: the scroller has padding there. */
+.race-name.is-winner::before { inset: -0.25rem 0; }
+
+@keyframes race-win {
+	0% { opacity: 0; }
+	18% { opacity: 0.4; }
+	100% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.race-name.is-winner::before,
+	.race-lane.is-winner::before { animation: none; }
+}
+
+.race-result {
+	margin: 0.75rem 0 0;
+	font-size: 0.95rem;
+}
+
+.race-note { margin-top: 1.5rem; }
+
+.race-name-meta {
+	font-size: 0.7rem;
+	color: var(--text-muted);
+	overflow-wrap: anywhere;
 }
