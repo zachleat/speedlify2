@@ -3460,10 +3460,42 @@ a.cat-chip:hover, a.cat-chip:focus-visible { color: var(--text); border-color: v
 	   setting the count cannot overwrite the phone's smaller base. */
 	--race-frame-base: 170px;
 	--race-lane-scale: 1;
-	--race-frame-h: calc(var(--race-frame-base) * var(--race-lane-scale));
+	/* Capped against the viewport as well as the lane count: a short window makes
+	   even two lanes taller than the screen, and a comparison you have to scroll
+	   vertically to see both halves of is not a comparison. */
+	/* Capped against the viewport as well as the lane count: a short window makes
+	   even two lanes taller than the screen, and a comparison you have to scroll
+	   vertically to see both halves of is not a comparison. */
+	--race-frame-h: min(calc(var(--race-frame-base) * var(--race-lane-scale)), 40vh);
 	--race-aspect: 0.5;
-	--race-gap: 6px;
+	/* Clear track between two frames, on top of a frame's own width. */
+	--race-gap: 4px;
 	--race-col-w: calc(var(--race-frame-h) * var(--race-aspect));
+	/*
+	 * Pixels per column step, and so the scale of the whole axis: the ruler's
+	 * ticks, the comparison flags and every frame are placed as a multiple of it.
+	 *
+	 * Floored rather than taken straight from the frame width. Frames butt up
+	 * against each other at `col-w + gap`, which is fine for the pictures and too
+	 * tight for everything measured against them — a 500ms tick on a 375ms grid
+	 * lands 1.33 strides apart, so at a 64px frame the labels have 93px to sit in
+	 * and start colliding. The floor buys the axis room without making the
+	 * pictures bigger; the frames simply stop touching.
+	 */
+	/*
+	 * The axis scale: pixels per column step, and so where every frame, tick and
+	 * comparison flag lands.
+	 *
+	 * One frame plus the gap. Written from the frame width rather than as a pixel
+	 * figure so it holds at every size without arithmetic: the frame width
+	 * already carries the lane count and the viewport cap, so the spacing follows
+	 * both, and there is no fixed floor a small frame can out-compete and end up
+	 * touching its neighbour.
+	 *
+	 * Frames a single sample apart therefore sit `--race-gap` from each other,
+	 * and a lane sampled more coarsely than the finest one in the race spreads
+	 * proportionally — which is the point of placing them by timestamp.
+	 */
 	--race-stride: calc(var(--race-col-w) + var(--race-gap));
 }
 
@@ -3682,49 +3714,46 @@ a.cat-chip:hover, a.cat-chip:focus-visible { color: var(--text); border-color: v
 	padding-block: 0.75rem 1rem;
 }
 
+/* One column of full-width rows: a label line, then the lane it names. The
+   frames are the page, so nothing takes width away from them — a name column
+   costs pixels at every viewport where a line of text costs one line. */
 .race-grid {
 	display: grid;
-	grid-template-columns: max-content max-content;
-	gap: 0.75rem 0.9rem;
-	align-items: center;
+	grid-template-columns: max-content;
+	gap: 0.35rem;
 	width: max-content;
 }
 
-/* Held above the frames as they slide under it. Painted with the page color
-   rather than left transparent, which is what a sticky column needs to be. */
-.race-name,
-.race-corner {
-	position: sticky;
-	left: 0;
-	z-index: 3;
-	background: var(--bg);
-	padding-right: 0.6rem;
+/* The row spans the lane it names; the run inside it is what sticks. Sticking
+   the row would pin its whole width and never move. */
+.race-name {
+	position: relative;
+	width: calc(var(--race-stride) * var(--cols));
+	margin-top: 0.5rem;
 }
 
-.race-name {
-	display: grid;
-	gap: 0.35rem;
-	align-content: center;
-	width: min(14rem, 42vw);
-	/* min-height, so a shrunken lane cannot clip the name and its rings — the
-	   grid row grows to whichever of the two needs more. */
-	min-height: var(--race-frame-h);
+.race-sticky {
+	position: sticky;
+	left: 0;
+	z-index: 5;
+	display: inline-flex;
+	align-items: center;
+	gap: 0.45rem;
+	max-width: 100%;
+	/* Painted, because it slides over the lane above as the axis scrolls. */
+	background: var(--bg);
+	padding-right: 0.5rem;
 }
 
 .race-name-link {
 	font-weight: 600;
 	font-size: 0.9rem;
 	line-height: 1.25;
-	overflow-wrap: anywhere;
+	white-space: nowrap;
 }
 
-/* One line, always: six rings read as a row of verdicts, and wrapping three
-   under three turns them into a shape that has to be parsed. They are drawn at
-   24px rather than the leaderboard's 37 so that the row fits the label column at
-   every width — see RING_SIZE. */
-.race-name .rings { flex-wrap: nowrap; gap: 2px; }
-.race-name .rings .ring-text { font-size: 0.55rem; }
-.race-name .rings .ring-sublabel { font-size: 0.34rem; }
+/* Beside the name, on its line rather than under it. */
+.race-name .recents-dots { flex: none; align-items: center; }
 
 .race-flag {
 	font-size: 0.9rem;
@@ -3760,68 +3789,184 @@ a.cat-chip:hover, a.cat-chip:focus-visible { color: var(--text); border-color: v
 	position: relative;
 	height: var(--race-frame-h);
 	width: calc(var(--race-stride) * var(--cols));
+	/* Room under the frames for their timestamps, which hang outside the lane so
+	   they take nothing from the pictures. */
+	margin-bottom: 0.85rem;
 }
 
-.race-frames {
-	display: flex;
-	gap: var(--race-gap);
-	height: 100%;
+/* Nothing hangs under the reference row. */
+.race-lane.is-compare { margin-bottom: 0; }
+
+/*
+ * The travelling frame: the one the clock is carrying, as against the ones it
+ * has already left behind.
+ *
+ * No transition on `left` — it is repositioned every animation frame, and a
+ * transition would make it chase the clock rather than keep it. Lifted above the
+ * deposited frames so that at the instant it hands one over the two are not
+ * fighting over the same pixels.
+ */
+/* Both classes in the selector, deliberately. `.race-frame` sets the slot's grey
+   border and is written further down this file, so a single-class rule here loses
+   the cascade on equal specificity and the leading frame renders grey — which is
+   what it did. */
+.race-frame.race-live {
+	z-index: 3;
+	transition: opacity 0.12s ease;
+	/* Heavier than the slots it is leaving behind: this is the one the clock is
+	   carrying, and at a glance the difference between the leading frame and a
+	   deposited one has to be the first thing read, not the last. */
+	border: 2px solid var(--accent);
 }
 
-/* Frames arrive from the left as the clock passes them. Transform and opacity
-   only, so the row does not reflow eight times a second. */
+.race-live img { box-shadow: 0 0 0 2px var(--accent); }
+
+/* Travelling before the first sample: the outline alone, since there is no
+   picture yet to put in it. */
+.race-live.is-empty img { display: none; }
+
+/*
+ * A stretch nobody photographed: before a strip's first sample, or between two
+ * samples far enough apart to leave real space.
+ *
+ * Spans edge to edge between the two frames rather than centre to centre, since
+ * each frame is centred on its own instant — hence the half column subtracted at
+ * each end.
+ */
+.race-waiting {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: calc(var(--race-stride) * var(--from) + var(--race-col-w) / 2);
+	/* `--fill` is the clock, clamped to this band — see setTime. The band grows
+	   to it rather than being drawn to `--to`, which would show the length of a
+	   wait before the wait had happened. */
+	width: max(0px, calc(var(--race-stride) * (var(--fill) - var(--from)) - var(--race-col-w)));
+	border: 1px dashed var(--border);
+	border-radius: 3px;
+	background: #e6e6e6;
+	opacity: 0;
+	transition: opacity 0.18s ease;
+}
+
+/*
+ * A gap between two samples, tiled with the frame that opened it — see
+ * renderLane. One tile per column stride, so the repeat lines up with the rhythm
+ * of the photographs either side, and faint enough that it reads as an inference
+ * rather than as more of them.
+ */
+.race-waiting.is-held {
+	/* No fill of its own: the tiled frames are the content, and a grey behind
+	   them showed through the gutters as stripes. */
+	background-color: transparent;
+}
+
+/*
+ * The tiled picture, on its own layer so the band's dashed edge is not masked
+ * with it, and cut every tile by a 4px gutter.
+ *
+ * Masked rather than overpainted: a gutter drawn in the band's colour was only
+ * transparent while the band had a colour, and the point of that gap is to show
+ * the page through it. The gutters double as the tell for a blank frame — 12% of
+ * the frames that open a gap are a near-white page, and tiled edge to edge those
+ * bands were one empty rectangle.
+ */
+.race-waiting.is-held::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background-image: var(--held-src);
+	background-repeat: repeat-x;
+	background-position: left center;
+	background-size: var(--race-col-w) 100%;
+	-webkit-mask-image: linear-gradient(90deg, transparent 0 4px, #000 4px);
+	mask-image: linear-gradient(90deg, transparent 0 4px, #000 4px);
+	-webkit-mask-size: var(--race-col-w) 100%;
+	mask-size: var(--race-col-w) 100%;
+	-webkit-mask-repeat: repeat-x;
+	mask-repeat: repeat-x;
+}
+.race-waiting.is-held.is-on { opacity: 0.2; }
+
+
+
+/*
+ * The head of a lane starts at the axis rather than at a frame, so only the far
+ * end pulls back by half a column.
+ *
+ * Hatched rather than flat. A held band tiled with a near-blank frame — 12% of
+ * them are — is a pale rectangle, and so was this, which made "nothing had
+ * rendered" and "a white page had rendered" the same picture. Diagonals cannot
+ * be mistaken for a screenshot of anything.
+ */
+.race-waiting.is-lead {
+	left: 0;
+	width: max(0px, calc(var(--race-stride) * var(--fill) - var(--race-col-w) / 2));
+	background-image: repeating-linear-gradient(
+		-45deg,
+		transparent 0 4px,
+		rgba(0, 0, 0, 0.14) 4px 5px
+	);
+}
+
+.race-waiting.is-on { opacity: 0.2; }
+
+/*
+ * A frame sits where its own timestamp falls, not in a column: `--at` is that
+ * moment in stride units, the same currency the ruler ticks and the comparison
+ * flags use. Centred on the instant rather than starting at it, so the picture
+ * straddles the moment it was taken.
+ */
 .race-frame {
-	flex: 0 0 auto;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: calc(var(--race-stride) * var(--at));
 	width: var(--race-col-w);
-	height: 100%;
+	margin-left: calc(var(--race-col-w) / -2);
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	/* The slot the frame occupies on the axis, marked as well as the picture
+	   inside it. Where a strip's aspect does not fill the column the two edges
+	   come apart, which is the honest reading: the slot is the moment, the
+	   picture is what was in it. */
+	border: 1px solid var(--border);
+	border-radius: 4px;
+	/* Over the playhead and the winner's wash, under the leading frame. */
+	z-index: 2;
 	opacity: 0;
-	transform: translateX(-10px) scale(0.9);
-	transition: opacity 0.2s ease, transform 0.2s ease;
+	transition: opacity 0.18s ease;
 }
-.race-frame.is-on { opacity: 1; transform: none; }
 
-/* The tail of a lane, after its picture stopped changing — see renderLane. Set
-   on the image rather than the cell so it does not fight the cell's own fade-in
-   as it arrives. */
-.race-frame.is-settled img,
-.race-frame.is-settled::after { opacity: 0.2; }
+/* Hung under the slot rather than placed inside it: in the flow it cost the
+   picture its own height, and the picture is the thing being compared. The lane
+   carries a bottom margin to land in — see .race-lane. */
+.race-frame-time {
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	transform: translateX(-50%);
+	margin-top: 3px;
+	font-size: 0.55rem;
+	line-height: 1;
+	font-variant-numeric: tabular-nums;
+	color: var(--text-muted);
+	white-space: nowrap;
+}
+.race-frame.is-on { opacity: 1; }
 
+/* Bordered so each frame reads as its own photograph. `--border-strong` rather
+   than `--border`: these sit on the page background now instead of inside a
+   panel, and screenshots are mostly white, so the softer rule disappeared into
+   the edge of the picture it was meant to define. */
 .race-frame img {
 	display: block;
 	height: 100%;
 	width: auto;
-	border: 1px solid var(--border);
+	border: 1px solid var(--border-strong);
 	border-radius: 3px;
 	background: var(--surface);
-}
-
-/* Before a strip's first sample — see renderLane. Framed exactly like a real
-   thumbnail and filled flat: it stands for a page not yet drawn, and it sits in
-   a row of photographs of mostly-white pages, so a light gray reads as an empty
-   frame rather than as one more white screenshot. Fixed in both themes, like the
-   thumbnails beside it, which do not restyle for dark either. */
-.race-frame.is-waiting::after {
-	content: "";
-	width: 100%;
-	height: 100%;
-	border: 1px solid var(--border);
-	border-radius: 3px;
-	background: #e6e6e6;
-}
-
-/* Past a strip's last sample. An outline and no fill: a filled frame would read
-   as a blank page, and the honest claim is that nothing was captured here, not
-   that the screen was empty. */
-.race-frame.is-absent::after {
-	content: "";
-	width: 100%;
-	height: 100%;
-	border: 1px dashed var(--border);
-	border-radius: 3px;
-	opacity: 0.5;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -3837,9 +3982,23 @@ a.cat-chip:hover, a.cat-chip:focus-visible { color: var(--text); border-color: v
 	left: calc(var(--race-stride) * var(--now, 0));
 	width: 2px;
 	background: var(--text);
-	opacity: 0.55;
-	z-index: 4;
+	/* Behind the pictures. It is appended last, so without this it painted a rule
+	   across whichever frame it happened to be passing. */
+	z-index: 0;
+	opacity: 0;
+	transition: opacity 0.25s ease;
 	pointer-events: none;
+}
+
+/* Shown from the moment the clock starts — see setTime. */
+.race-playhead.is-on { opacity: 0.55; }
+
+/* Past this lane's finish: still tracking the clock, but nothing is happening
+   here any more, so it stops competing with the lanes that are still running. */
+.race-playhead.is-done { opacity: 0.12; }
+
+@media (prefers-reduced-motion: reduce) {
+	.race-playhead { transition: none; }
 }
 
 
@@ -3864,10 +4023,7 @@ a.cat-chip:hover, a.cat-chip:focus-visible { color: var(--text); border-color: v
 	border-bottom: 1px solid var(--border);
 }
 
-.race-name.is-compare {
-	height: auto;
-	min-height: calc(var(--rows, 1) * var(--race-flag-row) + 1.1rem);
-}
+.race-name.is-compare { margin-top: 0.5rem; }
 
 .race-name.is-compare .race-name-link {
 	color: var(--text-muted-strong);
@@ -3943,11 +4099,10 @@ a.cat-chip:hover, a.cat-chip:focus-visible { color: var(--text); border-color: v
  * on either would have to know what to return to. A pseudo-element fades over
  * the top and leaves both alone.
  */
-.race-name.is-winner::before,
 .race-lane.is-winner::before {
 	content: "";
 	position: absolute;
-	inset: -0.25rem;
+	inset: 0;
 	z-index: 1;
 	border-radius: 4px;
 	background: var(--good);
@@ -3956,12 +4111,11 @@ a.cat-chip:hover, a.cat-chip:focus-visible { color: var(--text); border-color: v
 	animation: race-win 1.4s ease-out;
 }
 
-/* No horizontal bleed on the label column. It is sticky at the left edge of a
-   horizontally scrolling container, so anything reaching past that edge is
-   clipped — which squared off the two left corners and left the radius looking
-   uneven. Vertical bleed is safe: the scroller has padding there. */
-.race-name.is-winner::before { inset: -0.25rem 0; }
+/* No wash on the label row — the lane below it carries the result. */
+.race-name.is-winner::before { display: none; }
 
+/* A wash that clears. The 🏁 beside the winner's name is what persists; the
+   green is the moment of crossing, not the record of it. */
 @keyframes race-win {
 	0% { opacity: 0; }
 	18% { opacity: 0.4; }
@@ -3969,19 +4123,17 @@ a.cat-chip:hover, a.cat-chip:focus-visible { color: var(--text); border-color: v
 }
 
 @media (prefers-reduced-motion: reduce) {
-	.race-name.is-winner::before,
 	.race-lane.is-winner::before { animation: none; }
 }
 
+/* Space kept whether or not there is a result yet — see renderResult. Two lines
+   of it, since a dead heat names both sites and wraps on a narrow window, and a
+   reserve that only fits the common case still jumps on the uncommon one. */
 .race-result {
 	margin: 0.75rem 0 0;
 	font-size: 0.95rem;
+	min-height: 2.8em;
 }
 
 .race-note { margin-top: 1.5rem; }
 
-.race-name-meta {
-	font-size: 0.7rem;
-	color: var(--text-muted);
-	overflow-wrap: anywhere;
-}

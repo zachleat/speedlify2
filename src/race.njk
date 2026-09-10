@@ -206,9 +206,6 @@ title: Compare
 	function laneScale(count) {
 		return Math.max(0.5, Math.min(1, 2.2 / count));
 	}
-	/* Enough columns to read a load as a sequence, few enough that each frame is
-	   still large enough to see. The grid step widens to hold this. */
-	var MAX_COLUMNS = 22;
 
 	/*
 	 * When the page stopped changing, read off the strip itself: the earliest
@@ -280,7 +277,6 @@ title: Compare
 	var bySlug = new Map();
 	var byName = new Map();
 	var lanes = [];
-	var scoreLabels = ["Performance", "Accessibility", "Best Practices", "SEO"];
 	/* Categories a random pairing may draw from — see api-race.njk. Empty means
 	   no filter. */
 	var categories = [];
@@ -308,84 +304,39 @@ title: Compare
 		return Math.round(value) + " ms";
 	}
 
+	/* Seconds to two places — short enough to sit under a frame, precise enough
+	   that two frames a sample apart do not read as the same instant. */
+	function fmtSeconds(value) {
+		if (typeof value !== "number") return "";
+		return (value / 1000).toFixed(2) + "s";
+	}
+
 	function fmtClock(value) {
 		return String(Math.round(value)).replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " ms";
 	}
 
 	/*
-	 * The same six rings the leaderboard draws, rebuilt here.
+	 * The six band dots the Recently Measured lists draw, from the same
+	 * `ringBands` the report uses — four Lighthouse categories, then axe, then
+	 * Core Web Vitals.
 	 *
-	 * The pages render theirs from a Nunjucks shortcode at build time, which a
-	 * lane picked in the browser cannot call. Geometry and glyphs are repeated
-	 * below; the verdicts are not — the band on each ring comes from the catalog,
-	 * which takes it from the report's own `ringBands`, so a ring here cannot
-	 * disagree with the same site's ring on its own page.
+	 * Dots rather than the leaderboard's rings: these sit inline beside a site
+	 * name on one line, where six 24px circles would be the line rather than a
+	 * detail on it.
 	 */
-	/* Small enough that six sit on one line in the label column, which is at most
-	   14rem wide and 42vw on a phone. */
-	var RING_SIZE = 24;
-
-	function ring(band, text, pct, sublabel, label) {
-		/* The leaderboard's ring is 37px with a 3px stroke and its two text
-		   baselines nudged 3.5 up and 7 down. Those are kept as ratios of the size
-		   rather than copied as pixels, so this one is the same drawing scaled
-		   rather than a smaller circle with the type in the wrong place. */
-		var stroke = Math.max(2, RING_SIZE * 3 / 37);
-		var r = (RING_SIZE - stroke) / 2;
-		var c = RING_SIZE / 2;
-		var circumference = 2 * Math.PI * r;
-		var dash = (circumference * Math.max(0, Math.min(1, pct || 0))).toFixed(2) + " " + circumference.toFixed(2);
-		var valueY = sublabel ? c - RING_SIZE * 3.5 / 37 : c;
-		var subY = c + RING_SIZE * 7 / 37;
-
-		return '<svg class="ring ring-' + band + '" width="' + RING_SIZE + '" height="' + RING_SIZE +
-			'" viewBox="0 0 ' + RING_SIZE + ' ' + RING_SIZE + '" role="img" aria-label="' + escapeHtml(label) + '">' +
-			'<circle class="ring-track" cx="' + c + '" cy="' + c + '" r="' + r + '" fill="none" stroke-width="' + stroke + '"/>' +
-			(typeof pct === "number"
-				? '<circle class="ring-arc" cx="' + c + '" cy="' + c + '" r="' + r + '" fill="none" stroke-width="' + stroke +
-					'" stroke-dasharray="' + dash + '" stroke-linecap="round" transform="rotate(-90 ' + c + ' ' + c + ')"/>'
-				: "") +
-			'<text class="ring-text" x="' + c + '" y="' + valueY.toFixed(2) + '" text-anchor="middle" dominant-baseline="central">' +
-			escapeHtml(text) + '</text>' +
-			(sublabel
-				? '<text class="ring-sublabel" x="' + c + '" y="' + subY.toFixed(2) +
-					'" text-anchor="middle" dominant-baseline="central">' + sublabel + '</text>'
-				: "") +
-			'</svg>';
+	function bandDots(site) {
+		var dots = el("span", "recents-dots");
+		dots.setAttribute("aria-hidden", "true");
+		dots.title = "Performance, Accessibility, Best Practices, SEO, Axe, Core Web Vitals";
+		(site.bands || []).forEach(function (band) {
+			dots.appendChild(el("span", "recents-dot recents-dot-" + band));
+		});
+		return dots;
 	}
 
-	/* A tick passes, "!" is the middle case, a cross fails — the same three
-	   glyphs the axe and CWV rings use, so the mark carries the verdict without
-	   leaning on color. */
-	function bandGlyph(band) {
-		return band === "good" ? "✓" : band === "average" ? "!" : band === "poor" ? "✗" : "–";
-	}
-
-	function ringsFor(site) {
-		var bands = site.bands || [];
-		var scores = site.scores || [];
-		var out = "";
-
-		for (var i = 0; i < 4; i++) {
-			var value = typeof scores[i] === "number" ? scores[i] : null;
-			out += ring(
-				bands[i] || "none",
-				value === null ? "–" : String(value),
-				value === null ? null : value / 100,
-				"",
-				scoreLabels[i] + ": " + (value === null ? "no data" : value)
-			);
-		}
-
-		out += ring(bands[4] || "none", bandGlyph(bands[4]), bands[4] === "none" ? null : 1, "AXE",
-			bands[4] === "none" ? "Axe: did not run" : "Axe: " + bands[4]);
-		out += ring(bands[5] || "none", bandGlyph(bands[5]), bands[5] === "none" ? null : 1, "CWV",
-			bands[5] === "none" ? "Core Web Vitals: no real-user data" : "Core Web Vitals: " + bands[5]);
-		return out;
-	}
-
-	/* The mark from the hidden source above. Empty string if it is missing, which
-	   leaves a button with a label and no icon rather than a broken one. */
+	/* The mark from the hidden source in the markup. Empty string if it is
+	   missing, which leaves a button with a label and no icon rather than a
+	   broken one. */
 	function trashIcon() {
 		var source = document.querySelector(".race-icon-source");
 		return source ? source.innerHTML : "";
@@ -424,9 +375,17 @@ title: Compare
 
 		if (!isFinite(step) || step <= 0) step = 250;
 		if (!end) end = step * 4;
-		/* Never finer than the finest strip, and never more columns than fit. */
-		step = Math.max(step, Math.ceil(end / MAX_COLUMNS / 25) * 25);
 
+		/*
+		 * The step is the finest strip's own interval and nothing else.
+		 *
+		 * It used to be widened to hold the axis under a column cap, which made
+		 * sense while frames were resampled into columns. Placed by timestamp they
+		 * are laid out in stride units of this step, so widening it pulls them
+		 * toward each other — at the extreme, a 45s race put its frames a fifth of
+		 * a stride apart and they overlapped. The axis is as long as it needs to
+		 * be instead, and scrolls.
+		 */
 		var cols = Math.max(1, Math.ceil(end / step));
 		return { step: step, cols: cols, end: cols * step };
 	}
@@ -492,7 +451,6 @@ title: Compare
 		root.style.setProperty("--race-aspect", aspect.toFixed(4));
 		root.style.setProperty("--race-lane-scale", laneScale(lanes.length).toFixed(3));
 
-		grid.appendChild(el("div", "race-corner"));
 		grid.appendChild(renderRuler());
 
 		lanes.forEach(function (lane, index) {
@@ -519,9 +477,11 @@ title: Compare
 		compareMarkers = [];
 
 		var name = el("div", "race-name is-compare");
+		var inner = el("span", "race-sticky");
 		var title = el("span", "race-name-link");
 		title.textContent = "Real world";
-		name.appendChild(title);
+		inner.appendChild(title);
+		name.appendChild(inner);
 
 		var lane = el("div", "race-lane is-compare");
 		var built = [];
@@ -589,84 +549,216 @@ title: Compare
 		name.style.setProperty("--rows", used);
 	}
 
+	/*
+	 * Tick intervals worth reading a clock against, coarsest last.
+	 *
+	 * The ruler used to tick once per column, at Lighthouse's own sampling
+	 * interval — so it read 375ms, 750ms, 1.13s, and changed shape between
+	 * comparisons because that interval is a property of each run's timeline
+	 * rather than of time. These are the same numbers a clock has.
+	 */
+	var TICK_STEPS = [100, 250, 500, 1000, 2000, 2500, 5000, 10000, 15000, 30000];
+	var MAX_TICKS = 12;
+
+	/*
+	 * Never finer than the frames it is measuring.
+	 *
+	 * The default strip is eight samples across Lighthouse's three-second minimum
+	 * — one every 375ms — and a 250ms tick out-resolves that: three ticks for
+	 * every two photographs, implying a precision the pictures do not have. The
+	 * tick is the coarsest of two floors, the grid's own cadence and whatever
+	 * keeps the count readable.
+	 */
+	function tickStep(end, step) {
+		for (var i = 0; i < TICK_STEPS.length; i++) {
+			if (TICK_STEPS[i] < step) continue;
+			if (end / TICK_STEPS[i] <= MAX_TICKS) return TICK_STEPS[i];
+		}
+		return TICK_STEPS[TICK_STEPS.length - 1];
+	}
+
+	/*
+	 * Ticks at round times, positioned the way the comparison flags are: a
+	 * fraction of the column stride rather than a column index.
+	 *
+	 * They no longer line up with frame boundaries, which is the honest
+	 * arrangement — the frames are not at round times, and a tick sitting exactly
+	 * on every column edge quietly claimed the sampling grid was the clock.
+	 */
 	function renderRuler() {
 		var ruler = el("div", "race-ruler");
-		/* Every other label once the ticks are close enough to run together. */
-		var every = timeline.cols > 12 ? 2 : 1;
-		for (var i = 1; i <= timeline.cols; i++) {
+		var step = tickStep(timeline.end, timeline.step);
+
+		for (var at = step; at <= timeline.end; at += step) {
 			var tick = el("span", "race-tick");
-			tick.style.setProperty("--at", i);
-			if (i % every === 0) tick.textContent = fmtMs(i * timeline.step);
+			tick.style.setProperty("--at", at / timeline.step);
+			tick.textContent = fmtMs(at);
 			ruler.appendChild(tick);
 		}
 		return ruler;
 	}
 
+	/*
+	 * The label above a lane, on its own line.
+	 *
+	 * A row of its own rather than a column beside the frames: the frames are the
+	 * page, and a name column takes width away from them at every viewport while
+	 * a line of text costs one line. The inner run sticks to the left edge so the
+	 * name stays readable however far the lane has scrolled.
+	 */
 	function renderName(lane) {
-		var cell = el("div", "race-name");
-		cell.style.setProperty("--lane", lane.index);
+		var row = el("div", "race-name");
+		row.style.setProperty("--lane", lane.index);
+
+		var inner = el("span", "race-sticky");
 
 		var title = el("a", "race-name-link");
 		title.href = "/site/" + encodeURIComponent(lane.site.slug) + "/";
 		title.textContent = lane.site.name;
-		cell.appendChild(title);
+		inner.appendChild(title);
 
-		var rings = el("span", "rings");
-		rings.innerHTML = ringsFor(lane.site);
-		cell.appendChild(rings);
+		inner.appendChild(bandDots(lane.site));
 
 		lane.flag = el("span", "race-flag");
 		lane.flag.textContent = "🏁";
-		cell.appendChild(lane.flag);
+		inner.appendChild(lane.flag);
 
-		return cell;
+		row.appendChild(inner);
+		return row;
 	}
+
+	/*
+	 * A lane: every frame at the moment it was taken, and one live frame that
+	 * rides the clock.
+	 *
+	 * Frames are placed by their own timing rather than dropped into columns.
+	 * Columns were a resampling — a coarsely sampled lane repeated its last frame
+	 * into every slot, which drew pictures at times nobody photographed them.
+	 * Here a frame sits exactly where its timestamp falls and the gaps between
+	 * them are real: they are the stretches this strip has nothing to say about.
+	 *
+	 * The live frame is the animation. It moves continuously with the clock,
+	 * carrying whatever the page looked like at that instant, and each time it
+	 * passes a frame's own moment that frame is left behind at it. So the strip
+	 * assembles as the clock runs rather than appearing a column at a time.
+	 */
+	/*
+	 * When the space between two frames is drawn as unphotographed.
+	 *
+	 * Any time they are more than one sample apart, which is the same rule as
+	 * "more than `--race-gap` of clear space": the stride is a frame's width plus
+	 * that gap, so two frames a single sample apart sit exactly that far from
+	 * each other and anything wider is a stretch nobody photographed. The epsilon
+	 * is for the lane that set the step, whose ratio is 1 by construction and
+	 * must not round its way into a band.
+	 */
+	var WAITING_GAP = 1 + 1e-9;
 
 	function renderLane(lane) {
 		var cell = el("div", "race-lane");
 		cell.style.setProperty("--lane", lane.index);
 
-		var strip = el("div", "race-frames");
+		var frames = lane.site.frames || [];
 		var settled = settledAt(lane.site);
-		lane.cells = [];
-		for (var i = 0; i < timeline.cols; i++) {
-			var t = (i + 1) * timeline.step;
-			var frame = frameAt(lane.site, t, timeline.step);
-			var slot = el("div", "race-frame");
-			/* Once the picture stops changing the lane is done, and the rest of the
-			   strip is the same frame repeating. Dimmed so the eye stays on the
-			   part of each lane that is still a race.
 
-			   Keyed off the frame this column actually shows rather than the
-			   column's own time: the grid runs on the finest step in the race, so
-			   a lane sampled more coarsely lags its columns, and comparing times
-			   would dim the column that first shows the settled frame. */
-			if (typeof settled === "number" && frame && frame.timing > settled) {
-				slot.classList.add("is-settled");
-			}
-			if (frame) {
-				var img = new Image();
-				img.src = frame.src;
-				img.alt = "";
-				img.decoding = "async";
-				slot.appendChild(img);
-			} else if (t < lane.site.frames[0].timing) {
-				/* Before this strip's first sample. A slower site is sampled more
-				   coarsely — its eight shots are spread over a longer load — so on a
-				   grid set by a faster lane its opening columns have no frame. Drawn
-				   as a blank page, which is what the screen was showing while the
-				   lane waited to be photographed. */
-				slot.classList.add("is-waiting");
-			} else {
-				/* Past the last sample. Absence rather than a blank page: a filled
-				   frame here would claim the page went blank, when the truth is only
-				   that the capture ended. */
-				slot.classList.add("is-absent");
-			}
-			strip.appendChild(slot);
-			lane.cells.push({ el: slot, time: t });
+		lane.gaps = [];
+
+		/* Before the first sample. One band rather than a row of placeholders: the
+		   whole stretch is a single fact — nothing was captured yet — and drawing
+		   it as frames would invent a sampling rate for it. */
+		if (frames.length && frames[0].timing > 0) {
+			var lead = el("div", "race-waiting is-lead");
+			lead.style.setProperty("--from", 0);
+			lead.style.setProperty("--to", frames[0].timing / timeline.step);
+			lead.style.setProperty("--fill", 0);
+			cell.appendChild(lead);
+			lane.gaps.push({ el: lead, from: 0, to: frames[0].timing });
 		}
-		cell.appendChild(strip);
+
+		/*
+		 * And between samples, wherever the strip skipped enough time to show it.
+		 *
+		 * A lane sampled more coarsely than the grid leaves real space between its
+		 * frames — those are stretches of the load nobody photographed, and the
+		 * same band says so as says it at the head of the lane. Below the
+		 * threshold the frames are close enough to read as a sequence and a sliver
+		 * of hatching between them would be noise.
+		 */
+		for (var g = 1; g < frames.length; g++) {
+			var from = frames[g - 1].timing;
+			var to = frames[g].timing;
+			if ((to - from) / timeline.step <= WAITING_GAP) continue;
+			/* No band into a frame that is not drawn — see the settle skip below. */
+			if (typeof settled === "number" && from >= settled) continue;
+
+			/*
+			 * Tiled with the frame that opened the gap.
+			 *
+			 * Between two samples the page is not unknown, it is unobserved: the
+			 * last thing anyone saw is still the best account of it. Repeating that
+			 * picture across the band says "as last seen, still" — and repeating it
+			 * faintly, behind a dashed edge, keeps it from being mistaken for the
+			 * photographs either side, which is what the old column-repeat did
+			 * wrong. The lead band gets none of this: before the first sample there
+			 * is genuinely nothing to carry forward.
+			 */
+			var band = el("div", "race-waiting is-held");
+			band.style.setProperty("--from", from / timeline.step);
+			band.style.setProperty("--to", to / timeline.step);
+			band.style.setProperty("--fill", from / timeline.step);
+			/* Handed to CSS as a property rather than set as the background here:
+			   the picture is painted by a masked layer inside the band, so the band
+			   itself can stay transparent. */
+			band.style.setProperty("--held-src", "url(" + frames[g - 1].src + ")");
+			band.title = "Not captured — the page as last seen, at " + fmtMs(from);
+			cell.appendChild(band);
+			lane.gaps.push({ el: band, from: from, to: to });
+		}
+
+		lane.cells = [];
+		frames.forEach(function (frame) {
+			/* Past the point the picture stopped changing there is nothing left to
+			   show: every remaining frame is the settled one again, and drawing
+			   them said "still going" about a lane that had finished. The strip
+			   ends where the page did. */
+			if (typeof settled === "number" && frame.timing > settled) return;
+
+			var slot = el("div", "race-frame");
+			slot.style.setProperty("--at", frame.timing / timeline.step);
+
+			var img = new Image();
+			img.src = frame.src;
+			img.alt = "";
+			img.decoding = "async";
+			slot.appendChild(img);
+
+			/* When this one was taken, under it. The ruler gives the axis its
+			   scale; this gives each picture its own moment, which is the thing
+			   being compared and is otherwise read off by eye against a tick. */
+			var stamp = el("span", "race-frame-time");
+			stamp.textContent = fmtSeconds(frame.timing);
+			slot.appendChild(stamp);
+
+			cell.appendChild(slot);
+			lane.cells.push({ el: slot, time: frame.timing });
+		});
+
+		/*
+		 * The travelling frame. Positioned by the clock rather than by a timestamp,
+		 * and hidden once the strip runs out — past its last sample there is
+		 * nothing to carry.
+		 */
+		if (frames.length) {
+			lane.live = el("div", "race-frame race-live");
+			lane.liveImg = new Image();
+			lane.liveImg.alt = "";
+			lane.liveImg.decoding = "async";
+			lane.live.appendChild(lane.liveImg);
+			cell.appendChild(lane.live);
+		} else {
+			lane.live = null;
+			lane.liveImg = null;
+		}
 
 		lane.head = el("div", "race-playhead");
 		cell.appendChild(lane.head);
@@ -692,7 +784,30 @@ title: Compare
 			lane.cells.forEach(function (cell) {
 				cell.el.classList.toggle("is-on", cell.time <= now);
 			});
+			/*
+			 * A gap grows with the clock rather than appearing whole.
+			 *
+			 * Drawn at full length the moment the clock entered it, a band showed
+			 * how long the wait would be before the wait had happened — the one
+			 * thing on the page reporting the future. Its right edge is the clock
+			 * now, so it fills as the time passes and stops at the frame that ends
+			 * it. Nothing opens at rest either: the lead band starts at zero, and
+			 * at a standstill it would be the only mark on an empty track.
+			 */
+			lane.gaps.forEach(function (gap) {
+				var reached = Math.max(gap.from, Math.min(now, gap.to));
+				gap.el.style.setProperty("--fill", reached / timeline.step);
+				gap.el.classList.toggle("is-on", now > gap.from);
+			});
+			/* The line keeps the clock's own position in every lane, finished or
+			   not — the lanes share one clock, and a line that stopped in one of
+			   them broke that. Past the lane's finish it fades back instead: still
+			   the time, no longer anything happening here. */
+			var finish = laneFinish(lane);
+			lane.head.classList.toggle("is-on", now > 0);
+			lane.head.classList.toggle("is-done", now > finish);
 			lane.head.style.setProperty("--now", now / timeline.step);
+			moveLive(lane);
 
 			var settled = settledAt(lane.site);
 			if (typeof settled === "number" && settled <= now &&
@@ -723,26 +838,72 @@ title: Compare
 		if (follow) followPlayhead();
 	}
 
+	/*
+	 * Carry the live frame to wherever the clock is.
+	 *
+	 * It shows the last frame taken at or before now — the same lookup the
+	 * deposited frames answer statically — so as it crosses each timestamp the
+	 * picture it carries is already the one being left behind there. Past the end
+	 * of the strip it has nothing to show and steps aside.
+	 */
+	/* When a lane is over: its settle if it has one, otherwise its last sample.
+	   The same point the frames stop at, so the line lands with them. */
+	function laneFinish(lane) {
+		var settled = settledAt(lane.site);
+		if (typeof settled === "number") return settled;
+		var frames = lane.site.frames || [];
+		return frames.length ? frames[frames.length - 1].timing : 0;
+	}
+
+	function moveLive(lane) {
+		if (!lane.live) return;
+
+		var frame = frameAt(lane.site, now, timeline.step);
+		var last = lane.site.frames[lane.site.frames.length - 1];
+		var settled = settledAt(lane.site);
+		/* Retired at the settle for the same reason the repeats are not drawn: a
+		   frame still travelling over a finished lane reads as a page still
+		   loading. */
+		var gone = now > last.timing || (typeof settled === "number" && now > settled);
+
+		/*
+		 * Shown from the moment the clock starts, with or without a picture in it.
+		 *
+		 * Before the first sample there is nothing to carry, but the frame is still
+		 * travelling — and an empty outline moving down the track says that much
+		 * better than nothing does: the load has begun, it just has not been
+		 * photographed yet. Popping into existence at the first sample made the
+		 * lane look as though it started there.
+		 */
+		lane.live.classList.toggle("is-on", now > 0 && !gone);
+		if (gone || now <= 0) return;
+
+		lane.live.classList.toggle("is-empty", !frame);
+		if (frame && lane.liveImg.getAttribute("src") !== frame.src) lane.liveImg.src = frame.src;
+		lane.live.style.setProperty("--at", now / timeline.step);
+	}
+
 	function followPlayhead() {
 		var stride = strideWidth();
 		if (!stride) return;
 		var x = (now / timeline.step) * stride;
-		var visible = scroll.clientWidth - nameWidth();
-		var target = x - visible * 0.6;
+		var target = x - scroll.clientWidth * 0.6;
 		if (target > scroll.scrollLeft) scroll.scrollLeft = target;
 	}
 
+	/*
+	 * Pixels per column step, measured rather than recomputed.
+	 *
+	 * Taken off the ruler, which is exactly `stride × cols` wide: reading the
+	 * custom property back gives an unresolved `calc()` in some browsers, and
+	 * rebuilding the sum here means two places to change every time the spacing
+	 * does — which is how this last went out of step, still adding a gap to one
+	 * frame width after the stride had become two.
+	 */
 	function strideWidth() {
-		var first = grid.querySelector(".race-frame");
-		if (!first) return 0;
-		var style = getComputedStyle(grid);
-		var gap = parseFloat(style.getPropertyValue("--race-gap")) || 0;
-		return first.getBoundingClientRect().width + gap;
-	}
-
-	function nameWidth() {
-		var name = grid.querySelector(".race-name");
-		return name ? name.getBoundingClientRect().width : 0;
+		var ruler = grid.querySelector(".race-ruler");
+		if (!ruler || !timeline || !timeline.cols) return 0;
+		return ruler.getBoundingClientRect().width / timeline.cols;
 	}
 
 	function tick(stamp) {
@@ -796,16 +957,17 @@ title: Compare
 	}
 
 	function renderResult(ranked) {
+		/* Emptied rather than hidden: the line holds its own height from the
+		   start, so arriving at the end does not shove the note under it down the
+		   page just as someone is reading the finish. */
 		if (!ranked || ranked.length < 2) {
 			result.textContent = "";
-			result.hidden = true;
 			return;
 		}
 		var winner = ranked[0];
 		var next = ranked[1];
 		var winnerAt = settledAt(winner.site);
 		var margin = settledAt(next.site) - winnerAt;
-		result.hidden = false;
 
 		if (margin > 0) {
 			result.innerHTML = "🏁 <strong>" + escapeHtml(winner.site.name) +
@@ -1277,7 +1439,6 @@ title: Compare
 
 	function start(data) {
 		catalog = (data && data.sites) || [];
-		if (data && data.scoreLabels) scoreLabels = data.scoreLabels;
 		categories = (data && data.categories) || [];
 		if (catalog.length < 2) {
 			fail("No filmstrips have been captured yet, so there is nothing to race.");

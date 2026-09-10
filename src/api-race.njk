@@ -22,12 +22,6 @@ eleventyExcludeFromCollections: true
 			settledAt: entry.filmstrip.settledAt,
 			throttled: entry.filmstrip.throttled,
 			bands: entry | ringBands,
-			scores: [
-				entry.latest.lab.scores.performance,
-				entry.latest.lab.scores.accessibility,
-				entry.latest.lab.scores["best-practices"],
-				entry.latest.lab.scores.seo
-			],
 			frames: entry.filmstrip.frames
 		}), racers) -%}
 	{%- endif -%}
@@ -51,7 +45,6 @@ eleventyExcludeFromCollections: true
 {{ {
 	version: 1,
 	formFactor: sites.config.formFactor,
-	scoreLabels: [ "Performance", "Accessibility", "Best Practices", "SEO" ],
 	categories: shuffleGroups,
 	sites: racers
 } | dump | safe }}
