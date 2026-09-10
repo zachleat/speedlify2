@@ -1,0 +1,369 @@
+{
+  "url": "https://annotator.incubator.apache.org/",
+  "name": "annotator.incubator.apache.org",
+  "group": "11ty-emeritus",
+  "groupName": "11ty Emeritus",
+  "timestamp": 1789075995729,
+  "date": "2026-09-10T21:33:15.729Z",
+  "runId": "2026-09-10T21-25-21-469Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 22690,
+  "error": null,
+  "variance": {
+    "min": 91,
+    "max": 92,
+    "spread": 1,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://annotator.incubator.apache.org/",
+    "finalUrl": "https://incubator.apache.org/projects/annotator.html",
+    "redirect": {
+      "from": "https://annotator.incubator.apache.org/",
+      "to": "https://incubator.apache.org/projects/annotator.html",
+      "chain": [
+        {
+          "url": "https://annotator.incubator.apache.org/",
+          "status": 302
+        },
+        {
+          "url": "https://incubator.apache.org/projects/annotator.html",
+          "status": 200
+        }
+      ],
+      "statuses": [
+        302
+      ],
+      "change": "host+path",
+      "permanent": false,
+      "schemeUpgrade": false,
+      "hops": 1
+    },
+    "statusCode": "ok",
+    "scores": {
+      "performance": 91,
+      "accessibility": 53,
+      "best-practices": 65,
+      "seo": 82,
+      "agentic-browsing": 50
+    },
+    "timings": {
+      "fcp": 2263,
+      "lcp": 3166,
+      "si": 2263,
+      "tbt": 0,
+      "tti": 3166,
+      "cls": 0.001,
+      "ttfb": 607,
+      "maxPotentialFid": 16,
+      "serverResponseTime": 4,
+      "networkRtt": 0.1,
+      "networkServerLatency": 6.6
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 11,
+      "resourceLoadDelay": 10.4,
+      "resourceLoadDuration": 10.2,
+      "elementRenderDelay": 38.8
+    },
+    "weight": {
+      "total": 200290,
+      "requests": 11,
+      "mainDocument": 5754,
+      "byType": {
+        "total": {
+          "bytes": 195070,
+          "requests": 10
+        },
+        "image": {
+          "bytes": 177545,
+          "requests": 5
+        },
+        "stylesheet": {
+          "bytes": 9269,
+          "requests": 2
+        },
+        "document": {
+          "bytes": 5754,
+          "requests": 1
+        },
+        "script": {
+          "bytes": 2402,
+          "requests": 1
+        },
+        "other": {
+          "bytes": 100,
+          "requests": 1
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "font": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 30145,
+          "requests": 2
+        }
+      },
+      "scripts": 1,
+      "stylesheets": 2,
+      "fonts": 0
+    },
+    "thirdParty": {
+      "count": 1,
+      "bytes": 30145,
+      "mainThreadMs": 1.1,
+      "top": [
+        {
+          "entity": "apachecon.com",
+          "bytes": 30145,
+          "mainThreadMs": 1.1,
+          "byType": {
+            "script": 2402,
+            "image": 27743
+          },
+          "typedBytes": 30145
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 198.6,
+      "byGroup": {
+        "other": 108,
+        "styleLayout": 44.8,
+        "paintCompositeRender": 20,
+        "scriptEvaluation": 13.5,
+        "parseHTML": 11.1,
+        "scriptParseCompile": 1.2
+      },
+      "bootupMs": 7.7,
+      "longTasks": 0,
+      "longestTaskMs": null
+    },
+    "dom": {
+      "elements": 355,
+      "depth": 12,
+      "maxChildren": 16
+    },
+    "waste": {
+      "unusedJsBytes": 0,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 0,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 903,
+      "renderBlockingCount": 3,
+      "poorlyCachedBytes": 163062.2,
+      "poorlyCachedCount": 8
+    },
+    "accessibility": {
+      "failingCount": 7,
+      "applicableCount": 17,
+      "failingNodes": 44,
+      "failing": [
+        {
+          "id": "target-size",
+          "title": "Touch targets do not have sufficient size or spacing.",
+          "weight": 7,
+          "nodes": 31
+        },
+        {
+          "id": "image-alt",
+          "title": "Image elements do not have `[alt]` attributes",
+          "weight": 10,
+          "nodes": 7
+        },
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "weight": 7,
+          "nodes": 2
+        },
+        {
+          "id": "html-has-lang",
+          "title": "`<html>` element does not have a `[lang]` attribute",
+          "weight": 7,
+          "nodes": 1
+        },
+        {
+          "id": "label",
+          "title": "Form elements do not have associated labels",
+          "weight": 10,
+          "nodes": 1
+        },
+        {
+          "id": "link-name",
+          "title": "Links do not have a discernible name",
+          "weight": 7,
+          "nodes": 1
+        },
+        {
+          "id": "landmark-one-main",
+          "title": "Document does not have a main landmark.",
+          "weight": 3,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 5,
+      "applicableCount": 17,
+      "failing": [
+        {
+          "id": "is-on-https",
+          "title": "Does not use HTTPS",
+          "weight": 5,
+          "nodes": 2
+        },
+        {
+          "id": "image-size-responsive",
+          "title": "Serves images with low resolution",
+          "weight": 1,
+          "nodes": 2
+        },
+        {
+          "id": "doctype",
+          "title": "Page lacks the HTML doctype, thus triggering quirks-mode",
+          "weight": 1,
+          "nodes": null
+        },
+        {
+          "id": "charset",
+          "title": "Charset declaration is missing or occurs too late in the HTML",
+          "weight": 1,
+          "nodes": null
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "weight": 1,
+          "nodes": 1
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 2,
+      "applicableCount": 8,
+      "failing": [
+        {
+          "id": "meta-description",
+          "title": "Document does not have a meta description",
+          "weight": 1,
+          "nodes": null
+        },
+        {
+          "id": "image-alt",
+          "title": "Image elements do not have `[alt]` attributes",
+          "weight": 1,
+          "nodes": 7
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 0,
+      "hsts": null,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 753.7,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 1
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2483,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-09-10T21:33:24.891Z",
+      "runtimeMs": 6074.4
+    }
+  },
+  "field": null,
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "interstitial": null,
+    "host": {
+      "id": "self-hosted",
+      "name": "Self-hosted",
+      "icon": null,
+      "detail": "Apache",
+      "detailIcon": "Apache",
+      "source": "server"
+    },
+    "headers": {
+      "server": "Apache",
+      "via": "1.1 varnish, 1.1 varnish",
+      "x-served-by": "cache-hel1410022-HEL, cache-iad-kcgs7200126-IAD"
+    },
+    "violations": 31,
+    "passes": 709,
+    "incomplete": 0,
+    "violationRules": 8,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 17,
+        "help": "All page content should be contained by landmarks"
+      },
+      {
+        "id": "image-alt",
+        "impact": "critical",
+        "nodes": 7,
+        "help": "Images must have alternative text"
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 2,
+        "help": "Elements must meet minimum color contrast ratio thresholds"
+      },
+      {
+        "id": "html-has-lang",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "<html> element must have a lang attribute"
+      },
+      {
+        "id": "label",
+        "impact": "critical",
+        "nodes": 1,
+        "help": "Form elements must have labels"
+      },
+      {
+        "id": "landmark-one-main",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Document should have one main landmark"
+      },
+      {
+        "id": "link-name",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "Links must have discernible text"
+      },
+      {
+        "id": "page-has-heading-one",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Page should contain a level-one heading"
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
