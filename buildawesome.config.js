@@ -1236,6 +1236,69 @@ export default async function ($config) {
 		return `https://web.archive.org/web/${stamp}/${url}`;
 	});
 
+	/**
+	 * A brand mark for an outbound link, inlined from simple-icons.
+	 *
+	 * The links beside it get theirs from the avatar service, which resolves a
+	 * favicon per origin and has none for `googlechrome.github.io` — it answers
+	 * with an empty SVG, so that link alone would sit unmarked in the row.
+	 *
+	 * Decorative like the images it stands in for: the link text says the name.
+	 */
+	$config.addShortcode("brandMark", (name) => {
+		const icon = localIcons[name] ?? simpleIcons[`si${name}`];
+		if (!icon) return "";
+
+		return [
+			`<svg class="action-mark" width="16" height="16"`,
+			` viewBox="${escapeAttr(icon.viewBox ?? "0 0 24 24")}"`,
+			` fill="#${icon.hex}" aria-hidden="true" focusable="false">`,
+			`<path d="${icon.path}"/></svg>`,
+		].join("");
+	});
+
+	/**
+	 * Lighthouse's scoring calculator, preloaded with this measurement's own
+	 * metrics.
+	 *
+	 * The performance score is a weighted curve over five numbers, and the page
+	 * shows a figure without showing which of them paid for it. This link is the
+	 * arithmetic: drag TBT and watch what the score would have been.
+	 *
+	 * Only offered when all five weighted metrics are present, because a missing
+	 * one is silently replaced with the calculator's own median — a made-up
+	 * number for this site, presented as if we had measured it.
+	 *
+	 * The version is passed through as measured: the calculator carries scoring
+	 * guides up to v10 and normalizes anything newer to the closest one it has.
+	 */
+	$config.addFilter("scoreCalculator", (record) => {
+		const timings = record?.lab?.timings;
+		if (!timings) return "";
+
+		const weighted = ["fcp", "si", "lcp", "tbt", "cls"];
+		if (weighted.some((key) => typeof timings[key] !== "number")) return "";
+
+		const params = new URLSearchParams({
+			FCP: timings.fcp,
+			SI: timings.si,
+			LCP: timings.lcp,
+			TBT: timings.tbt,
+			CLS: timings.cls,
+		});
+
+		// Unweighted since v6, so not worth withholding the link over, but the
+		// calculator still shows it for the older scoring guides.
+		if (typeof timings.tti === "number") params.set("TTI", timings.tti);
+
+		params.set("device", record.formFactor === "desktop" ? "desktop" : "mobile");
+
+		const version = record.lab.environment?.lighthouseVersion;
+		if (version) params.set("version", version);
+
+		return `https://googlechrome.github.io/lighthouse/scorecalc/#${params}`;
+	});
+
 	$config.addFilter("json", (v) => JSON.stringify(v, null, 2));
 
 	return {

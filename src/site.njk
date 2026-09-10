@@ -218,11 +218,22 @@ eleventyComputed:
 		<a href="https://cruxvis.withgoogle.com/#/?view=cwvsummary&amp;url={{ entry.url | urlencode }}&amp;identifier=origin&amp;device=ALL&amp;periodStart=0&amp;periodEnd=-1&amp;display=p75s"
 			title="Every month of CrUX p75s for this origin, charted by Google's CrUX Vis"><img class="action-mark" src="{{ "https://cruxvis.withgoogle.com/" | avatar(meta.avatarService) }}" width="16" height="16" alt="" decoding="async">CrUX Vis</a> ·
 		{#
-			Last, because it is the one that does not re-run anything: the four
-			above ask this question somewhere else, and this asks what the page used
-			to be. A site that has gone, or one whose scores moved for no reason the
-			data explains, is a case where what it looked like is the only thing
-			left to look at. "Elsewhere" rather than "Test elsewhere" above is what
+			Not a second opinion like the others — the same numbers this page
+			already shows, in the arithmetic that turns them into a score. Which is
+			the useful thing to have beside a performance figure: the score alone
+			never says which metric spent it.
+		#}
+		{% set scorecalc = entry.latest | scoreCalculator %}
+		{% if scorecalc %}
+		<a href="{{ scorecalc }}"
+			title="This measurement's metrics loaded into Lighthouse's scoring calculator — what each one costs the performance score">{% brandMark "Lighthouse" %}Scoring Calculator</a> ·
+		{% endif %}
+		{#
+			Last, because it is the only one that looks backwards: everything above
+			is about the site as it is now, and this asks what the page used to be.
+			A site that has gone, or one whose scores moved for no reason the data
+			explains, is a case where what it looked like is the only thing left to
+			look at. "Elsewhere" rather than "Test elsewhere" above is what
 			makes room for it.
 
 			`/web/*/` is the Wayback Machine's own shape for "every snapshot of
