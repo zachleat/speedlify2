@@ -99,6 +99,28 @@ describe("projectPoint", () => {
 		r.lab.timings.tbt = 0;
 		assert.equal(projectPoint(r).tbt, 0, "0 is data, not absence");
 	});
+
+	test("stores the raw generator tag from a detection object", () => {
+		const generator = { id: "eleventy", name: "Eleventy", version: "3.1.6", source: "meta", raw: "Eleventy v3.1.6" };
+		assert.equal(projectPoint(record({ axe: { generator } })).gen, "Eleventy v3.1.6");
+	});
+
+	test("still reads an older string-shaped generator", () => {
+		assert.equal(projectPoint(record({ axe: { generator: "Eleventy v2.0.1" } })).gen, "Eleventy v2.0.1");
+	});
+
+	test("caps the stored generator at 120 characters", () => {
+		const generator = { source: "meta", raw: "x".repeat(300) };
+		assert.equal(projectPoint(record({ axe: { generator } })).gen.length, 120);
+	});
+
+	test("skips generators not read from a meta tag", () => {
+		const dom = { id: "angular", name: "Angular", source: "dom", raw: "22.1.4+sha-b2903de" };
+		const header = { id: "nextjs", name: "Next.js", source: "header", raw: "Next.js, Payload" };
+		assert.ok(!("gen" in projectPoint(record({ axe: { generator: dom } }))));
+		assert.ok(!("gen" in projectPoint(record({ axe: { generator: header } }))));
+		assert.ok(!("gen" in projectPoint(record({ axe: { generator: { source: "dom", raw: null } } }))));
+	});
 });
 
 describe("hydratePoint", () => {
