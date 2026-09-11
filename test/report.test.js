@@ -7,6 +7,7 @@ import path from "node:path";
 import { buildReport, REPORT_VERSION, rankClimb, pearson } from "../lib/report.js";
 import { shortHash } from "../lib/hash.js";
 import { ResultStore } from "../lib/store.js";
+import { detectGenerator } from "../lib/stack.js";
 
 /**
  * The report is the contract between measurement and rendering: if a field the
@@ -58,9 +59,9 @@ function fixture({ sites = 1, points = 4, url = (i) => `https://site${i}.example
 				// A function lets one fixture give each site its own CrUX numbers,
 				// which is what the pair charts need to have anything to sort.
 				field: typeof field === "function" ? field(s) : field,
-				// The generator tag rides on the axe record, which is where the
-				// measurement step puts it.
-				axe: generator(p) ? { ...(axe ?? {}), generator: generator(p) } : axe,
+				// The generator rides on the axe record as a detection, which is
+				// where and how the measurement step stores it.
+				axe: generator(p) ? { ...(axe ?? {}), generator: detectGenerator({ meta: generator(p) }) } : axe,
 			});
 		}
 	}
