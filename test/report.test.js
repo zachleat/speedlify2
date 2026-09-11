@@ -549,6 +549,16 @@ describe("presumed generators", () => {
 		assert.equal(r.stacks.generators.detected, 0);
 	});
 
+	test("an implied tool stays off the Uses tally", async () => {
+		// It belongs on the site's own page: a count of React carried by Next.js
+		// sites would be inference presented as a measurement.
+		const probe = { metas: ["Next.js"], marks: ["next", "react"], markVersions: {} };
+		const r = await buildReport(presumedFixture("Next.js", probe));
+		assert.deepEqual(r.entries[0].tools.map((t) => [t.name, t.implied]), [["React", "Next.js"]]);
+		assert.deepEqual(r.stacks.tools.items, []);
+		assert.equal(r.stacks.tools.unknown, 1);
+	});
+
 	test("tools are unknown, not empty, on a record without a probe", async () => {
 		const r = await buildReport(presumedFixture("Eleventy v3.0.0"));
 		assert.equal(r.entries[0].tools, null);

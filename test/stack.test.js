@@ -363,19 +363,37 @@ describe("tools beyond the generator", () => {
 		assert.deepEqual(names(detectTools(probe, {}, detectGenerator(probe))), ["Pandoc"]);
 	});
 
-	test("leaves out what the primary implies", () => {
+	test("marks what the primary implies, naming the tool that brings it", () => {
+		// Kept for the site's own Stack panel and left off the leaderboard, which
+		// counts `implied` out — every Next.js site would otherwise wear "+1 React".
 		const next = { marks: ["next", "react"] };
-		assert.deepEqual(detectTools(next, {}, detectGenerator(next)), []);
+		assert.deepEqual(detectTools(next, {}, detectGenerator(next)).map((t) => [t.name, t.implied]), [
+			["React", "Next.js"],
+		]);
 		const kit = { marks: ["sveltekit", "svelte"] };
-		assert.deepEqual(detectTools(kit, {}, detectGenerator(kit)), []);
+		assert.deepEqual(detectTools(kit, {}, detectGenerator(kit)).map((t) => [t.name, t.implied]), [
+			["Svelte", "SvelteKit"],
+		]);
+	});
+
+	test("names the tool that implies it, not the one that built the site", () => {
+		// React Router brings React; Astro brings neither.
+		const probe = { metas: ["Astro v5.0.0"], marks: ["astro", "reactrouter", "react"] };
+		const tools = detectTools(probe, {}, detectGenerator(probe));
+		assert.deepEqual(tools.map((t) => [t.name, t.implied ?? null]), [
+			["React Router", null],
+			["React", "React Router"],
+		]);
 	});
 
 	test("lists islands on a generator that implies nothing", () => {
 		const probe = { metas: ["Astro v5.0.0"], marks: ["astro", "svelte", "react"] };
-		assert.deepEqual(names(detectTools(probe, {}, detectGenerator(probe))), ["Svelte", "React"]);
+		const tools = detectTools(probe, {}, detectGenerator(probe));
+		assert.deepEqual(names(tools), ["Svelte", "React"]);
+		assert.ok(tools.every((t) => !t.implied));
 	});
 
-	test("folds plugin tags into the platform they imply", () => {
+	test("drops a plugin tag naming the platform that is already the primary", () => {
 		const probe = { metas: ["All in One SEO (AIOSEO) 4.5.0", "WordPress 6.5"] };
 		assert.deepEqual(detectTools(probe, {}, detectGenerator(probe)), []);
 	});

@@ -214,7 +214,12 @@ eleventyComputed:
 						{% if entry.generator %}{% stackIcon entry.generator, 22 %}
 						{% elif entry.presumedGenerator %}{% stackIcon entry.presumedGenerator, 22 %}
 						{% else %}<span class="stack-none" title="No generator detected">·</span>{% endif %}
-						{%- if entry.tools.length %}<span class="stack-more" title="Also uses {{ entry.tools | join(', ', 'name') }}">+{{ entry.tools.length }}</span>{% endif %}
+						{#- Implied tools are left to the site's own Stack panel: "+1 React" on
+						    every Next.js row costs the badge its meaning where it has one. -#}
+						{#- `or []`, since a site measured before the probe was stored has no tool list
+						    at all and the filter cannot read null. -#}
+						{%- set extraTools = (entry.tools or []) | rejectattr("implied") %}
+						{%- if extraTools.length %}<span class="stack-more" title="Uses {{ extraTools | join(', ', 'name') }}">+{{ extraTools.length }}</span>{% endif %}
 					</td>
 					<td class="col-stack">
 						{% if entry.host %}{% stackIcon entry.host, 22 %}{% else %}<span class="stack-none" title="No host detected">·</span>{% endif %}

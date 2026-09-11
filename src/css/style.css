@@ -2788,6 +2788,9 @@ td.col-stack { position: relative; }
 .stack-item .stack-label { color: var(--text-muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; }
 .stack-tools { display: flex; flex-wrap: wrap; gap: 0.25rem 0.75rem; }
 .stack-tool { display: inline-flex; align-items: center; gap: 0.3rem; }
+/* Part of the tool above it rather than a find of its own — same treatment as a
+   presumed mark, for the same reason. */
+.stack-tool-implied { opacity: 0.7; }
 
 /* Monochrome marks inherit the theme's text color so they stay visible. */
 .stack-icon-mono { color: var(--text); }

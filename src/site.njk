@@ -502,22 +502,24 @@ eleventyComputed:
 			</span>
 		</div>
 		{% endif %}
+		{% if entry.tools.length %}
+		<div class="stack-item">
+			<span>
+				<span class="stack-label block">Uses</span>
+				<span class="stack-tools">
+					{#- An implied tool says which tool brings it, so it reads as part of that
+					    choice rather than as a second one. -#}
+					{% for tool in entry.tools %}<span class="stack-tool{% if tool.implied %} stack-tool-implied{% endif %}"{% if tool.implied %} title="Comes with {{ tool.implied }}"{% endif %}>{% stackIcon tool, 18 %}{{ tool.name }}{% if tool.version %} {{ tool.version }}{% endif %}</span>{% endfor %}
+				</span>
+			</span>
+		</div>
+		{% endif %}
 		{% if entry.host %}
 		<div class="stack-item">
 			{% stackIcon entry.host, 24 %}
 			<span>
 				<span class="stack-label block">Hosted by</span>
 				{{ entry.host.name }}
-			</span>
-		</div>
-		{% endif %}
-		{% if entry.tools.length %}
-		<div class="stack-item">
-			<span>
-				<span class="stack-label block">Also uses</span>
-				<span class="stack-tools">
-					{% for tool in entry.tools %}<span class="stack-tool">{% stackIcon tool, 18 %}{{ tool.name }}{% if tool.version %} {{ tool.version }}{% endif %}</span>{% endfor %}
-				</span>
 			</span>
 		</div>
 		{% endif %}
