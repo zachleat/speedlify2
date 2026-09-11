@@ -1,0 +1,351 @@
+{
+  "url": "https://covidtracking.com/",
+  "name": "covidtracking.com",
+  "group": "11ty-emeritus",
+  "groupName": "11ty Emeritus",
+  "timestamp": 1789148577977,
+  "date": "2026-09-11T17:42:57.977Z",
+  "runId": "2026-09-11T17-32-40-548Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 33549,
+  "error": null,
+  "variance": {
+    "min": 47,
+    "max": 71,
+    "spread": 24,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://covidtracking.com/",
+    "finalUrl": "https://covidtracking.com/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 71,
+      "accessibility": 92,
+      "best-practices": 96,
+      "seo": 100,
+      "agentic-browsing": 50
+    },
+    "timings": {
+      "fcp": 2530,
+      "lcp": 3784,
+      "si": 2530,
+      "tbt": 555,
+      "tti": 11421,
+      "cls": 0,
+      "ttfb": 486,
+      "maxPotentialFid": 462,
+      "serverResponseTime": 18,
+      "networkRtt": 2,
+      "networkServerLatency": 36.3
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 20,
+      "elementRenderDelay": 157.8
+    },
+    "weight": {
+      "total": 2123896,
+      "requests": 180,
+      "mainDocument": 64377,
+      "byType": {
+        "total": {
+          "bytes": 2123896,
+          "requests": 174
+        },
+        "image": {
+          "bytes": 1262195,
+          "requests": 129
+        },
+        "script": {
+          "bytes": 535861,
+          "requests": 11
+        },
+        "other": {
+          "bytes": 137758,
+          "requests": 28
+        },
+        "font": {
+          "bytes": 123705,
+          "requests": 5
+        },
+        "document": {
+          "bytes": 64377,
+          "requests": 1
+        },
+        "stylesheet": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 388009,
+          "requests": 5
+        }
+      },
+      "scripts": 11,
+      "stylesheets": 0,
+      "fonts": 5
+    },
+    "thirdParty": {
+      "count": 5,
+      "bytes": 388009,
+      "mainThreadMs": 51.5,
+      "top": [
+        {
+          "entity": "Google CDN",
+          "bytes": 355198,
+          "mainThreadMs": 37.9,
+          "byType": {
+            "script": 355198
+          },
+          "typedBytes": 355198
+        },
+        {
+          "entity": "Google Analytics",
+          "bytes": 20875,
+          "mainThreadMs": 8.7,
+          "byType": {
+            "script": 20875
+          },
+          "typedBytes": 20875
+        },
+        {
+          "entity": "Cloudflare",
+          "bytes": 10212,
+          "mainThreadMs": 4.1,
+          "byType": {
+            "script": 10212
+          },
+          "typedBytes": 10212
+        },
+        {
+          "entity": "Other Google APIs/SDKs",
+          "bytes": 1010,
+          "mainThreadMs": 0.7,
+          "byType": {
+            "script": 1010
+          },
+          "typedBytes": 1010
+        },
+        {
+          "entity": "Cloudflare CDN",
+          "bytes": 714,
+          "mainThreadMs": 0.1,
+          "byType": {
+            "script": 714
+          },
+          "typedBytes": 714
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 2835.3,
+      "byGroup": {
+        "other": 904.9,
+        "scriptEvaluation": 847.6,
+        "styleLayout": 782.4,
+        "scriptParseCompile": 132.2,
+        "parseHTML": 76.8,
+        "paintCompositeRender": 60.3,
+        "garbageCollection": 31.1
+      },
+      "bootupMs": 868,
+      "longTasks": 6,
+      "longestTaskMs": 462
+    },
+    "dom": {
+      "elements": 674,
+      "depth": 15,
+      "maxChildren": 117
+    },
+    "waste": {
+      "unusedJsBytes": 92991,
+      "unusedCssBytes": 32948,
+      "legacyJsBytes": 10708,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 16230,
+      "unminifiedCssBytes": 11405,
+      "renderBlockingMs": 0,
+      "renderBlockingCount": 0,
+      "poorlyCachedBytes": 884505.89,
+      "poorlyCachedCount": 140
+    },
+    "accessibility": {
+      "failingCount": 2,
+      "applicableCount": 28,
+      "failingNodes": 6,
+      "failing": [
+        {
+          "id": "list",
+          "title": "Lists do not contain only `<li>` elements and script supporting elements (`<script>` and `<template>`).",
+          "weight": 7,
+          "nodes": 5
+        },
+        {
+          "id": "aria-required-children",
+          "title": "Elements with an ARIA `[role]` that require children to contain a specific `[role]` are missing some or all of those required children.",
+          "weight": 10,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 1,
+      "applicableCount": 20,
+      "failing": [
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "weight": 1,
+          "nodes": 3
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 0,
+      "applicableCount": 10,
+      "failing": []
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h3",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 3,
+      "baselineLimitedFeatures": 25
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2498.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-09-11T17:43:11.040Z",
+      "runtimeMs": 9213.5
+    }
+  },
+  "field": {
+    "source": "crux",
+    "scope": "origin",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-08-13",
+      "last": "2026-09-09"
+    },
+    "metrics": {
+      "lcp": {
+        "p75": 1229,
+        "rating": "good",
+        "distribution": {
+          "good": 95.1,
+          "needsImprovement": 3.1,
+          "poor": 1.8
+        }
+      },
+      "rtt": {
+        "p75": 119,
+        "rating": null,
+        "distribution": {
+          "good": 49.1,
+          "needsImprovement": 46.5,
+          "poor": 4.5
+        }
+      },
+      "cls": {
+        "p75": 0,
+        "rating": "good",
+        "distribution": {
+          "good": 96.2,
+          "needsImprovement": 1.7,
+          "poor": 2
+        }
+      },
+      "ttfb": {
+        "p75": 667,
+        "rating": "good",
+        "distribution": {
+          "good": 84.2,
+          "needsImprovement": 13.9,
+          "poor": 1.9
+        }
+      },
+      "fcp": {
+        "p75": 1229,
+        "rating": "good",
+        "distribution": {
+          "good": 91.1,
+          "needsImprovement": 4.9,
+          "poor": 4
+        }
+      }
+    },
+    "cwvPass": true,
+    "cwvAssessed": 2
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": {
+      "id": "gatsby",
+      "name": "Gatsby",
+      "icon": "Gatsby",
+      "version": "2.25.3",
+      "source": "meta",
+      "raw": "Gatsby 2.25.3"
+    },
+    "interstitial": null,
+    "host": {
+      "id": "github",
+      "name": "GitHub Pages",
+      "icon": "Github",
+      "source": "x-github-request-id"
+    },
+    "headers": {
+      "cf-ray": "a39879621d7bb1ae-SJC",
+      "server": "cloudflare",
+      "via": "1.1 varnish",
+      "x-fastly-request-id": "ab9de1dd154e009caac9bffdb708812b0dfc33d7",
+      "x-github-request-id": "67B4:209D4C:1DDA6:1F854:6AA43DA2",
+      "x-served-by": "cache-sjc10032-SJC"
+    },
+    "violations": 7,
+    "passes": 916,
+    "incomplete": 10,
+    "violationRules": 3,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "list",
+        "impact": "serious",
+        "nodes": 5,
+        "help": "<ul> and <ol> must only directly contain <li>, <script> or <template> elements"
+      },
+      {
+        "id": "aria-required-children",
+        "impact": "critical",
+        "nodes": 1,
+        "help": "Certain ARIA roles must contain particular children"
+      },
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "All page content should be contained by landmarks"
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
