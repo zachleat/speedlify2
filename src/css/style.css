@@ -2738,6 +2738,19 @@ th.col-rings { text-align: left !important; }
 /* The text chip is the fallback when a brand has no mark, so it grows with the
    icons rather than sitting beside them looking like a different column. */
 .col-stack .stack-chip { font-size: 0.7rem; }
+/* Hung off the right of the 22px mark so the marks stay centered in every row. */
+td.col-stack { position: relative; }
+.stack-more {
+	position: absolute;
+	left: calc(50% + 13px);
+	top: 50%;
+	transform: translateY(-50%);
+	font-size: 0.65rem;
+	font-weight: 650;
+	font-variant-numeric: tabular-nums;
+	color: var(--text-muted);
+	cursor: default;
+}
 .stack-icon { display: inline-block; vertical-align: middle; }
 .stack-chip {
 	display: inline-block;
@@ -2773,6 +2786,8 @@ th.col-rings { text-align: left !important; }
 .stack-list { display: flex; flex-wrap: wrap; gap: 1.25rem; }
 .stack-item { display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; }
 .stack-item .stack-label { color: var(--text-muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; }
+.stack-tools { display: flex; flex-wrap: wrap; gap: 0.25rem 0.75rem; }
+.stack-tool { display: inline-flex; align-items: center; gap: 0.3rem; }
 
 /* Monochrome marks inherit the theme's text color so they stay visible. */
 .stack-icon-mono { color: var(--text); }

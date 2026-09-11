@@ -2,7 +2,7 @@ import { test, describe } from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
 
-import { detectGenerator, detectHost, pickHostHeaders, pageProbe, detectInterstitial } from "../lib/stack.js";
+import { detectGenerator, detectTools, storedProbe, detectHost, pickHostHeaders, pageProbe, detectInterstitial } from "../lib/stack.js";
 
 /**
  * Every generator that https://github.com/11ty/api-generator recognizes, with a
@@ -305,7 +305,7 @@ describe("pickHostHeaders", () => {
  * touches `document` and `window` — enough that a couple of stubs stand in for
  * a DOM here and keep the test suite free of a headless browser.
  */
-function withDom(html, fn, windowGlobals = {}) {
+function withDom(html, fn, windowGlobals = {}, nodes = []) {
 	const scripts = [...html.matchAll(/src="([^"]+)"/g)].map((m) => m[1]);
 	const metas = [...html.matchAll(/<meta[^>]*name="generator"[^>]*content="([^"]*)"/gi)].map(
 		(m) => ({ getAttribute: () => m[1] }),
@@ -326,6 +326,7 @@ function withDom(html, fn, windowGlobals = {}) {
 			return hit ? {} : null;
 		},
 		querySelectorAll(query) {
+			if (query === "body, body *") return nodes;
 			return isMetaQuery(query) ? metas : [];
 		},
 	};
@@ -344,6 +345,100 @@ function withDom(html, fn, windowGlobals = {}) {
 		}
 	}
 }
+
+describe("tools beyond the generator", () => {
+	const names = (tools) => tools.map((t) => t.name);
+
+	test("lists the generator a deferred tag was built on", () => {
+		const probe = { metas: ["Silex v3.0.0", "Eleventy v3.0.0"] };
+		const primary = detectGenerator(probe);
+		assert.equal(primary.name, "Eleventy");
+		assert.deepEqual(detectTools(probe, {}, primary), [
+			{ id: "silex", name: "Silex", icon: null, version: "3.0.0", source: "meta" },
+		]);
+	});
+
+	test("lists the layer underneath", () => {
+		const probe = { metas: ["quarto-1.4.550", "pandoc"] };
+		assert.deepEqual(names(detectTools(probe, {}, detectGenerator(probe))), ["Pandoc"]);
+	});
+
+	test("leaves out what the primary implies", () => {
+		const next = { marks: ["next", "react"] };
+		assert.deepEqual(detectTools(next, {}, detectGenerator(next)), []);
+		const kit = { marks: ["sveltekit", "svelte"] };
+		assert.deepEqual(detectTools(kit, {}, detectGenerator(kit)), []);
+	});
+
+	test("lists islands on a generator that implies nothing", () => {
+		const probe = { metas: ["Astro v5.0.0"], marks: ["astro", "svelte", "react"] };
+		assert.deepEqual(names(detectTools(probe, {}, detectGenerator(probe))), ["Svelte", "React"]);
+	});
+
+	test("folds plugin tags into the platform they imply", () => {
+		const probe = { metas: ["All in One SEO (AIOSEO) 4.5.0", "WordPress 6.5"] };
+		assert.deepEqual(detectTools(probe, {}, detectGenerator(probe)), []);
+	});
+
+	test("ignores an unknown second tag", () => {
+		const probe = { metas: ["Eleventy v3.0.0", "Powered by Slider Revolution 6.6"] };
+		assert.deepEqual(detectTools(probe, {}, detectGenerator(probe)), []);
+	});
+
+	test("never credits a framework with building the site", () => {
+		// That would move an Eleventy site with a Preact island out of its category.
+		assert.equal(detectGenerator({ marks: ["react", "preact", "vue", "alpine"] }), null);
+		assert.deepEqual(names(detectTools({ marks: ["preact"] })), ["Preact"]);
+	});
+
+	test("carries a version the page volunteered", () => {
+		const tools = detectTools({ marks: ["lit", "alpine"], markVersions: { lit: "3.1.0", alpine: "3.14.1" } });
+		assert.deepEqual(
+			tools.map((t) => `${t.name} ${t.version}`),
+			["Lit 3.1.0", "Alpine.js 3.14.1"],
+		);
+	});
+
+	test("pageProbe finds frameworks by the globals they register", () => {
+		const probe = withDom("", pageProbe, {
+			Alpine: { version: "3.14.1" },
+			litHtmlVersions: ["3.1.0"],
+			_$HY: {},
+		});
+		assert.ok(probe.marks.includes("alpine"));
+		assert.ok(probe.marks.includes("lit"));
+		assert.ok(probe.marks.includes("solid"));
+		assert.equal(probe.markVersions.alpine, "3.14.1");
+		assert.equal(probe.markVersions.lit, "3.1.0");
+	});
+
+	test("pageProbe finds frameworks by what they keep on DOM nodes", () => {
+		const probe = withDom("", pageProbe, {}, [
+			{ "__reactFiber$abc123": {} },
+			{ __k: { __e: null, __v: 1 } },
+			{ __vue_app__: { version: "3.4.21" } },
+		]);
+		assert.ok(probe.marks.includes("react"));
+		assert.ok(probe.marks.includes("preact"));
+		assert.ok(probe.marks.includes("vue"));
+		assert.equal(probe.markVersions.vue, "3.4.21");
+	});
+
+	test("pageProbe does not read a stray __k as Preact", () => {
+		const probe = withDom("", pageProbe, {}, [{ __k: "not a vnode" }]);
+		assert.ok(!probe.marks.includes("preact"));
+	});
+
+	test("a probe that never read the page is not stored", () => {
+		assert.equal(storedProbe({ metas: [], marks: [], failed: true }), null);
+		assert.equal(storedProbe(null), null);
+		assert.deepEqual(storedProbe({ metas: ["Eleventy"], marks: ["vue"], markVersions: {} }, ["vue", "vite"]), {
+			metas: ["Eleventy"],
+			marks: ["vue", "vite"],
+			markVersions: {},
+		});
+	});
+});
 
 describe("local brand marks", () => {
 	/**

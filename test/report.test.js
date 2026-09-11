@@ -470,7 +470,7 @@ describe("presumed generators", () => {
 	 * detected, that claim is worth showing — but it must never behave like a
 	 * measurement, and it must vanish the moment one contradicts it.
 	 */
-	function presumedFixture(generator) {
+	function presumedFixture(generator, probe) {
 		const dir = fs.mkdtempSync(path.join(os.tmpdir(), "speedlify-presumed-"));
 		tmp.push(dir);
 		const store = new ResultStore(path.join(dir, "results"));
@@ -492,7 +492,7 @@ describe("presumed generators", () => {
 				weight: { total: 1000, requests: 1, byType: {} },
 				environment: { benchmarkIndex: 3800, lighthouseVersion: "13.4.1" },
 			},
-			axe: generator ? { generator: { raw: generator }, headers: {} } : null,
+			axe: generator || probe ? { generator: generator ? { raw: generator } : null, probe, headers: {} } : null,
 			field: null,
 		});
 
@@ -537,6 +537,23 @@ describe("presumed generators", () => {
 		const entry = r.entries[0];
 		assert.deepEqual(entry.groups, ["past"]);
 		assert.equal(entry.presumedGenerator, undefined);
+	});
+
+	test("survives a framework island, which is listed as a tool instead", async () => {
+		const r = await buildReport(presumedFixture(null, { metas: [], marks: ["preact"], markVersions: {} }));
+		const entry = r.entries[0];
+		assert.deepEqual(entry.groups, ["curated"]);
+		assert.equal(entry.presumedGenerator.name, "Build Awesome");
+		assert.deepEqual(entry.tools.map((t) => t.name), ["Preact"]);
+		assert.deepEqual(r.stacks.tools.items.map((i) => [i.name, i.count]), [["Preact", 1]]);
+		assert.equal(r.stacks.generators.detected, 0);
+	});
+
+	test("tools are unknown, not empty, on a record without a probe", async () => {
+		const r = await buildReport(presumedFixture("Eleventy v3.0.0"));
+		assert.equal(r.entries[0].tools, null);
+		assert.equal(r.stacks.tools.detected, 0);
+		assert.equal(r.stacks.tools.unknown, 0);
 	});
 
 	test("never counts toward the Built with tally", async () => {

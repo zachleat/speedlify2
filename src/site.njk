@@ -428,7 +428,7 @@ eleventyComputed:
 	Only rendered for a measured site: the branch above is the whole page
 	otherwise.
 #}
-{% set hasStack = entry.generator or entry.host %}
+{% set hasStack = entry.generator or entry.host or entry.tools.length %}
 {% set hasCwv = entry.cwv %}
 {#
 	Whether there is field data to show a column for. Not simply `hasField`: a
@@ -508,6 +508,16 @@ eleventyComputed:
 			<span>
 				<span class="stack-label block">Hosted by</span>
 				{{ entry.host.name }}
+			</span>
+		</div>
+		{% endif %}
+		{% if entry.tools.length %}
+		<div class="stack-item">
+			<span>
+				<span class="stack-label block">Also uses</span>
+				<span class="stack-tools">
+					{% for tool in entry.tools %}<span class="stack-tool">{% stackIcon tool, 18 %}{{ tool.name }}{% if tool.version %} {{ tool.version }}{% endif %}</span>{% endfor %}
+				</span>
 			</span>
 		</div>
 		{% endif %}

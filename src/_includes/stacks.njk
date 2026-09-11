@@ -114,6 +114,8 @@
 		{{ stacktally(stacks.generators, "Built with", "built with") }}
 		{{ versionbars(stacks.eleventyVersions) }}
 		{{ stacktally(stacks.hosts, "Hosted by", "hosted by") }}
+		{# A site counts once per tool, so these rows add up to more than the heading. #}
+		{{ stacktally(stacks.tools, "Also uses", "also using") }}
 	</div>
 </section>
 {% endif %}

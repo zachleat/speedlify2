@@ -214,6 +214,7 @@ eleventyComputed:
 						{% if entry.generator %}{% stackIcon entry.generator, 22 %}
 						{% elif entry.presumedGenerator %}{% stackIcon entry.presumedGenerator, 22 %}
 						{% else %}<span class="stack-none" title="No generator detected">·</span>{% endif %}
+						{%- if entry.tools.length %}<span class="stack-more" title="Also uses {{ entry.tools | join(', ', 'name') }}">+{{ entry.tools.length }}</span>{% endif %}
 					</td>
 					<td class="col-stack">
 						{% if entry.host %}{% stackIcon entry.host, 22 %}{% else %}<span class="stack-none" title="No host detected">·</span>{% endif %}
