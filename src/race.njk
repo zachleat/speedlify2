@@ -79,6 +79,12 @@ title: Compare
 		<span class="race-icon-source-unlock" hidden>
 			<i class="fa-solid fa-lock-open" width="14" height="14" aria-hidden="true"></i>
 		</span>
+		<span class="race-icon-source-anim" hidden>
+			<i class="fa-solid fa-arrows-rotate" width="10" height="10" aria-hidden="true"></i>
+		</span>
+		<span class="race-icon-source-finish" hidden>
+			<i class="fa-solid fa-flag-checkered" width="10" height="10" aria-hidden="true"></i>
+		</span>
 		<div class="race-picker-actions">
 			<button type="button" id="race-add">Add a lane</button>
 			<button type="button" id="race-shuffle">Shuffle</button>
@@ -345,6 +351,16 @@ title: Compare
 	   broken one. */
 	function trashIcon() {
 		var source = document.querySelector(".race-icon-source");
+		return source ? source.innerHTML : "";
+	}
+
+	function finishIcon() {
+		var source = document.querySelector(".race-icon-source-finish");
+		return source ? source.innerHTML : "";
+	}
+
+	function animIcon() {
+		var source = document.querySelector(".race-icon-source-anim");
 		return source ? source.innerHTML : "";
 	}
 
@@ -728,15 +744,43 @@ title: Compare
 		}
 
 		lane.cells = [];
-		frames.forEach(function (frame) {
-			/* Past the point the picture stopped changing there is nothing left to
-			   show: every remaining frame is the settled one again, and drawing
-			   them said "still going" about a lane that had finished. The strip
-			   ends where the page did. */
-			if (typeof settled === "number" && frame.timing > settled) return;
-
+		frames.forEach(function (frame, index) {
 			var slot = el("div", "race-frame");
 			slot.style.setProperty("--at", frame.timing / timeline.step);
+
+			/* Past the point the picture stopped changing, every remaining frame is
+			   the settled one again. Drawn, because they were measured and the
+			   lane's length is part of what it says — but faint, so the eye stays
+			   on the part of each lane that is still changing. */
+			// The frame the lane finishes on.
+			if (typeof settled === "number" && frame.timing === settled) {
+				var flag = el("span", "race-frame-finish");
+				flag.innerHTML = finishIcon();
+				flag.title = "Finished — the page stopped changing here, at " + fmtSeconds(frame.timing);
+				slot.appendChild(flag);
+			}
+
+			if (typeof settled === "number" && frame.timing > settled) {
+				slot.classList.add("is-settled");
+
+				/*
+				 * Settled, but not still.
+				 *
+				 * The settle is judged on the pixels with room for a small change —
+				 * see settleTime in lib/metrics.js — so a page can be finished while
+				 * something on it keeps moving: a carousel, a spinner, a looping
+				 * video. A frame after the settle that differs from the one before it
+				 * is that, and it gets a mark saying so, rather than being faded
+				 * into the same "nothing more here" as a true repeat.
+				 */
+				var prev = index > 0 ? frames[index - 1] : null;
+				if (prev && prev.src !== frame.src) {
+					var anim = el("span", "race-frame-anim");
+					anim.innerHTML = animIcon();
+					anim.title = "Still animating — this frame differs from the one before, after the page had settled";
+					slot.appendChild(anim);
+				}
+			}
 
 			var img = new Image();
 			img.src = frame.src;

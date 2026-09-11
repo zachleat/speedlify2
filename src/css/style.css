@@ -3521,19 +3521,26 @@ a.cat-chip:hover, a.cat-chip:focus-visible { color: var(--text); border-color: v
    tracks collapse, so two lanes take half the width each rather than a quarter. */
 .race-fields {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+	/* `min()` so the track can never ask for more than the picker has: a bare
+	   22rem minimum forced one column wider than a phone and pushed the fields
+	   off the edge. */
+	grid-template-columns: repeat(auto-fit, minmax(min(22rem, 100%), 1fr));
 	gap: 0.6rem 1rem;
 }
 
+/* One line, always: the field and the two buttons that act on it belong
+   together, and wrapping left a lock or trash can alone on a line under an input
+   it no longer visibly belonged to. The input is the only part that gives —
+   the label and the buttons are fixed width and do not shrink. */
 .race-field {
 	display: flex;
 	align-items: center;
 	gap: 0.6rem;
-	flex-wrap: wrap;
+	flex-wrap: nowrap;
 }
 
 .race-field-label {
-	flex: 0 0 4.5rem;
+	flex: 0 0 4em;
 	font-size: 0.8rem;
 	text-transform: uppercase;
 	letter-spacing: 0.06em;
@@ -3989,6 +3996,47 @@ a.cat-chip:hover, a.cat-chip:focus-visible { color: var(--text); border-color: v
 	white-space: nowrap;
 }
 .race-frame.is-on { opacity: 1; }
+
+/*
+ * A frame after the lane settled. Shown, since it was measured, but faint.
+ *
+ * The picture and its timestamp fade rather than the whole slot, so the mark for
+ * a frame that is still animating can stay at full strength on top of it —
+ * opacity on the slot would have faded the mark with everything else.
+ */
+.race-frame.is-settled img,
+.race-frame.is-settled .race-frame-time { opacity: 0.2; }
+.race-frame.is-settled { border-color: transparent; }
+
+/* The mark for a settled frame that is still changing — see renderLane. */
+.race-frame-anim {
+	position: absolute;
+	top: 4px;
+	right: 4px;
+	z-index: 1;
+	display: inline-flex;
+	padding: 3px;
+	border-radius: 50%;
+	color: var(--brand-text);
+	background: var(--accent);
+	line-height: 1;
+}
+.race-frame-anim svg { display: block; width: 10px; height: 10px; }
+
+/* Marks the frame a lane settles on. */
+.race-frame-finish {
+	position: absolute;
+	top: 4px;
+	left: 4px;
+	z-index: 1;
+	display: inline-flex;
+	padding: 3px;
+	border-radius: 50%;
+	color: var(--brand-text);
+	background: var(--good);
+	line-height: 1;
+}
+.race-frame-finish svg { display: block; width: 10px; height: 10px; }
 
 /* Bordered so each frame reads as its own photograph. `--border-strong` rather
    than `--border`: these sit on the page background now instead of inside a
