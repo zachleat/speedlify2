@@ -65,6 +65,9 @@ jobs:
         env:
           SPEEDLIFY_SITE_URL: ${{ steps.pages.outputs.base_url }}
           SPEEDLIFY_BASE_HREF: ${{ steps.pages.outputs.base_path }}
+          # A repository variable, so a copy of this template gets no analytics
+          # until it sets its own.
+          SPEEDLIFY_GOATCOUNTER_URL: ${{ vars.SPEEDLIFY_GOATCOUNTER_URL }}
         run: npx @awesome.me/buildawesome
 
       - name: Report coverage

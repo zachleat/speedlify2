@@ -1,3 +1,17 @@
+function goatcounterUrl(value) {
+	if (!value) return "";
+	let url;
+	try {
+		url = new URL(value);
+	} catch {
+		throw new Error(`SPEEDLIFY_GOATCOUNTER_URL is not a valid URL: ${JSON.stringify(value)}`);
+	}
+	if (url.protocol !== "https:") {
+		throw new Error(`SPEEDLIFY_GOATCOUNTER_URL must be an https:// URL: ${JSON.stringify(value)}`);
+	}
+	return url.href;
+}
+
 export default {
 	title: "speedlify2",
 	tagline: "Web performance, measured over time",
@@ -13,6 +27,10 @@ export default {
 	// blank: an empty string silently drops the link, which is how the header one
 	// went unnoticed for so long. Override it when running your own instance.
 	repo: process.env.SPEEDLIFY_REPO_URL || "https://github.com/zachleat/speedlify2",
+
+	// GoatCounter endpoint, e.g. https://you.goatcounter.com/count. Off unless
+	// set: analytics belong to one deployment, not to the template.
+	goatcounter: goatcounterUrl(process.env.SPEEDLIFY_GOATCOUNTER_URL),
 
 	// Favicon service for the site list. `{url}` is replaced with the
 	// encoded site URL. Set to "" for a build that makes no external requests

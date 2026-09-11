@@ -320,6 +320,7 @@ This uses Node's built-in `process.loadEnvFile` (Node 20.12+), so it costs no de
 | `SPEEDLIFY_ENV_FILE` | `.env` | Load a different env file |
 | `SPEEDLIFY_SITE_URL` | — | Deployed origin, for page metadata |
 | `SPEEDLIFY_REPO_URL` | `https://github.com/zachleat/speedlify2` | Repository link in the footer |
+| `SPEEDLIFY_GOATCOUNTER_URL` | — | GoatCounter endpoint; adds the counter script when set |
 
 ## Real-user data (recommended)
 
