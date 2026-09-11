@@ -247,14 +247,8 @@ title: Compare
 	/*
 	 * Real-world durations to read the lanes against.
 	 *
-	 * These belong on this axis in a way Lighthouse's own metrics do not: they
-	 * are wall-clock seconds, and so is the recorded load the frames come from.
-	 * That was the whole objection to drawing TTFB/FCP/LCP here — those are
-	 * Lantern estimates of a load that never ran.
-	 *
-	 * The axis is never stretched to fit one. A race between two fast sites
-	 * should not be squashed into a tenth of the page so that Bolt fits; markers
-	 * past the end of the race are simply not drawn.
+	 * The axis is never stretched to fit one; markers past the end of the race
+	 * are not drawn. The longer ones only show up in throttled races.
 	 */
 	var COMPARISONS = [
 		{ label: "👁 Human blink", at: 150 },
@@ -268,7 +262,10 @@ title: Compare
 		{ label: "🔊 Sound travels one mile", at: 4692 },
 		{ label: "🍪 5s Rule", at: 5000 },
 		{ label: "📹 Vine video", at: 6000 },
-		{ label: "🏃 Usain Bolt runs 100m", at: 9580 }
+		{ label: "🏃 Usain Bolt runs 100m", at: 9580 },
+		{ label: "🧼 Wash your Hands (CDC)", at: 20000 },
+		{ label: "🏀 NBA shot clock", at: 24000 },
+		{ label: "📺 TV Commercial", at: 30000 }
 	];
 
 
