@@ -1,0 +1,438 @@
+{
+  "url": "https://www.sap.com/",
+  "name": "SAP",
+  "group": "big-tech",
+  "groupName": "Big Tech",
+  "timestamp": 1789116495247,
+  "date": "2026-09-11T08:48:15.247Z",
+  "runId": "2026-09-11T08-36-28-526Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 393061,
+  "error": null,
+  "variance": {
+    "min": 9,
+    "max": 27,
+    "spread": 18,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://www.sap.com/",
+    "finalUrl": "https://www.sap.com/index.html",
+    "redirect": {
+      "from": "https://www.sap.com/",
+      "to": "https://www.sap.com/index.html",
+      "chain": [
+        {
+          "url": "https://www.sap.com/",
+          "status": 301
+        },
+        {
+          "url": "https://www.sap.com/index.html",
+          "status": 200
+        }
+      ],
+      "statuses": [
+        301
+      ],
+      "change": "path",
+      "permanent": true,
+      "schemeUpgrade": false,
+      "hops": 1
+    },
+    "statusCode": "ok",
+    "scores": {
+      "performance": 12,
+      "accessibility": 90,
+      "best-practices": 50,
+      "seo": 92,
+      "agentic-browsing": 16
+    },
+    "timings": {
+      "fcp": 9852,
+      "lcp": 20264,
+      "si": 17735,
+      "tbt": 1614,
+      "tti": 25286,
+      "cls": 0.344,
+      "ttfb": 632,
+      "maxPotentialFid": 271,
+      "serverResponseTime": 14,
+      "networkRtt": 169.6,
+      "networkServerLatency": 328.8
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 373.3,
+      "resourceLoadDelay": 1264.4,
+      "resourceLoadDuration": 28.9,
+      "elementRenderDelay": 898.4
+    },
+    "weight": {
+      "total": 4684071,
+      "requests": 246,
+      "mainDocument": 15468,
+      "byType": {
+        "total": {
+          "bytes": 4682037,
+          "requests": 244
+        },
+        "script": {
+          "bytes": 2398954,
+          "requests": 104
+        },
+        "media": {
+          "bytes": 986362,
+          "requests": 5
+        },
+        "image": {
+          "bytes": 623499,
+          "requests": 47
+        },
+        "other": {
+          "bytes": 417531,
+          "requests": 64
+        },
+        "stylesheet": {
+          "bytes": 143355,
+          "requests": 20
+        },
+        "font": {
+          "bytes": 92911,
+          "requests": 1
+        },
+        "document": {
+          "bytes": 19425,
+          "requests": 3
+        },
+        "third-party": {
+          "bytes": 1189673,
+          "requests": 86
+        }
+      },
+      "scripts": 105,
+      "stylesheets": 20,
+      "fonts": 1
+    },
+    "thirdParty": {
+      "count": 17,
+      "bytes": 1214475,
+      "mainThreadMs": 838,
+      "top": [
+        {
+          "entity": "net.sap",
+          "bytes": 792676,
+          "mainThreadMs": 0,
+          "byType": {
+            "script": 792225,
+            "other": 451
+          },
+          "typedBytes": 792676
+        },
+        {
+          "entity": "Qualtrics",
+          "bytes": 65127,
+          "mainThreadMs": 9.9,
+          "byType": {
+            "script": 63611,
+            "other": 1516
+          },
+          "typedBytes": 65127
+        },
+        {
+          "entity": "mPulse",
+          "bytes": 62986,
+          "mainThreadMs": 17.9,
+          "byType": {
+            "script": 61419,
+            "other": 1567
+          },
+          "typedBytes": 62986
+        },
+        {
+          "entity": "Microad",
+          "bytes": 54645,
+          "mainThreadMs": 12.9,
+          "byType": {
+            "script": 15017,
+            "other": 39103,
+            "image": 525
+          },
+          "typedBytes": 54645
+        },
+        {
+          "entity": "TrustArc",
+          "bytes": 53200,
+          "mainThreadMs": 21.6,
+          "byType": {
+            "script": 51338,
+            "image": 617,
+            "other": 1245
+          },
+          "typedBytes": 53200
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 13215.5,
+      "byGroup": {
+        "scriptEvaluation": 9261,
+        "other": 2020,
+        "scriptParseCompile": 779.5,
+        "styleLayout": 483.5,
+        "paintCompositeRender": 282.7,
+        "garbageCollection": 206.7,
+        "parseHTML": 182.1
+      },
+      "bootupMs": 9276.6,
+      "longTasks": 20,
+      "longestTaskMs": 271
+    },
+    "dom": {
+      "elements": 2094,
+      "depth": 21,
+      "maxChildren": 82
+    },
+    "waste": {
+      "unusedJsBytes": 832791,
+      "unusedCssBytes": 74228,
+      "legacyJsBytes": 36664,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 2482,
+      "renderBlockingMs": 3774,
+      "renderBlockingCount": 29,
+      "poorlyCachedBytes": 314902.8294765059,
+      "poorlyCachedCount": 38
+    },
+    "accessibility": {
+      "failingCount": 3,
+      "applicableCount": 34,
+      "failingNodes": 5,
+      "failing": [
+        {
+          "id": "heading-order",
+          "title": "Heading elements are not in a sequentially-descending order",
+          "weight": 3,
+          "nodes": 3
+        },
+        {
+          "id": "aria-allowed-attr",
+          "title": "`[aria-*]` attributes do not match their roles",
+          "weight": 10,
+          "nodes": 1
+        },
+        {
+          "id": "aria-valid-attr",
+          "title": "`[aria-*]` attributes are not valid or misspelled",
+          "weight": 10,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 6,
+      "applicableCount": 19,
+      "failing": [
+        {
+          "id": "deprecations",
+          "title": "Uses deprecated APIs",
+          "weight": 5,
+          "nodes": 2
+        },
+        {
+          "id": "third-party-cookies",
+          "title": "Uses third-party cookies",
+          "weight": 5,
+          "nodes": 10
+        },
+        {
+          "id": "image-aspect-ratio",
+          "title": "Displays images with incorrect aspect ratio",
+          "weight": 1,
+          "nodes": 4
+        },
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "weight": 1,
+          "nodes": 5
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "weight": 1,
+          "nodes": 1
+        },
+        {
+          "id": "valid-source-maps",
+          "title": "Missing source maps for large first-party JavaScript",
+          "weight": 0,
+          "nodes": 3
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 1,
+      "applicableCount": 10,
+      "failing": [
+        {
+          "id": "link-text",
+          "title": "Links do not have descriptive text",
+          "weight": 1,
+          "nodes": 1
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 0,
+      "bfCacheFailures": 1,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 788.8,
+      "consoleErrors": 5,
+      "baselineLimitedFeatures": 59
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2487.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-09-11T08:48:16.701Z",
+      "runtimeMs": 61393.3
+    }
+  },
+  "field": {
+    "source": "crux",
+    "scope": "origin",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-08-13",
+      "last": "2026-09-09"
+    },
+    "metrics": {
+      "ttfb": {
+        "p75": 1340,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 52.8,
+          "needsImprovement": 32.8,
+          "poor": 14.4
+        }
+      },
+      "fcp": {
+        "p75": 2579,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 56.6,
+          "needsImprovement": 24.9,
+          "poor": 18.6
+        }
+      },
+      "inp": {
+        "p75": 292,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 63.1,
+          "needsImprovement": 24.9,
+          "poor": 12.1
+        }
+      },
+      "lcp": {
+        "p75": 2633,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 72.7,
+          "needsImprovement": 15.1,
+          "poor": 12.2
+        }
+      },
+      "rtt": {
+        "p75": 147,
+        "rating": null,
+        "distribution": {
+          "good": 36.4,
+          "needsImprovement": 55.6,
+          "poor": 8.1
+        }
+      },
+      "cls": {
+        "p75": 0,
+        "rating": "good",
+        "distribution": {
+          "good": 96.1,
+          "needsImprovement": 1.4,
+          "poor": 2.5
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": true,
+    "generator": null,
+    "interstitial": null,
+    "host": {
+      "id": "akamai",
+      "name": "Akamai",
+      "icon": "Akamai",
+      "source": "server"
+    },
+    "headers": {
+      "server": "AkamaiGHost"
+    },
+    "violations": 7,
+    "passes": 1271,
+    "incomplete": 8,
+    "violationRules": 6,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "heading-order",
+        "impact": "moderate",
+        "nodes": 2,
+        "help": "Heading levels should only increase by one"
+      },
+      {
+        "id": "aria-allowed-attr",
+        "impact": "critical",
+        "nodes": 1,
+        "help": "Elements must only use supported ARIA attributes"
+      },
+      {
+        "id": "landmark-banner-is-top-level",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Banner landmark should not be contained in another landmark"
+      },
+      {
+        "id": "landmark-no-duplicate-banner",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Document should not have more than one banner landmark"
+      },
+      {
+        "id": "landmark-unique",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination"
+      },
+      {
+        "id": "page-has-heading-one",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Page should contain a level-one heading"
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
