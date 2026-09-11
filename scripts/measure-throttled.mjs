@@ -130,7 +130,8 @@ process.stdout.write(
 		`  frames captured under: ${record.screenshotThrottling}\n` +
 		`  frames captured: ${strip ? strip.length : 0}` +
 		(strip?.length ? `, spanning ${strip[strip.length - 1].timing}ms` : "") +
-		`\n  FCP ${timings.fcp}ms · LCP ${timings.lcp}ms · TTFB ${timings.ttfb}ms\n` +
+		`\n  FCP ${timings.fcp}ms · LCP ${timings.lcp}ms · TTFB ${timings.ttfb}ms (scored)\n` +
+		`  strip flags: ${record.screenshotMarkers ? JSON.stringify(record.screenshotMarkers) : "none"}\n` +
 		(record.error ? `  error: ${record.error}\n` : "") +
 		(flags.report ? "" : `\n  Run \`npm run report\` to see it on the site page and at /compare/.\n`) +
 		`\n`

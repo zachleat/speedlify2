@@ -5,7 +5,7 @@ import os from "node:os";
 import path from "node:path";
 
 import { ResultStore } from "../lib/store.js";
-import { keepsScreenshots, keepsFilmstrip } from "../lib/runner.js";
+import { keepsScreenshots, keepsFilmstrip, filmstripMarkers } from "../lib/runner.js";
 import { clientRendered } from "../lib/report.js";
 
 /**
@@ -194,5 +194,26 @@ describe("the client-rendering verdict", () => {
 		assert.equal(clientRendered(wall), false);
 		assert.equal(clientRendered(wall, "Access Denied"), null);
 		assert.equal(clientRendered(empty, "Vercel Security Checkpoint"), null);
+	});
+});
+
+describe("filmstrip markers", () => {
+	test("keeps TTFB, FCP and LCP from the capturing pass", () => {
+		assert.deepEqual(filmstripMarkers({ ttfb: 610, fcp: 1820, lcp: 2400, si: 3000 }), { ttfb: 610, fcp: 1820, lcp: 2400 });
+	});
+
+	test("nothing to keep is null", () => {
+		assert.equal(filmstripMarkers({ ttfb: null }), null);
+		assert.equal(filmstripMarkers(undefined), null);
+	});
+
+	test("are written into the filmstrip manifest", () => {
+		const d = dir();
+		const store = new ResultStore(d);
+		const frames = [{ timing: 375, buffer: Buffer.from([1, 2, 3]) }];
+		store.writeFilmstrip(d, frames, 0, "devtools", { fcp: 1820 });
+		const manifest = JSON.parse(fs.readFileSync(path.join(d, "filmstrip.json"), "utf8"));
+		assert.deepEqual(manifest.markers, { fcp: 1820 });
+		assert.equal(manifest.throttlingMethod, "devtools");
 	});
 });

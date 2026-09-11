@@ -181,13 +181,10 @@ title: Compare
 		an unthrottled capture is.
 	</p>
 	<p class="muted small race-note">
-		Because the throttling was real, TTFB, FCP and LCP for these sites are read
-		from this same trace rather than estimated from a faster one, so for once
-		they describe the load in front of you. They are still not drawn on the
-		axis: the finish line here is the observed one &mdash; when a lane's
-		picture stops changing &mdash; which comes out of the frames themselves and
-		needs no second source. Numbers measured this way carry more run-to-run
-		variance than the modelled ones, so a close result is closer than it looks.
+		The TTFB, FCP and LCP flags in each lane are observed in the same trace as
+		its frames, so they line up with the pictures. They come from one throttled
+		load, not the site's scored runs, so they can differ from the numbers on its
+		site page. A close result is closer than it looks.
 		The rings beside each lane are that site's scores, which are about the site
 		rather than about this clock. This is a picture of two measurements, not a
 		benchmark.
@@ -490,6 +487,7 @@ title: Compare
 		});
 
 		renderComparisons();
+		lanes.forEach(function (lane) { packRows(lane.markers); });
 		renderResult(null);
 		observeLanes();
 	}
@@ -544,6 +542,33 @@ title: Compare
 		packFlags(built, lane, name);
 	}
 
+	// Observed TTFB, FCP and LCP from the pass that took the frames; metrics that coincide share a flag.
+	function renderMarkers(site, cell) {
+		var markers = site.markers || {};
+		var byTime = [];
+		[["ttfb", "TTFB"], ["fcp", "FCP"], ["lcp", "LCP"]].forEach(function (pair) {
+			var at = markers[pair[0]];
+			if (typeof at !== "number" || at > timeline.end) return;
+			var same = byTime.filter(function (m) { return m.at === at; })[0];
+			if (same) same.names.push(pair[1]);
+			else byTime.push({ at: at, names: [pair[1]] });
+		});
+		byTime.sort(function (a, b) { return a.at - b.at; });
+
+		return byTime.map(function (item) {
+			var marker = el("div", "race-flagpost is-metric");
+			marker.style.setProperty("--at", item.at / timeline.step);
+			marker.appendChild(el("i", "race-flagpost-pole"));
+			var label = el("span", "race-flagpost-label");
+			label.style.setProperty("--row", 0);
+			label.textContent = item.names.join(" · ") + " " + fmtSeconds(item.at);
+			label.title = "Observed in this throttled capture, not the site's scored runs";
+			marker.appendChild(label);
+			cell.appendChild(marker);
+			return { el: marker, time: item.at, at: item.at, label: label };
+		});
+	}
+
 	/*
 	 * Put each flag on the highest row where its label clears the one before it.
 	 *
@@ -555,6 +580,12 @@ title: Compare
 	 * of this that holds at every size.
 	 */
 	function packFlags(built, lane, name) {
+		var used = packRows(built);
+		lane.style.setProperty("--rows", used);
+		name.style.setProperty("--rows", used);
+	}
+
+	function packRows(built) {
 		var stride = strideWidth() || 90;
 		/* Right edge of the last label on each row. */
 		var edges = [];
@@ -573,8 +604,7 @@ title: Compare
 			used = Math.max(used, row + 1);
 		});
 
-		lane.style.setProperty("--rows", used);
-		name.style.setProperty("--rows", used);
+		return used;
 	}
 
 	/*
@@ -748,10 +778,6 @@ title: Compare
 			var slot = el("div", "race-frame");
 			slot.style.setProperty("--at", frame.timing / timeline.step);
 
-			/* Past the point the picture stopped changing, every remaining frame is
-			   the settled one again. Drawn, because they were measured and the
-			   lane's length is part of what it says — but faint, so the eye stays
-			   on the part of each lane that is still changing. */
 			// The frame the lane finishes on.
 			if (typeof settled === "number" && frame.timing === settled) {
 				var flag = el("span", "race-frame-finish");
@@ -760,6 +786,10 @@ title: Compare
 				slot.appendChild(flag);
 			}
 
+			/* Past the point the picture stopped changing, every remaining frame is
+			   the settled one again. Drawn, because they were measured and the
+			   lane's length is part of what it says — but faint, so the eye stays
+			   on the part of each lane that is still changing. */
 			if (typeof settled === "number" && frame.timing > settled) {
 				slot.classList.add("is-settled");
 
@@ -819,6 +849,8 @@ title: Compare
 		lane.head = el("div", "race-playhead");
 		cell.appendChild(lane.head);
 
+		lane.markers = renderMarkers(lane.site, cell);
+
 		return cell;
 	}
 
@@ -833,6 +865,11 @@ title: Compare
 
 		compareMarkers.forEach(function (marker) {
 			marker.el.classList.toggle("is-on", marker.time <= now);
+		});
+		lanes.forEach(function (lane) {
+			(lane.markers || []).forEach(function (marker) {
+				marker.el.classList.toggle("is-on", now > 0 && marker.time <= now);
+			});
 		});
 
 		var best = null;

@@ -21,6 +21,7 @@ eleventyExcludeFromCollections: true
 			distinct: entry.filmstrip.distinct,
 			settledAt: entry.filmstrip.settledAt,
 			throttled: entry.filmstrip.throttled,
+			markers: entry.filmstrip.markers,
 			bands: entry | ringBands,
 			frames: entry.filmstrip.frames
 		}), racers) -%}

@@ -3862,8 +3862,8 @@ a.cat-chip:hover, a.cat-chip:focus-visible { color: var(--text); border-color: v
 
 .race-live img { box-shadow: 0 0 0 2px var(--accent); }
 
-/* Travelling before the first sample: the outline alone, since there is no
-   picture yet to put in it. */
+/* Before the first sample: a blank white page, as a browser shows before it paints, in either theme. */
+.race-live.is-empty { background: #fff; }
 .race-live.is-empty img { display: none; }
 
 /*
@@ -4165,6 +4165,17 @@ a.cat-chip:hover, a.cat-chip:focus-visible { color: var(--text); border-color: v
 	transition: opacity 0.25s ease;
 }
 .race-flagpost.is-on .race-flagpost-label { opacity: 1; }
+
+/* TTFB, FCP and LCP inside a site lane: over the frames, and neutral so they don't read as the blue live frame or Real world flags. */
+.race-flagpost.is-metric .race-flagpost-pole { z-index: 4; border-left-color: var(--text); }
+.race-flagpost.is-metric .race-flagpost-label {
+	z-index: 5;
+	top: calc(var(--row) * 1.1rem + 0.2rem);
+	font-size: 0.55rem;
+	color: var(--bg);
+	background: var(--text);
+	pointer-events: auto;
+}
 
 @media (prefers-reduced-motion: reduce) {
 	.race-flagpost-pole,
