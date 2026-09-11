@@ -1,0 +1,350 @@
+{
+  "url": "https://bunny.net/",
+  "name": "Bunny",
+  "group": "dev-tooling",
+  "groupName": "Developer Tooling",
+  "timestamp": 1789159378519,
+  "date": "2026-09-11T20:42:58.519Z",
+  "runId": "2026-09-11T20-30-43-362Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 148727,
+  "error": null,
+  "variance": {
+    "min": 54,
+    "max": 57,
+    "spread": 3,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://bunny.net/",
+    "finalUrl": "https://bunny.net/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 56,
+      "accessibility": 92,
+      "best-practices": 96,
+      "seo": 100,
+      "agentic-browsing": 50
+    },
+    "timings": {
+      "fcp": 4580,
+      "lcp": 6005,
+      "si": 4580,
+      "tbt": 448,
+      "tti": 11337,
+      "cls": 0.006,
+      "ttfb": 605,
+      "maxPotentialFid": 325,
+      "serverResponseTime": 4,
+      "networkRtt": 0.7,
+      "networkServerLatency": 140.8
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 5.5,
+      "elementRenderDelay": 397
+    },
+    "weight": {
+      "total": 4936784,
+      "requests": 136,
+      "mainDocument": 181288,
+      "byType": {
+        "total": {
+          "bytes": 4936784,
+          "requests": 131
+        },
+        "media": {
+          "bytes": 2865971,
+          "requests": 1
+        },
+        "script": {
+          "bytes": 967677,
+          "requests": 14
+        },
+        "image": {
+          "bytes": 519200,
+          "requests": 93
+        },
+        "font": {
+          "bytes": 355031,
+          "requests": 7
+        },
+        "document": {
+          "bytes": 186227,
+          "requests": 4
+        },
+        "other": {
+          "bytes": 41060,
+          "requests": 11
+        },
+        "stylesheet": {
+          "bytes": 1618,
+          "requests": 1
+        },
+        "third-party": {
+          "bytes": 3347655,
+          "requests": 15
+        }
+      },
+      "scripts": 14,
+      "stylesheets": 1,
+      "fonts": 7
+    },
+    "thirdParty": {
+      "count": 3,
+      "bytes": 3311988,
+      "mainThreadMs": 79.9,
+      "top": [
+        {
+          "entity": "b-cdn.net",
+          "bytes": 2865971,
+          "mainThreadMs": 0,
+          "byType": {
+            "media": 2865971
+          },
+          "typedBytes": 2865971
+        },
+        {
+          "entity": "Cookiebot",
+          "bytes": 437730,
+          "mainThreadMs": 69.8,
+          "byType": {
+            "script": 437098,
+            "other": 632
+          },
+          "typedBytes": 437730
+        },
+        {
+          "entity": "Trust Pilot",
+          "bytes": 8287,
+          "mainThreadMs": 10.1,
+          "byType": {
+            "script": 8287
+          },
+          "typedBytes": 8287
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 4148.7,
+      "byGroup": {
+        "other": 1618,
+        "scriptEvaluation": 1087.2,
+        "styleLayout": 537.4,
+        "parseHTML": 370.7,
+        "scriptParseCompile": 325,
+        "paintCompositeRender": 180.4,
+        "garbageCollection": 30.1
+      },
+      "bootupMs": 1308.4,
+      "longTasks": 9,
+      "longestTaskMs": 325
+    },
+    "dom": {
+      "elements": 1960,
+      "depth": 22,
+      "maxChildren": 26
+    },
+    "waste": {
+      "unusedJsBytes": 378819,
+      "unusedCssBytes": 158093,
+      "legacyJsBytes": 0,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 1341,
+      "renderBlockingCount": 1,
+      "poorlyCachedBytes": 51455.755000000005,
+      "poorlyCachedCount": 4
+    },
+    "accessibility": {
+      "failingCount": 3,
+      "applicableCount": 29,
+      "failingNodes": 18,
+      "failing": [
+        {
+          "id": "link-name",
+          "title": "Links do not have a discernible name",
+          "weight": 7,
+          "nodes": 8
+        },
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "weight": 7,
+          "nodes": 7
+        },
+        {
+          "id": "heading-order",
+          "title": "Heading elements are not in a sequentially-descending order",
+          "weight": 3,
+          "nodes": 3
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 1,
+      "applicableCount": 20,
+      "failing": [
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "weight": 1,
+          "nodes": 21
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 0,
+      "applicableCount": 9,
+      "failing": []
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 21,
+      "baselineLimitedFeatures": 34
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2608.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-09-11T20:44:04.571Z",
+      "runtimeMs": 15897.4
+    }
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-08-13",
+      "last": "2026-09-09"
+    },
+    "metrics": {
+      "fcp": {
+        "p75": 1937,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 72.3,
+          "needsImprovement": 15.9,
+          "poor": 11.9
+        }
+      },
+      "inp": {
+        "p75": 185,
+        "rating": "good",
+        "distribution": {
+          "good": 77.3,
+          "needsImprovement": 16.7,
+          "poor": 6
+        }
+      },
+      "lcp": {
+        "p75": 2921,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 68.8,
+          "needsImprovement": 17.2,
+          "poor": 14
+        }
+      },
+      "rtt": {
+        "p75": 204,
+        "rating": null,
+        "distribution": {
+          "good": 23.8,
+          "needsImprovement": 60.7,
+          "poor": 15.5
+        }
+      },
+      "cls": {
+        "p75": 0.04,
+        "rating": "good",
+        "distribution": {
+          "good": 89.5,
+          "needsImprovement": 8.2,
+          "poor": 2.3
+        }
+      },
+      "ttfb": {
+        "p75": 804,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 74.8,
+          "needsImprovement": 17.1,
+          "poor": 8.1
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": {
+      "id": "gatsby",
+      "name": "Gatsby",
+      "icon": "Gatsby",
+      "version": "4.25.9",
+      "source": "meta",
+      "raw": "Gatsby 4.25.9"
+    },
+    "interstitial": null,
+    "host": {
+      "id": "bunny",
+      "name": "Bunny CDN",
+      "icon": null,
+      "source": "server"
+    },
+    "headers": {
+      "server": "BunnyCDN-PHX1-1155"
+    },
+    "violations": 19,
+    "passes": 1447,
+    "incomplete": 74,
+    "violationRules": 4,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "link-name",
+        "impact": "serious",
+        "nodes": 8,
+        "help": "Links must have discernible text"
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 7,
+        "help": "Elements must meet minimum color contrast ratio thresholds"
+      },
+      {
+        "id": "heading-order",
+        "impact": "moderate",
+        "nodes": 3,
+        "help": "Heading levels should only increase by one"
+      },
+      {
+        "id": "scrollable-region-focusable",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "Scrollable region must have keyboard access"
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
