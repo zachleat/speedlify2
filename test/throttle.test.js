@@ -183,6 +183,7 @@ describe("bot checks are per page load", () => {
 			pageShots: { js: "buffer" },
 			screenshots: ["frame"],
 			lab: waitingRoom,
+			throttledLcpBreakdown: { timeToFirstByte: 600 },
 			variance: { spread: 2 },
 		};
 
@@ -191,6 +192,7 @@ describe("bot checks are per page load", () => {
 		// A waiting room has no images and no third parties, so it scores well —
 		// keeping its numbers ranks a page nobody served.
 		assert.equal(out.lab, undefined);
+		assert.equal(out.throttledLcpBreakdown, undefined);
 		assert.equal(out.variance, undefined);
 		assert.equal(out.completedRuns, 0);
 		assert.equal(out.error, "bot check: Just a moment...");

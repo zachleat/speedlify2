@@ -5,7 +5,7 @@ import os from "node:os";
 import path from "node:path";
 
 import { ResultStore } from "../lib/store.js";
-import { keepsScreenshots, keepsFilmstrip, filmstripMarkers } from "../lib/runner.js";
+import { keepsScreenshots, keepsFilmstrip, filmstripMarkers, throttledLcpBreakdown } from "../lib/runner.js";
 import { clientRendered, alignFirstFrame } from "../lib/report.js";
 
 /**
@@ -225,6 +225,26 @@ describe("first frame alignment", () => {
 	test("leaves strips whose first frame is not after FCP alone", () => {
 		assert.equal(alignFirstFrame(frames, { fcp: 12000 }, 11222).frames, frames);
 		assert.equal(alignFirstFrame(frames, null, 11222).frames, frames);
+	});
+});
+
+describe("throttled LCP subparts", () => {
+	test("moves DevTools request latency into TTFB from the resource load delay", () => {
+		assert.deepEqual(
+			throttledLcpBreakdown({ timeToFirstByte: 4, resourceLoadDelay: 900, resourceLoadDuration: 300, elementRenderDelay: 50 }, 562.5),
+			{ timeToFirstByte: 566.5, resourceLoadDelay: 337.5, resourceLoadDuration: 300, elementRenderDelay: 50 }
+		);
+	});
+
+	test("takes it from the render delay on a text LCP, never below zero", () => {
+		assert.deepEqual(throttledLcpBreakdown({ timeToFirstByte: 4, elementRenderDelay: 1400 }, 562.5), { timeToFirstByte: 566.5, elementRenderDelay: 837.5 });
+		assert.deepEqual(throttledLcpBreakdown({ timeToFirstByte: 4, elementRenderDelay: 100 }, 562.5), { timeToFirstByte: 104, elementRenderDelay: 0 });
+	});
+
+	test("unchanged without latency, and null without a TTFB", () => {
+		assert.deepEqual(throttledLcpBreakdown({ timeToFirstByte: 4, elementRenderDelay: 1400 }), { timeToFirstByte: 4, elementRenderDelay: 1400 });
+		assert.equal(throttledLcpBreakdown(null, 562.5), null);
+		assert.equal(throttledLcpBreakdown({ elementRenderDelay: 1400 }, 562.5), null);
 	});
 });
 

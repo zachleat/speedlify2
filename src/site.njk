@@ -1089,14 +1089,23 @@ eleventyComputed:
 	{% endif %}
 	{{ metricstable(entry.metricsTable, entry, showField, throttleTag(labKind)) }}
 
-	{% if entry.latest.lab.lcpBreakdown %}
-	<h3>LCP Subparts <span class="tag">LAB</span>{{ throttleTag(observedKind) }}</h3>
+	{#
+		The throttled filmstrip pass's subparts where there are any: a slow load, like the Lab LCP they sit under.
+		Otherwise the scored runs', read off a full-speed load before Lighthouse modeled one.
+	#}
+	{% set lcpParts = entry.latest.throttledLcpBreakdown or entry.latest.lab.lcpBreakdown %}
+	{% if lcpParts %}
+	<h3>LCP Subparts <span class="tag">LAB</span>{{ throttleTag("throttled" if entry.latest.throttledLcpBreakdown else observedKind) }}</h3>
 	<p class="muted small">
 		The subparts attribute LCP to your server, resource discovery, download, or rendering.
-		{% if labMethod == "simulate" %}Note that the Lab LCP shown above <em>is</em> a simulated throttled estimate.{% endif %}
+		{% if entry.latest.throttledLcpBreakdown %}
+		They come from one throttled load, the same one as the filmstrip, so they add up to that load&rsquo;s LCP rather than the simulated Lab LCP above.
+		{% elif labMethod == "simulate" %}
+		Note that the Lab LCP shown above <em>is</em> a simulated throttled estimate.
+		{% endif %}
 	</p>
 	{#
-		These will not add up to the LCP above, and the gap is usually large — 225
+		The unthrottled fallback will not add up to the LCP above, and the gap is usually large — 225
 		milliseconds against 4.07 seconds on one site here. Both are honest; they
 		are measured in different worlds.
 
@@ -1113,8 +1122,8 @@ eleventyComputed:
 		to a total they were never part of.
 	#}
 	<div class="breakdown">
-		{% set lcpMax = entry.latest.lab.lcpBreakdown | sortByValue | maxValue("value") %}
-		{% for part in entry.latest.lab.lcpBreakdown | sortByValue %}
+		{% set lcpMax = lcpParts | sortByValue | maxValue("value") %}
+		{% for part in lcpParts | sortByValue %}
 		<div class="breakdown-row">
 			<span class="breakdown-label breakdown-key">{{ part.key | humanize }}</span>
 			{% bar part.value, lcpMax, "warn" %}
@@ -1213,84 +1222,106 @@ eleventyComputed:
 	{% if entry.weightByType.length %}
 	<h3>By resource type</h3>
 	{#
-		One bar rather than a row per type. The question here is what the page is
-		made of, and that is a question about proportions — a stack answers it in
-		one line, where six bars scaled to the largest of them made the reader do
-		the dividing.
+		A bar per type at its share of the whole page.
 
 		Shares come from lib/report.js, which also drops `third-party`: it is a
 		tally across the other types rather than one of them, and adding it here
 		would take the bar past its own total.
 	#}
-	<div class="stackbar" role="img"
-		aria-label="Page weight by resource type{% for t in entry.weightByType %}. {{ t.key | humanize }} {{ t.shareText }}, {{ t.bytes | bytes }} over {{ t.requests }} {{ t.requests | plural("request") }}{% endfor %}.">
-		{%- for t in entry.weightByType %}
-		{#
-			The name goes inside the segment, where it names the color without a
-			trip to the legend. Only above a share that can actually hold the word:
-			below that the text would be clipped mid-letter, which reads as a bug
-			rather than as a small segment. The legend still carries every row.
-		#}
-		<span class="stackbar-part type-{{ t.key }}" style="width: {{ t.share }}%"
-			title="{{ t.key | humanize }} — {{ t.bytes | bytes }} ({{ t.shareText }}) over {{ t.requests }} {{ t.requests | plural('request') }}">{% if t.share >= 8 %}<span class="stackbar-name">{{ t.key | humanize }}</span>{% endif %}</span>
-		{%- endfor %}
+	<div class="table-scroll table-narrow">
+	<table class="grid compact">
+		<thead>
+			<tr>
+				<th class="col-site">Type</th>
+				<th class="col-tpbar">Transfer</th>
+				<th>Share</th>
+				<th>Size</th>
+				<th>Requests</th>
+			</tr>
+		</thead>
+		<tbody>
+		{% for t in entry.weightByType %}
+			<tr>
+				<td class="col-site">{{ t.key | humanize }}</td>
+				<td class="col-tpbar"><span class="tpbar" style="width: {{ t.share }}%" aria-hidden="true"><span class="stackbar-part type-{{ t.key }}" style="width: 100%"></span></span></td>
+				<td class="num">{{ t.shareText }}</td>
+				<td class="num">{{ t.bytes | bytes }}</td>
+				<td class="num">{{ t.requests | num }}</td>
+			</tr>
+		{% endfor %}
+		</tbody>
+		<tfoot>
+			<tr>
+				<td class="col-site"><strong>Total</strong></td>
+				<td></td>
+				<td></td>
+				<td class="num"><strong>{{ entry.latest.lab.weight.total | bytes }}</strong></td>
+				<td class="num"><strong>{{ entry.latest.lab.weight.requests | num }}</strong></td>
+			</tr>
+		</tfoot>
+	</table>
 	</div>
-
-	{#
-		The legend carries the numbers the bar cannot. Ordered as the bar is, so
-		reading down the list walks left to right along it.
-	#}
-	<ul class="stackkey">
-		{%- for t in entry.weightByType %}
-		<li>
-			<span class="stackkey-swatch type-{{ t.key }}"></span>
-			<span class="stackkey-name">{{ t.key | humanize }}</span>
-			<span class="stackkey-share">{{ t.shareText }}</span>
-			<span class="stackkey-value muted">{{ t.bytes | bytes }} · {{ t.requests }} req</span>
-		</li>
-		{%- endfor %}
-	</ul>
 	{% endif %}
 
 	{% if entry.latest.lab.thirdParty and entry.latest.lab.thirdParty.count %}
-	<h3>Third parties <span class="tag">{{ entry.latest.lab.thirdParty.count }} entities</span>{{ throttleTag(labKind, "Lighthouse's default simulated throttling: the page loaded at full speed and the main thread time was scaled afterwards to a slow phone's processor.") }}</h3>
-	<p class="muted small">
-		{{ entry.latest.lab.thirdParty.bytes | bytes }} transferred,
-		{{ entry.latest.lab.thirdParty.mainThreadMs | ms }} on the main thread.
-	</p>
-	<div class="breakdown">
+	<h3>Third parties <span class="tag">{{ entry.latest.lab.thirdParty.count }} entities</span></h3>
+	<div class="table-scroll table-narrow">
+	<table class="grid compact">
+		<thead>
+			<tr>
+				<th class="col-site">Entity</th>
+				<th class="col-tpbar">Transfer</th>
+				<th>Size</th>
+				<th>Main thread{{ throttleTag(labKind, "Lighthouse's default simulated throttling: the page loaded at full speed and the main thread time was scaled afterwards to a slow phone's processor.") }}</th>
+			</tr>
+		</thead>
+		<tbody>
 		{% set tpMax = entry.thirdPartyRows | maxValue("bytes") %}
 		{% for tp in entry.thirdPartyRows %}
-		<div class="breakdown-row">
-			<span class="breakdown-label">{{ tp.entity }}</span>
-			{#
-				Two bars, one shape. Where the request types are known the bar is
-				stacked and says what the third party is; where they are not — an
-				older record, or a row whose URLs the network audit did not report —
-				it falls back to the plain bar this section has always drawn.
+			<tr>
+				<td class="col-site">{{ tp.entity }}</td>
+				<td class="col-tpbar">
+				{#
+					Two bars, one shape. Where the request types are known the bar is
+					stacked and says what the third party is; where they are not — an
+					older record, or a row whose URLs the network audit did not report —
+					it falls back to the plain bar this section has always drawn.
 
-				The row's width is still its share of the largest third party, so
-				the rows compare with each other exactly as before. Only the fill
-				inside that width is new.
-			#}
-			{#
-				The label threshold is the segment's share of the *row width*, not
-				of its own bar: these bars are scaled against the largest third
-				party, so a segment that is all of a small third party is still only
-				a few pixels wide, and its own share says 100%.
-			#}
-			{% if tp.parts.length %}
-			<span class="tpbar" style="width: {{ (tp.bytes / tpMax * 100) | round(1) }}%"
-				title="{% for part in tp.parts %}{{ part.key }} {{ part.bytes | bytes }} ({{ part.shareText }}){% if not loop.last %}, {% endif %}{% endfor %}">
-				{%- for part in tp.parts %}<span class="stackbar-part type-{{ part.key }}" style="width: {{ part.share }}%">{% if part.share * tp.bytes / tpMax >= 15 %}<span class="stackbar-name">{{ part.key | humanize }}</span>{% endif %}</span>{% endfor -%}
-				{%- if tp.untyped %}<span class="stackbar-part type-other" style="width: {{ (tp.untyped / tp.bytes * 100) | round(1) }}%"></span>{% endif -%}
-			</span>
-			{% else %}
-			{% bar tp.bytes, tpMax, "warn" %}
-			{% endif %}
-			<span class="breakdown-value">{{ tp.bytes | bytes }} <span class="muted">· {{ tp.mainThreadMs | ms }} CPU</span></span>
-		</div>
+					The row's width is still its share of the largest third party, so
+					the rows compare with each other exactly as before. Only the fill
+					inside that width is new.
+				#}
+				{#
+					The label threshold is the segment's share of the *row width*, not
+					of its own bar: these bars are scaled against the largest third
+					party, so a segment that is all of a small third party is still only
+					a few pixels wide, and its own share says 100%.
+				#}
+				{% if tp.parts.length %}
+				<span class="tpbar" style="width: {{ (tp.bytes / tpMax * 100) | round(1) }}%"
+					title="{% for part in tp.parts %}{{ part.key }} {{ part.bytes | bytes }} ({{ part.shareText }}){% if not loop.last %}, {% endif %}{% endfor %}">
+					{%- for part in tp.parts %}<span class="stackbar-part type-{{ part.key }}" style="width: {{ part.share }}%">{% if part.share * tp.bytes / tpMax >= 15 %}<span class="stackbar-name">{{ part.key | humanize }}</span>{% endif %}</span>{% endfor -%}
+					{%- if tp.untyped %}<span class="stackbar-part type-other" style="width: {{ (tp.untyped / tp.bytes * 100) | round(1) }}%"></span>{% endif -%}
+				</span>
+				{% else %}
+				{% bar tp.bytes, tpMax, "warn" %}
+				{% endif %}
+				</td>
+				<td class="num">{{ tp.bytes | bytes }}</td>
+				<td class="num">{{ tp.mainThreadMs | ms }}</td>
+			</tr>
 		{% endfor %}
+		</tbody>
+		<tfoot>
+			<tr>
+				{#- Only the top five get rows, so the total names what it covers when that is more. #}
+				<td class="col-site"><strong>{% if entry.latest.lab.thirdParty.count > entry.thirdPartyRows.length %}All {{ entry.latest.lab.thirdParty.count }}{% else %}Total{% endif %}</strong></td>
+				<td></td>
+				<td class="num"><strong>{{ entry.latest.lab.thirdParty.bytes | bytes }}</strong></td>
+				<td class="num"><strong>{{ entry.latest.lab.thirdParty.mainThreadMs | ms }}</strong></td>
+			</tr>
+		</tfoot>
+	</table>
 	</div>
 	{% endif %}
 </section>
@@ -1400,16 +1431,40 @@ eleventyComputed:
 	{{ trendtable(metrics.HEALTH_METRICS, entry) }}
 
 	{% if entry.latest.lab.mainThread and entry.latest.lab.mainThread.byGroup %}
-	<h3>Main thread work{{ throttleTag(labKind, "Lighthouse's default simulated throttling: the page loaded at full speed and these durations were scaled afterwards to a slow phone's processor.") }}</h3>
-	<div class="breakdown">
-		{% set mtMax = entry.latest.lab.mainThread.byGroup | sortByValue | maxValue("value") %}
-		{% for part in entry.latest.lab.mainThread.byGroup | sortByValue %}
-		<div class="breakdown-row">
-			<span class="breakdown-label breakdown-key">{{ part.key | humanize }}</span>
-			{% bar part.value, mtMax, "neutral" %}
-			<span class="breakdown-value">{{ part.value | ms }}</span>
-		</div>
+	<h3>Main thread work</h3>
+	{% set mtParts = entry.latest.lab.mainThread.byGroup | sortByValue %}
+	{% set mtTotal = entry.latest.lab.mainThread.total or (mtParts | maxValue("value")) %}
+	<div class="table-scroll table-narrow">
+	<table class="grid compact">
+		<thead>
+			<tr>
+				<th class="col-site">Task</th>
+				<th class="col-tpbar">Time</th>
+				<th>Share</th>
+				<th>Duration{{ throttleTag(labKind, "Lighthouse's default simulated throttling: the page loaded at full speed and these durations were scaled afterwards to a slow phone's processor.") }}</th>
+			</tr>
+		</thead>
+		<tbody>
+		{% for part in mtParts %}
+			<tr>
+				<td class="col-site breakdown-key">{{ part.key | humanize }}</td>
+				<td class="col-tpbar">{% bar part.value, mtTotal, "neutral" %}</td>
+				<td class="num">{{ (part.value / mtTotal * 100) | round }}%</td>
+				<td class="num">{{ part.value | ms }}</td>
+			</tr>
 		{% endfor %}
+		</tbody>
+		{% if entry.latest.lab.mainThread.total %}
+		<tfoot>
+			<tr>
+				<td class="col-site"><strong>Total</strong></td>
+				<td></td>
+				<td></td>
+				<td class="num"><strong>{{ entry.latest.lab.mainThread.total | ms }}</strong></td>
+			</tr>
+		</tfoot>
+		{% endif %}
+	</table>
 	</div>
 	{% endif %}
 

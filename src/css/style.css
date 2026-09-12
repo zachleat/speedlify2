@@ -366,6 +366,9 @@ th.col-trend { text-align: center !important; }
    under it rather than beside it, so the column is as wide as the bar and no
    wider. */
 .col-dist { text-align: left !important; min-width: 108px; }
+.col-tpbar { text-align: left !important; width: 50%; min-width: 8rem; }
+.table-narrow { max-width: 54em; }
+table.grid tfoot td { border-top: 1px solid var(--border); }
 .num { font-variant-numeric: tabular-nums; }
 
 /* The DOM element count under the byte total. Two ways of measuring how much
@@ -1582,16 +1585,6 @@ fieldset[disabled] select {
 	--type-other: #7c8189;
 }
 
-.stackbar {
-	display: flex;
-	height: 1.5rem;
-	margin: 0.6rem 0 0.75rem;
-	border-radius: var(--radius);
-	overflow: hidden;
-	background: color-mix(in srgb, var(--text-muted) 15%, transparent);
-	max-width: 44em;
-}
-
 /* No gaps between segments: they are parts of one quantity, and a gap would be
    width the bar claims but does not account for. */
 .stackbar-part {
@@ -1634,16 +1627,7 @@ fieldset[disabled] select {
 .type-media { background: var(--type-media); }
 .type-other { background: var(--type-other); }
 
-/*
- * A third party's bytes, split by kind.
- *
- * Shares the segment colors and the flat-segment rule with `.stackbar` above,
- * so a reader who has learned the page-weight key two sections up reads this
- * without learning anything new. It differs in what its *width* means: the
- * weight bar always fills its container, while this one is scaled to the row's
- * share of the largest third party, because these bars are compared with each
- * other down the column.
- */
+/* A bar in a table cell, split into `.stackbar-part` segments and sized by its row's inline width. */
 .tpbar {
 	display: flex;
 	/* Tall enough to hold the type name the segments now carry. */
@@ -1654,48 +1638,6 @@ fieldset[disabled] select {
 	   third party, and an empty cell would read as missing data. */
 	min-width: 3px;
 	background: color-mix(in srgb, var(--text-muted) 15%, transparent);
-}
-
-.stackkey {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-	display: grid;
-	gap: 0.3rem 1.25rem;
-	grid-template-columns: repeat(auto-fill, minmax(min(16rem, 100%), 1fr));
-	font-size: 0.82rem;
-	max-width: 44em;
-}
-
-.stackkey li {
-	display: grid;
-	grid-template-columns: auto minmax(0, 1fr) auto;
-	align-items: baseline;
-	gap: 0.5rem;
-}
-
-.stackkey-swatch {
-	width: 0.6rem;
-	height: 0.6rem;
-	border-radius: 2px;
-	/* Baseline-aligned with the text beside it rather than sitting on it. */
-	transform: translateY(0.05rem);
-}
-
-.stackkey-name {
-	font-weight: 600;
-}
-
-.stackkey-share {
-	font-variant-numeric: tabular-nums;
-}
-
-/* Its own line under the rest: three columns hold the name, share and swatch
-   together, and the byte figure is the part that can wrap without harm. */
-.stackkey-value {
-	grid-column: 2 / -1;
-	font-size: 0.76rem;
-	font-variant-numeric: tabular-nums;
 }
 
 /*
