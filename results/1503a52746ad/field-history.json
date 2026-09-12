@@ -2,74 +2,11 @@
   "url": "https://nordcraft.com/",
   "name": "Nordcraft",
   "group": "builders",
-  "fetchedAt": "2026-09-06T18:51:18.148Z",
+  "fetchedAt": "2026-09-12T21:13:53.104Z",
   "source": "crux-history",
   "scope": "url",
   "formFactor": "PHONE",
   "series": [
-    {
-      "period": {
-        "first": "2026-02-15",
-        "last": "2026-03-14"
-      },
-      "date": "2026-03-14",
-      "metrics": {
-        "cls": {
-          "p75": 0.03,
-          "rating": "good",
-          "distribution": {
-            "good": 94.1,
-            "needsImprovement": 5.9,
-            "poor": 0
-          }
-        },
-        "ttfb": {
-          "p75": 2178,
-          "rating": "poor",
-          "distribution": {
-            "good": 23.6,
-            "needsImprovement": 39.5,
-            "poor": 36.9
-          }
-        },
-        "fcp": {
-          "p75": 2948,
-          "rating": "needs-improvement",
-          "distribution": {
-            "good": 49.4,
-            "needsImprovement": 26.8,
-            "poor": 23.8
-          }
-        },
-        "inp": {
-          "p75": 183,
-          "rating": "good",
-          "distribution": {
-            "good": 78.9,
-            "needsImprovement": 12.9,
-            "poor": 8.2
-          }
-        },
-        "lcp": {
-          "p75": 3898,
-          "rating": "needs-improvement",
-          "distribution": {
-            "good": 47.2,
-            "needsImprovement": 27.7,
-            "poor": 25.1
-          }
-        },
-        "rtt": {
-          "p75": 233,
-          "rating": null,
-          "distribution": {
-            "good": 37.9,
-            "needsImprovement": 43.7,
-            "poor": 18.4
-          }
-        }
-      }
-    },
     {
       "period": {
         "first": "2026-02-22",
@@ -1601,6 +1538,77 @@
           }
         }
       }
+    },
+    {
+      "period": {
+        "first": "2026-08-09",
+        "last": "2026-09-05"
+      },
+      "date": "2026-09-05",
+      "metrics": {
+        "cls": {
+          "p75": 0,
+          "rating": "good",
+          "distribution": {
+            "good": 98.9,
+            "needsImprovement": 1.1,
+            "poor": 0
+          }
+        },
+        "ttfb": {
+          "p75": 1780,
+          "rating": "needs-improvement",
+          "distribution": {
+            "good": 43.9,
+            "needsImprovement": 31.2,
+            "poor": 24.9
+          },
+          "scope": "origin"
+        },
+        "fcp": {
+          "p75": 2724,
+          "rating": "needs-improvement",
+          "distribution": {
+            "good": 46.1,
+            "needsImprovement": 34.5,
+            "poor": 19.4
+          }
+        },
+        "inp": {
+          "p75": null,
+          "rating": null,
+          "distribution": {
+            "good": null,
+            "needsImprovement": null,
+            "poor": null
+          }
+        },
+        "lcp": {
+          "p75": 3017,
+          "rating": "needs-improvement",
+          "distribution": {
+            "good": 64.6,
+            "needsImprovement": 23.3,
+            "poor": 12.1
+          },
+          "scope": "origin"
+        },
+        "rtt": {
+          "p75": 213,
+          "rating": null,
+          "distribution": {
+            "good": 26.8,
+            "needsImprovement": 64.2,
+            "poor": 9
+          },
+          "scope": "origin"
+        }
+      },
+      "borrowedFromOrigin": [
+        "ttfb",
+        "lcp",
+        "rtt"
+      ]
     }
   ]
 }
