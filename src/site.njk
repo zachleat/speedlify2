@@ -458,7 +458,7 @@ eleventyComputed:
 
 {#
 	The page in the order a reader works through it: what the site is built on,
-	the scores, the load as a picture, then the numbers behind it — weight, then
+	the load as a picture, the scores, then the numbers behind it — weight, then
 	what the page does to the browser — and last the runs they were all read from.
 
 	One entry per panel. Field data is a subsection of Metrics, Hygiene one of
@@ -467,8 +467,8 @@ eleventyComputed:
 #}
 {% set toc = [] %}
 {% if hasStack %}{% set toc = (toc.push({ id: "stack", label: "Stack" }), toc) %}{% endif %}
-{% set toc = (toc.push({ id: "scores", label: "Scores" }), toc) %}
 {% if hasFilmstrip %}{% set toc = (toc.push({ id: "filmstrip", label: "Filmstrip" }), toc) %}{% endif %}
+{% set toc = (toc.push({ id: "scores", label: "Scores" }), toc) %}
 {#
 	The Core Web Vitals verdict opens this section rather than owning one, so it
 	is not a destination of its own either.
@@ -528,247 +528,9 @@ eleventyComputed:
 {% endif %}
 
 
-<section class="panel" id="scores">
-	<h2>Lighthouse Scores</h2>
-	<div class="cards">
-		{% for score in metrics.SCORES %}
-		{% set t = entry.trends[score.key] %}
-		{% set value = entry.latest.lab.scores[score.key] %}
-		{#
-			A card whose score still bands good gets the softened pink rather than
-			red, the same as the metrics table below and the leaderboard trends: 96
-			after 99 moved the wrong way, and the number above is green.
-		#}
-		{% set scoreGood = (value | scoreClass) == "good" %}
-		<div class="card">
-			<div class="card-value score-{{ value | scoreClass }}">{{ value if value != null else "—" }}</div>
-			<div class="card-label">{{ score.label }}</div>
-			{% if t %}
-			<div class="card-spark">{% sparkline t, { good: scoreGood } %}</div>
-			{% if t.vsPrevious and not t.vsPrevious.unchanged %}
-			<div class="card-delta {{ t.vsPrevious | deltaClass(scoreGood) }}">
-				{{ t.vsPrevious | deltaArrow }} {{ t.vsPrevious | deltaText }}
-			</div>
-			{% else %}
-			<div class="card-delta flat">no change</div>
-			{% endif %}
-			{% endif %}
-		</div>
-		{% endfor %}
-	</div>
-</section>
-
-{#
-	Lab and field in one table, a row per metric.
-
-	They were two tables reading top to bottom, which put the two measurements
-	of LCP a screen apart and left the reader to hold one in their head while
-	scrolling to the other — the comparison the page exists to make. Side by
-	side it is a glance.
-
-	Every metric gets a row, including one neither half can fill. INP on a site
-	CrUX has never heard of is an empty row, and that is the honest rendering:
-	the metric exists, it is a Core Web Vital, and nothing here measures it —
-	which a reader should be told rather than left to notice the absence of.
-#}
-{% macro metricstable(rows, entryData, showField) %}
-<div class="table-scroll">
-<table class="grid grid-grouped">
-	<thead>
-		<tr class="group-head">
-			<th rowspan="2" class="col-site">Metric</th>
-			<th colspan="3">Lab <span class="tag">Lighthouse</span></th>
-			{% if showField %}<th colspan="2" class="col-group-start">Field <span class="tag">Chrome UX Report</span></th>{% endif %}
-		</tr>
-		<tr>
-			<th>Value</th>
-			<th>Change / range</th>
-			<th class="col-trend">Trend</th>
-			{% if showField %}
-			<th class="col-group-start">p75</th>
-			<th class="col-dist">Distribution</th>
-			{% endif %}
-		</tr>
-	</thead>
-	<tbody>
-	{% for row in rows %}
-	{% set t = entryData.trends[row.trendKey] %}
-		<tr>
-			<td class="col-site">
-				<strong>{{ row.label }}</strong>
-				{#
-					A Core Web Vital graded on the lab number because CrUX has nothing
-					for it. The pill beside it is a real rating on real thresholds, and
-					reads exactly like the field-backed one — the word on the badge is
-					what separates the measurement of this site's users from a
-					measurement of one simulated phone.
-
-					Per row, not per table: CrUX will report a site's LCP and stay
-					silent on its CLS, and only the silent one is an estimate.
-				#}
-				{% set cwvEstimated = row.coreWebVital and row.lab and row.lab.value !== null and not (row.field and row.field.value !== null) %}
-				{% if row.coreWebVital %}<span class="badge badge-cwv"{% if cwvEstimated %} title="No Chrome UX Report data for this metric, so the rating comes from the Lighthouse run rather than from real users"{% endif %}>CWV{% if cwvEstimated %} <span class="badge-qualifier">(estimate)</span>{% endif %}</span>{% endif %}
-				{% if row.note %}<span class="muted small block">{{ row.note }}</span>{% endif %}
-			</td>
-			{#
-				The value and its verdict in one cell, so the eye does not travel to
-				a rating column and back to work out which number it grades.
-			#}
-			<td class="num">
-				{% if not row.lab %}
-				<span class="muted" title="Lighthouse cannot measure this in a lab run">n/a</span>
-				{% elif row.lab.value === null %}
-				&mdash;
-				{% else %}
-				<span class="metric-pair">
-					{{ row.lab.value | unit(row.unit) }}
-					{% if row.lab.rating %}<span class="pill pill-{{ row.lab.rating | ratingClass }}">{{ row.lab.rating | ratingLabel }}</span>{% endif %}
-				</span>
-				{% endif %}
-			</td>
-			{#
-				The move since the last run, over the range across the whole window.
-				One cell rather than three columns: best and worst state the ends of
-				a range, which is one fact, and both are context for the change
-				rather than figures anyone scans a column of. The sparkline beside
-				them already draws the same shape.
-
-				Only the change line is colored — the range is neither good nor bad,
-				it is where this metric has been.
-
-				And pink rather than red while either rating on the row says good. The
-				pills grade where the metric stands; a move inside the good band is
-				movement, not a regression, and red argues with the pill sitting two
-				cells to the left. The sparkline beside it is softened the same way.
-			#}
-			{% set stillGood = (row.lab and row.lab.rating == "good") or (row.field and row.field.rating == "good") %}
-			<td class="num">
-				<span class="cell-main{% if t %} {{ t.vsPrevious | deltaClass(stillGood) }}{% endif %}">
-					{% if t and t.vsPrevious %}{{ t.vsPrevious | deltaArrow }} {{ t.vsPrevious | deltaText(row.unit) }}{% else %}&mdash;{% endif %}
-				</span>
-				{#
-					Under the change it qualifies rather than trailing it: the badge is
-					a whole word against a number a few characters long, and inline it
-					set the width of the column to its own.
-				#}
-				{% if t and t.significant %}
-				<span class="cell-flag"><span class="badge badge-sig" title="Larger than this metric's normal run-to-run noise">significant</span></span>
-				{% endif %}
-				{% if t %}
-				<span class="cell-sub" title="Best and worst across the measured window">
-					{{ (t.min if t.lowerIsBetter else t.max) | unit(row.unit) }} &ndash; {{ (t.max if t.lowerIsBetter else t.min) | unit(row.unit) }}
-				</span>
-				{% endif %}
-			</td>
-			<td class="col-trend">{% if t %}{% sparkline t, { good: stillGood } %}{% endif %}</td>
-			{% if showField %}
-			<td class="num col-group-start">
-				{% if not row.field %}
-				<span class="muted" title="Not reported by the Chrome UX Report">n/a</span>
-				{% elif row.field.value === null %}
-				&mdash;
-				{% else %}
-				<span class="metric-pair">
-					{{ row.field.value | unit(row.unit) }}
-					{% if row.field.rating %}<span class="pill pill-{{ row.field.rating | ratingClass }}">{{ row.field.rating | ratingLabel }}</span>{% endif %}
-					{#
-						A value borrowed from the origin is the whole site's number, not
-						this page's — CrUX had too few samples here.
-					#}
-					{% if row.field.scope == "origin" %}<span class="tag" title="Not enough samples for this page, so this is the figure for the whole origin">site-wide</span>{% endif %}
-				</span>
-				{% endif %}
-			</td>
-			{#
-				The bar over its own legend, which is why the header is one word now:
-				each share names its band with an icon instead of the column heading
-				spelling all three out. It also shows all three, where the line under
-				the bar used to show only the good share.
-
-				The icons carry the meaning for a reader who cannot tell the three
-				colors apart, so they are not decorative — each has its band in the
-				text beside it via the title, and the bar keeps its own summary.
-			#}
-			<td class="col-dist">
-				{% if row.field and row.field.distribution %}
-				{% set d = row.field.distribution %}
-				<span class="dist" title="{{ d.good }}% good, {{ d.needsImprovement }}% needs improvement, {{ d.poor }}% poor">
-					<span class="dist-good" style="width:{{ d.good }}%"></span>
-					<span class="dist-avg" style="width:{{ d.needsImprovement }}%"></span>
-					<span class="dist-poor" style="width:{{ d.poor }}%"></span>
-				</span>
-				<span class="dist-key">
-					<span class="dist-key-good" title="{{ d.good }}% of loads were good"><i class="fa-solid fa-circle-check" width="10" height="10" aria-hidden="true"></i>{{ d.good }}%</span>
-					<span class="dist-key-avg" title="{{ d.needsImprovement }}% of loads needed work"><i class="fa-solid fa-triangle-exclamation" width="10" height="10" aria-hidden="true"></i>{{ d.needsImprovement }}%</span>
-					<span class="dist-key-poor" title="{{ d.poor }}% of loads were poor"><i class="fa-solid fa-circle-xmark" width="10" height="10" aria-hidden="true"></i>{{ d.poor }}%</span>
-				</span>
-				{% else %}&mdash;{% endif %}
-			</td>
-			{% endif %}
-		</tr>
-	{% endfor %}
-	</tbody>
-</table>
-</div>
-{% endmacro %}
-
-{#
-	The same three columns the metrics table settled on: the value, the change
-	over the range it moved within, and the shape of the window. Current and
-	previous were two columns saying one thing — the delta beside them was
-	already the difference — and best and worst are the ends of a range, which
-	is one fact rather than two columns to scan.
-#}
-{% macro trendtable(rows, entryData, prefix="") %}
-<div class="table-scroll">
-<table class="grid">
-	<thead>
-		<tr>
-			<th class="col-site">Metric</th>
-			<th>Value</th>
-			<th>Change / range</th>
-			<th class="col-trend">Trend</th>
-		</tr>
-	</thead>
-	<tbody>
-	{% for row in rows %}
-	{% set t = entryData.trends[prefix + row.key] %}
-	{% if t %}
-		<tr>
-			<td class="col-site">
-				<strong>{{ row.label }}</strong>
-				{% if row.note %}<span class="muted small block">{{ row.note }}</span>{% endif %}
-			</td>
-			<td class="num">{{ t.current | unit(row.unit) }}</td>
-			{#
-				Only the change line is colored — the range is neither good nor bad,
-				it is where this metric has been. The badge sits on its own line under
-				the change it qualifies rather than inline, where a whole word set the
-				width of the column to its own.
-			#}
-			<td class="num">
-				<span class="cell-main {{ t.vsPrevious | deltaClass }}">
-					{% if t.vsPrevious %}{{ t.vsPrevious | deltaArrow }} {{ t.vsPrevious | deltaText(row.unit) }}{% else %}&mdash;{% endif %}
-				</span>
-				{% if t.significant %}
-				<span class="cell-flag"><span class="badge badge-sig" title="Larger than this metric's normal run-to-run noise">significant</span></span>
-				{% endif %}
-				<span class="cell-sub" title="Best and worst across the measured window">
-					{{ (t.min if t.lowerIsBetter else t.max) | unit(row.unit) }} &ndash; {{ (t.max if t.lowerIsBetter else t.min) | unit(row.unit) }}
-				</span>
-			</td>
-			<td class="col-trend">{% sparkline t %}</td>
-		</tr>
-	{% endif %}
-	{% endfor %}
-	</tbody>
-</table>
-</div>
-{% endmacro %}
-
 {% if hasFilmstrip %}
 {#
-	The page drawing itself, from the same Lighthouse run the scores above came
+	The page drawing itself, from the same Lighthouse run the scores below came
 	from. Frames are named by a hash of their bytes, so a page that finished
 	early and repeated its last frame to the end of the strip stores that frame
 	once — the strip still renders at full length from a fraction of the files.
@@ -1014,6 +776,245 @@ eleventyComputed:
 	</script>
 </section>
 {% endif %}
+
+{#
+	Lab and field in one table, a row per metric.
+
+	They were two tables reading top to bottom, which put the two measurements
+	of LCP a screen apart and left the reader to hold one in their head while
+	scrolling to the other — the comparison the page exists to make. Side by
+	side it is a glance.
+
+	Every metric gets a row, including one neither half can fill. INP on a site
+	CrUX has never heard of is an empty row, and that is the honest rendering:
+	the metric exists, it is a Core Web Vital, and nothing here measures it —
+	which a reader should be told rather than left to notice the absence of.
+#}
+{% macro metricstable(rows, entryData, showField) %}
+<div class="table-scroll">
+<table class="grid grid-grouped">
+	<thead>
+		<tr class="group-head">
+			<th rowspan="2" class="col-site">Metric</th>
+			<th colspan="3">Lab <span class="tag">Lighthouse</span></th>
+			{% if showField %}<th colspan="2" class="col-group-start">Field <span class="tag">Chrome UX Report</span></th>{% endif %}
+		</tr>
+		<tr>
+			<th>Value</th>
+			<th>Change / range</th>
+			<th class="col-trend">Trend</th>
+			{% if showField %}
+			<th class="col-group-start">p75</th>
+			<th class="col-dist">Distribution</th>
+			{% endif %}
+		</tr>
+	</thead>
+	<tbody>
+	{% for row in rows %}
+	{% set t = entryData.trends[row.trendKey] %}
+		<tr>
+			<td class="col-site">
+				<strong>{{ row.label }}</strong>
+				{#
+					A Core Web Vital graded on the lab number because CrUX has nothing
+					for it. The pill beside it is a real rating on real thresholds, and
+					reads exactly like the field-backed one — the word on the badge is
+					what separates the measurement of this site's users from a
+					measurement of one simulated phone.
+
+					Per row, not per table: CrUX will report a site's LCP and stay
+					silent on its CLS, and only the silent one is an estimate.
+				#}
+				{% set cwvEstimated = row.coreWebVital and row.lab and row.lab.value !== null and not (row.field and row.field.value !== null) %}
+				{% if row.coreWebVital %}<span class="badge badge-cwv"{% if cwvEstimated %} title="No Chrome UX Report data for this metric, so the rating comes from the Lighthouse run rather than from real users"{% endif %}>CWV{% if cwvEstimated %} <span class="badge-qualifier">(estimate)</span>{% endif %}</span>{% endif %}
+				{% if row.note %}<span class="muted small block">{{ row.note }}</span>{% endif %}
+			</td>
+			{#
+				The value and its verdict in one cell, so the eye does not travel to
+				a rating column and back to work out which number it grades.
+			#}
+			<td class="num">
+				{% if not row.lab %}
+				<span class="muted" title="Lighthouse cannot measure this in a lab run">n/a</span>
+				{% elif row.lab.value === null %}
+				&mdash;
+				{% else %}
+				<span class="metric-pair">
+					{{ row.lab.value | unit(row.unit) }}
+					{% if row.lab.rating %}<span class="pill pill-{{ row.lab.rating | ratingClass }}">{{ row.lab.rating | ratingLabel }}</span>{% endif %}
+				</span>
+				{% endif %}
+			</td>
+			{#
+				The move since the last run, over the range across the whole window.
+				One cell rather than three columns: best and worst state the ends of
+				a range, which is one fact, and both are context for the change
+				rather than figures anyone scans a column of. The sparkline beside
+				them already draws the same shape.
+
+				Only the change line is colored — the range is neither good nor bad,
+				it is where this metric has been.
+
+				And pink rather than red while either rating on the row says good. The
+				pills grade where the metric stands; a move inside the good band is
+				movement, not a regression, and red argues with the pill sitting two
+				cells to the left. The sparkline beside it is softened the same way.
+			#}
+			{% set stillGood = (row.lab and row.lab.rating == "good") or (row.field and row.field.rating == "good") %}
+			<td class="num">
+				<span class="cell-main{% if t %} {{ t.vsPrevious | deltaClass(stillGood) }}{% endif %}">
+					{% if t and t.vsPrevious %}{{ t.vsPrevious | deltaArrow }} {{ t.vsPrevious | deltaText(row.unit) }}{% else %}&mdash;{% endif %}
+				</span>
+				{#
+					Under the change it qualifies rather than trailing it: the badge is
+					a whole word against a number a few characters long, and inline it
+					set the width of the column to its own.
+				#}
+				{% if t and t.significant %}
+				<span class="cell-flag"><span class="badge badge-sig" title="Larger than this metric's normal run-to-run noise">significant</span></span>
+				{% endif %}
+				{% if t %}
+				<span class="cell-sub" title="Best and worst across the measured window">
+					{{ (t.min if t.lowerIsBetter else t.max) | unit(row.unit) }} &ndash; {{ (t.max if t.lowerIsBetter else t.min) | unit(row.unit) }}
+				</span>
+				{% endif %}
+			</td>
+			<td class="col-trend">{% if t %}{% sparkline t, { good: stillGood } %}{% endif %}</td>
+			{% if showField %}
+			<td class="num col-group-start">
+				{% if not row.field %}
+				<span class="muted" title="Not reported by the Chrome UX Report">n/a</span>
+				{% elif row.field.value === null %}
+				&mdash;
+				{% else %}
+				<span class="metric-pair">
+					{{ row.field.value | unit(row.unit) }}
+					{% if row.field.rating %}<span class="pill pill-{{ row.field.rating | ratingClass }}">{{ row.field.rating | ratingLabel }}</span>{% endif %}
+					{#
+						A value borrowed from the origin is the whole site's number, not
+						this page's — CrUX had too few samples here.
+					#}
+					{% if row.field.scope == "origin" %}<span class="tag" title="Not enough samples for this page, so this is the figure for the whole origin">site-wide</span>{% endif %}
+				</span>
+				{% endif %}
+			</td>
+			{#
+				The bar over its own legend, which is why the header is one word now:
+				each share names its band with an icon instead of the column heading
+				spelling all three out. It also shows all three, where the line under
+				the bar used to show only the good share.
+
+				The icons carry the meaning for a reader who cannot tell the three
+				colors apart, so they are not decorative — each has its band in the
+				text beside it via the title, and the bar keeps its own summary.
+			#}
+			<td class="col-dist">
+				{% if row.field and row.field.distribution %}
+				{% set d = row.field.distribution %}
+				<span class="dist" title="{{ d.good }}% good, {{ d.needsImprovement }}% needs improvement, {{ d.poor }}% poor">
+					<span class="dist-good" style="width:{{ d.good }}%"></span>
+					<span class="dist-avg" style="width:{{ d.needsImprovement }}%"></span>
+					<span class="dist-poor" style="width:{{ d.poor }}%"></span>
+				</span>
+				<span class="dist-key">
+					<span class="dist-key-good" title="{{ d.good }}% of loads were good"><i class="fa-solid fa-circle-check" width="10" height="10" aria-hidden="true"></i>{{ d.good }}%</span>
+					<span class="dist-key-avg" title="{{ d.needsImprovement }}% of loads needed work"><i class="fa-solid fa-triangle-exclamation" width="10" height="10" aria-hidden="true"></i>{{ d.needsImprovement }}%</span>
+					<span class="dist-key-poor" title="{{ d.poor }}% of loads were poor"><i class="fa-solid fa-circle-xmark" width="10" height="10" aria-hidden="true"></i>{{ d.poor }}%</span>
+				</span>
+				{% else %}&mdash;{% endif %}
+			</td>
+			{% endif %}
+		</tr>
+	{% endfor %}
+	</tbody>
+</table>
+</div>
+{% endmacro %}
+
+{#
+	The same three columns the metrics table settled on: the value, the change
+	over the range it moved within, and the shape of the window. Current and
+	previous were two columns saying one thing — the delta beside them was
+	already the difference — and best and worst are the ends of a range, which
+	is one fact rather than two columns to scan.
+#}
+{% macro trendtable(rows, entryData, prefix="") %}
+<div class="table-scroll">
+<table class="grid">
+	<thead>
+		<tr>
+			<th class="col-site">Metric</th>
+			<th>Value</th>
+			<th>Change / range</th>
+			<th class="col-trend">Trend</th>
+		</tr>
+	</thead>
+	<tbody>
+	{% for row in rows %}
+	{% set t = entryData.trends[prefix + row.key] %}
+	{% if t %}
+		<tr>
+			<td class="col-site">
+				<strong>{{ row.label }}</strong>
+				{% if row.note %}<span class="muted small block">{{ row.note }}</span>{% endif %}
+			</td>
+			<td class="num">{{ t.current | unit(row.unit) }}</td>
+			{#
+				Only the change line is colored — the range is neither good nor bad,
+				it is where this metric has been. The badge sits on its own line under
+				the change it qualifies rather than inline, where a whole word set the
+				width of the column to its own.
+			#}
+			<td class="num">
+				<span class="cell-main {{ t.vsPrevious | deltaClass }}">
+					{% if t.vsPrevious %}{{ t.vsPrevious | deltaArrow }} {{ t.vsPrevious | deltaText(row.unit) }}{% else %}&mdash;{% endif %}
+				</span>
+				{% if t.significant %}
+				<span class="cell-flag"><span class="badge badge-sig" title="Larger than this metric's normal run-to-run noise">significant</span></span>
+				{% endif %}
+				<span class="cell-sub" title="Best and worst across the measured window">
+					{{ (t.min if t.lowerIsBetter else t.max) | unit(row.unit) }} &ndash; {{ (t.max if t.lowerIsBetter else t.min) | unit(row.unit) }}
+				</span>
+			</td>
+			<td class="col-trend">{% sparkline t %}</td>
+		</tr>
+	{% endif %}
+	{% endfor %}
+	</tbody>
+</table>
+</div>
+{% endmacro %}
+
+
+<section class="panel" id="scores">
+	<h2>Lighthouse Scores</h2>
+	<div class="cards">
+		{% for score in metrics.SCORES %}
+		{% set t = entry.trends[score.key] %}
+		{% set value = entry.latest.lab.scores[score.key] %}
+		{#
+			A card whose score still bands good gets the softened pink rather than
+			red, the same as the metrics table below and the leaderboard trends: 96
+			after 99 moved the wrong way, and the number above is green.
+		#}
+		{% set scoreGood = (value | scoreClass) == "good" %}
+		<div class="card">
+			<div class="card-value score-{{ value | scoreClass }}">{{ value if value != null else "—" }}</div>
+			<div class="card-label">{{ score.label }}</div>
+			{% if t %}
+			<div class="card-spark">{% sparkline t, { good: scoreGood } %}</div>
+			{% if t.vsPrevious and not t.vsPrevious.unchanged %}
+			<div class="card-delta {{ t.vsPrevious | deltaClass(scoreGood) }}">
+				{{ t.vsPrevious | deltaArrow }} {{ t.vsPrevious | deltaText }}
+			</div>
+			{% else %}
+			<div class="card-delta flat">no change</div>
+			{% endif %}
+			{% endif %}
+		</div>
+		{% endfor %}
+	</div>
+</section>
 
 <section class="panel" id="lab">
 	<h2>
