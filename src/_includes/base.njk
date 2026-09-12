@@ -3,21 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- Dark first, matching `color-scheme: dark` on :root below. This is not a
-     duplicate of that declaration: the CSS wins once it is parsed, but the UA
-     reads this while the document is still arriving, so it governs the canvas
-     and the scrollbar in the window before then — and, between pages, the
-     background the browser paints for the incoming document. Both schemes are
-     listed because both are real: a stored choice of "light" flips :root to
-     color-scheme: light a few lines further down. -->
+<!-- Matches `color-scheme` on :root, read by the UA before the CSS arrives. -->
 <meta name="color-scheme" content="dark light">
-<!-- Safari tints its toolbar with this. The masthead is what sits under it —
-     sticky, and painted `--surface` — so this tracks that.
-
-     No `media="(prefers-color-scheme: …)"` pair, which is the usual way to write
-     this: that only works for a site whose theme follows the OS, and this one is
-     dark unconditionally until someone chooses otherwise. The value is kept in
-     step by the script below instead. -->
+<!-- Safari tints its toolbar with this; the script below keeps it on the masthead's `--surface`. -->
 <meta name="theme-color" content="#383838">
 <title>{% if title %}{{ title }} · {% endif %}{{ meta.title }}</title>
 <meta name="description" content="{{ description or meta.description }}">
@@ -55,16 +43,17 @@
      identical tabs otherwise. -->
 <link rel="icon" href="{{ pageFavicon or favicon }}">
 <script>
-/* Applied before first paint so a light-mode reader never sees a dark flash.
-   Dark is the default; only a stored choice of "light" changes anything. */
+/* A saved light override, applied before first paint. */
 try { if (localStorage.getItem("speedlify-theme") === "light") document.documentElement.dataset.theme = "light"; } catch (e) {}
-/* Read from the stylesheet rather than repeated here, so the toolbar cannot
-   drift from the masthead when --surface changes. Safe this early: a script
-   after a stylesheet waits for it, so the custom property already resolves. */
+/* Resolved through a probe element: the raw custom property is an unresolved light-dark(). */
 function speedlifyThemeColor() {
 	try {
 		var meta = document.querySelector('meta[name="theme-color"]');
-		var surface = getComputedStyle(document.documentElement).getPropertyValue("--surface").trim();
+		var probe = document.createElement("meta");
+		probe.style.color = "var(--surface)";
+		document.head.appendChild(probe);
+		var surface = getComputedStyle(probe).color;
+		probe.remove();
 		if (meta && surface) meta.setAttribute("content", surface);
 	} catch (e) {}
 }
@@ -104,36 +93,13 @@ speedlifyThemeColor();
 				below, where `<meta name="description">` above wants it whole.
 			#}
 			{{ meta.description }}
+			Follow us on <a href="https://mastodon.social/@speedlify" rel="me"><i class="fa-brands fa-mastodon" aria-hidden="true"></i>Mastodon</a> or <a href="https://bsky.app/profile/speedlify.dev" rel="me"><i class="fa-brands fa-bluesky" aria-hidden="true"></i>Bluesky</a>.
 		</p>
 		<div class="masthead-subhed masthead-tools">
 			<a href="/charts/">Charts</a>
 			<a href="/compare/">Compare</a>
 			<a href="/runs/">Measurement runs</a>
 			<a href="/embed/">Embed a score</a>
-			<!-- Disabled until scripted, like the category select: without JS the
-			     choice cannot be stored, so the button cannot do what it says.
-
-			     It used to be `hidden`, which never took effect — `.theme-toggle`
-			     sets `display: inline-flex`, and an author display beats the UA
-			     stylesheet's `[hidden] { display: none }`. So the button rendered
-			     anyway and did nothing when clicked, which is the outcome that
-			     comment was written to prevent. `disabled` cannot be overridden by
-			     a stylesheet. -->
-			<button class="theme-toggle" type="button" id="theme-toggle" disabled
-				title="Switching theme needs JavaScript. Without it the page follows your system setting.">
-			{#
-				Font Awesome, via the transform — these become <use> references
-				against the same spritesheet the stack marks use, so the two glyphs
-				cost one symbol each across the whole site rather than a hand-drawn
-				path in every page's <head>-adjacent markup.
-
-				Empty, deliberately: the transform turns element content into a
-				<title>, and the button already has visible text beside the icon.
-			#}
-			<i class="fa-solid fa-sun theme-icon theme-icon-sun" width="14" height="14" aria-hidden="true"></i>
-			<i class="fa-solid fa-moon theme-icon theme-icon-moon" width="14" height="14" aria-hidden="true"></i>
-			<span class="theme-toggle-text">Light mode</span>
-		</button>
 		{#
 			Jump to a category, from any page.
 
@@ -304,40 +270,57 @@ speedlifyThemeColor();
 			Lab data from Lighthouse{% if sites.hasFieldData %}, field data from the Chrome UX Report (28-day trailing p75){% endif %}.
 			Lab numbers are simulated on one machine and will vary from real user data.
 		</p>
+		{# Disabled until scripted: without JS the page stays dark and nothing can be saved. #}
+		<div class="theme-toggle">
+			<span class="theme-toggle-label" data-theme-side="dark">Dark</span>
+			<button type="button" class="theme-switch" id="theme-toggle" role="switch" aria-checked="false" aria-label="Light theme" disabled
+				title="Switching theme needs JavaScript.">
+				<span class="theme-switch-knob"></span>
+			</button>
+			<span class="theme-toggle-label" data-theme-side="light">Light</span>
+		</div>
 	</div>
 </footer>
 
 <script>
-/* The only scripted behavior on the site. Everything else — including the
-   sparklines and score rings — is rendered at build time. */
+/* Two-state theme toggle: dark by default, or a saved light override. */
 (function () {
 	var root = document.documentElement;
 	var button = document.getElementById("theme-toggle");
 	if (!button) return;
+	var sides = button.parentNode.querySelectorAll("[data-theme-side]");
 
-	// Only the text node is rewritten: the icons are siblings of it, and
-	// assigning to button.textContent would remove them.
-	var text = button.querySelector(".theme-toggle-text") || button;
+	function currentMode() { return root.dataset.theme === "light" ? "light" : "dark"; }
 
-	function label() {
-		var light = root.dataset.theme === "light";
-		text.textContent = light ? "Dark mode" : "Light mode";
-		button.setAttribute("aria-pressed", String(light));
+	function sync() {
+		var mode = currentMode();
+		button.setAttribute("aria-checked", String(mode === "light"));
+		sides.forEach(function (side) {
+			side.classList.toggle("active", side.dataset.themeSide === mode);
+		});
+		speedlifyThemeColor();
+	}
+
+	// Choosing dark clears the override rather than saving the default.
+	function choose(mode) {
+		if (mode === "light") root.dataset.theme = "light";
+		else delete root.dataset.theme;
+		try {
+			if (mode === "light") localStorage.setItem("speedlify-theme", "light");
+			else localStorage.removeItem("speedlify-theme");
+		} catch (e) {}
+		sync();
 	}
 
 	button.disabled = false;
 	button.removeAttribute("title");
-	label();
+	sync();
 
 	button.addEventListener("click", function () {
-		var light = root.dataset.theme !== "light";
-		if (light) root.dataset.theme = "light";
-		else delete root.dataset.theme;
-
-		try { localStorage.setItem("speedlify-theme", light ? "light" : "dark"); } catch (e) {}
-		label();
-		// Safari's toolbar follows the masthead across the switch too.
-		if (typeof speedlifyThemeColor === "function") speedlifyThemeColor();
+		choose(currentMode() === "dark" ? "light" : "dark");
+	});
+	sides.forEach(function (side) {
+		side.addEventListener("click", function () { choose(side.dataset.themeSide); });
 	});
 })();
 </script>

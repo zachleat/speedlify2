@@ -38,24 +38,39 @@ title: Compare
 			measured. Hidden while the corpus holds only one kind — a control with
 			nothing to choose between.
 		#}
-		<fieldset class="race-throttle" id="race-throttle" hidden>
-			<legend>Capture</legend>
-			{#
-				The same two marks the site pages put on a filmstrip, so the control
-				and the label it selects for read as one idea. Decorative: the word
-				beside each carries the meaning.
-			#}
-			<label>
-				<input type="radio" name="race-throttle" value="false" checked>
-				Unthrottled <span class="tag-mark" aria-hidden="true">🐇</span>
-				<span class="race-throttle-count" data-capture="false"></span>
-			</label>
-			<label>
-				<input type="radio" name="race-throttle" value="true">
-				Throttled <span class="tag-mark" aria-hidden="true">🐢</span>
-				<span class="race-throttle-count" data-capture="true"></span>
-			</label>
-		</fieldset>
+		<div class="race-picker-top">
+			<fieldset class="race-throttle" id="race-throttle" hidden>
+				<legend>Capture Type</legend>
+				{#
+					The same two marks the site pages put on a filmstrip, so the control
+					and the label it selects for read as one idea. Decorative: the word
+					beside each carries the meaning.
+				#}
+				<label>
+					<input type="radio" name="race-throttle" value="true" checked>
+					Throttled <span class="tag-mark" aria-hidden="true">🐢</span>
+					<span class="race-throttle-count" data-capture="true"></span>
+				</label>
+				<label>
+					<input type="radio" name="race-throttle" value="false">
+					Unthrottled <span class="tag-mark" aria-hidden="true">🐇</span>
+					<span class="race-throttle-count" data-capture="false"></span>
+				</label>
+			</fieldset>
+			<div class="race-shuffle">
+				<button type="button" id="race-shuffle"><i class="fa-solid fa-play" width="10" height="10" aria-hidden="true"></i> Shuffle</button>
+				{#
+					Narrows what Shuffle draws from. Not part of the race itself — the
+					address carries the sites, not how they were chosen — so it is a
+					control rather than state, and it is populated from the catalog
+					because only categories that actually have filmstrips can be raced.
+				#}
+				<label class="race-category">
+					from
+					<select id="race-category"><option value="">all categories</option></select>
+				</label>
+			</div>
+		</div>
 
 		<div class="race-fields" id="race-fields"></div>
 		{#
@@ -79,25 +94,11 @@ title: Compare
 		<span class="race-icon-source-unlock" hidden>
 			<i class="fa-solid fa-lock-open" width="14" height="14" aria-hidden="true"></i>
 		</span>
-		<span class="race-icon-source-anim" hidden>
-			<i class="fa-solid fa-arrows-rotate" width="10" height="10" aria-hidden="true"></i>
-		</span>
 		<span class="race-icon-source-finish" hidden>
 			<i class="fa-solid fa-flag-checkered" width="10" height="10" aria-hidden="true"></i>
 		</span>
 		<div class="race-picker-actions">
 			<button type="button" id="race-add">Add a lane</button>
-			<button type="button" id="race-shuffle">Shuffle</button>
-			{#
-				Narrows what Shuffle draws from. Not part of the race itself — the
-				address carries the sites, not how they were chosen — so it is a
-				control rather than state, and it is populated from the catalog
-				because only categories that actually have filmstrips can be raced.
-			#}
-			<label class="race-category">
-				from
-				<select id="race-category"><option value="">all categories</option></select>
-			</label>
 			<span class="race-count muted small" id="race-count"></span>
 		</div>
 	</form>
@@ -142,7 +143,7 @@ title: Compare
 		unthrottled note exists to warn that the frames are faster than any visitor
 		would see, and the throttled one exists to say the opposite.
 	#}
-	<div id="race-note-unthrottled">
+	<div id="race-note-unthrottled" hidden>
 	<p class="muted small race-note">
 		<strong>These frames are barely throttled.</strong> The runs use Lighthouse's
 		default simulated throttling, which does not slow the connection or the
@@ -171,7 +172,7 @@ title: Compare
 	</p>
 	</div>
 
-	<div id="race-note-throttled" hidden>
+	<div id="race-note-throttled">
 	<p class="muted small race-note">
 		<strong>These frames are of a throttled load.</strong> The runs applied
 		Lighthouse's Slow 4G profile and a 4&times; CPU slowdown to the browser
@@ -192,6 +193,7 @@ title: Compare
 	</div>
 </div>
 
+<script src="/js/filmstrip-lanes.js"></script>
 <script>
 /*
  * The race. Everything here is client-side because the pairing is a query
@@ -200,7 +202,7 @@ title: Compare
 (function () {
 	var root = document.getElementById("race");
 	var fallback = document.getElementById("race-fallback");
-	if (!root || !window.fetch || !window.Map) return;
+	if (!root || !window.fetch || !window.Map || !window.FilmstripLanes) return;
 
 	var MAX_LANES = 8;
 
@@ -214,34 +216,6 @@ title: Compare
 	 */
 	function laneScale(count) {
 		return Math.max(0.5, Math.min(1, 2.2 / count));
-	}
-
-	/*
-	 * When the page stopped changing, read off the strip itself: the earliest
-	 * frame from which every later frame is the same picture.
-	 *
-	 * This is the only "finished" this page can honestly draw. It is observed —
-	 * it comes out of the same screenshots the lanes are made of — so it sits on
-	 * the same clock they do. Lighthouse's own timings do not, which is why none
-	 * of them appear on this page; see the note under the race.
-	 */
-	function settledAt(site) {
-		var frames = (site && site.frames) || [];
-		if (!frames.length) return null;
-
-		/* Measured on the pixels at measurement time — see settleTime in
-		   lib/metrics.js. Absent for strips captured before that landed, which
-		   fall back to comparing filenames below: exact, and so blind to a page
-		   that finished with one widget still moving. */
-		if (typeof site.settledAt === "number") return site.settledAt;
-
-		var last = frames[frames.length - 1].src;
-		var at = frames[frames.length - 1].timing;
-		for (var i = frames.length - 1; i >= 0; i--) {
-			if (frames[i].src !== last) break;
-			at = frames[i].timing;
-		}
-		return at;
 	}
 
 	/*
@@ -292,7 +266,7 @@ title: Compare
 	 * Which capture the page is comparing: false for unthrottled, true for
 	 * throttled. Every lane has to be one or the other — see `matchesCapture`.
 	 */
-	var captureMode = false;
+	var captureMode = true;
 	var compareMarkers = [];
 	var timeline = null;
 	var now = 0;
@@ -302,24 +276,10 @@ title: Compare
 	var lastFrameTime = 0;
 	var follow = true;
 
-	/* ------------------------------------------------------------ formatting */
-
-	function fmtMs(value) {
-		if (typeof value !== "number") return "—";
-		if (value >= 1000) return (value / 1000).toFixed(value >= 10000 ? 1 : 2) + " s";
-		return Math.round(value) + " ms";
-	}
-
-	/* Seconds to two places — short enough to sit under a frame, precise enough
-	   that two frames a sample apart do not read as the same instant. */
-	function fmtSeconds(value) {
-		if (typeof value !== "number") return "";
-		return (value / 1000).toFixed(2) + "s";
-	}
-
-	function fmtClock(value) {
-		return String(Math.round(value)).replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " ms";
-	}
+	var L = window.FilmstripLanes;
+	var el = L.el;
+	var fmtMs = L.fmtMs;
+	var settledAt = L.settledAt;
 
 	/*
 	 * The six band dots the Recently Measured lists draw, from the same
@@ -348,117 +308,15 @@ title: Compare
 		return source ? source.innerHTML : "";
 	}
 
-	function finishIcon() {
-		var source = document.querySelector(".race-icon-source-finish");
-		return source ? source.innerHTML : "";
-	}
-
-	function animIcon() {
-		var source = document.querySelector(".race-icon-source-anim");
-		return source ? source.innerHTML : "";
-	}
-
 	function lockIcon(locked) {
 		var source = document.querySelector(locked ? ".race-icon-source-lock" : ".race-icon-source-unlock");
 		return source ? source.innerHTML : "";
 	}
 
-	function el(tag, className) {
-		var node = document.createElement(tag);
-		if (className) node.className = className;
-		return node;
-	}
-
-	/* --------------------------------------------------------------- the axis */
-
-	/*
-	 * One grid for every lane.
-	 *
-	 * Lighthouse samples each run on its own schedule, so two strips laid out
-	 * frame by frame are not comparable — the site sampled every 900ms would look
-	 * slower than the one sampled every 375ms for no reason but the sampling. The
-	 * strips are resampled onto a single step instead: column i shows whatever
-	 * each site had painted by i steps in, which is the comparison the page
-	 * claims to be making.
-	 */
-	function buildTimeline(racers) {
-		var end = 0;
-		var step = Infinity;
-
-		racers.forEach(function (r) {
-			var frames = r.frames || [];
-			if (frames.length) end = Math.max(end, frames[frames.length - 1].timing);
-			for (var i = 1; i < frames.length; i++) {
-				var gap = frames[i].timing - frames[i - 1].timing;
-				if (gap > 0) step = Math.min(step, gap);
-			}
-		});
-
-		if (!isFinite(step) || step <= 0) step = 250;
-		if (!end) end = step * 4;
-
-		/*
-		 * The step is the finest strip's own interval and nothing else.
-		 *
-		 * It used to be widened to hold the axis under a column cap, which made
-		 * sense while frames were resampled into columns. Placed by timestamp they
-		 * are laid out in stride units of this step, so widening it pulls them
-		 * toward each other — at the extreme, a 45s race put its frames a fifth of
-		 * a stride apart and they overlapped. The axis is as long as it needs to
-		 * be instead, and scrolls.
-		 */
-		var cols = Math.max(1, Math.ceil(end / step));
-		return { step: step, cols: cols, end: cols * step };
-	}
-
-	/*
-	 * The last frame at or before `t`, as stored, or null where this strip has
-	 * nothing to say about `t`.
-	 *
-	 * Lighthouse times its thumbnails from navigation start — it forces
-	 * `timeOrigin` as speedline's reference point — so the stored timings need no
-	 * correction to sit on this axis.
-	 *
-	 * A strip covers only its own eight samples, and every strip is a different
-	 * length: Lighthouse divides that run's own timeline into eight, so racing a
-	 * 3s capture against a 15s one leaves the shorter lane with nothing recorded
-	 * for most of the axis. It stops there rather than holding its last frame
-	 * across the gap, which would be showing a picture at a time nobody
-	 * photographed it.
-	 */
-	function frameAt(racer, t, step) {
-		var frames = racer.frames || [];
-		if (!frames.length) return null;
-
-		/*
-		 * One column past the strip's end, not zero.
-		 *
-		 * A column stands for the interval that ends at `t`, and the grid runs on
-		 * the finest step in the race, so a strip's last frame almost never lands
-		 * on a column boundary. Cutting at `t > last` therefore dropped the final
-		 * frame outright whenever it fell between two columns — which is the one
-		 * frame that matters, the finished page. salesforce.com's strip ends at
-		 * 4806ms and on a 375ms grid the columns either side are 4500 and 4875, so
-		 * its render was never drawn at all.
-		 *
-		 * The strip is shown through the column whose interval contains its end,
-		 * and goes dark after that.
-		 */
-		var last = frames[frames.length - 1].timing;
-		if (t - step >= last) return null;
-
-		var hit = null;
-		for (var i = 0; i < frames.length; i++) {
-			if (frames[i].timing > t) break;
-			hit = frames[i];
-		}
-		return hit;
-	}
-
 	/* ------------------------------------------------------------- the lanes */
 
 	function renderGrid() {
-		timeline = buildTimeline(lanes.map(function (l) { return l.site; }));
+		timeline = L.buildTimeline(lanes.map(function (l) { return l.site; }));
 		grid.innerHTML = "";
 		grid.style.setProperty("--cols", timeline.cols);
 
@@ -472,24 +330,23 @@ title: Compare
 		root.style.setProperty("--race-aspect", aspect.toFixed(4));
 		root.style.setProperty("--race-lane-scale", laneScale(lanes.length).toFixed(3));
 
-		grid.appendChild(renderRuler());
+		grid.appendChild(L.renderRuler(timeline));
 
 		lanes.forEach(function (lane, index) {
 			lane.index = index;
 			/* Kept, so the clock can mark the winning row — see setTime. */
 			lane.nameEl = renderName(lane);
-			lane.laneEl = renderLane(lane);
+			lane.laneEl = L.renderLane(lane, timeline);
 			grid.appendChild(lane.nameEl);
 			grid.appendChild(lane.laneEl);
 		});
 
 		renderComparisons();
-		lanes.forEach(function (lane) { packRows(lane.markers); });
+		lanes.forEach(function (lane) { L.packMarkers(lane, lane.laneEl, timeline, strideWidth()); });
 		renderResult(null);
 		observeLanes();
 	}
 
-	/* One row of flags, above the lanes they are there to be read against. */
 	/*
 	 * One row of flags, above the lanes they are there to be read against.
 	 *
@@ -536,121 +393,9 @@ title: Compare
 		grid.insertBefore(name, firstLane);
 		grid.insertBefore(lane, firstLane);
 
-		packFlags(built, lane, name);
-	}
-
-	// Observed TTFB, FCP and LCP from the pass that took the frames; metrics that coincide share a flag.
-	function renderMarkers(site, cell) {
-		var markers = site.markers || {};
-		var byTime = [];
-		[["ttfb", "TTFB"], ["fcp", "FCP"], ["lcp", "LCP"]].forEach(function (pair) {
-			var at = markers[pair[0]];
-			if (typeof at !== "number" || at > timeline.end) return;
-			var same = byTime.filter(function (m) { return m.at === at; })[0];
-			if (same) same.names.push(pair[1]);
-			else byTime.push({ at: at, names: [pair[1]] });
-		});
-		byTime.sort(function (a, b) { return a.at - b.at; });
-
-		return byTime.map(function (item) {
-			var marker = el("div", "race-flagpost is-metric");
-			marker.style.setProperty("--at", item.at / timeline.step);
-			marker.appendChild(el("i", "race-flagpost-pole"));
-			var label = el("span", "race-flagpost-label");
-			label.style.setProperty("--row", 0);
-			label.textContent = item.names.join(" · ") + " " + fmtSeconds(item.at);
-			label.title = "Observed in this throttled capture, not the site's scored runs";
-			marker.appendChild(label);
-			cell.appendChild(marker);
-			return { el: marker, time: item.at, at: item.at, label: label };
-		});
-	}
-
-	/*
-	 * Put each flag on the highest row where its label clears the one before it.
-	 *
-	 * Measured rather than estimated. A label's width is pixels and the gap
-	 * between two flags is time, and the exchange rate between them — the column
-	 * stride — is not fixed: frames shrink as lanes are added, so the same two
-	 * moments that clear each other in a two-lane race collide in an eight-lane
-	 * one. Reading the real stride and the real label widths is the only version
-	 * of this that holds at every size.
-	 */
-	function packFlags(built, lane, name) {
-		var used = packRows(built);
+		var used = L.packRows(built, timeline, strideWidth());
 		lane.style.setProperty("--rows", used);
 		name.style.setProperty("--rows", used);
-	}
-
-	function packRows(built) {
-		var stride = strideWidth() || 90;
-		/* Right edge of the last label on each row. */
-		var edges = [];
-		var used = 1;
-
-		built.forEach(function (flag) {
-			var x = (flag.at / timeline.step) * stride;
-			var width = flag.label.offsetWidth || 120;
-			var row = 0;
-
-			while (edges[row] !== undefined && x < edges[row]) row += 1;
-
-			/* A few pixels of daylight, so two labels never sit edge to edge. */
-			edges[row] = x + width + 6;
-			flag.label.style.setProperty("--row", row);
-			used = Math.max(used, row + 1);
-		});
-
-		return used;
-	}
-
-	/*
-	 * Tick intervals worth reading a clock against, coarsest last.
-	 *
-	 * The ruler used to tick once per column, at Lighthouse's own sampling
-	 * interval — so it read 375ms, 750ms, 1.13s, and changed shape between
-	 * comparisons because that interval is a property of each run's timeline
-	 * rather than of time. These are the same numbers a clock has.
-	 */
-	var TICK_STEPS = [100, 250, 500, 1000, 2000, 2500, 5000, 10000, 15000, 30000];
-	var MAX_TICKS = 12;
-
-	/*
-	 * Never finer than the frames it is measuring.
-	 *
-	 * The default strip is eight samples across Lighthouse's three-second minimum
-	 * — one every 375ms — and a 250ms tick out-resolves that: three ticks for
-	 * every two photographs, implying a precision the pictures do not have. The
-	 * tick is the coarsest of two floors, the grid's own cadence and whatever
-	 * keeps the count readable.
-	 */
-	function tickStep(end, step) {
-		for (var i = 0; i < TICK_STEPS.length; i++) {
-			if (TICK_STEPS[i] < step) continue;
-			if (end / TICK_STEPS[i] <= MAX_TICKS) return TICK_STEPS[i];
-		}
-		return TICK_STEPS[TICK_STEPS.length - 1];
-	}
-
-	/*
-	 * Ticks at round times, positioned the way the comparison flags are: a
-	 * fraction of the column stride rather than a column index.
-	 *
-	 * They no longer line up with frame boundaries, which is the honest
-	 * arrangement — the frames are not at round times, and a tick sitting exactly
-	 * on every column edge quietly claimed the sampling grid was the clock.
-	 */
-	function renderRuler() {
-		var ruler = el("div", "race-ruler");
-		var step = tickStep(timeline.end, timeline.step);
-
-		for (var at = step; at <= timeline.end; at += step) {
-			var tick = el("span", "race-tick");
-			tick.style.setProperty("--at", at / timeline.step);
-			tick.textContent = fmtMs(at);
-			ruler.appendChild(tick);
-		}
-		return ruler;
 	}
 
 	/*
@@ -682,180 +427,11 @@ title: Compare
 		return row;
 	}
 
-	/*
-	 * A lane: every frame at the moment it was taken, and one live frame that
-	 * rides the clock.
-	 *
-	 * Frames are placed by their own timing rather than dropped into columns.
-	 * Columns were a resampling — a coarsely sampled lane repeated its last frame
-	 * into every slot, which drew pictures at times nobody photographed them.
-	 * Here a frame sits exactly where its timestamp falls and the gaps between
-	 * them are real: they are the stretches this strip has nothing to say about.
-	 *
-	 * The live frame is the animation. It moves continuously with the clock,
-	 * carrying whatever the page looked like at that instant, and each time it
-	 * passes a frame's own moment that frame is left behind at it. So the strip
-	 * assembles as the clock runs rather than appearing a column at a time.
-	 */
-	/*
-	 * When the space between two frames is drawn as unphotographed.
-	 *
-	 * Any time they are more than one sample apart, which is the same rule as
-	 * "more than `--race-gap` of clear space": the stride is a frame's width plus
-	 * that gap, so two frames a single sample apart sit exactly that far from
-	 * each other and anything wider is a stretch nobody photographed. The epsilon
-	 * is for the lane that set the step, whose ratio is 1 by construction and
-	 * must not round its way into a band.
-	 */
-	var WAITING_GAP = 1 + 1e-9;
-
-	function renderLane(lane) {
-		var cell = el("div", "race-lane");
-		cell.style.setProperty("--lane", lane.index);
-
-		var frames = lane.site.frames || [];
-		var settled = settledAt(lane.site);
-
-		lane.gaps = [];
-
-		/* Before the first sample. One band rather than a row of placeholders: the
-		   whole stretch is a single fact — nothing was captured yet — and drawing
-		   it as frames would invent a sampling rate for it. */
-		if (frames.length && frames[0].timing > 0) {
-			var lead = el("div", "race-waiting is-lead");
-			lead.style.setProperty("--from", 0);
-			lead.style.setProperty("--to", frames[0].timing / timeline.step);
-			lead.style.setProperty("--fill", 0);
-			cell.appendChild(lead);
-			lane.gaps.push({ el: lead, from: 0, to: frames[0].timing });
-		}
-
-		/*
-		 * And between samples, wherever the strip skipped enough time to show it.
-		 *
-		 * A lane sampled more coarsely than the grid leaves real space between its
-		 * frames — those are stretches of the load nobody photographed, and the
-		 * same band says so as says it at the head of the lane. Below the
-		 * threshold the frames are close enough to read as a sequence and a sliver
-		 * of hatching between them would be noise.
-		 */
-		for (var g = 1; g < frames.length; g++) {
-			var from = frames[g - 1].timing;
-			var to = frames[g].timing;
-			if ((to - from) / timeline.step <= WAITING_GAP) continue;
-			/* No band into a frame that is not drawn — see the settle skip below. */
-			if (typeof settled === "number" && from >= settled) continue;
-
-			/*
-			 * Tiled with the frame that opened the gap.
-			 *
-			 * Between two samples the page is not unknown, it is unobserved: the
-			 * last thing anyone saw is still the best account of it. Repeating that
-			 * picture across the band says "as last seen, still" — and repeating it
-			 * faintly, behind a dashed edge, keeps it from being mistaken for the
-			 * photographs either side, which is what the old column-repeat did
-			 * wrong. The lead band gets none of this: before the first sample there
-			 * is genuinely nothing to carry forward.
-			 */
-			var band = el("div", "race-waiting is-held");
-			band.style.setProperty("--from", from / timeline.step);
-			band.style.setProperty("--to", to / timeline.step);
-			band.style.setProperty("--fill", from / timeline.step);
-			/* Handed to CSS as a property rather than set as the background here:
-			   the picture is painted by a masked layer inside the band, so the band
-			   itself can stay transparent. */
-			band.style.setProperty("--held-src", "url(" + frames[g - 1].src + ")");
-			band.title = "Not captured — the page as last seen, at " + fmtMs(from);
-			cell.appendChild(band);
-			lane.gaps.push({ el: band, from: from, to: to });
-		}
-
-		lane.cells = [];
-		frames.forEach(function (frame, index) {
-			var slot = el("div", "race-frame");
-			slot.style.setProperty("--at", frame.timing / timeline.step);
-
-			// The frame the lane finishes on.
-			if (typeof settled === "number" && frame.timing === settled) {
-				var flag = el("span", "race-frame-finish");
-				flag.innerHTML = finishIcon();
-				flag.title = "Finished — the page stopped changing here, at " + fmtSeconds(frame.timing);
-				slot.appendChild(flag);
-			}
-
-			/* Past the point the picture stopped changing, every remaining frame is
-			   the settled one again. Drawn, because they were measured and the
-			   lane's length is part of what it says — but faint, so the eye stays
-			   on the part of each lane that is still changing. */
-			if (typeof settled === "number" && frame.timing > settled) {
-				slot.classList.add("is-settled");
-
-				/*
-				 * Settled, but not still.
-				 *
-				 * The settle is judged on the pixels with room for a small change —
-				 * see settleTime in lib/metrics.js — so a page can be finished while
-				 * something on it keeps moving: a carousel, a spinner, a looping
-				 * video. A frame after the settle that differs from the one before it
-				 * is that, and it gets a mark saying so, rather than being faded
-				 * into the same "nothing more here" as a true repeat.
-				 */
-				var prev = index > 0 ? frames[index - 1] : null;
-				if (prev && prev.src !== frame.src) {
-					var anim = el("span", "race-frame-anim");
-					anim.innerHTML = animIcon();
-					anim.title = "Still animating — this frame differs from the one before, after the page had settled";
-					slot.appendChild(anim);
-				}
-			}
-
-			var img = new Image();
-			img.src = frame.src;
-			img.alt = "";
-			img.decoding = "async";
-			slot.appendChild(img);
-
-			/* When this one was taken, under it. The ruler gives the axis its
-			   scale; this gives each picture its own moment, which is the thing
-			   being compared and is otherwise read off by eye against a tick. */
-			var stamp = el("span", "race-frame-time");
-			stamp.textContent = fmtSeconds(frame.timing);
-			slot.appendChild(stamp);
-
-			cell.appendChild(slot);
-			lane.cells.push({ el: slot, time: frame.timing });
-		});
-
-		/*
-		 * The travelling frame. Positioned by the clock rather than by a timestamp,
-		 * and hidden once the strip runs out — past its last sample there is
-		 * nothing to carry.
-		 */
-		if (frames.length) {
-			lane.live = el("div", "race-frame race-live");
-			lane.liveImg = new Image();
-			lane.liveImg.alt = "";
-			lane.liveImg.decoding = "async";
-			lane.live.appendChild(lane.liveImg);
-			cell.appendChild(lane.live);
-		} else {
-			lane.live = null;
-			lane.liveImg = null;
-		}
-
-		lane.head = el("div", "race-playhead");
-		cell.appendChild(lane.head);
-
-		lane.markers = renderMarkers(lane.site, cell);
-
-		return cell;
-	}
-
 	/* ------------------------------------------------------------- the clock */
 
 	function setTime(t) {
 		now = Math.max(0, Math.min(t, timeline.end));
-		clock.textContent = fmtClock(now);
+		clock.textContent = L.fmtClock(now);
 		if (document.activeElement !== scrub) {
 			scrub.value = String(Math.round((now / timeline.end) * 1000));
 		}
@@ -863,41 +439,9 @@ title: Compare
 		compareMarkers.forEach(function (marker) {
 			marker.el.classList.toggle("is-on", marker.time <= now);
 		});
-		lanes.forEach(function (lane) {
-			(lane.markers || []).forEach(function (marker) {
-				marker.el.classList.toggle("is-on", now > 0 && marker.time <= now);
-			});
-		});
-
 		var best = null;
 		lanes.forEach(function (lane) {
-			lane.cells.forEach(function (cell) {
-				cell.el.classList.toggle("is-on", cell.time <= now);
-			});
-			/*
-			 * A gap grows with the clock rather than appearing whole.
-			 *
-			 * Drawn at full length the moment the clock entered it, a band showed
-			 * how long the wait would be before the wait had happened — the one
-			 * thing on the page reporting the future. Its right edge is the clock
-			 * now, so it fills as the time passes and stops at the frame that ends
-			 * it. Nothing opens at rest either: the lead band starts at zero, and
-			 * at a standstill it would be the only mark on an empty track.
-			 */
-			lane.gaps.forEach(function (gap) {
-				var reached = Math.max(gap.from, Math.min(now, gap.to));
-				gap.el.style.setProperty("--fill", reached / timeline.step);
-				gap.el.classList.toggle("is-on", now > gap.from);
-			});
-			/* The line keeps the clock's own position in every lane, finished or
-			   not — the lanes share one clock, and a line that stopped in one of
-			   them broke that. Past the lane's finish it fades back instead: still
-			   the time, no longer anything happening here. */
-			var finish = laneFinish(lane);
-			lane.head.classList.toggle("is-on", now > 0);
-			lane.head.classList.toggle("is-done", now > finish);
-			lane.head.style.setProperty("--now", now / timeline.step);
-			moveLive(lane);
+			L.updateLane(lane, now, timeline);
 
 			var settled = settledAt(lane.site);
 			if (typeof settled === "number" && settled <= now &&
@@ -925,75 +469,11 @@ title: Compare
 			lane.laneEl.classList.toggle("is-winner", won);
 		});
 
-		if (follow) followPlayhead();
+		if (follow) L.followPlayhead(scroll, grid, timeline, now);
 	}
 
-	/*
-	 * Carry the live frame to wherever the clock is.
-	 *
-	 * It shows the last frame taken at or before now — the same lookup the
-	 * deposited frames answer statically — so as it crosses each timestamp the
-	 * picture it carries is already the one being left behind there. Past the end
-	 * of the strip it has nothing to show and steps aside.
-	 */
-	/* When a lane is over: its settle if it has one, otherwise its last sample.
-	   The same point the frames stop at, so the line lands with them. */
-	function laneFinish(lane) {
-		var settled = settledAt(lane.site);
-		if (typeof settled === "number") return settled;
-		var frames = lane.site.frames || [];
-		return frames.length ? frames[frames.length - 1].timing : 0;
-	}
-
-	function moveLive(lane) {
-		if (!lane.live) return;
-
-		var frame = frameAt(lane.site, now, timeline.step);
-		var last = lane.site.frames[lane.site.frames.length - 1];
-		var settled = settledAt(lane.site);
-		/* Retired at the settle for the same reason the repeats are not drawn: a
-		   frame still travelling over a finished lane reads as a page still
-		   loading. */
-		var gone = now > last.timing || (typeof settled === "number" && now > settled);
-
-		/*
-		 * Shown from the moment the clock starts, with or without a picture in it.
-		 *
-		 * Before the first sample there is nothing to carry, but the frame is still
-		 * travelling — and an empty outline moving down the track says that much
-		 * better than nothing does: the load has begun, it just has not been
-		 * photographed yet. Popping into existence at the first sample made the
-		 * lane look as though it started there.
-		 */
-		lane.live.classList.toggle("is-on", now > 0 && !gone);
-		if (gone || now <= 0) return;
-
-		lane.live.classList.toggle("is-empty", !frame);
-		if (frame && lane.liveImg.getAttribute("src") !== frame.src) lane.liveImg.src = frame.src;
-		lane.live.style.setProperty("--at", now / timeline.step);
-	}
-
-	function followPlayhead() {
-		var stride = strideWidth();
-		if (!stride) return;
-		var x = (now / timeline.step) * stride;
-		var target = x - scroll.clientWidth * 0.6;
-		if (target > scroll.scrollLeft) scroll.scrollLeft = target;
-	}
-
-	/*
-	 * Pixels per column step, measured rather than recomputed.
-	 *
-	 * Taken off the ruler, which is exactly `stride × cols` wide: reading the
-	 * custom property back gives an unresolved `calc()` in some browsers, and
-	 * rebuilding the sum here means two places to change every time the spacing
-	 * does — which is how this last went out of step, still adding a gap to one
-	 * frame width after the stride had become two.
-	 */
 	function strideWidth() {
-		var ruler = grid.querySelector(".race-ruler");
-		if (!ruler || !timeline || !timeline.cols) return 0;
-		return ruler.getBoundingClientRect().width / timeline.cols;
+		return L.strideWidth(grid, timeline);
 	}
 
 	function tick(stamp) {
@@ -1529,7 +1009,7 @@ title: Compare
 		var count = Math.max(2, lanes.length);
 		var kept = keptLanes(count);
 		var open = kept.filter(function (lane) { return !lane; }).length;
-		if (!open) return;
+		if (!open) return false;
 
 		var taken = takenBy(kept);
 		var pool = shufflePool().filter(function (site) { return !taken[site.slug]; });
@@ -1542,9 +1022,10 @@ title: Compare
 			else if (d < draws.length) next.push({ site: draws[d++], locked: false });
 		}
 
-		if (sameSites(next.map(function (lane) { return lane.site; }), lanes)) return;
+		if (sameSites(next.map(function (lane) { return lane.site; }), lanes)) return false;
 		lanes = next;
 		commit(true);
+		return true;
 	}
 
 	/*
@@ -1702,6 +1183,7 @@ title: Compare
 		}
 
 		catalog.forEach(function (site) {
+			L.trimToSettle(site);
 			bySlug.set(site.slug, site);
 			byName.set(site.name.toLowerCase(), site);
 		});
@@ -1710,9 +1192,10 @@ title: Compare
 		count.textContent = catalog.length + " sites have a filmstrip to race.";
 
 		var initial = fromAddress();
+		// Before the opening draw, so an empty default side falls back first.
+		setUpCaptureControl();
 		lanes = lanesFor(initial || openingLanes(), Boolean(initial));
 
-		setUpCaptureControl();
 		setCaptureCopy();
 		fillCatalogList();
 		fillCategorySelect();
@@ -1764,7 +1247,13 @@ title: Compare
 			commit(true);
 		});
 
-		document.getElementById("race-shuffle").addEventListener("click", shuffle);
+		// A new field from the button plays straight away, or as soon as the lanes come into view.
+		document.getElementById("race-shuffle").addEventListener("click", function () {
+			if (!shuffle()) return;
+			if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+			if (inView && document.visibilityState !== "hidden") play();
+			else autoPaused = true;
+		});
 
 		scrub.addEventListener("input", function () {
 			pause();

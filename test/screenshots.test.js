@@ -6,7 +6,7 @@ import path from "node:path";
 
 import { ResultStore } from "../lib/store.js";
 import { keepsScreenshots, keepsFilmstrip, filmstripMarkers } from "../lib/runner.js";
-import { clientRendered } from "../lib/report.js";
+import { clientRendered, alignFirstFrame } from "../lib/report.js";
 
 /**
  * The two screenshots a measurement stores: the page as rendered, and the same
@@ -197,9 +197,44 @@ describe("the client-rendering verdict", () => {
 	});
 });
 
+describe("first frame alignment", () => {
+	const frames = [{ timing: 5611, src: "a" }, { timing: 11222, src: "b" }];
+
+	test("moves a first frame taken after FCP back to FCP", () => {
+		const out = alignFirstFrame(frames, { fcp: 1430, lcp: 1430 }, 11222);
+		assert.deepEqual(out.frames.map((f) => f.timing), [1430, 11222]);
+		assert.equal(out.settledAt, 11222);
+	});
+
+	test("carries a settle on the first frame with it", () => {
+		assert.equal(alignFirstFrame(frames, { fcp: 1430 }, 5611).settledAt, 1430);
+	});
+
+	test("moves the first frame to differ from the blank ones before FCP", () => {
+		const blank = [2433, 4865, 7298, 9731].map((timing) => ({ timing, src: "blank" }));
+		const strip = [...blank, { timing: 12163, src: "painted" }, { timing: 14596, src: "later" }];
+		const out = alignFirstFrame(strip, { fcp: 11565 }, 14596);
+		assert.deepEqual(out.frames.map((f) => f.timing), [2433, 4865, 7298, 9731, 11565, 14596]);
+	});
+
+	test("leaves a strip alone when a blank frame was taken after FCP", () => {
+		const strip = [{ timing: 1000, src: "blank" }, { timing: 2000, src: "blank" }, { timing: 3000, src: "painted" }];
+		assert.equal(alignFirstFrame(strip, { fcp: 1500 }, 3000).frames, strip);
+	});
+
+	test("leaves strips whose first frame is not after FCP alone", () => {
+		assert.equal(alignFirstFrame(frames, { fcp: 12000 }, 11222).frames, frames);
+		assert.equal(alignFirstFrame(frames, null, 11222).frames, frames);
+	});
+});
+
 describe("filmstrip markers", () => {
 	test("keeps TTFB, FCP and LCP from the capturing pass", () => {
 		assert.deepEqual(filmstripMarkers({ ttfb: 610, fcp: 1820, lcp: 2400, si: 3000 }), { ttfb: 610, fcp: 1820, lcp: 2400 });
+	});
+
+	test("adds DevTools request latency to TTFB only", () => {
+		assert.deepEqual(filmstripMarkers({ ttfb: 4, fcp: 1440, lcp: 1440 }, 562.5), { ttfb: 567, fcp: 1440, lcp: 1440 });
 	});
 
 	test("nothing to keep is null", () => {

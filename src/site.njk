@@ -811,7 +811,7 @@ eleventyComputed:
 		#}
 		<a href="/compare/?sites={{ entry.slug | urlencode }}">Compare this filmstrip against another site</a>.
 	</p>
-	<div class="table-scroll">
+	<div class="table-scroll" id="filmstrip-static">
 		<ol class="filmstrip">
 			{% for frame in entry.filmstrip.frames %}
 			<li class="filmstrip-frame">
@@ -822,6 +822,196 @@ eleventyComputed:
 			{% endfor %}
 		</ol>
 	</div>
+	{# The same lanes as /compare/, replacing the static strip above once the script runs. #}
+	<div class="race filmstrip-player" id="filmstrip-player" hidden>
+		<div class="race-controls">
+			<button type="button" class="race-play" id="filmstrip-replay">Replay</button>
+			<label class="race-speed">
+				Speed
+				<select id="filmstrip-speed">
+					<option value="0.25">0.25&times;</option>
+					<option value="0.5">0.5&times;</option>
+					<option value="1" selected>1&times; real time</option>
+					<option value="2">2&times;</option>
+					<option value="4">4&times;</option>
+				</select>
+			</label>
+			<input type="range" class="race-scrub" id="filmstrip-scrub" min="0" max="1000" value="0" step="1"
+				aria-label="Scrub through the filmstrip">
+			<output class="race-clock" id="filmstrip-clock">0 ms</output>
+		</div>
+		<div class="race-scroll" id="filmstrip-scroll">
+			<div class="race-grid" id="filmstrip-grid"></div>
+		</div>
+		<span class="race-icon-source-finish" hidden>
+			<i class="fa-solid fa-flag-checkered" width="10" height="10" aria-hidden="true"></i>
+		</span>
+	</div>
+	<script type="application/json" id="filmstrip-data">{{ {
+		width: entry.filmstrip.width,
+		height: entry.filmstrip.height,
+		settledAt: entry.filmstrip.settledAt,
+		markers: entry.filmstrip.markers,
+		frames: entry.filmstrip.frames
+	} | dump | safe }}</script>
+	<script src="/js/filmstrip-lanes.js"></script>
+	<script>
+	(function () {
+		var root = document.getElementById("filmstrip-player");
+		var data = document.getElementById("filmstrip-data");
+		var L = window.FilmstripLanes;
+		if (!root || !data || !L || !window.requestAnimationFrame) return;
+
+		var site = JSON.parse(data.textContent);
+		if (!site.frames || !site.frames.length) return;
+
+		var grid = document.getElementById("filmstrip-grid");
+		var scroll = document.getElementById("filmstrip-scroll");
+		var clock = document.getElementById("filmstrip-clock");
+		var scrub = document.getElementById("filmstrip-scrub");
+		var timeline = L.buildTimeline([site]);
+		var lane = { site: site, index: 0 };
+		var now = 0;
+		var playing = false;
+		var raf = 0;
+		var lastFrameTime = 0;
+		var speed = 1;
+		var follow = true;
+		var started = false;
+		var autoPaused = false;
+		var inView = false;
+
+		grid.style.setProperty("--cols", timeline.cols);
+		if (site.width && site.height) {
+			root.style.setProperty("--race-aspect", Math.max(0.5, site.width / site.height).toFixed(4));
+		}
+		grid.appendChild(L.renderRuler(timeline));
+		lane.laneEl = L.renderLane(lane, timeline);
+		grid.appendChild(lane.laneEl);
+
+		document.getElementById("filmstrip-static").hidden = true;
+		root.hidden = false;
+		// Packed once visible, since it measures the rendered labels.
+		L.packMarkers(lane, lane.laneEl, timeline, L.strideWidth(grid, timeline));
+
+		function setTime(t) {
+			now = Math.max(0, Math.min(t, timeline.end));
+			clock.textContent = L.fmtClock(now);
+			if (document.activeElement !== scrub) {
+				scrub.value = String(Math.round((now / timeline.end) * 1000));
+			}
+			L.updateLane(lane, now, timeline);
+			if (follow) L.followPlayhead(scroll, grid, timeline, now);
+		}
+
+		function tick(stamp) {
+			if (!playing) return;
+			var delta = lastFrameTime ? stamp - lastFrameTime : 0;
+			lastFrameTime = stamp;
+			setTime(now + delta * speed);
+			if (now >= timeline.end) {
+				pause();
+				return;
+			}
+			raf = requestAnimationFrame(tick);
+		}
+
+		function play() {
+			if (playing) return;
+			if (now >= timeline.end) setTime(0);
+			autoPaused = false;
+			playing = true;
+			lastFrameTime = 0;
+			raf = requestAnimationFrame(tick);
+		}
+
+		function pause() {
+			playing = false;
+			cancelAnimationFrame(raf);
+		}
+
+		function reset() {
+			pause();
+			autoPaused = false;
+			follow = true;
+			scroll.scrollLeft = 0;
+			setTime(0);
+		}
+
+		document.getElementById("filmstrip-replay").addEventListener("click", function () {
+			reset();
+			started = true;
+			play();
+		});
+		scrub.addEventListener("input", function () {
+			pause();
+			started = true;
+			autoPaused = false;
+			follow = true;
+			setTime((parseInt(this.value, 10) / 1000) * timeline.end);
+		});
+		var speedSelect = document.getElementById("filmstrip-speed");
+		speed = parseFloat(speedSelect.value) || 1;
+		speedSelect.addEventListener("change", function () {
+			speed = parseFloat(this.value) || 1;
+			// Rebased so the new rate applies from here rather than to the elapsed time.
+			lastFrameTime = 0;
+		});
+
+		// Scrolling by hand stops the playhead dragging the view back until the next reset.
+		["wheel", "touchstart", "pointerdown"].forEach(function (type) {
+			scroll.addEventListener(type, function () { follow = false; }, { passive: true });
+		});
+
+		var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+		// Measured vertically only, since the lane is allowed to scroll sideways past the viewport.
+		function fullyInView() {
+			var rect = lane.laneEl.getBoundingClientRect();
+			return rect.top >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight);
+		}
+
+		// Starts the first time the whole lane is on screen, and pauses while none of it is.
+		function syncVisibility() {
+			var showing = inView && document.visibilityState !== "hidden";
+			if (showing && !started && !reduced) {
+				if (!fullyInView()) return;
+				started = true;
+				window.removeEventListener("scroll", syncVisibility);
+				window.removeEventListener("resize", syncVisibility);
+				play();
+			} else if (!showing && playing) {
+				pause();
+				autoPaused = true;
+			} else if (showing && autoPaused) {
+				play();
+			}
+		}
+
+		if (reduced) {
+			follow = false;
+			setTime(timeline.end);
+		} else {
+			setTime(0);
+		}
+
+		document.addEventListener("visibilitychange", syncVisibility);
+		// The observer only reports the lane entering and leaving, so scrolling decides when all of it is showing.
+		if (!reduced) {
+			window.addEventListener("scroll", syncVisibility, { passive: true });
+			window.addEventListener("resize", syncVisibility);
+		}
+		if (window.IntersectionObserver) {
+			new IntersectionObserver(function (entries) {
+				inView = entries[entries.length - 1].isIntersecting;
+				syncVisibility();
+			}, { threshold: 0 }).observe(lane.laneEl);
+		} else {
+			inView = true;
+			syncVisibility();
+		}
+	})();
+	</script>
 </section>
 {% endif %}
 

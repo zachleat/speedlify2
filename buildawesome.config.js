@@ -281,6 +281,7 @@ export default async function ($config) {
 	});
 
 	$config.addPassthroughCopy({ "src/css": "css" });
+	$config.addPassthroughCopy({ "src/js": "js" });
 	/*
 	 * The embed component, which lives in packages/ because it is published to
 	 * npm as `speedlify2-score` rather than only served from here. Copied to the
@@ -335,7 +336,10 @@ export default async function ($config) {
 
 	// 8080 is a busy port on most machines, and this project is often running
 	// alongside whatever else is being measured.
-	$config.setServerOptions({ port: 2830 });
+	$config.setServerOptions({
+		port: 2830,
+		domDiff: false,
+	});
 	$config.setQuietMode(true);
 
 	/* ---------------------------------------------------------------- format */

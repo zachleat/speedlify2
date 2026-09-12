@@ -231,9 +231,9 @@ If you change a URL without a redirect ever being observed, the old history isn'
 
 Modeled on [the Eleventy Leaderboards](https://www.11ty.dev/speedlify/): centered masthead, URL-as-name in monospace with a favicon, `#1` ranks with 🥇🥈🥉 for the podium, and the four Lighthouse categories as score rings.
 
-**Dark by default, light on request.** Dark is unconditional — not "dark unless your OS says light" — so every reader gets the same thing on first visit. Light is an explicit choice: the toggle sets `data-theme="light"` on `<html>` and stores it in `localStorage`.
+**Dark by default, light on request.** Dark ignores the system preference. A two-state toggle in the footer switches to a light override, saved as `data-theme="light"` on `<html>` and in `localStorage`; switching back to dark clears it. Color tokens use `light-dark()`, so `color-scheme` picks the palette.
 
-That toggle is the only client-side JavaScript on the site: ~1 kB inline across two blocks, no external file. One runs in `<head>` so a reader who chose light never sees a dark flash; the other wires the button. The button is `hidden` in the markup and revealed by script, so a no-JS reader gets dark and no dead control rather than a button that silently does nothing.
+That toggle is the only client-side JavaScript on the site: a small inline block in `<head>` applies a saved override before first paint, and another wires the switch. Without JS the switch stays disabled and the page stays dark.
 
 The score rings are inline SVG generated at build time — Speedlify draws them with a web component that inlines the full result JSON per row, but an arc is just a `stroke-dasharray`, so the same picture costs no JavaScript.
 

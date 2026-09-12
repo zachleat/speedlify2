@@ -1,49 +1,56 @@
 /* speedlify — one stylesheet, no build step, no client JS. */
 
 /*
- * Dark is the default, unconditionally — not "dark unless your OS says light".
- * Light is an explicit choice, applied by setting data-theme="light" on <html>
- * and remembered in localStorage.
+ * Dark by default, ignoring the system preference. A saved light override sets data-theme="light" on <html>.
+ * Each color token is light-dark(light, dark), resolved by color-scheme.
  */
 :root {
 	color-scheme: dark;
+}
+:root[data-theme="light"] { color-scheme: light; }
 
-	--bg: #2e2e2e;
-	--surface: #383838;
-	--border: #4a4a4a;
-	--border-strong: #5c5c5c;
-	--text: #ffffff;
-	--text-muted: #b0b0b0;
+:root {
+	--bg: light-dark(#fbfbfd, #2e2e2e);
+	--surface: light-dark(#ffffff, #383838);
+	--border: light-dark(#e3e5ea, #4a4a4a);
+	--border-strong: light-dark(#cdd1da, #5c5c5c);
+	--text: light-dark(#14161a, #ffffff);
+	--text-muted: light-dark(#666d7a, #b0b0b0);
 	/* For muted text sitting on a *tinted* surface rather than on the page.
 	   Several components here tint their own background from --text-muted — a
 	   pill 15-25% of its own text color — which pulls the two together and
 	   drops the pair under 4.5:1 no matter how legible each looks alone. This is
 	   the same gray, far enough along to clear the contrast floor on every one
-	   of those surfaces (worst case the 25% chip, at 4.52:1). */
-	--text-muted-strong: #cbcbcb;
+	   of those surfaces (worst case the 25% chip, at 4.52:1 dark; on a #d6d8dc
+	   light surface, where #606060 missed at 4.41:1). */
+	--text-muted-strong: light-dark(#585858, #cbcbcb);
 
-	/* Lighthouse's own score banding, used for the rings and the numbers. */
-	--good: #0cce6b;
-	--good-bg: #143a28;
-	--average: #ffa400;
-	--average-bg: #3d2f14;
-	--poor: #ff4e42;
-	--poor-bg: #3d1f1d;
+	/* Lighthouse's own score banding, used for the rings and the numbers.
+	   Darkened for contrast on white in light mode. */
+	--good: light-dark(#0a7c42, #0cce6b);
+	--good-bg: light-dark(#e6f5ec, #143a28);
+	--average: light-dark(#9a6200, #ffa400);
+	--average-bg: light-dark(#fdf3e0, #3d2f14);
+	--poor: light-dark(#c02026, #ff4e42);
+	--poor-bg: light-dark(#fdeaea, #3d1f1d);
 	/* --poor is a ring stroke first, where contrast rules do not apply. As text
-	   it fails: 4.15:1 on the page and 3.58:1 on a card. This is the same hue
-	   lightened until it passes on both. */
-	--poor-text: #ff8078;
+	   it fails in dark: 4.15:1 on the page and 3.58:1 on a card. This is the same
+	   hue lightened until it passes on both. The light value already passes —
+	   5.22:1 on the failing-row tint, its worst case. */
+	--poor-text: light-dark(#c02026, #ff8078);
 	/* Softer than --poor, for a count that is context rather than a verdict on
 	   any one row. Pink rather than red: still clearly the bad news, without
-	   competing with the failing rows themselves. */
-	--poor-soft: #ff9fb0;
+	   competing with the failing rows themselves. Deeper in light: a pale pink
+	   on white is unreadable, so the hue carries the softness and the value
+	   carries the contrast. */
+	--poor-soft: light-dark(#c2185b, #ff9fb0);
 	/* Softer again, for a move in the wrong direction on a metric still rated
 	   good. Half the pink of --poor-soft and half the muted gray, which is the
 	   weight this deserves: visible as a direction, not as a verdict. 6.56:1 on
-	   the page, 5.67:1 on a card. */
-	--poor-faint: #d8a8b0;
+	   the page, 5.67:1 on a card (6.26:1 and 6.47:1 in light). */
+	--poor-faint: light-dark(#94426a, #d8a8b0);
 
-	--accent: #7cc0ff;
+	--accent: light-dark(#1a5fd0, #7cc0ff);
 
 	/* The four phases of LCP. Four hues rather than four shades of one, because
 	   the segments sit side by side in a 4px bar and shades of a single color
@@ -52,13 +59,14 @@
 	   Chosen away from the score palette on purpose: a large amber or red
 	   segment would read as a verdict, and no phase of LCP is good or bad in
 	   itself — a page dominated by render delay is not failing, it is telling
-	   you where its time goes. */
-	--lcp-ttfb: #7cc0ff;
-	--lcp-load-delay: #b28dff;
-	--lcp-load-duration: #4ecdc4;
-	--lcp-render-delay: #ff9ecb;
+	   you where its time goes. Darkened in light mode, where the pastels are
+	   invisible. */
+	--lcp-ttfb: light-dark(#1a5fd0, #7cc0ff);
+	--lcp-load-delay: light-dark(#6b34c9, #b28dff);
+	--lcp-load-duration: light-dark(#0e7c74, #4ecdc4);
+	--lcp-render-delay: light-dark(#c2357f, #ff9ecb);
 
-	--button: #444444;
+	--button: light-dark(#eceef2, #444444);
 	--radius: 8px;
 	--pill: 50px;
 	--mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
@@ -70,49 +78,10 @@
 	--brand: #00a776;
 	--brand-bright: #00b880;
 	--brand-text: #052b20;
-}
 
-:root[data-theme="light"] {
-	color-scheme: light;
-
-	--bg: #fbfbfd;
-	--surface: #ffffff;
-	--border: #e3e5ea;
-	--border-strong: #cdd1da;
-	--text: #14161a;
-	--text-muted: #666d7a;
-	/* See the dark theme above. Worst case is the 25% chip on a card rather than
-	   on the page — a #d6d8dc surface — which #606060 missed at 4.41:1. */
-	--text-muted-strong: #585858;
-
-	/* Darkened for contrast on white — the rings keep the Lighthouse hues. */
-	--good: #0a7c42;
-	--good-bg: #e6f5ec;
-	--average: #9a6200;
-	--average-bg: #fdf3e0;
-	--poor: #c02026;
-	--poor-bg: #fdeaea;
-	/* Already dark enough to pass as text on every surface here — 5.22:1 on the
-	   failing-row tint, its worst case — so no separate value is needed. */
-	--poor-text: #c02026;
-	/* Deeper on white than its dark-mode counterpart: a pale pink on this
-	   background is unreadable, so the hue carries the softness and the value
-	   carries the contrast. */
-	--poor-soft: #c2185b;
-	/* The same halfway mix as the dark theme, toward this theme's muted gray.
-	   6.26:1 on the page, 6.47:1 on a card. */
-	--poor-faint: #94426a;
-
-	--accent: #1a5fd0;
-
-	/* Same four hues, darkened for a white background — the pastels above are
-	   invisible on it. */
-	--lcp-ttfb: #1a5fd0;
-	--lcp-load-delay: #6b34c9;
-	--lcp-load-duration: #0e7c74;
-	--lcp-render-delay: #c2357f;
-
-	--button: #eceef2;
+	/* TTFB, FCP and LCP flags on filmstrip lanes; a shade deeper in light mode so the pole shows on white. */
+	--metric-flag: light-dark(#b49cf5, #c9b3ff);
+	--metric-flag-text: #2a1454;
 }
 
 * { box-sizing: border-box; }
@@ -545,7 +514,7 @@ th.col-trend { text-align: center !important; }
  * would.
  */
 /*
- * In the masthead now, on the row with the theme toggle, so it is inline-flex
+ * In the masthead now, on the row of tool links, so it is inline-flex
  * rather than a block of its own — it has to sit in the middle of a line of
  * links without breaking it.
  */
@@ -638,15 +607,6 @@ fieldset[disabled] select {
 	cursor: not-allowed;
 	opacity: 0.55;
 }
-
-/* `cursor` repeated here on purpose: `.theme-toggle` sets `pointer` and is
-   declared later in this file, so at equal specificity it wins over the bare
-   `[disabled]` above. The attribute selector qualifies it back. */
-.theme-toggle[disabled] {
-	color: var(--text-muted);
-	cursor: not-allowed;
-}
-.theme-toggle[disabled] .theme-toggle-text { text-decoration-style: dotted; }
 
 .cat-switch select { color-scheme: inherit; accent-color: var(--accent, currentColor); }
 .detail-head h1 { margin: 0 0 0.25rem; font-size: clamp(1.5rem, 4vw, 2rem); letter-spacing: -0.02em; }
@@ -2390,6 +2350,10 @@ fieldset[disabled] select {
 	font-size: 0.83rem;
 	color: var(--text-muted);
 
+	a:has(svg) {
+		white-space: nowrap;
+	}
+
 	svg {
 		height: 1.125em; /* 18px /16 */
 		width: 1.125em; /* 18px /16 */
@@ -2512,6 +2476,17 @@ fieldset[disabled] select {
 	font-size: 0.95rem;
 	color: var(--text-muted);
 	text-wrap: balance;
+
+	a:has(svg) {
+		white-space: nowrap;
+	}
+
+	a svg {
+		height: 1em;
+		width: 1em;
+		margin-inline-end: 0.25em;
+		vertical-align: -0.125em;
+	}
 }
 
 /* ------------------------------------------------------------ score rings */
@@ -2685,41 +2660,52 @@ th.col-rings { text-align: left !important; }
 
 /* ------------------------------------------------------------ theme toggle */
 
+/* Two states: dark (the default) or a saved light override. */
 .theme-toggle {
-	font: inherit;
-	font-size: 0.95em;
-	color: var(--accent);
-	background: none;
-	border: 0;
-	padding: 0;
-	cursor: pointer;
-	/* inline-flex to seat the icon beside the label. `vertical-align` used to be
-	   here to keep it on the text baseline, from when this sat in a paragraph
-	   between interpuncts — it has been inert since the row became a flex
-	   container, where vertical-align does not apply to items. The row aligns it
-	   now. */
-	display: inline-flex;
+	display: flex;
 	align-items: center;
-	gap: 0.35em;
+	gap: 0.5em;
+	margin-top: 0.75rem;
 }
-.theme-toggle .theme-toggle-text {
-	text-decoration: underline;
-	text-underline-offset: 2px;
+.theme-toggle:not(:has([disabled])) .theme-toggle-label {
+	cursor: pointer;
+	user-select: none;
 }
-.theme-toggle:hover .theme-toggle-text { text-decoration-thickness: 2px; }
-
-/*
- * The icon shows what you would switch *to*, not the mode you are in: a sun
- * while dark, a moon while light. Swapped in CSS rather than by the script,
- * which keeps the toggle's only job the one it already had.
- */
-/* Sized here rather than by the width/height attributes alone: the Font
-   Awesome symbols carry their own viewBox, so the box has to be stated for the
-   <use> to scale into. */
-.theme-icon { flex: none; width: 14px; height: 14px; }
-.theme-icon-moon { display: none; }
-:root[data-theme="light"] .theme-icon-sun { display: none; }
-:root[data-theme="light"] .theme-icon-moon { display: inline; }
+.theme-toggle-label.active {
+	color: var(--text);
+	font-weight: 600;
+}
+.theme-switch {
+	--theme-switch-pad: 2px;
+	box-sizing: content-box;
+	flex: none;
+	width: 2em;
+	height: 1em;
+	padding: var(--theme-switch-pad);
+	border: 1px solid var(--border-strong);
+	border-radius: var(--pill);
+	background: var(--button);
+	font: inherit;
+	cursor: pointer;
+}
+.theme-switch[disabled] { cursor: not-allowed; }
+.theme-switch:focus-visible {
+	outline: 2px solid var(--accent);
+	outline-offset: 2px;
+}
+.theme-switch-knob {
+	display: block;
+	width: 1em;
+	height: 1em;
+	border-radius: 50%;
+	background: var(--accent);
+	transition: translate 0.2s ease-in-out;
+}
+/* Knob sits beside the label for the active theme: dark left, light right. */
+:root[data-theme="light"] .theme-switch-knob { translate: 1em 0; }
+@media (prefers-reduced-motion: reduce) {
+	.theme-switch-knob { transition: none; }
+}
 
 
 /*
@@ -3625,6 +3611,7 @@ a.cat-chip:hover, a.cat-chip:focus-visible { color: var(--text); border-color: v
 
 .race-field-remove,
 .race-picker-actions button,
+.race-shuffle button,
 .race-controls button {
 	font: inherit;
 	font-size: 0.85rem;
@@ -3638,6 +3625,7 @@ a.cat-chip:hover, a.cat-chip:focus-visible { color: var(--text); border-color: v
 
 .race-field-remove:hover,
 .race-picker-actions button:hover:not(:disabled),
+.race-shuffle button:hover:not(:disabled),
 .race-controls button:hover:not(:disabled) { border-color: var(--text-muted); }
 
 .race-picker-actions button:disabled { opacity: 0.5; cursor: default; }
@@ -3651,6 +3639,38 @@ a.cat-chip:hover, a.cat-chip:focus-visible { color: var(--text); border-color: v
 }
 
 .race-count { margin-left: auto; }
+
+/* Capture and Shuffle share the top row, with a rule under it. */
+.race-picker-top {
+	display: flex;
+	align-items: center;
+	gap: 0.6rem 1.5rem;
+	flex-wrap: wrap;
+	margin: 0 0 0.9rem;
+	padding: 0 0 0.9rem;
+	border-bottom: 1px solid var(--border);
+}
+
+.race-shuffle {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	flex-wrap: wrap;
+	margin-left: auto;
+}
+
+.race-shuffle button {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4rem;
+}
+.race-shuffle button svg { display: block; width: 10px; height: 10px; }
+
+/* Secondary to the capture choice beside it, so a size down. */
+.race-shuffle button,
+.race-shuffle .race-category,
+.race-shuffle .race-category select { font-size: 0.75rem; }
+.race-shuffle button { padding: 0.35rem 0.65rem; }
 
 /* ---------------------------------------------------------- race: controls */
 
@@ -3694,12 +3714,9 @@ a.cat-chip:hover, a.cat-chip:focus-visible { color: var(--text); border-color: v
 	align-items: center;
 	gap: 0.6rem;
 	flex-wrap: wrap;
-	/* Sits above the lanes it governs, with a rule under it so the grouping is
-	   visible rather than implied by proximity. */
-	margin: 0 0 0.9rem;
-	padding: 0 0 0.9rem;
+	margin: 0;
+	padding: 0;
 	border: 0;
-	border-bottom: 1px solid var(--border);
 	font-size: 0.85rem;
 	color: var(--text-muted-strong);
 }
@@ -3767,6 +3784,18 @@ a.cat-chip:hover, a.cat-chip:focus-visible { color: var(--text); border-color: v
 	accent-color: var(--brand);
 }
 
+/* The site page's smaller scrubber, inline beside the speed control. */
+.filmstrip-player .race-scrub {
+	display: inline-block;
+	width: min(12rem, 100%);
+	margin: 0;
+}
+/* Wide enough for "99,999 ms", so the row holds still as the digits grow. */
+.filmstrip-player .race-clock {
+	min-width: 9ch;
+	text-align: right;
+}
+
 /* -------------------------------------------------------------- race: grid */
 
 .race-scroll {
@@ -3780,9 +3809,11 @@ a.cat-chip:hover, a.cat-chip:focus-visible { color: var(--text); border-color: v
    costs pixels at every viewport where a line of text costs one line. */
 .race-grid {
 	display: grid;
-	grid-template-columns: max-content;
+	grid-template-columns: 1fr;
 	gap: 0.35rem;
 	width: max-content;
+	/* Lanes fill the width even when the axis is shorter than it. */
+	min-width: 100%;
 }
 
 /* The row spans the lane it names; the run inside it is what sticks. Sticking
@@ -3790,6 +3821,7 @@ a.cat-chip:hover, a.cat-chip:focus-visible { color: var(--text); border-color: v
 .race-name {
 	position: relative;
 	width: calc(var(--race-stride) * var(--cols));
+	min-width: 100%;
 	margin-top: 0.5rem;
 }
 
@@ -3850,6 +3882,7 @@ a.cat-chip:hover, a.cat-chip:focus-visible { color: var(--text); border-color: v
 	position: relative;
 	height: var(--race-frame-h);
 	width: calc(var(--race-stride) * var(--cols));
+	min-width: 100%;
 	/* Room under the frames for their timestamps, which hang outside the lane so
 	   they take nothing from the pictures. */
 	margin-bottom: 0.85rem;
@@ -4017,31 +4050,10 @@ a.cat-chip:hover, a.cat-chip:focus-visible { color: var(--text); border-color: v
 }
 .race-frame.is-on { opacity: 1; }
 
-/*
- * A frame after the lane settled. Shown, since it was measured, but faint.
- *
- * The picture and its timestamp fade rather than the whole slot, so the mark for
- * a frame that is still animating can stay at full strength on top of it —
- * opacity on the slot would have faded the mark with everything else.
- */
+/* A frame after the lane settled, on the site page: shown, since it was measured, but faint. */
 .race-frame.is-settled img,
 .race-frame.is-settled .race-frame-time { opacity: 0.2; }
 .race-frame.is-settled { border-color: transparent; }
-
-/* The mark for a settled frame that is still changing — see renderLane. */
-.race-frame-anim {
-	position: absolute;
-	top: 4px;
-	right: 4px;
-	z-index: 1;
-	display: inline-flex;
-	padding: 3px;
-	border-radius: 50%;
-	color: var(--brand-text);
-	background: var(--accent);
-	line-height: 1;
-}
-.race-frame-anim svg { display: block; width: 10px; height: 10px; }
 
 /* Marks the frame a lane settles on. */
 .race-frame-finish {
@@ -4186,14 +4198,20 @@ a.cat-chip:hover, a.cat-chip:focus-visible { color: var(--text); border-color: v
 }
 .race-flagpost.is-on .race-flagpost-label { opacity: 1; }
 
-/* TTFB, FCP and LCP inside a site lane: over the frames, and neutral so they don't read as the blue live frame or Real world flags. */
-.race-flagpost.is-metric .race-flagpost-pole { z-index: 4; border-left-color: var(--text); }
+/* TTFB, FCP and LCP in a site lane: stacked above the frames, and purple so they don't read as the blue live frame or Real world flags. */
+.race-lane.has-metrics { margin-top: calc(var(--metric-rows, 1) * 1.1rem + 0.2rem); }
+.race-flagpost.is-metric .race-flagpost-pole {
+	z-index: 4;
+	top: calc(-1 * (var(--row, 0) * 1.1rem + 1rem));
+	border-left-color: var(--metric-flag);
+}
 .race-flagpost.is-metric .race-flagpost-label {
 	z-index: 5;
-	top: calc(var(--row) * 1.1rem + 0.2rem);
+	top: auto;
+	bottom: calc(100% + var(--row, 0) * 1.1rem + 0.2rem);
 	font-size: 0.55rem;
-	color: var(--bg);
-	background: var(--text);
+	color: var(--metric-flag-text);
+	background: var(--metric-flag);
 	pointer-events: auto;
 }
 
