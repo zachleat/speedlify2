@@ -843,7 +843,8 @@ fieldset[disabled] select {
 
 /* --------------------------------------------------------------- breakdown */
 
-.breakdown { display: flex; flex-direction: column; gap: 0.3rem; }
+/* Capped to match .lvf-compare, so a bar stays short enough to read against its label. */
+.breakdown { display: flex; flex-direction: column; gap: 0.3rem; max-width: 44em; }
 .breakdown-row { display: grid; grid-template-columns: minmax(90px, 190px) 1fr minmax(110px, auto); gap: 0.75rem; align-items: center; font-size: 0.85rem; }
 .breakdown-label { color: var(--text-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 /* Data keys as Title Case. Done here rather than in the template so a copy-paste
@@ -1588,6 +1589,7 @@ fieldset[disabled] select {
 	border-radius: var(--radius);
 	overflow: hidden;
 	background: color-mix(in srgb, var(--text-muted) 15%, transparent);
+	max-width: 44em;
 }
 
 /* No gaps between segments: they are parts of one quantity, and a gap would be
@@ -1662,6 +1664,7 @@ fieldset[disabled] select {
 	gap: 0.3rem 1.25rem;
 	grid-template-columns: repeat(auto-fill, minmax(min(16rem, 100%), 1fr));
 	font-size: 0.82rem;
+	max-width: 44em;
 }
 
 .stackkey li {
