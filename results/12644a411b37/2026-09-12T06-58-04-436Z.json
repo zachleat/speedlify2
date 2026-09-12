@@ -1,0 +1,388 @@
+{
+  "url": "https://pptr.dev/",
+  "name": "Puppeteer",
+  "group": "dev-tooling",
+  "groupName": "Developer Tooling",
+  "timestamp": 1789196284436,
+  "date": "2026-09-12T06:58:04.436Z",
+  "runId": "2026-09-12T06-53-38-734Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 50197,
+  "error": null,
+  "variance": {
+    "min": 62,
+    "max": 87,
+    "spread": 25,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://pptr.dev/",
+    "finalUrl": "https://pptr.dev/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 87,
+      "accessibility": 84,
+      "best-practices": 100,
+      "seo": 92,
+      "agentic-browsing": 49
+    },
+    "timings": {
+      "fcp": 1052,
+      "lcp": 3179,
+      "si": 1405,
+      "tbt": 260,
+      "tti": 4583,
+      "cls": 0.064,
+      "ttfb": 602,
+      "maxPotentialFid": 402,
+      "serverResponseTime": 2,
+      "networkRtt": 0.1,
+      "networkServerLatency": 17.9
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 3.7,
+      "elementRenderDelay": 73.2
+    },
+    "weight": {
+      "total": 585331,
+      "requests": 26,
+      "mainDocument": 7058,
+      "byType": {
+        "total": {
+          "bytes": 581824,
+          "requests": 23
+        },
+        "script": {
+          "bytes": 527785,
+          "requests": 11
+        },
+        "stylesheet": {
+          "bytes": 25047,
+          "requests": 1
+        },
+        "image": {
+          "bytes": 21934,
+          "requests": 3
+        },
+        "document": {
+          "bytes": 7058,
+          "requests": 1
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "font": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "other": {
+          "bytes": 0,
+          "requests": 7
+        },
+        "third-party": {
+          "bytes": 196877,
+          "requests": 4
+        }
+      },
+      "scripts": 11,
+      "stylesheets": 1,
+      "fonts": 0
+    },
+    "thirdParty": {
+      "count": 3,
+      "bytes": 196877,
+      "mainThreadMs": 41.8,
+      "top": [
+        {
+          "entity": "Google Tag Manager",
+          "bytes": 174943,
+          "mainThreadMs": 41.8,
+          "byType": {
+            "script": 174943
+          },
+          "typedBytes": 174943
+        },
+        {
+          "entity": "GitHub",
+          "bytes": 20539,
+          "mainThreadMs": 0,
+          "byType": {
+            "image": 20539
+          },
+          "typedBytes": 20539
+        },
+        {
+          "entity": "shields.io",
+          "bytes": 1395,
+          "mainThreadMs": 0,
+          "byType": {
+            "image": 1395
+          },
+          "typedBytes": 1395
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 1547.8,
+      "byGroup": {
+        "scriptEvaluation": 910.4,
+        "scriptParseCompile": 199.2,
+        "other": 193.5,
+        "styleLayout": 148.3,
+        "paintCompositeRender": 35.3,
+        "parseHTML": 31.6,
+        "garbageCollection": 29.5
+      },
+      "bootupMs": 1034.8,
+      "longTasks": 4,
+      "longestTaskMs": 402
+    },
+    "dom": {
+      "elements": 665,
+      "depth": 24,
+      "maxChildren": 32
+    },
+    "waste": {
+      "unusedJsBytes": 140300,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 0,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 300,
+      "renderBlockingCount": 2,
+      "poorlyCachedBytes": 359512.725,
+      "poorlyCachedCount": 13
+    },
+    "accessibility": {
+      "failingCount": 5,
+      "applicableCount": 29,
+      "failingNodes": 45,
+      "failing": [
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "weight": 7,
+          "nodes": 40
+        },
+        {
+          "id": "link-in-text-block",
+          "title": "Links rely on color to be distinguishable.",
+          "weight": 7,
+          "nodes": 2
+        },
+        {
+          "id": "button-name",
+          "title": "Buttons do not have an accessible name",
+          "weight": 10,
+          "nodes": 1
+        },
+        {
+          "id": "image-alt",
+          "title": "Image elements do not have `[alt]` attributes",
+          "weight": 10,
+          "nodes": 1
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "title": "Elements with visible text labels do not have matching accessible names.",
+          "weight": 0,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 1,
+      "applicableCount": 19,
+      "failing": [
+        {
+          "id": "valid-source-maps",
+          "title": "Missing source maps for large first-party JavaScript",
+          "weight": 0,
+          "nodes": 1
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 1,
+      "applicableCount": 9,
+      "failing": [
+        {
+          "id": "image-alt",
+          "title": "Image elements do not have `[alt]` attributes",
+          "weight": 1,
+          "nodes": 1
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 22
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2460,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-09-12T06:58:22.086Z",
+      "runtimeMs": 7524.1
+    }
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-08-14",
+      "last": "2026-09-10"
+    },
+    "metrics": {
+      "cls": {
+        "p75": 0.07,
+        "rating": "good",
+        "distribution": {
+          "good": 86.6,
+          "needsImprovement": 12.2,
+          "poor": 1.2
+        }
+      },
+      "ttfb": {
+        "p75": 837,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 73.2,
+          "needsImprovement": 19.9,
+          "poor": 6.9
+        }
+      },
+      "fcp": {
+        "p75": 1494,
+        "rating": "good",
+        "distribution": {
+          "good": 82.4,
+          "needsImprovement": 10.4,
+          "poor": 7.2
+        }
+      },
+      "inp": {
+        "p75": 200,
+        "rating": "good",
+        "distribution": {
+          "good": 75.1,
+          "needsImprovement": 17.8,
+          "poor": 7
+        }
+      },
+      "lcp": {
+        "p75": 1782,
+        "rating": "good",
+        "distribution": {
+          "good": 85.7,
+          "needsImprovement": 8.6,
+          "poor": 5.7
+        }
+      },
+      "rtt": {
+        "p75": 161,
+        "rating": null,
+        "distribution": {
+          "good": 36.7,
+          "needsImprovement": 53,
+          "poor": 10.3
+        }
+      }
+    },
+    "cwvPass": true,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": {
+      "id": "docusaurus",
+      "name": "Docusaurus",
+      "icon": "Docusaurus",
+      "version": "3.10.2",
+      "source": "meta",
+      "raw": "Docusaurus v3.10.2"
+    },
+    "probe": {
+      "metas": [
+        "Docusaurus v3.10.2"
+      ],
+      "marks": [
+        "docusaurus",
+        "react"
+      ],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "github",
+      "name": "GitHub Pages",
+      "icon": "Github",
+      "source": "x-github-request-id"
+    },
+    "headers": {
+      "server": "GitHub.com",
+      "via": "1.1 varnish",
+      "x-fastly-request-id": "4568fc988c084b3a78f2aed5ef551b6996069a3b",
+      "x-github-request-id": "E4D0:3D2012:9276F2:C3AA7B:6AA2949B",
+      "x-served-by": "cache-chi-kmdw8640069-CHI"
+    },
+    "violations": 45,
+    "passes": 1051,
+    "incomplete": 3,
+    "violationRules": 5,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 40,
+        "help": "Elements must meet minimum color contrast ratio thresholds"
+      },
+      {
+        "id": "link-in-text-block",
+        "impact": "serious",
+        "nodes": 2,
+        "help": "Links must be distinguishable without relying on color"
+      },
+      {
+        "id": "button-name",
+        "impact": "critical",
+        "nodes": 1,
+        "help": "Buttons must have discernible text"
+      },
+      {
+        "id": "image-alt",
+        "impact": "critical",
+        "nodes": 1,
+        "help": "Images must have alternative text"
+      },
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "All page content should be contained by landmarks"
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}

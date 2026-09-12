@@ -1,0 +1,488 @@
+{
+  "url": "https://www.ibm.com/",
+  "name": "IBM",
+  "group": "big-tech",
+  "groupName": "Big Tech",
+  "timestamp": 1789197066528,
+  "date": "2026-09-12T07:11:06.528Z",
+  "runId": "2026-09-12T06-53-38-022Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 459137,
+  "error": null,
+  "variance": {
+    "min": 25,
+    "max": 25,
+    "spread": 0,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://www.ibm.com/",
+    "finalUrl": "https://www.ibm.com/us-en",
+    "redirect": {
+      "from": "https://www.ibm.com/",
+      "to": "https://www.ibm.com/us-en",
+      "chain": [
+        {
+          "url": "https://www.ibm.com/",
+          "status": 303
+        },
+        {
+          "url": "https://www.ibm.com/us-en",
+          "status": 200
+        }
+      ],
+      "statuses": [
+        303
+      ],
+      "change": "path",
+      "permanent": false,
+      "schemeUpgrade": false,
+      "hops": 1
+    },
+    "statusCode": "ok",
+    "scores": {
+      "performance": 25,
+      "accessibility": 79,
+      "best-practices": 73,
+      "seo": 92,
+      "agentic-browsing": 50
+    },
+    "timings": {
+      "fcp": 10486,
+      "lcp": 23695,
+      "si": 18231,
+      "tbt": 9402,
+      "tti": 53281,
+      "cls": 0.038,
+      "ttfb": 688,
+      "maxPotentialFid": 991,
+      "serverResponseTime": 192,
+      "networkRtt": 91.6,
+      "networkServerLatency": 99.6
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 341.9,
+      "elementRenderDelay": 2193.5
+    },
+    "weight": {
+      "total": 8293974,
+      "requests": 316,
+      "mainDocument": 40960,
+      "byType": {
+        "total": {
+          "bytes": 8293938,
+          "requests": 310
+        },
+        "script": {
+          "bytes": 6775763,
+          "requests": 140
+        },
+        "other": {
+          "bytes": 492490,
+          "requests": 114
+        },
+        "font": {
+          "bytes": 436408,
+          "requests": 7
+        },
+        "stylesheet": {
+          "bytes": 330063,
+          "requests": 8
+        },
+        "image": {
+          "bytes": 213019,
+          "requests": 33
+        },
+        "document": {
+          "bytes": 46195,
+          "requests": 8
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 4479577,
+          "requests": 197
+        }
+      },
+      "scripts": 143,
+      "stylesheets": 8,
+      "fonts": 7
+    },
+    "thirdParty": {
+      "count": 30,
+      "bytes": 4400103,
+      "mainThreadMs": 2309.8,
+      "top": [
+        {
+          "entity": "IBM Digital Analytics",
+          "bytes": 3006649,
+          "mainThreadMs": 1365.3,
+          "byType": {
+            "script": 2898128,
+            "other": 13929,
+            "font": 87692,
+            "stylesheet": 6900
+          },
+          "typedBytes": 3006649
+        },
+        {
+          "entity": "Fastly",
+          "bytes": 393789,
+          "mainThreadMs": 0.6,
+          "byType": {
+            "other": 391986,
+            "image": 1803
+          },
+          "typedBytes": 393789
+        },
+        {
+          "entity": "TrustArc",
+          "bytes": 222329,
+          "mainThreadMs": 30.2,
+          "byType": {
+            "script": 60273,
+            "image": 849,
+            "font": 160315,
+            "other": 892
+          },
+          "typedBytes": 222329
+        },
+        {
+          "entity": "Adobe Tag Manager",
+          "bytes": 172803,
+          "mainThreadMs": 67,
+          "byType": {
+            "script": 171760,
+            "other": 1043
+          },
+          "typedBytes": 172803
+        },
+        {
+          "entity": "Google Tag Manager",
+          "bytes": 162155,
+          "mainThreadMs": 46.7,
+          "byType": {
+            "script": 162155
+          },
+          "typedBytes": 162155
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 45038.7,
+      "byGroup": {
+        "scriptEvaluation": 19212,
+        "other": 10148.5,
+        "styleLayout": 9509.8,
+        "scriptParseCompile": 2991,
+        "paintCompositeRender": 2068.2,
+        "garbageCollection": 834.4,
+        "parseHTML": 274.9
+      },
+      "bootupMs": 19760.5,
+      "longTasks": 20,
+      "longestTaskMs": 991
+    },
+    "dom": {
+      "elements": 2833,
+      "depth": 26,
+      "maxChildren": 64
+    },
+    "waste": {
+      "unusedJsBytes": 1561394,
+      "unusedCssBytes": 1771838,
+      "legacyJsBytes": 65308,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 2545,
+      "unminifiedCssBytes": 67145,
+      "renderBlockingMs": 7312,
+      "renderBlockingCount": 20,
+      "poorlyCachedBytes": 3473772.669191262,
+      "poorlyCachedCount": 97
+    },
+    "accessibility": {
+      "failingCount": 8,
+      "applicableCount": 31,
+      "failingNodes": 19,
+      "failing": [
+        {
+          "id": "svg-img-alt",
+          "title": "SVG elements with an `img` role do not have an accessible text alternative",
+          "weight": 1,
+          "nodes": 8
+        },
+        {
+          "id": "aria-required-parent",
+          "title": "`[role]`s are not contained by their required parent element",
+          "weight": 10,
+          "nodes": 3
+        },
+        {
+          "id": "heading-order",
+          "title": "Heading elements are not in a sequentially-descending order",
+          "weight": 3,
+          "nodes": 2
+        },
+        {
+          "id": "list",
+          "title": "Lists do not contain only `<li>` elements and script supporting elements (`<script>` and `<template>`).",
+          "weight": 7,
+          "nodes": 2
+        },
+        {
+          "id": "aria-required-children",
+          "title": "Elements with an ARIA `[role]` that require children to contain a specific `[role]` are missing some or all of those required children.",
+          "weight": 10,
+          "nodes": 1
+        },
+        {
+          "id": "link-in-text-block",
+          "title": "Links rely on color to be distinguishable.",
+          "weight": 7,
+          "nodes": 1
+        },
+        {
+          "id": "target-size",
+          "title": "Touch targets do not have sufficient size or spacing.",
+          "weight": 7,
+          "nodes": 1
+        },
+        {
+          "id": "landmark-one-main",
+          "title": "Document does not have a main landmark.",
+          "weight": 3,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 4,
+      "applicableCount": 19,
+      "failing": [
+        {
+          "id": "third-party-cookies",
+          "title": "Uses third-party cookies",
+          "weight": 5,
+          "nodes": 45
+        },
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "weight": 1,
+          "nodes": 5
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "weight": 1,
+          "nodes": 1
+        },
+        {
+          "id": "valid-source-maps",
+          "title": "Missing source maps for large first-party JavaScript",
+          "weight": 0,
+          "nodes": 17
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 1,
+      "applicableCount": 10,
+      "failing": [
+        {
+          "id": "crawlable-anchors",
+          "title": "Links are not crawlable",
+          "weight": 1,
+          "nodes": 2
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 10,
+      "redirectMs": 843.5,
+      "consoleErrors": 5,
+      "baselineLimitedFeatures": 81
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2468.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-09-12T07:11:07.886Z",
+      "runtimeMs": 86509.3
+    }
+  },
+  "field": {
+    "source": "crux",
+    "scope": "origin",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-08-14",
+      "last": "2026-09-10"
+    },
+    "metrics": {
+      "cls": {
+        "p75": 0.15,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 68.8,
+          "needsImprovement": 16.2,
+          "poor": 15
+        }
+      },
+      "ttfb": {
+        "p75": 2960,
+        "rating": "poor",
+        "distribution": {
+          "good": 39.6,
+          "needsImprovement": 24.1,
+          "poor": 36.3
+        }
+      },
+      "fcp": {
+        "p75": 4830,
+        "rating": "poor",
+        "distribution": {
+          "good": 27.4,
+          "needsImprovement": 23.7,
+          "poor": 48.9
+        }
+      },
+      "inp": {
+        "p75": 348,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 51.8,
+          "needsImprovement": 33.6,
+          "poor": 14.6
+        }
+      },
+      "lcp": {
+        "p75": 4871,
+        "rating": "poor",
+        "distribution": {
+          "good": 38,
+          "needsImprovement": 26.8,
+          "poor": 35.3
+        }
+      },
+      "rtt": {
+        "p75": 264,
+        "rating": null,
+        "distribution": {
+          "good": 16.7,
+          "needsImprovement": 59.8,
+          "poor": 23.5
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": true,
+    "generator": null,
+    "probe": {
+      "metas": [],
+      "marks": [
+        "lit"
+      ],
+      "markVersions": {
+        "lit": "2.8.0"
+      }
+    },
+    "interstitial": null,
+    "host": {
+      "id": "akamai",
+      "name": "Akamai",
+      "icon": "Akamai",
+      "source": "server"
+    },
+    "headers": {
+      "server": "AkamaiGHost"
+    },
+    "violations": 95,
+    "passes": 1634,
+    "incomplete": 32,
+    "violationRules": 10,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 75,
+        "help": "All page content should be contained by landmarks"
+      },
+      {
+        "id": "svg-img-alt",
+        "impact": "serious",
+        "nodes": 8,
+        "help": "<svg> elements with an img or image role must have alternative text"
+      },
+      {
+        "id": "aria-required-parent",
+        "impact": "critical",
+        "nodes": 3,
+        "help": "Certain ARIA roles must be contained by particular parents"
+      },
+      {
+        "id": "heading-order",
+        "impact": "moderate",
+        "nodes": 2,
+        "help": "Heading levels should only increase by one"
+      },
+      {
+        "id": "list",
+        "impact": "serious",
+        "nodes": 2,
+        "help": "<ul> and <ol> must only directly contain <li>, <script> or <template> elements"
+      },
+      {
+        "id": "aria-required-children",
+        "impact": "critical",
+        "nodes": 1,
+        "help": "Certain ARIA roles must contain particular children"
+      },
+      {
+        "id": "landmark-banner-is-top-level",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Banner landmark should not be contained in another landmark"
+      },
+      {
+        "id": "landmark-no-duplicate-banner",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Document should not have more than one banner landmark"
+      },
+      {
+        "id": "landmark-one-main",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Document should have one main landmark"
+      },
+      {
+        "id": "link-in-text-block",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "Links must be distinguishable without relying on color"
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}

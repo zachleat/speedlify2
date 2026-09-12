@@ -1,0 +1,397 @@
+{
+  "url": "https://www.tesla.com/",
+  "name": "Tesla",
+  "group": "big-tech",
+  "groupName": "Big Tech",
+  "timestamp": 1789169473248,
+  "date": "2026-09-11T23:31:13.248Z",
+  "runId": "2026-09-11T22-59-28-686Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 1,
+  "durationMs": 66709,
+  "error": null,
+  "partialErrors": [
+    "ERRORED_DOCUMENT_REQUEST: Lighthouse was unable to reliably load the page you requested. Make sure you are testing the correct URL and that the server is properly responding to all requests. (Status code: 403)",
+    "ERRORED_DOCUMENT_REQUEST: Lighthouse was unable to reliably load the page you requested. Make sure you are testing the correct URL and that the server is properly responding to all requests. (Status code: 403)"
+  ],
+  "variance": null,
+  "lab": {
+    "requestedUrl": "https://www.tesla.com/",
+    "finalUrl": "https://www.tesla.com/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 25,
+      "accessibility": 80,
+      "best-practices": 73,
+      "seo": 75,
+      "agentic-browsing": 49
+    },
+    "timings": {
+      "fcp": 9483,
+      "lcp": 36491,
+      "si": 18106,
+      "tbt": 4028,
+      "tti": 42263,
+      "cls": 0.056,
+      "ttfb": 647,
+      "maxPotentialFid": 1002,
+      "serverResponseTime": 225,
+      "networkRtt": 35.2,
+      "networkServerLatency": 371.8
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 257.4,
+      "resourceLoadDelay": 4425.8,
+      "resourceLoadDuration": 8.9,
+      "elementRenderDelay": 863.7
+    },
+    "weight": {
+      "total": 12696106,
+      "requests": 178,
+      "mainDocument": 361931,
+      "byType": {
+        "total": {
+          "bytes": 12695292,
+          "requests": 136
+        },
+        "media": {
+          "bytes": 5790761,
+          "requests": 1
+        },
+        "script": {
+          "bytes": 4840795,
+          "requests": 30
+        },
+        "image": {
+          "bytes": 688434,
+          "requests": 43
+        },
+        "other": {
+          "bytes": 437045,
+          "requests": 44
+        },
+        "stylesheet": {
+          "bytes": 382138,
+          "requests": 9
+        },
+        "document": {
+          "bytes": 363871,
+          "requests": 3
+        },
+        "font": {
+          "bytes": 192248,
+          "requests": 6
+        },
+        "third-party": {
+          "bytes": 1423765,
+          "requests": 48
+        }
+      },
+      "scripts": 33,
+      "stylesheets": 9,
+      "fonts": 6
+    },
+    "thirdParty": {
+      "count": 11,
+      "bytes": 1459345,
+      "mainThreadMs": 456,
+      "top": [
+        {
+          "entity": "Google Maps",
+          "bytes": 577816,
+          "mainThreadMs": 80.9,
+          "byType": {
+            "script": 430488,
+            "other": 5210,
+            "image": 142118
+          },
+          "typedBytes": 577816
+        },
+        {
+          "entity": "Google Tag Manager",
+          "bytes": 396177,
+          "mainThreadMs": 160.2,
+          "byType": {
+            "script": 396177
+          },
+          "typedBytes": 396177
+        },
+        {
+          "entity": "Facebook",
+          "bytes": 278691,
+          "mainThreadMs": 154.4,
+          "byType": {
+            "script": 278637,
+            "image": 54
+          },
+          "typedBytes": 278691
+        },
+        {
+          "entity": "Optimizely",
+          "bytes": 98634,
+          "mainThreadMs": 53.9,
+          "byType": {
+            "script": 97097,
+            "other": 1537
+          },
+          "typedBytes": 98634
+        },
+        {
+          "entity": "Google Fonts",
+          "bytes": 80353,
+          "mainThreadMs": 0,
+          "byType": {
+            "font": 75072,
+            "stylesheet": 5281
+          },
+          "typedBytes": 80353
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 18865.5,
+      "byGroup": {
+        "scriptEvaluation": 7698.6,
+        "styleLayout": 6886,
+        "other": 2373.7,
+        "scriptParseCompile": 1001.7,
+        "garbageCollection": 331.4,
+        "paintCompositeRender": 296.2,
+        "parseHTML": 278
+      },
+      "bootupMs": 8611.3,
+      "longTasks": 20,
+      "longestTaskMs": 1002
+    },
+    "dom": {
+      "elements": 2774,
+      "depth": 28,
+      "maxChildren": 692
+    },
+    "waste": {
+      "unusedJsBytes": 1566367,
+      "unusedCssBytes": 329922,
+      "legacyJsBytes": 12233,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 21362,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 7240,
+      "renderBlockingCount": 6,
+      "poorlyCachedBytes": 1855513.639166667,
+      "poorlyCachedCount": 22
+    },
+    "accessibility": {
+      "failingCount": 6,
+      "applicableCount": 33,
+      "failingNodes": 47,
+      "failing": [
+        {
+          "id": "heading-order",
+          "title": "Heading elements are not in a sequentially-descending order",
+          "weight": 3,
+          "nodes": 13
+        },
+        {
+          "id": "aria-required-parent",
+          "title": "`[role]`s are not contained by their required parent element",
+          "weight": 10,
+          "nodes": 11
+        },
+        {
+          "id": "button-name",
+          "title": "Buttons do not have an accessible name",
+          "weight": 10,
+          "nodes": 11
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "title": "Elements with visible text labels do not have matching accessible names.",
+          "weight": 0,
+          "nodes": 8
+        },
+        {
+          "id": "aria-allowed-attr",
+          "title": "`[aria-*]` attributes do not match their roles",
+          "weight": 10,
+          "nodes": 3
+        },
+        {
+          "id": "image-alt",
+          "title": "Image elements do not have `[alt]` attributes",
+          "weight": 10,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 4,
+      "applicableCount": 19,
+      "failing": [
+        {
+          "id": "third-party-cookies",
+          "title": "Uses third-party cookies",
+          "weight": 5,
+          "nodes": 7
+        },
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "weight": 1,
+          "nodes": 4
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "weight": 1,
+          "nodes": 1
+        },
+        {
+          "id": "valid-source-maps",
+          "title": "Missing source maps for large first-party JavaScript",
+          "weight": 0,
+          "nodes": 5
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 3,
+      "applicableCount": 9,
+      "failing": [
+        {
+          "id": "link-text",
+          "title": "Links do not have descriptive text",
+          "weight": 1,
+          "nodes": 12
+        },
+        {
+          "id": "image-alt",
+          "title": "Image elements do not have `[alt]` attributes",
+          "weight": 1,
+          "nodes": 1
+        },
+        {
+          "id": "hreflang",
+          "title": "Document doesn't have a valid `hreflang`",
+          "weight": 1,
+          "nodes": 2
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 4,
+      "baselineLimitedFeatures": 69
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2333,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-09-11T23:31:14.504Z",
+      "runtimeMs": 31179.2
+    }
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-08-13",
+      "last": "2026-09-09"
+    },
+    "metrics": {
+      "ttfb": {
+        "p75": 560,
+        "rating": "good",
+        "distribution": {
+          "good": 84.4,
+          "needsImprovement": 11.7,
+          "poor": 4
+        }
+      },
+      "fcp": {
+        "p75": 2222,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 65.2,
+          "needsImprovement": 20.3,
+          "poor": 14.5
+        }
+      },
+      "inp": {
+        "p75": 184,
+        "rating": "good",
+        "distribution": {
+          "good": 79.4,
+          "needsImprovement": 17.4,
+          "poor": 3.2
+        }
+      },
+      "lcp": {
+        "p75": 4748,
+        "rating": "poor",
+        "distribution": {
+          "good": 49,
+          "needsImprovement": 16.4,
+          "poor": 34.6
+        }
+      },
+      "rtt": {
+        "p75": 115,
+        "rating": null,
+        "distribution": {
+          "good": 48.7,
+          "needsImprovement": 46.3,
+          "poor": 5
+        }
+      },
+      "cls": {
+        "p75": 0.06,
+        "rating": "good",
+        "distribution": {
+          "good": 82.8,
+          "needsImprovement": 16.4,
+          "poor": 0.9
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "probe": null,
+    "interstitial": "Access Denied",
+    "host": {
+      "id": "akamai",
+      "name": "Akamai",
+      "icon": "Akamai",
+      "source": "server"
+    },
+    "headers": {
+      "server": "AkamaiGHost"
+    },
+    "violations": null,
+    "passes": null,
+    "incomplete": null,
+    "violationRules": null,
+    "version": "4.13.0",
+    "top": [],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
