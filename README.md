@@ -200,6 +200,8 @@ one of its categories asks for it. The snippet invites a reader to publish a liv
 badge for that site, which suits a register people submit their own sites to and
 does not suit a list of companies nobody here speaks for.
 
+`showHiringStatus` is opt-in too: a site in that category with `<meta name="hiring-status" content="open">` (or `"open remote"`) gets an "Open to Work" (or "Open to Remote Work") tag beside its name.
+
 ### When a site moves
 
 Lighthouse follows redirects, so a site that changes address would otherwise keep filing results under its old URL — the metrics change and nothing says why. speedlify compares the requested and final URLs on every run and acts on the difference.

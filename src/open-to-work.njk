@@ -1,0 +1,155 @@
+---
+layout: base.njk
+permalink: /open-to-work/index.html
+title: Open to Work
+---
+
+{% set shown = [] %}
+{% for entry in sites.entries %}
+	{% if entry.hiring and entry.allGreen %}{% set shown = (shown.push(entry), shown) %}{% endif %}
+{% endfor %}
+
+{% set hiringGroups = [] %}
+{% for g in sites.groups %}
+	{% if g.showHiringStatus %}{% set hiringGroups = (hiringGroups.push(g), hiringGroups) %}{% endif %}
+{% endfor %}
+
+<header class="detail-head">
+	<h2 class="page-hed">Open to Work</h2>
+	<p class="lede">
+		People who build fast, accessible sites and are looking for work. Add one of these to your site’s <code>&lt;head&gt;</code>:
+	</p>
+	<pre><code>&lt;!-- Open to Work --&gt;
+&lt;meta name="hiring-status" content="open"&gt;
+
+&lt;!-- Open to Remote Work --&gt;
+&lt;meta name="hiring-status" content="open remote"&gt;</code></pre>
+	<p>See also the <a href="https://www.11ty.dev/super-professional-business-network/">Eleventy Super Professional Business Network</a>.</p>
+	{% if hiringGroups.length %}
+	<p class="muted small">
+		Read from sites in
+		{%- for g in hiringGroups %}{% if not loop.first %}{{ " and" if loop.last else "," }}{% endif %} <a href="/group/{{ g.id }}/">{{ g.name }}</a>{% endfor %}, and picked up the next time a site is measured.
+	</p>
+	{% endif %}
+</header>
+
+<section class="panel">
+	<h2>Sites
+		<span class="head-count">{{ shown.length | num }} {{ shown.length | plural('site') }}</span>
+	</h2>
+	<p class="muted small">
+		Only sites with “good” scores (all green circles): every Lighthouse category at 90 or above, no axe violations, no Core Web Vital failing.
+	</p>
+
+	{#- Made-up rows so an empty page still shows what a listing looks like. -#}
+	{% set sampleRemote = {
+		sample: 1,
+		displayUrl: "your-site.example",
+		hiring: { label: "Open to Remote Work" },
+		presumedGenerator: { name: "Build Awesome", icon: "BuildAwesome", presumed: true },
+		host: { name: "GitHub Pages", icon: "Github" },
+		axe: { violations: 0, violationRules: 0 },
+		cwvFailures: null, cwv: { assessed: false }, cwvWorst: null,
+		trends: { performance: { values: [94, 96, 95, 98, 100] } },
+		latest: { lab: {
+			scores: { performance: 100, accessibility: 100, "best-practices": 100, seo: 100 },
+			timings: { lcp: 1200, cls: 0, tbt: 0 },
+			lcpBreakdown: { timeToFirstByte: 300, resourceLoadDelay: 200, resourceLoadDuration: 400, elementRenderDelay: 300 },
+			weight: { total: 180000, requests: 12 },
+			dom: { elements: 320 }
+		} },
+		categories: [{ id: "11ty-community", name: "Built Awesome" }]
+	} %}
+	{% set sampleOnsite = {
+		sample: 2,
+		displayUrl: "another-site.example",
+		hiring: { label: "Open to Work" },
+		presumedGenerator: { name: "Build Awesome", icon: "BuildAwesome", presumed: true },
+		host: { name: "GitHub Pages", icon: "Github" },
+		axe: { violations: 0, violationRules: 0 },
+		cwvFailures: 0, cwv: { assessed: true }, cwvWorst: "good",
+		trends: { performance: { values: [99, 97, 98, 96, 97] } },
+		latest: { lab: {
+			scores: { performance: 97, accessibility: 100, "best-practices": 100, seo: 92 },
+			timings: { lcp: 1900, cls: 0.02, tbt: 40 },
+			lcpBreakdown: { timeToFirstByte: 500, resourceLoadDelay: 400, resourceLoadDuration: 600, elementRenderDelay: 400 },
+			weight: { total: 420000, requests: 24 },
+			dom: { elements: 610 }
+		} },
+		categories: [{ id: "11ty-community", name: "Built Awesome" }]
+	} %}
+	{% if not shown.length %}
+	<p class="muted small">No sites yet. Here are samples of what yours could look like:</p>
+	{% endif %}
+	<div class="table-scroll">
+	<table class="grid">
+		<thead>
+			<tr>
+				<th class="col-rank">#</th>
+				<th class="col-site">Site</th>
+				<th class="col-stack" title="What built the site, detected from its generator tag or presumed from the list it is on">Tool</th>
+				<th class="col-stack" title="Who serves the site, detected from its response headers on the same page load">Host</th>
+				<th class="col-rings" title="The four Lighthouse categories, then violating nodes from a full axe run and the Core Web Vitals verdict from real users">Scores</th>
+				<th class="col-trend">Trend</th>
+				<th class="col-lcp"><span class="lcp-head">LCP</span></th>
+				<th>CLS</th>
+				<th>TBT</th>
+				<th title="Total bytes transferred, with the page's DOM element count beneath it">Weight</th>
+				<th>Req</th>
+				<th class="col-cats">Categories</th>
+			</tr>
+		</thead>
+		<tbody>
+		{% for entry in (shown if shown.length else [sampleRemote, sampleOnsite]) %}
+			<tr{% if entry.sample %} class="row-sample"{% endif %}>
+				<td class="col-rank" title="{% if entry.sample %}Sample{% elif entry.ranks.overall %}#{{ entry.ranks.overall }} of {{ sites.stats.measured | num }} measured sites{% else %}unranked{% endif %}">
+					{% if entry.sample %}<span class="hash">#</span>{{ entry.sample }}{% elif entry.ranks.overall %}<span class="trophy">{{ entry.ranks.overall | trophy }}</span><span class="hash">#</span>{{ entry.ranks.overall }}{% else %}—{% endif %}
+				</td>
+				<td class="col-site">
+					{% if entry.sample %}
+					<span class="site-link"><span>{{ entry.displayUrl }}</span></span>
+					<span class="badge badge-hiring">{{ entry.hiring.label }}</span>
+					<span class="badge">sample</span>
+					{% else %}
+					<a class="site-link" href="/site/{{ entry.slug }}/">
+						{% set avatar = entry.url | avatar(meta.avatarService) %}
+						{% if avatar %}<img class="favicon" src="{{ avatar }}" width="32" height="32" alt="" loading="lazy" decoding="async">{% endif %}
+						<span title="{{ entry.displayUrl }}">{{ entry.displayUrl }}</span>
+					</a>
+					<span class="badge badge-hiring">{{ entry.hiring.label }}</span>
+					<span class="updated-tag {{ 'stale-age' if entry.dataStale }}" title="Measured {{ entry.latest.date | date('long') }}"><time datetime="{{ entry.latest.date | iso }}">{{ entry.latest.date | since }}</time></span>
+					{% endif %}
+				</td>
+				<td class="col-stack">
+					{% if entry.generator %}{% stackIcon entry.generator, 22 %}
+					{% elif entry.presumedGenerator %}{% stackIcon entry.presumedGenerator, 22 %}
+					{% else %}<span class="stack-none" title="No generator detected">·</span>{% endif %}
+				</td>
+				<td class="col-stack">
+					{% if entry.host %}{% stackIcon entry.host, 22 %}{% else %}<span class="stack-none" title="No host detected">·</span>{% endif %}
+				</td>
+				<td class="col-rings">
+					<span class="rings">
+					{% for score in metrics.SCORES %}
+						{% scoreRing entry.latest.lab.scores[score.key], score.label %}
+					{% endfor %}
+					{% axeRing entry.axe %}
+					{% cwvRing entry.cwvFailures, entry.cwv.assessed, entry.cwvWorst %}
+					</span>
+				</td>
+				{% set perfGood = (entry.latest.lab.scores.performance | scoreClass) == "good" %}
+				<td class="col-trend">{% sparkline entry.trends.performance, { good: perfGood } %}</td>
+				<td class="num col-lcp"><span class="lcp-cell"><span class="lcp-value">{{ entry.latest.lab.timings.lcp | ms }}</span>{% lcpBar entry.latest.lab.lcpBreakdown, entry.latest.lab.timings.lcp %}</span></td>
+				<td class="num">{{ entry.latest.lab.timings.cls | unit("") }}</td>
+				<td class="num">{{ entry.latest.lab.timings.tbt | ms }}</td>
+				<td class="num">{% set domCount = entry.latest.lab.dom.elements %}{{ entry.latest.lab.weight.total | bytes }}{% if domCount %}<span class="weight-dom" title="{{ domCount | num }} DOM elements">{{ domCount | num }} elements</span>{% endif %}</td>
+				<td class="num">{{ entry.latest.lab.weight.requests | num }}</td>
+				<td class="col-cats">
+					<span class="cat-chips">{% for cat in entry.categories %}<a class="cat-chip" href="/group/{{ cat.id }}/">{{ cat.name }}</a>{% endfor %}</span>
+				</td>
+			</tr>
+		{% endfor %}
+		</tbody>
+	</table>
+	</div>
+</section>

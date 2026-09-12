@@ -775,6 +775,8 @@ export default {
 			// for one is offering it to whoever put it here. See `showEmbed` in the
 			// README: the section is off everywhere it is not asked for.
 			showEmbed: true,
+			// Tags a site "Open to Work" from its `<meta name="hiring-status">`; opt-in per category.
+			showHiringStatus: true,
 			name: "Built Awesome",
 			enabled: true,
 			description:

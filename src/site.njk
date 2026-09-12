@@ -93,6 +93,7 @@ eleventyComputed:
 		{%- set siteIcon = entry.url | avatar(meta.avatarService) -%}
 		{%- if siteIcon %}<img class="page-hed-mark" src="{{ siteIcon }}" width="32" height="32" alt="" decoding="async">{% endif -%}
 		{{ entry.displayUrl }}
+		{%- if entry.hiring %} <span class="badge badge-hiring">{{ entry.hiring.label }}</span>{% endif %}
 	</h2>
 	<p class="detail-url"><a href="{{ entry.url }}">{{ entry.url }}</a></p>
 	{#

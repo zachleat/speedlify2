@@ -2,7 +2,7 @@ import { test, describe } from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
 
-import { detectGenerator, detectTools, storedProbe, detectHost, pickHostHeaders, pageProbe, detectInterstitial } from "../lib/stack.js";
+import { detectGenerator, detectTools, storedProbe, detectHost, pickHostHeaders, pageProbe, detectInterstitial, hiringStatus } from "../lib/stack.js";
 
 /**
  * Every generator that https://github.com/11ty/api-generator recognizes, with a
@@ -162,6 +162,20 @@ describe("generator detection", () => {
 		assert.equal(probe.meta, "All in One SEO (AIOSEO) 4.9.5.1");
 	});
 
+	test("pageProbe reads the hiring-status tag, and storedProbe keeps it only when present", () => {
+		const probe = withDom(`<meta name="hiring-status" content="open remote">`, pageProbe);
+		assert.equal(probe.hiring, "open remote");
+		assert.equal(storedProbe(probe).hiring, "open remote");
+		assert.equal("hiring" in storedProbe(withDom("", pageProbe)), false);
+	});
+
+	test("hiringStatus labels open and open remote, and nothing else", () => {
+		assert.deepEqual(hiringStatus("open"), { remote: false, label: "Open to Work" });
+		assert.deepEqual(hiringStatus(" Open  Remote "), { remote: true, label: "Open to Remote Work" });
+		assert.equal(hiringStatus("closed"), null);
+		assert.equal(hiringStatus(undefined), null);
+	});
+
 	test("the meta tag wins over a DOM mark", () => {
 		// A Next.js app rendering an Astro island should still read as Astro if
 		// Astro is what stamped the page.
@@ -311,9 +325,11 @@ function withDom(html, fn, windowGlobals = {}, nodes = []) {
 		(m) => ({ getAttribute: () => m[1] }),
 	);
 	const isMetaQuery = (query) => /generator/i.test(query);
+	const hiring = html.match(/<meta[^>]*name="hiring-status"[^>]*content="([^"]*)"/i);
 	const document = {
 		querySelector(query) {
 			if (isMetaQuery(query)) return metas[0] ?? null;
+			if (/hiring-status/.test(query)) return hiring ? { getAttribute: () => hiring[1] } : null;
 
 			// Both forms the probe uses: `^=` for a path anchored at the root, and
 			// `*=` for build output served under a basePath or a CDN prefix.

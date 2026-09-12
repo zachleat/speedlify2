@@ -1165,7 +1165,7 @@ describe("newly perfect window", () => {
 
 describe("embed opt-in", () => {
 	/** Two categories, only one of which asks for the embed section. */
-	function embedFixture({ showEmbed = undefined, second = null } = {}) {
+	function embedFixture({ showEmbed = undefined, second = null, hiring = null } = {}) {
 		const dir = fs.mkdtempSync(path.join(os.tmpdir(), "speedlify-embed-"));
 		tmp.push(dir);
 
@@ -1198,6 +1198,7 @@ describe("embed opt-in", () => {
 					environment: { benchmarkIndex: 3000, lighthouseVersion: "13.4.1" },
 					lcpBreakdown: { timeToFirstByte: 100 },
 				},
+				...(hiring ? { axe: { probe: { metas: [], marks: [], markVersions: {}, hiring } } } : {}),
 			});
 		}
 
@@ -1244,6 +1245,14 @@ describe("embed opt-in", () => {
 		const r = await buildReport(f);
 
 		assert.deepEqual(bySite(r), { "a.example": false, "b.example": false });
+	});
+
+	test("hiring tags show only for sites in a category with showHiringStatus: true", async () => {
+		const f = embedFixture({ second: "showHiringStatus: true", hiring: "open remote" });
+		const r = await buildReport(f);
+		const tags = Object.fromEntries(r.entries.map((e) => [e.displayUrl, e.hiring?.label ?? null]));
+
+		assert.deepEqual(tags, { "a.example": null, "b.example": "Open to Remote Work" });
 	});
 });
 

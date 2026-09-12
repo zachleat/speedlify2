@@ -232,6 +232,7 @@ permalink: /index.html
 						{% if avatar %}<img class="favicon" src="{{ avatar }}" width="32" height="32" alt="" loading="lazy" decoding="async">{% endif %}
 						<span title="{{ entry.displayUrl }}">{{ entry.displayUrl }}</span>
 					</a>
+					{% if entry.hiring %}<span class="badge badge-hiring">{{ entry.hiring.label }}</span>{% endif %}
 					{% if entry.latest %}<span class="updated-tag {{ 'stale-age' if entry.dataStale }}" title="Measured {{ entry.latest.date | date('long') }}"><time datetime="{{ entry.latest.date | iso }}">{{ entry.latest.date | since }}</time></span>{% else %}<span class="updated-tag never">never</span>{% endif %}
 					{#
 						Straight after the name, ahead of the other badges: it is the
