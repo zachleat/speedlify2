@@ -278,7 +278,7 @@ speedlifyThemeColor();
 		#}
 		<p>
 			This website was built with <a href="https://build.awesome.me/"><i class="fa-brands fa-build-awesome"></i>Build Awesome {{ buildawesome.version }}</a> on <time datetime="{{ sites.generated | iso }}">{{ sites.generated | date("long") }}</time>{% if meta.repo %} ·
-			<a href="{{ meta.repo }}">Source on <i class="fa-brands fa-github"></i>GitHub</a>{% endif %}
+			<a href="{{ meta.repo }}">Source on <i class="fa-brands fa-github"></i>GitHub</a>{% endif %} ·
 			Follow us on <a href="https://mastodon.social/@speedlify" rel="me">Mastodon</a> or <a href="https://bsky.app/profile/speedlify.dev" rel="me">Bluesky</a> ·
 			{#
 				The Open Graph card this page gets when it is shared. `entry` is
@@ -286,7 +286,6 @@ speedlifyThemeColor();
 				alias — so this is the site's own card there and the generator's
 				front door everywhere else.
 			#}
-			·
 			<a href="/opengraph/{% if entry %}?site={{ entry.slug }}{% endif %}">{% if entry %}Open Graph for this site{% else %}Open Graph{% endif %}</a>
 			{%- if sites.coverage.measured %} ·
 			<strong>{{ sites.coverage.measured | num }}/{{ sites.coverage.total | num }}</strong>
