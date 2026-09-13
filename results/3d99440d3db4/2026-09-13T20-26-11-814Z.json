@@ -1,0 +1,365 @@
+{
+  "url": "https://web.dev/",
+  "name": "web.dev",
+  "group": "11ty-emeritus",
+  "groupName": "11ty Emeritus",
+  "timestamp": 1789331171814,
+  "date": "2026-09-13T20:26:11.814Z",
+  "runId": "2026-09-13T20-22-33-714Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 40990,
+  "error": null,
+  "variance": {
+    "min": 70,
+    "max": 72,
+    "spread": 2,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://web.dev/",
+    "finalUrl": "https://web.dev/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 71,
+      "accessibility": 90,
+      "best-practices": 100,
+      "seo": 92,
+      "agentic-browsing": 46
+    },
+    "timings": {
+      "fcp": 2717,
+      "lcp": 2717,
+      "si": 3246,
+      "tbt": 757,
+      "tti": 13784,
+      "cls": 0.089,
+      "ttfb": 708,
+      "maxPotentialFid": 276,
+      "serverResponseTime": 602,
+      "networkRtt": 1,
+      "networkServerLatency": 114.9
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 605.8,
+      "elementRenderDelay": 139.6
+    },
+    "weight": {
+      "total": 1932520,
+      "requests": 93,
+      "mainDocument": 22315,
+      "byType": {
+        "total": {
+          "bytes": 1932520,
+          "requests": 89
+        },
+        "script": {
+          "bytes": 1342738,
+          "requests": 48
+        },
+        "font": {
+          "bytes": 242256,
+          "requests": 12
+        },
+        "stylesheet": {
+          "bytes": 207736,
+          "requests": 10
+        },
+        "image": {
+          "bytes": 85398,
+          "requests": 7
+        },
+        "document": {
+          "bytes": 52902,
+          "requests": 4
+        },
+        "other": {
+          "bytes": 1490,
+          "requests": 8
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 1826677,
+          "requests": 79
+        }
+      },
+      "scripts": 48,
+      "stylesheets": 10,
+      "fonts": 12
+    },
+    "thirdParty": {
+      "count": 4,
+      "bytes": 1628977,
+      "mainThreadMs": 373,
+      "top": [
+        {
+          "entity": "Google CDN",
+          "bytes": 806363,
+          "mainThreadMs": 109.2,
+          "byType": {
+            "script": 643863,
+            "image": 1108,
+            "stylesheet": 161328,
+            "other": 64
+          },
+          "typedBytes": 806363
+        },
+        {
+          "entity": "Google Tag Manager",
+          "bytes": 600862,
+          "mainThreadMs": 261.2,
+          "byType": {
+            "script": 600862
+          },
+          "typedBytes": 600862
+        },
+        {
+          "entity": "Google Fonts",
+          "bytes": 206117,
+          "mainThreadMs": 0,
+          "byType": {
+            "font": 202096,
+            "stylesheet": 4021
+          },
+          "typedBytes": 206117
+        },
+        {
+          "entity": "Unpkg",
+          "bytes": 15635,
+          "mainThreadMs": 2.6,
+          "byType": {
+            "script": 15635
+          },
+          "typedBytes": 15635
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 3178,
+      "byGroup": {
+        "scriptEvaluation": 1541.6,
+        "other": 637.6,
+        "styleLayout": 506.9,
+        "scriptParseCompile": 312.4,
+        "paintCompositeRender": 87.8,
+        "parseHTML": 59.7,
+        "garbageCollection": 32
+      },
+      "bootupMs": 1584.3,
+      "longTasks": 11,
+      "longestTaskMs": 276
+    },
+    "dom": {
+      "elements": 842,
+      "depth": 19,
+      "maxChildren": 23
+    },
+    "waste": {
+      "unusedJsBytes": 471615,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 0,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 2616,
+      "renderBlockingCount": 3,
+      "poorlyCachedBytes": 225.19999999999996,
+      "poorlyCachedCount": 1
+    },
+    "accessibility": {
+      "failingCount": 3,
+      "applicableCount": 31,
+      "failingNodes": 14,
+      "failing": [
+        {
+          "id": "link-name",
+          "title": "Links do not have a discernible name",
+          "weight": 7,
+          "nodes": 9
+        },
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "weight": 7,
+          "nodes": 4
+        },
+        {
+          "id": "frame-title",
+          "title": "`<frame>` or `<iframe>` elements do not have a title",
+          "weight": 7,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 0,
+      "applicableCount": 17,
+      "failing": []
+    },
+    "seo": {
+      "failingCount": 1,
+      "applicableCount": 10,
+      "failing": [
+        {
+          "id": "link-text",
+          "title": "Links do not have descriptive text",
+          "weight": 1,
+          "nodes": 6
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": null,
+      "csp": null,
+      "clickjacking": null,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 54
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 3267.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-09-13T20:26:25.746Z",
+      "runtimeMs": 11290
+    }
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-08-15",
+      "last": "2026-09-11"
+    },
+    "metrics": {
+      "fcp": {
+        "p75": 3195,
+        "rating": "poor",
+        "distribution": {
+          "good": 45.5,
+          "needsImprovement": 27.2,
+          "poor": 27.4
+        }
+      },
+      "inp": {
+        "p75": 220,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 72.4,
+          "needsImprovement": 19.8,
+          "poor": 7.8
+        }
+      },
+      "lcp": {
+        "p75": 3179,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 64.4,
+          "needsImprovement": 18.1,
+          "poor": 17.5
+        }
+      },
+      "rtt": {
+        "p75": 246,
+        "rating": null,
+        "distribution": {
+          "good": 21.5,
+          "needsImprovement": 57.5,
+          "poor": 21
+        }
+      },
+      "cls": {
+        "p75": 0,
+        "rating": "good",
+        "distribution": {
+          "good": 87.3,
+          "needsImprovement": 5.3,
+          "poor": 7.5
+        }
+      },
+      "ttfb": {
+        "p75": 1819,
+        "rating": "poor",
+        "distribution": {
+          "good": 18.4,
+          "needsImprovement": 56.2,
+          "poor": 25.4
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "probe": {
+      "metas": [],
+      "marks": [
+        "lit"
+      ],
+      "markVersions": {
+        "lit": "3.3.3"
+      }
+    },
+    "interstitial": null,
+    "host": {
+      "id": "google",
+      "name": "Google Frontend",
+      "icon": "Google",
+      "source": "server"
+    },
+    "headers": {
+      "server": "Google Frontend",
+      "x-cloud-trace-context": "475c31a465b133e6959791136a4eb14f"
+    },
+    "violations": 19,
+    "passes": 1768,
+    "incomplete": 17,
+    "violationRules": 4,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "link-name",
+        "impact": "serious",
+        "nodes": 9,
+        "help": "Links must have discernible text"
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 6,
+        "help": "Elements must meet minimum color contrast ratio thresholds"
+      },
+      {
+        "id": "page-has-heading-one",
+        "impact": "moderate",
+        "nodes": 3,
+        "help": "Page should contain a level-one heading"
+      },
+      {
+        "id": "frame-title",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "Frames must have an accessible name"
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
