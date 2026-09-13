@@ -1,0 +1,301 @@
+{
+  "url": "https://objector.dev/",
+  "name": "objector.dev",
+  "group": "11ty-community",
+  "groupName": "Built Awesome",
+  "timestamp": 1789269896494,
+  "date": "2026-09-13T03:24:56.494Z",
+  "runId": "2026-09-13T03-21-45-376Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 23167,
+  "error": null,
+  "variance": {
+    "min": 69,
+    "max": 94,
+    "spread": 25,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://objector.dev/",
+    "finalUrl": "https://objector.dev/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 94,
+      "accessibility": 89,
+      "best-practices": 96,
+      "seo": 100,
+      "agentic-browsing": 50
+    },
+    "timings": {
+      "fcp": 2343,
+      "lcp": 2343,
+      "si": 2343,
+      "tbt": 133,
+      "tti": 6471,
+      "cls": 0,
+      "ttfb": 626,
+      "maxPotentialFid": 241,
+      "serverResponseTime": 25,
+      "networkRtt": 0.4,
+      "networkServerLatency": 43.8
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 26.5,
+      "elementRenderDelay": 121.4
+    },
+    "weight": {
+      "total": 1111973,
+      "requests": 24,
+      "mainDocument": 2699,
+      "byType": {
+        "total": {
+          "bytes": 1111973,
+          "requests": 24
+        },
+        "image": {
+          "bytes": 485743,
+          "requests": 8
+        },
+        "script": {
+          "bytes": 442843,
+          "requests": 7
+        },
+        "font": {
+          "bytes": 158230,
+          "requests": 2
+        },
+        "stylesheet": {
+          "bytes": 16994,
+          "requests": 3
+        },
+        "other": {
+          "bytes": 5464,
+          "requests": 3
+        },
+        "document": {
+          "bytes": 2699,
+          "requests": 1
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 615208,
+          "requests": 8
+        }
+      },
+      "scripts": 7,
+      "stylesheets": 3,
+      "fonts": 2
+    },
+    "thirdParty": {
+      "count": 5,
+      "bytes": 615208,
+      "mainThreadMs": 103.3,
+      "top": [
+        {
+          "entity": "Google CDN",
+          "bytes": 355197,
+          "mainThreadMs": 91.3,
+          "byType": {
+            "script": 355197
+          },
+          "typedBytes": 355197
+        },
+        {
+          "entity": "FontAwesome CDN",
+          "bytes": 172166,
+          "mainThreadMs": 0,
+          "byType": {
+            "font": 158230,
+            "stylesheet": 13936
+          },
+          "typedBytes": 172166
+        },
+        {
+          "entity": "jQuery CDN",
+          "bytes": 84861,
+          "mainThreadMs": 10.4,
+          "byType": {
+            "script": 84861
+          },
+          "typedBytes": 84861
+        },
+        {
+          "entity": "Other Google APIs/SDKs",
+          "bytes": 2020,
+          "mainThreadMs": 1.6,
+          "byType": {
+            "script": 2020
+          },
+          "typedBytes": 2020
+        },
+        {
+          "entity": "Google Fonts",
+          "bytes": 964,
+          "mainThreadMs": 0,
+          "byType": {
+            "stylesheet": 964
+          },
+          "typedBytes": 964
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 817.3,
+      "byGroup": {
+        "other": 264.1,
+        "scriptParseCompile": 244.9,
+        "scriptEvaluation": 184.4,
+        "styleLayout": 79.7,
+        "parseHTML": 18.7,
+        "paintCompositeRender": 17.8,
+        "garbageCollection": 7.7
+      },
+      "bootupMs": 375.2,
+      "longTasks": 2,
+      "longestTaskMs": 241
+    },
+    "dom": {
+      "elements": 76,
+      "depth": 6,
+      "maxChildren": 15
+    },
+    "waste": {
+      "unusedJsBytes": 573591,
+      "unusedCssBytes": 13535,
+      "legacyJsBytes": 0,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 42859,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 4973,
+      "renderBlockingCount": 6,
+      "poorlyCachedBytes": 0,
+      "poorlyCachedCount": 0
+    },
+    "accessibility": {
+      "failingCount": 3,
+      "applicableCount": 21,
+      "failingNodes": 6,
+      "failing": [
+        {
+          "id": "link-name",
+          "title": "Links do not have a discernible name",
+          "weight": 7,
+          "nodes": 4
+        },
+        {
+          "id": "heading-order",
+          "title": "Heading elements are not in a sequentially-descending order",
+          "weight": 3,
+          "nodes": 1
+        },
+        {
+          "id": "list",
+          "title": "Lists do not contain only `<li>` elements and script supporting elements (`<script>` and `<template>`).",
+          "weight": 7,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 1,
+      "applicableCount": 20,
+      "failing": [
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "weight": 1,
+          "nodes": 6
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 0,
+      "applicableCount": 9,
+      "failing": []
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 6,
+      "baselineLimitedFeatures": 4
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2984,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-09-13T03:25:05.794Z",
+      "runtimeMs": 6362.9
+    }
+  },
+  "field": null,
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "probe": {
+      "metas": [],
+      "marks": [],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "netlify",
+      "name": "Netlify",
+      "icon": "Netlify",
+      "source": "x-nf-request-id"
+    },
+    "headers": {
+      "server": "Netlify",
+      "x-nf-request-id": "01M2CCRGPN8MNPA06E0HF8Z79K"
+    },
+    "violations": 8,
+    "passes": 188,
+    "incomplete": 0,
+    "violationRules": 4,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "link-name",
+        "impact": "serious",
+        "nodes": 4,
+        "help": "Links must have discernible text"
+      },
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 2,
+        "help": "All page content should be contained by landmarks"
+      },
+      {
+        "id": "heading-order",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Heading levels should only increase by one"
+      },
+      {
+        "id": "list",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "<ul> and <ol> must only directly contain <li>, <script> or <template> elements"
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
