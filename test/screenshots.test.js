@@ -6,7 +6,7 @@ import path from "node:path";
 
 import { ResultStore } from "../lib/store.js";
 import { keepsScreenshots, keepsFilmstrip, filmstripMarkers, throttledLcpBreakdown } from "../lib/runner.js";
-import { clientRendered, alignFirstFrame } from "../lib/report.js";
+import { clientRendered, alignFirstFrame, alignFrames } from "../lib/report.js";
 
 /**
  * The two screenshots a measurement stores: the page as rendered, and the same
@@ -210,19 +210,6 @@ describe("first frame alignment", () => {
 		assert.equal(alignFirstFrame(frames, { fcp: 1430 }, 5611).settledAt, 1430);
 	});
 
-	test("never carries a settle ahead of LCP", () => {
-		// bolt.new: blank frames, then a first painted frame that is also the settled one.
-		const strip = [
-			{ timing: 5620, src: "blank" },
-			{ timing: 11241, src: "blank" },
-			{ timing: 16861, src: "painted" },
-			{ timing: 22482, src: "later" },
-		];
-		const out = alignFirstFrame(strip, { fcp: 14084, lcp: 16066 }, 16861);
-		assert.equal(out.frames[2].timing, 14084);
-		assert.equal(out.settledAt, 16066);
-	});
-
 	test("moves the first frame to differ from the blank ones before FCP", () => {
 		const blank = [2433, 4865, 7298, 9731].map((timing) => ({ timing, src: "blank" }));
 		const strip = [...blank, { timing: 12163, src: "painted" }, { timing: 14596, src: "later" }];
@@ -239,6 +226,40 @@ describe("first frame alignment", () => {
 		assert.equal(alignFirstFrame(frames, { fcp: 12000 }, 11222).frames, frames);
 		assert.equal(alignFirstFrame(frames, null, 11222).frames, frames);
 	});
+});
+
+describe("LCP frame", () => {
+	// bolt.new: blank frames, then a first painted frame that is also the settled one.
+	const strip = [
+		{ timing: 5620, src: "blank" },
+		{ timing: 11241, src: "blank" },
+		{ timing: 16861, src: "painted" },
+		{ timing: 22482, src: "later" },
+	];
+
+	test("adds a frame at an LCP in a gap, showing the first frame taken after it", () => {
+		const out = alignFrames(strip, { fcp: 14084, lcp: 16066 }, 16861);
+		assert.deepEqual(out.frames.map((f) => [f.timing, f.src]), [
+			[5620, "blank"],
+			[11241, "blank"],
+			[14084, "painted"],
+			[16066, "painted"],
+			[22482, "later"],
+		]);
+		assert.equal(out.settledAt, 16066);
+	});
+
+	test("adds no frame beside a neighbor, but still settles no earlier than LCP", () => {
+		const out = alignFrames(strip, { fcp: 14084, lcp: 22300 }, 16861);
+		assert.equal(out.frames.length, strip.length);
+		assert.equal(out.settledAt, 22482);
+	});
+
+	test("adds no frame at an LCP on a frame or past the last one", () => {
+		assert.equal(alignFrames(strip, { lcp: 11241 }, null).frames, strip);
+		assert.equal(alignFrames(strip, { lcp: 30000 }, null).frames, strip);
+	});
+
 });
 
 describe("throttled LCP subparts", () => {
