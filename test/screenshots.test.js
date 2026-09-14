@@ -210,6 +210,19 @@ describe("first frame alignment", () => {
 		assert.equal(alignFirstFrame(frames, { fcp: 1430 }, 5611).settledAt, 1430);
 	});
 
+	test("never carries a settle ahead of LCP", () => {
+		// bolt.new: blank frames, then a first painted frame that is also the settled one.
+		const strip = [
+			{ timing: 5620, src: "blank" },
+			{ timing: 11241, src: "blank" },
+			{ timing: 16861, src: "painted" },
+			{ timing: 22482, src: "later" },
+		];
+		const out = alignFirstFrame(strip, { fcp: 14084, lcp: 16066 }, 16861);
+		assert.equal(out.frames[2].timing, 14084);
+		assert.equal(out.settledAt, 16066);
+	});
+
 	test("moves the first frame to differ from the blank ones before FCP", () => {
 		const blank = [2433, 4865, 7298, 9731].map((timing) => ({ timing, src: "blank" }));
 		const strip = [...blank, { timing: 12163, src: "painted" }, { timing: 14596, src: "later" }];
