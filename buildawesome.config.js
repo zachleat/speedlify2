@@ -12,11 +12,16 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 import * as simpleIcons from "simple-icons";
+import { transform as transformCss } from "lightningcss";
 import { lowerIsBetter } from "./lib/compare.js";
 import { scoreBand, axeBand, cwvBand } from "./lib/rank.js";
 import { ringBands } from "./lib/report.js";
 
 const ICONS_DIR = "src/icons";
+
+function minifyCss(filename) {
+	return transformCss({ filename, code: fs.readFileSync(filename), minify: true }).code.toString();
+}
 
 /**
  * Marks Font Awesome carries, mapped from the simple-icons name we detect under.
@@ -292,7 +297,12 @@ export default async function ($config) {
 
 	// The footer's theme toggle: script served from /js/, stylesheet inlined by the layout.
 	$config.addPassthroughCopy({ [path.relative(".", fileURLToPath(import.meta.resolve("@zachleat/solar-eclipse-toggle")))]: "js/solar-eclipse-toggle.js" });
-	$config.addGlobalData("solarEclipseToggleCss", () => fs.readFileSync(new URL(import.meta.resolve("@zachleat/solar-eclipse-toggle/style.css")), "utf8"));
+	$config.addGlobalData("solarEclipseToggleCss", () => minifyCss(fileURLToPath(import.meta.resolve("@zachleat/solar-eclipse-toggle/style.css"))));
+
+	// Inlined by the layouts in production builds, minified once rather than per page.
+	if (process.env.BUILDAWESOME_RUN_MODE === "build") {
+		$config.addGlobalData("styleCss", () => minifyCss("src/css/style.css"));
+	}
 
 	// Lighthouse's filmstrip frames for each site, captured during measurement
 	// and stored beside the numbers. Copied rather than passed through an image

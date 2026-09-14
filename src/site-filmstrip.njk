@@ -19,7 +19,7 @@ try {
 } catch (e) {}
 </script>
 {% if buildawesome.env.runMode == "build" %}
-<style>{% include "../css/style.css" %}</style>
+<style>{{ styleCss | safe }}</style>
 {% else %}
 <link rel="stylesheet" href="/css/style.css">
 {% endif %}
