@@ -81,14 +81,17 @@
 	 * laid out in stride units of it, so widening it would pull them toward each
 	 * other until they overlapped. The axis is as long as it needs to be instead,
 	 * and scrolls.
+	 *
+	 * A `fixedStep` gives every strip the same scale instead, letting closely sampled frames overlap.
 	 */
-	function buildTimeline(sites) {
+	function buildTimeline(sites, fixedStep) {
 		var end = 0;
-		var step = Infinity;
+		var step = fixedStep || Infinity;
 
 		sites.forEach(function (s) {
 			var frames = s.frames || [];
 			if (frames.length) end = Math.max(end, frames[frames.length - 1].timing);
+			if (fixedStep) return;
 			for (var i = 1; i < frames.length; i++) {
 				var gap = frames[i].timing - frames[i - 1].timing;
 				if (gap > 0) step = Math.min(step, gap);
@@ -99,7 +102,7 @@
 		if (!end) end = step * 4;
 
 		var cols = Math.max(1, Math.ceil(end / step));
-		return { step: step, cols: cols, end: cols * step };
+		return { step: step, cols: cols, end: cols * step, fixed: !!fixedStep };
 	}
 
 	/*
@@ -149,7 +152,8 @@
 	/* Ticks at round times, positioned as a fraction of the column stride. */
 	function renderRuler(timeline) {
 		var ruler = el("div", "race-ruler");
-		var step = tickStep(timeline.end, timeline.step);
+		// A fixed scale ticks every step, so tick spacing matches across strips of different lengths.
+		var step = timeline.fixed ? timeline.step : tickStep(timeline.end, timeline.step);
 
 		for (var at = step; at <= timeline.end; at += step) {
 			var tick = el("span", "race-tick");
@@ -298,7 +302,7 @@
 		}
 
 		lane.cells = [];
-		frames.forEach(function (frame) {
+		frames.forEach(function (frame, i) {
 			var slot = el("div", "race-frame");
 			slot.style.setProperty("--at", frame.timing / timeline.step);
 
@@ -322,10 +326,13 @@
 			img.decoding = "async";
 			slot.appendChild(img);
 
-			/* When this one was taken, under it. */
-			var stamp = el("span", "race-frame-time");
-			stamp.textContent = fmtSeconds(frame.timing);
-			slot.appendChild(stamp);
+			/* When this one was taken, under it, unless the next frame sits close enough for the labels to collide. */
+			var next = frames[i + 1];
+			if (!next || (next.timing - frame.timing) / timeline.step >= 0.4) {
+				var stamp = el("span", "race-frame-time");
+				stamp.textContent = fmtSeconds(frame.timing);
+				slot.appendChild(stamp);
+			}
 
 			cell.appendChild(slot);
 			lane.cells.push({ el: slot, time: frame.timing });

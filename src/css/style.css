@@ -3697,6 +3697,9 @@ a.cat-chip:hover, a.cat-chip:focus-visible { color: var(--text); border-color: v
 	accent-color: var(--brand);
 }
 
+/* One second per stride at a fixed width, so site pages and embeds share a scale at any viewport; at least the widest frame plus its gap. */
+.race.filmstrip-player { --race-stride: 90px; }
+
 /* The site page's smaller scrubber, inline beside the speed control. */
 .filmstrip-player .race-scrub {
 	display: inline-block;

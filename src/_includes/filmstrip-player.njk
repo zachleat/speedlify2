@@ -56,7 +56,8 @@
 	var scroll = document.getElementById("filmstrip-scroll");
 	var clock = document.getElementById("filmstrip-clock");
 	var scrub = document.getElementById("filmstrip-scrub");
-	var timeline = L.buildTimeline([site]);
+	// One frame stride per second on every site, so strips share a scale.
+	var timeline = L.buildTimeline([site], 1000);
 	var lane = { site: site, index: 0 };
 	var now = 0;
 	var playing = false;
