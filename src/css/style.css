@@ -2607,51 +2607,16 @@ th.col-rings { text-align: left !important; }
 
 /* ------------------------------------------------------------ theme toggle */
 
-/* Two states: dark (the default) or a saved light override. */
+/* <solar-eclipse-toggle>, whose own stylesheet is inlined by the layout. */
 .theme-toggle {
-	display: flex;
-	align-items: center;
-	gap: 0.5em;
 	margin-top: 0.75rem;
+	--se-focus: var(--accent);
 }
-.theme-toggle:not(:has([disabled])) .theme-toggle-label {
-	cursor: pointer;
-	user-select: none;
-}
-.theme-toggle-label.active {
-	color: var(--text);
-	font-weight: 600;
-}
-.theme-switch {
-	--theme-switch-pad: 2px;
-	box-sizing: content-box;
-	flex: none;
-	width: 2em;
-	height: 1em;
-	padding: var(--theme-switch-pad);
-	border: 1px solid var(--border-strong);
-	border-radius: var(--pill);
-	background: var(--button);
-	font: inherit;
-	cursor: pointer;
-}
-.theme-switch[disabled] { cursor: not-allowed; }
-.theme-switch:focus-visible {
-	outline: 2px solid var(--accent);
-	outline-offset: 2px;
-}
-.theme-switch-knob {
-	display: block;
+/* Undoes the footer's icon sizing, which is meant for the icons inline with its text. */
+.footer .theme-toggle svg {
 	width: 1em;
 	height: 1em;
-	border-radius: 50%;
-	background: var(--accent);
-	transition: translate 0.2s ease-in-out;
-}
-/* Knob sits beside the label for the active theme: dark left, light right. */
-:root[data-theme="light"] .theme-switch-knob { translate: 1em 0; }
-@media (prefers-reduced-motion: reduce) {
-	.theme-switch-knob { transition: none; }
+	margin: 0;
 }
 
 
@@ -2904,18 +2869,19 @@ td.col-stack { position: relative; }
 /* The working component, sat above the markup that produces it. */
 .embed-live { margin: 0 0 0.9rem; }
 
-.embed-demo { display: flex; flex-direction: column; gap: 0.9rem; }
-.embed-row {
+/* The iframe page at /site/<slug>/filmstrip/. */
+.filmstrip-embed { padding: 0.75rem var(--page-gutter); }
+.filmstrip-embed-head {
 	display: flex;
-	align-items: center;
-	gap: 1rem;
 	flex-wrap: wrap;
-	padding: 0.75rem 0.9rem;
-	background: var(--surface);
-	border: 1px solid var(--border);
-	border-radius: var(--radius);
+	align-items: center;
+	justify-content: space-between;
+	gap: 0.25rem 1rem;
+	margin: 0 0 0.5rem;
 }
-.embed-row code { flex: 1; min-width: 12rem; }
+.embed-picker { max-width: 32rem; }
+.embed-picker fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
+.filmstrip-embed-frame { display: block; width: 100%; height: 420px; border: 1px solid var(--border); border-radius: var(--radius); margin: 0 0 0.9rem; }
 
 /* ------------------------------------------------- built with / hosted by */
 

@@ -15,101 +15,96 @@ title: Embed
 
 <script type="module" src="/js/speedlify2-score.js"></script>
 
-<section class="panel">
-	<h2>Live examples</h2>
+<section class="panel" id="try">
+	<h2>Live preview</h2>
 	<p class="muted small">
-		Hover or tab to a set of scores to see its summary. Each example is a real
-		lookup against this instance. At least one emits a generator tag, so its
-		summary carries a "Built with" row — most sites here emit none, and the row
-		is simply absent for those.
+		Pick any measured site, or type a URL, to see the component as it renders
+		against this instance. Hover or tab to the scores to see its summary.
 	</p>
 
-	{#
-		A deliberate spread, not the top of the leaderboard. Three perfect scores
-		in a row demonstrate the green state and nothing else — the component's
-		whole job is showing where a site actually sits, so at least one example
-		has to be a site with problems.
-
-		Picked by walking the ranked list from both ends, so the set follows the
-		corpus rather than needing maintenance. The one pinned URL below is looked
-		up in that list rather than assumed, for the same reason.
-	#}
 	{% set measured = [] %}
 	{% for entry in sites.entries %}
 		{% if entry.latest %}{% set measured = (measured.push(entry), measured) %}{% endif %}
 	{% endfor %}
 
-	{#
-		Pinned first, then the spread. A named URL is a liability in a template —
-		it rots the moment that site leaves the corpus — so it is looked up rather
-		than trusted: no match in `measured`, no row, and the rest still renders.
-	#}
-	{% set demo = [] %}
-	{% set demoUrls = [] %}
-	{% for url in ["https://arielsalminen.com/"] %}
-		{% for entry in measured %}
-			{% if entry.url == url and entry.url not in demoUrls %}
-				{% set demo = (demo.push(entry), demo) %}
-				{% set demoUrls = (demoUrls.push(entry.url), demoUrls) %}
-			{% endif %}
-		{% endfor %}
+	{# The pinned URL is looked up rather than trusted, so it falls back to the first measured site if it leaves the corpus. #}
+	{% set pinned = [] %}
+	{% for entry in measured %}
+		{% if entry.url == "https://arielsalminen.com/" %}{% set pinned = (pinned.push(entry), pinned) %}{% endif %}
 	{% endfor %}
+	{% set featured = pinned[0] or measured[0] %}
 
-	{% set picks = [] %}
-	{% if measured.length %}
-		{% set picks = (picks.push(measured[0]), picks) %}
-		{% if measured.length > 2 %}{% set picks = (picks.push(measured[(measured.length / 2) | round | int]), picks) %}{% endif %}
-		{% if measured.length > 1 %}{% set picks = (picks.push(measured[measured.length - 1]), picks) %}{% endif %}
+	{% if featured %}
+	<form class="race-picker embed-picker" id="score-embed-picker" autocomplete="off">
+		<fieldset disabled title="Choosing a site needs JavaScript.">
+			<div class="race-field">
+				<label class="race-field-label" for="score-embed-site">Site</label>
+				<input class="race-field-input" id="score-embed-site" type="url" list="score-embed-catalog" value="{{ featured.url }}">
+			</div>
+			<datalist id="score-embed-catalog">
+				{% for entry in measured | sort(false, false, "displayUrl") %}<option value="{{ entry.url }}"></option>{% endfor %}
+			</datalist>
+		</fieldset>
+	</form>
+	<p class="embed-live" id="score-embed-preview">
+		<speedlify2-score speedlify-url="{{ '/' | htmlBaseUrl }}" url="{{ featured.url }}"></speedlify2-score>
+	</p>
+	<pre><code id="score-embed-code" data-origin="{{ meta.url }}/">&lt;speedlify2-score speedlify-url="{{ meta.url }}/" url="{{ featured.url }}"&gt;&lt;/speedlify2-score&gt;</code></pre>
+	<script>
+	(function () {
+		var form = document.getElementById("score-embed-picker");
+		var input = document.getElementById("score-embed-site");
+		var preview = document.getElementById("score-embed-preview");
+		var code = document.getElementById("score-embed-code");
+		var fieldset = form.querySelector("fieldset");
+
+		// The component reads its attributes once when connected, so a new site gets a new element.
+		function choose(url, write) {
+			var current = preview.querySelector("speedlify2-score");
+			var next = document.createElement("speedlify2-score");
+			next.setAttribute("speedlify-url", current.getAttribute("speedlify-url"));
+			next.setAttribute("url", url);
+			current.replaceWith(next);
+			input.value = url;
+			code.textContent = '<speedlify2-score speedlify-url="' + code.dataset.origin + '" url="' + url + '"></speedlify2-score>';
+			if (write) {
+				var address = new URL(location.href);
+				address.searchParams.set("url", url);
+				address.hash = "try";
+				history.replaceState(null, "", address);
+			}
+		}
+
+		function parse(value) {
+			try {
+				var url = new URL(value.trim());
+				return /^https?:$/.test(url.protocol) ? url.href : null;
+			} catch (e) {
+				return null;
+			}
+		}
+
+		input.addEventListener("change", function () {
+			var url = parse(input.value);
+			if (url) {
+				input.removeAttribute("aria-invalid");
+				choose(url, true);
+			} else {
+				input.setAttribute("aria-invalid", "true");
+			}
+		});
+		form.addEventListener("submit", function (event) {
+			event.preventDefault();
+		});
+
+		var linked = parse(new URLSearchParams(location.search).get("url") || "");
+		if (linked) choose(linked, false);
+
+		fieldset.disabled = false;
+		fieldset.removeAttribute("title");
+	})();
+	</script>
 	{% endif %}
-	{% for entry in picks %}
-		{% if entry.url not in demoUrls %}
-			{% set demo = (demo.push(entry), demo) %}
-			{% set demoUrls = (demoUrls.push(entry.url), demoUrls) %}
-		{% endif %}
-	{% endfor %}
-
-	{#
-		One more only if the set so far has none: a site that actually emits a
-		generator tag. Most of this corpus does not — a static site usually ships
-		no generator meta at all — so a spread picked purely by rank can easily be
-		all sites where the "Built with" row is absent, which makes the examples
-		misrepresent the component.
-
-		Pushing into an array declared outside the loop is the only way to carry a
-		value out of one: a `set` inside a loop does not survive it, but the array
-		reference does, which is also what makes the length check work as a "first
-		match wins" guard.
-	#}
-	{% set detected = [] %}
-	{% for entry in demo %}
-		{% if entry.generator %}{% set detected = (detected.push(entry), detected) %}{% endif %}
-	{% endfor %}
-	{% if not detected.length %}
-		{% set withGenerator = [] %}
-		{% for entry in measured %}
-			{% if entry.generator and not withGenerator.length and entry.url not in demoUrls %}
-				{% set withGenerator = (withGenerator.push(entry), withGenerator) %}
-			{% endif %}
-		{% endfor %}
-		{% if withGenerator.length %}{% set demo = (demo.push(withGenerator[0]), demo) %}{% endif %}
-	{% endif %}
-
-	<div class="embed-demo">
-		{% for entry in demo %}
-		<div class="embed-row">
-			{#
-				Prefixed with the plugin's own filter. HtmlBasePlugin rewrites href
-				and src, but `speedlify-url` is a custom attribute it knows nothing
-				about — left as "/" these would ask the domain root for their data
-				and 404 on a project site served from a subdirectory.
-			#}
-			<speedlify2-score speedlify-url="{{ '/' | htmlBaseUrl }}" url="{{ entry.url }}"></speedlify2-score>
-			<code>{{ entry.displayUrl }}</code>
-			{# Only where the page said so itself, rather than presumed from a listing. #}
-			{% if entry.generator %}<span class="muted small">Built with {{ entry.generator.name }}</span>{% endif %}
-		</div>
-		{% endfor %}
-	</div>
 </section>
 
 <section class="panel">
@@ -197,6 +192,94 @@ title: Embed
 		numbers.
 	</p>
 	<p class="muted small">
-		<a href="/api/site/{{ demo[0].slug }}.json">See {{ demo[0].displayUrl }}'s data file</a>
+		<a href="/api/site/{{ featured.slug }}.json">See {{ featured.displayUrl }}'s data file</a>
 	</p>
 </section>
+
+{# Every site with an embed, with the featured site first as the default; same rule as src/site-filmstrip.11tydata.js. #}
+{% set strips = [] %}
+{% set stripSlugs = [] %}
+{% for entry in [featured].concat(measured) %}
+	{% if entry.filmstrip and entry.filmstrip.distinct > 1 and not entry.interstitial and entry.slug not in stripSlugs %}
+		{% set strips = (strips.push(entry), strips) %}
+		{% set stripSlugs = (stripSlugs.push(entry.slug), stripSlugs) %}
+	{% endif %}
+{% endfor %}
+{% if strips.length %}
+{% set strip = strips[0] %}
+<section class="panel" id="filmstrip">
+	<h2>Embed a filmstrip</h2>
+	<p class="muted small">
+		Any site with a filmstrip on its site page has an animated copy of it at
+		<code>/site/&lt;slug&gt;/filmstrip/</code>, sized for an iframe. It needs no
+		script on your page, and plays once it scrolls into view. Add
+		<code>?theme=light</code> or <code>?theme=dark</code> to override the
+		reader's system theme.
+	</p>
+	{# Disabled until scripted, like the masthead's category switcher. #}
+	<form class="race-picker embed-picker" id="filmstrip-embed-picker" autocomplete="off">
+		<fieldset disabled title="Choosing a site needs JavaScript.">
+			<div class="race-field">
+				<label class="race-field-label" for="filmstrip-embed-site">Site</label>
+				<input class="race-field-input" id="filmstrip-embed-site" type="text" list="filmstrip-embed-catalog" value="{{ strip.displayUrl }}">
+			</div>
+			<datalist id="filmstrip-embed-catalog">
+				{% for entry in strips | sort(false, false, "displayUrl") %}<option value="{{ entry.displayUrl }}" data-slug="{{ entry.slug }}"></option>{% endfor %}
+			</datalist>
+		</fieldset>
+	</form>
+	<iframe class="filmstrip-embed-frame" id="filmstrip-embed-frame" src="/site/{{ strip.slug }}/filmstrip/" title="{{ strip.displayUrl }} filmstrip" loading="lazy"
+		data-base="{{ '/' | htmlBaseUrl }}"></iframe>
+	<pre><code id="filmstrip-embed-code" data-origin="{{ meta.url }}/">&lt;iframe src="{{ meta.url }}/site/{{ strip.slug }}/filmstrip/" title="{{ strip.displayUrl }} filmstrip" width="100%" height="420" style="border: 0" loading="lazy"&gt;&lt;/iframe&gt;</code></pre>
+	<script>
+	(function () {
+		var form = document.getElementById("filmstrip-embed-picker");
+		var input = document.getElementById("filmstrip-embed-site");
+		var frame = document.getElementById("filmstrip-embed-frame");
+		var code = document.getElementById("filmstrip-embed-code");
+		var options = document.querySelectorAll("#filmstrip-embed-catalog option");
+		var fieldset = form.querySelector("fieldset");
+
+		function find(typed) {
+			typed = typed.trim().toLowerCase();
+			for (var i = 0; i < options.length; i++) {
+				if (options[i].value.toLowerCase() === typed || options[i].dataset.slug === typed) return options[i];
+			}
+			return null;
+		}
+
+		function choose(option, write) {
+			var slug = option.dataset.slug;
+			var name = option.value;
+			var path = "site/" + slug + "/filmstrip/";
+			input.value = name;
+			input.removeAttribute("aria-invalid");
+			frame.src = frame.dataset.base + path;
+			frame.title = name + " filmstrip";
+			code.textContent = '<iframe src="' + code.dataset.origin + path + '" title="' + name + ' filmstrip" width="100%" height="420" style="border: 0" loading="lazy"></iframe>';
+			if (write) {
+				var url = new URL(location.href);
+				url.searchParams.set("site", slug);
+				url.hash = "filmstrip";
+				history.replaceState(null, "", url);
+			}
+		}
+
+		input.addEventListener("change", function () {
+			var option = find(input.value);
+			if (option) choose(option, true);
+			else input.setAttribute("aria-invalid", "true");
+		});
+		form.addEventListener("submit", function (event) {
+			event.preventDefault();
+		});
+
+		var linked = find(new URLSearchParams(location.search).get("site") || "");
+		if (linked) choose(linked, false);
+
+		fieldset.disabled = false;
+		fieldset.removeAttribute("title");
+	})();
+	</script>
+</section>
+{% endif %}

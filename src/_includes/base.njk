@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme-default="dark">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -34,6 +34,8 @@
 {% else %}
 <link rel="stylesheet" href="/css/style.css">
 {% endif %}
+<style>{{ solarEclipseToggleCss | safe }}</style>
+<script type="module" src="/js/solar-eclipse-toggle.js"></script>
 <!-- The project's mark by default — Font Awesome's forward-fast, built from the
      package's own path data in buildawesome.config.js so it cannot drift from
      the version installed.
@@ -43,8 +45,11 @@
      identical tabs otherwise. -->
 <link rel="icon" href="{{ pageFavicon or favicon }}">
 <script>
-/* A saved light override, applied before first paint. */
-try { if (localStorage.getItem("speedlify-theme") === "light") document.documentElement.dataset.theme = "light"; } catch (e) {}
+/* A saved theme override, applied before first paint. */
+try {
+	var savedTheme = localStorage.getItem("speedlify-theme");
+	if (savedTheme === "light" || savedTheme === "dark") document.documentElement.dataset.theme = savedTheme;
+} catch (e) {}
 /* Resolved through a probe element: the raw custom property is an unresolved light-dark(). */
 function speedlifyThemeColor() {
 	try {
@@ -58,6 +63,10 @@ function speedlifyThemeColor() {
 	} catch (e) {}
 }
 speedlifyThemeColor();
+/* Re-resolved whenever the toggle or another tab changes the theme. */
+try {
+	new MutationObserver(speedlifyThemeColor).observe(document.documentElement, { attributeFilter: ["data-theme"] });
+} catch (e) {}
 </script>
 {%- if meta.goatcounter %}
 <script data-goatcounter="{{ meta.goatcounter }}" async src="//gc.zgo.at/count.js"></script>
@@ -271,60 +280,17 @@ speedlifyThemeColor();
 			Lab data from Lighthouse{% if sites.hasFieldData %}, field data from the Chrome UX Report (28-day trailing p75){% endif %}.
 			Lab numbers are simulated on one machine and will vary from real user data.
 		</p>
-		{# Disabled until scripted: without JS the page stays dark and nothing can be saved. #}
-		<div class="theme-toggle">
-			<span class="theme-toggle-label" data-theme-side="dark">Dark</span>
-			<button type="button" class="theme-switch" id="theme-toggle" role="switch" aria-checked="false" aria-label="Light theme" disabled
-				title="Switching theme needs JavaScript.">
-				<span class="theme-switch-knob"></span>
+		{# https://github.com/zachleat/solar-eclipse-toggle — dark until overridden, via data-theme-default on <html>. #}
+		<solar-eclipse-toggle class="theme-toggle" storage-key="speedlify-theme">
+			<button type="button" disabled>
+				<span class="se-label-dark"><i class="fa-regular fa-moon"></i>Use dark theme</span>
+				<span class="se-label-light"><i class="fa-regular fa-sun"></i>Use light theme</span>
+				<span class="se-label-unknown"><i class="fa-solid fa-circle-half-stroke"></i>Theme</span>
+				<span class="se-system">Default</span>
 			</button>
-			<span class="theme-toggle-label" data-theme-side="light">Light</span>
-		</div>
+		</solar-eclipse-toggle>
 	</div>
 </footer>
-
-<script>
-/* Two-state theme toggle: dark by default, or a saved light override. */
-(function () {
-	var root = document.documentElement;
-	var button = document.getElementById("theme-toggle");
-	if (!button) return;
-	var sides = button.parentNode.querySelectorAll("[data-theme-side]");
-
-	function currentMode() { return root.dataset.theme === "light" ? "light" : "dark"; }
-
-	function sync() {
-		var mode = currentMode();
-		button.setAttribute("aria-checked", String(mode === "light"));
-		sides.forEach(function (side) {
-			side.classList.toggle("active", side.dataset.themeSide === mode);
-		});
-		speedlifyThemeColor();
-	}
-
-	// Choosing dark clears the override rather than saving the default.
-	function choose(mode) {
-		if (mode === "light") root.dataset.theme = "light";
-		else delete root.dataset.theme;
-		try {
-			if (mode === "light") localStorage.setItem("speedlify-theme", "light");
-			else localStorage.removeItem("speedlify-theme");
-		} catch (e) {}
-		sync();
-	}
-
-	button.disabled = false;
-	button.removeAttribute("title");
-	sync();
-
-	button.addEventListener("click", function () {
-		choose(currentMode() === "dark" ? "light" : "dark");
-	});
-	sides.forEach(function (side) {
-		side.addEventListener("click", function () { choose(side.dataset.themeSide); });
-	});
-})();
-</script>
 
 {#
 	The Font Awesome spritesheet: one <symbol> for each mark this page actually

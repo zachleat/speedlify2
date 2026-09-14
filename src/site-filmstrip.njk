@@ -1,0 +1,39 @@
+---
+permalink: "/site/{{ entry.slug }}/filmstrip/"
+eleventyExcludeFromCollections: true
+---
+{# The site page's filmstrip player alone, for an iframe; `?theme=light|dark` overrides the system theme. #}
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="robots" content="noindex">
+<title>{{ entry.displayUrl }} filmstrip · {{ meta.title }}</title>
+<link rel="canonical" href="{{ meta.url }}/site/{{ entry.slug }}/">
+<script>
+try {
+	var theme = new URLSearchParams(location.search).get("theme");
+	if (theme === "light" || theme === "dark") document.documentElement.dataset.theme = theme;
+} catch (e) {}
+</script>
+{% if buildawesome.env.runMode == "build" %}
+<style>{% include "../css/style.css" %}</style>
+{% else %}
+<link rel="stylesheet" href="/css/style.css">
+{% endif %}
+</head>
+<body class="filmstrip-embed">
+<p class="filmstrip-embed-head">
+	<a class="site-link" href="/site/{{ entry.slug }}/" target="_blank">
+		{% set avatar = entry.url | avatar(meta.avatarService) %}
+		{% if avatar %}<img class="favicon" src="{{ avatar }}" width="32" height="32" alt="" decoding="async">{% endif %}
+		<span>{{ entry.displayUrl }}</span>
+	</a>
+	<span class="muted small">Filmstrip from <a href="/" target="_blank">{{ meta.title }}</a></span>
+</p>
+{% include "filmstrip-player.njk" %}
+{% getBundle "fontawesome" %}
+</body>
+</html>

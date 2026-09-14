@@ -9,6 +9,7 @@ import "./lib/env.js";
 
 import fs from "node:fs";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 
 import * as simpleIcons from "simple-icons";
 import { lowerIsBetter } from "./lib/compare.js";
@@ -288,6 +289,10 @@ export default async function ($config) {
 	 * same /js/ path it has always had, so existing embeds keep working.
 	 */
 	$config.addPassthroughCopy({ "packages/speedlify2-score/speedlify2-score.js": "js/speedlify2-score.js" });
+
+	// The footer's theme toggle: script served from /js/, stylesheet inlined by the layout.
+	$config.addPassthroughCopy({ [path.relative(".", fileURLToPath(import.meta.resolve("@zachleat/solar-eclipse-toggle")))]: "js/solar-eclipse-toggle.js" });
+	$config.addGlobalData("solarEclipseToggleCss", () => fs.readFileSync(new URL(import.meta.resolve("@zachleat/solar-eclipse-toggle/style.css")), "utf8"));
 
 	// Lighthouse's filmstrip frames for each site, captured during measurement
 	// and stored beside the numbers. Copied rather than passed through an image

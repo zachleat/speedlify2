@@ -233,9 +233,9 @@ If you change a URL without a redirect ever being observed, the old history isn'
 
 Modeled on [the Eleventy Leaderboards](https://www.11ty.dev/speedlify/): centered masthead, URL-as-name in monospace with a favicon, `#1` ranks with 🥇🥈🥉 for the podium, and the four Lighthouse categories as score rings.
 
-**Dark by default, light on request.** Dark ignores the system preference. A two-state toggle in the footer switches to a light override, saved as `data-theme="light"` on `<html>` and in `localStorage`; switching back to dark clears it. Color tokens use `light-dark()`, so `color-scheme` picks the palette.
+**Dark by default, light on request.** Dark ignores the system preference. The footer's [`<solar-eclipse-toggle>`](https://github.com/zachleat/solar-eclipse-toggle), with `data-theme-default="dark"` on `<html>`, saves a light override as `data-theme="light"` on `<html>` and in `localStorage`; switching back to dark clears it. Color tokens use `light-dark()`, so `color-scheme` picks the palette.
 
-That toggle is the only client-side JavaScript on the site: a small inline block in `<head>` applies a saved override before first paint, and another wires the switch. Without JS the switch stays disabled and the page stays dark.
+An inline block in `<head>` applies a saved override before first paint. Without JS the toggle stays disabled and the page stays dark.
 
 The score rings are inline SVG generated at build time — Speedlify draws them with a web component that inlines the full result JSON per row, but an arc is just a `stroke-dasharray`, so the same picture costs no JavaScript.
 
