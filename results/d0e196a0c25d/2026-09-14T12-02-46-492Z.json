@@ -1,0 +1,371 @@
+{
+  "url": "https://www.google.com/",
+  "name": "Google",
+  "group": "big-tech",
+  "groupName": "Big Tech",
+  "timestamp": 1789387366492,
+  "date": "2026-09-14T12:02:46.492Z",
+  "runId": "2026-09-14T11-54-12-497Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 53838,
+  "error": null,
+  "variance": {
+    "min": 55,
+    "max": 57,
+    "spread": 2,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://www.google.com/",
+    "finalUrl": "https://www.google.com/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 57,
+      "accessibility": 87,
+      "best-practices": 100,
+      "seo": 91,
+      "agentic-browsing": 50
+    },
+    "timings": {
+      "fcp": 1963,
+      "lcp": 8601,
+      "si": 2793,
+      "tbt": 648,
+      "tti": 8601,
+      "cls": 0,
+      "ttfb": 459,
+      "maxPotentialFid": 294,
+      "serverResponseTime": 87,
+      "networkRtt": 0.9,
+      "networkServerLatency": 12.8
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 88.5,
+      "elementRenderDelay": 1176
+    },
+    "weight": {
+      "total": 945643,
+      "requests": 45,
+      "mainDocument": 65940,
+      "byType": {
+        "total": {
+          "bytes": 945643,
+          "requests": 44
+        },
+        "script": {
+          "bytes": 763581,
+          "requests": 8
+        },
+        "other": {
+          "bytes": 77946,
+          "requests": 30
+        },
+        "document": {
+          "bytes": 65940,
+          "requests": 1
+        },
+        "font": {
+          "bytes": 24525,
+          "requests": 1
+        },
+        "image": {
+          "bytes": 7230,
+          "requests": 2
+        },
+        "stylesheet": {
+          "bytes": 6421,
+          "requests": 2
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 120839,
+          "requests": 5
+        }
+      },
+      "scripts": 8,
+      "stylesheets": 2,
+      "fonts": 1
+    },
+    "thirdParty": {
+      "count": 3,
+      "bytes": 120839,
+      "mainThreadMs": 25.7,
+      "top": [
+        {
+          "entity": "Google CDN",
+          "bytes": 96260,
+          "mainThreadMs": 25.6,
+          "byType": {
+            "script": 89874,
+            "stylesheet": 6386
+          },
+          "typedBytes": 96260
+        },
+        {
+          "entity": "Google Fonts",
+          "bytes": 24525,
+          "mainThreadMs": 0,
+          "byType": {
+            "font": 24525
+          },
+          "typedBytes": 24525
+        },
+        {
+          "entity": "google.com",
+          "bytes": 54,
+          "mainThreadMs": 0.1,
+          "byType": {
+            "other": 54
+          },
+          "typedBytes": 54
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 2075.6,
+      "byGroup": {
+        "scriptEvaluation": 1145.6,
+        "other": 486.1,
+        "scriptParseCompile": 213.2,
+        "styleLayout": 107.8,
+        "parseHTML": 54,
+        "paintCompositeRender": 37,
+        "garbageCollection": 31.8
+      },
+      "bootupMs": 1276.8,
+      "longTasks": 9,
+      "longestTaskMs": 294
+    },
+    "dom": {
+      "elements": 417,
+      "depth": 23,
+      "maxChildren": 38
+    },
+    "waste": {
+      "unusedJsBytes": 423801,
+      "unusedCssBytes": 12826,
+      "legacyJsBytes": 0,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 159,
+      "renderBlockingCount": 1,
+      "poorlyCachedBytes": 0,
+      "poorlyCachedCount": 0
+    },
+    "accessibility": {
+      "failingCount": 4,
+      "applicableCount": 30,
+      "failingNodes": 10,
+      "failing": [
+        {
+          "id": "target-size",
+          "title": "Touch targets do not have sufficient size or spacing.",
+          "weight": 7,
+          "nodes": 7
+        },
+        {
+          "id": "aria-input-field-name",
+          "title": "ARIA input fields do not have accessible names",
+          "weight": 7,
+          "nodes": 1
+        },
+        {
+          "id": "list",
+          "title": "Lists do not contain only `<li>` elements and script supporting elements (`<script>` and `<template>`).",
+          "weight": 7,
+          "nodes": 1
+        },
+        {
+          "id": "landmark-one-main",
+          "title": "Document does not have a main landmark.",
+          "weight": 3,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 1,
+      "applicableCount": 19,
+      "failing": [
+        {
+          "id": "valid-source-maps",
+          "title": "Missing source maps for large first-party JavaScript",
+          "weight": 0,
+          "nodes": 1
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 1,
+      "applicableCount": 8,
+      "failing": [
+        {
+          "id": "meta-description",
+          "title": "Document does not have a meta description",
+          "weight": 1,
+          "nodes": null
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h3",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 30
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2520,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-09-14T12:02:56.388Z",
+      "runtimeMs": 8299.5
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 646.4,
+    "elementRenderDelay": 6956.5
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-08-16",
+      "last": "2026-09-12"
+    },
+    "metrics": {
+      "cls": {
+        "p75": 0.04,
+        "rating": "good",
+        "distribution": {
+          "good": 94.8,
+          "needsImprovement": 2.9,
+          "poor": 2.3
+        }
+      },
+      "ttfb": {
+        "p75": 575,
+        "rating": "good",
+        "distribution": {
+          "good": 84.1,
+          "needsImprovement": 11.6,
+          "poor": 4.3
+        }
+      },
+      "fcp": {
+        "p75": 1074,
+        "rating": "good",
+        "distribution": {
+          "good": 89.5,
+          "needsImprovement": 6.5,
+          "poor": 4
+        }
+      },
+      "inp": {
+        "p75": 252,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 62.9,
+          "needsImprovement": 30.5,
+          "poor": 6.5
+        }
+      },
+      "lcp": {
+        "p75": 1858,
+        "rating": "good",
+        "distribution": {
+          "good": 84.5,
+          "needsImprovement": 10,
+          "poor": 5.5
+        }
+      },
+      "rtt": {
+        "p75": 185,
+        "rating": null,
+        "distribution": {
+          "good": 26.3,
+          "needsImprovement": 60.8,
+          "poor": 12.9
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "probe": {
+      "metas": [],
+      "marks": [],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "gws",
+      "name": "Google",
+      "icon": "Google",
+      "source": "server"
+    },
+    "headers": {
+      "server": "gws"
+    },
+    "violations": 19,
+    "passes": 452,
+    "incomplete": 2,
+    "violationRules": 5,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 9,
+        "help": "All page content should be contained by landmarks"
+      },
+      {
+        "id": "aria-allowed-role",
+        "impact": "minor",
+        "nodes": 7,
+        "help": "ARIA role should be appropriate for the element"
+      },
+      {
+        "id": "aria-input-field-name",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "ARIA input fields must have an accessible name"
+      },
+      {
+        "id": "landmark-one-main",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Document should have one main landmark"
+      },
+      {
+        "id": "list",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "<ul> and <ol> must only directly contain <li>, <script> or <template> elements"
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
