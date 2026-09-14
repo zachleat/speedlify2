@@ -2312,6 +2312,23 @@ fieldset[disabled] select {
 }
 .footer p { margin: 0 0 0.35rem; }
 
+/* The nav list beside the footer text, stacked above it on narrow screens. */
+.footer-wrap {
+	display: grid;
+	grid-template-columns: max-content minmax(0, 1fr);
+	gap: 1rem 2.5rem;
+}
+.footer-nav ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: grid;
+	gap: 0.35rem;
+}
+@media (max-width: 640px) {
+	.footer-wrap { grid-template-columns: minmax(0, 1fr); }
+}
+
 @media (max-width: 640px) {
 	.breakdown-row { grid-template-columns: 1fr; gap: 0.15rem; }
 	.breakdown-value { text-align: left; }
@@ -3697,7 +3714,7 @@ a.cat-chip:hover, a.cat-chip:focus-visible { color: var(--text); border-color: v
 	accent-color: var(--brand);
 }
 
-/* One second per stride at a fixed width, so site pages and embeds share a scale at any viewport; at least the widest frame plus its gap. */
+/* A fixed stride width, so site pages and embeds share a scale at any viewport; at least the widest frame plus its gap. */
 .race.filmstrip-player { --race-stride: 90px; }
 
 /* The site page's smaller scrubber, inline beside the speed control. */

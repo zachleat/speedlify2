@@ -56,8 +56,8 @@
 	var scroll = document.getElementById("filmstrip-scroll");
 	var clock = document.getElementById("filmstrip-clock");
 	var scrub = document.getElementById("filmstrip-scrub");
-	// One frame stride per second on every site, so strips share a scale.
-	var timeline = L.buildTimeline([site], 1000);
+	// One frame stride per 375ms (Lighthouse's finest usual interval) on every site, so strips share a scale.
+	var timeline = L.buildTimeline([site], 375);
 	var lane = { site: site, index: 0 };
 	var now = 0;
 	var playing = false;
@@ -104,17 +104,21 @@
 		raf = requestAnimationFrame(tick);
 	}
 
+	var button = document.getElementById("filmstrip-replay");
+
 	function play() {
 		if (playing) return;
 		if (now >= timeline.end) setTime(0);
 		autoPaused = false;
 		playing = true;
+		button.textContent = "Pause";
 		lastFrameTime = 0;
 		raf = requestAnimationFrame(tick);
 	}
 
 	function pause() {
 		playing = false;
+		button.textContent = "Replay";
 		cancelAnimationFrame(raf);
 	}
 
@@ -126,17 +130,32 @@
 		setTime(0);
 	}
 
-	document.getElementById("filmstrip-replay").addEventListener("click", function () {
+	// Pause while running, otherwise replay from the start.
+	button.addEventListener("click", function () {
+		if (playing) {
+			pause();
+			autoPaused = false;
+			return;
+		}
 		reset();
 		started = true;
 		play();
 	});
+	// Scrolls either way to the live frame, which rides the clock until the lane finishes, placed where the playhead follow keeps it.
+	function scrollToLive(t) {
+		var stride = L.strideWidth(grid, timeline);
+		if (!stride) return;
+		var x = (Math.min(t, L.laneFinish(lane)) / timeline.step) * stride;
+		scroll.scrollLeft = Math.max(0, x - scroll.clientWidth * 0.6);
+	}
+
 	scrub.addEventListener("input", function () {
 		pause();
 		started = true;
 		autoPaused = false;
-		follow = true;
+		follow = false;
 		setTime((parseInt(this.value, 10) / 1000) * timeline.end);
+		scrollToLive(now);
 	});
 	var speedSelect = document.getElementById("filmstrip-speed");
 	speed = parseFloat(speedSelect.value) || 1;

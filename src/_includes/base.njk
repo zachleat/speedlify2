@@ -246,49 +246,61 @@ try {
 </main>
 
 <footer class="footer">
-	<div class="wrap">
-		{#
-			Build stamp and coverage in one line. Coverage moved down from the
-			masthead: it is a status line about this instance, which belongs with
-			the stamp and the source link rather than above every page's content.
-		#}
-		<p>
-			This website was built with <a href="https://build.awesome.me/"><i class="fa-brands fa-build-awesome"></i>Build Awesome {{ buildawesome.version }}</a> on <time datetime="{{ sites.generated | iso }}">{{ sites.generated | date("long") }}</time>{% if meta.repo %} ·
-			<a href="{{ meta.repo }}">Source on <i class="fa-brands fa-github"></i>GitHub</a>{% endif %} ·
-			Follow us on <a href="https://mastodon.social/@speedlify" rel="me"><i class="fa-brands fa-mastodon"></i>Mastodon</a> or <a href="https://bsky.app/profile/speedlify.dev" rel="me"><i class="fa-brands fa-bluesky"></i>Bluesky</a> ·
+	<div class="wrap footer-wrap">
+		{# The masthead's links again, for readers who reach the bottom of the page. #}
+		<nav class="footer-nav" aria-label="Footer">
+			<ul>
+				<li><a href="/charts/">Charts</a></li>
+				<li><a href="/compare/">Compare</a></li>
+				<li><a href="/runs/">Measurement runs</a></li>
+				<li><a href="/embed/">Embed a score</a></li>
+				<li><a href="/open-to-work/">Open to Work</a></li>
+			</ul>
+		</nav>
+		<div class="footer-body">
 			{#
-				The Open Graph card this page gets when it is shared. `entry` is
-				only in scope on a site page — it is that template's pagination
-				alias — so this is the site's own card there and the generator's
-				front door everywhere else.
+				Build stamp and coverage in one line. Coverage moved down from the
+				masthead: it is a status line about this instance, which belongs with
+				the stamp and the source link rather than above every page's content.
 			#}
-			<a href="/opengraph/{% if entry %}?site={{ entry.slug }}{% endif %}">{% if entry %}Open Graph for this site{% else %}Open Graph{% endif %}</a>
-			{%- if sites.coverage.measured %} ·
-			<strong>{{ sites.coverage.measured | num }}/{{ sites.coverage.total | num }}</strong>
-			{{ sites.coverage.measured | plural("site") }} measured
-			{#- The running total, which used to head its own line above. It is a
-			    fact about the same set of sites, so it reads as a gloss on the
-			    coverage fraction rather than as a separate statistic. #}
-			{%- if sites.stats.totalMeasurements %} ({{ sites.stats.totalMeasurements | num }} {{ sites.stats.totalMeasurements | plural("measurement") }}){% endif %}
-			{%- if sites.coverage.medianAgeHours %}, median age
-			{{ sites.coverage.medianAgeHours | duration }}
-			{%- endif %}.
-			{% if sites.coverage.stale %}<span class="worse">{{ sites.coverage.stale }} stale</span>.{% endif %}
-			{% if sites.coverage.never %}<span class="muted">{{ sites.coverage.never }} not yet measured.</span>{% endif %}
-			{% if sites.stats.failing %}<span class="failing-note"><em>{{ sites.stats.failing | num }} currently failing.</em></span>{% endif %}
-			{%- endif %}
-			Lab data from Lighthouse{% if sites.hasFieldData %}, field data from the Chrome UX Report (28-day trailing p75){% endif %}.
-			Lab numbers are simulated on one machine and will vary from real user data.
-		</p>
-		{# https://github.com/zachleat/solar-eclipse-toggle — dark until overridden, via data-theme-default on <html>. #}
-		<solar-eclipse-toggle class="theme-toggle" storage-key="speedlify-theme">
-			<button type="button" disabled>
-				<span class="se-label-dark"><i class="fa-regular fa-moon"></i>Use dark theme</span>
-				<span class="se-label-light"><i class="fa-regular fa-sun"></i>Use light theme</span>
-				<span class="se-label-unknown"><i class="fa-solid fa-circle-half-stroke"></i>Theme</span>
-				<span class="se-system">Default</span>
-			</button>
-		</solar-eclipse-toggle>
+			<p>
+				This website was built with <a href="https://build.awesome.me/"><i class="fa-brands fa-build-awesome"></i>Build Awesome {{ buildawesome.version }}</a> on <time datetime="{{ sites.generated | iso }}">{{ sites.generated | date("long") }}</time>{% if meta.repo %} ·
+				<a href="{{ meta.repo }}">Source on <i class="fa-brands fa-github"></i>GitHub</a>{% endif %} ·
+				Follow us on <a href="https://mastodon.social/@speedlify" rel="me"><i class="fa-brands fa-mastodon"></i>Mastodon</a> or <a href="https://bsky.app/profile/speedlify.dev" rel="me"><i class="fa-brands fa-bluesky"></i>Bluesky</a> ·
+				{#
+					The Open Graph card this page gets when it is shared. `entry` is
+					only in scope on a site page — it is that template's pagination
+					alias — so this is the site's own card there and the generator's
+					front door everywhere else.
+				#}
+				<a href="/opengraph/{% if entry %}?site={{ entry.slug }}{% endif %}">{% if entry %}Open Graph for this site{% else %}Open Graph{% endif %}</a>
+				{%- if sites.coverage.measured %} ·
+				<strong>{{ sites.coverage.measured | num }}/{{ sites.coverage.total | num }}</strong>
+				{{ sites.coverage.measured | plural("site") }} measured
+				{#- The running total, which used to head its own line above. It is a
+				    fact about the same set of sites, so it reads as a gloss on the
+				    coverage fraction rather than as a separate statistic. #}
+				{%- if sites.stats.totalMeasurements %} ({{ sites.stats.totalMeasurements | num }} {{ sites.stats.totalMeasurements | plural("measurement") }}){% endif %}
+				{%- if sites.coverage.medianAgeHours %}, median age
+				{{ sites.coverage.medianAgeHours | duration }}
+				{%- endif %}.
+				{% if sites.coverage.stale %}<span class="worse">{{ sites.coverage.stale }} stale</span>.{% endif %}
+				{% if sites.coverage.never %}<span class="muted">{{ sites.coverage.never }} not yet measured.</span>{% endif %}
+				{% if sites.stats.failing %}<span class="failing-note"><em>{{ sites.stats.failing | num }} currently failing.</em></span>{% endif %}
+				{%- endif %}
+				Lab data from Lighthouse{% if sites.hasFieldData %}, field data from the Chrome UX Report (28-day trailing p75){% endif %}.
+				Lab numbers are simulated on one machine and will vary from real user data.
+			</p>
+			{# https://github.com/zachleat/solar-eclipse-toggle — dark until overridden, via data-theme-default on <html>. #}
+			<solar-eclipse-toggle class="theme-toggle" storage-key="speedlify-theme">
+				<button type="button" disabled>
+					<span class="se-label-dark"><i class="fa-regular fa-moon"></i>Use dark theme</span>
+					<span class="se-label-light"><i class="fa-regular fa-sun"></i>Use light theme</span>
+					<span class="se-label-unknown"><i class="fa-solid fa-circle-half-stroke"></i>Theme</span>
+					<span class="se-system">Default</span>
+				</button>
+			</solar-eclipse-toggle>
+		</div>
 	</div>
 </footer>
 

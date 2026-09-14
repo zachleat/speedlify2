@@ -152,8 +152,8 @@
 	/* Ticks at round times, positioned as a fraction of the column stride. */
 	function renderRuler(timeline) {
 		var ruler = el("div", "race-ruler");
-		// A fixed scale ticks every step, so tick spacing matches across strips of different lengths.
-		var step = timeline.fixed ? timeline.step : tickStep(timeline.end, timeline.step);
+		// A fixed scale ticks every second, so tick spacing matches across strips of different lengths.
+		var step = timeline.fixed ? 1000 : tickStep(timeline.end, timeline.step);
 
 		for (var at = step; at <= timeline.end; at += step) {
 			var tick = el("span", "race-tick");
