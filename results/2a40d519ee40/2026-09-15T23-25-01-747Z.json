@@ -1,0 +1,359 @@
+{
+  "url": "https://devin.ai/",
+  "name": "Devin",
+  "group": "ai",
+  "groupName": "AI",
+  "timestamp": 1789514701747,
+  "date": "2026-09-15T23:25:01.747Z",
+  "runId": "2026-09-15T23-25-00-642Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 2,
+  "durationMs": 81227,
+  "error": null,
+  "partialErrors": [
+    "ERRORED_DOCUMENT_REQUEST: Lighthouse was unable to reliably load the page you requested. Make sure you are testing the correct URL and that the server is properly responding to all requests. (Status code: 429)"
+  ],
+  "variance": {
+    "min": 62,
+    "max": 67,
+    "spread": 5,
+    "runs": 2
+  },
+  "lab": {
+    "requestedUrl": "https://devin.ai/",
+    "finalUrl": "https://devin.ai/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 62,
+      "accessibility": 89,
+      "best-practices": 77,
+      "seo": 100,
+      "agentic-browsing": 100
+    },
+    "timings": {
+      "fcp": 1678,
+      "lcp": 4229,
+      "si": 1678,
+      "tbt": 1126,
+      "tti": 12460,
+      "cls": 0,
+      "ttfb": 628,
+      "maxPotentialFid": 489,
+      "serverResponseTime": 14,
+      "networkRtt": 0.9,
+      "networkServerLatency": 144.4
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 15.6,
+      "resourceLoadDelay": 33.2,
+      "resourceLoadDuration": 54.1,
+      "elementRenderDelay": 65.8
+    },
+    "weight": {
+      "total": 1753840,
+      "requests": 63,
+      "mainDocument": 119766,
+      "byType": {
+        "total": {
+          "bytes": 1753840,
+          "requests": 63
+        },
+        "script": {
+          "bytes": 1093191,
+          "requests": 28
+        },
+        "image": {
+          "bytes": 262049,
+          "requests": 10
+        },
+        "font": {
+          "bytes": 240001,
+          "requests": 6
+        },
+        "document": {
+          "bytes": 119766,
+          "requests": 1
+        },
+        "stylesheet": {
+          "bytes": 35523,
+          "requests": 2
+        },
+        "other": {
+          "bytes": 3310,
+          "requests": 16
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 844935,
+          "requests": 34
+        }
+      },
+      "scripts": 28,
+      "stylesheets": 2,
+      "fonts": 6
+    },
+    "thirdParty": {
+      "count": 10,
+      "bytes": 844935,
+      "mainThreadMs": 438,
+      "top": [
+        {
+          "entity": "Google Tag Manager",
+          "bytes": 533873,
+          "mainThreadMs": 270.7,
+          "byType": {
+            "script": 533873
+          },
+          "typedBytes": 533873
+        },
+        {
+          "entity": "Facebook",
+          "bytes": 195114,
+          "mainThreadMs": 101.5,
+          "byType": {
+            "script": 195097,
+            "image": 17
+          },
+          "typedBytes": 195114
+        },
+        {
+          "entity": "reddit",
+          "bytes": 42653,
+          "mainThreadMs": 39.9,
+          "byType": {
+            "script": 42474,
+            "other": 179
+          },
+          "typedBytes": 42653
+        },
+        {
+          "entity": "unifyintent.com",
+          "bytes": 31121,
+          "mainThreadMs": 5.7,
+          "byType": {
+            "script": 31006,
+            "other": 115
+          },
+          "typedBytes": 31121
+        },
+        {
+          "entity": "LinkedIn Ads",
+          "bytes": 21422,
+          "mainThreadMs": 9.6,
+          "byType": {
+            "script": 20825,
+            "image": 336,
+            "other": 261
+          },
+          "typedBytes": 21422
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 3586.7,
+      "byGroup": {
+        "scriptEvaluation": 2420.1,
+        "other": 522.9,
+        "scriptParseCompile": 379.4,
+        "styleLayout": 101.2,
+        "parseHTML": 72.4,
+        "garbageCollection": 55.6,
+        "paintCompositeRender": 35
+      },
+      "bootupMs": 2609.1,
+      "longTasks": 13,
+      "longestTaskMs": 489
+    },
+    "dom": {
+      "elements": 1264,
+      "depth": 16,
+      "maxChildren": 123
+    },
+    "waste": {
+      "unusedJsBytes": 326065,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 48502,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 300,
+      "renderBlockingCount": 2,
+      "poorlyCachedBytes": 253423.00000000003,
+      "poorlyCachedCount": 9
+    },
+    "accessibility": {
+      "failingCount": 3,
+      "applicableCount": 24,
+      "failingNodes": 3,
+      "failing": [
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "weight": 7,
+          "nodes": 1
+        },
+        {
+          "id": "heading-order",
+          "title": "Heading elements are not in a sequentially-descending order",
+          "weight": 3,
+          "nodes": 1
+        },
+        {
+          "id": "meta-viewport",
+          "title": "`[user-scalable=\"no\"]` is used in the `<meta name=\"viewport\">` element or the `[maximum-scale]` attribute is less than 5.",
+          "weight": 10,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 2,
+      "applicableCount": 19,
+      "failing": [
+        {
+          "id": "third-party-cookies",
+          "title": "Uses third-party cookies",
+          "weight": 5,
+          "nodes": 19
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "weight": 1,
+          "nodes": 1
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 0,
+      "applicableCount": 9,
+      "failing": []
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 39
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2467,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-09-15T23:25:09.803Z",
+      "runtimeMs": 14098.7
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 578.1,
+    "resourceLoadDelay": 30.4,
+    "resourceLoadDuration": 2538.7,
+    "elementRenderDelay": 61.8
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-08-18",
+      "last": "2026-09-14"
+    },
+    "metrics": {
+      "fcp": {
+        "p75": 1277,
+        "rating": "good",
+        "distribution": {
+          "good": 85.9,
+          "needsImprovement": 8.4,
+          "poor": 5.7
+        }
+      },
+      "inp": {
+        "p75": 152,
+        "rating": "good",
+        "distribution": {
+          "good": 86.8,
+          "needsImprovement": 11.1,
+          "poor": 2.1
+        }
+      },
+      "lcp": {
+        "p75": 1398,
+        "rating": "good",
+        "distribution": {
+          "good": 90.8,
+          "needsImprovement": 5.6,
+          "poor": 3.7
+        }
+      },
+      "rtt": {
+        "p75": 180,
+        "rating": null,
+        "distribution": {
+          "good": 35.7,
+          "needsImprovement": 51.3,
+          "poor": 13
+        }
+      },
+      "cls": {
+        "p75": 0,
+        "rating": "good",
+        "distribution": {
+          "good": 97.5,
+          "needsImprovement": 2.3,
+          "poor": 0.2
+        }
+      },
+      "ttfb": {
+        "p75": 475,
+        "rating": "good",
+        "distribution": {
+          "good": 87.9,
+          "needsImprovement": 8.6,
+          "poor": 3.5
+        }
+      }
+    },
+    "cwvPass": true,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "probe": null,
+    "interstitial": "Vercel Security Checkpoint",
+    "host": {
+      "id": "vercel",
+      "name": "Vercel",
+      "icon": "Vercel",
+      "source": "x-vercel-id"
+    },
+    "headers": {
+      "server": "Vercel",
+      "x-vercel-id": "pdx1::1789514781-CbvCBaVWoi5RjgGrYZl8jRYlKHv6jq1O"
+    },
+    "violations": null,
+    "passes": null,
+    "incomplete": null,
+    "violationRules": null,
+    "version": "4.13.0",
+    "top": [],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
