@@ -218,8 +218,8 @@ eleventyComputed:
 			title="CrUX field data charted for {{ entry.url | hostname }} — history rather than a fresh lab run"><img class="action-mark" src="{{ "https://treo.sh/" | avatar(meta.avatarService) }}" width="16" height="16" alt="" decoding="async">Treo</a> ·
 		<a href="https://cruxvis.withgoogle.com/#/?view=cwvsummary&amp;url={{ entry.url | urlencode }}&amp;identifier=origin&amp;device=ALL&amp;periodStart=0&amp;periodEnd=-1&amp;display=p75s"
 			title="Every month of CrUX p75s for this origin, charted by Google's CrUX Vis"><img class="action-mark" src="{{ "https://cruxvis.withgoogle.com/" | avatar(meta.avatarService) }}" width="16" height="16" alt="" decoding="async">CrUX Vis</a> ·
-		<a href="https://tamethebots.com/tools/cwv-history?url={{ entry.url | urlencode }}&amp;originOrUrl=0&amp;formFactor=ALL&amp;hist=1&amp;collectionPeriodCount=40&amp;scaleCharts=1"
-			title="Weekly CrUX history for this origin, charted by Tame the Bots"><img class="action-mark" src="{{ "https://tamethebots.com/" | avatar(meta.avatarService) }}" width="16" height="16" alt="" decoding="async">Tame the Bots</a> ·
+		<a href="https://tamethebots.com/tools/cwv-history?url={{ entry.url | urlencode }}&amp;originOrUrl=0&amp;formFactor=PHONE&amp;hist=1&amp;collectionPeriodCount=40&amp;scaleCharts=1"
+			title="Weekly phone CrUX history for this origin, charted by Tame the Bots"><img class="action-mark" src="{{ "https://tamethebots.com/" | avatar(meta.avatarService) }}" width="16" height="16" alt="" decoding="async">Tame the Bots</a> ·
 		{#
 			Not a second opinion like the others — the same numbers this page
 			already shows, in the arithmetic that turns them into a score. Which is
