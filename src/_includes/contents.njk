@@ -1,0 +1,19 @@
+{#
+	The sticky "On this page" nav, from a list of `{ id, label }` entries pointing at sections on the page.
+
+	https://github.com/zachleat/table-of-contents — the entries point at sections rather than headings, so those are what it watches.
+#}
+{% macro contents(toc) %}
+{% if toc.length > 1 %}
+<nav class="contents contents-sticky" aria-label="On this page">
+	<span class="contents-label">On this page</span>
+	<table-of-contents selector="{% for item in toc %}#{{ item.id }}{{ ', ' if not loop.last }}{% endfor %}">
+	<ul>
+		{% for item in toc %}
+		<li><a href="#{{ item.id }}">{{ item.label }}</a></li>
+		{% endfor %}
+	</ul>
+	</table-of-contents>
+</nav>
+{% endif %}
+{% endmacro %}

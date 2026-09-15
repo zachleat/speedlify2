@@ -498,14 +498,8 @@ eleventyComputed:
 {% set toc = (toc.push({ id: "log", label: "Measurement log" }), toc) %}
 {% if entry.showEmbed %}{% set toc = (toc.push({ id: "embed", label: "Embed" }), toc) %}{% endif %}
 
-<nav class="contents contents-sticky" aria-label="On this page">
-	<span class="contents-label">On this page</span>
-	<ul>
-		{% for item in toc %}
-		<li><a href="#{{ item.id }}">{{ item.label }}</a></li>
-		{% endfor %}
-	</ul>
-</nav>
+{% from "contents.njk" import contents %}
+{{ contents(toc) }}
 
 <p class="muted small">Lab data is measured using Lighthouse, {{ entry.latest.formFactor | capitalize }} mode unless otherwise specified. Field data is reported from Chrome UX Report (using p75 measurements).</p>
 

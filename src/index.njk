@@ -3,6 +3,7 @@ layout: base.njk
 permalink: /index.html
 ---
 
+{% from "contents.njk" import contents %}
 {% from "statbar.njk" import statbar %}
 {% from "stacks.njk" import technology %}
 
@@ -27,6 +28,8 @@ permalink: /index.html
 {% if sites.moving.length %}{% set toc = (toc.push({ id: "moving", label: "Redirects" }), toc) %}{% endif %}
 {% if sites.orphans.length %}{% set toc = (toc.push({ id: "orphans", label: "Orphaned" }), toc) %}{% endif %}
 {% if sites.archived.length %}{% set toc = (toc.push({ id: "archived", label: "Archived" }), toc) %}{% endif %}
+
+{{ contents(toc) }}
 
 {% if sites.groups.length > 1 or sites.moving.length or sites.orphans.length %}
 <section class="group" id="categories">
@@ -76,17 +79,6 @@ permalink: /index.html
 	</ul>
 </nav>
 </section>
-{% endif %}
-
-{% if toc.length > 1 %}
-<nav class="contents contents-sticky" aria-label="On this page">
-	<span class="contents-label">On this page</span>
-	<ul>
-		{% for item in toc %}
-		<li><a href="#{{ item.id }}">{{ item.label }}</a></li>
-		{% endfor %}
-	</ul>
-</nav>
 {% endif %}
 
 <section class="group statbar-section" id="summary">

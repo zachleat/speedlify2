@@ -13,8 +13,18 @@ title: Runs
 	</p>
 </header>
 
+{% from "contents.njk" import contents %}
+{% set toc = [] %}
+{% if sites.recentlyMeasured.length %}{% set toc = (toc.push({ id: "recently-measured", label: "Recently measured" }), toc) %}{% endif %}
+{% if sites.benchmark %}{% set toc = (toc.push({ id: "machines", label: "Measuring machines" }), toc) %}{% endif %}
+{% if runs.recent.length %}
+	{% set toc = (toc.push({ id: "runs", label: "Runs" }), toc) %}
+	{% set toc = (toc.push({ id: "reading-logs", label: "Reading the logs" }), toc) %}
+{% endif %}
+{{ contents(toc) }}
+
 {% if sites.recentlyMeasured.length %}
-<section class="panel">
+<section class="panel" id="recently-measured">
 	{#
 		The same rows as the stat bar's card on the home page — the link, the six
 		band colors, the age — laid out across columns rather than down one.
@@ -53,7 +63,7 @@ title: Runs
 	different.
 #}
 {% if sites.benchmark %}
-<section class="panel">
+<section class="panel" id="machines">
 	<h2>The measuring machines <span class="tag">Lighthouse benchmark index</span></h2>
 	<p class="muted small">
 		Recorded once per measurement, from the run whose numbers were kept.
@@ -109,7 +119,7 @@ title: Runs
 </div>
 {% else %}
 
-<section class="panel">
+<section class="panel" id="runs">
 	<div class="table-scroll">
 	<table class="grid">
 		<thead>
@@ -142,7 +152,7 @@ title: Runs
 	</div>
 </section>
 
-<section class="panel">
+<section class="panel" id="reading-logs">
 	<h2>Reading the logs</h2>
 	<p class="muted small">
 		Each run writes a full NDJSON log to <code>logs/&lt;runId&gt;.ndjson</code>,

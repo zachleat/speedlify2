@@ -15,24 +15,43 @@ title: Embed
 
 <script type="module" src="/js/speedlify2-score.js"></script>
 
+{% set measured = [] %}
+{% for entry in sites.entries %}
+	{% if entry.latest %}{% set measured = (measured.push(entry), measured) %}{% endif %}
+{% endfor %}
+
+{# The pinned URL is looked up rather than trusted, so it falls back to the first measured site if it leaves the corpus. #}
+{% set pinned = [] %}
+{% for entry in measured %}
+	{% if entry.url == "https://arielsalminen.com/" %}{% set pinned = (pinned.push(entry), pinned) %}{% endif %}
+{% endfor %}
+{% set featured = pinned[0] or measured[0] %}
+
+{# Every site with an embed, with the featured site first as the default; same rule as src/site-filmstrip.11tydata.js. #}
+{% set strips = [] %}
+{% set stripSlugs = [] %}
+{% for entry in [featured].concat(measured) %}
+	{% if entry.filmstrip and entry.filmstrip.distinct > 1 and not entry.interstitial and entry.slug not in stripSlugs %}
+		{% set strips = (strips.push(entry), strips) %}
+		{% set stripSlugs = (stripSlugs.push(entry.slug), stripSlugs) %}
+	{% endif %}
+{% endfor %}
+
+{% from "contents.njk" import contents %}
+{% set toc = [
+	{ id: "try", label: "Live preview" },
+	{ id: "usage", label: "Usage" },
+	{ id: "finding-data", label: "How it finds the data" }
+] %}
+{% if strips.length %}{% set toc = (toc.push({ id: "filmstrip", label: "Filmstrip" }), toc) %}{% endif %}
+{{ contents(toc) }}
+
 <section class="panel" id="try">
 	<h2>Live preview</h2>
 	<p class="muted small">
 		Pick any measured site, or type a URL, to see the component as it renders
 		against this instance. Hover or tab to the scores to see its summary.
 	</p>
-
-	{% set measured = [] %}
-	{% for entry in sites.entries %}
-		{% if entry.latest %}{% set measured = (measured.push(entry), measured) %}{% endif %}
-	{% endfor %}
-
-	{# The pinned URL is looked up rather than trusted, so it falls back to the first measured site if it leaves the corpus. #}
-	{% set pinned = [] %}
-	{% for entry in measured %}
-		{% if entry.url == "https://arielsalminen.com/" %}{% set pinned = (pinned.push(entry), pinned) %}{% endif %}
-	{% endfor %}
-	{% set featured = pinned[0] or measured[0] %}
 
 	{% if featured %}
 	<form class="race-picker embed-picker" id="score-embed-picker" autocomplete="off">
@@ -107,7 +126,7 @@ title: Embed
 	{% endif %}
 </section>
 
-<section class="panel">
+<section class="panel" id="usage">
 	<h2>Usage</h2>
 
 	<p>Install it from npm — this is the version you want, pinned and served from your own site:</p>
@@ -196,15 +215,6 @@ title: Embed
 	</p>
 </section>
 
-{# Every site with an embed, with the featured site first as the default; same rule as src/site-filmstrip.11tydata.js. #}
-{% set strips = [] %}
-{% set stripSlugs = [] %}
-{% for entry in [featured].concat(measured) %}
-	{% if entry.filmstrip and entry.filmstrip.distinct > 1 and not entry.interstitial and entry.slug not in stripSlugs %}
-		{% set strips = (strips.push(entry), strips) %}
-		{% set stripSlugs = (stripSlugs.push(entry.slug), stripSlugs) %}
-	{% endif %}
-{% endfor %}
 {% if strips.length %}
 {% set strip = strips[0] %}
 <section class="panel" id="filmstrip">

@@ -2713,7 +2713,8 @@ td.col-stack { position: relative; }
 /* ---------------------------------------------------------------- contents */
 
 .contents {
-	background: var(--surface);
+	/* Mixed into the surface rather than over transparent so it stays opaque when sticky. */
+	background: color-mix(in srgb, var(--accent) 4%, var(--surface));
 	border: 1px solid var(--border);
 	border-radius: var(--radius);
 	padding: 0.7rem 0.9rem;
@@ -2780,6 +2781,12 @@ td.col-stack { position: relative; }
 	gap: 0.4rem 2rem;
 }
 .contents li { display: inline-flex; align-items: baseline; gap: 0.35rem; font-size: 0.9rem; }
+/* Matches the link padding so the highlight stays inside the card. */
+.contents table-of-contents { margin-inline: 0.65rem; }
+/* Padding offset by margin so the highlight doesn't shift the row. */
+.contents-sticky a { padding: 0.1rem 0.65rem; margin: -0.1rem -0.65rem; border-radius: 4px; }
+/* Set by <table-of-contents> on entries whose section is on screen. */
+.contents .toc-in-view { background: color-mix(in srgb, var(--accent) 10%, transparent); }
 /* The home page's category list is the way into the site rather than a table of
    contents for the page you are already on, so it reads a size larger. Scoped
    with its own class rather than by negating the sticky one — the site page's

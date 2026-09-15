@@ -11,6 +11,7 @@ title: Charts
 	</p>
 </header>
 
+{% from "contents.njk" import contents %}
 {% from "scatter.njk" import scatterfigure, rtag %}
 {% from "strip.njk" import stripfigure %}
 
@@ -31,16 +32,7 @@ title: Charts
 {% if sites.ttfbByHost %}{% set toc = (toc.push({ id: "ttfb-by-host", label: "TTFB by Host" }), toc) %}{% endif %}
 {% if sites.labFieldPairs %}{% set toc = (toc.push({ id: "lab-field", label: "Field vs Lab LCP" }), toc) %}{% endif %}
 
-{% if toc.length > 1 %}
-<nav class="contents contents-sticky" aria-label="On this page">
-	<span class="contents-label">On this page</span>
-	<ul>
-		{% for item in toc %}
-		<li><a href="#{{ item.id }}">{{ item.label }}</a></li>
-		{% endfor %}
-	</ul>
-</nav>
-{% endif %}
+{{ contents(toc) }}
 
 {% if sites.lcpScatter %}
 {% set plot = sites.lcpScatter %}

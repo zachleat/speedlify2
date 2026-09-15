@@ -297,7 +297,8 @@ export default async function ($config) {
 
 	// The footer's theme toggle: script served from /js/, stylesheet inlined by the layout.
 	$config.addPassthroughCopy({ [path.relative(".", fileURLToPath(import.meta.resolve("@zachleat/solar-eclipse-toggle")))]: "js/solar-eclipse-toggle.js" });
-	$config.addGlobalData("solarEclipseToggleCss", () => minifyCss(fileURLToPath(import.meta.resolve("@zachleat/solar-eclipse-toggle/style.css"))));
+	$config.addPassthroughCopy({ [path.relative(".", fileURLToPath(import.meta.resolve("@zachleat/table-of-contents")))]: "js/table-of-contents.js" });
+	$config.addGlobalData("solarEclipseToggleCss",() => minifyCss(fileURLToPath(import.meta.resolve("@zachleat/solar-eclipse-toggle/style.css"))));
 
 	// Inlined by the layouts in production builds, minified once rather than per page.
 	if (process.env.BUILDAWESOME_RUN_MODE === "build") {
