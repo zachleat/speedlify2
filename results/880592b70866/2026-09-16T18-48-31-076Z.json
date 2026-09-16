@@ -1,0 +1,402 @@
+{
+  "url": "https://www.palantir.com/",
+  "name": "Palantir",
+  "group": "big-tech",
+  "groupName": "Big Tech",
+  "timestamp": 1789584511076,
+  "date": "2026-09-16T18:48:31.076Z",
+  "runId": "2026-09-16T18-39-47-143Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 184072,
+  "error": null,
+  "variance": {
+    "min": 43,
+    "max": 44,
+    "spread": 1,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://www.palantir.com/",
+    "finalUrl": "https://www.palantir.com/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 43,
+      "accessibility": 91,
+      "best-practices": 92,
+      "seo": 85,
+      "agentic-browsing": 32
+    },
+    "timings": {
+      "fcp": 2179,
+      "lcp": 97194,
+      "si": 18242,
+      "tbt": 774,
+      "tti": 105415,
+      "cls": 0.064,
+      "ttfb": 604,
+      "maxPotentialFid": 259,
+      "serverResponseTime": 4,
+      "networkRtt": 0.1,
+      "networkServerLatency": 68.6
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 5.5,
+      "elementRenderDelay": 1169
+    },
+    "weight": {
+      "total": 218812626,
+      "requests": 93,
+      "mainDocument": 60939,
+      "byType": {
+        "total": {
+          "bytes": 218811553,
+          "requests": 92
+        },
+        "media": {
+          "bytes": 184204054,
+          "requests": 16
+        },
+        "image": {
+          "bytes": 32508994,
+          "requests": 14
+        },
+        "script": {
+          "bytes": 1594536,
+          "requests": 33
+        },
+        "other": {
+          "bytes": 175431,
+          "requests": 19
+        },
+        "font": {
+          "bytes": 142684,
+          "requests": 3
+        },
+        "stylesheet": {
+          "bytes": 124915,
+          "requests": 6
+        },
+        "document": {
+          "bytes": 60939,
+          "requests": 1
+        },
+        "third-party": {
+          "bytes": 13294763,
+          "requests": 15
+        }
+      },
+      "scripts": 33,
+      "stylesheets": 6,
+      "fonts": 3
+    },
+    "thirdParty": {
+      "count": 3,
+      "bytes": 13294763,
+      "mainThreadMs": 128.9,
+      "top": [
+        {
+          "entity": "ctfassets.net",
+          "bytes": 12887837,
+          "mainThreadMs": 0,
+          "byType": {
+            "image": 12887837
+          },
+          "typedBytes": 12887837
+        },
+        {
+          "entity": "Optanon",
+          "bytes": 240078,
+          "mainThreadMs": 93.5,
+          "byType": {
+            "script": 148766,
+            "other": 44932,
+            "image": 46380
+          },
+          "typedBytes": 240078
+        },
+        {
+          "entity": "Google Tag Manager",
+          "bytes": 166848,
+          "mainThreadMs": 35.4,
+          "byType": {
+            "script": 166848
+          },
+          "typedBytes": 166848
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 7132.5,
+      "byGroup": {
+        "other": 4155.3,
+        "scriptEvaluation": 1555.8,
+        "scriptParseCompile": 589.5,
+        "styleLayout": 429.8,
+        "paintCompositeRender": 193.1,
+        "garbageCollection": 119.8,
+        "parseHTML": 89.2
+      },
+      "bootupMs": 1990.4,
+      "longTasks": 10,
+      "longestTaskMs": 259
+    },
+    "dom": {
+      "elements": 1491,
+      "depth": 17,
+      "maxChildren": 28
+    },
+    "waste": {
+      "unusedJsBytes": 971669,
+      "unusedCssBytes": 117671,
+      "legacyJsBytes": 21298,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 0,
+      "renderBlockingCount": 3,
+      "poorlyCachedBytes": 43517052.79999999,
+      "poorlyCachedCount": 69
+    },
+    "accessibility": {
+      "failingCount": 3,
+      "applicableCount": 28,
+      "failingNodes": 15,
+      "failing": [
+        {
+          "id": "label-content-name-mismatch",
+          "title": "Elements with visible text labels do not have matching accessible names.",
+          "weight": 0,
+          "nodes": 8
+        },
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "weight": 7,
+          "nodes": 6
+        },
+        {
+          "id": "aria-valid-attr-value",
+          "title": "`[aria-*]` attributes do not have valid values",
+          "weight": 10,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 3,
+      "applicableCount": 18,
+      "failing": [
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "weight": 1,
+          "nodes": 15
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "weight": 1,
+          "nodes": 1
+        },
+        {
+          "id": "valid-source-maps",
+          "title": "Missing source maps for large first-party JavaScript",
+          "weight": 0,
+          "nodes": 2
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 2,
+      "applicableCount": 10,
+      "failing": [
+        {
+          "id": "link-text",
+          "title": "Links do not have descriptive text",
+          "weight": 1,
+          "nodes": 2
+        },
+        {
+          "id": "crawlable-anchors",
+          "title": "Links are not crawlable",
+          "weight": 1,
+          "nodes": 1
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": null,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 15,
+      "baselineLimitedFeatures": 39
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 3048.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-09-16T18:49:00.186Z",
+      "runtimeMs": 28081.6
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 565.7,
+    "elementRenderDelay": 10842
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-08-18",
+      "last": "2026-09-14"
+    },
+    "metrics": {
+      "cls": {
+        "p75": 0.11,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 57.8,
+          "needsImprovement": 35.4,
+          "poor": 6.8
+        }
+      },
+      "ttfb": {
+        "p75": 653,
+        "rating": "good",
+        "distribution": {
+          "good": 79.6,
+          "needsImprovement": 11.3,
+          "poor": 9.1
+        }
+      },
+      "fcp": {
+        "p75": 2851,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 56.9,
+          "needsImprovement": 19.7,
+          "poor": 23.4
+        }
+      },
+      "inp": {
+        "p75": 490,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 58.4,
+          "needsImprovement": 17,
+          "poor": 24.6
+        }
+      },
+      "lcp": {
+        "p75": 3165,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 65.3,
+          "needsImprovement": 17.6,
+          "poor": 17
+        }
+      },
+      "rtt": {
+        "p75": 142,
+        "rating": null,
+        "distribution": {
+          "good": 41,
+          "needsImprovement": 50.1,
+          "poor": 8.9
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": {
+      "id": "nextjs",
+      "name": "Next.js",
+      "icon": "Nextdotjs",
+      "version": null,
+      "source": "dom",
+      "raw": null
+    },
+    "probe": {
+      "metas": [],
+      "marks": [
+        "next",
+        "react"
+      ],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "amazons3",
+      "name": "Amazon S3",
+      "icon": "Amazon",
+      "source": "server"
+    },
+    "headers": {
+      "server": "AmazonS3",
+      "via": "1.1 varnish",
+      "x-served-by": "cache-chi-kmdw8640092-CHI"
+    },
+    "violations": 74,
+    "passes": 2044,
+    "incomplete": 96,
+    "violationRules": 6,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 64,
+        "help": "All page content should be contained by landmarks"
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 6,
+        "help": "Elements must meet minimum color contrast ratio thresholds"
+      },
+      {
+        "id": "aria-valid-attr-value",
+        "impact": "critical",
+        "nodes": 1,
+        "help": "ARIA attributes must conform to valid values"
+      },
+      {
+        "id": "landmark-no-duplicate-banner",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Document should not have more than one banner landmark"
+      },
+      {
+        "id": "landmark-unique",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination"
+      },
+      {
+        "id": "scrollable-region-focusable",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "Scrollable region must have keyboard access"
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
