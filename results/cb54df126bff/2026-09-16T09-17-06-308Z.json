@@ -1,0 +1,423 @@
+{
+  "url": "https://replicate.com/",
+  "name": "Replicate",
+  "group": "ai",
+  "groupName": "AI",
+  "timestamp": 1789550226308,
+  "date": "2026-09-16T09:17:06.308Z",
+  "runId": "2026-09-16T09-05-50-748Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 2,
+  "durationMs": 506652,
+  "error": null,
+  "partialErrors": [
+    "NO_NAVSTART: Something went wrong with recording the trace over your page load. Please run Lighthouse again. (NO_NAVSTART)"
+  ],
+  "variance": {
+    "min": 26,
+    "max": 26,
+    "spread": 0,
+    "runs": 2
+  },
+  "lab": {
+    "requestedUrl": "https://replicate.com/",
+    "finalUrl": "https://replicate.com/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 26,
+      "accessibility": 86,
+      "best-practices": 92,
+      "seo": 92,
+      "agentic-browsing": 67
+    },
+    "timings": {
+      "fcp": 5532,
+      "lcp": 17985,
+      "si": 44473,
+      "tbt": 89778,
+      "tti": 147169,
+      "cls": 0.007,
+      "ttfb": 692,
+      "maxPotentialFid": 947,
+      "serverResponseTime": 493,
+      "networkRtt": 0.7,
+      "networkServerLatency": 92.2
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 494.4,
+      "elementRenderDelay": 296.5
+    },
+    "weight": {
+      "total": 39668438,
+      "requests": 167,
+      "mainDocument": 34807,
+      "byType": {
+        "total": {
+          "bytes": 39668438,
+          "requests": 163
+        },
+        "image": {
+          "bytes": 19305752,
+          "requests": 39
+        },
+        "media": {
+          "bytes": 19299737,
+          "requests": 15
+        },
+        "script": {
+          "bytes": 730233,
+          "requests": 72
+        },
+        "font": {
+          "bytes": 144833,
+          "requests": 6
+        },
+        "other": {
+          "bytes": 117196,
+          "requests": 27
+        },
+        "stylesheet": {
+          "bytes": 35880,
+          "requests": 3
+        },
+        "document": {
+          "bytes": 34807,
+          "requests": 1
+        },
+        "third-party": {
+          "bytes": 39631674,
+          "requests": 160
+        }
+      },
+      "scripts": 72,
+      "stylesheets": 3,
+      "fonts": 6
+    },
+    "thirdParty": {
+      "count": 4,
+      "bytes": 39557169,
+      "mainThreadMs": 1476.6,
+      "top": [
+        {
+          "entity": "replicate.delivery",
+          "bytes": 22262126,
+          "mainThreadMs": 0,
+          "byType": {
+            "image": 13515065,
+            "media": 8747061
+          },
+          "typedBytes": 22262126
+        },
+        {
+          "entity": "replicateassets.com",
+          "bytes": 16346977,
+          "mainThreadMs": 1455.7,
+          "byType": {
+            "script": 609355,
+            "media": 10552676,
+            "image": 4963499,
+            "font": 144833,
+            "other": 40734,
+            "stylesheet": 35880
+          },
+          "typedBytes": 16346977
+        },
+        {
+          "entity": "GitHub",
+          "bytes": 827188,
+          "mainThreadMs": 0,
+          "byType": {
+            "image": 827188
+          },
+          "typedBytes": 827188
+        },
+        {
+          "entity": "Google Tag Manager",
+          "bytes": 120878,
+          "mainThreadMs": 20.9,
+          "byType": {
+            "script": 120878
+          },
+          "typedBytes": 120878
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 175658.4,
+      "byGroup": {
+        "other": 163359.9,
+        "scriptEvaluation": 7144,
+        "styleLayout": 2566.7,
+        "paintCompositeRender": 1711.6,
+        "garbageCollection": 464,
+        "parseHTML": 350.7,
+        "scriptParseCompile": 61.4
+      },
+      "bootupMs": 7056.4,
+      "longTasks": 20,
+      "longestTaskMs": 947
+    },
+    "dom": {
+      "elements": 2220,
+      "depth": 21,
+      "maxChildren": 48
+    },
+    "waste": {
+      "unusedJsBytes": 141035,
+      "unusedCssBytes": 29184,
+      "legacyJsBytes": 0,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 939,
+      "renderBlockingCount": 3,
+      "poorlyCachedBytes": 3106554.133333332,
+      "poorlyCachedCount": 32
+    },
+    "accessibility": {
+      "failingCount": 5,
+      "applicableCount": 30,
+      "failingNodes": 49,
+      "failing": [
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "weight": 7,
+          "nodes": 34
+        },
+        {
+          "id": "button-name",
+          "title": "Buttons do not have an accessible name",
+          "weight": 10,
+          "nodes": 9
+        },
+        {
+          "id": "list",
+          "title": "Lists do not contain only `<li>` elements and script supporting elements (`<script>` and `<template>`).",
+          "weight": 7,
+          "nodes": 4
+        },
+        {
+          "id": "heading-order",
+          "title": "Heading elements are not in a sequentially-descending order",
+          "weight": 3,
+          "nodes": 1
+        },
+        {
+          "id": "landmark-one-main",
+          "title": "Document does not have a main landmark.",
+          "weight": 3,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 2,
+      "applicableCount": 17,
+      "failing": [
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "weight": 1,
+          "nodes": 8
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "weight": 1,
+          "nodes": 1
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 1,
+      "applicableCount": 10,
+      "failing": [
+        {
+          "id": "link-text",
+          "title": "Links do not have descriptive text",
+          "weight": 1,
+          "nodes": 1
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": null,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 8,
+      "baselineLimitedFeatures": 48
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2480.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-09-16T09:18:45.441Z",
+      "runtimeMs": 100734.1
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 1035.4,
+    "elementRenderDelay": 3623.3
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-08-18",
+      "last": "2026-09-14"
+    },
+    "metrics": {
+      "fcp": {
+        "p75": 2909,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 47.4,
+          "needsImprovement": 29.6,
+          "poor": 23
+        }
+      },
+      "inp": {
+        "p75": 281,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 64.2,
+          "needsImprovement": 23.3,
+          "poor": 12.5
+        }
+      },
+      "lcp": {
+        "p75": 3153,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 62.3,
+          "needsImprovement": 23.3,
+          "poor": 14.4
+        }
+      },
+      "rtt": {
+        "p75": 255,
+        "rating": null,
+        "distribution": {
+          "good": 19.2,
+          "needsImprovement": 59.4,
+          "poor": 21.4
+        }
+      },
+      "cls": {
+        "p75": 0.03,
+        "rating": "good",
+        "distribution": {
+          "good": 82.9,
+          "needsImprovement": 12.1,
+          "poor": 5
+        }
+      },
+      "ttfb": {
+        "p75": 2015,
+        "rating": "poor",
+        "distribution": {
+          "good": 21.9,
+          "needsImprovement": 45,
+          "poor": 33.1
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": true,
+    "generator": {
+      "id": "reactrouter",
+      "name": "React Router",
+      "icon": "Reactrouter",
+      "version": null,
+      "source": "dom",
+      "raw": null
+    },
+    "probe": {
+      "metas": [],
+      "marks": [
+        "reactrouter",
+        "react"
+      ],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "cloudflare",
+      "name": "Cloudflare",
+      "icon": "Cloudflare",
+      "source": "server"
+    },
+    "headers": {
+      "cf-ray": "a3becff79b1ce817-SJC",
+      "server": "cloudflare"
+    },
+    "violations": 122,
+    "passes": 2049,
+    "incomplete": 32,
+    "violationRules": 7,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 71,
+        "help": "All page content should be contained by landmarks"
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 33,
+        "help": "Elements must meet minimum color contrast ratio thresholds"
+      },
+      {
+        "id": "button-name",
+        "impact": "critical",
+        "nodes": 9,
+        "help": "Buttons must have discernible text"
+      },
+      {
+        "id": "list",
+        "impact": "serious",
+        "nodes": 4,
+        "help": "<ul> and <ol> must only directly contain <li>, <script> or <template> elements"
+      },
+      {
+        "id": "scrollable-region-focusable",
+        "impact": "serious",
+        "nodes": 3,
+        "help": "Scrollable region must have keyboard access"
+      },
+      {
+        "id": "heading-order",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Heading levels should only increase by one"
+      },
+      {
+        "id": "landmark-one-main",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Document should have one main landmark"
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
