@@ -489,7 +489,7 @@ logs/                  run logs (committed)
 
 ## Notes
 
-- Requires Node 18+ and a local Chrome/Chromium (`chrome-launcher` finds it).
+- Requires Node 22.19+ and a local Chrome/Chromium (`chrome-launcher` finds it).
 - Lighthouse 13 renamed many audits behind `*-insight` ids. `lib/metrics.js` reads defensively and records `null` for anything missing, so a Lighthouse upgrade degrades a metric rather than breaking the history.
 - The URL hash in `results/` must stay stable. Don't change `urlHash()` without migrating the directory names.
 
