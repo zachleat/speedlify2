@@ -1,0 +1,382 @@
+{
+  "url": "https://chromeos.dev/en",
+  "name": "chromeos.dev",
+  "group": "11ty-emeritus",
+  "groupName": "11ty Emeritus",
+  "timestamp": 1789763320248,
+  "date": "2026-09-18T20:28:40.248Z",
+  "runId": "2026-09-18T20-27-08-464Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 29239,
+  "error": null,
+  "variance": {
+    "min": 64,
+    "max": 87,
+    "spread": 23,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://chromeos.dev/en",
+    "finalUrl": "https://chromeos.dev/en",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 86,
+      "accessibility": 95,
+      "best-practices": 100,
+      "seo": 82,
+      "agentic-browsing": 100
+    },
+    "timings": {
+      "fcp": 1534,
+      "lcp": 2710,
+      "si": 1534,
+      "tbt": 408,
+      "tti": 6538,
+      "cls": 0.001,
+      "ttfb": 604,
+      "maxPotentialFid": 240,
+      "serverResponseTime": 3,
+      "networkRtt": 0.3,
+      "networkServerLatency": 30
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 5.2,
+      "resourceLoadDelay": 13.9,
+      "resourceLoadDuration": 11.2,
+      "elementRenderDelay": 104.1
+    },
+    "weight": {
+      "total": 990029,
+      "requests": 58,
+      "mainDocument": 13846,
+      "byType": {
+        "total": {
+          "bytes": 990029,
+          "requests": 52
+        },
+        "script": {
+          "bytes": 675586,
+          "requests": 24
+        },
+        "image": {
+          "bytes": 270926,
+          "requests": 16
+        },
+        "other": {
+          "bytes": 16378,
+          "requests": 6
+        },
+        "document": {
+          "bytes": 13846,
+          "requests": 1
+        },
+        "stylesheet": {
+          "bytes": 13293,
+          "requests": 5
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "font": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 660791,
+          "requests": 25
+        }
+      },
+      "scripts": 26,
+      "stylesheets": 5,
+      "fonts": 0
+    },
+    "thirdParty": {
+      "count": 5,
+      "bytes": 660791,
+      "mainThreadMs": 115.4,
+      "top": [
+        {
+          "entity": "Google Tag Manager",
+          "bytes": 333880,
+          "mainThreadMs": 97.5,
+          "byType": {
+            "script": 333880
+          },
+          "typedBytes": 333880
+        },
+        {
+          "entity": "imgix",
+          "bytes": 208119,
+          "mainThreadMs": 0,
+          "byType": {
+            "image": 203541,
+            "other": 4578
+          },
+          "typedBytes": 208119
+        },
+        {
+          "entity": "YouTube",
+          "bytes": 67385,
+          "mainThreadMs": 0,
+          "byType": {
+            "image": 67385
+          },
+          "typedBytes": 67385
+        },
+        {
+          "entity": "Google CDN",
+          "bytes": 30506,
+          "mainThreadMs": 4.8,
+          "byType": {
+            "script": 28638,
+            "stylesheet": 1801,
+            "other": 67
+          },
+          "typedBytes": 30506
+        },
+        {
+          "entity": "Google Analytics",
+          "bytes": 20901,
+          "mainThreadMs": 13.1,
+          "byType": {
+            "script": 20875,
+            "other": 26
+          },
+          "typedBytes": 20901
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 2407.8,
+      "byGroup": {
+        "scriptEvaluation": 1080,
+        "other": 767.1,
+        "styleLayout": 218.7,
+        "scriptParseCompile": 133.4,
+        "paintCompositeRender": 112.6,
+        "garbageCollection": 49.4,
+        "parseHTML": 46.5
+      },
+      "bootupMs": 942.6,
+      "longTasks": 8,
+      "longestTaskMs": 240
+    },
+    "dom": {
+      "elements": 955,
+      "depth": 15,
+      "maxChildren": 52
+    },
+    "waste": {
+      "unusedJsBytes": 206503,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 0,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 930,
+      "renderBlockingCount": 4,
+      "poorlyCachedBytes": 309143.00000000006,
+      "poorlyCachedCount": 27
+    },
+    "accessibility": {
+      "failingCount": 3,
+      "applicableCount": 29,
+      "failingNodes": 7,
+      "failing": [
+        {
+          "id": "label-content-name-mismatch",
+          "title": "Elements with visible text labels do not have matching accessible names.",
+          "weight": 0,
+          "nodes": 5
+        },
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "weight": 7,
+          "nodes": 1
+        },
+        {
+          "id": "heading-order",
+          "title": "Heading elements are not in a sequentially-descending order",
+          "weight": 3,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 0,
+      "applicableCount": 19,
+      "failing": []
+    },
+    "seo": {
+      "failingCount": 2,
+      "applicableCount": 8,
+      "failing": [
+        {
+          "id": "meta-description",
+          "title": "Document does not have a meta description",
+          "weight": 1,
+          "nodes": null
+        },
+        {
+          "id": "link-text",
+          "title": "Links do not have descriptive text",
+          "weight": 1,
+          "nodes": 2
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 38
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2467.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-09-18T20:28:50.925Z",
+      "runtimeMs": 8392.3
+    }
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-08-20",
+      "last": "2026-09-16"
+    },
+    "metrics": {
+      "ttfb": {
+        "p75": 586,
+        "rating": "good",
+        "distribution": {
+          "good": 82.4,
+          "needsImprovement": 10.9,
+          "poor": 6.7
+        }
+      },
+      "fcp": {
+        "p75": 1577,
+        "rating": "good",
+        "distribution": {
+          "good": 78.9,
+          "needsImprovement": 12.7,
+          "poor": 8.5
+        }
+      },
+      "inp": {
+        "p75": 218,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 72.7,
+          "needsImprovement": 20.5,
+          "poor": 6.8
+        }
+      },
+      "lcp": {
+        "p75": 3285,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 63.6,
+          "needsImprovement": 18.8,
+          "poor": 17.6
+        }
+      },
+      "rtt": {
+        "p75": 235,
+        "rating": null,
+        "distribution": {
+          "good": 25.6,
+          "needsImprovement": 57.2,
+          "poor": 17.3
+        }
+      },
+      "cls": {
+        "p75": 0.01,
+        "rating": "good",
+        "distribution": {
+          "good": 94.2,
+          "needsImprovement": 4.5,
+          "poor": 1.3
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": {
+      "id": "astro",
+      "name": "Astro",
+      "icon": "Astro",
+      "version": null,
+      "source": "dom",
+      "raw": null
+    },
+    "probe": {
+      "metas": [],
+      "marks": [
+        "astro",
+        "svelte"
+      ],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": null,
+    "headers": {
+      "x-served-by": "cache-iad-kcgs7200079-IAD"
+    },
+    "violations": 5,
+    "passes": 770,
+    "incomplete": 18,
+    "violationRules": 4,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "landmark-unique",
+        "impact": "moderate",
+        "nodes": 2,
+        "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination"
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "Elements must meet minimum color contrast ratio thresholds"
+      },
+      {
+        "id": "heading-order",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Heading levels should only increase by one"
+      },
+      {
+        "id": "landmark-no-duplicate-contentinfo",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Document should not have more than one contentinfo landmark"
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
