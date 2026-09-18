@@ -1,0 +1,284 @@
+{
+  "url": "https://nordcraft.com/",
+  "name": "Nordcraft",
+  "group": "builders",
+  "groupName": "Website Builders",
+  "timestamp": 1789738361694,
+  "date": "2026-09-18T13:32:41.694Z",
+  "runId": "2026-09-18T13-24-18-116Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 2,
+  "durationMs": 86069,
+  "error": null,
+  "partialErrors": [
+    "NO_NAVSTART: Something went wrong with recording the trace over your page load. Please run Lighthouse again. (NO_NAVSTART)"
+  ],
+  "variance": {
+    "min": 51,
+    "max": 51,
+    "spread": 0,
+    "runs": 2
+  },
+  "lab": {
+    "requestedUrl": "https://nordcraft.com/",
+    "finalUrl": "https://nordcraft.com/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 51,
+      "accessibility": 100,
+      "best-practices": 96,
+      "seo": 100,
+      "agentic-browsing": 84
+    },
+    "timings": {
+      "fcp": 3043,
+      "lcp": 11369,
+      "si": 3818,
+      "tbt": 370,
+      "tti": 12289,
+      "cls": 0.177,
+      "ttfb": 971,
+      "maxPotentialFid": 353,
+      "serverResponseTime": 866,
+      "networkRtt": 19,
+      "networkServerLatency": 284.5
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 970.9,
+      "resourceLoadDelay": 40.9,
+      "resourceLoadDuration": 168.2,
+      "elementRenderDelay": 1681.4
+    },
+    "weight": {
+      "total": 5470615,
+      "requests": 133,
+      "mainDocument": 120588,
+      "byType": {
+        "total": {
+          "bytes": 5470615,
+          "requests": 133
+        },
+        "media": {
+          "bytes": 2829616,
+          "requests": 4
+        },
+        "image": {
+          "bytes": 1854527,
+          "requests": 69
+        },
+        "script": {
+          "bytes": 395872,
+          "requests": 8
+        },
+        "font": {
+          "bytes": 208611,
+          "requests": 5
+        },
+        "document": {
+          "bytes": 120588,
+          "requests": 1
+        },
+        "stylesheet": {
+          "bytes": 49804,
+          "requests": 4
+        },
+        "other": {
+          "bytes": 11597,
+          "requests": 42
+        },
+        "third-party": {
+          "bytes": 184494,
+          "requests": 7
+        }
+      },
+      "scripts": 8,
+      "stylesheets": 4,
+      "fonts": 5
+    },
+    "thirdParty": {
+      "count": 3,
+      "bytes": 184494,
+      "mainThreadMs": 0.5,
+      "top": [
+        {
+          "entity": "toddle.site",
+          "bytes": 175613,
+          "mainThreadMs": 0.5,
+          "byType": {
+            "script": 77853,
+            "font": 93637,
+            "stylesheet": 4123
+          },
+          "typedBytes": 175613
+        },
+        {
+          "entity": "JSDelivr CDN",
+          "bytes": 5091,
+          "mainThreadMs": 0,
+          "byType": {
+            "script": 5091
+          },
+          "typedBytes": 5091
+        },
+        {
+          "entity": "toddle.dev",
+          "bytes": 3790,
+          "mainThreadMs": 0,
+          "byType": {
+            "other": 3790
+          },
+          "typedBytes": 3790
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 3593.7,
+      "byGroup": {
+        "other": 1274.4,
+        "styleLayout": 950.1,
+        "scriptEvaluation": 770.8,
+        "paintCompositeRender": 364.5,
+        "parseHTML": 113.1,
+        "garbageCollection": 101.3,
+        "scriptParseCompile": 19.5
+      },
+      "bootupMs": 776.2,
+      "longTasks": 9,
+      "longestTaskMs": 353
+    },
+    "dom": {
+      "elements": 3667,
+      "depth": 24,
+      "maxChildren": 112
+    },
+    "waste": {
+      "unusedJsBytes": 0,
+      "unusedCssBytes": 50006,
+      "legacyJsBytes": 0,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 4384,
+      "unminifiedCssBytes": 14803,
+      "renderBlockingMs": 300,
+      "renderBlockingCount": 3,
+      "poorlyCachedBytes": 2472440.8233333346,
+      "poorlyCachedCount": 76
+    },
+    "accessibility": {
+      "failingCount": 1,
+      "applicableCount": 27,
+      "failingNodes": 1,
+      "failing": [
+        {
+          "id": "label-content-name-mismatch",
+          "title": "Elements with visible text labels do not have matching accessible names.",
+          "weight": 0,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 2,
+      "applicableCount": 18,
+      "failing": [
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "weight": 1,
+          "nodes": 1
+        },
+        {
+          "id": "valid-source-maps",
+          "title": "Missing source maps for large first-party JavaScript",
+          "weight": 0,
+          "nodes": 1
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 0,
+      "applicableCount": 9,
+      "failing": []
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": null,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 1,
+      "baselineLimitedFeatures": 42
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2993.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-09-18T13:32:42.907Z",
+      "runtimeMs": 13903.5
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 820.8,
+    "resourceLoadDelay": 18.3,
+    "resourceLoadDuration": 4768.2,
+    "elementRenderDelay": 35
+  },
+  "field": null,
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "probe": {
+      "metas": [],
+      "marks": [],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "cloudflare",
+      "name": "Cloudflare",
+      "icon": "Cloudflare",
+      "source": "server"
+    },
+    "headers": {
+      "cf-ray": "a3d0b9d97d488b33-DFW",
+      "server": "cloudflare",
+      "x-powered-by": "Nordcraft"
+    },
+    "violations": 173,
+    "passes": 2613,
+    "incomplete": 56,
+    "violationRules": 3,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 170,
+        "help": "All page content should be contained by landmarks"
+      },
+      {
+        "id": "scrollable-region-focusable",
+        "impact": "serious",
+        "nodes": 2,
+        "help": "Scrollable region must have keyboard access"
+      },
+      {
+        "id": "image-redundant-alt",
+        "impact": "minor",
+        "nodes": 1,
+        "help": "Alternative text of images should not be repeated as text"
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
