@@ -67,6 +67,62 @@ describe("screenshot storage", () => {
 		assert.deepEqual([...fs.readFileSync(path.join(d, "screenshot-nojs.webp"))], [2, 2, 2], "no-JS untouched");
 	});
 
+	test("a reading from before animation settling is dropped rather than carried", () => {
+		const d = dir();
+		const store = new ResultStore(d);
+
+		store.writeScreenshots(d, {
+			primary: shot(1),
+			noJs: shot(2),
+			difference: 66.4,
+			noJsText: 1.5,
+			timestamp: "2026-09-06T10:28:57.958Z",
+		});
+		// A later run with no no-JS capture of its own: stebre.ch, measured while
+		// its category kept no pictures for a site short of full marks.
+		const manifest = store.writeScreenshots(d, { primary: shot(3), noJs: null });
+
+		assert.equal(manifest.difference, null, "the pre-fix difference is gone");
+		assert.equal(manifest.noJsText, null, "and the text share with it");
+		assert.equal(manifest.noJs.file, "screenshot-nojs.webp", "the image itself is still kept");
+	});
+
+	test("a reading from after animation settling outlives its run", () => {
+		const d = dir();
+		const store = new ResultStore(d);
+
+		store.writeScreenshots(d, {
+			primary: shot(1),
+			noJs: shot(2),
+			difference: 0,
+			noJsText: 34.6,
+			timestamp: "2026-09-14T08:01:00.000Z",
+		});
+		const manifest = store.writeScreenshots(d, { primary: shot(3), noJs: null });
+
+		assert.equal(manifest.difference, 0);
+		assert.equal(manifest.noJsText, 34.6);
+	});
+
+	test("a manifest written before the stamp existed counts as pre-fix", () => {
+		const d = dir();
+		const store = new ResultStore(d);
+
+		fs.writeFileSync(
+			path.join(d, "screenshot.json"),
+			JSON.stringify({
+				file: "screenshot.webp",
+				noJs: { file: "screenshot-nojs.webp" },
+				difference: 42.5,
+				noJsText: 1.3,
+			})
+		);
+		const manifest = store.writeScreenshots(d, { primary: shot(3), noJs: null });
+
+		assert.equal(manifest.difference, null);
+		assert.equal(manifest.noJsText, null);
+	});
+
 	test("nothing to write leaves the whole manifest alone", () => {
 		const d = dir();
 		const store = new ResultStore(d);
