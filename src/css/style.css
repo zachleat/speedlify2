@@ -2646,10 +2646,36 @@ th.col-rings { text-align: left !important; }
 
 /* ------------------------------------------------------- built with / host */
 
-/* One mark per cell now, so the column only has to hold one. */
 /* Wide enough for the 22px mark the leaderboards ask for, plus the cell's own
-   padding — narrower and the column would squeeze the icon it exists to show. */
+   padding — narrower and the column would squeeze the icon it exists to show.
+   The tool and host columns hold one mark each and keep this width; the Uses
+   column widens below to make room for several. */
 .col-stack { text-align: center !important; white-space: nowrap; width: 2.6rem; }
+/* Up to three marks, then the overflow count: three squares, three gaps and a
+   two-character chip. */
+.col-stack-uses { width: 6rem; }
+.col-stack-uses .stack-row {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 3px;
+}
+/* One 22px square per mark, so the marks line up down the column whatever they
+   are: a logo, a two-letter chip for a brand that has none, a lone dot for a
+   site with nothing detected. No object-fit — that applies to replaced elements
+   and these are inline SVG, which scales itself to the box it is given and
+   centers what is left over, which is the same thing. The overflow count is
+   excluded: it is a number at the end of the row, not another mark. */
+.col-stack-uses .stack-row > :not(.stack-more) {
+	width: 22px;
+	height: 22px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+}
+/* Part of that row now rather than hung off a single centered mark, so the
+   absolute positioning below does not apply here. */
+.col-stack-uses .stack-more { position: static; transform: none; }
 /* The text chip is the fallback when a brand has no mark, so it grows with the
    icons rather than sitting beside them looking like a different column. */
 .col-stack .stack-chip { font-size: 0.7rem; }

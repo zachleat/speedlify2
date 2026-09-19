@@ -140,6 +140,10 @@ library.add(fab);
 const FONT_AWESOME_ALIASES = {
 	Vuedotjs: "vuejs",
 	Flydotio: "fly",
+	// simple-icons writes `webawesome`, Font Awesome writes `web-awesome`, and
+	// the compound-name split below cannot find a seam in a one-word spelling.
+	Webawesome: "web-awesome",
+	Fontawesome: "font-awesome",
 };
 
 /**

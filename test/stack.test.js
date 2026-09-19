@@ -321,6 +321,13 @@ describe("pickHostHeaders", () => {
  */
 function withDom(html, fn, windowGlobals = {}, nodes = []) {
 	const scripts = [...html.matchAll(/src="([^"]+)"/g)].map((m) => m[1]);
+	// What the page loads, for the probes that read a URL rather than only
+	// asking whether one is present. Scripts and stylesheets only, which is the
+	// distinction the Font Awesome probe rests on.
+	const assets = [...html.matchAll(/<(script|link)\b[^>]*>/gi)]
+		.filter((m) => m[1].toLowerCase() === "script" || /rel="[^"]*\bstylesheet\b/i.test(m[0]))
+		.map((m) => m[0].match(/(?:src|href)="([^"]+)"/)?.[1])
+		.filter(Boolean);
 	const metas = [...html.matchAll(/<meta[^>]*name="generator"[^>]*content="([^"]*)"/gi)].map(
 		(m) => ({ getAttribute: () => m[1] }),
 	);
@@ -339,10 +346,26 @@ function withDom(html, fn, windowGlobals = {}, nodes = []) {
 			const hit = scripts.some(
 				(src) => prefixes.some((p) => src.startsWith(p)) || contains.some((c) => src.includes(c)),
 			);
-			return hit ? {} : null;
+			if (hit) return {};
+
+			// Class-list selectors, for a library that leaves nothing else behind.
+			// `[class~='fa']` is spelled out rather than parsed: it is the one
+			// selector here that means a whole class rather than any of a list.
+			const classes = [...query.matchAll(/\.([\w-]+)/g)].map((m) => m[1]);
+			const bareFa = query.includes("[class~='fa']");
+			return (
+				nodes.find((el) => {
+					const list = String(el.className ?? "").split(/\s+/).filter(Boolean);
+					if (list.some((c) => classes.includes(c))) return true;
+					return bareFa && list.includes("fa") && list.some((c) => c.startsWith("fa-"));
+				}) ?? null
+			);
 		},
 		querySelectorAll(query) {
 			if (query === "body, body *") return nodes;
+			if (query === "script[src], link[rel~='stylesheet'][href]") {
+				return assets.map((url) => ({ getAttribute: (name) => (name === "src" ? url : null) }));
+			}
 			return isMetaQuery(query) ? metas : [];
 		},
 	};
@@ -456,6 +479,69 @@ describe("tools beyond the generator", () => {
 		assert.ok(probe.marks.includes("preact"));
 		assert.ok(probe.marks.includes("vue"));
 		assert.equal(probe.markVersions.vue, "3.4.21");
+	});
+
+	test("credits the component library, not the framework it happens to use", () => {
+		// 11ty.dev is the case: it reaches for Web Awesome, Web Awesome reaches
+		// for Lit, and only the library is a choice the site made.
+		const probe = { metas: ["Eleventy (Build Awesome) v4.0.0"], marks: ["lit", "webawesome"], markVersions: { lit: "3.3.0" } };
+		const tools = detectTools(probe, {}, detectGenerator(probe));
+		assert.deepEqual(tools.map((t) => [t.name, t.version, t.implied ?? null]), [
+			["Lit", "3.3.0", "Web Awesome"],
+			["Web Awesome", null, null],
+		]);
+	});
+
+	test("pageProbe finds Web Awesome by its registered elements", () => {
+		const registry = { get: (name) => (name === "wa-copy-button" ? function () {} : undefined) };
+		const probe = withDom("", pageProbe, { customElements: registry }, [{ localName: "wa-copy-button" }]);
+		assert.ok(probe.marks.includes("webawesome"));
+
+		// The tag alone proves nothing — an unregistered `wa-` element is markup
+		// someone copied without the library behind it.
+		const copied = withDom("", pageProbe, { customElements: registry }, [{ localName: "wa-button" }]);
+		assert.ok(!copied.marks.includes("webawesome"));
+	});
+
+	test("pageProbe finds Font Awesome in each shape it ships as", () => {
+		// The SVG-with-JS runtime, which names its own version.
+		const js = withDom("", pageProbe, { FontAwesome: { version: "6.7.2" } });
+		assert.ok(js.marks.includes("fontawesome"));
+		assert.equal(js.markVersions.fontawesome, "6.7.2");
+
+		// A CDN stylesheet, whose URL carries the version instead.
+		const cdn = withDom(
+			'<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">',
+			pageProbe,
+		);
+		assert.ok(cdn.marks.includes("fontawesome"));
+		assert.equal(cdn.markVersions.fontawesome, "6.5.1");
+
+		// A kit, which names no version anywhere.
+		const kit = withDom('<script src="https://kit.fontawesome.com/a1b2c3d4e5.js"></script>', pageProbe);
+		assert.ok(kit.marks.includes("fontawesome"));
+		assert.equal(kit.markVersions.fontawesome, undefined);
+
+		// A self-hosted webfont build, recognized by its classes alone.
+		const webfont = withDom("", pageProbe, {}, [{ className: "fa-solid fa-user" }]);
+		assert.ok(webfont.marks.includes("fontawesome"));
+	});
+
+	test("a link about Font Awesome is not a page using it", () => {
+		// 11ty.dev has a post at /blog/eleventy-font-awesome/, and its canonical
+		// link carries that slug. Only what the page loads counts.
+		const probe = withDom(
+			'<link rel="canonical" href="https://www.11ty.dev/blog/eleventy-font-awesome/">',
+			pageProbe,
+		);
+		assert.ok(!probe.marks.includes("fontawesome"));
+	});
+
+	test("a lone `fa` class is not Font Awesome", () => {
+		// Two letters any page might use for something of its own. v4's markup
+		// pairs it with an icon class, and that pair is what counts.
+		assert.ok(!withDom("", pageProbe, {}, [{ className: "fa" }]).marks.includes("fontawesome"));
+		assert.ok(withDom("", pageProbe, {}, [{ className: "fa fa-user" }]).marks.includes("fontawesome"));
 	});
 
 	test("pageProbe does not read a stray __k as Preact", () => {

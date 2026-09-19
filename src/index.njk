@@ -182,6 +182,7 @@ permalink: /index.html
 				<th class="col-rank">#</th>
 				<th class="col-site">Site</th>
 				<th class="col-stack" title="What built the site, detected from its generator tag or presumed from the list it is on">Tool</th>
+				<th class="col-stack col-stack-uses" title="Frameworks and libraries the page loads alongside what built it. What another tool always brings — React on a Next.js site — is left to the site's own page">Uses</th>
 				<th class="col-stack" title="Who serves the site, detected from its response headers on the same page load">Host</th>
 				<th class="col-rings" title="The four Lighthouse categories, then violating nodes from a full axe run and the Core Web Vitals verdict from real users. The ranking breaks ties the other way round: Core Web Vitals first, then axe">Scores</th>
 				<th class="col-trend">Trend</th>
@@ -245,21 +246,31 @@ permalink: /index.html
 				</td>
 
 				{% if entry.latest %}
-					{# 22 rather than the shortcode's 16: these are the row's only
-					   pictures, in a column of their own, and at 16 they read as
-					   punctuation beside the numbers. The inline uses elsewhere — a
-					   tally row, a stat, a heading — sit next to text and keep the
-					   default. #}
+					{# 22 rather than the shortcode's 16, in all three stack columns:
+					   these are the row's only pictures, in columns of their own, and
+					   at 16 they read as punctuation beside the numbers. The inline
+					   uses elsewhere — a tally row, a stat, a heading — sit next to
+					   text and keep the default. #}
 					<td class="col-stack">
 						{% if entry.generator %}{% stackIcon entry.generator, 22 %}
 						{% elif entry.presumedGenerator %}{% stackIcon entry.presumedGenerator, 22 %}
 						{% else %}<span class="stack-none" title="No generator detected">·</span>{% endif %}
-						{#- Implied tools are left to the site's own Stack panel: "+1 React" on
-						    every Next.js row costs the badge its meaning where it has one. -#}
-						{#- `or []`, since a site measured before the probe was stored has no tool list
-						    at all and the filter cannot read null. -#}
-						{%- set extraTools = (entry.tools or []) | rejectattr("implied") %}
-						{%- if extraTools.length %}<span class="stack-more" title="Uses {{ extraTools | join(', ', 'name') }}">+{{ extraTools.length }}</span>{% endif %}
+					</td>
+					{#- Implied tools are left to the site's own Stack panel: "+1 React" on
+					    every Next.js row costs the badge its meaning where it has one. -#}
+					{#- `or []`, since a site measured before the probe was stored has no tool list
+					    at all and the filter cannot read null. -#}
+					{%- set extraTools = (entry.tools or []) | rejectattr("implied") %}
+					{#- Three, because that is what the column is wide enough to show without
+					    the row turning into a list. The rest stay a count. -#}
+					{%- set shownTools = extraTools.slice(0, 3) %}
+					<td class="col-stack col-stack-uses">
+						<span class="stack-row">
+							{%- if shownTools.length %}
+							{%- for tool in shownTools %}{% stackIcon tool, 22 %}{% endfor %}
+							{%- if extraTools.length > shownTools.length %}<span class="stack-more" title="Also uses {{ extraTools.slice(3) | join(', ', 'name') }}">+{{ extraTools.length - shownTools.length }}</span>{% endif %}
+							{%- else %}<span class="stack-none" title="No framework or library detected">·</span>{% endif %}
+						</span>
 					</td>
 					<td class="col-stack">
 						{% if entry.host %}{% stackIcon entry.host, 22 %}{% else %}<span class="stack-none" title="No host detected">·</span>{% endif %}
@@ -316,7 +327,7 @@ permalink: /index.html
 						<span class="cat-chips">{% for cat in entry.homeCategories %}<a class="cat-chip" href="/group/{{ cat.id }}/">{{ cat.name }}</a>{% endfor %}</span>
 					</td>
 				{% else %}
-					<td class="num muted" colspan="12">
+					<td class="num muted" colspan="13">
 						{% if entry.currentlyFailing %}every attempt failed{% else %}awaiting first measurement{% endif %}
 					</td>
 				{% endif %}
