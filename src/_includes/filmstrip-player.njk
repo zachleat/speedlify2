@@ -51,6 +51,8 @@
 
 	var site = JSON.parse(data.textContent);
 	if (!site.frames || !site.frames.length) return;
+	// Stops at the settled frame, as on /compare/.
+	L.trimToSettle(site);
 
 	var grid = document.getElementById("filmstrip-grid");
 	var scroll = document.getElementById("filmstrip-scroll");

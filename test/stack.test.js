@@ -430,10 +430,17 @@ describe("tools beyond the generator", () => {
 		]);
 	});
 
+	test("lists Svelte without SvelteKit as used, not as what built the site", () => {
+		// huggingface.co: Svelte's runtime, no SvelteKit markers, no generator tag.
+		const probe = { metas: [], marks: ["svelte"] };
+		assert.equal(detectGenerator(probe), null);
+		assert.deepEqual(names(detectTools(probe, {}, null)), ["Svelte"]);
+	});
+
 	test("lists islands on a generator that implies nothing", () => {
 		const probe = { metas: ["Astro v5.0.0"], marks: ["astro", "svelte", "react"] };
 		const tools = detectTools(probe, {}, detectGenerator(probe));
-		assert.deepEqual(names(tools), ["Svelte", "React"]);
+		assert.deepEqual(names(tools), ["React", "Svelte"]);
 		assert.ok(tools.every((t) => !t.implied));
 	});
 
@@ -789,7 +796,8 @@ describe("htmx", () => {
 
 		// ollama.com: no generator tag, no framework marker, htmx behind a
 		// self-hosted bundle.
-		const found = detectGenerator(probe, {});
+		assert.equal(detectGenerator(probe, {}), null);
+		const [found] = detectTools(probe, {}, null);
 		assert.equal(found.name, "htmx");
 		assert.equal(found.version, "1.9.5");
 		assert.equal(found.source, "dom");
@@ -805,17 +813,15 @@ describe("htmx", () => {
 	test("the attributes stand in when the global is absent", () => {
 		// A build that exports the module without touching `window` still has to
 		// put the attributes in the markup for htmx to do anything at all.
-		const found = detectGenerator({ metas: [], marks: ["htmx"] }, {});
+		const [found] = detectTools({ metas: [], marks: ["htmx"] }, {}, null);
 		assert.equal(found.name, "htmx");
 		assert.equal(found.version, null);
 	});
 
-	test("anything the site says about itself wins", () => {
-		// A last resort, like Vite: htmx is what a page uses, not what built it,
-		// so any generator tag — even one we do not recognize — outranks it.
-		const withMeta = (metas) => detectGenerator({ metas, marks: ["htmx"] }, {});
-		assert.equal(withMeta(["Hugo 0.120.0"])?.id, "hugo");
-		assert.equal(withMeta(["Some Unknown CMS 2.1"])?.name, "Some Unknown CMS");
-		assert.equal(detectGenerator({ metas: [], marks: ["nuxt", "htmx"] }, {})?.id, "nuxt");
+	test("is listed alongside the generator, never as it", () => {
+		const probe = { metas: ["Hugo 0.120.0"], marks: ["htmx"] };
+		const generator = detectGenerator(probe, {});
+		assert.equal(generator?.id, "hugo");
+		assert.deepEqual(detectTools(probe, {}, generator).map((t) => t.name), ["htmx"]);
 	});
 });
