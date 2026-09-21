@@ -1,0 +1,326 @@
+{
+  "url": "https://www.devolverdigital.com/",
+  "name": "Devolver",
+  "group": "nextjs-showcase",
+  "groupName": "Next.js Showcase",
+  "timestamp": 1790032083962,
+  "date": "2026-09-21T23:08:03.962Z",
+  "runId": "2026-09-21T23-01-54-494Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 2,
+  "durationMs": 74566,
+  "error": null,
+  "partialErrors": [
+    "ERRORED_DOCUMENT_REQUEST: Lighthouse was unable to reliably load the page you requested. Make sure you are testing the correct URL and that the server is properly responding to all requests. (Status code: 429)"
+  ],
+  "variance": {
+    "min": 65,
+    "max": 71,
+    "spread": 6,
+    "runs": 2
+  },
+  "lab": {
+    "requestedUrl": "https://www.devolverdigital.com/",
+    "finalUrl": "https://www.devolverdigital.com/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 65,
+      "accessibility": 84,
+      "best-practices": 100,
+      "seo": 100,
+      "agentic-browsing": 50
+    },
+    "timings": {
+      "fcp": 1383,
+      "lcp": 7011,
+      "si": 2355,
+      "tbt": 434,
+      "tti": 7183,
+      "cls": 0,
+      "ttfb": 633,
+      "maxPotentialFid": 237,
+      "serverResponseTime": 24,
+      "networkRtt": 0.1,
+      "networkServerLatency": 73.5
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 26,
+      "resourceLoadDelay": 36.3,
+      "resourceLoadDuration": 36.3,
+      "elementRenderDelay": 811.2
+    },
+    "weight": {
+      "total": 1208786,
+      "requests": 58,
+      "mainDocument": 97248,
+      "byType": {
+        "total": {
+          "bytes": 1158881,
+          "requests": 56
+        },
+        "image": {
+          "bytes": 669679,
+          "requests": 27
+        },
+        "script": {
+          "bytes": 305252,
+          "requests": 21
+        },
+        "document": {
+          "bytes": 98500,
+          "requests": 2
+        },
+        "font": {
+          "bytes": 68558,
+          "requests": 2
+        },
+        "stylesheet": {
+          "bytes": 16104,
+          "requests": 1
+        },
+        "other": {
+          "bytes": 788,
+          "requests": 3
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 82235,
+          "requests": 3
+        }
+      },
+      "scripts": 22,
+      "stylesheets": 1,
+      "fonts": 2
+    },
+    "thirdParty": {
+      "count": 2,
+      "bytes": 80983,
+      "mainThreadMs": 65.2,
+      "top": [
+        {
+          "entity": "Osano CMP",
+          "bytes": 74908,
+          "mainThreadMs": 65.2,
+          "byType": {
+            "script": 74908
+          },
+          "typedBytes": 74908
+        },
+        {
+          "entity": "vercel-storage.com",
+          "bytes": 6075,
+          "mainThreadMs": 0,
+          "byType": {
+            "image": 6075
+          },
+          "typedBytes": 6075
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 7152.8,
+      "byGroup": {
+        "scriptEvaluation": 5239.7,
+        "other": 919.9,
+        "styleLayout": 336.3,
+        "garbageCollection": 229.2,
+        "scriptParseCompile": 213.6,
+        "paintCompositeRender": 122.3,
+        "parseHTML": 91.9
+      },
+      "bootupMs": 5379,
+      "longTasks": 12,
+      "longestTaskMs": 237
+    },
+    "dom": {
+      "elements": 751,
+      "depth": 13,
+      "maxChildren": 47
+    },
+    "waste": {
+      "unusedJsBytes": 45176,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 11678,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 150,
+      "renderBlockingCount": 1,
+      "poorlyCachedBytes": 0,
+      "poorlyCachedCount": 0
+    },
+    "accessibility": {
+      "failingCount": 5,
+      "applicableCount": 25,
+      "failingNodes": 12,
+      "failing": [
+        {
+          "id": "heading-order",
+          "title": "Heading elements are not in a sequentially-descending order",
+          "weight": 3,
+          "nodes": 4
+        },
+        {
+          "id": "button-name",
+          "title": "Buttons do not have an accessible name",
+          "weight": 10,
+          "nodes": 3
+        },
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "weight": 7,
+          "nodes": 3
+        },
+        {
+          "id": "link-name",
+          "title": "Links do not have a discernible name",
+          "weight": 7,
+          "nodes": 1
+        },
+        {
+          "id": "landmark-one-main",
+          "title": "Document does not have a main landmark.",
+          "weight": 3,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 0,
+      "applicableCount": 20,
+      "failing": []
+    },
+    "seo": {
+      "failingCount": 0,
+      "applicableCount": 8,
+      "failing": []
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 50
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2418.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-09-21T23:08:12.017Z",
+      "runtimeMs": 13053.3
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 589.2,
+    "resourceLoadDelay": 11.9,
+    "resourceLoadDuration": 1828.7,
+    "elementRenderDelay": 3969.8
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-08-23",
+      "last": "2026-09-19"
+    },
+    "metrics": {
+      "ttfb": {
+        "p75": 527,
+        "rating": "good",
+        "distribution": {
+          "good": 87.2,
+          "needsImprovement": 9.1,
+          "poor": 3.7
+        }
+      },
+      "fcp": {
+        "p75": 1200,
+        "rating": "good",
+        "distribution": {
+          "good": 89.2,
+          "needsImprovement": 6.3,
+          "poor": 4.4
+        }
+      },
+      "inp": {
+        "p75": 112,
+        "rating": "good",
+        "distribution": {
+          "good": 92.9,
+          "needsImprovement": 6.2,
+          "poor": 1
+        }
+      },
+      "lcp": {
+        "p75": 1993,
+        "rating": "good",
+        "distribution": {
+          "good": 85.2,
+          "needsImprovement": 10,
+          "poor": 4.8
+        }
+      },
+      "rtt": {
+        "p75": 121,
+        "rating": null,
+        "distribution": {
+          "good": 48.3,
+          "needsImprovement": 44.4,
+          "poor": 7.3
+        }
+      },
+      "cls": {
+        "p75": 0,
+        "rating": "good",
+        "distribution": {
+          "good": 98.2,
+          "needsImprovement": 0.6,
+          "poor": 1.2
+        }
+      }
+    },
+    "cwvPass": true,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "probe": null,
+    "interstitial": "Vercel Security Checkpoint",
+    "host": {
+      "id": "vercel",
+      "name": "Vercel",
+      "icon": "Vercel",
+      "source": "x-vercel-id"
+    },
+    "headers": {
+      "server": "Vercel",
+      "x-vercel-id": "sfo1::1790032156-VBY7W2tQhSxzj02qlQmexMXlqYbGeroy"
+    },
+    "violations": null,
+    "passes": null,
+    "incomplete": null,
+    "violationRules": null,
+    "version": "4.13.0",
+    "top": [],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
