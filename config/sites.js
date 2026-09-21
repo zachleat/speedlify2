@@ -45,6 +45,7 @@ const STARTERS = [...new Set([...starters.urls, ...EXTRA_STARTERS])];
  */
 const EXTRA_EMERITUS = [
 	"https://annotator.incubator.apache.org/",
+	"https://www.axcora.com/",
 	/*
 	 * Redirects to scottpdawson.substack.com, and deleted from the community
 	 * repo upstream.
