@@ -125,6 +125,12 @@ describe("generator detection", () => {
 		assert.ok(!probe.marks.includes("remix"), "and is not mistaken for Remix");
 	});
 
+	test("ignores React Router in library mode", () => {
+		// Library mode sets only the version global, on apps some other tool built.
+		const probe = withDom("", pageProbe, { __reactRouterVersion: "7.9.1" });
+		assert.ok(!probe.marks.includes("reactrouter"));
+	});
+
 	test("a known generator tag beats an unknown one earlier in the document", () => {
 		// WordPress SEO plugins insert their own generator tag ahead of the CMS's.
 		// Reading only the first would credit the plugin with building the site.
