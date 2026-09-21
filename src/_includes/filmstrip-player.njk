@@ -172,9 +172,7 @@
 	}
 
 	// Scrolling by hand stops the playhead dragging the view back until the next reset.
-	["wheel", "touchstart", "pointerdown"].forEach(function (type) {
-		scroll.addEventListener(type, function () { follow = false; }, { passive: true });
-	});
+	L.onSidewaysScroll(scroll, function () { follow = false; });
 
 	var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 

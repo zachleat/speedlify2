@@ -1263,9 +1263,7 @@ title: Compare
 
 		/* Scrolling by hand is a decision to look somewhere; the playhead stops
 		   dragging the view back until the race is restarted. */
-		["wheel", "touchstart", "pointerdown"].forEach(function (type) {
-			scroll.addEventListener(type, function () { follow = false; }, { passive: true });
-		});
+		L.onSidewaysScroll(scroll, function () { follow = false; });
 
 		/* The address is the state, so Back has to mean something here. */
 		window.addEventListener("popstate", function () {

@@ -419,6 +419,33 @@
 		if (target > scroll.scrollLeft) scroll.scrollLeft = target;
 	}
 
+	// Calls back only for sideways scrolling by hand, so page scrolling over the strip leaves the follow alone.
+	function onSidewaysScroll(scroll, callback) {
+		scroll.addEventListener("wheel", function (e) {
+			// Shift turns a vertical wheel sideways.
+			if (e.shiftKey || Math.abs(e.deltaX) > Math.abs(e.deltaY)) callback();
+		}, { passive: true });
+
+		var startX = null, startY = null;
+		scroll.addEventListener("touchstart", function (e) {
+			startX = e.touches[0].clientX;
+			startY = e.touches[0].clientY;
+		}, { passive: true });
+		scroll.addEventListener("touchmove", function (e) {
+			if (startX === null) return;
+			var dx = Math.abs(e.touches[0].clientX - startX);
+			var dy = Math.abs(e.touches[0].clientY - startY);
+			if (dx < 8 && dy < 8) return;
+			if (dx > dy) callback();
+			startX = null;
+		}, { passive: true });
+
+		// Mouse only: a scrollbar drag or a click, never the start of a touch.
+		scroll.addEventListener("pointerdown", function (e) {
+			if (e.pointerType === "mouse") callback();
+		}, { passive: true });
+	}
+
 	window.FilmstripLanes = {
 		el: el,
 		fmtMs: fmtMs,
@@ -434,6 +461,7 @@
 		renderLane: renderLane,
 		laneFinish: laneFinish,
 		updateLane: updateLane,
-		followPlayhead: followPlayhead
+		followPlayhead: followPlayhead,
+		onSidewaysScroll: onSidewaysScroll
 	};
 })();
