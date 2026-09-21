@@ -366,6 +366,11 @@ function withDom(html, fn, windowGlobals = {}, nodes = []) {
 			if (query === "script[src], link[rel~='stylesheet'][href]") {
 				return assets.map((url) => ({ getAttribute: (name) => (name === "src" ? url : null) }));
 			}
+			if (query === "script[src], link[href], [import]") {
+				return [...html.matchAll(/\b(src|href|import)="([^"]+)"/g)].map((m) => ({
+					getAttribute: (name) => (name === m[1] ? m[2] : null),
+				}));
+			}
 			return isMetaQuery(query) ? metas : [];
 		},
 	};
@@ -501,6 +506,15 @@ describe("tools beyond the generator", () => {
 		// someone copied without the library behind it.
 		const copied = withDom("", pageProbe, { customElements: registry }, [{ localName: "wa-button" }]);
 		assert.ok(!copied.marks.includes("webawesome"));
+
+		// Not yet registered, but queued to load by a lazy island, as on 11ty.dev.
+		const lazy = withDom(
+			'<is-land on:visible import="/static/web-awesome/components/copy-button/copy-button.js">',
+			pageProbe,
+			{ customElements: registry },
+			[{ localName: "wa-copy-button" }],
+		);
+		assert.ok(lazy.marks.includes("webawesome"));
 	});
 
 	test("pageProbe finds Font Awesome in each shape it ships as", () => {
