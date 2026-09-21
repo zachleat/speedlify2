@@ -148,7 +148,7 @@ title: Open to Work
 				<td class="col-rings">
 					<span class="rings">
 					{% for score in metrics.SCORES %}
-						{% scoreRing entry.latest.lab.scores[score.key], score.label %}
+						{% scoreRing entry.latest.lab.scores[score.key], score.label, score.short %}
 					{% endfor %}
 					{% axeRing entry.axe %}
 					{% cwvRing entry.cwvFailures, entry.cwv.assessed, entry.cwvWorst %}

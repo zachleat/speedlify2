@@ -327,7 +327,7 @@ body { margin: 0; padding: 0; }
 	<div class="og-rings" id="og-rings" hidden>
 		{% for score in metrics.SCORES %}
 		<span class="og-ring">
-			{% scoreRing 100, score.label %}
+			{% scoreRing 100, score.label, score.short %}
 			<span class="og-ring-label">{{ score.label }}</span>
 		</span>
 		{% endfor %}

@@ -288,10 +288,11 @@ class SpeedlifyScore extends HTMLElement {
 		].join("");
 	}
 
-	scoreHtml(label, value) {
+	scoreHtml(label, sublabel, value) {
 		return this.ring({
 			band: this.scoreClass(value),
 			text: value ?? "–",
+			sublabel,
 			label: `${label}: ${value ?? "no data"}`,
 			pct: typeof value === "number" ? value / 100 : null,
 		});
@@ -333,10 +334,10 @@ class SpeedlifyScore extends HTMLElement {
 	 */
 	render(data) {
 		const rings = [
-			this.scoreHtml("Performance", data.lighthouse?.performance),
-			this.scoreHtml("Accessibility", data.lighthouse?.accessibility),
-			this.scoreHtml("Best Practices", data.lighthouse?.bestPractices),
-			this.scoreHtml("SEO", data.lighthouse?.seo),
+			this.scoreHtml("Performance", "PERF", data.lighthouse?.performance),
+			this.scoreHtml("Accessibility", "A11Y", data.lighthouse?.accessibility),
+			this.scoreHtml("Best Practices", "BEST", data.lighthouse?.bestPractices),
+			this.scoreHtml("SEO", "SEO", data.lighthouse?.seo),
 			this.axeHtml(data.axe),
 			this.cwvHtml(data.cwv),
 		].join("");

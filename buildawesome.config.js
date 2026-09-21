@@ -793,11 +793,15 @@ export default async function ($config) {
 		].join("");
 	}
 
-	/** One of the four Lighthouse categories: the arc is the score itself. */
-	$config.addShortcode("scoreRing", function (value, label = "", size = 37) {
+	/**
+	 * One of the four Lighthouse categories: the arc is the score itself. The
+	 * sublabel names the category, since four numbers in a row are hard to tell apart.
+	 */
+	$config.addShortcode("scoreRing", function (value, label = "", sublabel = "", size = 37) {
 		return ring({
 			band: scoreBand(value),
 			text: value ?? "–",
+			sublabel,
 			label: label ? `${label}: ${value ?? "no data"}` : String(value ?? "no data"),
 			pct: typeof value === "number" ? value / 100 : null,
 			size,

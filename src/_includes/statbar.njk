@@ -61,7 +61,7 @@
 		<p class="sotd-name"><a href="/site/{{ sotd.slug }}/">{{ sotd.displayUrl }}</a></p>
 		<span class="rings">
 			{% for score in metrics.SCORES %}
-			{% scoreRing sotd.latest.lab.scores[score.key], score.label %}
+			{% scoreRing sotd.latest.lab.scores[score.key], score.label, score.short %}
 			{% endfor %}
 			{% axeRing sotd.axe %}
 			{% cwvRing sotd.cwvFailures, sotd.cwv.assessed, sotd.cwvWorst %}
@@ -314,7 +314,7 @@
 			<span class="stat-label">Median Score <span class="tag stat-count">&times;{{ stats.medians.counts.scores | num }}</span></span>
 			<span class="rings">
 				{% for score in metrics.SCORES %}
-				{% scoreRing stats.medians.scores[score.key], "Median " + score.label %}
+				{% scoreRing stats.medians.scores[score.key], "Median " + score.label, score.short %}
 				{% endfor %}
 				{% axeRing stats.medians.axe, 37, "Median axe violations: " + (stats.medians.axe | default("no data")) + ", across " + (stats.medians.counts.axe | num) + " sites" %}
 				{% cwvRing stats.medians.cwvFailures, null, "poor", 37, "Median Core Web Vitals: " + (stats.medians.cwvFailures | default("no data")) + " failing, across " + (stats.medians.counts.cwv | num) + " sites with real-user data" %}
