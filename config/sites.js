@@ -425,6 +425,54 @@ const BUILD_TOOL_SITES = [
 	{ name: "webpack", url: "https://webpack.js.org/" },
 ];
 
+/*
+ * The featured sites from https://nextjs.org/showcase: the 32 entries its data
+ * marks `highlighted`, in its order, pulled September 2026.
+ *
+ * Where the showcase links to a Vercel case study rather than the site, the
+ * company's own home page stands in. Host-level redirects are pinned to their
+ * destination; path-level ones (Zapier, LG, Hulu) are left for redirect
+ * detection, since they are the site's own routing.
+ */
+const NEXTJS_SHOWCASE_SITES = [
+	{ name: "Zapier", url: "https://zapier.com/l/home" },
+	{ name: "Solana", url: "https://solana.com/" },
+	{ name: "Plex", url: "https://www.plex.tv/" },
+	{ name: "Wegmans", url: "https://www.wegmans.com/" },
+	{ name: "Wayfair", url: "https://www.wayfair.com/" },
+	{ name: "NerdWallet", url: "https://www.nerdwallet.com/" },
+	{ name: "Under Armour", url: "https://www.underarmour.com/" },
+	{ name: "Devolver", url: "https://www.devolverdigital.com/" },
+	{ name: "Anthropic", url: "https://www.anthropic.com/" },
+	// runwayml.com redirects to runway.com.
+	{ name: "Runway", url: "https://runway.com/" },
+	{ name: "Upstart", url: "https://www.upstart.com/" },
+	{ name: "The Washington Post", url: "https://www.washingtonpost.com/" },
+	{ name: "LG", url: "https://www.lg.com/" },
+	{ name: "Claude", url: "https://claude.ai/" },
+	{ name: "Perplexity", url: "https://www.perplexity.ai/" },
+	{ name: "OpenAI", url: "https://openai.com/" },
+	// Listed as m.tiktok.com, which redirects here.
+	{ name: "TikTok", url: "https://www.tiktok.com/" },
+	{ name: "Red Bull Jobs", url: "https://jobs.redbull.com/" },
+	{ name: "United Airlines Packages", url: "https://packages.united.com/" },
+	{ name: "Porsche Finder", url: "https://finder.porsche.com/" },
+	{ name: "Notion", url: "https://www.notion.com/" },
+	{ name: "GoPro", url: "https://gopro.com/" },
+	{ name: "Product Hunt", url: "https://www.producthunt.com/" },
+	{ name: "DoorDash", url: "https://www.doordash.com/" },
+	{ name: "Typeform", url: "https://www.typeform.com/" },
+	{ name: "GiveIndia", url: "https://www.giveindia.org/" },
+	// Listed as Framer Motion; framer.com/motion now redirects to its successor.
+	{ name: "Motion", url: "https://motion.dev/" },
+	{ name: "ColorBox", url: "https://colorbox.io/" },
+	// Listed as A+E Networks, which rebranded; aenetworks.com 301s here.
+	{ name: "A+E Global Media", url: "https://www.aegm.com/" },
+	{ name: "Hulu", url: "https://www.hulu.com/" },
+	{ name: "Ferrari", url: "https://www.ferrari.com/" },
+	{ name: "Leonardo.Ai", url: "https://leonardo.ai/" },
+];
+
 export default {
 	// Read by lib/config.js, which marks the matching sites as it flattens the
 	// groups — one place rather than a filter on each category's list.
@@ -646,6 +694,18 @@ export default {
 			...EVERY_OTHER_DAY,
 			...POLITE,
 			sites: BIG_TECH_SITES,
+		},
+
+		// After AI, so Anthropic, OpenAI and Perplexity keep AI as their primary category.
+		"nextjs-showcase": {
+			showHealth: true,
+			name: "Next.js Showcase",
+			enabled: true,
+			description:
+				'Featured sites from the <a href="https://nextjs.org/showcase">Next.js Showcase</a>.',
+			...WEEKLY,
+			...POLITE,
+			sites: NEXTJS_SHOWCASE_SITES,
 		},
 
 		ssg: {
