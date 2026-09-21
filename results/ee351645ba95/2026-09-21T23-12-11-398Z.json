@@ -1,0 +1,432 @@
+{
+  "url": "https://www.plex.tv/",
+  "name": "Plex",
+  "group": "nextjs-showcase",
+  "groupName": "Next.js Showcase",
+  "timestamp": 1790032331398,
+  "date": "2026-09-21T23:12:11.398Z",
+  "runId": "2026-09-21T23-01-49-253Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 168636,
+  "error": null,
+  "variance": {
+    "min": 26,
+    "max": 27,
+    "spread": 1,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://www.plex.tv/",
+    "finalUrl": "https://watch.plex.tv/",
+    "redirect": {
+      "from": "https://www.plex.tv/",
+      "to": "https://watch.plex.tv/",
+      "chain": [
+        {
+          "url": "https://www.plex.tv/",
+          "status": 301
+        },
+        {
+          "url": "https://watch.plex.tv/",
+          "status": 200
+        }
+      ],
+      "statuses": [
+        301
+      ],
+      "change": "host",
+      "permanent": true,
+      "schemeUpgrade": false,
+      "hops": 1
+    },
+    "statusCode": "ok",
+    "scores": {
+      "performance": 26,
+      "accessibility": 93,
+      "best-practices": 54,
+      "seo": 83,
+      "agentic-browsing": 67
+    },
+    "timings": {
+      "fcp": 7820,
+      "lcp": 21495,
+      "si": 11165,
+      "tbt": 4427,
+      "tti": 38389,
+      "cls": 0.004,
+      "ttfb": 655,
+      "maxPotentialFid": 927,
+      "serverResponseTime": 136,
+      "networkRtt": 92.1,
+      "networkServerLatency": 130.9
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 178.7,
+      "resourceLoadDelay": 1574.4,
+      "resourceLoadDuration": 47.5,
+      "elementRenderDelay": 627.1
+    },
+    "weight": {
+      "total": 5340191,
+      "requests": 441,
+      "mainDocument": 231781,
+      "byType": {
+        "total": {
+          "bytes": 5339799,
+          "requests": 437
+        },
+        "script": {
+          "bytes": 3598489,
+          "requests": 106
+        },
+        "image": {
+          "bytes": 1192001,
+          "requests": 149
+        },
+        "document": {
+          "bytes": 238597,
+          "requests": 5
+        },
+        "other": {
+          "bytes": 158000,
+          "requests": 131
+        },
+        "font": {
+          "bytes": 97054,
+          "requests": 2
+        },
+        "stylesheet": {
+          "bytes": 55658,
+          "requests": 44
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 2853728,
+          "requests": 194
+        }
+      },
+      "scripts": 108,
+      "stylesheets": 44,
+      "fonts": 2
+    },
+    "thirdParty": {
+      "count": 36,
+      "bytes": 2801095,
+      "mainThreadMs": 948.5,
+      "top": [
+        {
+          "entity": "Google Tag Manager",
+          "bytes": 670842,
+          "mainThreadMs": 216.9,
+          "byType": {
+            "script": 670842
+          },
+          "typedBytes": 670842
+        },
+        {
+          "entity": "intergient.com",
+          "bytes": 443788,
+          "mainThreadMs": 122.4,
+          "byType": {
+            "script": 443597,
+            "other": 191
+          },
+          "typedBytes": 443788
+        },
+        {
+          "entity": "Google/Doubleclick Ads",
+          "bytes": 367204,
+          "mainThreadMs": 67.1,
+          "byType": {
+            "script": 342721,
+            "other": 24483
+          },
+          "typedBytes": 367204
+        },
+        {
+          "entity": "confiant-integrations.net",
+          "bytes": 230800,
+          "mainThreadMs": 146.8,
+          "byType": {
+            "script": 230800
+          },
+          "typedBytes": 230800
+        },
+        {
+          "entity": "TikTok",
+          "bytes": 164694,
+          "mainThreadMs": 80.4,
+          "byType": {
+            "script": 161972,
+            "other": 2722
+          },
+          "typedBytes": 164694
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 16241.7,
+      "byGroup": {
+        "scriptEvaluation": 8779.4,
+        "other": 3751.4,
+        "styleLayout": 1255.4,
+        "scriptParseCompile": 1109.5,
+        "paintCompositeRender": 719.4,
+        "garbageCollection": 438.8,
+        "parseHTML": 187.8
+      },
+      "bootupMs": 8863.2,
+      "longTasks": 20,
+      "longestTaskMs": 927
+    },
+    "dom": {
+      "elements": 8750,
+      "depth": 25,
+      "maxChildren": 322
+    },
+    "waste": {
+      "unusedJsBytes": 1614918,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 82737,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 3857,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 151,
+      "renderBlockingCount": 39,
+      "poorlyCachedBytes": 598336.0072222225,
+      "poorlyCachedCount": 45
+    },
+    "accessibility": {
+      "failingCount": 2,
+      "applicableCount": 30,
+      "failingNodes": 47,
+      "failing": [
+        {
+          "id": "aria-prohibited-attr",
+          "title": "Elements use prohibited ARIA attributes",
+          "weight": 7,
+          "nodes": 35
+        },
+        {
+          "id": "link-name",
+          "title": "Links do not have a discernible name",
+          "weight": 7,
+          "nodes": 12
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 5,
+      "applicableCount": 18,
+      "failing": [
+        {
+          "id": "deprecations",
+          "title": "Uses deprecated APIs",
+          "weight": 5,
+          "nodes": 1
+        },
+        {
+          "id": "third-party-cookies",
+          "title": "Uses third-party cookies",
+          "weight": 5,
+          "nodes": 43
+        },
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "weight": 1,
+          "nodes": 2
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "weight": 1,
+          "nodes": 1
+        },
+        {
+          "id": "valid-source-maps",
+          "title": "Missing source maps for large first-party JavaScript",
+          "weight": 0,
+          "nodes": 1
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 2,
+      "applicableCount": 9,
+      "failing": [
+        {
+          "id": "meta-description",
+          "title": "Document does not have a meta description",
+          "weight": 1,
+          "nodes": null
+        },
+        {
+          "id": "link-text",
+          "title": "Links do not have descriptive text",
+          "weight": 1,
+          "nodes": 20
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": null,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 0,
+      "bfCacheFailures": 4,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 770.2,
+      "consoleErrors": 2,
+      "baselineLimitedFeatures": 58
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2910.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-09-21T23:12:12.594Z",
+      "runtimeMs": 31832.6
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 1245.5,
+    "resourceLoadDelay": 4750.8,
+    "resourceLoadDuration": 1286.6,
+    "elementRenderDelay": 33.7
+  },
+  "field": {
+    "source": "crux",
+    "scope": "origin",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-08-23",
+      "last": "2026-09-19"
+    },
+    "metrics": {
+      "ttfb": {
+        "p75": 713,
+        "rating": "good",
+        "distribution": {
+          "good": 78.1,
+          "needsImprovement": 15,
+          "poor": 6.9
+        }
+      },
+      "fcp": {
+        "p75": 1505,
+        "rating": "good",
+        "distribution": {
+          "good": 81,
+          "needsImprovement": 11.6,
+          "poor": 7.3
+        }
+      },
+      "inp": {
+        "p75": 228,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 68.8,
+          "needsImprovement": 26.1,
+          "poor": 5.1
+        }
+      },
+      "lcp": {
+        "p75": 2060,
+        "rating": "good",
+        "distribution": {
+          "good": 81.5,
+          "needsImprovement": 11,
+          "poor": 7.5
+        }
+      },
+      "rtt": {
+        "p75": 159,
+        "rating": null,
+        "distribution": {
+          "good": 35.6,
+          "needsImprovement": 55.1,
+          "poor": 9.3
+        }
+      },
+      "cls": {
+        "p75": 0.03,
+        "rating": "good",
+        "distribution": {
+          "good": 87.7,
+          "needsImprovement": 10.2,
+          "poor": 2.1
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": {
+      "id": "nextjs",
+      "name": "Next.js",
+      "icon": "Nextdotjs",
+      "version": null,
+      "source": "dom",
+      "raw": null
+    },
+    "probe": {
+      "metas": [],
+      "marks": [
+        "next",
+        "react"
+      ],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "cloudflare",
+      "name": "Cloudflare",
+      "icon": "Cloudflare",
+      "source": "server"
+    },
+    "headers": {
+      "cf-ray": "a3ecc2f6dcece977-IAD",
+      "server": "cloudflare"
+    },
+    "violations": 49,
+    "passes": 14539,
+    "incomplete": 679,
+    "violationRules": 3,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "aria-prohibited-attr",
+        "impact": "serious",
+        "nodes": 35,
+        "help": "Elements must only use permitted ARIA attributes"
+      },
+      {
+        "id": "link-name",
+        "impact": "serious",
+        "nodes": 12,
+        "help": "Links must have discernible text"
+      },
+      {
+        "id": "landmark-unique",
+        "impact": "moderate",
+        "nodes": 2,
+        "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination"
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
