@@ -944,6 +944,7 @@ export default async function ($config) {
 		if (typeof hours !== "number" || hours <= 0) return null;
 		if (hours === 24) return "once a day";
 		if (hours === 24 * 7) return "once a week";
+		if (hours === 24 * 30) return "once a month";
 		if (hours % (24 * 7) === 0) return `every ${hours / (24 * 7)} weeks`;
 		if (hours % 24 === 0) return `every ${hours / 24} days`;
 		if (hours === 1) return "once an hour";

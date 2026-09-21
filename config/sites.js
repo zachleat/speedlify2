@@ -126,7 +126,7 @@ const ARCHIVED = archived.urls;
 const PINNED = pinned.urls;
 
 /**
- * The two cadences, and the one politeness setting, that repeat across
+ * The cadences, and the one politeness setting, that repeat across
  * categories.
  *
  * Spread into a group rather than retyped: these are the same decision applied
@@ -138,6 +138,7 @@ const PINNED = pinned.urls;
 // const DAILY = { freshnessHours: 24, staleAfterHours: 24 * 2 };
 const EVERY_OTHER_DAY = { freshnessHours: 24 * 2, staleAfterHours: 24 * 3 };
 const WEEKLY = { freshnessHours: 24 * 7, staleAfterHours: 24 * 7 * 2 };
+const MONTHLY = { freshnessHours: 24 * 30, staleAfterHours: 24 * 30 * 2 };
 
 /**
  * Other people's sites, mostly on modest hosting, measured at a deliberate
@@ -920,7 +921,7 @@ export default {
 				"Sites that were previously built with Build Awesome or Eleventy but have migrated to use something else (since April 2018).",
 
 			...POLITE,
-			...WEEKLY,
+			...MONTHLY,
 
 			// For storage reasons, and "none" rather than "primary": these sites
 			// left, so there is no comparison here anyone is coming to look at.
