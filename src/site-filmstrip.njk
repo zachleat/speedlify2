@@ -34,6 +34,7 @@ try {
 	{%- from "throttle-tag.njk" import filmstripThrottleTag %}{{ filmstripThrottleTag(entry.filmstrip) }}
 	<span class="muted small filmstrip-embed-credit">Filmstrip from <a href="/" target="_blank">{{ meta.title }}</a></span>
 </p>
+{% set filmstripNoSpeed = true %}
 {% include "filmstrip-player.njk" %}
 {% getBundle "fontawesome" %}
 </body>

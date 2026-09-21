@@ -13,6 +13,7 @@
 <div class="race filmstrip-player" id="filmstrip-player" hidden>
 	<div class="race-controls">
 		<button type="button" class="race-play" id="filmstrip-replay">Replay</button>
+		{%- if not filmstripNoSpeed %}
 		<label class="race-speed">
 			Speed
 			<select id="filmstrip-speed">
@@ -23,6 +24,7 @@
 				<option value="4">4&times;</option>
 			</select>
 		</label>
+		{%- endif %}
 		<input type="range" class="race-scrub" id="filmstrip-scrub" min="0" max="1000" value="0" step="1"
 			aria-label="Scrub through the filmstrip">
 		<output class="race-clock" id="filmstrip-clock">0 ms</output>
@@ -160,12 +162,14 @@
 		scrollToLive(now);
 	});
 	var speedSelect = document.getElementById("filmstrip-speed");
-	speed = parseFloat(speedSelect.value) || 1;
-	speedSelect.addEventListener("change", function () {
-		speed = parseFloat(this.value) || 1;
-		// Rebased so the new rate applies from here rather than to the elapsed time.
-		lastFrameTime = 0;
-	});
+	if (speedSelect) {
+		speed = parseFloat(speedSelect.value) || 1;
+		speedSelect.addEventListener("change", function () {
+			speed = parseFloat(this.value) || 1;
+			// Rebased so the new rate applies from here rather than to the elapsed time.
+			lastFrameTime = 0;
+		});
+	}
 
 	// Scrolling by hand stops the playhead dragging the view back until the next reset.
 	["wheel", "touchstart", "pointerdown"].forEach(function (type) {
