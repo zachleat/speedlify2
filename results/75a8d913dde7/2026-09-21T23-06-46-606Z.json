@@ -1,0 +1,351 @@
+{
+  "url": "https://jobs.redbull.com/",
+  "name": "Red Bull Jobs",
+  "group": "nextjs-showcase",
+  "groupName": "Next.js Showcase",
+  "timestamp": 1790032006606,
+  "date": "2026-09-21T23:06:46.606Z",
+  "runId": "2026-09-21T23-01-55-195Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 117928,
+  "error": null,
+  "variance": {
+    "min": 10,
+    "max": 32,
+    "spread": 22,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://jobs.redbull.com/",
+    "finalUrl": "https://jobs.redbull.com/us-en",
+    "redirect": {
+      "from": "https://jobs.redbull.com/",
+      "to": "https://jobs.redbull.com/us-en",
+      "chain": [
+        {
+          "url": "https://jobs.redbull.com/",
+          "status": 302
+        },
+        {
+          "url": "https://jobs.redbull.com/us-en",
+          "status": 200
+        }
+      ],
+      "statuses": [
+        302
+      ],
+      "change": "path",
+      "permanent": false,
+      "schemeUpgrade": false,
+      "hops": 1
+    },
+    "statusCode": "ok",
+    "scores": {
+      "performance": 23,
+      "accessibility": 87,
+      "best-practices": 100,
+      "seo": 92,
+      "agentic-browsing": 23
+    },
+    "timings": {
+      "fcp": 3229,
+      "lcp": 12303,
+      "si": 7474,
+      "tbt": 1338,
+      "tti": 16446,
+      "cls": 0.27,
+      "ttfb": 645,
+      "maxPotentialFid": 360,
+      "serverResponseTime": 43,
+      "networkRtt": 1.5,
+      "networkServerLatency": 157.1
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 82.4,
+      "resourceLoadDelay": 80,
+      "resourceLoadDuration": 509,
+      "elementRenderDelay": 324.1
+    },
+    "weight": {
+      "total": 23190584,
+      "requests": 154,
+      "mainDocument": 21591,
+      "byType": {
+        "total": {
+          "bytes": 23190584,
+          "requests": 149
+        },
+        "media": {
+          "bytes": 19694489,
+          "requests": 3
+        },
+        "script": {
+          "bytes": 1508931,
+          "requests": 36
+        },
+        "image": {
+          "bytes": 1426060,
+          "requests": 72
+        },
+        "font": {
+          "bytes": 391868,
+          "requests": 8
+        },
+        "other": {
+          "bytes": 127057,
+          "requests": 21
+        },
+        "document": {
+          "bytes": 22565,
+          "requests": 3
+        },
+        "stylesheet": {
+          "bytes": 19614,
+          "requests": 6
+        },
+        "third-party": {
+          "bytes": 162419,
+          "requests": 8
+        }
+      },
+      "scripts": 36,
+      "stylesheets": 6,
+      "fonts": 8
+    },
+    "thirdParty": {
+      "count": 3,
+      "bytes": 162419,
+      "mainThreadMs": 53.2,
+      "top": [
+        {
+          "entity": "Optanon",
+          "bytes": 162027,
+          "mainThreadMs": 52.6,
+          "byType": {
+            "script": 136251,
+            "other": 25776
+          },
+          "typedBytes": 162027
+        },
+        {
+          "entity": "Google Tag Manager",
+          "bytes": 217,
+          "mainThreadMs": 0.4,
+          "byType": {
+            "script": 217
+          },
+          "typedBytes": 217
+        },
+        {
+          "entity": "polyfill-fastly.io",
+          "bytes": 175,
+          "mainThreadMs": 0.2,
+          "byType": {
+            "script": 175
+          },
+          "typedBytes": 175
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 5741.8,
+      "byGroup": {
+        "scriptEvaluation": 2611.5,
+        "other": 1416.9,
+        "styleLayout": 768.3,
+        "scriptParseCompile": 581.2,
+        "paintCompositeRender": 174.8,
+        "garbageCollection": 118.1,
+        "parseHTML": 70.9
+      },
+      "bootupMs": 3026,
+      "longTasks": 20,
+      "longestTaskMs": 360
+    },
+    "dom": {
+      "elements": 1039,
+      "depth": 20,
+      "maxChildren": 62
+    },
+    "waste": {
+      "unusedJsBytes": 760214,
+      "unusedCssBytes": 21801,
+      "legacyJsBytes": 21775,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 1534,
+      "renderBlockingCount": 6,
+      "poorlyCachedBytes": 310264.7083333334,
+      "poorlyCachedCount": 6
+    },
+    "accessibility": {
+      "failingCount": 5,
+      "applicableCount": 37,
+      "failingNodes": 11,
+      "failing": [
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "weight": 7,
+          "nodes": 7
+        },
+        {
+          "id": "aria-dialog-name",
+          "title": "Elements with `role=\"dialog\"` or `role=\"alertdialog\"` do not have accessible names.",
+          "weight": 7,
+          "nodes": 1
+        },
+        {
+          "id": "heading-order",
+          "title": "Heading elements are not in a sequentially-descending order",
+          "weight": 3,
+          "nodes": 1
+        },
+        {
+          "id": "label",
+          "title": "Form elements do not have associated labels",
+          "weight": 10,
+          "nodes": 1
+        },
+        {
+          "id": "target-size",
+          "title": "Touch targets do not have sufficient size or spacing.",
+          "weight": 7,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 1,
+      "applicableCount": 20,
+      "failing": [
+        {
+          "id": "valid-source-maps",
+          "title": "Missing source maps for large first-party JavaScript",
+          "weight": 0,
+          "nodes": 3
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 1,
+      "applicableCount": 9,
+      "failing": [
+        {
+          "id": "crawlable-anchors",
+          "title": "Links are not crawlable",
+          "weight": 1,
+          "nodes": 12
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 1,
+      "redirectMs": 794.5,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 39
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2486,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-09-21T23:07:16.829Z",
+      "runtimeMs": 12040.2
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 1169.3,
+    "resourceLoadDelay": 1182.1,
+    "resourceLoadDuration": 5773.3,
+    "elementRenderDelay": 7250
+  },
+  "field": null,
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": {
+      "id": "nextjs",
+      "name": "Next.js",
+      "icon": "Nextdotjs",
+      "version": null,
+      "source": "dom",
+      "raw": null
+    },
+    "probe": {
+      "metas": [],
+      "marks": [
+        "next",
+        "react"
+      ],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "akamai",
+      "name": "Akamai",
+      "icon": "Akamai",
+      "source": "server"
+    },
+    "headers": {
+      "server": "AkamaiGHost"
+    },
+    "violations": 43,
+    "passes": 1061,
+    "incomplete": 59,
+    "violationRules": 6,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 22,
+        "help": "All page content should be contained by landmarks"
+      },
+      {
+        "id": "nested-interactive",
+        "impact": "serious",
+        "nodes": 11,
+        "help": "Interactive controls must not be nested"
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 7,
+        "help": "Elements must meet minimum color contrast ratio thresholds"
+      },
+      {
+        "id": "aria-dialog-name",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "ARIA dialog and alertdialog nodes should have an accessible name"
+      },
+      {
+        "id": "heading-order",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Heading levels should only increase by one"
+      },
+      {
+        "id": "label",
+        "impact": "critical",
+        "nodes": 1,
+        "help": "Form elements must have labels"
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}

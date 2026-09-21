@@ -1,0 +1,379 @@
+{
+  "url": "https://motion.dev/",
+  "name": "Motion",
+  "group": "nextjs-showcase",
+  "groupName": "Next.js Showcase",
+  "timestamp": 1790032127535,
+  "date": "2026-09-21T23:08:47.535Z",
+  "runId": "2026-09-21T23-01-55-195Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 69775,
+  "error": null,
+  "variance": {
+    "min": 60,
+    "max": 67,
+    "spread": 7,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://motion.dev/",
+    "finalUrl": "https://motion.dev/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 61,
+      "accessibility": 92,
+      "best-practices": 77,
+      "seo": 100,
+      "agentic-browsing": 100
+    },
+    "timings": {
+      "fcp": 6160,
+      "lcp": 7283,
+      "si": 6160,
+      "tbt": 57,
+      "tti": 7283,
+      "cls": 0,
+      "ttfb": 684,
+      "maxPotentialFid": 107,
+      "serverResponseTime": 97,
+      "networkRtt": 27.9,
+      "networkServerLatency": 186.8
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 165.5,
+      "elementRenderDelay": 2162
+    },
+    "weight": {
+      "total": 910376,
+      "requests": 106,
+      "mainDocument": 29701,
+      "byType": {
+        "total": {
+          "bytes": 910376,
+          "requests": 106
+        },
+        "script": {
+          "bytes": 747488,
+          "requests": 84
+        },
+        "stylesheet": {
+          "bytes": 74591,
+          "requests": 13
+        },
+        "font": {
+          "bytes": 54450,
+          "requests": 2
+        },
+        "document": {
+          "bytes": 29701,
+          "requests": 1
+        },
+        "other": {
+          "bytes": 3315,
+          "requests": 5
+        },
+        "image": {
+          "bytes": 831,
+          "requests": 1
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 97707,
+          "requests": 7
+        }
+      },
+      "scripts": 84,
+      "stylesheets": 13,
+      "fonts": 2
+    },
+    "thirdParty": {
+      "count": 4,
+      "bytes": 97707,
+      "mainThreadMs": 10.3,
+      "top": [
+        {
+          "entity": "Google Fonts",
+          "bytes": 55534,
+          "mainThreadMs": 0,
+          "byType": {
+            "font": 54450,
+            "stylesheet": 1084
+          },
+          "typedBytes": 55534
+        },
+        {
+          "entity": "paddle.com",
+          "bytes": 18185,
+          "mainThreadMs": 4.5,
+          "byType": {
+            "script": 17049,
+            "stylesheet": 1136
+          },
+          "typedBytes": 18185
+        },
+        {
+          "entity": "profitwell.com",
+          "bytes": 13650,
+          "mainThreadMs": 2.2,
+          "byType": {
+            "script": 13650
+          },
+          "typedBytes": 13650
+        },
+        {
+          "entity": "Cloudflare",
+          "bytes": 10338,
+          "mainThreadMs": 3.6,
+          "byType": {
+            "script": 10338
+          },
+          "typedBytes": 10338
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 2703.8,
+      "byGroup": {
+        "other": 1186.6,
+        "scriptEvaluation": 881.3,
+        "styleLayout": 370.7,
+        "paintCompositeRender": 135.7,
+        "parseHTML": 85.9,
+        "scriptParseCompile": 40.4,
+        "garbageCollection": 3.1
+      },
+      "bootupMs": 815.8,
+      "longTasks": 6,
+      "longestTaskMs": 489
+    },
+    "dom": {
+      "elements": 1456,
+      "depth": 18,
+      "maxChildren": 13
+    },
+    "waste": {
+      "unusedJsBytes": 395285,
+      "unusedCssBytes": 12604,
+      "legacyJsBytes": 10840,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 1876,
+      "renderBlockingCount": 12,
+      "poorlyCachedBytes": 26579.375,
+      "poorlyCachedCount": 5
+    },
+    "accessibility": {
+      "failingCount": 4,
+      "applicableCount": 31,
+      "failingNodes": 35,
+      "failing": [
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "weight": 7,
+          "nodes": 29
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "title": "Elements with visible text labels do not have matching accessible names.",
+          "weight": 0,
+          "nodes": 3
+        },
+        {
+          "id": "target-size",
+          "title": "Touch targets do not have sufficient size or spacing.",
+          "weight": 7,
+          "nodes": 2
+        },
+        {
+          "id": "heading-order",
+          "title": "Heading elements are not in a sequentially-descending order",
+          "weight": 3,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 3,
+      "applicableCount": 19,
+      "failing": [
+        {
+          "id": "third-party-cookies",
+          "title": "Uses third-party cookies",
+          "weight": 5,
+          "nodes": 1
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "weight": 1,
+          "nodes": 1
+        },
+        {
+          "id": "valid-source-maps",
+          "title": "Missing source maps for large first-party JavaScript",
+          "weight": 0,
+          "nodes": 2
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 0,
+      "applicableCount": 10,
+      "failing": []
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 39
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2503.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-09-21T23:08:48.807Z",
+      "runtimeMs": 12529.3
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 591.1,
+    "elementRenderDelay": 7946.2
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-08-23",
+      "last": "2026-09-19"
+    },
+    "metrics": {
+      "lcp": {
+        "p75": 2788,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 69.1,
+          "needsImprovement": 18,
+          "poor": 12.9
+        }
+      },
+      "rtt": {
+        "p75": 198,
+        "rating": null,
+        "distribution": {
+          "good": 25.5,
+          "needsImprovement": 61.3,
+          "poor": 13.2
+        }
+      },
+      "cls": {
+        "p75": 0,
+        "rating": "good",
+        "distribution": {
+          "good": 98.5,
+          "needsImprovement": 0.8,
+          "poor": 0.7
+        }
+      },
+      "ttfb": {
+        "p75": 881,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 70.5,
+          "needsImprovement": 22.8,
+          "poor": 6.8
+        }
+      },
+      "fcp": {
+        "p75": 2154,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 67.2,
+          "needsImprovement": 19.6,
+          "poor": 13.3
+        }
+      },
+      "inp": {
+        "p75": 126,
+        "rating": "good",
+        "distribution": {
+          "good": 86.5,
+          "needsImprovement": 9,
+          "poor": 4.5
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": {
+      "id": "reactrouter",
+      "name": "React Router",
+      "icon": "Reactrouter",
+      "version": null,
+      "source": "dom",
+      "raw": null
+    },
+    "probe": {
+      "metas": [],
+      "marks": [
+        "reactrouter",
+        "react"
+      ],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "cloudflare",
+      "name": "Cloudflare",
+      "icon": "Cloudflare",
+      "source": "server"
+    },
+    "headers": {
+      "cf-ray": "a3ecbcc3abe4f017-SJC",
+      "server": "cloudflare"
+    },
+    "violations": 29,
+    "passes": 2407,
+    "incomplete": 44,
+    "violationRules": 2,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 28,
+        "help": "Elements must meet minimum color contrast ratio thresholds"
+      },
+      {
+        "id": "heading-order",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Heading levels should only increase by one"
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
