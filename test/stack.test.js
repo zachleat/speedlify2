@@ -414,8 +414,6 @@ describe("tools beyond the generator", () => {
 	});
 
 	test("marks what the primary implies, naming the tool that brings it", () => {
-		// Kept for the site's own Stack panel and left off the leaderboard, which
-		// counts `implied` out — every Next.js site would otherwise wear "+1 React".
 		const next = { marks: ["next", "react"] };
 		assert.deepEqual(detectTools(next, {}, detectGenerator(next)).map((t) => [t.name, t.implied]), [
 			["React", "Next.js"],

@@ -256,11 +256,9 @@ permalink: /index.html
 						{% elif entry.presumedGenerator %}{% stackIcon entry.presumedGenerator, 22 %}
 						{% else %}<span class="stack-none" title="No generator detected">·</span>{% endif %}
 					</td>
-					{#- Implied tools are left to the site's own Stack panel: "+1 React" on
-					    every Next.js row costs the badge its meaning where it has one. -#}
 					{#- `or []`, since a site measured before the probe was stored has no tool list
-					    at all and the filter cannot read null. -#}
-					{%- set extraTools = (entry.tools or []) | rejectattr("implied") %}
+					    at all and the slice cannot read null. -#}
+					{%- set extraTools = entry.tools or [] %}
 					{#- Three, because that is what the column is wide enough to show without
 					    the row turning into a list. The rest stay a count. -#}
 					{%- set shownTools = extraTools.slice(0, 3) %}
