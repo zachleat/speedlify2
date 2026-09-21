@@ -468,13 +468,7 @@ eleventyComputed:
 {% set labKind = ("simulated" if labMethod == "simulate" else "throttled") if labMethod else null %}
 {% set observedKind = ("unthrottled" if labMethod == "simulate" else "throttled") if labMethod else null %}
 
-{#- Emoji rather than Font Awesome: the matching marks are Pro-only. Decorative — the word carries the meaning. #}
-{% macro throttleTag(kind, title) %}
-{%- if kind == "throttled" %} <span class="tag" title="{{ title or "Measured with the connection and processor actually throttled, so this is a slow load." }}"><span class="tag-mark" aria-hidden="true">🐢</span> Throttled</span>
-{%- elif kind == "unthrottled" %} <span class="tag tag-quiet" title="{{ title or "Read straight off a load that ran at full speed, before Lighthouse modeled any throttling, so these figures are faster than the estimates beside them." }}"><span class="tag-mark" aria-hidden="true">🐇</span> Unthrottled</span>
-{%- elif kind == "simulated" %} <span class="tag tag-quiet" title="{{ title or "Lighthouse's default simulated throttling: the page loaded at full speed and these figures were modeled afterwards as a slow phone on a slow connection." }}"><span class="tag-mark" aria-hidden="true">🤖</span> Simulated</span>
-{%- endif -%}
-{% endmacro %}
+{% from "throttle-tag.njk" import throttleTag, filmstripThrottleTag %}
 
 {#
 	The page in the order a reader works through it: what the site is built on,
@@ -566,11 +560,7 @@ eleventyComputed:
 		and reading it as what a phone on a slow connection sees is the mistake
 		this label exists to prevent.
 	#}
-	<h2>Filmstrip <span class="tag">LAB</span>
-		{%- if entry.filmstrip.throttled === true %}{{ throttleTag("throttled", "Captured with the connection and processor actually throttled, so these frames are a slow load.") }}
-		{%- elif entry.filmstrip.throttled === false %}{{ throttleTag("unthrottled", "Captured with Lighthouse's default simulated throttling, which does not slow the browser: the page loaded at full speed and the metrics were estimated afterwards. These frames are a fast load.") }}
-		{%- endif %}
-	</h2>
+	<h2>Filmstrip <span class="tag">LAB</span>{{ filmstripThrottleTag(entry.filmstrip) }}</h2>
 	<p class="muted small">
 		How the page drew during the measured load, at
 		{{ entry.filmstrip.frames.length }} points across

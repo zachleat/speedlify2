@@ -31,7 +31,8 @@ try {
 		{% if avatar %}<img class="favicon" src="{{ avatar }}" width="32" height="32" alt="" decoding="async">{% endif %}
 		<span>{{ entry.displayUrl }}</span>
 	</a>
-	<span class="muted small">Filmstrip from <a href="/" target="_blank">{{ meta.title }}</a></span>
+	{%- from "throttle-tag.njk" import filmstripThrottleTag %}{{ filmstripThrottleTag(entry.filmstrip) }}
+	<span class="muted small filmstrip-embed-credit">Filmstrip from <a href="/" target="_blank">{{ meta.title }}</a></span>
 </p>
 {% include "filmstrip-player.njk" %}
 {% getBundle "fontawesome" %}
