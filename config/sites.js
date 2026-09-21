@@ -473,6 +473,36 @@ const NEXTJS_SHOWCASE_SITES = [
 	{ name: "Leonardo.Ai", url: "https://leonardo.ai/" },
 ];
 
+/*
+ * The featured sites from https://wordpress.org/showcase, in its order, pulled
+ * September 2026.
+ *
+ * Host-level redirects are pinned to their destination; path-level ones are
+ * left for redirect detection. The Ray Charles Video Museum is left out, as
+ * raycharlesvideomuseum.nl did not respond.
+ */
+const WORDPRESS_SHOWCASE_SITES = [
+	{ name: "The Ankler", url: "https://theankler.com/" },
+	{ name: "Daily Kos", url: "https://www.dailykos.com/" },
+	{ name: "Taylor Swift", url: "https://www.taylorswift.com/" },
+	// Listed as Disney Connect; disneyconnect.com 301s here.
+	{ name: "Disney Experiences", url: "https://disneyexperiences.com/" },
+	{ name: "The Atavist Magazine", url: "https://magazine.atavist.com/" },
+	{ name: "NASA", url: "https://www.nasa.gov/" },
+	{ name: "PichiAvo", url: "https://www.pichiavo.com/" },
+	{ name: "Noma", url: "https://noma.dk/" },
+	// Listed as /los-angeles/, which now redirects to a single video project.
+	{ name: "Landia", url: "https://www.landia.com/" },
+	{ name: "The Noguchi Museum", url: "https://www.noguchi.org/" },
+	{ name: "Ubisoft Québec", url: "https://quebec.ubisoft.com/en/" },
+	{ name: "Art Gallery of Ballarat", url: "https://www.artgalleryofballarat.com.au/" },
+	{ name: "Steffie de Leeuw", url: "https://steffiedeleeuw.com/" },
+	{ name: "Designmuseum Danmark", url: "https://designmuseum.dk/" },
+	{ name: "Rolling Stone", url: "https://www.rollingstone.com/" },
+	{ name: "Fabbrica", url: "https://fabbricagroup.fr/" },
+	{ name: "The White House", url: "https://www.whitehouse.gov/" },
+];
+
 export default {
 	// Read by lib/config.js, which marks the matching sites as it flattens the
 	// groups — one place rather than a filter on each category's list.
@@ -706,6 +736,17 @@ export default {
 			...WEEKLY,
 			...POLITE,
 			sites: NEXTJS_SHOWCASE_SITES,
+		},
+
+		"wordpress-showcase": {
+			showHealth: true,
+			name: "WordPress Showcase",
+			enabled: true,
+			description:
+				'Featured sites from the <a href="https://wordpress.org/showcase/">WordPress Showcase</a>.',
+			...WEEKLY,
+			...POLITE,
+			sites: WORDPRESS_SHOWCASE_SITES,
 		},
 
 		ssg: {
