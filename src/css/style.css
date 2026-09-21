@@ -2929,7 +2929,16 @@ td.col-stack { position: relative; }
 	gap: 0.25rem 0.5rem;
 	margin: 0 0 0.5rem;
 }
-.filmstrip-embed-credit { margin-left: auto; }
+.filmstrip-embed-credit {
+	margin-left: auto;
+	display: inline-flex;
+	align-items: center;
+	gap: 0.35em;
+	color: var(--text);
+	font-weight: 600;
+	text-decoration: none;
+}
+.filmstrip-embed-mark { flex: none; width: 1em; height: 1em; color: var(--brand); }
 .embed-picker { max-width: 32rem; }
 .embed-picker fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
 .filmstrip-embed-frame { display: block; width: 100%; height: 420px; border: 1px solid var(--border); border-radius: var(--radius); margin: 0 0 0.9rem; }
@@ -3862,8 +3871,9 @@ a.cat-chip:hover, a.cat-chip:focus-visible { color: var(--text); border-color: v
  * The travelling frame: the one the clock is carrying, as against the ones it
  * has already left behind.
  *
- * No transition on `left` — it is repositioned every animation frame, and a
- * transition would make it chase the clock rather than keep it. Lifted above the
+ * Moved by `transform` rather than `left`, so each animation frame skips layout.
+ * No transition on it — a transition would make it chase the clock rather than
+ * keep it. Lifted above the
  * deposited frames so that at the instant it hands one over the two are not
  * fighting over the same pixels.
  */
@@ -3872,6 +3882,9 @@ a.cat-chip:hover, a.cat-chip:focus-visible { color: var(--text); border-color: v
    the cascade on equal specificity and the leading frame renders grey — which is
    what it did. */
 .race-frame.race-live {
+	left: 0;
+	transform: translateX(calc(var(--race-stride) * var(--at, 0)));
+	will-change: transform;
 	z-index: 3;
 	transition: opacity 0.12s ease;
 	/* Heavier than the slots it is leaving behind: this is the one the clock is
@@ -4060,7 +4073,9 @@ a.cat-chip:hover, a.cat-chip:focus-visible { color: var(--text); border-color: v
 	position: absolute;
 	top: -0.35rem;
 	bottom: -0.35rem;
-	left: calc(var(--race-stride) * var(--now, 0));
+	left: 0;
+	transform: translateX(calc(var(--race-stride) * var(--now, 0)));
+	will-change: transform;
 	width: 2px;
 	background: var(--text);
 	/* Behind the pictures. It is appended last, so without this it painted a rule

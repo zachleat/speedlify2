@@ -411,23 +411,48 @@
 		moveLive(lane, now, timeline);
 	}
 
+	/* Follows by translating the grid rather than scrolling it: iOS scrolls on
+	   another thread in whole pixels, and the live frame jittered against it.
+	   The sticky lane names are translated back so they hold still. */
+	var followOffsets = new WeakMap();
+
+	function setFollowOffset(scroll, grid, offset) {
+		followOffsets.set(scroll, { grid: grid, offset: offset });
+		grid.style.transform = offset ? "translateX(" + (-offset) + "px)" : "";
+		grid.querySelectorAll(".race-sticky").forEach(function (sticky) {
+			sticky.style.transform = offset ? "translateX(" + offset + "px)" : "";
+		});
+	}
+
 	function followPlayhead(scroll, grid, timeline, now) {
 		var stride = strideWidth(grid, timeline);
 		if (!stride) return;
 		var x = (now / timeline.step) * stride;
-		var target = x - scroll.clientWidth * 0.6;
-		if (target > scroll.scrollLeft) scroll.scrollLeft = target;
+		var target = Math.min(x - scroll.clientWidth * 0.6, grid.offsetWidth - scroll.clientWidth);
+		var current = followOffsets.get(scroll);
+		var offset = Math.max(current ? current.offset : 0, target - scroll.scrollLeft);
+		if (offset > 0) setFollowOffset(scroll, grid, offset);
+	}
+
+	// Hands the follow's translation over to the real scroll position, so it can be scrolled by hand.
+	function commitFollow(scroll) {
+		var current = followOffsets.get(scroll);
+		if (!current || !current.offset) return;
+		setFollowOffset(scroll, current.grid, 0);
+		scroll.scrollLeft += current.offset;
 	}
 
 	// Calls back only for sideways scrolling by hand, so page scrolling over the strip leaves the follow alone.
 	function onSidewaysScroll(scroll, callback) {
 		scroll.addEventListener("wheel", function (e) {
+			commitFollow(scroll);
 			// Shift turns a vertical wheel sideways.
 			if (e.shiftKey || Math.abs(e.deltaX) > Math.abs(e.deltaY)) callback();
 		}, { passive: true });
 
 		var startX = null, startY = null;
 		scroll.addEventListener("touchstart", function (e) {
+			commitFollow(scroll);
 			startX = e.touches[0].clientX;
 			startY = e.touches[0].clientY;
 		}, { passive: true });
@@ -442,6 +467,7 @@
 
 		// Mouse only: a scrollbar drag or a click, never the start of a touch.
 		scroll.addEventListener("pointerdown", function (e) {
+			commitFollow(scroll);
 			if (e.pointerType === "mouse") callback();
 		}, { passive: true });
 	}
@@ -462,6 +488,7 @@
 		laneFinish: laneFinish,
 		updateLane: updateLane,
 		followPlayhead: followPlayhead,
+		commitFollow: commitFollow,
 		onSidewaysScroll: onSidewaysScroll
 	};
 })();

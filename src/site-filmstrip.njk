@@ -34,8 +34,7 @@ try {
 	<span class="recents-dots" aria-hidden="true">
 		{% for band in entry | ringBands %}<span class="recents-dot recents-dot-{{ band }}"></span>{% endfor %}
 	</span>
-	{%- from "throttle-tag.njk" import filmstripThrottleTag %}{{ filmstripThrottleTag(entry.filmstrip) }}
-	<span class="muted small filmstrip-embed-credit">Filmstrip from <a href="/" target="_blank">{{ meta.title }}</a></span>
+	<a class="small filmstrip-embed-credit" href="/" target="_blank"><i class="fa-solid fa-forward-fast filmstrip-embed-mark" width="16" height="16" aria-hidden="true"></i>{{ meta.title }}</a>
 </p>
 {% set filmstripNoSpeed = true %}
 {% include "filmstrip-player.njk" %}

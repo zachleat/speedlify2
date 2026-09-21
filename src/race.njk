@@ -568,6 +568,7 @@ title: Compare
 	function pause() {
 		playing = false;
 		cancelAnimationFrame(raf);
+		L.commitFollow(scroll);
 		playButton.textContent = now >= timeline.end ? "Replay" : now > 0 ? "Resume" : "Start";
 	}
 
@@ -575,6 +576,7 @@ title: Compare
 		cancelAnimationFrame(raf);
 		playing = false;
 		follow = true;
+		L.commitFollow(scroll);
 		scroll.scrollLeft = 0;
 		setTime(0);
 		playButton.textContent = "Start";
