@@ -1,0 +1,358 @@
+{
+  "url": "https://vitest.dev/",
+  "name": "Vitest",
+  "group": "dev-tooling",
+  "groupName": "Developer Tooling",
+  "timestamp": 1789976974465,
+  "date": "2026-09-21T07:49:34.465Z",
+  "runId": "2026-09-21T07-40-12-808Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 2,
+  "durationMs": 62457,
+  "error": null,
+  "partialErrors": [
+    "ERRORED_DOCUMENT_REQUEST: Lighthouse was unable to reliably load the page you requested. Make sure you are testing the correct URL and that the server is properly responding to all requests. (Status code: 403)"
+  ],
+  "variance": {
+    "min": 66,
+    "max": 68,
+    "spread": 2,
+    "runs": 2
+  },
+  "lab": {
+    "requestedUrl": "https://vitest.dev/",
+    "finalUrl": "https://vitest.dev/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 66,
+      "accessibility": 96,
+      "best-practices": 100,
+      "seo": 92,
+      "agentic-browsing": 100
+    },
+    "timings": {
+      "fcp": 3270,
+      "lcp": 8213,
+      "si": 3270,
+      "tbt": 190,
+      "tti": 8350,
+      "cls": 0.021,
+      "ttfb": 604,
+      "maxPotentialFid": 227,
+      "serverResponseTime": 36,
+      "networkRtt": 7.3,
+      "networkServerLatency": 23.1
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 75.4,
+      "resourceLoadDelay": 195.3,
+      "resourceLoadDuration": 15.5,
+      "elementRenderDelay": 1048.6
+    },
+    "weight": {
+      "total": 1463395,
+      "requests": 57,
+      "mainDocument": 7322,
+      "byType": {
+        "total": {
+          "bytes": 1463395,
+          "requests": 48
+        },
+        "image": {
+          "bytes": 770126,
+          "requests": 22
+        },
+        "other": {
+          "bytes": 310619,
+          "requests": 10
+        },
+        "font": {
+          "bytes": 188458,
+          "requests": 4
+        },
+        "script": {
+          "bytes": 136639,
+          "requests": 8
+        },
+        "stylesheet": {
+          "bytes": 50231,
+          "requests": 3
+        },
+        "document": {
+          "bytes": 7322,
+          "requests": 1
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 4101,
+          "requests": 3
+        }
+      },
+      "scripts": 8,
+      "stylesheets": 3,
+      "fonts": 4
+    },
+    "thirdParty": {
+      "count": 2,
+      "bytes": 4101,
+      "mainThreadMs": 0,
+      "top": [
+        {
+          "entity": "iconify.design",
+          "bytes": 2829,
+          "mainThreadMs": 0,
+          "byType": {
+            "other": 2829
+          },
+          "typedBytes": 2829
+        },
+        {
+          "entity": "Google Fonts",
+          "bytes": 1272,
+          "mainThreadMs": 0,
+          "byType": {
+            "stylesheet": 1272
+          },
+          "typedBytes": 1272
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 1760.3,
+      "byGroup": {
+        "other": 795.7,
+        "scriptEvaluation": 495.6,
+        "styleLayout": 264.9,
+        "paintCompositeRender": 133.3,
+        "parseHTML": 58.8,
+        "garbageCollection": 7.4,
+        "scriptParseCompile": 4.5
+      },
+      "bootupMs": 475.5,
+      "longTasks": 4,
+      "longestTaskMs": 227
+    },
+    "dom": {
+      "elements": 321,
+      "depth": 16,
+      "maxChildren": 10
+    },
+    "waste": {
+      "unusedJsBytes": 25456,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 0,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 608,
+      "renderBlockingCount": 2,
+      "poorlyCachedBytes": 0,
+      "poorlyCachedCount": 0
+    },
+    "accessibility": {
+      "failingCount": 2,
+      "applicableCount": 21,
+      "failingNodes": 3,
+      "failing": [
+        {
+          "id": "heading-order",
+          "title": "Heading elements are not in a sequentially-descending order",
+          "weight": 3,
+          "nodes": 2
+        },
+        {
+          "id": "landmark-one-main",
+          "title": "Document does not have a main landmark.",
+          "weight": 3,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 1,
+      "applicableCount": 18,
+      "failing": [
+        {
+          "id": "valid-source-maps",
+          "title": "Missing source maps for large first-party JavaScript",
+          "weight": 0,
+          "nodes": 1
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 1,
+      "applicableCount": 9,
+      "failing": [
+        {
+          "id": "link-text",
+          "title": "Links do not have descriptive text",
+          "weight": 1,
+          "nodes": 2
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 59
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2445.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-09-21T07:49:35.786Z",
+      "runtimeMs": 10612.7
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 572.1,
+    "resourceLoadDelay": 1705.7,
+    "resourceLoadDuration": 2683.4,
+    "elementRenderDelay": 37.9
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-08-23",
+      "last": "2026-09-19"
+    },
+    "metrics": {
+      "inp": {
+        "p75": 115,
+        "rating": "good",
+        "distribution": {
+          "good": 92.8,
+          "needsImprovement": 6.1,
+          "poor": 1.2
+        }
+      },
+      "lcp": {
+        "p75": 2058,
+        "rating": "good",
+        "distribution": {
+          "good": 82.6,
+          "needsImprovement": 9.9,
+          "poor": 7.5
+        }
+      },
+      "rtt": {
+        "p75": 162,
+        "rating": null,
+        "distribution": {
+          "good": 32.4,
+          "needsImprovement": 55.2,
+          "poor": 12.4
+        }
+      },
+      "cls": {
+        "p75": 0,
+        "rating": "good",
+        "distribution": {
+          "good": 98.9,
+          "needsImprovement": 0.3,
+          "poor": 0.8
+        }
+      },
+      "ttfb": {
+        "p75": 701,
+        "rating": "good",
+        "distribution": {
+          "good": 78.3,
+          "needsImprovement": 16.8,
+          "poor": 4.9
+        }
+      },
+      "fcp": {
+        "p75": 1378,
+        "rating": "good",
+        "distribution": {
+          "good": 82.7,
+          "needsImprovement": 11.7,
+          "poor": 5.6
+        }
+      }
+    },
+    "cwvPass": true,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": {
+      "id": "vitepress",
+      "name": "VitePress",
+      "icon": "Vitepress",
+      "version": "2.0.0",
+      "source": "meta",
+      "raw": "VitePress v2.0.0-alpha.19"
+    },
+    "probe": {
+      "metas": [
+        "VitePress v2.0.0-alpha.19"
+      ],
+      "marks": [
+        "vue"
+      ],
+      "markVersions": {
+        "vue": "3.5.42"
+      }
+    },
+    "interstitial": null,
+    "host": {
+      "id": "netlify",
+      "name": "Netlify",
+      "icon": "Netlify",
+      "source": "x-nf-request-id"
+    },
+    "headers": {
+      "server": "Netlify",
+      "x-nf-request-id": "01M31F35MV7A4FE87VPXWNY2KT"
+    },
+    "violations": 28,
+    "passes": 374,
+    "incomplete": 4,
+    "violationRules": 3,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 25,
+        "help": "All page content should be contained by landmarks"
+      },
+      {
+        "id": "heading-order",
+        "impact": "moderate",
+        "nodes": 2,
+        "help": "Heading levels should only increase by one"
+      },
+      {
+        "id": "landmark-one-main",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Document should have one main landmark"
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
