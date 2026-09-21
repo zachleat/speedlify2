@@ -1,0 +1,417 @@
+{
+  "url": "https://gopro.com/",
+  "name": "GoPro",
+  "group": "nextjs-showcase",
+  "groupName": "Next.js Showcase",
+  "timestamp": 1790031834050,
+  "date": "2026-09-21T23:03:54.050Z",
+  "runId": "2026-09-21T23-01-52-982Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 416492,
+  "error": null,
+  "variance": {
+    "min": 25,
+    "max": 40,
+    "spread": 15,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://gopro.com/",
+    "finalUrl": "https://gopro.com/en/us/",
+    "redirect": {
+      "from": "https://gopro.com/",
+      "to": "https://gopro.com/en/us",
+      "chain": [
+        {
+          "url": "https://gopro.com/",
+          "status": 301
+        },
+        {
+          "url": "https://gopro.com/en/us/",
+          "status": 200
+        }
+      ],
+      "statuses": [
+        301
+      ],
+      "change": "path",
+      "permanent": true,
+      "schemeUpgrade": false,
+      "hops": 1
+    },
+    "statusCode": "ok",
+    "scores": {
+      "performance": 26,
+      "accessibility": 84,
+      "best-practices": 73,
+      "seo": 92,
+      "agentic-browsing": 50
+    },
+    "timings": {
+      "fcp": 5671,
+      "lcp": 18376,
+      "si": 23706,
+      "tbt": 4122,
+      "tti": 24898,
+      "cls": 0.038,
+      "ttfb": 635,
+      "maxPotentialFid": 1036,
+      "serverResponseTime": 165,
+      "networkRtt": 69.6,
+      "networkServerLatency": 219.1
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 335.7,
+      "resourceLoadDelay": 18,
+      "resourceLoadDuration": 100.6,
+      "elementRenderDelay": 2040.8
+    },
+    "weight": {
+      "total": 19939119,
+      "requests": 277,
+      "mainDocument": 53246,
+      "byType": {
+        "total": {
+          "bytes": 19923656,
+          "requests": 274
+        },
+        "media": {
+          "bytes": 16880548,
+          "requests": 6
+        },
+        "script": {
+          "bytes": 1923405,
+          "requests": 121
+        },
+        "other": {
+          "bytes": 440785,
+          "requests": 110
+        },
+        "font": {
+          "bytes": 354343,
+          "requests": 10
+        },
+        "image": {
+          "bytes": 190492,
+          "requests": 18
+        },
+        "stylesheet": {
+          "bytes": 80837,
+          "requests": 8
+        },
+        "document": {
+          "bytes": 53246,
+          "requests": 1
+        },
+        "third-party": {
+          "bytes": 1383777,
+          "requests": 134
+        }
+      },
+      "scripts": 122,
+      "stylesheets": 8,
+      "fonts": 10
+    },
+    "thirdParty": {
+      "count": 0,
+      "bytes": 0,
+      "mainThreadMs": 0,
+      "top": []
+    },
+    "mainThread": {
+      "total": 87203.9,
+      "byGroup": {
+        "scriptEvaluation": 58970.9,
+        "other": 11245.8,
+        "paintCompositeRender": 10591.3,
+        "styleLayout": 4149.9,
+        "parseHTML": 1128,
+        "scriptParseCompile": 672,
+        "garbageCollection": 446
+      },
+      "bootupMs": 58269.1,
+      "longTasks": 20,
+      "longestTaskMs": 1036
+    },
+    "dom": {
+      "elements": 1804,
+      "depth": 17,
+      "maxChildren": 51
+    },
+    "waste": {
+      "unusedJsBytes": 1061261,
+      "unusedCssBytes": 72888,
+      "legacyJsBytes": 21954,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 2488,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 906,
+      "renderBlockingCount": 7,
+      "poorlyCachedBytes": 236781.81874999998,
+      "poorlyCachedCount": 24
+    },
+    "accessibility": {
+      "failingCount": 6,
+      "applicableCount": 33,
+      "failingNodes": 61,
+      "failing": [
+        {
+          "id": "target-size",
+          "title": "Touch targets do not have sufficient size or spacing.",
+          "weight": 7,
+          "nodes": 16
+        },
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "weight": 7,
+          "nodes": 12
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "title": "Elements with visible text labels do not have matching accessible names.",
+          "weight": 0,
+          "nodes": 12
+        },
+        {
+          "id": "link-name",
+          "title": "Links do not have a discernible name",
+          "weight": 7,
+          "nodes": 10
+        },
+        {
+          "id": "button-name",
+          "title": "Buttons do not have an accessible name",
+          "weight": 10,
+          "nodes": 9
+        },
+        {
+          "id": "heading-order",
+          "title": "Heading elements are not in a sequentially-descending order",
+          "weight": 3,
+          "nodes": 2
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 4,
+      "applicableCount": 19,
+      "failing": [
+        {
+          "id": "third-party-cookies",
+          "title": "Uses third-party cookies",
+          "weight": 5,
+          "nodes": 5
+        },
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "weight": 1,
+          "nodes": 2
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "weight": 1,
+          "nodes": 1
+        },
+        {
+          "id": "valid-source-maps",
+          "title": "Missing source maps for large first-party JavaScript",
+          "weight": 0,
+          "nodes": 3
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 1,
+      "applicableCount": 9,
+      "failing": [
+        {
+          "id": "link-text",
+          "title": "Links do not have descriptive text",
+          "weight": 1,
+          "nodes": 17
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": null,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 0,
+      "bfCacheFailures": 3,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 810.4,
+      "consoleErrors": 2,
+      "baselineLimitedFeatures": 58
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2492.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-09-21T23:03:55.426Z",
+      "runtimeMs": 106423.5
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 1217.8,
+    "resourceLoadDelay": 13.8,
+    "resourceLoadDuration": 3167.6,
+    "elementRenderDelay": 509.8
+  },
+  "field": {
+    "source": "crux",
+    "scope": "origin",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-08-23",
+      "last": "2026-09-19"
+    },
+    "metrics": {
+      "cls": {
+        "p75": 0.03,
+        "rating": "good",
+        "distribution": {
+          "good": 90.5,
+          "needsImprovement": 5.2,
+          "poor": 4.3
+        }
+      },
+      "ttfb": {
+        "p75": 919,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 69.2,
+          "needsImprovement": 24.3,
+          "poor": 6.5
+        }
+      },
+      "fcp": {
+        "p75": 1793,
+        "rating": "good",
+        "distribution": {
+          "good": 75.1,
+          "needsImprovement": 16.3,
+          "poor": 8.6
+        }
+      },
+      "inp": {
+        "p75": 129,
+        "rating": "good",
+        "distribution": {
+          "good": 89.4,
+          "needsImprovement": 8.9,
+          "poor": 1.6
+        }
+      },
+      "lcp": {
+        "p75": 2625,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 72.9,
+          "needsImprovement": 15.5,
+          "poor": 11.6
+        }
+      },
+      "rtt": {
+        "p75": 134,
+        "rating": null,
+        "distribution": {
+          "good": 42.1,
+          "needsImprovement": 51.4,
+          "poor": 6.4
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": {
+      "id": "nextjs",
+      "name": "Next.js",
+      "icon": "Nextdotjs",
+      "version": null,
+      "source": "dom",
+      "raw": null
+    },
+    "probe": {
+      "metas": [],
+      "marks": [
+        "next",
+        "react",
+        "preact"
+      ],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "self-hosted",
+      "name": "Self-hosted",
+      "icon": null,
+      "detail": "nginx",
+      "detailIcon": "Nginx",
+      "source": "server"
+    },
+    "headers": {
+      "server": "nginx",
+      "via": "1.1 caca3796a9753caf000b1d1a5f744530.cloudfront.net (CloudFront)",
+      "x-amz-cf-id": "iJSTOyvzbTUtROkg59geGmSRDVhZP_99m71pB85vXRIsN2cghaSt_A=="
+    },
+    "violations": 142,
+    "passes": 2708,
+    "incomplete": 30,
+    "violationRules": 6,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 104,
+        "help": "All page content should be contained by landmarks"
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 12,
+        "help": "Elements must meet minimum color contrast ratio thresholds"
+      },
+      {
+        "id": "link-name",
+        "impact": "serious",
+        "nodes": 10,
+        "help": "Links must have discernible text"
+      },
+      {
+        "id": "button-name",
+        "impact": "critical",
+        "nodes": 9,
+        "help": "Buttons must have discernible text"
+      },
+      {
+        "id": "nested-interactive",
+        "impact": "serious",
+        "nodes": 5,
+        "help": "Interactive controls must not be nested"
+      },
+      {
+        "id": "heading-order",
+        "impact": "moderate",
+        "nodes": 2,
+        "help": "Heading levels should only increase by one"
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
