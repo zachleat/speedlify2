@@ -23,6 +23,9 @@ try {
 {% else %}
 <link rel="stylesheet" href="/css/style.css">
 {% endif %}
+{%- if meta.goatcounter %}
+<script data-goatcounter="{{ meta.goatcounter }}" async src="//gc.zgo.at/count.js"></script>
+{%- endif %}
 </head>
 <body class="filmstrip-embed">
 <p class="filmstrip-embed-head">
