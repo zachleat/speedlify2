@@ -1,0 +1,322 @@
+{
+  "url": "https://www.zachleat.com/web/lighthouse-in-footer",
+  "name": "www.zachleat.com",
+  "group": "zachleat",
+  "groupName": "zachleat",
+  "timestamp": 1790101902893,
+  "date": "2026-09-22T18:31:42.893Z",
+  "runId": "2026-09-22T18-31-05-666Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 45172,
+  "error": null,
+  "variance": {
+    "min": 94,
+    "max": 100,
+    "spread": 6,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://www.zachleat.com/web/lighthouse-in-footer",
+    "finalUrl": "https://www.zachleat.com/web/lighthouse-in-footer",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 100,
+      "accessibility": 93,
+      "best-practices": 100,
+      "seo": 100,
+      "agentic-browsing": 100
+    },
+    "timings": {
+      "fcp": 1005,
+      "lcp": 1748,
+      "si": 1005,
+      "tbt": 0,
+      "tti": 1755,
+      "cls": 0.026,
+      "ttfb": 622,
+      "maxPotentialFid": 24,
+      "serverResponseTime": 21,
+      "networkRtt": 0.1,
+      "networkServerLatency": 156.9
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 22.6,
+      "elementRenderDelay": 104.8
+    },
+    "weight": {
+      "total": 133913,
+      "requests": 20,
+      "mainDocument": 32118,
+      "byType": {
+        "total": {
+          "bytes": 130713,
+          "requests": 17
+        },
+        "font": {
+          "bytes": 70764,
+          "requests": 5
+        },
+        "document": {
+          "bytes": 32118,
+          "requests": 1
+        },
+        "script": {
+          "bytes": 14327,
+          "requests": 5
+        },
+        "image": {
+          "bytes": 5576,
+          "requests": 3
+        },
+        "other": {
+          "bytes": 4126,
+          "requests": 2
+        },
+        "stylesheet": {
+          "bytes": 3802,
+          "requests": 1
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 6528,
+          "requests": 4
+        }
+      },
+      "scripts": 5,
+      "stylesheets": 1,
+      "fonts": 5
+    },
+    "thirdParty": {
+      "count": 3,
+      "bytes": 6528,
+      "mainThreadMs": 2.4,
+      "top": [
+        {
+          "entity": "zgo.at",
+          "bytes": 4339,
+          "mainThreadMs": 2.4,
+          "byType": {
+            "script": 4339
+          },
+          "typedBytes": 4339
+        },
+        {
+          "entity": "11ty.dev",
+          "bytes": 1807,
+          "mainThreadMs": 0,
+          "byType": {
+            "image": 1807
+          },
+          "typedBytes": 1807
+        },
+        {
+          "entity": "goatcounter.com",
+          "bytes": 382,
+          "mainThreadMs": 0,
+          "byType": {
+            "other": 382
+          },
+          "typedBytes": 382
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 474.4,
+      "byGroup": {
+        "styleLayout": 190.9,
+        "other": 154.1,
+        "scriptEvaluation": 59.7,
+        "parseHTML": 34.1,
+        "paintCompositeRender": 32.5,
+        "scriptParseCompile": 3.2
+      },
+      "bootupMs": 33.5,
+      "longTasks": 1,
+      "longestTaskMs": 78
+    },
+    "dom": {
+      "elements": 557,
+      "depth": 14,
+      "maxChildren": 33
+    },
+    "waste": {
+      "unusedJsBytes": 0,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 0,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 0,
+      "renderBlockingCount": 0,
+      "poorlyCachedBytes": 1445.6000000000001,
+      "poorlyCachedCount": 2
+    },
+    "accessibility": {
+      "failingCount": 2,
+      "applicableCount": 27,
+      "failingNodes": 4,
+      "failing": [
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "weight": 7,
+          "nodes": 2
+        },
+        {
+          "id": "target-size",
+          "title": "Touch targets do not have sufficient size or spacing.",
+          "weight": 7,
+          "nodes": 2
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 0,
+      "applicableCount": 19,
+      "failing": []
+    },
+    "seo": {
+      "failingCount": 0,
+      "applicableCount": 9,
+      "failing": []
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 40
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2435.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-09-22T18:31:53.821Z",
+      "runtimeMs": 6996.2
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 586.4,
+    "elementRenderDelay": 345.3
+  },
+  "field": {
+    "source": "crux",
+    "scope": "origin",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-08-24",
+      "last": "2026-09-20"
+    },
+    "metrics": {
+      "lcp": {
+        "p75": 1177,
+        "rating": "good",
+        "distribution": {
+          "good": 93.8,
+          "needsImprovement": 5.2,
+          "poor": 1
+        }
+      },
+      "rtt": {
+        "p75": 139,
+        "rating": null,
+        "distribution": {
+          "good": 47.6,
+          "needsImprovement": 43.2,
+          "poor": 9.2
+        }
+      },
+      "cls": {
+        "p75": 0,
+        "rating": "good",
+        "distribution": {
+          "good": 99.1,
+          "needsImprovement": 0.9,
+          "poor": 0
+        }
+      },
+      "ttfb": {
+        "p75": 750,
+        "rating": "good",
+        "distribution": {
+          "good": 75.8,
+          "needsImprovement": 19.2,
+          "poor": 5
+        }
+      },
+      "fcp": {
+        "p75": 1078,
+        "rating": "good",
+        "distribution": {
+          "good": 91.5,
+          "needsImprovement": 6.7,
+          "poor": 1.9
+        }
+      }
+    },
+    "cwvPass": true,
+    "cwvAssessed": 2
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": {
+      "id": "build-awesome",
+      "name": "Build Awesome",
+      "icon": "BuildAwesome",
+      "version": "4.0.0",
+      "source": "meta",
+      "raw": "Eleventy (Build Awesome) v4.0.0"
+    },
+    "probe": {
+      "metas": [
+        "Eleventy (Build Awesome) v4.0.0"
+      ],
+      "marks": [
+        "fontawesome"
+      ],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "netlify",
+      "name": "Netlify",
+      "icon": "Netlify",
+      "source": "x-nf-request-id"
+    },
+    "headers": {
+      "server": "Netlify",
+      "x-nf-request-id": "01M3567ZEJY1XYZ91Y4QB2K115"
+    },
+    "violations": 2,
+    "passes": 841,
+    "incomplete": 0,
+    "violationRules": 1,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 2,
+        "help": "Elements must meet minimum color contrast ratio thresholds"
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
