@@ -109,6 +109,9 @@ describe("generator detection", () => {
 			pageProbe,
 		);
 		assert.ok(based.marks.includes("next"), "a basePath still reads as Next.js");
+
+		const astro = withDom(`<link rel="stylesheet" href="/_astro/about.COXbtHb-.css">`, pageProbe);
+		assert.ok(astro.marks.includes("astro"));
 	});
 
 	test("recognizes the App Router, which has no __NEXT_DATA__", () => {
@@ -326,7 +329,7 @@ describe("pickHostHeaders", () => {
  * a DOM here and keep the test suite free of a headless browser.
  */
 function withDom(html, fn, windowGlobals = {}, nodes = []) {
-	const scripts = [...html.matchAll(/src="([^"]+)"/g)].map((m) => m[1]);
+	const scripts = [...html.matchAll(/(?:src|href)="([^"]+)"/g)].map((m) => m[1]);
 	// What the page loads, for the probes that read a URL rather than only
 	// asking whether one is present. Scripts and stylesheets only, which is the
 	// distinction the Font Awesome probe rests on.
