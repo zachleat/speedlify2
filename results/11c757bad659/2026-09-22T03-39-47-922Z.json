@@ -1,0 +1,394 @@
+{
+  "url": "https://www.wegmans.com/",
+  "name": "Wegmans",
+  "group": "nextjs-showcase",
+  "groupName": "Next.js Showcase",
+  "timestamp": 1790048387922,
+  "date": "2026-09-22T03:39:47.922Z",
+  "runId": "2026-09-22T03-29-10-022Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 428905,
+  "error": null,
+  "variance": {
+    "min": 0,
+    "max": 9,
+    "spread": 9,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://www.wegmans.com/",
+    "finalUrl": "https://www.wegmans.com/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 0,
+      "accessibility": 97,
+      "best-practices": 73,
+      "seo": 100,
+      "agentic-browsing": 33
+    },
+    "timings": {
+      "fcp": 6590,
+      "lcp": 28198,
+      "si": 17444,
+      "tbt": 4671,
+      "tti": 37883,
+      "cls": 1.657,
+      "ttfb": 695,
+      "maxPotentialFid": 1085,
+      "serverResponseTime": 260,
+      "networkRtt": 13.8,
+      "networkServerLatency": 128
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 261.7,
+      "resourceLoadDelay": 2233.9,
+      "resourceLoadDuration": 39.9,
+      "elementRenderDelay": 101.1
+    },
+    "weight": {
+      "total": 8475385,
+      "requests": 415,
+      "mainDocument": 44780,
+      "byType": {
+        "total": {
+          "bytes": 8471893,
+          "requests": 412
+        },
+        "image": {
+          "bytes": 4245918,
+          "requests": 72
+        },
+        "script": {
+          "bytes": 3401597,
+          "requests": 117
+        },
+        "font": {
+          "bytes": 402783,
+          "requests": 8
+        },
+        "other": {
+          "bytes": 229439,
+          "requests": 135
+        },
+        "stylesheet": {
+          "bytes": 128909,
+          "requests": 75
+        },
+        "document": {
+          "bytes": 63247,
+          "requests": 5
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 2888960,
+          "requests": 173
+        }
+      },
+      "scripts": 118,
+      "stylesheets": 75,
+      "fonts": 8
+    },
+    "thirdParty": {
+      "count": 23,
+      "bytes": 2609175,
+      "mainThreadMs": 700.5,
+      "top": [
+        {
+          "entity": "contentstack.com",
+          "bytes": 653779,
+          "mainThreadMs": 0,
+          "byType": {
+            "image": 653779
+          },
+          "typedBytes": 653779
+        },
+        {
+          "entity": "fwcdn3.com",
+          "bytes": 488693,
+          "mainThreadMs": 95.7,
+          "byType": {
+            "script": 488693
+          },
+          "typedBytes": 488693
+        },
+        {
+          "entity": "Google Maps",
+          "bytes": 340470,
+          "mainThreadMs": 45.8,
+          "byType": {
+            "script": 340425,
+            "other": 45
+          },
+          "typedBytes": 340470
+        },
+        {
+          "entity": "Google Tag Manager",
+          "bytes": 314458,
+          "mainThreadMs": 100.2,
+          "byType": {
+            "script": 314458
+          },
+          "typedBytes": 314458
+        },
+        {
+          "entity": "Facebook",
+          "bytes": 256733,
+          "mainThreadMs": 134.7,
+          "byType": {
+            "script": 251553,
+            "image": 20
+          },
+          "typedBytes": 251573
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 19792.9,
+      "byGroup": {
+        "scriptEvaluation": 12872.2,
+        "other": 2990.8,
+        "styleLayout": 1537.9,
+        "scriptParseCompile": 1214.2,
+        "garbageCollection": 760.1,
+        "paintCompositeRender": 269.9,
+        "parseHTML": 147.8
+      },
+      "bootupMs": 13177.5,
+      "longTasks": 20,
+      "longestTaskMs": 1085
+    },
+    "dom": {
+      "elements": 8892,
+      "depth": 26,
+      "maxChildren": 46
+    },
+    "waste": {
+      "unusedJsBytes": 1268574,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 56720,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 6476,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 750,
+      "renderBlockingCount": 69,
+      "poorlyCachedBytes": 3240608.960317192,
+      "poorlyCachedCount": 218
+    },
+    "accessibility": {
+      "failingCount": 2,
+      "applicableCount": 31,
+      "failingNodes": 2,
+      "failing": [
+        {
+          "id": "aria-input-field-name",
+          "title": "ARIA input fields do not have accessible names",
+          "weight": 7,
+          "nodes": 1
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "title": "Elements with visible text labels do not have matching accessible names.",
+          "weight": 0,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 3,
+      "applicableCount": 19,
+      "failing": [
+        {
+          "id": "third-party-cookies",
+          "title": "Uses third-party cookies",
+          "weight": 5,
+          "nodes": 17
+        },
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "weight": 1,
+          "nodes": 7
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "weight": 1,
+          "nodes": 2
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 0,
+      "applicableCount": 9,
+      "failing": []
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 0,
+      "bfCacheFailures": 3,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 7,
+      "baselineLimitedFeatures": 71
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2194.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-09-22T03:41:02.569Z",
+      "runtimeMs": 77394.5
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 872.6,
+    "resourceLoadDelay": 22486.8,
+    "resourceLoadDuration": 6064.4,
+    "elementRenderDelay": 260
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-08-24",
+      "last": "2026-09-20"
+    },
+    "metrics": {
+      "cls": {
+        "p75": 2.33,
+        "rating": "poor",
+        "distribution": {
+          "good": 13.3,
+          "needsImprovement": 0.5,
+          "poor": 86.1
+        }
+      },
+      "ttfb": {
+        "p75": 687,
+        "rating": "good",
+        "distribution": {
+          "good": 81.4,
+          "needsImprovement": 14.4,
+          "poor": 4.2
+        }
+      },
+      "fcp": {
+        "p75": 1330,
+        "rating": "good",
+        "distribution": {
+          "good": 86,
+          "needsImprovement": 8.9,
+          "poor": 5.1
+        }
+      },
+      "inp": {
+        "p75": 296,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 58.5,
+          "needsImprovement": 29.8,
+          "poor": 11.8
+        }
+      },
+      "lcp": {
+        "p75": 2955,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 65.9,
+          "needsImprovement": 21.1,
+          "poor": 13
+        }
+      },
+      "rtt": {
+        "p75": 106,
+        "rating": null,
+        "distribution": {
+          "good": 50.9,
+          "needsImprovement": 45.3,
+          "poor": 3.9
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": true,
+    "generator": {
+      "id": "nextjs",
+      "name": "Next.js",
+      "icon": "Nextdotjs",
+      "version": null,
+      "source": "dom",
+      "raw": null
+    },
+    "probe": {
+      "metas": [],
+      "marks": [
+        "next",
+        "react",
+        "lit"
+      ],
+      "markVersions": {
+        "lit": "1.4.1"
+      }
+    },
+    "interstitial": null,
+    "host": {
+      "id": "vercel",
+      "name": "Vercel",
+      "icon": "Vercel",
+      "source": "x-vercel-id"
+    },
+    "headers": {
+      "x-vercel-id": "pdx1::cle1::bxw55-1790048691420-3bb43546dfa0"
+    },
+    "violations": 6,
+    "passes": 3616,
+    "incomplete": 5,
+    "violationRules": 4,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "page-has-heading-one",
+        "impact": "moderate",
+        "nodes": 3,
+        "help": "Page should contain a level-one heading"
+      },
+      {
+        "id": "aria-input-field-name",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "ARIA input fields must have an accessible name"
+      },
+      {
+        "id": "image-redundant-alt",
+        "impact": "minor",
+        "nodes": 1,
+        "help": "Alternative text of images should not be repeated as text"
+      },
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "All page content should be contained by landmarks"
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}

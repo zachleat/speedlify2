@@ -1,0 +1,433 @@
+{
+  "url": "https://www.pichiavo.com/",
+  "name": "PichiAvo",
+  "group": "wordpress-showcase",
+  "groupName": "WordPress Showcase",
+  "timestamp": 1790047946647,
+  "date": "2026-09-22T03:32:26.647Z",
+  "runId": "2026-09-22T03-29-10-022Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 160404,
+  "error": null,
+  "variance": {
+    "min": 49,
+    "max": 55,
+    "spread": 6,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://www.pichiavo.com/",
+    "finalUrl": "https://www.pichiavo.com/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 49,
+      "accessibility": 83,
+      "best-practices": 77,
+      "seo": 92,
+      "agentic-browsing": 33
+    },
+    "timings": {
+      "fcp": 3913,
+      "lcp": 19642,
+      "si": 10629,
+      "tbt": 370,
+      "tti": 19809,
+      "cls": 0.06,
+      "ttfb": 763,
+      "maxPotentialFid": 150,
+      "serverResponseTime": 306,
+      "networkRtt": 0.3,
+      "networkServerLatency": 163.2
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 308.3,
+      "elementRenderDelay": 2159.5
+    },
+    "weight": {
+      "total": 15032307,
+      "requests": 73,
+      "mainDocument": 73052,
+      "byType": {
+        "total": {
+          "bytes": 15032307,
+          "requests": 73
+        },
+        "media": {
+          "bytes": 11199655,
+          "requests": 2
+        },
+        "image": {
+          "bytes": 2686384,
+          "requests": 13
+        },
+        "script": {
+          "bytes": 658108,
+          "requests": 36
+        },
+        "stylesheet": {
+          "bytes": 262391,
+          "requests": 8
+        },
+        "font": {
+          "bytes": 145544,
+          "requests": 3
+        },
+        "document": {
+          "bytes": 73052,
+          "requests": 1
+        },
+        "other": {
+          "bytes": 7173,
+          "requests": 10
+        },
+        "third-party": {
+          "bytes": 11621451,
+          "requests": 15
+        }
+      },
+      "scripts": 36,
+      "stylesheets": 8,
+      "fonts": 3
+    },
+    "thirdParty": {
+      "count": 4,
+      "bytes": 10423586,
+      "mainThreadMs": 104.2,
+      "top": [
+        {
+          "entity": "Vimeo",
+          "bytes": 10003007,
+          "mainThreadMs": 0,
+          "byType": {
+            "media": 10003007
+          },
+          "typedBytes": 10003007
+        },
+        {
+          "entity": "Google Maps",
+          "bytes": 265336,
+          "mainThreadMs": 53.8,
+          "byType": {
+            "script": 264959,
+            "other": 45,
+            "image": 332
+          },
+          "typedBytes": 265336
+        },
+        {
+          "entity": "Google Tag Manager",
+          "bytes": 155195,
+          "mainThreadMs": 50.4,
+          "byType": {
+            "script": 155195
+          },
+          "typedBytes": 155195
+        },
+        {
+          "entity": "Google Analytics",
+          "bytes": 48,
+          "mainThreadMs": 0,
+          "byType": {
+            "other": 48
+          },
+          "typedBytes": 48
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 3900.6,
+      "byGroup": {
+        "other": 1762.1,
+        "scriptEvaluation": 899.8,
+        "styleLayout": 428.8,
+        "parseHTML": 277.7,
+        "paintCompositeRender": 251.6,
+        "scriptParseCompile": 250.7,
+        "garbageCollection": 29.8
+      },
+      "bootupMs": 855.6,
+      "longTasks": 14,
+      "longestTaskMs": 150
+    },
+    "dom": {
+      "elements": 2914,
+      "depth": 17,
+      "maxChildren": 254
+    },
+    "waste": {
+      "unusedJsBytes": 258038,
+      "unusedCssBytes": 244563,
+      "legacyJsBytes": 0,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 2985,
+      "unminifiedCssBytes": 59972,
+      "renderBlockingMs": 1650,
+      "renderBlockingCount": 11,
+      "poorlyCachedBytes": 89078.13750000001,
+      "poorlyCachedCount": 1
+    },
+    "accessibility": {
+      "failingCount": 5,
+      "applicableCount": 34,
+      "failingNodes": 9,
+      "failing": [
+        {
+          "id": "link-name",
+          "title": "Links do not have a discernible name",
+          "weight": 7,
+          "nodes": 3
+        },
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "weight": 7,
+          "nodes": 2
+        },
+        {
+          "id": "heading-order",
+          "title": "Heading elements are not in a sequentially-descending order",
+          "weight": 3,
+          "nodes": 2
+        },
+        {
+          "id": "button-name",
+          "title": "Buttons do not have an accessible name",
+          "weight": 10,
+          "nodes": 1
+        },
+        {
+          "id": "image-alt",
+          "title": "Image elements do not have `[alt]` attributes",
+          "weight": 10,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 2,
+      "applicableCount": 20,
+      "failing": [
+        {
+          "id": "third-party-cookies",
+          "title": "Uses third-party cookies",
+          "weight": 5,
+          "nodes": 1
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "weight": 1,
+          "nodes": 1
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 1,
+      "applicableCount": 10,
+      "failing": [
+        {
+          "id": "image-alt",
+          "title": "Image elements do not have `[alt]` attributes",
+          "weight": 1,
+          "nodes": 1
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 30
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2475,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-09-22T03:32:52.308Z",
+      "runtimeMs": 23276.3
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 734.5,
+    "elementRenderDelay": 5527.5
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-08-24",
+      "last": "2026-09-20"
+    },
+    "metrics": {
+      "fcp": {
+        "p75": 2650,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 60.6,
+          "needsImprovement": 17.9,
+          "poor": 21.5
+        }
+      },
+      "inp": {
+        "p75": 93,
+        "rating": "good",
+        "distribution": {
+          "good": 95.2,
+          "needsImprovement": 4.3,
+          "poor": 0.5
+        },
+        "scope": "origin"
+      },
+      "lcp": {
+        "p75": 3326,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 63.7,
+          "needsImprovement": 19.4,
+          "poor": 16.9
+        },
+        "scope": "origin"
+      },
+      "rtt": {
+        "p75": 114,
+        "rating": null,
+        "distribution": {
+          "good": 41.2,
+          "needsImprovement": 53,
+          "poor": 5.8
+        },
+        "scope": "origin"
+      },
+      "cls": {
+        "p75": 0,
+        "rating": "good",
+        "distribution": {
+          "good": 89.5,
+          "needsImprovement": 5.2,
+          "poor": 5.3
+        },
+        "scope": "origin"
+      },
+      "ttfb": {
+        "p75": 1727,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 57.7,
+          "needsImprovement": 20,
+          "poor": 22.3
+        },
+        "scope": "origin"
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3,
+    "borrowedFromOrigin": [
+      "inp",
+      "lcp",
+      "rtt",
+      "cls",
+      "ttfb"
+    ]
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": {
+      "id": "wordpress-sitekit",
+      "name": "WordPress",
+      "icon": "Wordpress",
+      "version": null,
+      "source": "meta",
+      "raw": "Site Kit by Google 1.187.0"
+    },
+    "probe": {
+      "metas": [
+        "Site Kit by Google 1.187.0",
+        "WP Rocket 3.21.0.1"
+      ],
+      "marks": [
+        "lit"
+      ],
+      "markVersions": {
+        "lit": "3.3.3"
+      }
+    },
+    "interstitial": null,
+    "host": {
+      "id": "self-hosted",
+      "name": "Self-hosted",
+      "icon": null,
+      "detail": "Apache",
+      "detailIcon": "Apache",
+      "source": "server"
+    },
+    "headers": {
+      "server": "HTTPd"
+    },
+    "violations": 11,
+    "passes": 494,
+    "incomplete": 12,
+    "violationRules": 7,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "link-name",
+        "impact": "serious",
+        "nodes": 3,
+        "help": "Links must have discernible text"
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 2,
+        "help": "Elements must meet minimum color contrast ratio thresholds"
+      },
+      {
+        "id": "heading-order",
+        "impact": "moderate",
+        "nodes": 2,
+        "help": "Heading levels should only increase by one"
+      },
+      {
+        "id": "button-name",
+        "impact": "critical",
+        "nodes": 1,
+        "help": "Buttons must have discernible text"
+      },
+      {
+        "id": "empty-heading",
+        "impact": "minor",
+        "nodes": 1,
+        "help": "Headings should not be empty"
+      },
+      {
+        "id": "image-alt",
+        "impact": "critical",
+        "nodes": 1,
+        "help": "Images must have alternative text"
+      },
+      {
+        "id": "image-redundant-alt",
+        "impact": "minor",
+        "nodes": 1,
+        "help": "Alternative text of images should not be repeated as text"
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
