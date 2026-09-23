@@ -27,11 +27,11 @@ title: Embed
 {% endfor %}
 {% set featured = pinned[0] or measured[0] %}
 
-{# Every site with an embed, with the featured site first as the default; same rule as src/site-filmstrip.11tydata.js. #}
+{# Every site has an embed (src/site-filmstrip.11tydata.js), with the featured site first as the default. #}
 {% set strips = [] %}
 {% set stripSlugs = [] %}
-{% for entry in [featured].concat(measured) %}
-	{% if entry.filmstrip and entry.filmstrip.distinct > 1 and entry.slug not in stripSlugs %}
+{% for entry in [featured].concat(sites.entries) %}
+	{% if entry and entry.slug not in stripSlugs %}
 		{% set strips = (strips.push(entry), strips) %}
 		{% set stripSlugs = (stripSlugs.push(entry.slug), stripSlugs) %}
 	{% endif %}
@@ -220,8 +220,9 @@ title: Embed
 <section class="panel" id="filmstrip">
 	<h2>Embed a filmstrip</h2>
 	<p class="muted small">
-		Any site with a filmstrip on its site page has an animated copy of it at
-		<code>/site/&lt;slug&gt;/filmstrip/</code>, sized for an iframe. It needs no
+		Every site has an animated copy of its filmstrip at
+		<code>/site/&lt;slug&gt;/filmstrip/</code>, sized for an iframe, or an
+		empty strip where none was captured. It needs no
 		script on your page, and plays once it scrolls into view. Add
 		<code>?theme=light</code> or <code>?theme=dark</code> to override the
 		reader's system theme.

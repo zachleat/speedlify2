@@ -39,8 +39,17 @@ try {
 	</span>
 	<a class="small filmstrip-embed-credit" href="/" target="_blank"><i class="fa-solid fa-forward-fast filmstrip-embed-mark" width="16" height="16" aria-hidden="true"></i>{{ meta.title }}</a>
 </p>
+{% if entry.filmstrip and entry.filmstrip.distinct > 1 %}
 {% set filmstripNoSpeed = true %}
 {% include "filmstrip-player.njk" %}
+{% else %}
+<div class="filmstrip-empty">
+	<ol class="filmstrip" aria-hidden="true">
+		{% for i in range(0, 8) %}<li class="filmstrip-frame"><span class="filmstrip-skeleton"></span><span class="filmstrip-timing">&nbsp;</span></li>{% endfor %}
+	</ol>
+	<p class="filmstrip-empty-message">No filmstrip data captured</p>
+</div>
+{% endif %}
 {% getBundle "fontawesome" %}
 </body>
 </html>
