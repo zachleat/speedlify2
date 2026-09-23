@@ -1,0 +1,288 @@
+{
+  "url": "https://saulcorona.com/",
+  "name": "saulcorona.com",
+  "group": "11ty-community",
+  "groupName": "Built Awesome",
+  "timestamp": 1790121663947,
+  "date": "2026-09-23T00:01:03.947Z",
+  "runId": "2026-09-23T00-01-02-866Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 2,
+  "durationMs": 25815,
+  "error": null,
+  "partialErrors": [
+    "ERRORED_DOCUMENT_REQUEST: Lighthouse was unable to reliably load the page you requested. Make sure you are testing the correct URL and that the server is properly responding to all requests. (Status code: 403)"
+  ],
+  "variance": {
+    "min": 83,
+    "max": 94,
+    "spread": 11,
+    "runs": 2
+  },
+  "lab": {
+    "requestedUrl": "https://saulcorona.com/",
+    "finalUrl": "https://saulcorona.com/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 83,
+      "accessibility": 82,
+      "best-practices": 77,
+      "seo": 100,
+      "agentic-browsing": 50
+    },
+    "timings": {
+      "fcp": 2618,
+      "lcp": 4069,
+      "si": 2618,
+      "tbt": 0,
+      "tti": 4089,
+      "cls": 0.016,
+      "ttfb": 620,
+      "maxPotentialFid": 16,
+      "serverResponseTime": 22,
+      "networkRtt": 0.2,
+      "networkServerLatency": 43.5
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 23.3,
+      "resourceLoadDelay": 110.6,
+      "resourceLoadDuration": 38.5,
+      "elementRenderDelay": 20.4
+    },
+    "weight": {
+      "total": 569753,
+      "requests": 45,
+      "mainDocument": 3019,
+      "byType": {
+        "total": {
+          "bytes": 568578,
+          "requests": 44
+        },
+        "font": {
+          "bytes": 455918,
+          "requests": 30
+        },
+        "image": {
+          "bytes": 87955,
+          "requests": 2
+        },
+        "stylesheet": {
+          "bytes": 15457,
+          "requests": 3
+        },
+        "script": {
+          "bytes": 6229,
+          "requests": 8
+        },
+        "document": {
+          "bytes": 3019,
+          "requests": 1
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "other": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 467359,
+          "requests": 32
+        }
+      },
+      "scripts": 8,
+      "stylesheets": 3,
+      "fonts": 30
+    },
+    "thirdParty": {
+      "count": 2,
+      "bytes": 467359,
+      "mainThreadMs": 0,
+      "top": [
+        {
+          "entity": "iconscout.com",
+          "bytes": 403453,
+          "mainThreadMs": 0,
+          "byType": {
+            "font": 392669,
+            "stylesheet": 10784
+          },
+          "typedBytes": 403453
+        },
+        {
+          "entity": "Google Fonts",
+          "bytes": 63906,
+          "mainThreadMs": 0,
+          "byType": {
+            "font": 63249,
+            "stylesheet": 657
+          },
+          "typedBytes": 63906
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 514.6,
+      "byGroup": {
+        "styleLayout": 216.6,
+        "other": 215.3,
+        "paintCompositeRender": 41.7,
+        "scriptEvaluation": 16.4,
+        "parseHTML": 15.2,
+        "garbageCollection": 8.6,
+        "scriptParseCompile": 0.8
+      },
+      "bootupMs": 15.4,
+      "longTasks": 1,
+      "longestTaskMs": 52
+    },
+    "dom": {
+      "elements": 261,
+      "depth": 10,
+      "maxChildren": 7
+    },
+    "waste": {
+      "unusedJsBytes": 0,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 0,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 1568,
+      "renderBlockingCount": 3,
+      "poorlyCachedBytes": 9819.999999999998,
+      "poorlyCachedCount": 11
+    },
+    "accessibility": {
+      "failingCount": 3,
+      "applicableCount": 15,
+      "failingNodes": 18,
+      "failing": [
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "weight": 7,
+          "nodes": 12
+        },
+        {
+          "id": "link-name",
+          "title": "Links do not have a discernible name",
+          "weight": 7,
+          "nodes": 5
+        },
+        {
+          "id": "heading-order",
+          "title": "Heading elements are not in a sequentially-descending order",
+          "weight": 3,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 2,
+      "applicableCount": 19,
+      "failing": [
+        {
+          "id": "third-party-cookies",
+          "title": "Uses third-party cookies",
+          "weight": 5,
+          "nodes": 1
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "weight": 1,
+          "nodes": 1
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 0,
+      "applicableCount": 8,
+      "failing": []
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 4
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2984.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-09-23T00:01:16.088Z",
+      "runtimeMs": 6687.2
+    }
+  },
+  "field": null,
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": {
+      "id": "eleventy",
+      "name": "Eleventy",
+      "icon": "Eleventy",
+      "version": null,
+      "source": "meta",
+      "raw": "Eleventy"
+    },
+    "probe": {
+      "metas": [
+        "Eleventy"
+      ],
+      "marks": [],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": null,
+      "name": "hcdn",
+      "icon": null,
+      "source": "server"
+    },
+    "headers": {
+      "server": "hcdn"
+    },
+    "violations": 18,
+    "passes": 368,
+    "incomplete": 0,
+    "violationRules": 3,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 12,
+        "help": "Elements must meet minimum color contrast ratio thresholds"
+      },
+      {
+        "id": "link-name",
+        "impact": "serious",
+        "nodes": 5,
+        "help": "Links must have discernible text"
+      },
+      {
+        "id": "heading-order",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Heading levels should only increase by one"
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
