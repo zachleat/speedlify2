@@ -529,6 +529,15 @@ describe("tools beyond the generator", () => {
 			[{ localName: "wa-copy-button" }],
 		);
 		assert.ok(lazy.marks.includes("webawesome"));
+
+		// is-land renames unhydrated children, which is what 11ty.dev serves to the probe.
+		const renamed = withDom(
+			'<is-land on:visible import="/static/web-awesome/components/copy-button/copy-button.js">',
+			pageProbe,
+			{ customElements: registry },
+			[{ localName: "is-land--wa-copy-button" }],
+		);
+		assert.ok(renamed.marks.includes("webawesome"));
 	});
 
 	test("pageProbe finds Font Awesome in each shape it ships as", () => {
