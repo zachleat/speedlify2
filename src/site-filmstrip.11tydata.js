@@ -4,6 +4,6 @@ export default {
 		data: "sites.entries",
 		size: 1,
 		alias: "entry",
-		before: (entries) => entries.filter((entry) => entry.filmstrip && entry.filmstrip.distinct > 1 && !entry.interstitial),
+		before: (entries) => entries.filter((entry) => entry.filmstrip && entry.filmstrip.distinct > 1),
 	},
 };

@@ -355,9 +355,7 @@ body { margin: 0; padding: 0; }
 				<span class="og-figure-label">LCP</span>
 				<span class="og-figure-value"></span>
 			</span>
-			{#- Only where a no-JS capture was stored, and never behind an
-			    interstitial, where the pair compares two bot checks rather than two
-			    renderings of the site. Same gate as the site page's own section. -#}
+			{#- Only where a no-JS capture was stored. Same gate as the site page's own section. -#}
 			<span class="og-figure" id="og-fig-nojs" hidden>
 				<span class="og-figure-label">No-JS &#8710;</span>
 				<span class="og-figure-value"></span>
@@ -482,7 +480,7 @@ body { margin: 0; padding: 0; }
 	    daemon name falls into — so the card says nothing rather than naming it. -#}
 	{%- set hostName = entry.host.name if (entry.host and entry.host.id != "self-hosted") else null -%}
 	{%- set generator = entry.generator or entry.presumedGenerator -%}
-	{%- set noJs = entry.ownScreenshot.difference if (entry.ownScreenshot and not entry.interstitial) else null -%}
+	{%- set noJs = entry.ownScreenshot.difference if entry.ownScreenshot else null -%}
 	{#- The last three runs, each as its six bands reduced to their initials —
 	    good, average, poor, none are distinct in the first letter, so this is a
 	    wire format rather than a second opinion about banding. History is

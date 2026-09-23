@@ -6,7 +6,7 @@ import path from "node:path";
 
 import { ResultStore } from "../lib/store.js";
 import { keepsScreenshots, keepsFilmstrip, filmstripMarkers, throttledLcpBreakdown } from "../lib/runner.js";
-import { clientRendered, alignFirstFrame, alignFrames } from "../lib/report.js";
+import { clientRendered, alignFirstFrame, alignFrames, withoutChallengedNoJs } from "../lib/report.js";
 
 /**
  * The two screenshots a measurement stores: the page as rendered, and the same
@@ -241,15 +241,13 @@ describe("the client-rendering verdict", () => {
 		assert.equal(clientRendered(null), null);
 	});
 
-	test("a bot check is unjudged rather than cleared", () => {
-		// tesla.com serves an Access Denied page to the crawler. It is textless
-		// and identical with scripts and without, so both measures read innocent
-		// and the site came back "not client-rendered" — an answer about the wall
-		// and not about the site.
+	test("an unstamped pair behind a bot check is unjudged rather than cleared", () => {
+		// tesla.com's stored pair predates `capturedAt` and is of its Access Denied page, which reads as not client-rendered.
 		const wall = { noJs: {}, noJsText: 2.2, difference: 0.1 };
 		assert.equal(clientRendered(wall), false);
-		assert.equal(clientRendered(wall, "Access Denied"), null);
-		assert.equal(clientRendered(empty, "Vercel Security Checkpoint"), null);
+		assert.equal(clientRendered(withoutChallengedNoJs(wall, "Access Denied")), null);
+		assert.equal(clientRendered(withoutChallengedNoJs({ ...empty, capturedAt: "2026-09-21T07:43:32.837Z" }, "Just a moment...")), true);
+		assert.equal(withoutChallengedNoJs(empty, null), empty);
 	});
 });
 

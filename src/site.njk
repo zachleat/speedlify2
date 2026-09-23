@@ -58,17 +58,10 @@ eleventyComputed:
 	byproduct of a measurement that already finished.
 #}
 {#
-	A bot check is shown, not hidden.
-
-	It used to be suppressed, on the reasoning that a picture of Cloudflare's
-	waiting room is not a picture of the site. True — but the page now says so in
-	a notice above, and with that said the picture is the evidence for it: a
-	reader who is told the numbers describe a bot check can see the bot check.
-	Hidden, the claim was unsupported and the missing image looked like a bug.
+	Behind a bot check this is the previous capture of the site, which the notice below says.
 
 	Only our own capture, never the screenshot service: that service would be
-	photographing the site as *it* sees it, which may be the real page, and
-	putting that under a notice about a bot check would contradict the notice.
+	photographing the site as *it* sees it, which may be the real page or the check.
 #}
 {% if entry.ownScreenshot %}
 	{% set screenshot = entry.ownScreenshot.src %}
@@ -268,25 +261,17 @@ eleventyComputed:
 </header>
 
 {#
-	A bot check on one of the page loads this measurement makes.
+	A bot check on the accessibility pass, after one retry.
 
-	Downgraded from an error to a warning, because it no longer means what it
-	used to. A site is loaded four times here — three Lighthouse runs and the
-	accessibility pass — and a challenge fires on them independently. Both sites
-	this has ever applied to were challenged on the last load only, and the old
-	notice told a reader that every figure on the page described a waiting room
-	when the figures were a correct measurement of the real site.
-
-	Still first among the notices, and still worth one: the screenshot, filmstrip
-	and Without JavaScript section are hidden further down, which without this
-	reads as three things mysteriously missing.
+	The performance figures come from the Lighthouse runs and stand. The captures
+	that pass produces are kept from the last load that got the real site.
 
 	A site challenged on every load has no measurement at all — that record is
-	stored as an error and this page never reaches here.
+	stored as an error and the figures here are from the last one that succeeded.
 #}
 {% if entry.interstitial %}
 <div class="notice notice-warn">
-	<strong>The accessibility pass was served a bot check.</strong>
+	<strong>The most current accessibility pass was served a bot check.</strong>
 	<p>
 		This site is loaded several times per measurement, and one of those loads
 		&mdash; the accessibility pass &mdash; was answered with
@@ -294,11 +279,9 @@ eleventyComputed:
 		than {{ entry.displayUrl }}. It was tried twice.
 	</p>
 	<p>
-		The performance figures below are unaffected: they come from the runs that
-		were served the real page. What is missing is everything that pass
-		produces &mdash; the accessibility result, the screenshot and the
-		without-JavaScript comparison &mdash; because those would describe the
-		waiting room rather than the site.
+		The performance figures below are unaffected. The screenshots, filmstrip
+		and without-JavaScript comparison are older results from the last load
+		that reached the site, where there was one.
 	</p>
 </div>
 {% endif %}
@@ -455,9 +438,9 @@ eleventyComputed:
 	first sample repeats that one frame for the rest of the strip, and the
 	section would be a heading over the same image eight times.
 #}
-{% set hasFilmstrip = entry.filmstrip and entry.filmstrip.distinct > 1 and not entry.interstitial %}
+{% set hasFilmstrip = entry.filmstrip and entry.filmstrip.distinct > 1 %}
 
-{% set hasNoJs = entry.ownScreenshot.noJs and not entry.interstitial %}
+{% set hasNoJs = entry.ownScreenshot.noJs %}
 
 {#
 	How the scored runs were throttled. "simulate" loads at full speed and models a

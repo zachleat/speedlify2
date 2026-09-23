@@ -31,7 +31,7 @@ title: Embed
 {% set strips = [] %}
 {% set stripSlugs = [] %}
 {% for entry in [featured].concat(measured) %}
-	{% if entry.filmstrip and entry.filmstrip.distinct > 1 and not entry.interstitial and entry.slug not in stripSlugs %}
+	{% if entry.filmstrip and entry.filmstrip.distinct > 1 and entry.slug not in stripSlugs %}
 		{% set strips = (strips.push(entry), strips) %}
 		{% set stripSlugs = (stripSlugs.push(entry.slug), stripSlugs) %}
 	{% endif %}
