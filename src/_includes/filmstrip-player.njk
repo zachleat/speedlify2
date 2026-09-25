@@ -178,16 +178,16 @@
 	var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 	// In an iframe the host page's scrolling never reaches this window, so the observer's own rectangles decide instead.
-	// Fine-grained because a lane clipped sideways never reaches a ratio of 1.
+	// The scroll box rather than the lane, since the lane is clipped sideways and its area ratio would understate its height.
 	var framed = window.self !== window.top;
 	var lastEntry = null;
-	var thresholds = [];
-	for (var i = 0; i <= 100; i++) thresholds.push(i / 100);
+	var observer = null;
+	var resizeObserver = null;
 
 	// Measured vertically only, since the lane is allowed to scroll sideways past the viewport.
 	function fullyInView() {
 		if (framed) return !!lastEntry && lastEntry.intersectionRect.height >= lastEntry.boundingClientRect.height * 0.95;
-		var rect = lane.laneEl.getBoundingClientRect();
+		var rect = scroll.getBoundingClientRect();
 		return rect.top >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight);
 	}
 
@@ -199,6 +199,7 @@
 			started = true;
 			window.removeEventListener("scroll", syncVisibility);
 			window.removeEventListener("resize", syncVisibility);
+			if (resizeObserver) resizeObserver.disconnect();
 			play();
 		} else if (!showing && playing) {
 			pause();
@@ -222,11 +223,20 @@
 		window.addEventListener("resize", syncVisibility);
 	}
 	if (window.IntersectionObserver) {
-		new IntersectionObserver(function (entries) {
+		observer = new IntersectionObserver(function (entries) {
 			lastEntry = entries[entries.length - 1];
 			inView = lastEntry.isIntersecting;
 			syncVisibility();
-		}, { threshold: framed ? thresholds : 0 }).observe(lane.laneEl);
+		}, { threshold: framed ? [0, 0.95, 1] : 0 });
+		observer.observe(scroll);
+		// A layout shift crosses no threshold, so observing afresh forces a new report until playback starts.
+		if (!reduced && window.ResizeObserver) {
+			resizeObserver = new ResizeObserver(function () {
+				observer.unobserve(scroll);
+				observer.observe(scroll);
+			});
+			resizeObserver.observe(document.body);
+		}
 	} else {
 		inView = true;
 		syncVisibility();
