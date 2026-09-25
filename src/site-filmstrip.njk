@@ -38,7 +38,7 @@ try {
 		{% for band in entry | ringBands %}<span class="recents-dot recents-dot-{{ band }}"></span>{% endfor %}
 	</span>
 	{% if entry.latest %}<span class="age-pill{{ ' stale' if entry.dataStale }}" title="Measured {{ entry.latest.date | date('long') }}"><time datetime="{{ entry.latest.date | iso }}">{{ entry.latest.date | since }}</time> old</span>{% endif %}
-	<a class="small filmstrip-embed-credit" href="/" target="_blank"><i class="fa-solid fa-forward-fast filmstrip-embed-mark" width="16" height="16" aria-hidden="true"></i>{{ meta.title }}</a>
+	<a class="small filmstrip-embed-credit" href="/" target="_blank"><i class="fa-solid fa-forward-fast filmstrip-embed-mark" width="16" height="16" aria-hidden="true"></i><span class="filmstrip-embed-credit-name">{{ meta.title }}</span></a>
 </p>
 {% if entry.filmstrip and entry.filmstrip.distinct > 1 %}
 {% set filmstripNoSpeed = true %}

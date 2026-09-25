@@ -2938,6 +2938,17 @@ td.col-stack { position: relative; }
 	font-weight: 600;
 	text-decoration: none;
 }
+/* Down to the mark alone on the narrowest screens, still named for screen readers. */
+@media (max-width: 24rem) {
+	.filmstrip-embed-credit-name {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		overflow: hidden;
+		clip-path: inset(50%);
+		white-space: nowrap;
+	}
+}
 .filmstrip-embed-mark { flex: none; width: 1em; height: 1em; color: var(--brand); }
 .filmstrip-empty { position: relative; overflow: hidden; }
 /* The frame shape of a mobile capture (412×823), at the strip's 180px height. */
@@ -3783,6 +3794,12 @@ a.cat-chip:hover, a.cat-chip:focus-visible { color: var(--text); border-color: v
 	display: inline-block;
 	width: min(12rem, 100%);
 	margin: 0;
+}
+/* In the iframe it shrinks to fit rather than wrapping to its own line. */
+.filmstrip-embed .race-scrub {
+	flex: 1 1 0;
+	min-width: 3rem;
+	max-width: 12rem;
 }
 /* Wide enough for "99,999 ms", so the row holds still as the digits grow. */
 .filmstrip-player .race-clock {
