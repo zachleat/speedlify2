@@ -1,0 +1,354 @@
+{
+  "url": "https://www.perplexity.ai/",
+  "name": "Perplexity",
+  "group": "ai",
+  "groupName": "AI",
+  "timestamp": 1790354271946,
+  "date": "2026-09-25T16:37:51.946Z",
+  "runId": "2026-09-25T16-37-50-340Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 2,
+  "durationMs": 128667,
+  "error": null,
+  "partialErrors": [
+    "ERRORED_DOCUMENT_REQUEST: Lighthouse was unable to reliably load the page you requested. Make sure you are testing the correct URL and that the server is properly responding to all requests. (Status code: 403)"
+  ],
+  "variance": {
+    "min": 31,
+    "max": 32,
+    "spread": 1,
+    "runs": 2
+  },
+  "lab": {
+    "requestedUrl": "https://www.perplexity.ai/",
+    "finalUrl": "https://www.perplexity.ai/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 31,
+      "accessibility": 95,
+      "best-practices": 77,
+      "seo": 100,
+      "agentic-browsing": 50
+    },
+    "timings": {
+      "fcp": 9075,
+      "lcp": 16849,
+      "si": 9075,
+      "tbt": 1438,
+      "tti": 16856,
+      "cls": 0,
+      "ttfb": 533,
+      "maxPotentialFid": 944,
+      "serverResponseTime": 20,
+      "networkRtt": 70,
+      "networkServerLatency": 83.4
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 67.7,
+      "elementRenderDelay": 2233.4
+    },
+    "weight": {
+      "total": 2284207,
+      "requests": 126,
+      "mainDocument": 5515,
+      "byType": {
+        "total": {
+          "bytes": 2280469,
+          "requests": 122
+        },
+        "script": {
+          "bytes": 1259007,
+          "requests": 88
+        },
+        "other": {
+          "bytes": 487724,
+          "requests": 26
+        },
+        "font": {
+          "bytes": 430108,
+          "requests": 3
+        },
+        "stylesheet": {
+          "bytes": 68803,
+          "requests": 1
+        },
+        "image": {
+          "bytes": 27921,
+          "requests": 2
+        },
+        "document": {
+          "bytes": 6906,
+          "requests": 2
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 475974,
+          "requests": 7
+        }
+      },
+      "scripts": 89,
+      "stylesheets": 1,
+      "fonts": 3
+    },
+    "thirdParty": {
+      "count": 4,
+      "bytes": 475974,
+      "mainThreadMs": 4.4,
+      "top": [
+        {
+          "entity": "eppo.cloud",
+          "bytes": 463639,
+          "mainThreadMs": 0,
+          "byType": {
+            "other": 463639
+          },
+          "typedBytes": 463639
+        },
+        {
+          "entity": "Cloudflare",
+          "bytes": 10338,
+          "mainThreadMs": 4.4,
+          "byType": {
+            "script": 10338
+          },
+          "typedBytes": 10338
+        },
+        {
+          "entity": "browser-intake-datadoghq.com",
+          "bytes": 1392,
+          "mainThreadMs": 0,
+          "byType": {
+            "other": 1392
+          },
+          "typedBytes": 1392
+        },
+        {
+          "entity": "datadoghq.com",
+          "bytes": 605,
+          "mainThreadMs": 0,
+          "byType": {
+            "other": 605
+          },
+          "typedBytes": 605
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 8147.7,
+      "byGroup": {
+        "scriptEvaluation": 5287.3,
+        "other": 1859.7,
+        "styleLayout": 388.4,
+        "garbageCollection": 286.7,
+        "paintCompositeRender": 180.8,
+        "parseHTML": 92.3,
+        "scriptParseCompile": 52.6
+      },
+      "bootupMs": 5018.3,
+      "longTasks": 20,
+      "longestTaskMs": 944
+    },
+    "dom": {
+      "elements": 1590,
+      "depth": 36,
+      "maxChildren": 652
+    },
+    "waste": {
+      "unusedJsBytes": 474175,
+      "unusedCssBytes": 58502,
+      "legacyJsBytes": 10840,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 1275,
+      "renderBlockingCount": 1,
+      "poorlyCachedBytes": 450898.8733333334,
+      "poorlyCachedCount": 7
+    },
+    "accessibility": {
+      "failingCount": 2,
+      "applicableCount": 24,
+      "failingNodes": 2,
+      "failing": [
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "weight": 7,
+          "nodes": 1
+        },
+        {
+          "id": "svg-img-alt",
+          "title": "SVG elements with an `img` role do not have an accessible text alternative",
+          "weight": 1,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 2,
+      "applicableCount": 17,
+      "failing": [
+        {
+          "id": "deprecations",
+          "title": "Uses deprecated APIs",
+          "weight": 5,
+          "nodes": 2
+        },
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "weight": 1,
+          "nodes": 4
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 0,
+      "applicableCount": 10,
+      "failing": []
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": null,
+      "trustedTypes": 1,
+      "bfCache": 0,
+      "bfCacheFailures": 4,
+      "protocol": "http/1.1",
+      "legacyHttpRequests": 0,
+      "redirectMs": 833.4,
+      "consoleErrors": 4,
+      "baselineLimitedFeatures": 74
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2852,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-09-25T16:37:53.468Z",
+      "runtimeMs": 62776.9
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 596.2,
+    "elementRenderDelay": 13768.2
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-08-27",
+      "last": "2026-09-23"
+    },
+    "metrics": {
+      "lcp": {
+        "p75": 6410,
+        "rating": "poor",
+        "distribution": {
+          "good": 31.3,
+          "needsImprovement": 24,
+          "poor": 44.7
+        }
+      },
+      "rtt": {
+        "p75": 180,
+        "rating": null,
+        "distribution": {
+          "good": 33.4,
+          "needsImprovement": 53.4,
+          "poor": 13.2
+        }
+      },
+      "cls": {
+        "p75": 0.02,
+        "rating": "good",
+        "distribution": {
+          "good": 95.1,
+          "needsImprovement": 2.2,
+          "poor": 2.7
+        }
+      },
+      "ttfb": {
+        "p75": 781,
+        "rating": "good",
+        "distribution": {
+          "good": 75.6,
+          "needsImprovement": 15.8,
+          "poor": 8.7
+        }
+      },
+      "fcp": {
+        "p75": 4624,
+        "rating": "poor",
+        "distribution": {
+          "good": 26.9,
+          "needsImprovement": 27.2,
+          "poor": 45.9
+        }
+      },
+      "inp": {
+        "p75": 464,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 37.3,
+          "needsImprovement": 40.3,
+          "poor": 22.4
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "probe": {
+      "metas": [],
+      "marks": [
+        "react"
+      ],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "cloudflare",
+      "name": "Cloudflare",
+      "icon": "Cloudflare",
+      "source": "server"
+    },
+    "headers": {
+      "cf-ray": "a40b77c8b9615e27-LAX",
+      "server": "cloudflare"
+    },
+    "violations": 2,
+    "passes": 230,
+    "incomplete": 7,
+    "violationRules": 2,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "Elements must meet minimum color contrast ratio thresholds"
+      },
+      {
+        "id": "svg-img-alt",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "<svg> elements with an img or image role must have alternative text"
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
