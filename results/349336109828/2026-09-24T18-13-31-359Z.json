@@ -1,0 +1,399 @@
+{
+  "url": "https://surge.sh/",
+  "name": "Surge",
+  "group": "dev-tooling",
+  "groupName": "Developer Tooling",
+  "timestamp": 1790273611359,
+  "date": "2026-09-24T18:13:31.359Z",
+  "runId": "2026-09-24T18-13-18-270Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 177659,
+  "error": null,
+  "variance": {
+    "min": 46,
+    "max": 88,
+    "spread": 42,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://surge.sh/",
+    "finalUrl": "https://surge.sh/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 85,
+      "accessibility": 75,
+      "best-practices": 96,
+      "seo": 91,
+      "agentic-browsing": 50
+    },
+    "timings": {
+      "fcp": 1550,
+      "lcp": 4285,
+      "si": 1946,
+      "tbt": 0,
+      "tti": 4285,
+      "cls": 0.039,
+      "ttfb": 635,
+      "maxPotentialFid": 50,
+      "serverResponseTime": 34,
+      "networkRtt": 37.5,
+      "networkServerLatency": 37.2
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 35.6,
+      "elementRenderDelay": 198.7
+    },
+    "weight": {
+      "total": 1795017,
+      "requests": 52,
+      "mainDocument": 6226,
+      "byType": {
+        "total": {
+          "bytes": 1795017,
+          "requests": 52
+        },
+        "script": {
+          "bytes": 978782,
+          "requests": 10
+        },
+        "image": {
+          "bytes": 398761,
+          "requests": 19
+        },
+        "font": {
+          "bytes": 212590,
+          "requests": 6
+        },
+        "stylesheet": {
+          "bytes": 71178,
+          "requests": 4
+        },
+        "document": {
+          "bytes": 67167,
+          "requests": 2
+        },
+        "other": {
+          "bytes": 66539,
+          "requests": 11
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 1296125,
+          "requests": 26
+        }
+      },
+      "scripts": 10,
+      "stylesheets": 4,
+      "fonts": 6
+    },
+    "thirdParty": {
+      "count": 2,
+      "bytes": 214992,
+      "mainThreadMs": 15.4,
+      "top": [
+        {
+          "entity": "Adobe TypeKit",
+          "bytes": 185189,
+          "mainThreadMs": 2.8,
+          "byType": {
+            "script": 7094,
+            "font": 177890,
+            "image": 205
+          },
+          "typedBytes": 185189
+        },
+        {
+          "entity": "Google CDN",
+          "bytes": 29803,
+          "mainThreadMs": 12.6,
+          "byType": {
+            "script": 29803
+          },
+          "typedBytes": 29803
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 775.5,
+      "byGroup": {
+        "other": 273.5,
+        "styleLayout": 257.3,
+        "scriptEvaluation": 129,
+        "paintCompositeRender": 58.3,
+        "parseHTML": 27,
+        "scriptParseCompile": 23.3,
+        "garbageCollection": 7.1
+      },
+      "bootupMs": 118.1,
+      "longTasks": 2,
+      "longestTaskMs": 102
+    },
+    "dom": {
+      "elements": 527,
+      "depth": 13,
+      "maxChildren": 26
+    },
+    "waste": {
+      "unusedJsBytes": 0,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 0,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 1065,
+      "renderBlockingCount": 3,
+      "poorlyCachedBytes": 19528.952083333334,
+      "poorlyCachedCount": 4
+    },
+    "accessibility": {
+      "failingCount": 6,
+      "applicableCount": 25,
+      "failingNodes": 83,
+      "failing": [
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "weight": 7,
+          "nodes": 70
+        },
+        {
+          "id": "image-alt",
+          "title": "Image elements do not have `[alt]` attributes",
+          "weight": 10,
+          "nodes": 7
+        },
+        {
+          "id": "link-in-text-block",
+          "title": "Links rely on color to be distinguishable.",
+          "weight": 7,
+          "nodes": 3
+        },
+        {
+          "id": "aria-prohibited-attr",
+          "title": "Elements use prohibited ARIA attributes",
+          "weight": 7,
+          "nodes": 1
+        },
+        {
+          "id": "frame-title",
+          "title": "`<frame>` or `<iframe>` elements do not have a title",
+          "weight": 7,
+          "nodes": 1
+        },
+        {
+          "id": "html-has-lang",
+          "title": "`<html>` element does not have a `[lang]` attribute",
+          "weight": 7,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 1,
+      "applicableCount": 20,
+      "failing": [
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "weight": 1,
+          "nodes": 1
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 1,
+      "applicableCount": 8,
+      "failing": [
+        {
+          "id": "image-alt",
+          "title": "Image elements do not have `[alt]` attributes",
+          "weight": 1,
+          "nodes": 7
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 44
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 3395.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-09-24T18:13:56.185Z",
+      "runtimeMs": 7946.7
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 597.3,
+    "elementRenderDelay": 863.3
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-08-26",
+      "last": "2026-09-22"
+    },
+    "metrics": {
+      "ttfb": {
+        "p75": 1300,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 52.8,
+          "needsImprovement": 34.9,
+          "poor": 12.2
+        }
+      },
+      "fcp": {
+        "p75": 2228,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 63.7,
+          "needsImprovement": 23.3,
+          "poor": 13.1
+        }
+      },
+      "inp": {
+        "p75": 99,
+        "rating": "good",
+        "distribution": {
+          "good": 89.5,
+          "needsImprovement": 8.5,
+          "poor": 2
+        }
+      },
+      "lcp": {
+        "p75": 2350,
+        "rating": "good",
+        "distribution": {
+          "good": 78.2,
+          "needsImprovement": 14.6,
+          "poor": 7.2
+        }
+      },
+      "rtt": {
+        "p75": 250,
+        "rating": null,
+        "distribution": {
+          "good": 19.6,
+          "needsImprovement": 60.3,
+          "poor": 20.1
+        }
+      },
+      "cls": {
+        "p75": 0.02,
+        "rating": "good",
+        "distribution": {
+          "good": 92.8,
+          "needsImprovement": 5,
+          "poor": 2.3
+        }
+      }
+    },
+    "cwvPass": true,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": true,
+    "generator": null,
+    "probe": {
+      "metas": [],
+      "marks": [],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": null,
+      "name": "Surge",
+      "icon": null,
+      "source": "server"
+    },
+    "headers": {
+      "server": "Surge"
+    },
+    "violations": 83,
+    "passes": 871,
+    "incomplete": 0,
+    "violationRules": 9,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 66,
+        "help": "Elements must meet minimum color contrast ratio thresholds"
+      },
+      {
+        "id": "image-alt",
+        "impact": "critical",
+        "nodes": 7,
+        "help": "Images must have alternative text"
+      },
+      {
+        "id": "link-in-text-block",
+        "impact": "serious",
+        "nodes": 3,
+        "help": "Links must be distinguishable without relying on color"
+      },
+      {
+        "id": "aria-prohibited-attr",
+        "impact": "serious",
+        "nodes": 2,
+        "help": "Elements must only use permitted ARIA attributes"
+      },
+      {
+        "id": "aria-allowed-attr",
+        "impact": "critical",
+        "nodes": 1,
+        "help": "Elements must only use supported ARIA attributes"
+      },
+      {
+        "id": "button-name",
+        "impact": "critical",
+        "nodes": 1,
+        "help": "Buttons must have discernible text"
+      },
+      {
+        "id": "frame-title",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "Frames must have an accessible name"
+      },
+      {
+        "id": "html-has-lang",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "<html> element must have a lang attribute"
+      },
+      {
+        "id": "landmark-unique",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination"
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}

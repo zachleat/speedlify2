@@ -1,0 +1,381 @@
+{
+  "url": "https://www.nvidia.com/",
+  "name": "Nvidia",
+  "group": "big-tech",
+  "groupName": "Big Tech",
+  "timestamp": 1790255710936,
+  "date": "2026-09-24T13:15:10.936Z",
+  "runId": "2026-09-24T13-15-09-828Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 127938,
+  "error": null,
+  "variance": {
+    "min": 53,
+    "max": 55,
+    "spread": 2,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://www.nvidia.com/",
+    "finalUrl": "https://www.nvidia.com/en-us/",
+    "redirect": {
+      "from": "https://www.nvidia.com/",
+      "to": "https://www.nvidia.com/en-us",
+      "chain": [
+        {
+          "url": "https://www.nvidia.com/",
+          "status": 307
+        },
+        {
+          "url": "https://www.nvidia.com/en-us/",
+          "status": 200
+        }
+      ],
+      "statuses": [
+        307
+      ],
+      "change": "path",
+      "permanent": false,
+      "schemeUpgrade": false,
+      "hops": 1
+    },
+    "statusCode": "ok",
+    "scores": {
+      "performance": 53,
+      "accessibility": 95,
+      "best-practices": 81,
+      "seo": 77,
+      "agentic-browsing": 67
+    },
+    "timings": {
+      "fcp": 12149,
+      "lcp": 15006,
+      "si": 12149,
+      "tbt": 189,
+      "tti": 15043,
+      "cls": 0,
+      "ttfb": 647,
+      "maxPotentialFid": 222,
+      "serverResponseTime": 103,
+      "networkRtt": 0.5,
+      "networkServerLatency": 50.8
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 156.3,
+      "elementRenderDelay": 2171.3
+    },
+    "weight": {
+      "total": 4552946,
+      "requests": 49,
+      "mainDocument": 89530,
+      "byType": {
+        "total": {
+          "bytes": 4546424,
+          "requests": 45
+        },
+        "media": {
+          "bytes": 1985371,
+          "requests": 1
+        },
+        "font": {
+          "bytes": 1171071,
+          "requests": 6
+        },
+        "script": {
+          "bytes": 979247,
+          "requests": 20
+        },
+        "stylesheet": {
+          "bytes": 153503,
+          "requests": 3
+        },
+        "other": {
+          "bytes": 118366,
+          "requests": 10
+        },
+        "document": {
+          "bytes": 89530,
+          "requests": 1
+        },
+        "image": {
+          "bytes": 49336,
+          "requests": 4
+        },
+        "third-party": {
+          "bytes": 540464,
+          "requests": 13
+        }
+      },
+      "scripts": 20,
+      "stylesheets": 3,
+      "fonts": 6
+    },
+    "thirdParty": {
+      "count": 2,
+      "bytes": 540464,
+      "mainThreadMs": 160.8,
+      "top": [
+        {
+          "entity": "Adobe Tag Manager",
+          "bytes": 323704,
+          "mainThreadMs": 104.8,
+          "byType": {
+            "script": 323704
+          },
+          "typedBytes": 323704
+        },
+        {
+          "entity": "Optanon",
+          "bytes": 216760,
+          "mainThreadMs": 56,
+          "byType": {
+            "script": 148730,
+            "other": 57270,
+            "image": 10760
+          },
+          "typedBytes": 216760
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 4652,
+      "byGroup": {
+        "scriptEvaluation": 1476.9,
+        "other": 1074.2,
+        "styleLayout": 939.5,
+        "paintCompositeRender": 474.3,
+        "scriptParseCompile": 435.1,
+        "parseHTML": 195.6,
+        "garbageCollection": 56.3
+      },
+      "bootupMs": 1737.5,
+      "longTasks": 10,
+      "longestTaskMs": 427
+    },
+    "dom": {
+      "elements": 4743,
+      "depth": 28,
+      "maxChildren": 34
+    },
+    "waste": {
+      "unusedJsBytes": 353245,
+      "unusedCssBytes": 164918,
+      "legacyJsBytes": 20437,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 3293,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 12881,
+      "renderBlockingCount": 15,
+      "poorlyCachedBytes": 3677996.2,
+      "poorlyCachedCount": 18
+    },
+    "accessibility": {
+      "failingCount": 2,
+      "applicableCount": 33,
+      "failingNodes": 2,
+      "failing": [
+        {
+          "id": "aria-required-children",
+          "title": "Elements with an ARIA `[role]` that require children to contain a specific `[role]` are missing some or all of those required children.",
+          "weight": 10,
+          "nodes": 1
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "title": "Elements with visible text labels do not have matching accessible names.",
+          "weight": 0,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 1,
+      "applicableCount": 19,
+      "failing": [
+        {
+          "id": "deprecations",
+          "title": "Uses deprecated APIs",
+          "weight": 5,
+          "nodes": 2
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 3,
+      "applicableCount": 10,
+      "failing": [
+        {
+          "id": "link-text",
+          "title": "Links do not have descriptive text",
+          "weight": 1,
+          "nodes": 4
+        },
+        {
+          "id": "crawlable-anchors",
+          "title": "Links are not crawlable",
+          "weight": 1,
+          "nodes": 1
+        },
+        {
+          "id": "robots-txt",
+          "title": "robots.txt is not valid",
+          "weight": 1,
+          "nodes": 1
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 0,
+      "bfCacheFailures": 1,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 797.1,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 37
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2383.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-09-24T13:15:32.403Z",
+      "runtimeMs": 17811.5
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 1169.3,
+    "resourceLoadDelay": 5930.5,
+    "resourceLoadDuration": 29178.5,
+    "elementRenderDelay": -24160.9
+  },
+  "field": {
+    "source": "crux",
+    "scope": "origin",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-08-26",
+      "last": "2026-09-22"
+    },
+    "metrics": {
+      "inp": {
+        "p75": 244,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 68.4,
+          "needsImprovement": 21.7,
+          "poor": 10
+        }
+      },
+      "lcp": {
+        "p75": 2602,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 73.8,
+          "needsImprovement": 13.2,
+          "poor": 13
+        }
+      },
+      "rtt": {
+        "p75": 157,
+        "rating": null,
+        "distribution": {
+          "good": 34.5,
+          "needsImprovement": 55.8,
+          "poor": 9.7
+        }
+      },
+      "cls": {
+        "p75": 0.2,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 64.4,
+          "needsImprovement": 14.3,
+          "poor": 21.2
+        }
+      },
+      "ttfb": {
+        "p75": 513,
+        "rating": "good",
+        "distribution": {
+          "good": 84,
+          "needsImprovement": 9.9,
+          "poor": 6.1
+        }
+      },
+      "fcp": {
+        "p75": 1952,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 72.3,
+          "needsImprovement": 14.6,
+          "poor": 13.1
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "probe": {
+      "metas": [],
+      "marks": [
+        "fontawesome"
+      ],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "akamai",
+      "name": "Akamai",
+      "icon": "Akamai",
+      "source": "server"
+    },
+    "headers": {
+      "server": "AkamaiGHost"
+    },
+    "violations": 26,
+    "passes": 1697,
+    "incomplete": 101,
+    "violationRules": 4,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 18,
+        "help": "All page content should be contained by landmarks"
+      },
+      {
+        "id": "aria-tab-name",
+        "impact": "serious",
+        "nodes": 6,
+        "help": "ARIA tab nodes must have an accessible name"
+      },
+      {
+        "id": "aria-required-children",
+        "impact": "critical",
+        "nodes": 1,
+        "help": "Certain ARIA roles must contain particular children"
+      },
+      {
+        "id": "landmark-unique",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination"
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
