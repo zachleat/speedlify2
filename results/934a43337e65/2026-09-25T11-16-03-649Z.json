@@ -1,0 +1,326 @@
+{
+  "url": "https://blog.mozilla.org/addons",
+  "name": "blog.mozilla.org",
+  "group": "11ty-community",
+  "groupName": "Built Awesome",
+  "timestamp": 1790334963649,
+  "date": "2026-09-25T11:16:03.649Z",
+  "runId": "2026-09-25T11-15-11-505Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 24153,
+  "error": null,
+  "variance": {
+    "min": 92,
+    "max": 97,
+    "spread": 5,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://blog.mozilla.org/addons",
+    "finalUrl": "https://blog.mozilla.org/addons/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 97,
+      "accessibility": 95,
+      "best-practices": 100,
+      "seo": 83,
+      "agentic-browsing": 100
+    },
+    "timings": {
+      "fcp": 1608,
+      "lcp": 1673,
+      "si": 1608,
+      "tbt": 155,
+      "tti": 3283,
+      "cls": 0.025,
+      "ttfb": 473,
+      "maxPotentialFid": 116,
+      "serverResponseTime": 96,
+      "networkRtt": 0,
+      "networkServerLatency": 39.1
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 186.8,
+      "resourceLoadDelay": 64.6,
+      "resourceLoadDuration": 26.9,
+      "elementRenderDelay": 47.7
+    },
+    "weight": {
+      "total": 350560,
+      "requests": 22,
+      "mainDocument": 11378,
+      "byType": {
+        "total": {
+          "bytes": 350560,
+          "requests": 22
+        },
+        "script": {
+          "bytes": 211550,
+          "requests": 6
+        },
+        "font": {
+          "bytes": 70247,
+          "requests": 3
+        },
+        "image": {
+          "bytes": 28706,
+          "requests": 7
+        },
+        "stylesheet": {
+          "bytes": 27787,
+          "requests": 3
+        },
+        "document": {
+          "bytes": 11378,
+          "requests": 1
+        },
+        "other": {
+          "bytes": 892,
+          "requests": 2
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 350560,
+          "requests": 22
+        }
+      },
+      "scripts": 6,
+      "stylesheets": 3,
+      "fonts": 3
+    },
+    "thirdParty": {
+      "count": 1,
+      "bytes": 169289,
+      "mainThreadMs": 56.9,
+      "top": [
+        {
+          "entity": "Google Tag Manager",
+          "bytes": 169289,
+          "mainThreadMs": 56.9,
+          "byType": {
+            "script": 169289
+          },
+          "typedBytes": 169289
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 725.1,
+      "byGroup": {
+        "scriptEvaluation": 258.2,
+        "other": 182.6,
+        "styleLayout": 172.2,
+        "scriptParseCompile": 59.8,
+        "parseHTML": 31.9,
+        "paintCompositeRender": 20.5
+      },
+      "bootupMs": 266,
+      "longTasks": 3,
+      "longestTaskMs": 116
+    },
+    "dom": {
+      "elements": 575,
+      "depth": 11,
+      "maxChildren": 273
+    },
+    "waste": {
+      "unusedJsBytes": 70991,
+      "unusedCssBytes": 14211,
+      "legacyJsBytes": 0,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 4595,
+      "renderBlockingCount": 8,
+      "poorlyCachedBytes": 0,
+      "poorlyCachedCount": 0
+    },
+    "accessibility": {
+      "failingCount": 2,
+      "applicableCount": 26,
+      "failingNodes": 3,
+      "failing": [
+        {
+          "id": "link-in-text-block",
+          "title": "Links rely on color to be distinguishable.",
+          "weight": 7,
+          "nodes": 2
+        },
+        {
+          "id": "heading-order",
+          "title": "Heading elements are not in a sequentially-descending order",
+          "weight": 3,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 0,
+      "applicableCount": 19,
+      "failing": []
+    },
+    "seo": {
+      "failingCount": 2,
+      "applicableCount": 9,
+      "failing": [
+        {
+          "id": "meta-description",
+          "title": "Document does not have a meta description",
+          "weight": 1,
+          "nodes": null
+        },
+        {
+          "id": "link-text",
+          "title": "Links do not have descriptive text",
+          "weight": 1,
+          "nodes": 9
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 773.4,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 16
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2491,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-09-25T11:16:12.669Z",
+      "runtimeMs": 6887.2
+    }
+  },
+  "field": {
+    "source": "crux",
+    "scope": "origin",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-08-27",
+      "last": "2026-09-23"
+    },
+    "metrics": {
+      "cls": {
+        "p75": 0,
+        "rating": "good",
+        "distribution": {
+          "good": 95.4,
+          "needsImprovement": 3.3,
+          "poor": 1.3
+        }
+      },
+      "ttfb": {
+        "p75": 1069,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 62.9,
+          "needsImprovement": 26.8,
+          "poor": 10.3
+        }
+      },
+      "fcp": {
+        "p75": 1543,
+        "rating": "good",
+        "distribution": {
+          "good": 81,
+          "needsImprovement": 11.3,
+          "poor": 7.7
+        }
+      },
+      "inp": {
+        "p75": 123,
+        "rating": "good",
+        "distribution": {
+          "good": 87.1,
+          "needsImprovement": 9.6,
+          "poor": 3.3
+        }
+      },
+      "lcp": {
+        "p75": 1609,
+        "rating": "good",
+        "distribution": {
+          "good": 88.7,
+          "needsImprovement": 5.8,
+          "poor": 5.5
+        }
+      },
+      "rtt": {
+        "p75": 183,
+        "rating": null,
+        "distribution": {
+          "good": 33.3,
+          "needsImprovement": 53.6,
+          "poor": 13.1
+        }
+      }
+    },
+    "cwvPass": true,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "probe": {
+      "metas": [],
+      "marks": [],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "cloudflare",
+      "name": "Cloudflare",
+      "icon": "Cloudflare",
+      "source": "server"
+    },
+    "headers": {
+      "cf-ray": "a4099db83cf4fc33-IAD",
+      "server": "cloudflare",
+      "x-powered-by": "WP Engine"
+    },
+    "violations": 5,
+    "passes": 544,
+    "incomplete": 13,
+    "violationRules": 3,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "landmark-unique",
+        "impact": "moderate",
+        "nodes": 2,
+        "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination"
+      },
+      {
+        "id": "link-in-text-block",
+        "impact": "serious",
+        "nodes": 2,
+        "help": "Links must be distinguishable without relying on color"
+      },
+      {
+        "id": "heading-order",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Heading levels should only increase by one"
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
