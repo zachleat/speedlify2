@@ -1,0 +1,14 @@
+{% if samples.length %}
+<details class="failure-nodes">
+	<summary>Offending element{{ "s" if samples.length != 1 }}{% if total > samples.length %} ({{ samples.length }} of {{ total | num }}){% endif %}</summary>
+	<ol>
+		{% for node in samples %}
+		<li>
+			{% if node.selector %}<code>{{ node.selector }}</code>{% endif %}
+			{% if node.label and node.label != node.snippet and node.label != node.selector %}<span class="muted">{{ node.label }}</span>{% endif %}
+			{% if node.snippet %}<pre><code>{{ node.snippet }}</code></pre>{% endif %}
+		</li>
+		{% endfor %}
+	</ol>
+</details>
+{% endif %}

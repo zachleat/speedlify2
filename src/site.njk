@@ -1257,8 +1257,9 @@ eleventyComputed:
 		{% for v in entry.axe.top %}
 		<li>
 			<span class="badge badge-{{ 'error' if v.impact == 'critical' or v.impact == 'serious' else 'stale' }}">{{ v.impact }}</span>
-			<code>{{ v.id }}</code> — {{ v.help }}
+			<code>{{ v.id }}</code> — {% if v.helpUrl %}<a href="{{ v.helpUrl }}">{{ v.help }}</a>{% else %}{{ v.help }}{% endif %}
 			<span class="badge">{{ v.nodes }} node{{ "s" if v.nodes != 1 }}</span>
+			{% set samples = v.samples %}{% set total = v.nodes %}{% include "failure-nodes.njk" %}
 		</li>
 		{% endfor %}
 	</ul>
@@ -1273,6 +1274,7 @@ eleventyComputed:
 		<li>
 			<code>{{ fail.id }}</code> — {{ fail.title }}
 			{% if fail.nodes %}<span class="badge">{{ fail.nodes }} node{{ "s" if fail.nodes != 1 }}</span>{% endif %}
+			{% set samples = fail.samples %}{% set total = fail.nodes %}{% include "failure-nodes.njk" %}
 		</li>
 		{% endfor %}
 	</ul>
