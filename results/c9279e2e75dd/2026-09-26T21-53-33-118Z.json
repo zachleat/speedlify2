@@ -1,0 +1,372 @@
+{
+  "url": "https://getzeropoint.com/",
+  "name": "getzeropoint.com",
+  "group": "11ty-starters",
+  "groupName": "Build Awesome Starters",
+  "timestamp": 1790459613118,
+  "date": "2026-09-26T21:53:33.118Z",
+  "runId": "2026-09-26T21-51-12-153Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 23807,
+  "error": null,
+  "variance": {
+    "min": 100,
+    "max": 100,
+    "spread": 0,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://getzeropoint.com/",
+    "finalUrl": "https://getzeropoint.com/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 100,
+      "accessibility": 91,
+      "best-practices": 100,
+      "seo": 75,
+      "agentic-browsing": 50
+    },
+    "timings": {
+      "fcp": 1017,
+      "lcp": 1625,
+      "si": 1564,
+      "tbt": 0,
+      "tti": 1625,
+      "cls": 0,
+      "ttfb": 711,
+      "maxPotentialFid": 16,
+      "serverResponseTime": 575,
+      "networkRtt": 10.5,
+      "networkServerLatency": 181.1
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 643.3,
+      "elementRenderDelay": 177.2
+    },
+    "weight": {
+      "total": 19039,
+      "requests": 7,
+      "mainDocument": 10288,
+      "byType": {
+        "total": {
+          "bytes": 19039,
+          "requests": 6
+        },
+        "document": {
+          "bytes": 10288,
+          "requests": 1
+        },
+        "stylesheet": {
+          "bytes": 4213,
+          "requests": 1
+        },
+        "script": {
+          "bytes": 3592,
+          "requests": 2
+        },
+        "other": {
+          "bytes": 946,
+          "requests": 2
+        },
+        "image": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "font": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 4406,
+          "requests": 3
+        }
+      },
+      "scripts": 2,
+      "stylesheets": 1,
+      "fonts": 0
+    },
+    "thirdParty": {
+      "count": 1,
+      "bytes": 4406,
+      "mainThreadMs": 3.4,
+      "top": [
+        {
+          "entity": "umami.is",
+          "bytes": 4406,
+          "mainThreadMs": 3.4,
+          "byType": {
+            "script": 3460,
+            "other": 946
+          },
+          "typedBytes": 4406
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 226.4,
+      "byGroup": {
+        "styleLayout": 87.7,
+        "other": 85.9,
+        "scriptEvaluation": 22.7,
+        "parseHTML": 15.3,
+        "paintCompositeRender": 13,
+        "scriptParseCompile": 1.7
+      },
+      "bootupMs": 7.5,
+      "longTasks": 1,
+      "longestTaskMs": 52
+    },
+    "dom": {
+      "elements": 576,
+      "depth": 12,
+      "maxChildren": 51
+    },
+    "waste": {
+      "unusedJsBytes": 0,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 0,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 154,
+      "renderBlockingCount": 2,
+      "poorlyCachedBytes": 0,
+      "poorlyCachedCount": 0
+    },
+    "accessibility": {
+      "failingCount": 2,
+      "applicableCount": 22,
+      "failingNodes": 7,
+      "failing": [
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "weight": 7,
+          "nodes": 6,
+          "samples": [
+            {
+              "selector": "ol.steps > li > p > a",
+              "snippet": "<a href=\"https://github.com/MWDelaney/ZeroPoint/\">",
+              "label": "ZeroPoint Starter documentation"
+            },
+            {
+              "selector": "ol.steps > li > p > a",
+              "snippet": "<a href=\"https://github.com/MWDelaney/zeropoint-components\">",
+              "label": "ZeroPoint Components"
+            },
+            {
+              "selector": "ol.steps > li > p > a",
+              "snippet": "<a href=\"https://github.com/MWDelaney/eleventy-github-deployment\">",
+              "label": "example GitHub Actions and Workflows"
+            },
+            {
+              "selector": "li > details > summary > code",
+              "snippet": "<code>",
+              "label": "src/config/collections.js"
+            },
+            {
+              "selector": "li > details > summary > code",
+              "snippet": "<code>",
+              "label": "src/content/blog.njk"
+            }
+          ]
+        },
+        {
+          "id": "link-name",
+          "title": "Links do not have a discernible name",
+          "weight": 7,
+          "nodes": 1,
+          "samples": [
+            {
+              "selector": "body > main#main > figure.logo > a",
+              "snippet": "<a href=\"/\">",
+              "label": "body > main#main > figure.logo > a"
+            }
+          ]
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 0,
+      "applicableCount": 19,
+      "failing": []
+    },
+    "seo": {
+      "failingCount": 3,
+      "applicableCount": 9,
+      "failing": [
+        {
+          "id": "link-text",
+          "title": "Links do not have descriptive text",
+          "weight": 1,
+          "nodes": 1,
+          "samples": []
+        },
+        {
+          "id": "robots-txt",
+          "title": "robots.txt is not valid",
+          "weight": 1,
+          "nodes": 84,
+          "samples": []
+        },
+        {
+          "id": "canonical",
+          "title": "Document does not have a valid `rel=canonical`",
+          "weight": 1,
+          "nodes": null,
+          "samples": []
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 10
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2505,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-09-26T21:53:34.425Z",
+      "runtimeMs": 7442.1
+    }
+  },
+  "field": null,
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "probe": {
+      "metas": [],
+      "marks": [],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "netlify",
+      "name": "Netlify",
+      "icon": "Netlify",
+      "source": "x-nf-request-id"
+    },
+    "headers": {
+      "server": "Netlify",
+      "x-nf-request-id": "01M3FVBS0RAY073C87NNMBYEMB"
+    },
+    "violations": 12,
+    "passes": 492,
+    "incomplete": 66,
+    "violationRules": 5,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 6,
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/color-contrast?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "p:nth-child(10) > a",
+            "snippet": "<a href=\"https://github.com/MWDelaney/ZeroPoint/\">ZeroPoint Starter documentation</a>"
+          },
+          {
+            "selector": "li:nth-child(2) > p:nth-child(2) > a",
+            "snippet": "<a href=\"https://github.com/MWDelaney/zeropoint-components\">ZeroPoint Components</a>"
+          },
+          {
+            "selector": "li:nth-child(3) > p:nth-child(3) > a",
+            "snippet": "<a href=\"https://github.com/MWDelaney/eleventy-github-deployment\">example GitHub Actions and Workflows</a>"
+          },
+          {
+            "selector": "li:nth-child(1) > details > summary > code",
+            "snippet": "<code>src/config/collections.js</code>"
+          },
+          {
+            "selector": "li:nth-child(2) > details > summary > code",
+            "snippet": "<code>src/content/blog.njk</code>"
+          }
+        ]
+      },
+      {
+        "id": "scrollable-region-focusable",
+        "impact": "serious",
+        "nodes": 3,
+        "help": "Scrollable region must have keyboard access",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/scrollable-region-focusable?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".language-bash:nth-child(3)",
+            "snippet": "<pre class=\"language-bash\"><code class=\"language-bash\">gh repo create my-new-site <span class=\"token parameter variable\">--template</span> MWDelaney/ZeroPoint</code></pre>"
+          },
+          {
+            "selector": "li:nth-child(2) > .language-bash",
+            "snippet": "<pre class=\"language-bash\"><code class=\"language-bash\"><span class=\"token function\">npm</span> <span class=\"token function\">install</span> --save-dev zeropoint-components</code></pre>"
+          },
+          {
+            "selector": "li:nth-child(2) > .language-js",
+            "snippet": "<pre class=\"language-js\">"
+          }
+        ]
+      },
+      {
+        "id": "landmark-unique",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/landmark-unique?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "body > nav[role=\"navigation\"]",
+            "snippet": "<nav id=\"navigation\" role=\"navigation\">"
+          }
+        ]
+      },
+      {
+        "id": "link-name",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "Links must have discernible text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/link-name?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "figure > a[href=\"/\"]",
+            "snippet": "<a href=\"/\">"
+          }
+        ]
+      },
+      {
+        "id": "page-has-heading-one",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Page should contain a level-one heading",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/page-has-heading-one?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "html",
+            "snippet": "<html lang=\"en\" dir=\"ltr\">"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}

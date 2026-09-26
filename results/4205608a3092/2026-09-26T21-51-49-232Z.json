@@ -1,0 +1,430 @@
+{
+  "url": "https://gametime.events/",
+  "name": "gametime.events",
+  "group": "11ty-community",
+  "groupName": "Built Awesome",
+  "timestamp": 1790459509232,
+  "date": "2026-09-26T21:51:49.232Z",
+  "runId": "2026-09-26T21-51-12-153Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 76806,
+  "error": null,
+  "variance": {
+    "min": 43,
+    "max": 49,
+    "spread": 6,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://gametime.events/",
+    "finalUrl": "https://gametime.events/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 45,
+      "accessibility": 91,
+      "best-practices": 96,
+      "seo": 100,
+      "agentic-browsing": 50
+    },
+    "timings": {
+      "fcp": 2042,
+      "lcp": 8561,
+      "si": 4795,
+      "tbt": 1420,
+      "tti": 20897,
+      "cls": 0.012,
+      "ttfb": 611,
+      "maxPotentialFid": 400,
+      "serverResponseTime": 5,
+      "networkRtt": 0.9,
+      "networkServerLatency": 64.3
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 6.5,
+      "resourceLoadDelay": 13.3,
+      "resourceLoadDuration": 26.8,
+      "elementRenderDelay": 178.1
+    },
+    "weight": {
+      "total": 27147019,
+      "requests": 107,
+      "mainDocument": 20171,
+      "byType": {
+        "total": {
+          "bytes": 27147019,
+          "requests": 107
+        },
+        "media": {
+          "bytes": 18897314,
+          "requests": 1
+        },
+        "image": {
+          "bytes": 6307241,
+          "requests": 27
+        },
+        "script": {
+          "bytes": 1606369,
+          "requests": 44
+        },
+        "stylesheet": {
+          "bytes": 126938,
+          "requests": 4
+        },
+        "document": {
+          "bytes": 108986,
+          "requests": 3
+        },
+        "font": {
+          "bytes": 91093,
+          "requests": 4
+        },
+        "other": {
+          "bytes": 9078,
+          "requests": 24
+        },
+        "third-party": {
+          "bytes": 1886878,
+          "requests": 72
+        }
+      },
+      "scripts": 44,
+      "stylesheets": 4,
+      "fonts": 4
+    },
+    "thirdParty": {
+      "count": 7,
+      "bytes": 678507,
+      "mainThreadMs": 425.9,
+      "top": [
+        {
+          "entity": "Google CDN",
+          "bytes": 354702,
+          "mainThreadMs": 97.1,
+          "byType": {
+            "other": 354702
+          },
+          "typedBytes": 354702
+        },
+        {
+          "entity": "Google Tag Manager",
+          "bytes": 168771,
+          "mainThreadMs": 44.6,
+          "byType": {
+            "script": 168771
+          },
+          "typedBytes": 168771
+        },
+        {
+          "entity": "FullStory",
+          "bytes": 84247,
+          "mainThreadMs": 72,
+          "byType": {
+            "script": 81711,
+            "other": 2536
+          },
+          "typedBytes": 84247
+        },
+        {
+          "entity": "Unpkg",
+          "bytes": 55103,
+          "mainThreadMs": 0.6,
+          "byType": {
+            "script": 55103
+          },
+          "typedBytes": 55103
+        },
+        {
+          "entity": "honeybadger.io",
+          "bytes": 11906,
+          "mainThreadMs": 204.1,
+          "byType": {
+            "script": 11906
+          },
+          "typedBytes": 11906
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 7984.8,
+      "byGroup": {
+        "scriptEvaluation": 3381,
+        "other": 2456.7,
+        "paintCompositeRender": 1117.9,
+        "styleLayout": 465.7,
+        "scriptParseCompile": 320.2,
+        "parseHTML": 124.5,
+        "garbageCollection": 118.9
+      },
+      "bootupMs": 3576,
+      "longTasks": 20,
+      "longestTaskMs": 400
+    },
+    "dom": {
+      "elements": 695,
+      "depth": 19,
+      "maxChildren": 17
+    },
+    "waste": {
+      "unusedJsBytes": 292936,
+      "unusedCssBytes": 30867,
+      "legacyJsBytes": 0,
+      "duplicatedJsBytes": 859,
+      "unminifiedJsBytes": 17505,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 450,
+      "renderBlockingCount": 2,
+      "poorlyCachedBytes": 96366.65000000001,
+      "poorlyCachedCount": 5
+    },
+    "accessibility": {
+      "failingCount": 3,
+      "applicableCount": 29,
+      "failingNodes": 8,
+      "failing": [
+        {
+          "id": "button-name",
+          "title": "Buttons do not have an accessible name",
+          "weight": 10,
+          "nodes": 6,
+          "samples": [
+            {
+              "selector": "div > div > div#video-lightbox > button.modal-bg",
+              "snippet": "<button type=\"button\" class=\"modal-bg\" @click=\"closeVideoLightbox()\">",
+              "label": "div > div > div#video-lightbox > button.modal-bg"
+            },
+            {
+              "selector": "div#modal-card p-4 > div.card-header > div.flex > button.close-button",
+              "snippet": "<button type=\"button\" class=\"close-button hover:bg-gray-300\" @click=\"closeVideoLightbox()\">",
+              "label": "div#modal-card p-4 > div.card-header > div.flex > button.close-button"
+            },
+            {
+              "selector": "div.flex > div > div#package-lightbox > button.modal-bg",
+              "snippet": "<button type=\"button\" class=\"modal-bg z-90\" @click=\"closePackageLightbox()\">",
+              "label": "div.flex > div > div#package-lightbox > button.modal-bg"
+            },
+            {
+              "selector": "section.card-header > div.grid-stack > div > button.sticky",
+              "snippet": "<button type=\"button\" class=\"sticky top-0 close-button large transition-all shadow-md hover:bg-white\" @click=\"closePackageLightbox()\">",
+              "label": "section.card-header > div.grid-stack > div > button.sticky"
+            },
+            {
+              "selector": "div > div > div#video-lightbox > button.modal-bg",
+              "snippet": "<button type=\"button\" class=\"modal-bg\" @click=\"closeVideoLightbox()\">",
+              "label": "div > div > div#video-lightbox > button.modal-bg"
+            }
+          ]
+        },
+        {
+          "id": "list",
+          "title": "Lists do not contain only `<li>` elements and script supporting elements (`<script>` and `<template>`).",
+          "weight": 7,
+          "nodes": 1,
+          "samples": [
+            {
+              "selector": "div.w-full > div.flex > section.pb-6 > ul",
+              "snippet": "<ul>",
+              "label": "Enjoy our full range of 16 premium sports games\n3 hours play time (upgradable t…"
+            }
+          ]
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "title": "Elements with visible text labels do not have matching accessible names.",
+          "weight": 0,
+          "nodes": 1,
+          "samples": [
+            {
+              "selector": "header#navbar > div.w-full > h1.home > a.flex",
+              "snippet": "<a href=\"/\" class=\"flex items-center\" aria-label=\"Home\">",
+              "label": "RENTALS"
+            }
+          ]
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 1,
+      "applicableCount": 20,
+      "failing": [
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "weight": 1,
+          "nodes": 1,
+          "samples": []
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 0,
+      "applicableCount": 8,
+      "failing": []
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 60
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2452.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-09-26T21:52:07.229Z",
+      "runtimeMs": 18648.1
+    }
+  },
+  "field": null,
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": {
+      "id": "eleventy",
+      "name": "Eleventy",
+      "icon": "Eleventy",
+      "version": null,
+      "source": "meta",
+      "raw": "eleventy"
+    },
+    "probe": {
+      "metas": [
+        "eleventy"
+      ],
+      "marks": [
+        "lit",
+        "alpine"
+      ],
+      "markVersions": {
+        "lit": "1.4.1",
+        "alpine": "3.14.9"
+      }
+    },
+    "interstitial": null,
+    "host": {
+      "id": "netlify",
+      "name": "Netlify",
+      "icon": "Netlify",
+      "source": "x-nf-request-id"
+    },
+    "headers": {
+      "server": "Netlify",
+      "x-nf-request-id": "01M3FV9KZDFCSRD42XTZKEQCY1"
+    },
+    "violations": 11,
+    "passes": 1064,
+    "incomplete": 31,
+    "violationRules": 6,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "button-name",
+        "impact": "critical",
+        "nodes": 6,
+        "help": "Buttons must have discernible text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/button-name?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "div:nth-child(4) > div > .modal.modal-hidden > .modal-bg[\\@click=\"closeVideoLightbox()\"]",
+            "snippet": "<button type=\"button\" class=\"modal-bg\" @click=\"closeVideoLightbox()\"></button>"
+          },
+          {
+            "selector": ".sm\\:mb-8 > .hover\\:bg-gray-300.close-button[\\@click=\"closeVideoLightbox()\"]",
+            "snippet": "<button type=\"button\" class=\"close-button hover:bg-gray-300\" @click=\"closeVideoLightbox()\">"
+          },
+          {
+            "selector": ".z-90",
+            "snippet": "<button type=\"button\" class=\"modal-bg z-90\" @click=\"closePackageLightbox()\"></button>"
+          },
+          {
+            "selector": ".large",
+            "snippet": "<button type=\"button\" class=\"sticky top-0 close-button large transition-all shadow-md hover:bg-white\" @click=\"closePackageLightbox()\">"
+          },
+          {
+            "selector": "div:nth-child(2) > div > .modal.modal-hidden > .modal-bg[\\@click=\"closeVideoLightbox()\"]",
+            "snippet": "<button type=\"button\" class=\"modal-bg\" @click=\"closeVideoLightbox()\"></button>"
+          }
+        ]
+      },
+      {
+        "id": "aria-allowed-attr",
+        "impact": "critical",
+        "nodes": 1,
+        "help": "Elements must only use supported ARIA attributes",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/aria-allowed-attr?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "div:nth-child(2) > iframe[width=\"100%\"][height=\"100%\"][title=\"Embedded YouTube video\"] >>> .ytmVideoInfoVideoTitle",
+            "snippet": "<a class=\"ytmVideoInfoVideoTitle\" aria-level=\"2\" href=\"https://www.youtube.com/watch?v=ypCli_AyPSo\"><span class=\"ytAttributedStringHost ytmVideoInfoLink ytAttributedStringWhiteSpaceNoWrap\" style=\"\">G…"
+          }
+        ]
+      },
+      {
+        "id": "aria-prohibited-attr",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "Elements must only use permitted ARIA attributes",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/aria-prohibited-attr?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "div:nth-child(2) > iframe[width=\"100%\"][height=\"100%\"][title=\"Embedded YouTube video\"] >>> #movie_player",
+            "snippet": "<div class=\"html5-video-player ytp-hide-controls ytp-exp-bottom-control-flexbox ytp-modern-caption ytp-livebadge-color unstarted-mode ytp-small-mode\" tabindex=\"\" id=\"movie_player\" data-version=\"/s/pl…"
+          }
+        ]
+      },
+      {
+        "id": "empty-heading",
+        "impact": "minor",
+        "nodes": 1,
+        "help": "Headings should not be empty",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/empty-heading?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".mb-4.justify-between.items-center > .sm\\:text-3xl",
+            "snippet": "<h1 id=\"modal-title\" class=\"text-2xl leading-none sm:text-3xl font-semibold\"><span x-text=\"lightboxSelectedGame &amp;&amp; lightboxSelectedGame.title\"></span> </h1>"
+          }
+        ]
+      },
+      {
+        "id": "list",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "<ul> and <ol> must only directly contain <li>, <script> or <template> elements",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/list?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".pb-6 > ul",
+            "snippet": "<ul>"
+          }
+        ]
+      },
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "All page content should be contained by landmarks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/region?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".inline-grid",
+            "snippet": "<div class=\"inline-grid gap-4 grid-cols-1 sm:grid-cols-3\">"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
