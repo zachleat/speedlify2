@@ -1,0 +1,443 @@
+{
+  "url": "https://ghost-v3.netlify.app/",
+  "name": "ghost-v3.netlify.app",
+  "group": "11ty-community",
+  "groupName": "Built Awesome",
+  "timestamp": 1790459654319,
+  "date": "2026-09-26T21:54:14.319Z",
+  "runId": "2026-09-26T21-51-14-405Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 27670,
+  "error": null,
+  "variance": {
+    "min": 75,
+    "max": 78,
+    "spread": 3,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://ghost-v3.netlify.app/",
+    "finalUrl": "https://ghost-v3.netlify.app/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 75,
+      "accessibility": 88,
+      "best-practices": 96,
+      "seo": 100,
+      "agentic-browsing": 50
+    },
+    "timings": {
+      "fcp": 908,
+      "lcp": 10283,
+      "si": 908,
+      "tbt": 0,
+      "tti": 10290,
+      "cls": 0,
+      "ttfb": 608,
+      "maxPotentialFid": 37,
+      "serverResponseTime": 3,
+      "networkRtt": 0.1,
+      "networkServerLatency": 129
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 4.3,
+      "resourceLoadDelay": 32.8,
+      "resourceLoadDuration": 57.9,
+      "elementRenderDelay": 69.7
+    },
+    "weight": {
+      "total": 4710044,
+      "requests": 28,
+      "mainDocument": 10408,
+      "byType": {
+        "total": {
+          "bytes": 4707610,
+          "requests": 20
+        },
+        "image": {
+          "bytes": 4646868,
+          "requests": 11
+        },
+        "script": {
+          "bytes": 33545,
+          "requests": 2
+        },
+        "document": {
+          "bytes": 10408,
+          "requests": 1
+        },
+        "stylesheet": {
+          "bytes": 8750,
+          "requests": 1
+        },
+        "other": {
+          "bytes": 8039,
+          "requests": 5
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "font": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 491670,
+          "requests": 10
+        }
+      },
+      "scripts": 2,
+      "stylesheets": 1,
+      "fonts": 0
+    },
+    "thirdParty": {
+      "count": 4,
+      "bytes": 490917,
+      "mainThreadMs": 17.2,
+      "top": [
+        {
+          "entity": "ghost.io",
+          "bytes": 413561,
+          "mainThreadMs": 0,
+          "byType": {
+            "image": 406488,
+            "other": 7073
+          },
+          "typedBytes": 413561
+        },
+        {
+          "entity": "Gravatar",
+          "bytes": 43598,
+          "mainThreadMs": 0,
+          "byType": {
+            "image": 43598
+          },
+          "typedBytes": 43598
+        },
+        {
+          "entity": "jQuery CDN",
+          "bytes": 30753,
+          "mainThreadMs": 11.7,
+          "byType": {
+            "script": 30753
+          },
+          "typedBytes": 30753
+        },
+        {
+          "entity": "Pingdom RUM",
+          "bytes": 3005,
+          "mainThreadMs": 5.5,
+          "byType": {
+            "script": 2792,
+            "other": 213
+          },
+          "typedBytes": 3005
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 518.2,
+      "byGroup": {
+        "other": 235.1,
+        "styleLayout": 128.6,
+        "scriptEvaluation": 90.2,
+        "paintCompositeRender": 25.7,
+        "scriptParseCompile": 20.2,
+        "parseHTML": 18.5
+      },
+      "bootupMs": 86.4,
+      "longTasks": 1,
+      "longestTaskMs": 73
+    },
+    "dom": {
+      "elements": 403,
+      "depth": 12,
+      "maxChildren": 15
+    },
+    "waste": {
+      "unusedJsBytes": 21366,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 0,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 150,
+      "renderBlockingCount": 1,
+      "poorlyCachedBytes": 42898.216666666674,
+      "poorlyCachedCount": 2
+    },
+    "accessibility": {
+      "failingCount": 3,
+      "applicableCount": 24,
+      "failingNodes": 76,
+      "failing": [
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "weight": 7,
+          "nodes": 58,
+          "samples": [
+            {
+              "selector": "div.post-card-content > a.post-card-content-link > header.post-card-header > div.post-card-primary-tag",
+              "snippet": "<div class=\"post-card-primary-tag\">",
+              "label": "GETTING STARTED"
+            },
+            {
+              "selector": "div.post-card-content > a.post-card-content-link > section.post-card-excerpt > p",
+              "snippet": "<p>",
+              "label": "Welcome, it's great to have you here. We know that first impressions are import…"
+            },
+            {
+              "selector": "div.post-card-content > footer.post-card-meta > div.post-card-byline-content > span.post-card-byline-date",
+              "snippet": "<span class=\"post-card-byline-date\">",
+              "label": "20 AUG 2018 • 2 MIN READ"
+            },
+            {
+              "selector": "footer.post-card-meta > div.post-card-byline-content > span.post-card-byline-date > time",
+              "snippet": "<time datetime=\"2018-08-20T15:12:06.000Z\">",
+              "label": "20 AUG 2018"
+            },
+            {
+              "selector": "div.post-card-content > a.post-card-content-link > header.post-card-header > div.post-card-primary-tag",
+              "snippet": "<div class=\"post-card-primary-tag\">",
+              "label": "GETTING STARTED"
+            }
+          ]
+        },
+        {
+          "id": "target-size",
+          "title": "Touch targets do not have sufficient size or spacing.",
+          "weight": 7,
+          "nodes": 15,
+          "samples": [
+            {
+              "selector": "footer.post-card-meta > div.post-card-byline-content > span > a",
+              "snippet": "<a href=\"/author/ghost/\">",
+              "label": "GHOST"
+            },
+            {
+              "selector": "footer.post-card-meta > div.post-card-byline-content > span > a",
+              "snippet": "<a href=\"/author/ghost/\">",
+              "label": "GHOST"
+            },
+            {
+              "selector": "footer.post-card-meta > div.post-card-byline-content > span > a",
+              "snippet": "<a href=\"/author/ghost/\">",
+              "label": "GHOST"
+            },
+            {
+              "selector": "footer.post-card-meta > div.post-card-byline-content > span > a",
+              "snippet": "<a href=\"/author/ghost/\">",
+              "label": "GHOST"
+            },
+            {
+              "selector": "footer.post-card-meta > div.post-card-byline-content > span > a",
+              "snippet": "<a href=\"/author/ghost/\">",
+              "label": "GHOST"
+            }
+          ]
+        },
+        {
+          "id": "link-name",
+          "title": "Links do not have a discernible name",
+          "weight": 7,
+          "nodes": 3,
+          "samples": [
+            {
+              "selector": "body.home-template > div.site-wrapper > div.subscribe-success-message > a.subscribe-close",
+              "snippet": "<a class=\"subscribe-close\" href=\"javascript:;\">",
+              "label": "body.home-template > div.site-wrapper > div.subscribe-success-message > a.subscribe-close"
+            },
+            {
+              "selector": "body.home-template > div.site-wrapper > div#subscribe > a.subscribe-close-overlay",
+              "snippet": "<a class=\"subscribe-close-overlay\" href=\"#\">",
+              "label": "body.home-template > div.site-wrapper > div#subscribe > a.subscribe-close-overlay"
+            },
+            {
+              "selector": "body.home-template > div.site-wrapper > div#subscribe > a.subscribe-close-button",
+              "snippet": "<a class=\"subscribe-close-button\" href=\"#\">",
+              "label": "body.home-template > div.site-wrapper > div#subscribe > a.subscribe-close-button"
+            }
+          ]
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 1,
+      "applicableCount": 18,
+      "failing": [
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "weight": 1,
+          "nodes": 1,
+          "samples": []
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 0,
+      "applicableCount": 10,
+      "failing": []
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": null,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 1,
+      "baselineLimitedFeatures": 6
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2380,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-09-26T21:54:33.330Z",
+      "runtimeMs": 7518.3
+    }
+  },
+  "field": null,
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": {
+      "id": "eleventy",
+      "name": "Eleventy",
+      "icon": "Eleventy",
+      "version": null,
+      "source": "meta",
+      "raw": "Eleventy"
+    },
+    "probe": {
+      "metas": [
+        "Eleventy"
+      ],
+      "marks": [],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "netlify",
+      "name": "Netlify",
+      "icon": "Netlify",
+      "source": "x-nf-request-id"
+    },
+    "headers": {
+      "server": "Netlify",
+      "x-nf-request-id": "01M3FVD5KE8BNT7JCNQMFE412M"
+    },
+    "violations": 67,
+    "passes": 679,
+    "incomplete": 5,
+    "violationRules": 4,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 58,
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/color-contrast?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".post-card-content-link[href$=\"welcome/\"] > .post-card-header > .post-card-primary-tag",
+            "snippet": "<div class=\"post-card-primary-tag\">Getting Started</div>"
+          },
+          {
+            "selector": ".post-card-content-link[href$=\"welcome/\"] > .post-card-excerpt > p",
+            "snippet": "<p>Welcome, it's great to have you here. We know that first impressions are important, so we've populated your new site with some initial getting started posts that will help you get familiar with ev…"
+          },
+          {
+            "selector": ".post-index-0 > .post-card-content > .post-card-meta > .post-card-byline-content > .post-card-byline-date",
+            "snippet": "<span class=\"post-card-byline-date\"><time datetime=\"2018-08-20T15:12:06.000Z\">20 Aug 2018</time> <span class=\"bull\">•</span> 2 min read</span>"
+          },
+          {
+            "selector": "time[datetime=\"2018-08-20T15:12:06.000Z\"]",
+            "snippet": "<time datetime=\"2018-08-20T15:12:06.000Z\">20 Aug 2018</time>"
+          },
+          {
+            "selector": ".post-card-content-link[href$=\"the-editor/\"] > .post-card-header > .post-card-primary-tag",
+            "snippet": "<div class=\"post-card-primary-tag\">Getting Started</div>"
+          }
+        ]
+      },
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 5,
+        "help": "All page content should be contained by landmarks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/region?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".subscribe-success-message",
+            "snippet": "<div class=\"subscribe-success-message\"><a class=\"subscribe-close\" href=\"javascript:;\"></a> You've successfully subscribed to Ghost!</div>"
+          },
+          {
+            "selector": ".subscribe-overlay-logo",
+            "snippet": "<img class=\"subscribe-overlay-logo\" src=\"https://demo.ghost.io/content/images/2014/09/Ghost-Transparent-for-DARK-BG.png\" alt=\"Ghost\">"
+          },
+          {
+            "selector": ".subscribe-overlay-title",
+            "snippet": "<h1 class=\"subscribe-overlay-title\">Subscribe to Ghost</h1>"
+          },
+          {
+            "selector": ".subscribe-overlay-description",
+            "snippet": "<p class=\"subscribe-overlay-description\">Stay up to date! Get all the latest &amp; greatest posts delivered straight to your inbox</p>"
+          },
+          {
+            "selector": "input",
+            "snippet": "<input class=\"subscribe-email\" data-members-email=\"\" placeholder=\"youremail@example.com\" autocomplete=\"false\">"
+          }
+        ]
+      },
+      {
+        "id": "link-name",
+        "impact": "serious",
+        "nodes": 3,
+        "help": "Links must have discernible text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/link-name?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".subscribe-close",
+            "snippet": "<a class=\"subscribe-close\" href=\"javascript:;\"></a>"
+          },
+          {
+            "selector": ".subscribe-close-overlay",
+            "snippet": "<a class=\"subscribe-close-overlay\" href=\"#\"></a>"
+          },
+          {
+            "selector": ".subscribe-close-button",
+            "snippet": "<a class=\"subscribe-close-button\" href=\"#\"></a>"
+          }
+        ]
+      },
+      {
+        "id": "landmark-unique",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/landmark-unique?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".site-nav",
+            "snippet": "<nav class=\"site-nav\">"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
