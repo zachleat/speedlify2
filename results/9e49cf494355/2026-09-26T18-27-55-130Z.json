@@ -1,0 +1,436 @@
+{
+  "url": "https://www.apple.com/",
+  "name": "Apple",
+  "group": "big-tech",
+  "groupName": "Big Tech",
+  "timestamp": 1790447275130,
+  "date": "2026-09-26T18:27:55.130Z",
+  "runId": "2026-09-26T18-21-12-958Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 67399,
+  "error": null,
+  "variance": {
+    "min": 60,
+    "max": 65,
+    "spread": 5,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://www.apple.com/",
+    "finalUrl": "https://www.apple.com/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 61,
+      "accessibility": 92,
+      "best-practices": 100,
+      "seo": 92,
+      "agentic-browsing": 50
+    },
+    "timings": {
+      "fcp": 3909,
+      "lcp": 9087,
+      "si": 3909,
+      "tbt": 250,
+      "tti": 9117,
+      "cls": 0,
+      "ttfb": 609,
+      "maxPotentialFid": 155,
+      "serverResponseTime": 26,
+      "networkRtt": 0,
+      "networkServerLatency": 14.2
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 27.6,
+      "resourceLoadDelay": 14.3,
+      "resourceLoadDuration": 39.4,
+      "elementRenderDelay": 255.4
+    },
+    "weight": {
+      "total": 1746326,
+      "requests": 44,
+      "mainDocument": 44009,
+      "byType": {
+        "total": {
+          "bytes": 1742616,
+          "requests": 42
+        },
+        "font": {
+          "bytes": 953247,
+          "requests": 6
+        },
+        "script": {
+          "bytes": 425472,
+          "requests": 18
+        },
+        "image": {
+          "bytes": 193112,
+          "requests": 5
+        },
+        "stylesheet": {
+          "bytes": 78780,
+          "requests": 9
+        },
+        "other": {
+          "bytes": 47996,
+          "requests": 3
+        },
+        "document": {
+          "bytes": 44009,
+          "requests": 1
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 1742616,
+          "requests": 42
+        }
+      },
+      "scripts": 18,
+      "stylesheets": 9,
+      "fonts": 6
+    },
+    "thirdParty": {
+      "count": 0,
+      "bytes": 0,
+      "mainThreadMs": 0,
+      "top": []
+    },
+    "mainThread": {
+      "total": 2306.1,
+      "byGroup": {
+        "other": 739.6,
+        "scriptEvaluation": 724.3,
+        "styleLayout": 504.4,
+        "paintCompositeRender": 146.8,
+        "parseHTML": 112.9,
+        "scriptParseCompile": 78.1
+      },
+      "bootupMs": 777.7,
+      "longTasks": 10,
+      "longestTaskMs": 155
+    },
+    "dom": {
+      "elements": 1786,
+      "depth": 19,
+      "maxChildren": 19
+    },
+    "waste": {
+      "unusedJsBytes": 155846,
+      "unusedCssBytes": 40457,
+      "legacyJsBytes": 18367,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 1350,
+      "renderBlockingCount": 13,
+      "poorlyCachedBytes": 1345352.9302777776,
+      "poorlyCachedCount": 35
+    },
+    "accessibility": {
+      "failingCount": 3,
+      "applicableCount": 34,
+      "failingNodes": 17,
+      "failing": [
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "weight": 7,
+          "nodes": 13,
+          "samples": [
+            {
+              "selector": "a#media-gallery-item-2-link > div.media-gallery-contents > div.media-gallery-bottom-content > div.button",
+              "snippet": "<div class=\"button button-neutral media-gallery-button\" aria-hidden=\"true\">",
+              "label": "Stream now"
+            },
+            {
+              "selector": "a#media-gallery-item-3-link > div.media-gallery-contents > div.media-gallery-bottom-content > div.button",
+              "snippet": "<div class=\"button button-neutral media-gallery-button\" aria-hidden=\"true\">",
+              "label": "Stream now"
+            },
+            {
+              "selector": "a#media-gallery-item-4-link > div.media-gallery-contents > div.media-gallery-bottom-content > div.button",
+              "snippet": "<div class=\"button button-neutral media-gallery-button\" aria-hidden=\"true\">",
+              "label": "Stream now"
+            },
+            {
+              "selector": "a#media-gallery-item-5-link > div.media-gallery-contents > div.media-gallery-bottom-content > div.button",
+              "snippet": "<div class=\"button button-neutral media-gallery-button\" aria-hidden=\"true\">",
+              "label": "MLS on Apple TV"
+            },
+            {
+              "selector": "a#media-gallery-item-6-link > div.media-gallery-contents > div.media-gallery-bottom-content > div.button",
+              "snippet": "<div class=\"button button-neutral media-gallery-button\" aria-hidden=\"true\">",
+              "label": "Stream now"
+            }
+          ]
+        },
+        {
+          "id": "aria-required-children",
+          "title": "Elements with an ARIA `[role]` that require children to contain a specific `[role]` are missing some or all of those required children.",
+          "weight": 10,
+          "nodes": 2,
+          "samples": [
+            {
+              "selector": "section.section-endless-entertainment-gallery > div.endless-entertainment > div#tv-media-gallery > ul.media-gallery-item-container",
+              "snippet": "<ul class=\"media-gallery-item-container\" role=\"list\" style=\"transform: translate3d(0px, 0px, 0px);\">",
+              "label": "F1 on Apple TV\n\nEvery Grand Prix™, live and on demand—all in one place, all yea…"
+            },
+            {
+              "selector": "section.section-endless-entertainment-gallery > div.endless-entertainment > div#fam-media-gallery > ul.media-gallery-item-container",
+              "snippet": "<ul class=\"media-gallery-item-container\" role=\"list\" style=\"transform: translate3d(0px, 0px, 0px);\">",
+              "label": "Listen now\n\nSabrina Carpenter: The Zane Lowe Interview\n\nPlay now\n\nHello Kitty I…"
+            }
+          ]
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "title": "Elements with visible text labels do not have matching accessible names.",
+          "weight": 0,
+          "nodes": 2,
+          "samples": [
+            {
+              "selector": "ul#globalnav-list > li#globalnav-bag > div.globalnav-bag-wrapper > a#globalnav-menubutton-link-bag",
+              "snippet": "<a id=\"globalnav-menubutton-link-bag\" href=\"/us/shop/goto/bag\" aria-label=\"Shopping Bag\" aria-expanded=\"false\" aria-controls=\"globalnav-submenu-bag\" data-globalnav-item-name=\"bag\" role=\"button\" data-…",
+              "label": "0\n+"
+            },
+            {
+              "selector": "div#tv-media-gallery > ul.media-gallery-item-container > li#endless-entertainment-gallery-item-1 > a#media-gallery-item-1-link",
+              "snippet": "<a id=\"media-gallery-item-1-link\" class=\"media-gallery-wrapper-link fam-media-gallery-wrapper-link\" href=\"https://tv.apple.com/us/room/formula-1/uts.room.formula-1?itscg=10000&amp;itsc…\" data-analyti…",
+              "label": "F1 on Apple TV\n\nEvery Grand Prix™, live and on demand—all in one place, all yea…"
+            }
+          ]
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 0,
+      "applicableCount": 18,
+      "failing": []
+    },
+    "seo": {
+      "failingCount": 1,
+      "applicableCount": 10,
+      "failing": [
+        {
+          "id": "link-text",
+          "title": "Links do not have descriptive text",
+          "weight": 1,
+          "nodes": 9,
+          "samples": []
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": null,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 29
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2475.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-09-26T18:28:19.249Z",
+      "runtimeMs": 10382.5
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 601.6,
+    "resourceLoadDelay": 108.2,
+    "resourceLoadDuration": 2381.6,
+    "elementRenderDelay": 2454.2
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-08-28",
+      "last": "2026-09-24"
+    },
+    "metrics": {
+      "cls": {
+        "p75": 0,
+        "rating": "good",
+        "distribution": {
+          "good": 86.5,
+          "needsImprovement": 12.8,
+          "poor": 0.7
+        }
+      },
+      "ttfb": {
+        "p75": 611,
+        "rating": "good",
+        "distribution": {
+          "good": 82,
+          "needsImprovement": 12.9,
+          "poor": 5.2
+        }
+      },
+      "fcp": {
+        "p75": 1085,
+        "rating": "good",
+        "distribution": {
+          "good": 87.7,
+          "needsImprovement": 7.2,
+          "poor": 5.1
+        }
+      },
+      "inp": {
+        "p75": 128,
+        "rating": "good",
+        "distribution": {
+          "good": 88.9,
+          "needsImprovement": 9.3,
+          "poor": 1.8
+        }
+      },
+      "lcp": {
+        "p75": 1435,
+        "rating": "good",
+        "distribution": {
+          "good": 88.6,
+          "needsImprovement": 6.4,
+          "poor": 5
+        }
+      },
+      "rtt": {
+        "p75": 164,
+        "rating": null,
+        "distribution": {
+          "good": 34.6,
+          "needsImprovement": 54.5,
+          "poor": 10.9
+        }
+      }
+    },
+    "cwvPass": true,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "probe": {
+      "metas": [],
+      "marks": [
+        "preact"
+      ],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": null,
+      "name": "Apple",
+      "icon": null,
+      "source": "server"
+    },
+    "headers": {
+      "server": "Apple"
+    },
+    "violations": 19,
+    "passes": 1294,
+    "incomplete": 87,
+    "violationRules": 4,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 13,
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/color-contrast?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "#media-gallery-item-2-link > .media-gallery-contents > .media-gallery-bottom-content > .button-neutral.media-gallery-button.button",
+            "snippet": "<div class=\"button button-neutral media-gallery-button\" aria-hidden=\"true\">Stream now</div>"
+          },
+          {
+            "selector": "#media-gallery-item-3-link > .media-gallery-contents > .media-gallery-bottom-content > .button-neutral.media-gallery-button.button",
+            "snippet": "<div class=\"button button-neutral media-gallery-button\" aria-hidden=\"true\">Stream now</div>"
+          },
+          {
+            "selector": "#media-gallery-item-4-link > .media-gallery-contents > .media-gallery-bottom-content > .button-neutral.media-gallery-button.button",
+            "snippet": "<div class=\"button button-neutral media-gallery-button\" aria-hidden=\"true\">Stream now</div>"
+          },
+          {
+            "selector": "#media-gallery-item-5-link > .media-gallery-contents > .media-gallery-bottom-content > .button-neutral.media-gallery-button.button",
+            "snippet": "<div class=\"button button-neutral media-gallery-button\" aria-hidden=\"true\">MLS on Apple TV</div>"
+          },
+          {
+            "selector": "#media-gallery-item-6-link > .media-gallery-contents > .media-gallery-bottom-content > .button-neutral.media-gallery-button.button",
+            "snippet": "<div class=\"button button-neutral media-gallery-button\" aria-hidden=\"true\">Stream now</div>"
+          }
+        ]
+      },
+      {
+        "id": "aria-allowed-role",
+        "impact": "minor",
+        "nodes": 3,
+        "help": "ARIA role should be appropriate for the element",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/aria-allowed-role?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "#apple-upgrade",
+            "snippet": "<video id=\"apple-upgrade\" muted=\"\" preload=\"none\" playsinline=\"\" data-inline-media-ba...=\"/105/media/us/home/2...\" data-inline-media-pl...=\"{\"start\":\"t - (100vh...\" aria-label=\"Apple Upgrade, iPhon..…"
+          },
+          {
+            "selector": "li[data-tv-room=\"formula 1\"]",
+            "snippet": "<li id=\"endless-entertainmen...\" class=\"media-gallery-item t...\" data-media-gallery-i...=\"1\" data-tv-room=\"formula 1\" data-title=\"Formula 1\" data-ac-gallery-item=\"\" data-analytics-galle...=\"formula 1…"
+          },
+          {
+            "selector": "#fam-media-gallery > .media-gallery-item-container[role=\"list\"] > .current-item.current[data-media-gallery-item=\"1\"]",
+            "snippet": "<li id=\"endless-entertainmen...\" class=\"media-gallery-item t...\" data-media-gallery-i...=\"1\" data-media-gallery-i...=\"music\" data-fam-music=\"sabrina carpenter: t...\" data-ac-gallery-item=\"\" data-anal…"
+          }
+        ]
+      },
+      {
+        "id": "aria-required-children",
+        "impact": "critical",
+        "nodes": 2,
+        "help": "Certain ARIA roles must contain particular children",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/aria-required-children?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "#tv-media-gallery > .media-gallery-item-container[role=\"list\"]",
+            "snippet": "<ul class=\"media-gallery-item-container\" role=\"list\" style=\"transform: translate3d(0px, 0px, 0px);\">"
+          },
+          {
+            "selector": "#fam-media-gallery > .media-gallery-item-container[role=\"list\"]",
+            "snippet": "<ul class=\"media-gallery-item-container\" role=\"list\" style=\"transform: translate3d(0px, 0px, 0px);\">"
+          }
+        ]
+      },
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "All page content should be contained by landmarks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/region?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "h1",
+            "snippet": "<h1 class=\"visuallyhidden\">Apple</h1>"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
