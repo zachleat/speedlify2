@@ -1,0 +1,269 @@
+{
+  "url": "https://jaenis.ch/",
+  "name": "jaenis.ch",
+  "group": "11ty-community",
+  "groupName": "Built Awesome",
+  "timestamp": 1790459772914,
+  "date": "2026-09-26T21:56:12.914Z",
+  "runId": "2026-09-26T21-51-11-546Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 27411,
+  "error": null,
+  "variance": {
+    "min": 56,
+    "max": 92,
+    "spread": 36,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://jaenis.ch/",
+    "finalUrl": "https://jaenis.ch/en/",
+    "redirect": {
+      "from": "https://jaenis.ch/",
+      "to": "https://jaenis.ch/en",
+      "chain": [
+        {
+          "url": "https://jaenis.ch/",
+          "status": 301
+        },
+        {
+          "url": "https://jaenis.ch/en/",
+          "status": 200
+        }
+      ],
+      "statuses": [
+        301
+      ],
+      "change": "path",
+      "permanent": true,
+      "schemeUpgrade": false,
+      "hops": 1
+    },
+    "statusCode": "ok",
+    "scores": {
+      "performance": 56,
+      "accessibility": 100,
+      "best-practices": 92,
+      "seo": 92,
+      "agentic-browsing": 100
+    },
+    "timings": {
+      "fcp": 11260,
+      "lcp": 11676,
+      "si": 11260,
+      "tbt": 0,
+      "tti": 11676,
+      "cls": 0,
+      "ttfb": 714,
+      "maxPotentialFid": 16,
+      "serverResponseTime": 114,
+      "networkRtt": 0,
+      "networkServerLatency": 126.1
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 230.6,
+      "resourceLoadDelay": 11.1,
+      "resourceLoadDuration": 458.3,
+      "elementRenderDelay": 692.1
+    },
+    "weight": {
+      "total": 1684780,
+      "requests": 28,
+      "mainDocument": 5317,
+      "byType": {
+        "total": {
+          "bytes": 1684780,
+          "requests": 27
+        },
+        "font": {
+          "bytes": 1586347,
+          "requests": 7
+        },
+        "image": {
+          "bytes": 54434,
+          "requests": 5
+        },
+        "stylesheet": {
+          "bytes": 24634,
+          "requests": 9
+        },
+        "script": {
+          "bytes": 9312,
+          "requests": 2
+        },
+        "document": {
+          "bytes": 5317,
+          "requests": 1
+        },
+        "other": {
+          "bytes": 4736,
+          "requests": 3
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 0,
+          "requests": 0
+        }
+      },
+      "scripts": 2,
+      "stylesheets": 9,
+      "fonts": 7
+    },
+    "thirdParty": {
+      "count": 0,
+      "bytes": 0,
+      "mainThreadMs": 0,
+      "top": []
+    },
+    "mainThread": {
+      "total": 294.1,
+      "byGroup": {
+        "other": 173.7,
+        "styleLayout": 77.1,
+        "scriptEvaluation": 19.2,
+        "paintCompositeRender": 12.8,
+        "parseHTML": 10.1,
+        "scriptParseCompile": 1.3
+      },
+      "bootupMs": 12.1,
+      "longTasks": 0,
+      "longestTaskMs": null
+    },
+    "dom": {
+      "elements": 131,
+      "depth": 11,
+      "maxChildren": 30
+    },
+    "waste": {
+      "unusedJsBytes": 0,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 0,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 2056,
+      "renderBlockingMs": 8544,
+      "renderBlockingCount": 9,
+      "poorlyCachedBytes": 0,
+      "poorlyCachedCount": 0
+    },
+    "accessibility": {
+      "failingCount": 0,
+      "applicableCount": 16,
+      "failingNodes": 0,
+      "failing": []
+    },
+    "bestPractices": {
+      "failingCount": 2,
+      "applicableCount": 18,
+      "failing": [
+        {
+          "id": "image-aspect-ratio",
+          "title": "Displays images with incorrect aspect ratio",
+          "weight": 1,
+          "nodes": 1,
+          "samples": [
+            {
+              "selector": "div > div > a > img",
+              "snippet": "<img src=\"https://design.jaenis.ch/static/images/greenwebfoundation.png\" alt=\"This website is hosted Green - checked by thegreenwebfoundation.org\" height=\"135\" width=\"300\">",
+              "label": "This website is hosted Green - checked by thegreenwebfoundation.org"
+            }
+          ]
+        },
+        {
+          "id": "image-size-responsive",
+          "title": "Serves images with low resolution",
+          "weight": 1,
+          "nodes": 1,
+          "samples": [
+            {
+              "selector": "article.h-entry > div.e-content > p > img",
+              "snippet": "<img src=\"https://design.jaenis.ch/static/images/profile.jpg\" alt=\"A photo depicting me\" width=\"300\" height=\"300\">",
+              "label": "A photo depicting me"
+            }
+          ]
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 1,
+      "applicableCount": 9,
+      "failing": [
+        {
+          "id": "canonical",
+          "title": "Document does not have a valid `rel=canonical`",
+          "weight": 1,
+          "nodes": null,
+          "samples": []
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "http/1.1",
+      "legacyHttpRequests": 22,
+      "redirectMs": 863.7,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 11
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2500,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-09-26T21:56:23.440Z",
+      "runtimeMs": 7707.9
+    }
+  },
+  "field": null,
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": {
+      "id": "build-awesome",
+      "name": "Build Awesome",
+      "icon": "BuildAwesome",
+      "version": "4.0.0",
+      "source": "meta",
+      "raw": "Eleventy (Build Awesome) v4.0.0"
+    },
+    "probe": {
+      "metas": [
+        "Eleventy (Build Awesome) v4.0.0"
+      ],
+      "marks": [],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "self-hosted",
+      "name": "Self-hosted",
+      "icon": null,
+      "detail": "nginx",
+      "detailIcon": "Nginx",
+      "source": "server"
+    },
+    "headers": {
+      "server": "nginx"
+    },
+    "violations": 0,
+    "passes": 244,
+    "incomplete": 16,
+    "violationRules": 0,
+    "version": "4.13.0",
+    "top": [],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}

@@ -1,0 +1,330 @@
+{
+  "url": "https://www.zachleat.com/web/lighthouse-in-footer",
+  "name": "www.zachleat.com",
+  "group": "zachleat",
+  "groupName": "zachleat",
+  "timestamp": 1790459477671,
+  "date": "2026-09-26T21:51:17.671Z",
+  "runId": "2026-09-26T21-51-11-546Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 67177,
+  "error": null,
+  "variance": {
+    "min": 95,
+    "max": 99,
+    "spread": 4,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://www.zachleat.com/web/lighthouse-in-footer",
+    "finalUrl": "https://www.zachleat.com/web/lighthouse-in-footer/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 99,
+      "accessibility": 96,
+      "best-practices": 100,
+      "seo": 100,
+      "agentic-browsing": 100
+    },
+    "timings": {
+      "fcp": 1216,
+      "lcp": 1836,
+      "si": 1216,
+      "tbt": 0,
+      "tti": 1836,
+      "cls": 0.028,
+      "ttfb": 616,
+      "maxPotentialFid": 30,
+      "serverResponseTime": 15,
+      "networkRtt": 0.1,
+      "networkServerLatency": 123.9
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 52.6,
+      "elementRenderDelay": 113.4
+    },
+    "weight": {
+      "total": 156477,
+      "requests": 22,
+      "mainDocument": 52618,
+      "byType": {
+        "total": {
+          "bytes": 153277,
+          "requests": 19
+        },
+        "font": {
+          "bytes": 70787,
+          "requests": 5
+        },
+        "document": {
+          "bytes": 52618,
+          "requests": 1
+        },
+        "script": {
+          "bytes": 15269,
+          "requests": 6
+        },
+        "stylesheet": {
+          "bytes": 5711,
+          "requests": 1
+        },
+        "image": {
+          "bytes": 4721,
+          "requests": 3
+        },
+        "other": {
+          "bytes": 4171,
+          "requests": 3
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 6537,
+          "requests": 4
+        }
+      },
+      "scripts": 6,
+      "stylesheets": 1,
+      "fonts": 5
+    },
+    "thirdParty": {
+      "count": 3,
+      "bytes": 6537,
+      "mainThreadMs": 2.1,
+      "top": [
+        {
+          "entity": "zgo.at",
+          "bytes": 4338,
+          "mainThreadMs": 2.1,
+          "byType": {
+            "script": 4338
+          },
+          "typedBytes": 4338
+        },
+        {
+          "entity": "11ty.dev",
+          "bytes": 1817,
+          "mainThreadMs": 0,
+          "byType": {
+            "image": 1817
+          },
+          "typedBytes": 1817
+        },
+        {
+          "entity": "goatcounter.com",
+          "bytes": 382,
+          "mainThreadMs": 0,
+          "byType": {
+            "other": 382
+          },
+          "typedBytes": 382
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 605.9,
+      "byGroup": {
+        "styleLayout": 230.6,
+        "other": 173.5,
+        "scriptEvaluation": 93.1,
+        "parseHTML": 57.3,
+        "paintCompositeRender": 47.8,
+        "scriptParseCompile": 3.6
+      },
+      "bootupMs": 63.5,
+      "longTasks": 1,
+      "longestTaskMs": 95
+    },
+    "dom": {
+      "elements": 1593,
+      "depth": 14,
+      "maxChildren": 202
+    },
+    "waste": {
+      "unusedJsBytes": 0,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 0,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 0,
+      "renderBlockingCount": 0,
+      "poorlyCachedBytes": 1453.6000000000001,
+      "poorlyCachedCount": 2
+    },
+    "accessibility": {
+      "failingCount": 1,
+      "applicableCount": 28,
+      "failingNodes": 2,
+      "failing": [
+        {
+          "id": "target-size",
+          "title": "Touch targets do not have sufficient size or spacing.",
+          "weight": 7,
+          "nodes": 2,
+          "samples": [
+            {
+              "selector": "article.project-card > div.project-card-top > div.post-link > a.text-ellipsis",
+              "snippet": "<a href=\"/web/eleventy-leaderboard-speedlify/\" class=\"text-ellipsis\">",
+              "label": "Eleventy Leaderboards v2 via Speedlify"
+            },
+            {
+              "selector": "article.project-card > div.project-card-top > small.metadata > a",
+              "snippet": "<a href=\"https://npmx.dev/package/speedlify-score\">",
+              "label": "npmx"
+            }
+          ]
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 0,
+      "applicableCount": 19,
+      "failing": []
+    },
+    "seo": {
+      "failingCount": 0,
+      "applicableCount": 9,
+      "failing": []
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 765.6,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 44
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2427.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-09-26T21:51:34.844Z",
+      "runtimeMs": 11309.2
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 1152.7,
+    "elementRenderDelay": 369.9
+  },
+  "field": {
+    "source": "crux",
+    "scope": "origin",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-08-28",
+      "last": "2026-09-24"
+    },
+    "metrics": {
+      "inp": {
+        "p75": 93,
+        "rating": "good",
+        "distribution": {
+          "good": 90.6,
+          "needsImprovement": 9.4,
+          "poor": 0
+        }
+      },
+      "lcp": {
+        "p75": 1081,
+        "rating": "good",
+        "distribution": {
+          "good": 94.9,
+          "needsImprovement": 3.7,
+          "poor": 1.4
+        }
+      },
+      "rtt": {
+        "p75": 135,
+        "rating": null,
+        "distribution": {
+          "good": 53.1,
+          "needsImprovement": 37.4,
+          "poor": 9.6
+        }
+      },
+      "cls": {
+        "p75": 0,
+        "rating": "good",
+        "distribution": {
+          "good": 99.3,
+          "needsImprovement": 0.7,
+          "poor": 0
+        }
+      },
+      "ttfb": {
+        "p75": 672,
+        "rating": "good",
+        "distribution": {
+          "good": 78.1,
+          "needsImprovement": 17.2,
+          "poor": 4.7
+        }
+      },
+      "fcp": {
+        "p75": 1016,
+        "rating": "good",
+        "distribution": {
+          "good": 92.3,
+          "needsImprovement": 5.6,
+          "poor": 2.2
+        }
+      }
+    },
+    "cwvPass": true,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": {
+      "id": "build-awesome",
+      "name": "Build Awesome",
+      "icon": "BuildAwesome",
+      "version": "4.0.0",
+      "source": "meta",
+      "raw": "Eleventy (Build Awesome) v4.0.0"
+    },
+    "probe": {
+      "metas": [
+        "Eleventy (Build Awesome) v4.0.0"
+      ],
+      "marks": [
+        "fontawesome"
+      ],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "netlify",
+      "name": "Netlify",
+      "icon": "Netlify",
+      "source": "x-nf-request-id"
+    },
+    "headers": {
+      "server": "Netlify",
+      "x-nf-request-id": "01M3FV87W7YS8TF2212QTWP9N4"
+    },
+    "violations": 0,
+    "passes": 2233,
+    "incomplete": 0,
+    "violationRules": 0,
+    "version": "4.13.0",
+    "top": [],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
