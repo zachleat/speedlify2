@@ -1,0 +1,397 @@
+{
+  "url": "https://gaiety.me/",
+  "name": "gaiety.me",
+  "group": "11ty-community",
+  "groupName": "Built Awesome",
+  "timestamp": 1790446963557,
+  "date": "2026-09-26T18:22:43.557Z",
+  "runId": "2026-09-26T18-21-13-766Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 23451,
+  "error": null,
+  "variance": {
+    "min": 75,
+    "max": 75,
+    "spread": 0,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://gaiety.me/",
+    "finalUrl": "https://gaiety.me/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 75,
+      "accessibility": 82,
+      "best-practices": 92,
+      "seo": 91,
+      "agentic-browsing": 100
+    },
+    "timings": {
+      "fcp": 1564,
+      "lcp": 8244,
+      "si": 1564,
+      "tbt": 0,
+      "tti": 8312,
+      "cls": 0.017,
+      "ttfb": 635,
+      "maxPotentialFid": 16,
+      "serverResponseTime": 35,
+      "networkRtt": 0.1,
+      "networkServerLatency": 34.7
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 36.5,
+      "resourceLoadDelay": 8.9,
+      "resourceLoadDuration": 192.3,
+      "elementRenderDelay": 26
+    },
+    "weight": {
+      "total": 6094881,
+      "requests": 23,
+      "mainDocument": 5884,
+      "byType": {
+        "total": {
+          "bytes": 6094881,
+          "requests": 23
+        },
+        "image": {
+          "bytes": 4013918,
+          "requests": 11
+        },
+        "font": {
+          "bytes": 2039314,
+          "requests": 4
+        },
+        "stylesheet": {
+          "bytes": 30113,
+          "requests": 2
+        },
+        "document": {
+          "bytes": 5884,
+          "requests": 1
+        },
+        "other": {
+          "bytes": 3925,
+          "requests": 4
+        },
+        "script": {
+          "bytes": 1727,
+          "requests": 1
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 1727,
+          "requests": 3
+        }
+      },
+      "scripts": 1,
+      "stylesheets": 2,
+      "fonts": 4
+    },
+    "thirdParty": {
+      "count": 1,
+      "bytes": 1727,
+      "mainThreadMs": 0,
+      "top": [
+        {
+          "entity": "basking.monster",
+          "bytes": 1727,
+          "mainThreadMs": 0,
+          "byType": {
+            "script": 1727
+          },
+          "typedBytes": 1727
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 768.2,
+      "byGroup": {
+        "other": 429.3,
+        "styleLayout": 240.1,
+        "paintCompositeRender": 65.7,
+        "scriptEvaluation": 18.4,
+        "parseHTML": 8.6,
+        "garbageCollection": 5.4,
+        "scriptParseCompile": 0.7
+      },
+      "bootupMs": 17.4,
+      "longTasks": 0,
+      "longestTaskMs": null
+    },
+    "dom": {
+      "elements": 170,
+      "depth": 10,
+      "maxChildren": 10
+    },
+    "waste": {
+      "unusedJsBytes": 0,
+      "unusedCssBytes": 14107,
+      "legacyJsBytes": 0,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 970,
+      "renderBlockingCount": 2,
+      "poorlyCachedBytes": 6084446.173577778,
+      "poorlyCachedCount": 18
+    },
+    "accessibility": {
+      "failingCount": 4,
+      "applicableCount": 18,
+      "failingNodes": 23,
+      "failing": [
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "weight": 7,
+          "nodes": 20,
+          "samples": [
+            {
+              "selector": "div.gap-16 > div.animate-once > div > a.outline-link",
+              "snippet": "<a href=\"/work/\" class=\"outline-link motion-safe:transition-colors inline-flex items-center bg-man…\">",
+              "label": "Work"
+            },
+            {
+              "selector": "a.outline-link > div.text-text > p.text-text > em.italic",
+              "snippet": "<em class=\"italic text-green\">",
+              "label": "(July 2025 - Present)"
+            },
+            {
+              "selector": "a.outline-link > div.text-text > p.text-text > strong.dark:text-yellow",
+              "snippet": "<strong class=\"dark:text-yellow font-normal text-peach\">",
+              "label": "Elixir"
+            },
+            {
+              "selector": "a.outline-link > div.text-text > p.text-text > strong.dark:text-yellow",
+              "snippet": "<strong class=\"dark:text-yellow font-normal text-peach\">",
+              "label": "Phoenix"
+            },
+            {
+              "selector": "a.outline-link > div.text-text > p.text-text > strong.dark:text-yellow",
+              "snippet": "<strong class=\"dark:text-yellow font-normal text-peach\">",
+              "label": "Postgres"
+            }
+          ]
+        },
+        {
+          "id": "heading-order",
+          "title": "Heading elements are not in a sequentially-descending order",
+          "weight": 3,
+          "nodes": 1,
+          "samples": [
+            {
+              "selector": "div.gap-16 > div.animate-once > a.outline-link > h3.text-lg",
+              "snippet": "<h3 class=\"text-lg font-serif bg-mauve h-20 p-3 text-base\">",
+              "label": "Developer III at Comoto"
+            }
+          ]
+        },
+        {
+          "id": "html-has-lang",
+          "title": "`<html>` element does not have a `[lang]` attribute",
+          "weight": 7,
+          "nodes": 1,
+          "samples": [
+            {
+              "selector": "html.dark:mocha",
+              "snippet": "<html class=\"dark:mocha latte\">",
+              "label": "html.dark:mocha"
+            }
+          ]
+        },
+        {
+          "id": "target-size",
+          "title": "Touch targets do not have sufficient size or spacing.",
+          "weight": 7,
+          "nodes": 1,
+          "samples": [
+            {
+              "selector": "footer.mt-12 > div.flex > span > a.link",
+              "snippet": "<a class=\"link\" href=\"https://webring.bucketfish.me/redirect.html?to=prev&amp;name=gaiety.me\">",
+              "label": "← \nprevious webring"
+            }
+          ]
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 2,
+      "applicableCount": 19,
+      "failing": [
+        {
+          "id": "image-aspect-ratio",
+          "title": "Displays images with incorrect aspect ratio",
+          "weight": 1,
+          "nodes": 1,
+          "samples": [
+            {
+              "selector": "body.bg-[length:20rem] > div.flex > header.flex > img.h-auto",
+              "snippet": "<img src=\"/img/site/falling.gif\" alt=\"Gaiety's visual representation as a fursona (an original furry fandom char…\" aria-describedby=\"lynte\" class=\"h-auto motion-safe:hover:animate-duration-[1500ms] m…",
+              "label": "Gaiety's visual representation as a fursona (an original furry fandom character…"
+            }
+          ]
+        },
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "weight": 1,
+          "nodes": 3,
+          "samples": []
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 1,
+      "applicableCount": 8,
+      "failing": [
+        {
+          "id": "meta-description",
+          "title": "Document does not have a meta description",
+          "weight": 1,
+          "nodes": null,
+          "samples": []
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "http/1.1",
+      "legacyHttpRequests": 20,
+      "redirectMs": 0,
+      "consoleErrors": 3,
+      "baselineLimitedFeatures": 14
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2694.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-09-26T18:22:52.076Z",
+      "runtimeMs": 6824.8
+    }
+  },
+  "field": null,
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": {
+      "id": "eleventy",
+      "name": "Eleventy",
+      "icon": "Eleventy",
+      "version": "3.0.0",
+      "source": "meta",
+      "raw": "Eleventy v3.0.0"
+    },
+    "probe": {
+      "metas": [
+        "Eleventy v3.0.0"
+      ],
+      "marks": [],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "self-hosted",
+      "name": "Self-hosted",
+      "icon": null,
+      "detail": "OpenResty",
+      "detailIcon": null,
+      "source": "server"
+    },
+    "headers": {
+      "server": "openresty",
+      "x-served-by": "gaiety.me"
+    },
+    "violations": 23,
+    "passes": 310,
+    "incomplete": 49,
+    "violationRules": 4,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 20,
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/color-contrast?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".motion-safe\\:animate-delay-\\[100ms\\] > div > .bg-mantle.hover\\:bg-base[href$=\"work/\"]",
+            "snippet": "<a href=\"/work/\" class=\"outline-link motion-safe:transition-colors inline-flex items-center bg-mantle hover:bg-base hover:text-sky inline-block px-3 py-0.5 rounded-full text-sm text-teal underline\"> …"
+          },
+          {
+            "selector": "a[href$=\"comoto/\"] > .h-24.line-clamp-3.py-2 > .leading-7.mb-4 > em",
+            "snippet": "<em class=\"italic text-green\">(July 2025 - Present)</em>"
+          },
+          {
+            "selector": "a[href$=\"comoto/\"] > .h-24.line-clamp-3.py-2 > .leading-7.mb-4 > strong:nth-child(2)",
+            "snippet": "<strong class=\"dark:text-yellow font-normal text-peach\">Elixir</strong>"
+          },
+          {
+            "selector": "a[href$=\"comoto/\"] > .h-24.line-clamp-3.py-2 > .leading-7.mb-4 > strong:nth-child(3)",
+            "snippet": "<strong class=\"dark:text-yellow font-normal text-peach\">Phoenix</strong>"
+          },
+          {
+            "selector": "a[href$=\"comoto/\"] > .h-24.line-clamp-3.py-2 > .leading-7.mb-4 > strong:nth-child(4)",
+            "snippet": "<strong class=\"dark:text-yellow font-normal text-peach\">Postgres</strong>"
+          }
+        ]
+      },
+      {
+        "id": "heading-order",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Heading levels should only increase by one",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/heading-order?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "a[href$=\"comoto/\"] > .bg-mauve.h-20.p-3",
+            "snippet": "<h3 class=\"text-lg font-serif bg-mauve h-20 p-3 text-base\"> <span class=\"line-clamp-2\" title=\"Developer III at Comoto\"> Developer III at Comoto </span> </h3>"
+          }
+        ]
+      },
+      {
+        "id": "html-has-lang",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "<html> element must have a lang attribute",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/html-has-lang?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "html",
+            "snippet": "<html class=\"dark:mocha latte\">"
+          }
+        ]
+      },
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "All page content should be contained by landmarks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/region?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".lg\\:px-8",
+            "snippet": "<div class=\"mx-auto max-w-7xl lg:px-8 px-4 sm:px-6\">"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
