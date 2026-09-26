@@ -1,0 +1,305 @@
+{
+  "url": "https://eu-testbook.com/",
+  "name": "eu-testbook.com",
+  "group": "11ty-community",
+  "groupName": "Built Awesome",
+  "timestamp": 1790432100766,
+  "date": "2026-09-26T14:15:00.766Z",
+  "runId": "2026-09-26T14-08-34-729Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 23698,
+  "error": null,
+  "variance": {
+    "min": 70,
+    "max": 85,
+    "spread": 15,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://eu-testbook.com/",
+    "finalUrl": "https://eu-testbook.com/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 75,
+      "accessibility": 89,
+      "best-practices": 100,
+      "seo": 92,
+      "agentic-browsing": 50
+    },
+    "timings": {
+      "fcp": 2909,
+      "lcp": 5354,
+      "si": 3232,
+      "tbt": 0,
+      "tti": 5354,
+      "cls": 0,
+      "ttfb": 655,
+      "maxPotentialFid": 46,
+      "serverResponseTime": 50,
+      "networkRtt": 50,
+      "networkServerLatency": 55.1
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 285.9,
+      "elementRenderDelay": 1154
+    },
+    "weight": {
+      "total": 610083,
+      "requests": 40,
+      "mainDocument": 4179,
+      "byType": {
+        "total": {
+          "bytes": 610083,
+          "requests": 40
+        },
+        "image": {
+          "bytes": 495605,
+          "requests": 18
+        },
+        "script": {
+          "bytes": 57949,
+          "requests": 10
+        },
+        "font": {
+          "bytes": 39283,
+          "requests": 5
+        },
+        "stylesheet": {
+          "bytes": 11701,
+          "requests": 5
+        },
+        "document": {
+          "bytes": 4179,
+          "requests": 1
+        },
+        "other": {
+          "bytes": 1366,
+          "requests": 1
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 102209,
+          "requests": 14
+        }
+      },
+      "scripts": 10,
+      "stylesheets": 5,
+      "fonts": 5
+    },
+    "thirdParty": {
+      "count": 4,
+      "bytes": 102209,
+      "mainThreadMs": 15.2,
+      "top": [
+        {
+          "entity": "Cloudflare CDN",
+          "bytes": 42869,
+          "mainThreadMs": 12.8,
+          "byType": {
+            "script": 41647,
+            "stylesheet": 1222
+          },
+          "typedBytes": 42869
+        },
+        {
+          "entity": "Google Fonts",
+          "bytes": 40715,
+          "mainThreadMs": 0,
+          "byType": {
+            "font": 39283,
+            "stylesheet": 1432
+          },
+          "typedBytes": 40715
+        },
+        {
+          "entity": "parsleyjs.org",
+          "bytes": 12635,
+          "mainThreadMs": 2.2,
+          "byType": {
+            "script": 12635
+          },
+          "typedBytes": 12635
+        },
+        {
+          "entity": "Unpkg",
+          "bytes": 5990,
+          "mainThreadMs": 0.2,
+          "byType": {
+            "script": 1440,
+            "stylesheet": 4550
+          },
+          "typedBytes": 5990
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 407.4,
+      "byGroup": {
+        "other": 221.3,
+        "styleLayout": 91.8,
+        "scriptEvaluation": 57.1,
+        "parseHTML": 15.4,
+        "scriptParseCompile": 12.8,
+        "paintCompositeRender": 9.1
+      },
+      "bootupMs": 53.6,
+      "longTasks": 0,
+      "longestTaskMs": null
+    },
+    "dom": {
+      "elements": 196,
+      "depth": 13,
+      "maxChildren": 7
+    },
+    "waste": {
+      "unusedJsBytes": 0,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 10056,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 9745,
+      "renderBlockingCount": 15,
+      "poorlyCachedBytes": 11582.083333333332,
+      "poorlyCachedCount": 1
+    },
+    "accessibility": {
+      "failingCount": 3,
+      "applicableCount": 21,
+      "failingNodes": 12,
+      "failing": [
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "weight": 7,
+          "nodes": 7
+        },
+        {
+          "id": "aria-hidden-focus",
+          "title": "`[aria-hidden=\"true\"]` elements contain focusable descendents",
+          "weight": 7,
+          "nodes": 4
+        },
+        {
+          "id": "landmark-one-main",
+          "title": "Document does not have a main landmark.",
+          "weight": 3,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 0,
+      "applicableCount": 20,
+      "failing": []
+    },
+    "seo": {
+      "failingCount": 1,
+      "applicableCount": 9,
+      "failing": [
+        {
+          "id": "link-text",
+          "title": "Links do not have descriptive text",
+          "weight": 1,
+          "nodes": 5
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 4
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 3382.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-09-26T14:15:01.973Z",
+      "runtimeMs": 7927.2
+    }
+  },
+  "field": null,
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "probe": {
+      "metas": [],
+      "marks": [],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "netlify",
+      "name": "Netlify",
+      "icon": "Netlify",
+      "source": "x-nf-request-id"
+    },
+    "headers": {
+      "server": "Netlify",
+      "x-nf-request-id": "01M3F1464TZ0F3N3XV8B7C7BZF"
+    },
+    "violations": 19,
+    "passes": 285,
+    "incomplete": 5,
+    "violationRules": 6,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 7,
+        "help": "Elements must meet minimum color contrast ratio thresholds"
+      },
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 5,
+        "help": "All page content should be contained by landmarks"
+      },
+      {
+        "id": "aria-hidden-focus",
+        "impact": "serious",
+        "nodes": 4,
+        "help": "ARIA hidden element must not be focusable or contain focusable elements"
+      },
+      {
+        "id": "landmark-one-main",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Document should have one main landmark"
+      },
+      {
+        "id": "landmark-unique",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination"
+      },
+      {
+        "id": "page-has-heading-one",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Page should contain a level-one heading"
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
