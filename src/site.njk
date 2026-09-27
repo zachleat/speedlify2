@@ -1274,7 +1274,6 @@ eleventyComputed:
 		<li>
 			<code>{{ fail.id }}</code> — {{ fail.title }}
 			{% if fail.nodes %}<span class="badge">{{ fail.nodes }} node{{ "s" if fail.nodes != 1 }}</span>{% endif %}
-			{% set samples = fail.samples %}{% set total = fail.nodes %}{% include "failure-nodes.njk" %}
 		</li>
 		{% endfor %}
 	</ul>
