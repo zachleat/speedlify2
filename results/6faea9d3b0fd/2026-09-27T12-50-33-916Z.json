@@ -1,0 +1,538 @@
+{
+  "url": "https://quire.getty.edu/",
+  "name": "quire.getty.edu",
+  "group": "11ty-community",
+  "groupName": "Built Awesome",
+  "timestamp": 1790513433916,
+  "date": "2026-09-27T12:50:33.916Z",
+  "runId": "2026-09-27T12-46-53-654Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 37871,
+  "error": null,
+  "variance": {
+    "min": 42,
+    "max": 52,
+    "spread": 10,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://quire.getty.edu/",
+    "finalUrl": "https://quire.getty.edu/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 52,
+      "accessibility": 78,
+      "best-practices": 73,
+      "seo": 83,
+      "agentic-browsing": 45
+    },
+    "timings": {
+      "fcp": 1060,
+      "lcp": 4637,
+      "si": 2567,
+      "tbt": 2253,
+      "tti": 12746,
+      "cls": 0.102,
+      "ttfb": 610,
+      "maxPotentialFid": 1976,
+      "serverResponseTime": 8,
+      "networkRtt": 3.3,
+      "networkServerLatency": 103.3
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 10.3,
+      "elementRenderDelay": 181.6
+    },
+    "weight": {
+      "total": 5516445,
+      "requests": 119,
+      "mainDocument": 14542,
+      "byType": {
+        "total": {
+          "bytes": 5516063,
+          "requests": 118
+        },
+        "other": {
+          "bytes": 2694371,
+          "requests": 65
+        },
+        "image": {
+          "bytes": 1567111,
+          "requests": 29
+        },
+        "script": {
+          "bytes": 1035065,
+          "requests": 16
+        },
+        "font": {
+          "bytes": 151642,
+          "requests": 4
+        },
+        "stylesheet": {
+          "bytes": 48008,
+          "requests": 2
+        },
+        "document": {
+          "bytes": 19866,
+          "requests": 2
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 884265,
+          "requests": 29
+        }
+      },
+      "scripts": 16,
+      "stylesheets": 2,
+      "fonts": 4
+    },
+    "thirdParty": {
+      "count": 11,
+      "bytes": 878364,
+      "mainThreadMs": 468.1,
+      "top": [
+        {
+          "entity": "Google Tag Manager",
+          "bytes": 548207,
+          "mainThreadMs": 234.1,
+          "byType": {
+            "script": 548207
+          },
+          "typedBytes": 548207
+        },
+        {
+          "entity": "Facebook",
+          "bytes": 198432,
+          "mainThreadMs": 119.5,
+          "byType": {
+            "script": 198415,
+            "image": 17
+          },
+          "typedBytes": 198432
+        },
+        {
+          "entity": "ID5 Identity Cloud",
+          "bytes": 34955,
+          "mainThreadMs": 8.9,
+          "byType": {
+            "script": 34955
+          },
+          "typedBytes": 34955
+        },
+        {
+          "entity": "Criteo",
+          "bytes": 26401,
+          "mainThreadMs": 24.1,
+          "byType": {
+            "script": 26401
+          },
+          "typedBytes": 26401
+        },
+        {
+          "entity": "Snapchat",
+          "bytes": 25790,
+          "mainThreadMs": 57.1,
+          "byType": {
+            "script": 25611,
+            "image": 122,
+            "other": 57
+          },
+          "typedBytes": 25790
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 5285.2,
+      "byGroup": {
+        "scriptEvaluation": 3919.4,
+        "other": 695.5,
+        "scriptParseCompile": 336.6,
+        "styleLayout": 171.1,
+        "garbageCollection": 82.8,
+        "parseHTML": 41.8,
+        "paintCompositeRender": 38.1
+      },
+      "bootupMs": 3989,
+      "longTasks": 12,
+      "longestTaskMs": 1976
+    },
+    "dom": {
+      "elements": 1013,
+      "depth": 15,
+      "maxChildren": 26
+    },
+    "waste": {
+      "unusedJsBytes": 389859,
+      "unusedCssBytes": 39962,
+      "legacyJsBytes": 12233,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 300,
+      "renderBlockingCount": 2,
+      "poorlyCachedBytes": 254670.19999999998,
+      "poorlyCachedCount": 10
+    },
+    "accessibility": {
+      "failingCount": 5,
+      "applicableCount": 27,
+      "failingNodes": 12,
+      "failing": [
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "weight": 7,
+          "nodes": 5,
+          "samples": [
+            {
+              "selector": "div.content > div.home-block > div.home-block__body > p",
+              "snippet": "<p>",
+              "label": "Quire is an open-source multiformat publishing tool designed for longevity, dis…"
+            },
+            {
+              "selector": "div.content > div.home-block > div.home-block__body > p",
+              "snippet": "<p>",
+              "label": "Created by Getty, free to use."
+            },
+            {
+              "selector": "div.home-block > div.home-block__body > p > a",
+              "snippet": "<a href=\"https://www.getty.edu\" target=\"_blank\" rel=\"noopener\">",
+              "label": "Getty"
+            },
+            {
+              "selector": "div.home-block__body > div.action-button > p > a",
+              "snippet": "<a href=\"./docs-v1/getting-started/\">",
+              "label": "Get Started"
+            },
+            {
+              "selector": "div.home-block__body > div.action-button > p > a",
+              "snippet": "<a href=\"https://vimeo.com/820983026/b3a116fb1e\" target=\"_blank\" rel=\"noopener\">",
+              "label": "Watch the Video"
+            }
+          ]
+        },
+        {
+          "id": "aria-valid-attr-value",
+          "title": "`[aria-*]` attributes do not have valid values",
+          "weight": 10,
+          "nodes": 2,
+          "samples": [
+            {
+              "selector": "div.quire-navbar > nav.quire-navbar-controls > div.quire-navbar-controls__right > button.quire-navbar-button",
+              "snippet": "<button class=\"quire-navbar-button search-button\" aria-controls=\"quire-search\" onclick=\"toggleSearch()\">",
+              "label": "Search"
+            },
+            {
+              "selector": "div.quire-navbar > nav.quire-navbar-controls > div.quire-navbar-controls__right > button#quire-controls-menu-button",
+              "snippet": "<button class=\"quire-navbar-button menu-button\" id=\"quire-controls-menu-button\" onclick=\"toggleMenu()\" aria-expanded=\"true\" aria-controls=\"quire-menu\" tabindex=\"2\">",
+              "label": "Table of Contents"
+            }
+          ]
+        },
+        {
+          "id": "image-alt",
+          "title": "Image elements do not have `[alt]` attributes",
+          "weight": 10,
+          "nodes": 2,
+          "samples": [
+            {
+              "selector": "nav.quire-navbar-controls > div.quire-navbar-controls__left > a.quire-navbar-controls__site-logo > img",
+              "snippet": "<img src=\"./img/quire-logo--sm.png\">",
+              "label": "nav.quire-navbar-controls > div.quire-navbar-controls__left > a.quire-navbar-controls__site-logo > img"
+            },
+            {
+              "selector": "div.home-block > div.home-block__image-float--first > p > img#homepage-banner-image",
+              "snippet": "<img src=\"/img/illustrations/illustration-multiformat--ambers.png\" id=\"homepage-banner-image\">",
+              "label": "div.home-block > div.home-block__image-float--first > p > img#homepage-banner-image"
+            }
+          ]
+        },
+        {
+          "id": "tabindex",
+          "title": "Some elements have a `[tabindex]` value greater than 0",
+          "weight": 7,
+          "nodes": 2,
+          "samples": [
+            {
+              "selector": "div#container > div.quire__primary > div.quire-navbar > a.quire-navbar-skip-link",
+              "snippet": "<a href=\"#main\" class=\"quire-navbar-skip-link\" tabindex=\"1\">",
+              "label": "Skip to Main Content"
+            },
+            {
+              "selector": "div.quire-navbar > nav.quire-navbar-controls > div.quire-navbar-controls__right > button#quire-controls-menu-button",
+              "snippet": "<button class=\"quire-navbar-button menu-button\" id=\"quire-controls-menu-button\" onclick=\"toggleMenu()\" aria-expanded=\"true\" aria-controls=\"quire-menu\" tabindex=\"2\">",
+              "label": "Table of Contents"
+            }
+          ]
+        },
+        {
+          "id": "link-name",
+          "title": "Links do not have a discernible name",
+          "weight": 7,
+          "nodes": 1,
+          "samples": [
+            {
+              "selector": "div.quire-navbar > nav.quire-navbar-controls > div.quire-navbar-controls__left > a.quire-navbar-controls__site-logo",
+              "snippet": "<a href=\"./\" rel=\"home\" class=\"quire-navbar-controls__site-logo\">",
+              "label": "div.quire-navbar > nav.quire-navbar-controls > div.quire-navbar-controls__left > a.quire-navbar-controls__site-logo"
+            }
+          ]
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 3,
+      "applicableCount": 20,
+      "failing": [
+        {
+          "id": "third-party-cookies",
+          "title": "Uses third-party cookies",
+          "weight": 5,
+          "nodes": 21,
+          "samples": []
+        },
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "weight": 1,
+          "nodes": 1,
+          "samples": []
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "weight": 1,
+          "nodes": 1,
+          "samples": []
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 2,
+      "applicableCount": 9,
+      "failing": [
+        {
+          "id": "image-alt",
+          "title": "Image elements do not have `[alt]` attributes",
+          "weight": 1,
+          "nodes": 2,
+          "samples": [
+            {
+              "selector": "nav.quire-navbar-controls > div.quire-navbar-controls__left > a.quire-navbar-controls__site-logo > img",
+              "snippet": "<img src=\"./img/quire-logo--sm.png\">",
+              "label": "nav.quire-navbar-controls > div.quire-navbar-controls__left > a.quire-navbar-controls__site-logo > img"
+            },
+            {
+              "selector": "div.home-block > div.home-block__image-float--first > p > img#homepage-banner-image",
+              "snippet": "<img src=\"/img/illustrations/illustration-multiformat--ambers.png\" id=\"homepage-banner-image\">",
+              "label": "div.home-block > div.home-block__image-float--first > p > img#homepage-banner-image"
+            }
+          ]
+        },
+        {
+          "id": "canonical",
+          "title": "Document does not have a valid `rel=canonical`",
+          "weight": 1,
+          "nodes": null,
+          "samples": []
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 1,
+      "baselineLimitedFeatures": 23
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2444,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-09-27T12:50:47.201Z",
+      "runtimeMs": 10436.3
+    }
+  },
+  "field": null,
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "probe": {
+      "metas": [],
+      "marks": [],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "netlify",
+      "name": "Netlify",
+      "icon": "Netlify",
+      "source": "x-nf-request-id"
+    },
+    "headers": {
+      "server": "Netlify",
+      "x-nf-request-id": "01M3HEPMHX07NDTNSH1VX9EBW6"
+    },
+    "violations": 16,
+    "passes": 474,
+    "incomplete": 12,
+    "violationRules": 8,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 5,
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/color-contrast?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".home-block--first > .home-block__body > p:nth-child(3)",
+            "snippet": "<p>"
+          },
+          {
+            "selector": ".home-block__body > p:nth-child(4)",
+            "snippet": "<p>Created by <a href=\"https://www.getty.edu\" target=\"_blank\" rel=\"noopener\">Getty</a>, free to use.</p>"
+          },
+          {
+            "selector": "a[href$=\"www.getty.edu\"][rel=\"noopener\"][target=\"_blank\"]",
+            "snippet": "<a href=\"https://www.getty.edu\" target=\"_blank\" rel=\"noopener\">Getty</a>"
+          },
+          {
+            "selector": "p > a[href$=\"getting-started/\"]",
+            "snippet": "<a href=\"./docs-v1/getting-started/\">Get Started</a>"
+          },
+          {
+            "selector": ".paired-button.action-button:nth-child(6) > p > a[rel=\"noopener\"][target=\"_blank\"]",
+            "snippet": "<a href=\"https://vimeo.com/820983026/b3a116fb1e\" target=\"_blank\" rel=\"noopener\">Watch the Video<svg class=\"remove-from-epub\"><switch><use xlink:href=\"#start-icon\"></use></switch></svg></a>"
+          }
+        ]
+      },
+      {
+        "id": "aria-valid-attr-value",
+        "impact": "critical",
+        "nodes": 2,
+        "help": "ARIA attributes must conform to valid values",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/aria-valid-attr-value?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".search-button",
+            "snippet": "<button class=\"quire-navbar-button search-button\" aria-controls=\"quire-search\" onclick=\"toggleSearch()\">"
+          },
+          {
+            "selector": "#quire-controls-menu-button",
+            "snippet": "<button class=\"quire-navbar-button menu-button\" id=\"quire-controls-menu-button\" onclick=\"toggleMenu()\" aria-expanded=\"true\" aria-controls=\"quire-menu\" tabindex=\"2\">"
+          }
+        ]
+      },
+      {
+        "id": "image-alt",
+        "impact": "critical",
+        "nodes": 2,
+        "help": "Images must have alternative text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/image-alt?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".quire-navbar-controls__site-logo > img[src$=\"quire-logo--sm.png\"]",
+            "snippet": "<img src=\"./img/quire-logo--sm.png\">"
+          },
+          {
+            "selector": "#homepage-banner-image",
+            "snippet": "<img src=\"/img/illustrations/illustration-multiformat--keepitmoving.png\" id=\"homepage-banner-image\">"
+          }
+        ]
+      },
+      {
+        "id": "image-redundant-alt",
+        "impact": "minor",
+        "nodes": 2,
+        "help": "Alternative text of images should not be repeated as text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/image-redundant-alt?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "foreignobject[width=\"32\"][height=\"32\"] > img[src$=\"search.png\"][alt=\"Search\"]",
+            "snippet": "<img src=\"./img/icons/search.png\" alt=\"Search\">"
+          },
+          {
+            "selector": "img[src$=\"nav.png\"]",
+            "snippet": "<img src=\"./img/icons/nav.png\" alt=\"Table of Contents\">"
+          }
+        ]
+      },
+      {
+        "id": "tabindex",
+        "impact": "serious",
+        "nodes": 2,
+        "help": "Elements should not have tabindex greater than zero",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/tabindex?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".quire-navbar-skip-link",
+            "snippet": "<a href=\"#main\" class=\"quire-navbar-skip-link\" tabindex=\"1\">Skip to Main Content</a>"
+          },
+          {
+            "selector": "#quire-controls-menu-button",
+            "snippet": "<button class=\"quire-navbar-button menu-button\" id=\"quire-controls-menu-button\" onclick=\"toggleMenu()\" aria-expanded=\"true\" aria-controls=\"quire-menu\" tabindex=\"2\">"
+          }
+        ]
+      },
+      {
+        "id": "link-name",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "Links must have discernible text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/link-name?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".quire-navbar-controls__site-logo",
+            "snippet": "<a href=\"./\" rel=\"home\" class=\"quire-navbar-controls__site-logo\"><img src=\"./img/quire-logo--sm.png\"></a>"
+          }
+        ]
+      },
+      {
+        "id": "page-has-heading-one",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Page should contain a level-one heading",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/page-has-heading-one?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "html",
+            "snippet": "<html lang=\"en\">"
+          }
+        ]
+      },
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "All page content should be contained by landmarks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/region?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".quire-navbar-skip-link",
+            "snippet": "<a href=\"#main\" class=\"quire-navbar-skip-link\" tabindex=\"1\">Skip to Main Content</a>"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}

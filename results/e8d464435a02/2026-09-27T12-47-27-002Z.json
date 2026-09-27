@@ -1,0 +1,348 @@
+{
+  "url": "https://pelican.ots.la.gov/",
+  "name": "pelican.ots.la.gov",
+  "group": "11ty-community",
+  "groupName": "Built Awesome",
+  "timestamp": 1790513247002,
+  "date": "2026-09-27T12:47:27.002Z",
+  "runId": "2026-09-27T12-46-53-654Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 26539,
+  "error": null,
+  "variance": {
+    "min": 67,
+    "max": 71,
+    "spread": 4,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://pelican.ots.la.gov/",
+    "finalUrl": "https://pelican.ots.la.gov/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 70,
+      "accessibility": 96,
+      "best-practices": 58,
+      "seo": 100,
+      "agentic-browsing": 67
+    },
+    "timings": {
+      "fcp": 3038,
+      "lcp": 7362,
+      "si": 3038,
+      "tbt": 0,
+      "tti": 7362,
+      "cls": 0,
+      "ttfb": 612,
+      "maxPotentialFid": 19,
+      "serverResponseTime": 13,
+      "networkRtt": 0.3,
+      "networkServerLatency": 42.8
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 14.4,
+      "resourceLoadDelay": 63,
+      "resourceLoadDuration": 14,
+      "elementRenderDelay": 146.8
+    },
+    "weight": {
+      "total": 1093008,
+      "requests": 28,
+      "mainDocument": 15165,
+      "byType": {
+        "total": {
+          "bytes": 1093008,
+          "requests": 27
+        },
+        "image": {
+          "bytes": 777239,
+          "requests": 6
+        },
+        "stylesheet": {
+          "bytes": 112006,
+          "requests": 7
+        },
+        "font": {
+          "bytes": 107602,
+          "requests": 2
+        },
+        "script": {
+          "bytes": 52305,
+          "requests": 5
+        },
+        "other": {
+          "bytes": 28691,
+          "requests": 6
+        },
+        "document": {
+          "bytes": 15165,
+          "requests": 1
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 148431,
+          "requests": 10
+        }
+      },
+      "scripts": 5,
+      "stylesheets": 7,
+      "fonts": 2
+    },
+    "thirdParty": {
+      "count": 4,
+      "bytes": 148431,
+      "mainThreadMs": 14.9,
+      "top": [
+        {
+          "entity": "Cloudflare CDN",
+          "bytes": 92939,
+          "mainThreadMs": 0,
+          "byType": {
+            "font": 80937,
+            "stylesheet": 12002
+          },
+          "typedBytes": 92939
+        },
+        {
+          "entity": "Google Fonts",
+          "bytes": 27304,
+          "mainThreadMs": 0,
+          "byType": {
+            "font": 26665,
+            "stylesheet": 639
+          },
+          "typedBytes": 27304
+        },
+        {
+          "entity": "New Relic",
+          "bytes": 17976,
+          "mainThreadMs": 11.8,
+          "byType": {
+            "script": 17145,
+            "other": 831
+          },
+          "typedBytes": 17976
+        },
+        {
+          "entity": "Cloudflare",
+          "bytes": 10212,
+          "mainThreadMs": 3.1,
+          "byType": {
+            "script": 10212
+          },
+          "typedBytes": 10212
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 1050.5,
+      "byGroup": {
+        "other": 619.4,
+        "styleLayout": 170.4,
+        "scriptEvaluation": 163.2,
+        "parseHTML": 46.3,
+        "scriptParseCompile": 31.5,
+        "paintCompositeRender": 19.7
+      },
+      "bootupMs": 91.3,
+      "longTasks": 3,
+      "longestTaskMs": 242
+    },
+    "dom": {
+      "elements": 150,
+      "depth": 10,
+      "maxChildren": 12
+    },
+    "waste": {
+      "unusedJsBytes": 0,
+      "unusedCssBytes": 63969,
+      "legacyJsBytes": 10708,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 4395,
+      "renderBlockingCount": 7,
+      "poorlyCachedBytes": 617864.16,
+      "poorlyCachedCount": 14
+    },
+    "accessibility": {
+      "failingCount": 2,
+      "applicableCount": 28,
+      "failingNodes": 2,
+      "failing": [
+        {
+          "id": "tabindex",
+          "title": "Some elements have a `[tabindex]` value greater than 0",
+          "weight": 7,
+          "nodes": 1,
+          "samples": [
+            {
+              "selector": "body > a#SkipToMain",
+              "snippet": "<a id=\"SkipToMain\" class=\"skip-to-main\" href=\"#main\" tabindex=\"1\">",
+              "label": "Skip to Main Content"
+            }
+          ]
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "title": "Elements with visible text labels do not have matching accessible names.",
+          "weight": 0,
+          "nodes": 1,
+          "samples": [
+            {
+              "selector": "body > nav.navbar > div.container > button.navbar-toggler",
+              "snippet": "<button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navigationItems\" data-bs-toggle=\"collapse\" data-bs-target=\"#navigationItems\" aria-controls=\"navigationItems\" aria-exp…",
+              "label": "Menu"
+            }
+          ]
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 3,
+      "applicableCount": 19,
+      "failing": [
+        {
+          "id": "deprecations",
+          "title": "Uses deprecated APIs",
+          "weight": 5,
+          "nodes": 1,
+          "samples": []
+        },
+        {
+          "id": "third-party-cookies",
+          "title": "Uses third-party cookies",
+          "weight": 5,
+          "nodes": 1,
+          "samples": []
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "weight": 1,
+          "nodes": 1,
+          "samples": []
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 0,
+      "applicableCount": 8,
+      "failing": []
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 0,
+      "bfCacheFailures": 1,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 17
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2373.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-09-27T12:47:45.422Z",
+      "runtimeMs": 6982.6
+    }
+  },
+  "field": null,
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": {
+      "id": "eleventy",
+      "name": "Eleventy",
+      "icon": "Eleventy",
+      "version": null,
+      "source": "meta",
+      "raw": "Eleventy"
+    },
+    "probe": {
+      "metas": [
+        "Eleventy"
+      ],
+      "marks": [
+        "fontawesome"
+      ],
+      "markVersions": {
+        "fontawesome": "5.15.1"
+      }
+    },
+    "interstitial": null,
+    "host": {
+      "id": "cloudflare",
+      "name": "Cloudflare",
+      "icon": "Cloudflare",
+      "source": "server"
+    },
+    "headers": {
+      "cf-ray": "a41a9e8e5cf9b4c2-IAD",
+      "server": "cloudflare",
+      "via": "1.1 8bd3b44b8e417f2b75cd6e631907112a.cloudfront.net (CloudFront)",
+      "x-amz-cf-id": "pzHFoYpwmOVofF_ZGcvgYKg8QV7Tov9bSu0R2B7NKRAXw1sjd5gkoA=="
+    },
+    "violations": 3,
+    "passes": 407,
+    "incomplete": 3,
+    "violationRules": 3,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "landmark-no-duplicate-banner",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Document should not have more than one banner landmark",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/landmark-no-duplicate-banner?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".official-banner",
+            "snippet": "<section class=\"official-banner\" role=\"banner\" aria-label=\"Louisiana.gov Website\">"
+          }
+        ]
+      },
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "All page content should be contained by landmarks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/region?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "#ScrollToTop > span:nth-child(2)",
+            "snippet": "<span>Page top</span>"
+          }
+        ]
+      },
+      {
+        "id": "tabindex",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "Elements should not have tabindex greater than zero",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/tabindex?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "#SkipToMain",
+            "snippet": "<a id=\"SkipToMain\" class=\"skip-to-main\" href=\"#main\" tabindex=\"1\">Skip to Main Content</a>"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
