@@ -1,0 +1,527 @@
+{
+  "url": "https://robjwood.com/",
+  "name": "robjwood.com",
+  "group": "11ty-community",
+  "groupName": "Built Awesome",
+  "timestamp": 1790530436285,
+  "date": "2026-09-27T17:33:56.285Z",
+  "runId": "2026-09-27T17-31-22-007Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 37430,
+  "error": null,
+  "variance": {
+    "min": 44,
+    "max": 72,
+    "spread": 28,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://robjwood.com/",
+    "finalUrl": "https://hindisms.org/",
+    "redirect": {
+      "from": "https://robjwood.com/",
+      "to": "https://hindisms.org/",
+      "chain": [
+        {
+          "url": "https://robjwood.com/",
+          "status": 301
+        },
+        {
+          "url": "https://hindisms.org/",
+          "status": 200
+        }
+      ],
+      "statuses": [
+        301
+      ],
+      "change": "host",
+      "permanent": true,
+      "schemeUpgrade": false,
+      "hops": 1
+    },
+    "statusCode": "ok",
+    "scores": {
+      "performance": 70,
+      "accessibility": 74,
+      "best-practices": 69,
+      "seo": 100,
+      "agentic-browsing": 50
+    },
+    "timings": {
+      "fcp": 2766,
+      "lcp": 8855,
+      "si": 2766,
+      "tbt": 97,
+      "tti": 8909,
+      "cls": 0,
+      "ttfb": 461,
+      "maxPotentialFid": 104,
+      "serverResponseTime": 91,
+      "networkRtt": 0.1,
+      "networkServerLatency": 36.9
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 112.3,
+      "resourceLoadDelay": 10,
+      "resourceLoadDuration": 26.4,
+      "elementRenderDelay": 283.5
+    },
+    "weight": {
+      "total": 1228056,
+      "requests": 39,
+      "mainDocument": 41067,
+      "byType": {
+        "total": {
+          "bytes": 1228056,
+          "requests": 34
+        },
+        "script": {
+          "bytes": 823817,
+          "requests": 20
+        },
+        "image": {
+          "bytes": 290895,
+          "requests": 5
+        },
+        "stylesheet": {
+          "bytes": 71698,
+          "requests": 2
+        },
+        "document": {
+          "bytes": 41067,
+          "requests": 1
+        },
+        "other": {
+          "bytes": 579,
+          "requests": 6
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "font": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 915320,
+          "requests": 27
+        }
+      },
+      "scripts": 20,
+      "stylesheets": 2,
+      "fonts": 0
+    },
+    "thirdParty": {
+      "count": 3,
+      "bytes": 1227931,
+      "mainThreadMs": 111.7,
+      "top": [
+        {
+          "entity": "redbubble.com",
+          "bytes": 904983,
+          "mainThreadMs": 89.8,
+          "byType": {
+            "script": 813605,
+            "stylesheet": 71698,
+            "image": 19680
+          },
+          "typedBytes": 904983
+        },
+        {
+          "entity": "hindisms.org",
+          "bytes": 312736,
+          "mainThreadMs": 16.7,
+          "byType": {
+            "document": 41067,
+            "other": 16698,
+            "image": 254971
+          },
+          "typedBytes": 312736
+        },
+        {
+          "entity": "Cloudflare",
+          "bytes": 10212,
+          "mainThreadMs": 5.2,
+          "byType": {
+            "script": 10212
+          },
+          "typedBytes": 10212
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 2439.1,
+      "byGroup": {
+        "other": 753.8,
+        "styleLayout": 669,
+        "paintCompositeRender": 498,
+        "scriptParseCompile": 269.8,
+        "scriptEvaluation": 173,
+        "parseHTML": 75.5
+      },
+      "bootupMs": 273,
+      "longTasks": 4,
+      "longestTaskMs": 168
+    },
+    "dom": {
+      "elements": 1544,
+      "depth": 31,
+      "maxChildren": 20
+    },
+    "waste": {
+      "unusedJsBytes": 706429,
+      "unusedCssBytes": 49795,
+      "legacyJsBytes": 33238,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 1087,
+      "renderBlockingCount": 2,
+      "poorlyCachedBytes": 31206.299999999996,
+      "poorlyCachedCount": 4
+    },
+    "accessibility": {
+      "failingCount": 8,
+      "applicableCount": 34,
+      "failingNodes": 32,
+      "failing": [
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "weight": 7,
+          "nodes": 18
+        },
+        {
+          "id": "target-size",
+          "title": "Touch targets do not have sufficient size or spacing.",
+          "weight": 7,
+          "nodes": 4
+        },
+        {
+          "id": "button-name",
+          "title": "Buttons do not have an accessible name",
+          "weight": 10,
+          "nodes": 3
+        },
+        {
+          "id": "aria-allowed-attr",
+          "title": "`[aria-*]` attributes do not match their roles",
+          "weight": 10,
+          "nodes": 2
+        },
+        {
+          "id": "list",
+          "title": "Lists do not contain only `<li>` elements and script supporting elements (`<script>` and `<template>`).",
+          "weight": 7,
+          "nodes": 2
+        },
+        {
+          "id": "aria-input-field-name",
+          "title": "ARIA input fields do not have accessible names",
+          "weight": 7,
+          "nodes": 1
+        },
+        {
+          "id": "heading-order",
+          "title": "Heading elements are not in a sequentially-descending order",
+          "weight": 3,
+          "nodes": 1
+        },
+        {
+          "id": "label",
+          "title": "Form elements do not have associated labels",
+          "weight": 10,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 4,
+      "applicableCount": 19,
+      "failing": [
+        {
+          "id": "third-party-cookies",
+          "title": "Uses third-party cookies",
+          "weight": 5,
+          "nodes": 1
+        },
+        {
+          "id": "image-size-responsive",
+          "title": "Serves images with low resolution",
+          "weight": 1,
+          "nodes": 1
+        },
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "weight": 1,
+          "nodes": 6
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "weight": 1,
+          "nodes": 1
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 0,
+      "applicableCount": 10,
+      "failing": []
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 768.1,
+      "consoleErrors": 6,
+      "baselineLimitedFeatures": 23
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2421.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-09-27T17:34:21.077Z",
+      "runtimeMs": 10226.7
+    }
+  },
+  "field": null,
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": {
+      "id": "nextjs",
+      "name": "Next.js",
+      "icon": "Nextdotjs",
+      "version": null,
+      "source": "dom",
+      "raw": null
+    },
+    "probe": {
+      "metas": [],
+      "marks": [
+        "next"
+      ],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "self-hosted",
+      "name": "Self-hosted",
+      "icon": null,
+      "detail": "LiteSpeed",
+      "detailIcon": null,
+      "source": "server"
+    },
+    "headers": {
+      "server": "LiteSpeed"
+    },
+    "violations": 39,
+    "passes": 2471,
+    "incomplete": 37,
+    "violationRules": 12,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 18,
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/color-contrast?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".styles_item__d7823929[aria-haspopup=\"false\"][role=\"menuitem\"]:nth-child(1) > .styles_link__d7823929[href$=\"hindisms.org/\"]",
+            "snippet": "<a href=\"https://hindisms.org/\" class=\"styles_link__d7823929\">Salamjitu</a>"
+          },
+          {
+            "selector": ".styles_item__d7823929[aria-haspopup=\"false\"][role=\"menuitem\"]:nth-child(2) > .styles_link__d7823929[href$=\"hindisms.org/\"]",
+            "snippet": "<a href=\"https://hindisms.org/\" class=\"styles_link__d7823929\">"
+          },
+          {
+            "selector": ".styles_boxHorizontal__92743277.styles_displayInlineFlex__54ba70e3[data-testid=\"ds-box\"]:nth-child(2) > .styles_primary__9a62cfb3.styles_small__9a62cfb3[type=\"button\"] > .styles_children__9a62cfb3",
+            "snippet": "<span class=\"styles_children__9a62cfb3\">Explore more styles</span>"
+          },
+          {
+            "selector": ".styles_actionSlot__5b771cf4 > div[data-testid=\"ds-box\"] > .styles_primary__9a62cfb3.styles_small__9a62cfb3[type=\"button\"] > .styles_children__9a62cfb3",
+            "snippet": "<span class=\"styles_children__9a62cfb3\">View size guide</span>"
+          },
+          {
+            "selector": "label[title=\"Extra Small (16.5 x 8.1 in)\"] > .styles_labelText__31aa092b",
+            "snippet": "<span class=\"styles_labelText__31aa092b\">Extra Small (16.5 x 8.1 in)</span>"
+          }
+        ]
+      },
+      {
+        "id": "nested-interactive",
+        "impact": "serious",
+        "nodes": 5,
+        "help": "Interactive controls must not be nested",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/nested-interactive?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".styles_slide__dee20c33:nth-child(5) > .styles_slideInner__b054f308 > .styles_flexDirectionColumn__54ba70e3.styles_displayFlex__54ba70e3[data-testid=\"ds-box\"] > .styles_boxVertical__92743277.styles_displayBlock__54ba70e3[data-testid=\"ds-box\"] > div > .styles_hideLink__51d7d395.styles_link__51d7d395[role=\"button\"]",
+            "snippet": "<div tabindex=\"0\" role=\"button\" class=\"styles_link__51d7d395 styles_hideLink__51d7d395\">"
+          },
+          {
+            "selector": ".styles_slide__dee20c33:nth-child(6) > .styles_slideInner__b054f308 > .styles_flexDirectionColumn__54ba70e3.styles_displayFlex__54ba70e3[data-testid=\"ds-box\"] > .styles_boxVertical__92743277.styles_displayBlock__54ba70e3[data-testid=\"ds-box\"] > div > .styles_hideLink__51d7d395.styles_link__51d7d395[role=\"button\"]",
+            "snippet": "<div tabindex=\"0\" role=\"button\" class=\"styles_link__51d7d395 styles_hideLink__51d7d395\">"
+          },
+          {
+            "selector": ".styles_slide__dee20c33:nth-child(7) > .styles_slideInner__b054f308 > .styles_flexDirectionColumn__54ba70e3.styles_displayFlex__54ba70e3[data-testid=\"ds-box\"] > .styles_boxVertical__92743277.styles_displayBlock__54ba70e3[data-testid=\"ds-box\"] > div > .styles_hideLink__51d7d395.styles_link__51d7d395[role=\"button\"]",
+            "snippet": "<div tabindex=\"0\" role=\"button\" class=\"styles_link__51d7d395 styles_hideLink__51d7d395\">"
+          },
+          {
+            "selector": ".styles_slide__dee20c33:nth-child(8) > .styles_slideInner__b054f308 > .styles_flexDirectionColumn__54ba70e3.styles_displayFlex__54ba70e3[data-testid=\"ds-box\"] > .styles_boxVertical__92743277.styles_displayBlock__54ba70e3[data-testid=\"ds-box\"] > div > .styles_hideLink__51d7d395.styles_link__51d7d395[role=\"button\"]",
+            "snippet": "<div tabindex=\"0\" role=\"button\" class=\"styles_link__51d7d395 styles_hideLink__51d7d395\">"
+          },
+          {
+            "selector": ".styles_slide__dee20c33:nth-child(9) > .styles_slideInner__b054f308 > .styles_flexDirectionColumn__54ba70e3.styles_displayFlex__54ba70e3[data-testid=\"ds-box\"] > .styles_boxVertical__92743277.styles_displayBlock__54ba70e3[data-testid=\"ds-box\"] > div > .styles_hideLink__51d7d395.styles_link__51d7d395[role=\"button\"]",
+            "snippet": "<div tabindex=\"0\" role=\"button\" class=\"styles_link__51d7d395 styles_hideLink__51d7d395\">"
+          }
+        ]
+      },
+      {
+        "id": "button-name",
+        "impact": "critical",
+        "nodes": 3,
+        "help": "Buttons must have discernible text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/button-name?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".styles_boxVertical__92743277.styles_displayBlock__54ba70e3[data-testid=\"ds-box\"]:nth-child(3) > .styles_carouselWrapper__dee20c33 > .styles_nextButton__dee20c33.styles_displayInline__54ba70e3[data-testid=\"ds-box\"] > .styles_inverse__9a62cfb3.styles_strong__9a62cfb3[data-testid=\"ds-carousel-button-next\"]",
+            "snippet": "<button type=\"button\" data-testid=\"ds-carousel-button-next\" class=\"styles_button__9a62cfb3 styles_neutral__9a62cfb3 styles_circle__9a62cfb3 styles_strong__9a62cfb3 styles_inverse__9a62cfb3 styles_med…"
+          },
+          {
+            "selector": ".styles_buttonBackground__232e8102 > .styles_medium__9a62cfb3.styles_circle__9a62cfb3[type=\"submit\"]",
+            "snippet": "<button type=\"submit\" class=\"styles_button__9a62cfb3 styles_neutral__9a62cfb3 styles_circle__9a62cfb3 styles_medium__9a62cfb3\">"
+          },
+          {
+            "selector": ".DiscoveryUnit_searchContainer__Y7Ezy > .styles_carouselWrapper__dee20c33 > .styles_nextButton__dee20c33.styles_displayInline__54ba70e3[data-testid=\"ds-box\"] > .styles_inverse__9a62cfb3.styles_strong__9a62cfb3[data-testid=\"ds-carousel-button-next\"]",
+            "snippet": "<button type=\"button\" data-testid=\"ds-carousel-button-next\" class=\"styles_button__9a62cfb3 styles_neutral__9a62cfb3 styles_circle__9a62cfb3 styles_strong__9a62cfb3 styles_inverse__9a62cfb3 styles_med…"
+          }
+        ]
+      },
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 3,
+        "help": "All page content should be contained by landmarks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/region?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "#SALAMJITUOverlay",
+            "snippet": "<div class=\"SALAMJITU-overlay\" id=\"SALAMJITUOverlay\">"
+          },
+          {
+            "selector": ".ComplianceLinks_mobile__nljff",
+            "snippet": "<div class=\"styles_box__54ba70e3 ComplianceLinks_container__c63CI ComplianceLinks_mobile__nljff\" data-testid=\"ds-box\">"
+          },
+          {
+            "selector": ".mobile-sticky-footer",
+            "snippet": "<div class=\"mobile-sticky-footer\"> <div class=\"btn-container\"> <a href=\"https://hindisms.pages.dev\" class=\"btn-login\" target=\"_blank\">LOGIN</a> <a href=\"https://hindisms.pages.dev\" class=\"btn-daftar\"…"
+          }
+        ]
+      },
+      {
+        "id": "aria-allowed-attr",
+        "impact": "critical",
+        "nodes": 2,
+        "help": "Elements must only use supported ARIA attributes",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/aria-allowed-attr?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "div[aria-label=\"Your Lists\"]",
+            "snippet": "<div class=\"styles_box__54ba70e3 styles_displayInlineBlock__54ba70e3\" data-testid=\"ds-box\" aria-haspopup=\"true\" aria-label=\"Your Lists\" aria-expanded=\"false\">"
+          },
+          {
+            "selector": "div[aria-label=\"View Cart\"]",
+            "snippet": "<div class=\"styles_box__54ba70e3 styles_displayInlineBlock__54ba70e3\" data-testid=\"ds-box\" aria-haspopup=\"true\" aria-label=\"View Cart\" aria-expanded=\"false\">"
+          }
+        ]
+      },
+      {
+        "id": "list",
+        "impact": "serious",
+        "nodes": 2,
+        "help": "<ul> and <ol> must only directly contain <li>, <script> or <template> elements",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/list?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".styles_divided__7e0826d8",
+            "snippet": "<ul class=\"styles_list__7e0826d8 styles_divided__7e0826d8 styles_relaxed__7e0826d8\" element=\"ul\">"
+          },
+          {
+            "selector": ".ComplianceLinks_list__hvj6N.styles_relaxed__7e0826d8.styles_list__7e0826d8",
+            "snippet": "<ul class=\"styles_list__7e0826d8 ComplianceLinks_list__hvj6N styles_relaxed__7e0826d8\" element=\"ul\">"
+          }
+        ]
+      },
+      {
+        "id": "aria-input-field-name",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "ARIA input fields must have an accessible name",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/aria-input-field-name?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "div[role=\"searchbox\"]",
+            "snippet": "<div role=\"searchbox\" tabindex=\"0\">"
+          }
+        ]
+      },
+      {
+        "id": "heading-order",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Heading levels should only increase by one",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/heading-order?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "#worldwide-shipping",
+            "snippet": "<h6 class=\"styles_box__54ba70e3 styles_text__5c7a80ef styles_display6__5c7a80ef\" data-testid=\"ds-box\" id=\"worldwide-shipping\">Worldwide Shipping</h6>"
+          }
+        ]
+      },
+      {
+        "id": "label",
+        "impact": "critical",
+        "nodes": 1,
+        "help": "Form elements must have labels",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/label?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".styles_searchForm__232e8102 > input[type=\"search\"][value=\"\"]",
+            "snippet": "<input type=\"search\" value=\"\">"
+          }
+        ]
+      },
+      {
+        "id": "landmark-banner-is-top-level",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Banner landmark should not be contained in another landmark",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/landmark-banner-is-top-level?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".style_header__0e13479a",
+            "snippet": "<header class=\"styles_box__54ba70e3...\" data-testid=\"ds-box\">"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
