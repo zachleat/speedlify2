@@ -1,0 +1,365 @@
+{
+  "url": "https://joesahlsa.dev/",
+  "name": "joesahlsa.dev",
+  "group": "11ty-community",
+  "groupName": "Built Awesome",
+  "timestamp": 1790468283844,
+  "date": "2026-09-27T00:18:03.844Z",
+  "runId": "2026-09-27T00-16-02-527Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 22969,
+  "error": null,
+  "variance": {
+    "min": 92,
+    "max": 99,
+    "spread": 7,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://joesahlsa.dev/",
+    "finalUrl": "https://joesahlsa.dev/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 94,
+      "accessibility": 84,
+      "best-practices": 100,
+      "seo": 100,
+      "agentic-browsing": 50
+    },
+    "timings": {
+      "fcp": 2465,
+      "lcp": 2465,
+      "si": 2465,
+      "tbt": 16,
+      "tti": 3087,
+      "cls": 0,
+      "ttfb": 621,
+      "maxPotentialFid": 66,
+      "serverResponseTime": 21,
+      "networkRtt": 0.1,
+      "networkServerLatency": 32
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 23.1,
+      "elementRenderDelay": 99.9
+    },
+    "weight": {
+      "total": 261392,
+      "requests": 8,
+      "mainDocument": 12896,
+      "byType": {
+        "total": {
+          "bytes": 259641,
+          "requests": 7
+        },
+        "font": {
+          "bytes": 239995,
+          "requests": 2
+        },
+        "document": {
+          "bytes": 12896,
+          "requests": 1
+        },
+        "stylesheet": {
+          "bytes": 5829,
+          "requests": 2
+        },
+        "script": {
+          "bytes": 551,
+          "requests": 1
+        },
+        "other": {
+          "bytes": 370,
+          "requests": 1
+        },
+        "image": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 37571,
+          "requests": 2
+        }
+      },
+      "scripts": 1,
+      "stylesheets": 2,
+      "fonts": 2
+    },
+    "thirdParty": {
+      "count": 1,
+      "bytes": 37571,
+      "mainThreadMs": 0,
+      "top": [
+        {
+          "entity": "Google Fonts",
+          "bytes": 37571,
+          "mainThreadMs": 0,
+          "byType": {
+            "font": 36964,
+            "stylesheet": 607
+          },
+          "typedBytes": 37571
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 539.5,
+      "byGroup": {
+        "other": 215.2,
+        "styleLayout": 202,
+        "paintCompositeRender": 101.5,
+        "parseHTML": 11,
+        "scriptEvaluation": 9,
+        "scriptParseCompile": 0.8
+      },
+      "bootupMs": 8.5,
+      "longTasks": 1,
+      "longestTaskMs": 66
+    },
+    "dom": {
+      "elements": 231,
+      "depth": 9,
+      "maxChildren": 166
+    },
+    "waste": {
+      "unusedJsBytes": 0,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 0,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 932,
+      "renderBlockingCount": 2,
+      "poorlyCachedBytes": 0,
+      "poorlyCachedCount": 0
+    },
+    "accessibility": {
+      "failingCount": 3,
+      "applicableCount": 18,
+      "failingNodes": 17,
+      "failing": [
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "weight": 7,
+          "nodes": 11,
+          "samples": [
+            {
+              "selector": "div.sitenav__container > ul.sitenav > li > a",
+              "snippet": "<a href=\"/pages/about/\">",
+              "label": "ABOUT"
+            },
+            {
+              "selector": "div.sitenav__container > ul.sitenav > li > a",
+              "snippet": "<a href=\"/pages/blog/\">",
+              "label": "BLOG"
+            },
+            {
+              "selector": "div.sitenav__container > ul.sitenav > li > a",
+              "snippet": "<a href=\"/pages/work/\">",
+              "label": "WORK"
+            },
+            {
+              "selector": "main.landing > div.landing > div.recent-post-wrapper > h3.recent-post-header",
+              "snippet": "<h3 class=\"recent-post-header\">",
+              "label": "recent:"
+            },
+            {
+              "selector": "a.recent-link > li.recent-item > ul.recent > li",
+              "snippet": "<li>",
+              "label": "javascript"
+            }
+          ]
+        },
+        {
+          "id": "link-name",
+          "title": "Links do not have a discernible name",
+          "weight": 7,
+          "nodes": 3,
+          "samples": [
+            {
+              "selector": "header > nav.sitenav > div.sitenav__container > a#siteid",
+              "snippet": "<a id=\"siteid\" href=\"/\">",
+              "label": "header > nav.sitenav > div.sitenav__container > a#siteid"
+            },
+            {
+              "selector": "div.landing-wrapper > footer > div.footer-content > a",
+              "snippet": "<a rel=\"me\" href=\"https://indieweb.social/@joesahlsa\">",
+              "label": "div.landing-wrapper > footer > div.footer-content > a"
+            },
+            {
+              "selector": "div.landing-wrapper > footer > div.footer-content > a.footer-svg",
+              "snippet": "<a href=\"https://github.com/jsahlsa\" rel=\"me\" class=\"footer-svg\">",
+              "label": "div.landing-wrapper > footer > div.footer-content > a.footer-svg"
+            }
+          ]
+        },
+        {
+          "id": "listitem",
+          "title": "List items (`<li>`) are not contained within `<ul>`, `<ol>` or `<menu>` parent elements.",
+          "weight": 7,
+          "nodes": 3,
+          "samples": [
+            {
+              "selector": "div.landing > div.recent-post-wrapper > a.recent-link > li.recent-item",
+              "snippet": "<li class=\"recent-item\">",
+              "label": "Fairplay App\n\nApr 15, 2024\n\njavascript\ncss\nhtml"
+            },
+            {
+              "selector": "div.landing > div.recent-post-wrapper > a.recent-link > li.recent-item",
+              "snippet": "<li class=\"recent-item\">",
+              "label": "Custom language syntax highlighting\n\nSep 15, 2023\n\n11ty\nprism"
+            },
+            {
+              "selector": "div.landing > div.recent-post-wrapper > a.recent-link > li.recent-item",
+              "snippet": "<li class=\"recent-item\">",
+              "label": "Eleventy tag filter\n\nJun 15, 2023\n\n11ty"
+            }
+          ]
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 0,
+      "applicableCount": 19,
+      "failing": []
+    },
+    "seo": {
+      "failingCount": 0,
+      "applicableCount": 7,
+      "failing": []
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 12
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2469,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-09-27T00:18:12.896Z",
+      "runtimeMs": 6315.7
+    }
+  },
+  "field": null,
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "probe": {
+      "metas": [],
+      "marks": [],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "netlify",
+      "name": "Netlify",
+      "icon": "Netlify",
+      "source": "x-nf-request-id"
+    },
+    "headers": {
+      "server": "Netlify",
+      "x-nf-request-id": "01M3G3MCG26AJE7KBN5NXCPNTT"
+    },
+    "violations": 17,
+    "passes": 279,
+    "incomplete": 4,
+    "violationRules": 3,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 11,
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/color-contrast?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "a[href$=\"about/\"]",
+            "snippet": "<a href=\"/pages/about/\">about</a>"
+          },
+          {
+            "selector": "a[href$=\"blog/\"]",
+            "snippet": "<a href=\"/pages/blog/\">blog</a>"
+          },
+          {
+            "selector": "a[href$=\"work/\"]",
+            "snippet": "<a href=\"/pages/work/\">work</a>"
+          },
+          {
+            "selector": "h3",
+            "snippet": "<h3 class=\"recent-post-header\">recent:</h3>"
+          },
+          {
+            "selector": "a[href$=\"fairplay-app/\"] > .recent-item > .item-tags > li:nth-child(1)",
+            "snippet": "<li> javascript </li>"
+          }
+        ]
+      },
+      {
+        "id": "link-name",
+        "impact": "serious",
+        "nodes": 3,
+        "help": "Links must have discernible text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/link-name?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "#siteid",
+            "snippet": "<a id=\"siteid\" href=\"/\">"
+          },
+          {
+            "selector": "a[rel=\"me\"]:nth-child(1)",
+            "snippet": "<a rel=\"me\" href=\"https://indieweb.social/@joesahlsa\">"
+          },
+          {
+            "selector": ".footer-svg",
+            "snippet": "<a href=\"https://github.com/jsahlsa\" rel=\"me\" class=\"footer-svg\">"
+          }
+        ]
+      },
+      {
+        "id": "listitem",
+        "impact": "serious",
+        "nodes": 3,
+        "help": "<li> elements must be contained in a <ul> or <ol>",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/listitem?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "a[href$=\"fairplay-app/\"] > .recent-item",
+            "snippet": "<li class=\"recent-item\">"
+          },
+          {
+            "selector": ".recent-link:nth-child(3) > .recent-item",
+            "snippet": "<li class=\"recent-item\">"
+          },
+          {
+            "selector": "a[href$=\"eleventy-tag-filter/\"] > .recent-item",
+            "snippet": "<li class=\"recent-item\">"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
