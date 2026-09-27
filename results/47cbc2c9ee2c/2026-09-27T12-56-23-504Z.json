@@ -1,0 +1,426 @@
+{
+  "url": "https://practical.guide/",
+  "name": "practical.guide",
+  "group": "11ty-community",
+  "groupName": "Built Awesome",
+  "timestamp": 1790513783504,
+  "date": "2026-09-27T12:56:23.504Z",
+  "runId": "2026-09-27T12-46-50-357Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 26464,
+  "error": null,
+  "variance": {
+    "min": 88,
+    "max": 89,
+    "spread": 1,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://practical.guide/",
+    "finalUrl": "https://practical.guide/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 89,
+      "accessibility": 73,
+      "best-practices": 100,
+      "seo": 82,
+      "agentic-browsing": 100
+    },
+    "timings": {
+      "fcp": 2920,
+      "lcp": 2920,
+      "si": 2920,
+      "tbt": 78,
+      "tti": 5816,
+      "cls": 0.018,
+      "ttfb": 947,
+      "maxPotentialFid": 146,
+      "serverResponseTime": 117,
+      "networkRtt": 0.2,
+      "networkServerLatency": 346.8
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 119,
+      "elementRenderDelay": 162.6
+    },
+    "weight": {
+      "total": 4143765,
+      "requests": 13,
+      "mainDocument": 10015,
+      "byType": {
+        "total": {
+          "bytes": 4143765,
+          "requests": 13
+        },
+        "image": {
+          "bytes": 3743724,
+          "requests": 5
+        },
+        "script": {
+          "bytes": 319653,
+          "requests": 3
+        },
+        "font": {
+          "bytes": 65705,
+          "requests": 2
+        },
+        "document": {
+          "bytes": 10015,
+          "requests": 1
+        },
+        "stylesheet": {
+          "bytes": 4668,
+          "requests": 2
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "other": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 387160,
+          "requests": 6
+        }
+      },
+      "scripts": 3,
+      "stylesheets": 2,
+      "fonts": 2
+    },
+    "thirdParty": {
+      "count": 3,
+      "bytes": 387160,
+      "mainThreadMs": 80.7,
+      "top": [
+        {
+          "entity": "Google Tag Manager",
+          "bytes": 298778,
+          "mainThreadMs": 71.7,
+          "byType": {
+            "script": 298778
+          },
+          "typedBytes": 298778
+        },
+        {
+          "entity": "Google Fonts",
+          "bytes": 67507,
+          "mainThreadMs": 0,
+          "byType": {
+            "font": 65705,
+            "stylesheet": 1802
+          },
+          "typedBytes": 67507
+        },
+        {
+          "entity": "Google Analytics",
+          "bytes": 20875,
+          "mainThreadMs": 9,
+          "byType": {
+            "script": 20875
+          },
+          "typedBytes": 20875
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 670.6,
+      "byGroup": {
+        "scriptEvaluation": 310.8,
+        "other": 160.8,
+        "styleLayout": 93.2,
+        "scriptParseCompile": 75.1,
+        "paintCompositeRender": 21.5,
+        "parseHTML": 9.2
+      },
+      "bootupMs": 347.9,
+      "longTasks": 4,
+      "longestTaskMs": 146
+    },
+    "dom": {
+      "elements": 162,
+      "depth": 11,
+      "maxChildren": 7
+    },
+    "waste": {
+      "unusedJsBytes": 141793,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 0,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 768,
+      "renderBlockingCount": 2,
+      "poorlyCachedBytes": 3762246.25,
+      "poorlyCachedCount": 7
+    },
+    "accessibility": {
+      "failingCount": 4,
+      "applicableCount": 13,
+      "failingNodes": 22,
+      "failing": [
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "weight": 7,
+          "nodes": 18,
+          "samples": [
+            {
+              "selector": "div.flex > div.col-4 > div.padded > a.nav-link",
+              "snippet": "<a class=\"nav-link\" href=\"/experiencedesign/\">",
+              "label": "Book"
+            },
+            {
+              "selector": "div.flex > div.col-4 > div.padded > a.nav-link",
+              "snippet": "<a class=\"nav-link\" href=\"/experiencedesign/resources/\">",
+              "label": "Resources"
+            },
+            {
+              "selector": "div.flex > div.col-4 > div.padded > a.nav-link",
+              "snippet": "<a class=\"nav-link\" href=\"/experiencedesign/examples/\">",
+              "label": "Examples"
+            },
+            {
+              "selector": "div.flex > div.col-2 > div.padded > a.nav-button",
+              "snippet": "<a class=\"nav-button\" href=\"https://www.amazon.com/dp/9083041409/?tag=artificial0f-20\">",
+              "label": "Buy"
+            },
+            {
+              "selector": "div.col-6 > div.padded > h1 > span.large",
+              "snippet": "<span class=\"large serif tight\">",
+              "label": "The Practical Guide to"
+            }
+          ]
+        },
+        {
+          "id": "image-alt",
+          "title": "Image elements do not have `[alt]` attributes",
+          "weight": 10,
+          "nodes": 2,
+          "samples": [
+            {
+              "selector": "a.card > div.flex > div.col-6 > img",
+              "snippet": "<img src=\"img/photo_freechapter.png\">",
+              "label": "a.card > div.flex > div.col-6 > img"
+            },
+            {
+              "selector": "div.card > div.flex > div.col-5 > img",
+              "snippet": "<img src=\"img/photo_portrait.png\">",
+              "label": "div.card > div.flex > div.col-5 > img"
+            }
+          ]
+        },
+        {
+          "id": "heading-order",
+          "title": "Heading elements are not in a sequentially-descending order",
+          "weight": 3,
+          "nodes": 1,
+          "samples": [
+            {
+              "selector": "div#content > div.grid-3 > a.card > h3.large",
+              "snippet": "<h3 class=\"large bold primary\">",
+              "label": "Book"
+            }
+          ]
+        },
+        {
+          "id": "landmark-one-main",
+          "title": "Document does not have a main landmark.",
+          "weight": 3,
+          "nodes": 1,
+          "samples": [
+            {
+              "selector": "html",
+              "snippet": "<html lang=\"en\">",
+              "label": "html"
+            }
+          ]
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 0,
+      "applicableCount": 19,
+      "failing": []
+    },
+    "seo": {
+      "failingCount": 2,
+      "applicableCount": 8,
+      "failing": [
+        {
+          "id": "meta-description",
+          "title": "Document does not have a meta description",
+          "weight": 1,
+          "nodes": null,
+          "samples": []
+        },
+        {
+          "id": "image-alt",
+          "title": "Image elements do not have `[alt]` attributes",
+          "weight": 1,
+          "nodes": 2,
+          "samples": [
+            {
+              "selector": "a.card > div.flex > div.col-6 > img",
+              "snippet": "<img src=\"img/photo_freechapter.png\">",
+              "label": "a.card > div.flex > div.col-6 > img"
+            },
+            {
+              "selector": "div.card > div.flex > div.col-5 > img",
+              "snippet": "<img src=\"img/photo_portrait.png\">",
+              "label": "div.card > div.flex > div.col-5 > img"
+            }
+          ]
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 4
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2492.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-09-27T12:56:33.929Z",
+      "runtimeMs": 7490.8
+    }
+  },
+  "field": null,
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "probe": {
+      "metas": [],
+      "marks": [],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "self-hosted",
+      "name": "Self-hosted",
+      "icon": null,
+      "detail": "nginx",
+      "detailIcon": "Nginx",
+      "source": "server"
+    },
+    "headers": {
+      "server": "nginx/1.29.0"
+    },
+    "violations": 24,
+    "passes": 273,
+    "incomplete": 2,
+    "violationRules": 5,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 18,
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/color-contrast?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".nav-link[href$=\"experiencedesign/\"]",
+            "snippet": "<a class=\"nav-link\" href=\"/experiencedesign/\">Book</a>"
+          },
+          {
+            "selector": ".nav-link[href$=\"resources/\"]",
+            "snippet": "<a class=\"nav-link\" href=\"/experiencedesign/resources/\">Resources</a>"
+          },
+          {
+            "selector": ".nav-link[href$=\"examples/\"]",
+            "snippet": "<a class=\"nav-link\" href=\"/experiencedesign/examples/\">Examples</a>"
+          },
+          {
+            "selector": ".cta > .nav-button",
+            "snippet": "<a class=\"nav-button\" href=\"https://www.amazon.com/dp/9083041409/?tag=artificial0f-20\">Buy</a>"
+          },
+          {
+            "selector": ".tight",
+            "snippet": "<span class=\"large serif tight\">The Practical Guide to</span>"
+          }
+        ]
+      },
+      {
+        "id": "image-alt",
+        "impact": "critical",
+        "nodes": 2,
+        "help": "Images must have alternative text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/image-alt?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "img[src$=\"photo_freechapter.png\"]",
+            "snippet": "<img src=\"img/photo_freechapter.png\">"
+          },
+          {
+            "selector": "img[src$=\"photo_portrait.png\"]",
+            "snippet": "<img src=\"img/photo_portrait.png\">"
+          }
+        ]
+      },
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 2,
+        "help": "All page content should be contained by landmarks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/region?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "#content",
+            "snippet": "<div id=\"content\">"
+          },
+          {
+            "selector": "#footer",
+            "snippet": "<section id=\"footer\">"
+          }
+        ]
+      },
+      {
+        "id": "heading-order",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Heading levels should only increase by one",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/heading-order?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".card[href$=\"experiencedesign/\"] > h3",
+            "snippet": "<h3 class=\"large bold primary\">Book</h3>"
+          }
+        ]
+      },
+      {
+        "id": "landmark-one-main",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Document should have one main landmark",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/landmark-one-main?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "html",
+            "snippet": "<html lang=\"en\">"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
