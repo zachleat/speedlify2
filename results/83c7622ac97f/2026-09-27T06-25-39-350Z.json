@@ -1,0 +1,343 @@
+{
+  "url": "https://neptunbrigad.hu/",
+  "name": "neptunbrigad.hu",
+  "group": "11ty-community",
+  "groupName": "Built Awesome",
+  "timestamp": 1790490339350,
+  "date": "2026-09-27T06:25:39.350Z",
+  "runId": "2026-09-27T06-15-59-765Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 21963,
+  "error": null,
+  "variance": {
+    "min": 92,
+    "max": 93,
+    "spread": 1,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://neptunbrigad.hu/",
+    "finalUrl": "https://neptunbrigad.hu/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 92,
+      "accessibility": 72,
+      "best-practices": 96,
+      "seo": 83,
+      "agentic-browsing": 67
+    },
+    "timings": {
+      "fcp": 2682,
+      "lcp": 2682,
+      "si": 2682,
+      "tbt": 0,
+      "tti": 2682,
+      "cls": 0.013,
+      "ttfb": 707,
+      "maxPotentialFid": 16,
+      "serverResponseTime": 106,
+      "networkRtt": 2.1,
+      "networkServerLatency": 106.6
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 588.7,
+      "resourceLoadDelay": 106.5,
+      "resourceLoadDuration": 214.5,
+      "elementRenderDelay": 18
+    },
+    "weight": {
+      "total": 139262,
+      "requests": 7,
+      "mainDocument": 8838,
+      "byType": {
+        "total": {
+          "bytes": 130489,
+          "requests": 6
+        },
+        "font": {
+          "bytes": 62025,
+          "requests": 2
+        },
+        "image": {
+          "bytes": 57556,
+          "requests": 2
+        },
+        "document": {
+          "bytes": 8838,
+          "requests": 1
+        },
+        "stylesheet": {
+          "bytes": 2070,
+          "requests": 1
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "script": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "other": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 64095,
+          "requests": 3
+        }
+      },
+      "scripts": 0,
+      "stylesheets": 1,
+      "fonts": 2
+    },
+    "thirdParty": {
+      "count": 1,
+      "bytes": 64095,
+      "mainThreadMs": 0,
+      "top": [
+        {
+          "entity": "Google Fonts",
+          "bytes": 64095,
+          "mainThreadMs": 0,
+          "byType": {
+            "font": 62025,
+            "stylesheet": 2070
+          },
+          "typedBytes": 64095
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 162.7,
+      "byGroup": {
+        "other": 104.2,
+        "styleLayout": 37.9,
+        "scriptEvaluation": 10,
+        "paintCompositeRender": 5.4,
+        "parseHTML": 4.9,
+        "scriptParseCompile": 0.4
+      },
+      "bootupMs": 8.6,
+      "longTasks": 0,
+      "longestTaskMs": null
+    },
+    "dom": {
+      "elements": 13,
+      "depth": 5,
+      "maxChildren": 5
+    },
+    "waste": {
+      "unusedJsBytes": 0,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 0,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 3610,
+      "renderBlockingMs": 772,
+      "renderBlockingCount": 1,
+      "poorlyCachedBytes": 57556,
+      "poorlyCachedCount": 2
+    },
+    "accessibility": {
+      "failingCount": 3,
+      "applicableCount": 9,
+      "failingNodes": 3,
+      "failing": [
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "weight": 7,
+          "nodes": 1,
+          "samples": [
+            {
+              "selector": "div.container > div.my-3 > p.mt-4 > a.btn",
+              "snippet": "<a class=\"btn btn-info btn-rounded btn-wide\" href=\"https://www.rackhost.hu\">",
+              "label": "Tovább a Rackhost-ra"
+            }
+          ]
+        },
+        {
+          "id": "html-has-lang",
+          "title": "`<html>` element does not have a `[lang]` attribute",
+          "weight": 7,
+          "nodes": 1,
+          "samples": [
+            {
+              "selector": "html",
+              "snippet": "<html>",
+              "label": "html"
+            }
+          ]
+        },
+        {
+          "id": "landmark-one-main",
+          "title": "Document does not have a main landmark.",
+          "weight": 3,
+          "nodes": 1,
+          "samples": [
+            {
+              "selector": "html",
+              "snippet": "<html>",
+              "label": "html"
+            }
+          ]
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 1,
+      "applicableCount": 19,
+      "failing": [
+        {
+          "id": "image-size-responsive",
+          "title": "Serves images with low resolution",
+          "weight": 1,
+          "nodes": 2,
+          "samples": [
+            {
+              "selector": "div.container > div.my-3 > div.mt-4 > img.img-fluid",
+              "snippet": "<img class=\"img-fluid\" src=\"website-parking.png\" alt=\"Parking\">",
+              "label": "Parking"
+            },
+            {
+              "selector": "div.container > div.my-3 > a > img",
+              "snippet": "<img src=\"logo.png\" alt=\"Rackhost\">",
+              "label": "Rackhost"
+            }
+          ]
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 2,
+      "applicableCount": 9,
+      "failing": [
+        {
+          "id": "meta-description",
+          "title": "Document does not have a meta description",
+          "weight": 1,
+          "nodes": null,
+          "samples": []
+        },
+        {
+          "id": "robots-txt",
+          "title": "robots.txt is not valid",
+          "weight": 1,
+          "nodes": 318,
+          "samples": []
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 1
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2472.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-09-27T06:25:40.640Z",
+      "runtimeMs": 6804.5
+    }
+  },
+  "field": null,
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "probe": {
+      "metas": [],
+      "marks": [],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "self-hosted",
+      "name": "Self-hosted",
+      "icon": null,
+      "detail": "Caddy",
+      "detailIcon": "Caddy",
+      "source": "server"
+    },
+    "headers": {
+      "server": "Caddy"
+    },
+    "violations": 4,
+    "passes": 24,
+    "incomplete": 2,
+    "violationRules": 4,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/color-contrast?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".btn",
+            "snippet": "<a class=\"btn btn-info btn-rounded btn-wide\" href=\"https://www.rackhost.hu\">Tovább a Rackhost-ra</a>"
+          }
+        ]
+      },
+      {
+        "id": "html-has-lang",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "<html> element must have a lang attribute",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/html-has-lang?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "html",
+            "snippet": "<html>"
+          }
+        ]
+      },
+      {
+        "id": "landmark-one-main",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Document should have one main landmark",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/landmark-one-main?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "html",
+            "snippet": "<html>"
+          }
+        ]
+      },
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "All page content should be contained by landmarks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/region?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".container",
+            "snippet": "<div class=\"container text-center\">"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
