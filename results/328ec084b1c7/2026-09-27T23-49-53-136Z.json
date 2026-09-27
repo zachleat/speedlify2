@@ -1,0 +1,296 @@
+{
+  "url": "https://webperformancereport.com/",
+  "name": "webperformancereport.com",
+  "group": "11ty-community",
+  "groupName": "Built Awesome",
+  "timestamp": 1790552993136,
+  "date": "2026-09-27T23:49:53.136Z",
+  "runId": "2026-09-27T23-41-48-235Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 32398,
+  "error": null,
+  "variance": {
+    "min": 71,
+    "max": 85,
+    "spread": 14,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://webperformancereport.com/",
+    "finalUrl": "https://webperformancereport.com/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 84,
+      "accessibility": 97,
+      "best-practices": 96,
+      "seo": 100,
+      "agentic-browsing": 100
+    },
+    "timings": {
+      "fcp": 1678,
+      "lcp": 4099,
+      "si": 1678,
+      "tbt": 139,
+      "tti": 4184,
+      "cls": 0.005,
+      "ttfb": 463,
+      "maxPotentialFid": 128,
+      "serverResponseTime": 13,
+      "networkRtt": 0.2,
+      "networkServerLatency": 203.9
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 14.6,
+      "elementRenderDelay": 639
+    },
+    "weight": {
+      "total": 492942,
+      "requests": 18,
+      "mainDocument": 11749,
+      "byType": {
+        "total": {
+          "bytes": 491094,
+          "requests": 15
+        },
+        "script": {
+          "bytes": 325780,
+          "requests": 5
+        },
+        "image": {
+          "bytes": 96573,
+          "requests": 3
+        },
+        "font": {
+          "bytes": 35886,
+          "requests": 2
+        },
+        "stylesheet": {
+          "bytes": 18844,
+          "requests": 1
+        },
+        "document": {
+          "bytes": 12559,
+          "requests": 2
+        },
+        "other": {
+          "bytes": 1452,
+          "requests": 2
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 327504,
+          "requests": 7
+        }
+      },
+      "scripts": 5,
+      "stylesheets": 1,
+      "fonts": 2
+    },
+    "thirdParty": {
+      "count": 3,
+      "bytes": 326694,
+      "mainThreadMs": 96.8,
+      "top": [
+        {
+          "entity": "Google Tag Manager",
+          "bytes": 169411,
+          "mainThreadMs": 48.6,
+          "byType": {
+            "script": 169411
+          },
+          "typedBytes": 169411
+        },
+        {
+          "entity": "Cookiebot",
+          "bytes": 147071,
+          "mainThreadMs": 44.7,
+          "byType": {
+            "script": 146157,
+            "other": 914
+          },
+          "typedBytes": 147071
+        },
+        {
+          "entity": "Cloudflare",
+          "bytes": 10212,
+          "mainThreadMs": 3.5,
+          "byType": {
+            "script": 10212
+          },
+          "typedBytes": 10212
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 1040.7,
+      "byGroup": {
+        "scriptEvaluation": 398,
+        "styleLayout": 223.7,
+        "other": 195.5,
+        "scriptParseCompile": 107.5,
+        "parseHTML": 74.3,
+        "paintCompositeRender": 32.1,
+        "garbageCollection": 9.7
+      },
+      "bootupMs": 494.3,
+      "longTasks": 5,
+      "longestTaskMs": 128
+    },
+    "dom": {
+      "elements": 748,
+      "depth": 22,
+      "maxChildren": 25
+    },
+    "waste": {
+      "unusedJsBytes": 120297,
+      "unusedCssBytes": 26459,
+      "legacyJsBytes": 10708,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 8432,
+      "renderBlockingMs": 463,
+      "renderBlockingCount": 1,
+      "poorlyCachedBytes": 38066.25460416667,
+      "poorlyCachedCount": 3
+    },
+    "accessibility": {
+      "failingCount": 2,
+      "applicableCount": 31,
+      "failingNodes": 27,
+      "failing": [
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "weight": 7,
+          "nodes": 22
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "title": "Elements with visible text labels do not have matching accessible names.",
+          "weight": 0,
+          "nodes": 5
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 1,
+      "applicableCount": 19,
+      "failing": [
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "weight": 1,
+          "nodes": 5
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 0,
+      "applicableCount": 10,
+      "failing": []
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h3",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 5,
+      "baselineLimitedFeatures": 27
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2480.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-09-27T23:50:14.055Z",
+      "runtimeMs": 8921.2
+    }
+  },
+  "field": null,
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "probe": {
+      "metas": [],
+      "marks": [],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "cloudflare",
+      "name": "Cloudflare",
+      "icon": "Cloudflare",
+      "source": "server"
+    },
+    "headers": {
+      "cf-ray": "a41e68d23b6f26d7-IAD",
+      "server": "cloudflare",
+      "x-powered-by": "PleskLin"
+    },
+    "violations": 23,
+    "passes": 1100,
+    "incomplete": 1,
+    "violationRules": 2,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 22,
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/color-contrast?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".ui-section-hero--eyebrow",
+            "snippet": "<p class=\"ui-section-hero--eyebrow\">Reports. Decisions. Results.</p>"
+          },
+          {
+            "selector": "h1 > span:nth-child(2)",
+            "snippet": "<span style=\"font-size: 3.10rem;\">Report</span>"
+          },
+          {
+            "selector": ".ui-section-hero--lead",
+            "snippet": "<p class=\"ui-text-intro ui-section-hero--lead\">Web performance report every week in your inbox.</p>"
+          },
+          {
+            "selector": ".ui-text-intro:nth-child(4)",
+            "snippet": "<p class=\"ui-text-intro\">Nobody likes waiting for a page to load. Spot the speed and Core Web Vitals issues that hurt your user experience and can cost you conversions, see whether they are getting w…"
+          },
+          {
+            "selector": ".ui-component-button-ghost",
+            "snippet": "<a href=\"/plans/\" role=\"link\" aria-label=\"See Plans\" class=\"ui-component-button ui-component-button-normal ui-component-button-ghost\">See Plans</a>"
+          }
+        ]
+      },
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "All page content should be contained by landmarks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/region?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".ui-section-launch-bar",
+            "snippet": "<div class=\"ui-section-launch-bar\">"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
