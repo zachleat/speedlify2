@@ -1,0 +1,418 @@
+{
+  "url": "https://rknight.me/",
+  "name": "rknight.me",
+  "group": "11ty-community",
+  "groupName": "Built Awesome",
+  "timestamp": 1790513743644,
+  "date": "2026-09-27T12:55:43.644Z",
+  "runId": "2026-09-27T12-46-49-355Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 25756,
+  "error": null,
+  "variance": {
+    "min": 75,
+    "max": 91,
+    "spread": 16,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://rknight.me/",
+    "finalUrl": "https://rknight.me/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 91,
+      "accessibility": 91,
+      "best-practices": 100,
+      "seo": 100,
+      "agentic-browsing": 24
+    },
+    "timings": {
+      "fcp": 1804,
+      "lcp": 2247,
+      "si": 1804,
+      "tbt": 0,
+      "tti": 2247,
+      "cls": 0.161,
+      "ttfb": 725,
+      "maxPotentialFid": 16,
+      "serverResponseTime": 125,
+      "networkRtt": 0.2,
+      "networkServerLatency": 137
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 127,
+      "elementRenderDelay": 304.7
+    },
+    "weight": {
+      "total": 643211,
+      "requests": 48,
+      "mainDocument": 10967,
+      "byType": {
+        "total": {
+          "bytes": 643211,
+          "requests": 48
+        },
+        "image": {
+          "bytes": 529480,
+          "requests": 35
+        },
+        "font": {
+          "bytes": 80418,
+          "requests": 1
+        },
+        "document": {
+          "bytes": 10967,
+          "requests": 1
+        },
+        "script": {
+          "bytes": 9559,
+          "requests": 5
+        },
+        "other": {
+          "bytes": 7444,
+          "requests": 5
+        },
+        "stylesheet": {
+          "bytes": 5343,
+          "requests": 1
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 7120,
+          "requests": 6
+        }
+      },
+      "scripts": 5,
+      "stylesheets": 1,
+      "fonts": 1
+    },
+    "thirdParty": {
+      "count": 3,
+      "bytes": 7086,
+      "mainThreadMs": 2.2,
+      "top": [
+        {
+          "entity": "Unpkg",
+          "bytes": 3249,
+          "mainThreadMs": 0.2,
+          "byType": {
+            "script": 3249
+          },
+          "typedBytes": 3249
+        },
+        {
+          "entity": "Fathom Analytics",
+          "bytes": 3192,
+          "mainThreadMs": 1,
+          "byType": {
+            "script": 2757,
+            "image": 435
+          },
+          "typedBytes": 3192
+        },
+        {
+          "entity": "neatstats.net",
+          "bytes": 645,
+          "mainThreadMs": 1,
+          "byType": {
+            "script": 617,
+            "other": 28
+          },
+          "typedBytes": 645
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 413.8,
+      "byGroup": {
+        "other": 252.3,
+        "styleLayout": 83.7,
+        "scriptEvaluation": 31.6,
+        "paintCompositeRender": 30.4,
+        "parseHTML": 13.1,
+        "scriptParseCompile": 2.7
+      },
+      "bootupMs": 11.9,
+      "longTasks": 0,
+      "longestTaskMs": null
+    },
+    "dom": {
+      "elements": 252,
+      "depth": 7,
+      "maxChildren": 32
+    },
+    "waste": {
+      "unusedJsBytes": 0,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 0,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 1037,
+      "renderBlockingCount": 2,
+      "poorlyCachedBytes": 567677,
+      "poorlyCachedCount": 38
+    },
+    "accessibility": {
+      "failingCount": 2,
+      "applicableCount": 21,
+      "failingNodes": 27,
+      "failing": [
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "weight": 7,
+          "nodes": 26,
+          "samples": [
+            {
+              "selector": "body > header > div.container > a",
+              "snippet": "<a href=\"/about\">",
+              "label": "about"
+            },
+            {
+              "selector": "body > header > div.container > a",
+              "snippet": "<a href=\"/blog\">",
+              "label": "blog"
+            },
+            {
+              "selector": "body > header > div.container > a",
+              "snippet": "<a href=\"/notes\">",
+              "label": "notes"
+            },
+            {
+              "selector": "body > header > div.container > a",
+              "snippet": "<a href=\"/explore\">",
+              "label": "explore"
+            },
+            {
+              "selector": "body > header > div.container > a.header--links__stickers",
+              "snippet": "<a href=\"/shop\" class=\"header--links__stickers\">",
+              "label": "stickers"
+            }
+          ]
+        },
+        {
+          "id": "aria-prohibited-attr",
+          "title": "Elements use prohibited ARIA attributes",
+          "weight": 7,
+          "nodes": 1,
+          "samples": [
+            {
+              "selector": "form > fieldset > label",
+              "snippet": "<label for=\"t\" part=\"toggleLabel\" aria-label=\"dark\" style=\"--dark-mode-toggle-checkbox-icon: var(--dark-mode-toggle-light-icon,url(&quot;h…;\">",
+              "label": "dark"
+            }
+          ]
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 0,
+      "applicableCount": 18,
+      "failing": []
+    },
+    "seo": {
+      "failingCount": 0,
+      "applicableCount": 9,
+      "failing": []
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 16
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 3366.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-09-27T12:56:00.952Z",
+      "runtimeMs": 7456.4
+    }
+  },
+  "field": {
+    "source": "crux",
+    "scope": "origin",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-08-29",
+      "last": "2026-09-25"
+    },
+    "metrics": {
+      "cls": {
+        "p75": 0.15,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 74.1,
+          "needsImprovement": 25.4,
+          "poor": 0.5
+        }
+      },
+      "ttfb": {
+        "p75": 874,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 72.4,
+          "needsImprovement": 22,
+          "poor": 5.6
+        }
+      },
+      "fcp": {
+        "p75": 1311,
+        "rating": "good",
+        "distribution": {
+          "good": 81,
+          "needsImprovement": 12.4,
+          "poor": 6.6
+        }
+      },
+      "lcp": {
+        "p75": 1714,
+        "rating": "good",
+        "distribution": {
+          "good": 86.4,
+          "needsImprovement": 9,
+          "poor": 4.6
+        }
+      },
+      "rtt": {
+        "p75": 120,
+        "rating": null,
+        "distribution": {
+          "good": 50,
+          "needsImprovement": 40.9,
+          "poor": 9.1
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 2
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": {
+      "id": "build-awesome",
+      "name": "Build Awesome",
+      "icon": "BuildAwesome",
+      "version": "4.0.0",
+      "source": "meta",
+      "raw": "Eleventy (Build Awesome) v4.0.0"
+    },
+    "probe": {
+      "metas": [
+        "Eleventy (Build Awesome) v4.0.0"
+      ],
+      "marks": [],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "self-hosted",
+      "name": "Self-hosted",
+      "icon": null,
+      "detail": "nginx",
+      "detailIcon": "Nginx",
+      "source": "server"
+    },
+    "headers": {
+      "server": "nginx"
+    },
+    "violations": 62,
+    "passes": 394,
+    "incomplete": 4,
+    "violationRules": 3,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 35,
+        "help": "All page content should be contained by landmarks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/region?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "#dark-mode-toggle-1 #t",
+            "snippet": "<input id=\"t\" part=\"toggleCheckbox\" type=\"checkbox\">"
+          },
+          {
+            "selector": "#dark-mode-toggle-1 label[for=\"t\"]",
+            "snippet": "<label for=\"t\" part=\"toggleLabel\" aria-label=\"dark\" style=\"--dark-mode-toggle-checkbox-icon: var(--dark-mode-toggle-light-icon,url(&quot;https://googlechromelabs.github.io/dark-mode-toggle/demo/moon.…"
+          },
+          {
+            "selector": ".sj-container",
+            "snippet": "<a class=\"sj-container\" href=\"https://tiltify.com/@rknightuk/stjude2026\" target=\"_blank\">"
+          },
+          {
+            "selector": "img[src$=\"robbknight.gif\"]",
+            "snippet": "<img width=\"88\" height=\"31\" src=\"/assets/buttons/robbknight.gif\" alt=\"Robb Knight\">"
+          },
+          {
+            "selector": ".footer-buttons > div:nth-child(2)",
+            "snippet": "<div><a href=\"https://11ty.dev\"><img width=\"88\" height=\"31\" src=\"/assets/buttons/built-with-eleventy.gif\" alt=\"Made with Eleventy\"></a></div>"
+          }
+        ]
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 26,
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/color-contrast?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".header--links > a[href$=\"about\"]",
+            "snippet": "<a href=\"/about\">About</a>"
+          },
+          {
+            "selector": ".header--links > a[href$=\"blog\"]",
+            "snippet": "<a href=\"/blog\">Blog</a>"
+          },
+          {
+            "selector": ".header--links > a[href$=\"notes\"]",
+            "snippet": "<a href=\"/notes\">Notes</a>"
+          },
+          {
+            "selector": "a[href$=\"explore\"]",
+            "snippet": "<a href=\"/explore\">Explore</a>"
+          },
+          {
+            "selector": ".header--links__stickers",
+            "snippet": "<a href=\"/shop\" class=\"header--links__stickers\">Stickers</a>"
+          }
+        ]
+      },
+      {
+        "id": "aria-prohibited-attr",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "Elements must only use permitted ARIA attributes",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/aria-prohibited-attr?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "#dark-mode-toggle-1 label[for=\"t\"]",
+            "snippet": "<label for=\"t\" part=\"toggleLabel\" aria-label=\"dark\" style=\"--dark-mode-toggle-checkbox-icon: var(--dark-mode-toggle-light-icon,url(&quot;https://googlechromelabs.github.io/dark-mode-toggle/demo/moon.…"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
