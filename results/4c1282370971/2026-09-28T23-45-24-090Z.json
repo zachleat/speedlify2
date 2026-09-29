@@ -1,0 +1,436 @@
+{
+  "url": "https://claude.ai/",
+  "name": "Claude",
+  "group": "nextjs-showcase",
+  "groupName": "Next.js Showcase",
+  "timestamp": 1790639124090,
+  "date": "2026-09-28T23:45:24.090Z",
+  "runId": "2026-09-28T23-43-50-201Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 158682,
+  "error": null,
+  "variance": {
+    "min": 33,
+    "max": 38,
+    "spread": 5,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://claude.ai/",
+    "finalUrl": "https://claude.ai/login",
+    "redirect": {
+      "from": "https://claude.ai/",
+      "to": "https://claude.ai/login",
+      "chain": [
+        {
+          "url": "https://claude.ai/",
+          "status": 302
+        },
+        {
+          "url": "https://claude.ai/login",
+          "status": 200
+        }
+      ],
+      "statuses": [
+        302
+      ],
+      "change": "path",
+      "permanent": false,
+      "schemeUpgrade": false,
+      "hops": 1
+    },
+    "statusCode": "ok",
+    "scores": {
+      "performance": 37,
+      "accessibility": 97,
+      "best-practices": 54,
+      "seo": 92,
+      "agentic-browsing": 67
+    },
+    "timings": {
+      "fcp": 7966,
+      "lcp": 11400,
+      "si": 7966,
+      "tbt": 904,
+      "tti": 15126,
+      "cls": 0,
+      "ttfb": 479,
+      "maxPotentialFid": 417,
+      "serverResponseTime": 9,
+      "networkRtt": 10.4,
+      "networkServerLatency": 119.3
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 30.2,
+      "elementRenderDelay": 830.5
+    },
+    "weight": {
+      "total": 6422741,
+      "requests": 144,
+      "mainDocument": 16806,
+      "byType": {
+        "total": {
+          "bytes": 6419269,
+          "requests": 138
+        },
+        "other": {
+          "bytes": 3682799,
+          "requests": 54
+        },
+        "script": {
+          "bytes": 2280026,
+          "requests": 71
+        },
+        "document": {
+          "bytes": 209562,
+          "requests": 5
+        },
+        "stylesheet": {
+          "bytes": 142670,
+          "requests": 3
+        },
+        "font": {
+          "bytes": 101482,
+          "requests": 3
+        },
+        "image": {
+          "bytes": 2730,
+          "requests": 2
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 6384538,
+          "requests": 131
+        }
+      },
+      "scripts": 72,
+      "stylesheets": 3,
+      "fonts": 3
+    },
+    "thirdParty": {
+      "count": 4,
+      "bytes": 5708490,
+      "mainThreadMs": 547.6,
+      "top": [
+        {
+          "entity": "anthropic.com",
+          "bytes": 5500498,
+          "mainThreadMs": 458.6,
+          "byType": {
+            "script": 1601947,
+            "other": 3654688,
+            "stylesheet": 142285,
+            "font": 101482,
+            "image": 96
+          },
+          "typedBytes": 5500498
+        },
+        {
+          "entity": "hcaptcha.com",
+          "bytes": 105952,
+          "mainThreadMs": 78.4,
+          "byType": {
+            "script": 102638,
+            "other": 3314
+          },
+          "typedBytes": 105952
+        },
+        {
+          "entity": "Other Google APIs/SDKs",
+          "bytes": 101568,
+          "mainThreadMs": 10.6,
+          "byType": {
+            "script": 101183,
+            "stylesheet": 385
+          },
+          "typedBytes": 101568
+        },
+        {
+          "entity": "browser-intake-us5-datadoghq.com",
+          "bytes": 472,
+          "mainThreadMs": 0,
+          "byType": {
+            "other": 472
+          },
+          "typedBytes": 472
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 6449.9,
+      "byGroup": {
+        "scriptEvaluation": 3325.4,
+        "other": 2125.4,
+        "styleLayout": 414.3,
+        "parseHTML": 284.1,
+        "scriptParseCompile": 128.8,
+        "garbageCollection": 115,
+        "paintCompositeRender": 56.9
+      },
+      "bootupMs": 3060.9,
+      "longTasks": 15,
+      "longestTaskMs": 605
+    },
+    "dom": {
+      "elements": 1055,
+      "depth": 23,
+      "maxChildren": 16
+    },
+    "waste": {
+      "unusedJsBytes": 863339,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 14124,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 1539,
+      "renderBlockingCount": 2,
+      "poorlyCachedBytes": 115205.41666666669,
+      "poorlyCachedCount": 3
+    },
+    "accessibility": {
+      "failingCount": 1,
+      "applicableCount": 30,
+      "failingNodes": 10,
+      "failing": [
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "weight": 7,
+          "nodes": 10
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 4,
+      "applicableCount": 16,
+      "failing": [
+        {
+          "id": "deprecations",
+          "title": "Uses deprecated APIs",
+          "weight": 5,
+          "nodes": 1
+        },
+        {
+          "id": "third-party-cookies",
+          "title": "Uses third-party cookies",
+          "weight": 5,
+          "nodes": 1
+        },
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "weight": 1,
+          "nodes": 1
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "weight": 1,
+          "nodes": 1
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 1,
+      "applicableCount": 9,
+      "failing": [
+        {
+          "id": "canonical",
+          "title": "Document does not have a valid `rel=canonical`",
+          "weight": 1,
+          "nodes": null
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": null,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": null,
+      "trustedTypes": 1,
+      "bfCache": 0,
+      "bfCacheFailures": 3,
+      "protocol": "h3",
+      "legacyHttpRequests": 0,
+      "redirectMs": 779.6,
+      "consoleErrors": 1,
+      "baselineLimitedFeatures": 92
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2456.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-09-28T23:46:22.786Z",
+      "runtimeMs": 29008.6
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 1143.8,
+    "elementRenderDelay": 12169.5
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-08-30",
+      "last": "2026-09-26"
+    },
+    "metrics": {
+      "cls": {
+        "p75": 0.06,
+        "rating": "good",
+        "distribution": {
+          "good": 87.4,
+          "needsImprovement": 8.1,
+          "poor": 4.5
+        }
+      },
+      "ttfb": {
+        "p75": 795,
+        "rating": "good",
+        "distribution": {
+          "good": 75.3,
+          "needsImprovement": 15.5,
+          "poor": 9.2
+        }
+      },
+      "fcp": {
+        "p75": 2028,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 70.1,
+          "needsImprovement": 16.8,
+          "poor": 13.1
+        }
+      },
+      "inp": {
+        "p75": 390,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 48.9,
+          "needsImprovement": 33.3,
+          "poor": 17.8
+        }
+      },
+      "lcp": {
+        "p75": 2629,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 73.4,
+          "needsImprovement": 14.6,
+          "poor": 12
+        }
+      },
+      "rtt": {
+        "p75": 219,
+        "rating": null,
+        "distribution": {
+          "good": 22.3,
+          "needsImprovement": 60.4,
+          "poor": 17.3
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "probe": {
+      "metas": [],
+      "marks": [
+        "react"
+      ],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "cloudflare",
+      "name": "Cloudflare",
+      "icon": "Cloudflare",
+      "source": "server"
+    },
+    "headers": {
+      "cf-ray": "a426a2df2ea349d4-LAX",
+      "server": "cloudflare"
+    },
+    "violations": 41,
+    "passes": 1162,
+    "incomplete": 28,
+    "violationRules": 2,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 31,
+        "help": "All page content should be contained by landmarks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/region?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".mb-4",
+            "snippet": "<div class=\"text-center mb-4\"><h1 class=\"text-3xl sm:text-3xl md:text-4xl font-claude-response\">Meet Claude</h1></div>"
+          },
+          {
+            "selector": ".mb-16",
+            "snippet": "<div class=\"text-center mb-16 max-w-3xl\"><h2 class=\"text-title text-muted\">Claude is a next generation AI assistant built by Anthropic and trained to be safe, accurate, and secure to help you do your…"
+          },
+          {
+            "selector": ".mb-8.text-center.w-full",
+            "snippet": "<div class=\"w-full text-center mb-8\"><h2 class=\"font-ui-serif text-xl sm:text-2xl md:text-3xl\">Explore plans</h2></div>"
+          },
+          {
+            "selector": ".mb-12",
+            "snippet": "<div class=\"w-full flex justify-center mb-12\">"
+          },
+          {
+            "selector": ".border-border-400.hover\\:shadow-sm.\\[direction\\:ltr\\]:nth-child(1) > div:nth-child(2)",
+            "snippet": "<div><h3 class=\"font-claude-response text-2xl sm:text-3xl text-primary mb-1\">Free</h3><p class=\"text-sm sm:text-base text-primary mb-6\">Try Claude</p></div>"
+          }
+        ]
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 10,
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/color-contrast?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".leading-relaxed.text-xs.text-muted",
+            "snippet": "<div class=\"text-xs text-muted leading-relaxed\">"
+          },
+          {
+            "selector": ".mb-16 > .text-title",
+            "snippet": "<h2 class=\"text-title text-muted\">Claude is a next generation AI assistant built by Anthropic and trained to be safe, accurate, and secure to help you do your best work.</h2>"
+          },
+          {
+            "selector": "#base-ui-_r_11_",
+            "snippet": "<span data-unchecked=\"\" role=\"radio\" tabindex=\"-1\" aria-checked=\"false\" id=\"base-ui-_r_11_\" class=\"cds-reset relative z...\">"
+          },
+          {
+            "selector": ".border-border-400.hover\\:shadow-sm.\\[direction\\:ltr\\]:nth-child(1) > div:nth-child(3) > .pt-1.text-sm.text-muted",
+            "snippet": "<div class=\"pt-1 text-muted text-sm\">Free for everyone</div>"
+          },
+          {
+            "selector": ".border-border-400.hover\\:shadow-sm.\\[direction\\:ltr\\]:nth-child(2) > div:nth-child(3) > .pt-1.text-sm.text-muted",
+            "snippet": "<div class=\"pt-1 text-muted text-sm\">Per month with annual subscription discount ($200 billed up front). $20 if billed monthly.</div>"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}

@@ -1,0 +1,508 @@
+{
+  "url": "https://jobs.redbull.com/",
+  "name": "Red Bull Jobs",
+  "group": "nextjs-showcase",
+  "groupName": "Next.js Showcase",
+  "timestamp": 1790639423313,
+  "date": "2026-09-28T23:50:23.313Z",
+  "runId": "2026-09-28T23-43-50-201Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 108731,
+  "error": null,
+  "variance": {
+    "min": 24,
+    "max": 25,
+    "spread": 1,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://jobs.redbull.com/",
+    "finalUrl": "https://jobs.redbull.com/us-en",
+    "redirect": {
+      "from": "https://jobs.redbull.com/",
+      "to": "https://jobs.redbull.com/us-en",
+      "chain": [
+        {
+          "url": "https://jobs.redbull.com/",
+          "status": 302
+        },
+        {
+          "url": "https://jobs.redbull.com/us-en",
+          "status": 200
+        }
+      ],
+      "statuses": [
+        302
+      ],
+      "change": "path",
+      "permanent": false,
+      "schemeUpgrade": false,
+      "hops": 1
+    },
+    "statusCode": "ok",
+    "scores": {
+      "performance": 24,
+      "accessibility": 87,
+      "best-practices": 100,
+      "seo": 92,
+      "agentic-browsing": 23
+    },
+    "timings": {
+      "fcp": 3191,
+      "lcp": 12085,
+      "si": 7699,
+      "tbt": 1246,
+      "tti": 16050,
+      "cls": 0.27,
+      "ttfb": 621,
+      "maxPotentialFid": 362,
+      "serverResponseTime": 10,
+      "networkRtt": 0.9,
+      "networkServerLatency": 139.1
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 23.4,
+      "resourceLoadDelay": 51.6,
+      "resourceLoadDuration": 529.3,
+      "elementRenderDelay": 313.6
+    },
+    "weight": {
+      "total": 29232774,
+      "requests": 182,
+      "mainDocument": 21586,
+      "byType": {
+        "total": {
+          "bytes": 29232774,
+          "requests": 177
+        },
+        "media": {
+          "bytes": 25600244,
+          "requests": 3
+        },
+        "image": {
+          "bytes": 1555470,
+          "requests": 100
+        },
+        "script": {
+          "bytes": 1516549,
+          "requests": 36
+        },
+        "font": {
+          "bytes": 391826,
+          "requests": 8
+        },
+        "other": {
+          "bytes": 126511,
+          "requests": 21
+        },
+        "document": {
+          "bytes": 22560,
+          "requests": 3
+        },
+        "stylesheet": {
+          "bytes": 19614,
+          "requests": 6
+        },
+        "third-party": {
+          "bytes": 167479,
+          "requests": 9
+        }
+      },
+      "scripts": 36,
+      "stylesheets": 6,
+      "fonts": 8
+    },
+    "thirdParty": {
+      "count": 3,
+      "bytes": 167479,
+      "mainThreadMs": 55,
+      "top": [
+        {
+          "entity": "Optanon",
+          "bytes": 166656,
+          "mainThreadMs": 54.4,
+          "byType": {
+            "script": 141387,
+            "other": 25269
+          },
+          "typedBytes": 166656
+        },
+        {
+          "entity": "Google Tag Manager",
+          "bytes": 647,
+          "mainThreadMs": 0.4,
+          "byType": {
+            "script": 217,
+            "image": 430
+          },
+          "typedBytes": 647
+        },
+        {
+          "entity": "polyfill-fastly.io",
+          "bytes": 176,
+          "mainThreadMs": 0.2,
+          "byType": {
+            "script": 176
+          },
+          "typedBytes": 176
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 5503.8,
+      "byGroup": {
+        "scriptEvaluation": 2564.1,
+        "other": 1445.5,
+        "styleLayout": 630.1,
+        "scriptParseCompile": 584.1,
+        "paintCompositeRender": 160.9,
+        "garbageCollection": 64,
+        "parseHTML": 55.1
+      },
+      "bootupMs": 3058.3,
+      "longTasks": 20,
+      "longestTaskMs": 362
+    },
+    "dom": {
+      "elements": 1039,
+      "depth": 20,
+      "maxChildren": 62
+    },
+    "waste": {
+      "unusedJsBytes": 758462,
+      "unusedCssBytes": 21801,
+      "legacyJsBytes": 21775,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 1534,
+      "renderBlockingCount": 6,
+      "poorlyCachedBytes": 313025.2166666667,
+      "poorlyCachedCount": 6
+    },
+    "accessibility": {
+      "failingCount": 5,
+      "applicableCount": 37,
+      "failingNodes": 11,
+      "failing": [
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "weight": 7,
+          "nodes": 7
+        },
+        {
+          "id": "aria-dialog-name",
+          "title": "Elements with `role=\"dialog\"` or `role=\"alertdialog\"` do not have accessible names.",
+          "weight": 7,
+          "nodes": 1
+        },
+        {
+          "id": "heading-order",
+          "title": "Heading elements are not in a sequentially-descending order",
+          "weight": 3,
+          "nodes": 1
+        },
+        {
+          "id": "label",
+          "title": "Form elements do not have associated labels",
+          "weight": 10,
+          "nodes": 1
+        },
+        {
+          "id": "target-size",
+          "title": "Touch targets do not have sufficient size or spacing.",
+          "weight": 7,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 1,
+      "applicableCount": 20,
+      "failing": [
+        {
+          "id": "valid-source-maps",
+          "title": "Missing source maps for large first-party JavaScript",
+          "weight": 0,
+          "nodes": 3
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 1,
+      "applicableCount": 9,
+      "failing": [
+        {
+          "id": "crawlable-anchors",
+          "title": "Links are not crawlable",
+          "weight": 1,
+          "nodes": 12
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 1,
+      "redirectMs": 771,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 39
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2507.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-09-28T23:50:37.735Z",
+      "runtimeMs": 11825.2
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 1148.5,
+    "resourceLoadDelay": 1227.6,
+    "resourceLoadDuration": 5732.7,
+    "elementRenderDelay": 7385
+  },
+  "field": {
+    "source": "crux",
+    "scope": "origin",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-08-30",
+      "last": "2026-09-26"
+    },
+    "metrics": {
+      "lcp": {
+        "p75": 2175,
+        "rating": "good",
+        "distribution": {
+          "good": 80,
+          "needsImprovement": 12.2,
+          "poor": 7.7
+        }
+      },
+      "rtt": {
+        "p75": 156,
+        "rating": null,
+        "distribution": {
+          "good": 36.2,
+          "needsImprovement": 55.1,
+          "poor": 8.7
+        }
+      },
+      "cls": {
+        "p75": 0.06,
+        "rating": "good",
+        "distribution": {
+          "good": 77.4,
+          "needsImprovement": 8.1,
+          "poor": 14.5
+        }
+      },
+      "ttfb": {
+        "p75": 1037,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 66.8,
+          "needsImprovement": 22.9,
+          "poor": 10.3
+        }
+      },
+      "fcp": {
+        "p75": 1810,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 74.7,
+          "needsImprovement": 14.5,
+          "poor": 10.8
+        }
+      },
+      "inp": {
+        "p75": 136,
+        "rating": "good",
+        "distribution": {
+          "good": 86.4,
+          "needsImprovement": 10.4,
+          "poor": 3.1
+        }
+      }
+    },
+    "cwvPass": true,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": {
+      "id": "nextjs",
+      "name": "Next.js",
+      "icon": "Nextdotjs",
+      "version": null,
+      "source": "dom",
+      "raw": null
+    },
+    "probe": {
+      "metas": [],
+      "marks": [
+        "next",
+        "react"
+      ],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "akamai",
+      "name": "Akamai",
+      "icon": "Akamai",
+      "source": "server"
+    },
+    "headers": {
+      "server": "AkamaiGHost"
+    },
+    "violations": 43,
+    "passes": 1061,
+    "incomplete": 59,
+    "violationRules": 6,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 22,
+        "help": "All page content should be contained by landmarks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/region?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "rbcom-navigation .global-header__media-bull",
+            "snippet": "<a class=\"global-header__content global-header__media-bull\" href=\"https://www.redbull.com\"><div class=\"global-header__media-bull-icon\"><img class=\"global-header__media-bull-image\" src=\"https://www.re…"
+          },
+          {
+            "selector": "rbcom-navigation .tenant-header__logo-image--dark",
+            "snippet": "<img class=\"tenant-header__logo-image tenant-header__logo-image--dark\" src=\"https://www.redbull.com/v3/resources/images/client/header/redbullcom-logo_double-with-text.svg\" alt=\"Red Bull Logo\">"
+          },
+          {
+            "selector": ".MapSlider_map-slider__intro__fAJPD",
+            "snippet": "<div class=\"MapSlider_map-slider__intro__fAJPD\"><span class=\"MapSlider_map-slider__kicker__hkZkx\">OUR LOCATIONS</span><h2 class=\"MapSlider_map-slider__heading__aihpi\">Join the team. We're more than 2…"
+          },
+          {
+            "selector": ".MapSliderLocationRail_is-selected__bXAjr",
+            "snippet": "<div class=\"MapSliderLocationRail_map-slider-location-rail__wrapper__JAqrD MapSliderLocationRail_is-selected__bXAjr is-selected\" style=\"position: absolute; left: 0px; transform: translateX(0px);\">"
+          },
+          {
+            "selector": ".MoodboardTiles_moodboard-tiles__intro__dfmhZ",
+            "snippet": "<div class=\"MoodboardTiles_moodboard-tiles__intro__dfmhZ\">"
+          }
+        ]
+      },
+      {
+        "id": "nested-interactive",
+        "impact": "serious",
+        "nodes": 11,
+        "help": "Interactive controls must not be nested",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/nested-interactive?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".SearchInput_search-input__list-item__86Gax[role=\"option\"]:nth-child(1)",
+            "snippet": "<li class=\"SearchInput_search-input__list-item__86Gax\" aria-selected=\"false\" role=\"option\" tabindex=\"-1\"><a class=\"SearchInput_search-input__list-item-link__6EZ3N\" href=\"/results?functions=9&amp;loca…"
+          },
+          {
+            "selector": ".SearchInput_search-input__list-item__86Gax[role=\"option\"]:nth-child(2)",
+            "snippet": "<li class=\"SearchInput_search-input__list-item__86Gax\" aria-selected=\"false\" role=\"option\" tabindex=\"-1\"><a class=\"SearchInput_search-input__list-item-link__6EZ3N\" href=\"/results?functions=6&amp;loca…"
+          },
+          {
+            "selector": ".SearchInput_search-input__list-item__86Gax[role=\"option\"]:nth-child(3)",
+            "snippet": "<li class=\"SearchInput_search-input__list-item__86Gax\" aria-selected=\"false\" role=\"option\" tabindex=\"-1\"><a class=\"SearchInput_search-input__list-item-link__6EZ3N\" href=\"/results?functions=8&amp;loca…"
+          },
+          {
+            "selector": ".SearchInput_search-input__list-item__86Gax[role=\"option\"]:nth-child(4)",
+            "snippet": "<li class=\"SearchInput_search-input__list-item__86Gax\" aria-selected=\"false\" role=\"option\" tabindex=\"-1\"><a class=\"SearchInput_search-input__list-item-link__6EZ3N\" href=\"/results?functions=4&amp;loca…"
+          },
+          {
+            "selector": ".SearchInput_search-input__list-item__86Gax[role=\"option\"]:nth-child(5)",
+            "snippet": "<li class=\"SearchInput_search-input__list-item__86Gax\" aria-selected=\"false\" role=\"option\" tabindex=\"-1\"><a class=\"SearchInput_search-input__list-item-link__6EZ3N\" href=\"/results?functions=2&amp;loca…"
+          }
+        ]
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 7,
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/color-contrast?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "#labelText",
+            "snippet": "<span class=\"SearchInput_search-input__label-text__GjDpg\" id=\"labelText\">Select your team</span>"
+          },
+          {
+            "selector": "a[href$=\"sales-trainee-ref34333q\"] > .JobCard_job-card__function-wrapper__cXFyB > .JobCard_job-card__employment-type__7KUV2[aria-label=\"Full-time\"]",
+            "snippet": "<span class=\"JobCard_job-card__employment-type__7KUV2\" aria-label=\"Full-time\">Full-time</span>"
+          },
+          {
+            "selector": "a[href$=\"sales-trainee-ref34333q\"] > .JobCard_job-card__locale-info__a4K0y > .JobCard_job-card__locations__Nax0H > .JobCard_job-card__location__o2JHX",
+            "snippet": "<span class=\"JobCard_job-card__location__o2JHX\">Tulsa, Oklahoma, United States</span>"
+          },
+          {
+            "selector": ".JobCard_job-card__ysmKe.JobCard_job-card--with-animation__hma8m[data-id=\"job-card\"]:nth-child(2) > .JobCard_job-card__function-wrapper__cXFyB > .JobCard_job-card__employment-type__7KUV2[aria-label=\"Full-time\"]",
+            "snippet": "<span class=\"JobCard_job-card__employment-type__7KUV2\" aria-label=\"Full-time\">Full-time</span>"
+          },
+          {
+            "selector": ".JobCard_job-card__ysmKe.JobCard_job-card--with-animation__hma8m[data-id=\"job-card\"]:nth-child(2) > .JobCard_job-card__locale-info__a4K0y > .JobCard_job-card__locations__Nax0H > .JobCard_job-card__location__o2JHX",
+            "snippet": "<span class=\"JobCard_job-card__location__o2JHX\">Los Angeles, California, United States</span>"
+          }
+        ]
+      },
+      {
+        "id": "aria-dialog-name",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "ARIA dialog and alertdialog nodes should have an accessible name",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/aria-dialog-name?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".FraudModal_fraud-modal__kQy_5",
+            "snippet": "<div class=\"FraudModal_fraud-modal__kQy_5 FraudModal_fraud-modal--visible__5WXtj\" role=\"dialog\" aria-modal=\"true\">"
+          }
+        ]
+      },
+      {
+        "id": "heading-order",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Heading levels should only increase by one",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/heading-order?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "h3[aria-label=\"Sales Trainee\"]",
+            "snippet": "<h3 class=\"JobCard_job-card__title__S4pvR\" aria-label=\"Sales Trainee\">Sales Trainee</h3>"
+          }
+        ]
+      },
+      {
+        "id": "label",
+        "impact": "critical",
+        "nodes": 1,
+        "help": "Form elements must have labels",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/label?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "input[type=\"text\"]",
+            "snippet": "<input class=\"SearchInput_search-input__input-field__0Y20n\" type=\"text\" placeholder=\"\" tabindex=\"0\" style=\"width: 0px;\">"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
