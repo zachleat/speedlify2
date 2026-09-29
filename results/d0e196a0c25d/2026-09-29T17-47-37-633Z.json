@@ -1,0 +1,429 @@
+{
+  "url": "https://www.google.com/",
+  "name": "Google",
+  "group": "big-tech",
+  "groupName": "Big Tech",
+  "timestamp": 1790704057633,
+  "date": "2026-09-29T17:47:37.633Z",
+  "runId": "2026-09-29T17-42-15-123Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 57109,
+  "error": null,
+  "variance": {
+    "min": 59,
+    "max": 73,
+    "spread": 14,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://www.google.com/",
+    "finalUrl": "https://www.google.com/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 73,
+      "accessibility": 91,
+      "best-practices": 96,
+      "seo": 92,
+      "agentic-browsing": 50
+    },
+    "timings": {
+      "fcp": 1975,
+      "lcp": 3493,
+      "si": 2594,
+      "tbt": 635,
+      "tti": 9076,
+      "cls": 0.009,
+      "ttfb": 471,
+      "maxPotentialFid": 292,
+      "serverResponseTime": 113,
+      "networkRtt": 1.6,
+      "networkServerLatency": 46.7
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 115.2,
+      "resourceLoadDelay": 10.2,
+      "resourceLoadDuration": 8.8,
+      "elementRenderDelay": 52.5
+    },
+    "weight": {
+      "total": 1253505,
+      "requests": 47,
+      "mainDocument": 67853,
+      "byType": {
+        "total": {
+          "bytes": 1253505,
+          "requests": 47
+        },
+        "script": {
+          "bytes": 781390,
+          "requests": 8
+        },
+        "image": {
+          "bytes": 290352,
+          "requests": 7
+        },
+        "other": {
+          "bytes": 82946,
+          "requests": 28
+        },
+        "document": {
+          "bytes": 67853,
+          "requests": 1
+        },
+        "font": {
+          "bytes": 24525,
+          "requests": 1
+        },
+        "stylesheet": {
+          "bytes": 6439,
+          "requests": 2
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 123545,
+          "requests": 9
+        }
+      },
+      "scripts": 8,
+      "stylesheets": 2,
+      "fonts": 1
+    },
+    "thirdParty": {
+      "count": 3,
+      "bytes": 123545,
+      "mainThreadMs": 26.9,
+      "top": [
+        {
+          "entity": "Google CDN",
+          "bytes": 98966,
+          "mainThreadMs": 26.8,
+          "byType": {
+            "script": 90471,
+            "stylesheet": 6399,
+            "image": 2096
+          },
+          "typedBytes": 98966
+        },
+        {
+          "entity": "Google Fonts",
+          "bytes": 24525,
+          "mainThreadMs": 0,
+          "byType": {
+            "font": 24525
+          },
+          "typedBytes": 24525
+        },
+        {
+          "entity": "google.com",
+          "bytes": 54,
+          "mainThreadMs": 0.1,
+          "byType": {
+            "other": 54
+          },
+          "typedBytes": 54
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 2182.2,
+      "byGroup": {
+        "scriptEvaluation": 1218.3,
+        "other": 481.6,
+        "scriptParseCompile": 236.8,
+        "styleLayout": 133.1,
+        "parseHTML": 64.5,
+        "paintCompositeRender": 47.8
+      },
+      "bootupMs": 1415.3,
+      "longTasks": 8,
+      "longestTaskMs": 292
+    },
+    "dom": {
+      "elements": 482,
+      "depth": 23,
+      "maxChildren": 39
+    },
+    "waste": {
+      "unusedJsBytes": 449017,
+      "unusedCssBytes": 12047,
+      "legacyJsBytes": 0,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 0,
+      "renderBlockingCount": 0,
+      "poorlyCachedBytes": 0,
+      "poorlyCachedCount": 0
+    },
+    "accessibility": {
+      "failingCount": 3,
+      "applicableCount": 30,
+      "failingNodes": 9,
+      "failing": [
+        {
+          "id": "target-size",
+          "title": "Touch targets do not have sufficient size or spacing.",
+          "weight": 7,
+          "nodes": 7
+        },
+        {
+          "id": "list",
+          "title": "Lists do not contain only `<li>` elements and script supporting elements (`<script>` and `<template>`).",
+          "weight": 7,
+          "nodes": 1
+        },
+        {
+          "id": "landmark-one-main",
+          "title": "Document does not have a main landmark.",
+          "weight": 3,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 2,
+      "applicableCount": 19,
+      "failing": [
+        {
+          "id": "image-size-responsive",
+          "title": "Serves images with low resolution",
+          "weight": 1,
+          "nodes": 3
+        },
+        {
+          "id": "valid-source-maps",
+          "title": "Missing source maps for large first-party JavaScript",
+          "weight": 0,
+          "nodes": 1
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 1,
+      "applicableCount": 9,
+      "failing": [
+        {
+          "id": "meta-description",
+          "title": "Document does not have a meta description",
+          "weight": 1,
+          "nodes": null
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h3",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 32
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2471,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-09-29T17:47:56.378Z",
+      "runtimeMs": 8600
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 652.2,
+    "resourceLoadDelay": 118.1,
+    "resourceLoadDuration": 3828.1,
+    "elementRenderDelay": 9.4
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-08-31",
+      "last": "2026-09-27"
+    },
+    "metrics": {
+      "cls": {
+        "p75": 0.04,
+        "rating": "good",
+        "distribution": {
+          "good": 94.7,
+          "needsImprovement": 2.9,
+          "poor": 2.5
+        }
+      },
+      "ttfb": {
+        "p75": 563,
+        "rating": "good",
+        "distribution": {
+          "good": 84.6,
+          "needsImprovement": 11.4,
+          "poor": 4
+        }
+      },
+      "fcp": {
+        "p75": 1066,
+        "rating": "good",
+        "distribution": {
+          "good": 89.6,
+          "needsImprovement": 6.6,
+          "poor": 3.8
+        }
+      },
+      "inp": {
+        "p75": 249,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 63.6,
+          "needsImprovement": 30.2,
+          "poor": 6.3
+        }
+      },
+      "lcp": {
+        "p75": 1839,
+        "rating": "good",
+        "distribution": {
+          "good": 84.8,
+          "needsImprovement": 9.9,
+          "poor": 5.4
+        }
+      },
+      "rtt": {
+        "p75": 185,
+        "rating": null,
+        "distribution": {
+          "good": 26.2,
+          "needsImprovement": 60.7,
+          "poor": 13.1
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "probe": {
+      "metas": [],
+      "marks": [],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "gws",
+      "name": "Google",
+      "icon": "Google",
+      "source": "server"
+    },
+    "headers": {
+      "server": "gws"
+    },
+    "violations": 20,
+    "passes": 472,
+    "incomplete": 3,
+    "violationRules": 4,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 10,
+        "help": "All page content should be contained by landmarks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/region?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "a[data-hveid=\"13\"]",
+            "snippet": "<a style=\"background-image:none\" href=\"/search?q=WNBA+Playoffs&oi=ddle&noiga=1&ct=563469955&hl=en&si=APenkKkicnuBo3HChbgOSg9PTrSKjmOZoDYMZFfiLeKjxtW67-0s8OSpnFY8BR7q_uYJl7nyjYpf9S1L0XDZzCm0Ms0kssz6fs…"
+          },
+          {
+            "selector": ".VsEpQb",
+            "snippet": "<div jsname=\"gYxgdc\" class=\"VsEpQb\" aria-level=\"1\" role=\"heading\">Trending searches</div>"
+          },
+          {
+            "selector": "li[jsaction=\"click:.CLIENT\"]:nth-child(1) > .jh86Nb > .MWnfue > .h5AwLb",
+            "snippet": "<span class=\"h5AwLb\">uscis visa bulletin</span>"
+          },
+          {
+            "selector": "li[jsaction=\"click:.CLIENT\"]:nth-child(2) > .jh86Nb > .MWnfue > .h5AwLb",
+            "snippet": "<span class=\"h5AwLb\">blood pressure medication recall</span>"
+          },
+          {
+            "selector": "li[jsaction=\"click:.CLIENT\"]:nth-child(3) > .jh86Nb > .MWnfue > .h5AwLb",
+            "snippet": "<span class=\"h5AwLb\">midterm elections</span>"
+          }
+        ]
+      },
+      {
+        "id": "aria-allowed-role",
+        "impact": "minor",
+        "nodes": 8,
+        "help": "ARIA role should be appropriate for the element",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/aria-allowed-role?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".gLFyf",
+            "snippet": "<textarea jsname=\"yZiJbe\" class=\"gLFyf\" aria-describedby=\"sb_input_box_aria_de...\" aria-expanded=\"false\" aria-haspopup=\"listbox\" autocorrect=\"off\" role=\"combobox\" title=\"\" placeholder=\"Ask Google\" ar…"
+          },
+          {
+            "selector": "li[jsaction=\"click:.CLIENT\"]:nth-child(1)",
+            "snippet": "<li role=\"link\" tabindex=\"0\" style=\"opacity: 1;\" jsaction=\"click:.CLIENT\">"
+          },
+          {
+            "selector": "li[jsaction=\"click:.CLIENT\"]:nth-child(2)",
+            "snippet": "<li role=\"link\" tabindex=\"0\" style=\"opacity: 1;\" jsaction=\"click:.CLIENT\">"
+          },
+          {
+            "selector": "li[jsaction=\"click:.CLIENT\"]:nth-child(3)",
+            "snippet": "<li role=\"link\" tabindex=\"0\" style=\"opacity: 1;\" jsaction=\"click:.CLIENT\">"
+          },
+          {
+            "selector": "li[jsaction=\"click:.CLIENT\"]:nth-child(4)",
+            "snippet": "<li role=\"link\" tabindex=\"0\" style=\"opacity: 1;\" jsaction=\"click:.CLIENT\">"
+          }
+        ]
+      },
+      {
+        "id": "landmark-one-main",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Document should have one main landmark",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/landmark-one-main?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "html",
+            "snippet": "<html lang=\"en\">"
+          }
+        ]
+      },
+      {
+        "id": "list",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "<ul> and <ol> must only directly contain <li>, <script> or <template> elements",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/list?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".o5j3Ue",
+            "snippet": "<ul jsname=\"rn6yge\" class=\"o5j3Ue\" data-num_pips_row=\"7\">"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
