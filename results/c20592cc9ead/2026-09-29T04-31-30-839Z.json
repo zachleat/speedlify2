@@ -1,0 +1,479 @@
+{
+  "url": "https://www.devolverdigital.com/",
+  "name": "Devolver",
+  "group": "nextjs-showcase",
+  "groupName": "Next.js Showcase",
+  "timestamp": 1790656290839,
+  "date": "2026-09-29T04:31:30.839Z",
+  "runId": "2026-09-29T04-26-09-938Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 2,
+  "durationMs": 72193,
+  "error": null,
+  "partialErrors": [
+    "ERRORED_DOCUMENT_REQUEST: Lighthouse was unable to reliably load the page you requested. Make sure you are testing the correct URL and that the server is properly responding to all requests. (Status code: 429)"
+  ],
+  "variance": {
+    "min": 65,
+    "max": 66,
+    "spread": 1,
+    "runs": 2
+  },
+  "lab": {
+    "requestedUrl": "https://www.devolverdigital.com/",
+    "finalUrl": "https://www.devolverdigital.com/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 65,
+      "accessibility": 84,
+      "best-practices": 100,
+      "seo": 100,
+      "agentic-browsing": 50
+    },
+    "timings": {
+      "fcp": 1380,
+      "lcp": 6937,
+      "si": 2242,
+      "tbt": 435,
+      "tti": 7101,
+      "cls": 0,
+      "ttfb": 630,
+      "maxPotentialFid": 244,
+      "serverResponseTime": 24,
+      "networkRtt": 0.1,
+      "networkServerLatency": 53.8
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 26,
+      "resourceLoadDelay": 32.8,
+      "resourceLoadDuration": 37.8,
+      "elementRenderDelay": 812.1
+    },
+    "weight": {
+      "total": 1212469,
+      "requests": 58,
+      "mainDocument": 97189,
+      "byType": {
+        "total": {
+          "bytes": 1162444,
+          "requests": 56
+        },
+        "image": {
+          "bytes": 669779,
+          "requests": 27
+        },
+        "script": {
+          "bytes": 308962,
+          "requests": 21
+        },
+        "document": {
+          "bytes": 98360,
+          "requests": 2
+        },
+        "font": {
+          "bytes": 68554,
+          "requests": 2
+        },
+        "stylesheet": {
+          "bytes": 16091,
+          "requests": 1
+        },
+        "other": {
+          "bytes": 698,
+          "requests": 3
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 85707,
+          "requests": 3
+        }
+      },
+      "scripts": 22,
+      "stylesheets": 1,
+      "fonts": 2
+    },
+    "thirdParty": {
+      "count": 2,
+      "bytes": 84536,
+      "mainThreadMs": 62.5,
+      "top": [
+        {
+          "entity": "Osano CMP",
+          "bytes": 78460,
+          "mainThreadMs": 62.5,
+          "byType": {
+            "script": 78460
+          },
+          "typedBytes": 78460
+        },
+        {
+          "entity": "vercel-storage.com",
+          "bytes": 6076,
+          "mainThreadMs": 0,
+          "byType": {
+            "image": 6076
+          },
+          "typedBytes": 6076
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 6829.2,
+      "byGroup": {
+        "scriptEvaluation": 5123.3,
+        "other": 741.5,
+        "styleLayout": 311.3,
+        "scriptParseCompile": 225.3,
+        "garbageCollection": 200.7,
+        "paintCompositeRender": 117.8,
+        "parseHTML": 109.4
+      },
+      "bootupMs": 5281.4,
+      "longTasks": 11,
+      "longestTaskMs": 244
+    },
+    "dom": {
+      "elements": 751,
+      "depth": 13,
+      "maxChildren": 47
+    },
+    "waste": {
+      "unusedJsBytes": 44516,
+      "unusedCssBytes": 10773,
+      "legacyJsBytes": 11665,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 150,
+      "renderBlockingCount": 1,
+      "poorlyCachedBytes": 0,
+      "poorlyCachedCount": 0
+    },
+    "accessibility": {
+      "failingCount": 5,
+      "applicableCount": 25,
+      "failingNodes": 12,
+      "failing": [
+        {
+          "id": "heading-order",
+          "title": "Heading elements are not in a sequentially-descending order",
+          "weight": 3,
+          "nodes": 4
+        },
+        {
+          "id": "button-name",
+          "title": "Buttons do not have an accessible name",
+          "weight": 10,
+          "nodes": 3
+        },
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "weight": 7,
+          "nodes": 3
+        },
+        {
+          "id": "link-name",
+          "title": "Links do not have a discernible name",
+          "weight": 7,
+          "nodes": 1
+        },
+        {
+          "id": "landmark-one-main",
+          "title": "Document does not have a main landmark.",
+          "weight": 3,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 0,
+      "applicableCount": 20,
+      "failing": []
+    },
+    "seo": {
+      "failingCount": 0,
+      "applicableCount": 8,
+      "failing": []
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 50
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2390,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-09-29T04:31:37.179Z",
+      "runtimeMs": 12709.3
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 588.8,
+    "resourceLoadDelay": 7.1,
+    "resourceLoadDuration": 1838,
+    "elementRenderDelay": 3822.7
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-08-31",
+      "last": "2026-09-27"
+    },
+    "metrics": {
+      "rtt": {
+        "p75": 124,
+        "rating": null,
+        "distribution": {
+          "good": 46.7,
+          "needsImprovement": 46.6,
+          "poor": 6.7
+        }
+      },
+      "cls": {
+        "p75": 0,
+        "rating": "good",
+        "distribution": {
+          "good": 98.3,
+          "needsImprovement": 0.9,
+          "poor": 0.9
+        }
+      },
+      "ttfb": {
+        "p75": 512,
+        "rating": "good",
+        "distribution": {
+          "good": 88.6,
+          "needsImprovement": 9,
+          "poor": 2.4
+        }
+      },
+      "fcp": {
+        "p75": 1162,
+        "rating": "good",
+        "distribution": {
+          "good": 90.3,
+          "needsImprovement": 6.6,
+          "poor": 3.2
+        }
+      },
+      "inp": {
+        "p75": 110,
+        "rating": "good",
+        "distribution": {
+          "good": 93.9,
+          "needsImprovement": 5.3,
+          "poor": 0.9
+        }
+      },
+      "lcp": {
+        "p75": 1959,
+        "rating": "good",
+        "distribution": {
+          "good": 85.8,
+          "needsImprovement": 10.2,
+          "poor": 4
+        }
+      }
+    },
+    "cwvPass": true,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": {
+      "id": "nextjs",
+      "name": "Next.js",
+      "icon": "Nextdotjs",
+      "version": null,
+      "source": "dom",
+      "raw": null
+    },
+    "probe": {
+      "metas": [],
+      "marks": [
+        "next",
+        "react",
+        "lit"
+      ],
+      "markVersions": {
+        "lit": "2.8.0"
+      }
+    },
+    "interstitial": null,
+    "host": {
+      "id": "vercel",
+      "name": "Vercel",
+      "icon": "Vercel",
+      "source": "x-vercel-id"
+    },
+    "headers": {
+      "server": "Vercel",
+      "x-vercel-id": "sfo1::iad1::7bp9p-1790656360175-697ad255a328"
+    },
+    "violations": 58,
+    "passes": 1318,
+    "incomplete": 47,
+    "violationRules": 7,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 45,
+        "help": "All page content should be contained by landmarks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/region?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".ml-0.bg-red-400.flex-col",
+            "snippet": "<div class=\"bg-red-400 flex w-full flex-col ml-0\">"
+          },
+          {
+            "selector": ".grid-cols-4",
+            "snippet": "<div class=\"grid grid-cols-4 grid-rows-2 py-4 space-y-6 border-t md:grid-cols-8 md:grid-rows-1 border-white/30\">"
+          },
+          {
+            "selector": ".aspect-2\\/3.sm\\:aspect-video.inset-0",
+            "snippet": "<div class=\"overflow-hidden absolute inset-0 aspect-2/3 sm:aspect-video\">"
+          },
+          {
+            "selector": ".mb-4",
+            "snippet": "<div class=\"flex justify-center mb-4 w-full sm:justify-start sm:w-2/3 xl:w-3/4\">"
+          },
+          {
+            "selector": ".md\\:text-4xl",
+            "snippet": "<h2 class=\"mb-1 font-sans text-2xl font-black leading-none text-center uppercase sm:text-3xl sm:text-left md:text-4xl 3xl:text-6xl xl:text-[2.25rem]\">EAT YOUR ENEMIES</h2>"
+          }
+        ]
+      },
+      {
+        "id": "heading-order",
+        "impact": "moderate",
+        "nodes": 4,
+        "help": "Heading levels should only increase by one",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/heading-order?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "h5",
+            "snippet": "<h5 class=\"mb-1 text-sm font-medium leading-none text-center uppercase sm:text-base sm:text-left md:text-xl xl:text-lg 3xl:text-3xl\">Shroom and Gloom is out now in Early Access</h5>"
+          },
+          {
+            "selector": "#new-releases > .mb-12 > .sm\\:grid-cols-2.gap-6.grid-cols-1 > .group.overflow-hidden.relative:nth-child(1) > a > .min-h-12.bg-gray-800.p-2 > h4",
+            "snippet": "<h4 class=\"font-mono text-xs font-medium text-white sm:text-sm group-hover:text-white/80\">Serious Sam: Shatterverse</h4>"
+          },
+          {
+            "selector": "#coming-soon > .mb-12 > .sm\\:grid-cols-2.md\\:grid-cols-3.gap-6 > .group.overflow-hidden.relative:nth-child(1) > a > .min-h-12.bg-gray-800.p-2 > h4",
+            "snippet": "<h4 class=\"font-mono text-xs font-medium text-white sm:text-sm group-hover:text-white/80\">Virtue and a Sledgehammer</h4>"
+          },
+          {
+            "selector": "#demos > .mb-12 > .sm\\:grid-cols-2.md\\:grid-cols-3.gap-6 > .group.overflow-hidden.relative:nth-child(1) > a > .min-h-12.bg-gray-800.p-2 > h4",
+            "snippet": "<h4 class=\"font-mono text-xs font-medium text-white sm:text-sm group-hover:text-white/80\">Virtue and a Sledgehammer</h4>"
+          }
+        ]
+      },
+      {
+        "id": "button-name",
+        "impact": "critical",
+        "nodes": 3,
+        "help": "Buttons must have discernible text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/button-name?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".left-6",
+            "snippet": "<button class=\"block overflow-hidden cursor-pointer lg:hidden z-110 absolute left-6 pointer-events-auto\">"
+          },
+          {
+            "selector": ".opacity-35",
+            "snippet": "<button class=\"block group opacity-35 cursor-default\" disabled=\"\">"
+          },
+          {
+            "selector": ".hover\\:cursor-pointer",
+            "snippet": "<button class=\"block group hover:cursor-pointer\">"
+          }
+        ]
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 3,
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/color-contrast?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".max-w-md > .mt-4",
+            "snippet": "<p class=\"mt-4 font-mono text-xs text-center md:text-left\">By providing your email address you agree to bind your soul to us and receive awesome news about upcoming games and releases.</p>"
+          },
+          {
+            "selector": ".sm\\:border-l.sm\\:border-r[rel=\"noopener noreferrer\"] > .flex-col.p-2.flex > .mt-2.md\\:text-left.text-center > .mb-1",
+            "snippet": "<h3 class=\"text-white uppercase text-sm font-sans font-black mb-1 leading-none 2xl:text-base\">Devolver Y'all Means All T-shirt (White)</h3>"
+          },
+          {
+            "selector": ".text-gray-400.text-center.font-sans",
+            "snippet": "<div class=\"font-sans text-xs text-center text-gray-400\">© <!-- -->2026<!-- -->, <!-- -->Devolver Digital Inc<!-- -->.</div>"
+          }
+        ]
+      },
+      {
+        "id": "landmark-one-main",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Document should have one main landmark",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/landmark-one-main?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "html",
+            "snippet": "<html lang=\"en\" class=\"__variable_c2c3d1 __variable_5899e0\">"
+          }
+        ]
+      },
+      {
+        "id": "link-name",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "Links must have discernible text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/link-name?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".items-center.h-full.flex > .pointer-events-auto.z-110[href$=\"devolverdigital.com\"]",
+            "snippet": "<a class=\"py-1.5 h-full relative z-110 mx-auto pointer-events-auto\" href=\"https://devolverdigital.com\">"
+          }
+        ]
+      },
+      {
+        "id": "page-has-heading-one",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Page should contain a level-one heading",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/page-has-heading-one?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "html",
+            "snippet": "<html lang=\"en\" class=\"__variable_c2c3d1 __variable_5899e0\">"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
