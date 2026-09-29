@@ -1,0 +1,357 @@
+{
+  "url": "https://www.wayfair.com/",
+  "name": "Wayfair",
+  "group": "nextjs-showcase",
+  "groupName": "Next.js Showcase",
+  "timestamp": 1790656489920,
+  "date": "2026-09-29T04:34:49.920Z",
+  "runId": "2026-09-29T04-26-08-262Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 1,
+  "durationMs": 65771,
+  "error": null,
+  "partialErrors": [
+    "ERRORED_DOCUMENT_REQUEST: Lighthouse was unable to reliably load the page you requested. Make sure you are testing the correct URL and that the server is properly responding to all requests. (Status code: 429)",
+    "ERRORED_DOCUMENT_REQUEST: Lighthouse was unable to reliably load the page you requested. Make sure you are testing the correct URL and that the server is properly responding to all requests. (Status code: 429)"
+  ],
+  "variance": null,
+  "lab": {
+    "requestedUrl": "https://www.wayfair.com/",
+    "finalUrl": "https://www.wayfair.com/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 37,
+      "accessibility": 90,
+      "best-practices": 96,
+      "seo": 100,
+      "agentic-browsing": 50
+    },
+    "timings": {
+      "fcp": 2651,
+      "lcp": 13340,
+      "si": 5577,
+      "tbt": 3553,
+      "tti": 21657,
+      "cls": 0,
+      "ttfb": 686,
+      "maxPotentialFid": 901,
+      "serverResponseTime": 13,
+      "networkRtt": 50.4,
+      "networkServerLatency": 203.7
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 126.8,
+      "resourceLoadDelay": 777.2,
+      "resourceLoadDuration": 24.5,
+      "elementRenderDelay": 91.1
+    },
+    "weight": {
+      "total": 15689258,
+      "requests": 279,
+      "mainDocument": 129565,
+      "byType": {
+        "total": {
+          "bytes": 15684906,
+          "requests": 277
+        },
+        "media": {
+          "bytes": 12292601,
+          "requests": 2
+        },
+        "script": {
+          "bytes": 2562622,
+          "requests": 119
+        },
+        "image": {
+          "bytes": 573028,
+          "requests": 14
+        },
+        "document": {
+          "bytes": 129565,
+          "requests": 1
+        },
+        "font": {
+          "bytes": 60347,
+          "requests": 2
+        },
+        "other": {
+          "bytes": 53542,
+          "requests": 125
+        },
+        "stylesheet": {
+          "bytes": 13201,
+          "requests": 14
+        },
+        "third-party": {
+          "bytes": 15684906,
+          "requests": 277
+        }
+      },
+      "scripts": 120,
+      "stylesheets": 14,
+      "fonts": 2
+    },
+    "thirdParty": {
+      "count": 6,
+      "bytes": 15368676,
+      "mainThreadMs": 2153.8,
+      "top": [
+        {
+          "entity": "wfcdn.com",
+          "bytes": 15166127,
+          "mainThreadMs": 2038.5,
+          "byType": {
+            "script": 2222597,
+            "image": 573028,
+            "media": 12292601,
+            "font": 60347,
+            "other": 4353,
+            "stylesheet": 13201
+          },
+          "typedBytes": 15166127
+        },
+        {
+          "entity": "Quantum Metric",
+          "bytes": 142183,
+          "mainThreadMs": 61.8,
+          "byType": {
+            "script": 141472,
+            "other": 711
+          },
+          "typedBytes": 142183
+        },
+        {
+          "entity": "datadome.co",
+          "bytes": 47113,
+          "mainThreadMs": 53,
+          "byType": {
+            "script": 46684,
+            "other": 429
+          },
+          "typedBytes": 47113
+        },
+        {
+          "entity": "Conviva",
+          "bytes": 12037,
+          "mainThreadMs": 0.3,
+          "byType": {
+            "other": 12037
+          },
+          "typedBytes": 12037
+        },
+        {
+          "entity": "px-cdn.net",
+          "bytes": 645,
+          "mainThreadMs": 0.1,
+          "byType": {
+            "other": 645
+          },
+          "typedBytes": 645
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 15798.1,
+      "byGroup": {
+        "scriptEvaluation": 11200.7,
+        "other": 2220.3,
+        "scriptParseCompile": 1356.8,
+        "garbageCollection": 616.3,
+        "styleLayout": 194.1,
+        "parseHTML": 150.2,
+        "paintCompositeRender": 59.8
+      },
+      "bootupMs": 11418.5,
+      "longTasks": 20,
+      "longestTaskMs": 901
+    },
+    "dom": {
+      "elements": 1228,
+      "depth": 26,
+      "maxChildren": 685
+    },
+    "waste": {
+      "unusedJsBytes": 551337,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 35869,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 1157,
+      "renderBlockingCount": 10,
+      "poorlyCachedBytes": 312137.7833333334,
+      "poorlyCachedCount": 4
+    },
+    "accessibility": {
+      "failingCount": 4,
+      "applicableCount": 30,
+      "failingNodes": 10,
+      "failing": [
+        {
+          "id": "label-content-name-mismatch",
+          "title": "Elements with visible text labels do not have matching accessible names.",
+          "weight": 0,
+          "nodes": 7
+        },
+        {
+          "id": "aria-hidden-focus",
+          "title": "`[aria-hidden=\"true\"]` elements contain focusable descendents",
+          "weight": 7,
+          "nodes": 1
+        },
+        {
+          "id": "button-name",
+          "title": "Buttons do not have an accessible name",
+          "weight": 10,
+          "nodes": 1
+        },
+        {
+          "id": "landmark-one-main",
+          "title": "Document does not have a main landmark.",
+          "weight": 3,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 2,
+      "applicableCount": 18,
+      "failing": [
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "weight": 1,
+          "nodes": 18
+        },
+        {
+          "id": "valid-source-maps",
+          "title": "Missing source maps for large first-party JavaScript",
+          "weight": 0,
+          "nodes": 113
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 0,
+      "applicableCount": 10,
+      "failing": []
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 0,
+      "bfCacheFailures": 3,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 18,
+      "baselineLimitedFeatures": 70
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2668,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-09-29T04:34:51.181Z",
+      "runtimeMs": 19376.6
+    }
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-08-31",
+      "last": "2026-09-27"
+    },
+    "metrics": {
+      "fcp": {
+        "p75": 1336,
+        "rating": "good",
+        "distribution": {
+          "good": 87.6,
+          "needsImprovement": 8.3,
+          "poor": 4.1
+        }
+      },
+      "inp": {
+        "p75": 329,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 54.2,
+          "needsImprovement": 32.3,
+          "poor": 13.5
+        }
+      },
+      "lcp": {
+        "p75": 2698,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 67.1,
+          "needsImprovement": 26.2,
+          "poor": 6.7
+        }
+      },
+      "rtt": {
+        "p75": 100,
+        "rating": null,
+        "distribution": {
+          "good": 55.5,
+          "needsImprovement": 39.6,
+          "poor": 4.9
+        }
+      },
+      "cls": {
+        "p75": 0,
+        "rating": "good",
+        "distribution": {
+          "good": 92,
+          "needsImprovement": 5.8,
+          "poor": 2.3
+        }
+      },
+      "ttfb": {
+        "p75": 708,
+        "rating": "good",
+        "distribution": {
+          "good": 80.4,
+          "needsImprovement": 16.2,
+          "poor": 3.4
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "probe": null,
+    "interstitial": null,
+    "host": {
+      "id": "cloudflare",
+      "name": "Cloudflare",
+      "icon": "Cloudflare",
+      "source": "server"
+    },
+    "headers": {
+      "cf-ray": "a42848914dd588bd-LAX",
+      "server": "cloudflare"
+    },
+    "violations": null,
+    "passes": null,
+    "incomplete": null,
+    "violationRules": null,
+    "version": null,
+    "top": [],
+    "error": "Cannot read properties of undefined (reading 'toLowerCase')"
+  },
+  "consecutiveFailures": 0
+}
