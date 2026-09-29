@@ -1,0 +1,546 @@
+{
+  "url": "https://www.rollingstone.com/",
+  "name": "Rolling Stone",
+  "group": "wordpress-showcase",
+  "groupName": "WordPress Showcase",
+  "timestamp": 1790656895287,
+  "date": "2026-09-29T04:41:35.287Z",
+  "runId": "2026-09-29T04-26-07-406Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 2,
+  "durationMs": 279197,
+  "error": null,
+  "partialErrors": [
+    "PAGE_HUNG: Lighthouse was unable to reliably load the URL you requested because the page stopped responding."
+  ],
+  "variance": {
+    "min": 10,
+    "max": 11,
+    "spread": 1,
+    "runs": 2
+  },
+  "lab": {
+    "requestedUrl": "https://www.rollingstone.com/",
+    "finalUrl": "https://www.rollingstone.com/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 10,
+      "accessibility": 82,
+      "best-practices": 54,
+      "seo": 92,
+      "agentic-browsing": 11
+    },
+    "timings": {
+      "fcp": 3126,
+      "lcp": 8467,
+      "si": 17582,
+      "tbt": 6997,
+      "tti": 90024,
+      "cls": 0.442,
+      "ttfb": 610,
+      "maxPotentialFid": 845,
+      "serverResponseTime": 9,
+      "networkRtt": 577.5,
+      "networkServerLatency": 1359.2
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 82.6,
+      "resourceLoadDelay": 23.7,
+      "resourceLoadDuration": 49.4,
+      "elementRenderDelay": 153.4
+    },
+    "weight": {
+      "total": 9177027,
+      "requests": 1938,
+      "mainDocument": 119456,
+      "byType": {
+        "total": {
+          "bytes": 9177029,
+          "requests": 1929
+        },
+        "script": {
+          "bytes": 6068790,
+          "requests": 288
+        },
+        "font": {
+          "bytes": 1069220,
+          "requests": 25
+        },
+        "other": {
+          "bytes": 1048313,
+          "requests": 991
+        },
+        "image": {
+          "bytes": 470832,
+          "requests": 466
+        },
+        "document": {
+          "bytes": 429340,
+          "requests": 126
+        },
+        "stylesheet": {
+          "bytes": 90534,
+          "requests": 33
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 7340727,
+          "requests": 1801
+        }
+      },
+      "scripts": 290,
+      "stylesheets": 33,
+      "fonts": 25
+    },
+    "thirdParty": {
+      "count": 73,
+      "bytes": 7471850,
+      "mainThreadMs": 2893.6,
+      "top": [
+        {
+          "entity": "Cloudflare CDN",
+          "bytes": 1775631,
+          "mainThreadMs": 555.9,
+          "byType": {
+            "script": 1775631
+          },
+          "typedBytes": 1775631
+        },
+        {
+          "entity": "JSDelivr CDN",
+          "bytes": 914031,
+          "mainThreadMs": 160.3,
+          "byType": {
+            "script": 914031
+          },
+          "typedBytes": 914031
+        },
+        {
+          "entity": "Google/Doubleclick Ads",
+          "bytes": 765699,
+          "mainThreadMs": 428.4,
+          "byType": {
+            "script": 712466,
+            "other": 31903,
+            "image": 21330
+          },
+          "typedBytes": 765699
+        },
+        {
+          "entity": "Google Tag Manager",
+          "bytes": 684455,
+          "mainThreadMs": 207.6,
+          "byType": {
+            "script": 684455
+          },
+          "typedBytes": 684455
+        },
+        {
+          "entity": "blogherads.com",
+          "bytes": 587140,
+          "mainThreadMs": 71.9,
+          "byType": {
+            "script": 587140
+          },
+          "typedBytes": 587140
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 28134.4,
+      "byGroup": {
+        "scriptEvaluation": 19077.8,
+        "other": 4654.2,
+        "scriptParseCompile": 2031.3,
+        "styleLayout": 1280.8,
+        "garbageCollection": 429.7,
+        "parseHTML": 389.1,
+        "paintCompositeRender": 271.5
+      },
+      "bootupMs": 20228.7,
+      "longTasks": 20,
+      "longestTaskMs": 845
+    },
+    "dom": {
+      "elements": 2050,
+      "depth": 17,
+      "maxChildren": 53
+    },
+    "waste": {
+      "unusedJsBytes": 2132665,
+      "unusedCssBytes": 95793,
+      "legacyJsBytes": 144187,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 2703,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 3158,
+      "renderBlockingCount": 13,
+      "poorlyCachedBytes": 1839518.936012655,
+      "poorlyCachedCount": 287
+    },
+    "accessibility": {
+      "failingCount": 5,
+      "applicableCount": 25,
+      "failingNodes": 10,
+      "failing": [
+        {
+          "id": "aria-hidden-focus",
+          "title": "`[aria-hidden=\"true\"]` elements contain focusable descendents",
+          "weight": 7,
+          "nodes": 4
+        },
+        {
+          "id": "frame-title",
+          "title": "`<frame>` or `<iframe>` elements do not have a title",
+          "weight": 7,
+          "nodes": 2
+        },
+        {
+          "id": "list",
+          "title": "Lists do not contain only `<li>` elements and script supporting elements (`<script>` and `<template>`).",
+          "weight": 7,
+          "nodes": 2
+        },
+        {
+          "id": "heading-order",
+          "title": "Heading elements are not in a sequentially-descending order",
+          "weight": 3,
+          "nodes": 1
+        },
+        {
+          "id": "listitem",
+          "title": "List items (`<li>`) are not contained within `<ul>`, `<ol>` or `<menu>` parent elements.",
+          "weight": 7,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 4,
+      "applicableCount": 19,
+      "failing": [
+        {
+          "id": "deprecations",
+          "title": "Uses deprecated APIs",
+          "weight": 5,
+          "nodes": 2
+        },
+        {
+          "id": "third-party-cookies",
+          "title": "Uses third-party cookies",
+          "weight": 5,
+          "nodes": 330
+        },
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "weight": 1,
+          "nodes": 12
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "weight": 1,
+          "nodes": 3
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 1,
+      "applicableCount": 10,
+      "failing": [
+        {
+          "id": "link-text",
+          "title": "Links do not have descriptive text",
+          "weight": 1,
+          "nodes": 4
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 0,
+      "bfCacheFailures": 2,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 12,
+      "baselineLimitedFeatures": 65
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 3077,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-09-29T04:41:36.528Z",
+      "runtimeMs": 46609.6
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 573.7,
+    "resourceLoadDelay": 398.6,
+    "resourceLoadDuration": 9106.3,
+    "elementRenderDelay": 28.4
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-08-31",
+      "last": "2026-09-27"
+    },
+    "metrics": {
+      "lcp": {
+        "p75": 1592,
+        "rating": "good",
+        "distribution": {
+          "good": 88,
+          "needsImprovement": 6.8,
+          "poor": 5.2
+        }
+      },
+      "rtt": {
+        "p75": 120,
+        "rating": null,
+        "distribution": {
+          "good": 50.1,
+          "needsImprovement": 42.3,
+          "poor": 7.6
+        }
+      },
+      "cls": {
+        "p75": 0.37,
+        "rating": "poor",
+        "distribution": {
+          "good": 56.5,
+          "needsImprovement": 14.9,
+          "poor": 28.7
+        }
+      },
+      "ttfb": {
+        "p75": 689,
+        "rating": "good",
+        "distribution": {
+          "good": 77.8,
+          "needsImprovement": 17.5,
+          "poor": 4.7
+        }
+      },
+      "fcp": {
+        "p75": 1453,
+        "rating": "good",
+        "distribution": {
+          "good": 82,
+          "needsImprovement": 10.7,
+          "poor": 7.2
+        }
+      },
+      "inp": {
+        "p75": 132,
+        "rating": "good",
+        "distribution": {
+          "good": 85,
+          "needsImprovement": 10.4,
+          "poor": 4.7
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": {
+      "id": "wordpress",
+      "name": "WordPress",
+      "icon": "Wordpress",
+      "version": "6.9.9",
+      "source": "meta",
+      "raw": "WordPress 6.9.9"
+    },
+    "probe": {
+      "metas": [
+        "WordPress 6.9.9"
+      ],
+      "marks": [],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "self-hosted",
+      "name": "Self-hosted",
+      "icon": null,
+      "detail": "nginx",
+      "detailIcon": "Nginx",
+      "source": "server"
+    },
+    "headers": {
+      "server": "nginx",
+      "x-powered-by": "WordPress VIP <https://wpvip.com>"
+    },
+    "violations": 32,
+    "passes": 1854,
+    "incomplete": 25,
+    "violationRules": 7,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 14,
+        "help": "All page content should be contained by landmarks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/region?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "#google_ads_iframe_\\/8352\\/RollingStone_Mobile\\/homepage\\/adhesion_0 >>> #iv-iroll",
+            "snippet": "<div id=\"iv-iroll\" style=\"width: 320px; height: 50px; font-size: 10.24px;\" platform-type=\"mobile\" os-type=\"android\" orientation=\"Landscape\">"
+          },
+          {
+            "selector": "#pmc-atlasmg-adhesion-close",
+            "snippet": "<div id=\"pmc-atlasmg-adhesion-close\">X</div>"
+          },
+          {
+            "selector": ".a-screen-reader-shortcut",
+            "snippet": "<a href=\"#pagetop\" class=\"a-screen-reader-shortcut\"> Skip to main content </a>"
+          },
+          {
+            "selector": "#google_ads_iframe_\\/8352\\/RollingStone_Mobile\\/homepage\\/leaderboard_0 >>> img",
+            "snippet": "<img src=\"https://ad.doublecli...\" attributionsrc=\"\" width=\"1\" height=\"1\" style=\"position: absolute\">"
+          },
+          {
+            "selector": "#jp_videoplayerwrapper_VideoPlayerModule_14_413487756 > .jp_videoplayer_wrapper",
+            "snippet": "<div id=\"jp_videoplayer_VideoPlayerModule_14_413487756\" class=\"jp_videoplayer_wrapper\" style=\"position: relative; background-color: transparent; height: 100%; width: 100%;\">"
+          }
+        ]
+      },
+      {
+        "id": "image-alt",
+        "impact": "critical",
+        "nodes": 8,
+        "help": "Images must have alternative text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/image-alt?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "#google_ads_iframe_\\/8352\\/RollingStone_Mobile\\/homepage\\/adhesion_0 >>> #iva-display-initial-load-image",
+            "snippet": "<img width=\"320\" height=\"50\" id=\"iva-display-initial-load-image\" src=\"https://s-static.innovid.com/display/uploads/238719/1457417/1776280323415/s/320x50/source_238719_1457417.jpg\" style=\"object-fit: …"
+          },
+          {
+            "selector": "#google_ads_iframe_\\/8352\\/RollingStone_Mobile\\/homepage\\/leaderboard_0 >>> img",
+            "snippet": "<img src=\"https://ad.doublecli...\" attributionsrc=\"\" width=\"1\" height=\"1\" style=\"position: absolute\">"
+          },
+          {
+            "selector": "video > img",
+            "snippet": "<img src=\"https://ads.jetpackdigital.com/sites/_uploads/1788995268mob-crown.png\">"
+          },
+          {
+            "selector": ".home-secondary-stories-embed >>> .css-y574lx.emqn7nu0:nth-child(2) > .css-7bugin.ekoutpj0",
+            "snippet": "<img src=\"https://i.iheart.com/v3/catalog/artist/42526?ops=fit(60%2C60)%2Cfit(240%2C240)\" class=\"css-7bugin ekoutpj0\">"
+          },
+          {
+            "selector": ".home-secondary-stories-embed >>> .css-y574lx.emqn7nu0:nth-child(3) > .css-7bugin.ekoutpj0",
+            "snippet": "<img src=\"https://i.iheart.com/v3/catalog/artist/6814?ops=fit(60%2C60)%2Cfit(240%2C240)\" class=\"css-7bugin ekoutpj0\">"
+          }
+        ]
+      },
+      {
+        "id": "aria-hidden-focus",
+        "impact": "serious",
+        "nodes": 4,
+        "help": "ARIA hidden element must not be focusable or contain focusable elements",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/aria-hidden-focus?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".js-Flickity-cell.lrv-u-margin-r-150.lrv-u-padding-t-2\\@desktop:nth-child(2)",
+            "snippet": "<li class=\"js-Flickity-cell lrv-u-margin-r-150 lrv-u-padding-t-2@desktop lrv-u-border-t-3@desktop lrv-u-border-color-grey-light\" aria-hidden=\"true\" style=\"position: absolute; left: 0px; transform: tr…"
+          },
+          {
+            "selector": ".js-Flickity-cell.lrv-u-margin-r-150.lrv-u-padding-t-2\\@desktop:nth-child(3)",
+            "snippet": "<li class=\"js-Flickity-cell lrv-u-margin-r-150 lrv-u-padding-t-2@desktop lrv-u-border-t-3@desktop lrv-u-border-color-grey-light\" aria-hidden=\"true\" style=\"position: absolute; left: 0px; transform: tr…"
+          },
+          {
+            "selector": ".js-Flickity-cell.lrv-u-margin-r-150.lrv-u-padding-t-2\\@desktop:nth-child(4)",
+            "snippet": "<li class=\"js-Flickity-cell lrv-u-margin-r-150 lrv-u-padding-t-2@desktop lrv-u-border-t-3@desktop lrv-u-border-color-grey-light\" aria-hidden=\"true\" style=\"position: absolute; left: 0px; transform: tr…"
+          },
+          {
+            "selector": ".js-Flickity-cell.lrv-u-margin-r-150.lrv-u-padding-t-2\\@desktop:nth-child(5)",
+            "snippet": "<li class=\"js-Flickity-cell lrv-u-margin-r-150 lrv-u-padding-t-2@desktop lrv-u-border-t-3@desktop lrv-u-border-color-grey-light\" aria-hidden=\"true\" style=\"position: absolute; left: 0px; transform: tr…"
+          }
+        ]
+      },
+      {
+        "id": "frame-title",
+        "impact": "serious",
+        "nodes": 2,
+        "help": "Frames must have an accessible name",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/frame-title?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "#offer_1a36ad30bff51e8d6d73-0",
+            "snippet": "<iframe id=\"offer_1a36ad30bff51e...\" name=\"offer_1a36ad30bff51e...\" scrolling=\"no\" allowtransparency=\"true\" allow=\"payment\" allowfullscreen=\"true\" src=\"https://vx.rollingst...\" frameborder=\"0\" style=…"
+          },
+          {
+            "selector": "#offer_2104e31ea83465728910-0",
+            "snippet": "<iframe id=\"offer_2104e31ea83465...\" name=\"offer_2104e31ea83465...\" scrolling=\"no\" allowtransparency=\"true\" allow=\"payment\" allowfullscreen=\"true\" src=\"https://vx.rollingst...\" frameborder=\"0\" style=…"
+          }
+        ]
+      },
+      {
+        "id": "list",
+        "impact": "serious",
+        "nodes": 2,
+        "help": "<ul> and <ol> must only directly contain <li>, <script> or <template> elements",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/list?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".lrv-u-flex-wrap-wrap.lrv-u-font-family-body.lrv-u-justify-content-center",
+            "snippet": "<ul class=\"lrv-a-unstyle-list // lrv-u-flex-wrap-wrap lrv-u-font-family-body lrv-u-flex lrv-u-align-items-center lrv-u-flex-direction-column lrv-u-justify-content-center\">"
+          },
+          {
+            "selector": ".js-Flickity",
+            "snippet": "<ul class=\"lrv-a-unstyle-list js-Flickity js-Flickity--fourths js-Flickity--isContained js-Flickity--nav-top-right js-Flickity--bordered-buttons js-Flickity--isFreeScrol js-Flickity--newswire lrv-u-p…"
+          }
+        ]
+      },
+      {
+        "id": "heading-order",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Heading levels should only increase by one",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/heading-order?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "#c-title-madonna-danceteria-vmas-2026-charli-xcx-sabrina-carpenter-1235632854",
+            "snippet": "<h3 id=\"c-title-madonna-danceteria-vmas-2026-charli-xcx-sabrina-carpenter-1235632854\" class=\"c-title lrv-a-font-primary-xs lrv-u-display-block lrv-u-margin-b-025@mobile-max\">"
+          }
+        ]
+      },
+      {
+        "id": "listitem",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "<li> elements must be contained in a <ul> or <ol>",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/listitem?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".is-selected",
+            "snippet": "<li class=\"js-Flickity-cell lrv-u-margin-r-150 lrv-u-padding-t-2@desktop lrv-u-border-t-3@desktop lrv-u-border-color-grey-light is-selected\" style=\"position: absolute; left: 0px; transform: translate…"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}

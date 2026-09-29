@@ -1,0 +1,377 @@
+{
+  "url": "https://finder.porsche.com/",
+  "name": "Porsche Finder",
+  "group": "nextjs-showcase",
+  "groupName": "Next.js Showcase",
+  "timestamp": 1790655969646,
+  "date": "2026-09-29T04:26:09.646Z",
+  "runId": "2026-09-29T04-26-07-406Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 70510,
+  "error": null,
+  "variance": {
+    "min": 53,
+    "max": 62,
+    "spread": 9,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://finder.porsche.com/",
+    "finalUrl": "https://finder.porsche.com/us/en-US",
+    "redirect": {
+      "from": "https://finder.porsche.com/",
+      "to": "https://finder.porsche.com/us/en-US",
+      "chain": [
+        {
+          "url": "https://finder.porsche.com/",
+          "status": 307
+        },
+        {
+          "url": "https://finder.porsche.com/us/en-US",
+          "status": 200
+        }
+      ],
+      "statuses": [
+        307
+      ],
+      "change": "path",
+      "permanent": false,
+      "schemeUpgrade": false,
+      "hops": 1
+    },
+    "statusCode": "ok",
+    "scores": {
+      "performance": 53,
+      "accessibility": 100,
+      "best-practices": 92,
+      "seo": 100,
+      "agentic-browsing": 100
+    },
+    "timings": {
+      "fcp": 3557,
+      "lcp": 10857,
+      "si": 5184,
+      "tbt": 464,
+      "tti": 10918,
+      "cls": 0,
+      "ttfb": 627,
+      "maxPotentialFid": 346,
+      "serverResponseTime": 20,
+      "networkRtt": 0.9,
+      "networkServerLatency": 506
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 77.6,
+      "elementRenderDelay": 1606
+    },
+    "weight": {
+      "total": 1493504,
+      "requests": 148,
+      "mainDocument": 24128,
+      "byType": {
+        "total": {
+          "bytes": 1493504,
+          "requests": 144
+        },
+        "script": {
+          "bytes": 992419,
+          "requests": 55
+        },
+        "image": {
+          "bytes": 208059,
+          "requests": 46
+        },
+        "other": {
+          "bytes": 159771,
+          "requests": 18
+        },
+        "font": {
+          "bytes": 81075,
+          "requests": 2
+        },
+        "stylesheet": {
+          "bytes": 26397,
+          "requests": 21
+        },
+        "document": {
+          "bytes": 25783,
+          "requests": 2
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 251810,
+          "requests": 13
+        }
+      },
+      "scripts": 55,
+      "stylesheets": 21,
+      "fonts": 2
+    },
+    "thirdParty": {
+      "count": 4,
+      "bytes": 251810,
+      "mainThreadMs": 68.8,
+      "top": [
+        {
+          "entity": "Google Tag Manager",
+          "bytes": 180564,
+          "mainThreadMs": 67.6,
+          "byType": {
+            "script": 180564
+          },
+          "typedBytes": 180564
+        },
+        {
+          "entity": "Usercentrics CMP",
+          "bytes": 65490,
+          "mainThreadMs": 0,
+          "byType": {
+            "other": 63781,
+            "image": 1709
+          },
+          "typedBytes": 65490
+        },
+        {
+          "entity": "Cloudflare CDN",
+          "bytes": 4914,
+          "mainThreadMs": 1.2,
+          "byType": {
+            "script": 4914
+          },
+          "typedBytes": 4914
+        },
+        {
+          "entity": "porsche.services",
+          "bytes": 842,
+          "mainThreadMs": 0,
+          "byType": {
+            "other": 842
+          },
+          "typedBytes": 842
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 3440.3,
+      "byGroup": {
+        "scriptEvaluation": 1691.2,
+        "other": 1040.2,
+        "styleLayout": 271.5,
+        "scriptParseCompile": 270.8,
+        "garbageCollection": 60,
+        "parseHTML": 53.8,
+        "paintCompositeRender": 52.8
+      },
+      "bootupMs": 1608.1,
+      "longTasks": 15,
+      "longestTaskMs": 346
+    },
+    "dom": {
+      "elements": 421,
+      "depth": 20,
+      "maxChildren": 25
+    },
+    "waste": {
+      "unusedJsBytes": 217375,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 14207,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 456,
+      "renderBlockingCount": 18,
+      "poorlyCachedBytes": 164074.09999999998,
+      "poorlyCachedCount": 9
+    },
+    "accessibility": {
+      "failingCount": 0,
+      "applicableCount": 26,
+      "failingNodes": 0,
+      "failing": []
+    },
+    "bestPractices": {
+      "failingCount": 3,
+      "applicableCount": 19,
+      "failing": [
+        {
+          "id": "image-size-responsive",
+          "title": "Serves images with low resolution",
+          "weight": 1,
+          "nodes": 2
+        },
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "weight": 1,
+          "nodes": 4
+        },
+        {
+          "id": "valid-source-maps",
+          "title": "Missing source maps for large first-party JavaScript",
+          "weight": 0,
+          "nodes": 25
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 0,
+      "applicableCount": 9,
+      "failing": []
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 0,
+      "bfCacheFailures": 3,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 777,
+      "consoleErrors": 4,
+      "baselineLimitedFeatures": 53
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 3140,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-09-29T04:26:31.709Z",
+      "runtimeMs": 9494.8
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 1152.4,
+    "elementRenderDelay": 14744
+  },
+  "field": {
+    "source": "crux",
+    "scope": "origin",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-08-31",
+      "last": "2026-09-27"
+    },
+    "metrics": {
+      "rtt": {
+        "p75": 120,
+        "rating": null,
+        "distribution": {
+          "good": 48.9,
+          "needsImprovement": 44.9,
+          "poor": 6.2
+        }
+      },
+      "cls": {
+        "p75": 0.02,
+        "rating": "good",
+        "distribution": {
+          "good": 94.7,
+          "needsImprovement": 3.2,
+          "poor": 2.2
+        }
+      },
+      "ttfb": {
+        "p75": 519,
+        "rating": "good",
+        "distribution": {
+          "good": 86.8,
+          "needsImprovement": 9.9,
+          "poor": 3.2
+        }
+      },
+      "fcp": {
+        "p75": 1890,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 71.6,
+          "needsImprovement": 21.2,
+          "poor": 7.2
+        }
+      },
+      "inp": {
+        "p75": 209,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 72.9,
+          "needsImprovement": 22.7,
+          "poor": 4.5
+        }
+      },
+      "lcp": {
+        "p75": 2165,
+        "rating": "good",
+        "distribution": {
+          "good": 81.9,
+          "needsImprovement": 12.4,
+          "poor": 5.7
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": {
+      "id": "nextjs",
+      "name": "Next.js",
+      "icon": "Nextdotjs",
+      "version": null,
+      "source": "dom",
+      "raw": null
+    },
+    "probe": {
+      "metas": [],
+      "marks": [
+        "next",
+        "react",
+        "lit"
+      ],
+      "markVersions": {
+        "lit": "3.3.1"
+      }
+    },
+    "interstitial": null,
+    "host": {
+      "id": "vercel",
+      "name": "Vercel",
+      "icon": "Vercel",
+      "source": "x-vercel-id"
+    },
+    "headers": {
+      "server": "Vercel",
+      "x-vercel-id": "sfo1::sfo1::bjhtg-1790656037241-a476bcf6480d"
+    },
+    "violations": 1,
+    "passes": 610,
+    "incomplete": 19,
+    "violationRules": 1,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "empty-heading",
+        "impact": "minor",
+        "nodes": 1,
+        "help": "Headings should not be empty",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/empty-heading?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "#wrvG8ntWcwjUkK uc-p-heading h2",
+            "snippet": "<h2 class=\"root\"><slot></slot></h2>"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
