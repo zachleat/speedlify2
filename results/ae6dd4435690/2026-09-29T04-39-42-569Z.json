@@ -1,0 +1,471 @@
+{
+  "url": "https://www.netflix.com/",
+  "name": "Netflix",
+  "group": "big-tech",
+  "groupName": "Big Tech",
+  "timestamp": 1790656782569,
+  "date": "2026-09-29T04:39:42.569Z",
+  "runId": "2026-09-29T04-26-10-186Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 106149,
+  "error": null,
+  "variance": {
+    "min": 29,
+    "max": 42,
+    "spread": 13,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://www.netflix.com/",
+    "finalUrl": "https://www.netflix.com/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 30,
+      "accessibility": 87,
+      "best-practices": 73,
+      "seo": 100,
+      "agentic-browsing": 33
+    },
+    "timings": {
+      "fcp": 12501,
+      "lcp": 20752,
+      "si": 12501,
+      "tbt": 1501,
+      "tti": 23934,
+      "cls": 0.001,
+      "ttfb": 620,
+      "maxPotentialFid": 998,
+      "serverResponseTime": 306,
+      "networkRtt": 53.1,
+      "networkServerLatency": 148.1
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 307.9,
+      "resourceLoadDelay": 11.4,
+      "resourceLoadDuration": 20.3,
+      "elementRenderDelay": 1138.2
+    },
+    "weight": {
+      "total": 3454412,
+      "requests": 107,
+      "mainDocument": 98305,
+      "byType": {
+        "total": {
+          "bytes": 3454412,
+          "requests": 107
+        },
+        "script": {
+          "bytes": 1918960,
+          "requests": 22
+        },
+        "font": {
+          "bytes": 715223,
+          "requests": 7
+        },
+        "image": {
+          "bytes": 384501,
+          "requests": 22
+        },
+        "other": {
+          "bytes": 226126,
+          "requests": 42
+        },
+        "document": {
+          "bytes": 172276,
+          "requests": 11
+        },
+        "stylesheet": {
+          "bytes": 37326,
+          "requests": 3
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 3342887,
+          "requests": 94
+        }
+      },
+      "scripts": 22,
+      "stylesheets": 3,
+      "fonts": 7
+    },
+    "thirdParty": {
+      "count": 5,
+      "bytes": 2552738,
+      "mainThreadMs": 790.4,
+      "top": [
+        {
+          "entity": "NetFlix",
+          "bytes": 1471805,
+          "mainThreadMs": 487.7,
+          "byType": {
+            "script": 926610,
+            "other": 205829,
+            "image": 174045,
+            "font": 163546,
+            "stylesheet": 1775
+          },
+          "typedBytes": 1471805
+        },
+        {
+          "entity": "nflxso.net",
+          "bytes": 724996,
+          "mainThreadMs": 0,
+          "byType": {
+            "image": 208019,
+            "font": 516977
+          },
+          "typedBytes": 724996
+        },
+        {
+          "entity": "Google CDN",
+          "bytes": 354703,
+          "mainThreadMs": 301,
+          "byType": {
+            "other": 354703
+          },
+          "typedBytes": 354703
+        },
+        {
+          "entity": "Other Google APIs/SDKs",
+          "bytes": 1079,
+          "mainThreadMs": 1.7,
+          "byType": {
+            "script": 1079
+          },
+          "typedBytes": 1079
+        },
+        {
+          "entity": "Optanon",
+          "bytes": 155,
+          "mainThreadMs": 0,
+          "byType": {
+            "other": 155
+          },
+          "typedBytes": 155
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 6721.4,
+      "byGroup": {
+        "scriptEvaluation": 3396.1,
+        "other": 1400.2,
+        "scriptParseCompile": 871.7,
+        "styleLayout": 420.3,
+        "paintCompositeRender": 348.3,
+        "garbageCollection": 177.2,
+        "parseHTML": 107.5
+      },
+      "bootupMs": 4118,
+      "longTasks": 20,
+      "longestTaskMs": 998
+    },
+    "dom": {
+      "elements": 921,
+      "depth": 25,
+      "maxChildren": 33
+    },
+    "waste": {
+      "unusedJsBytes": 756372,
+      "unusedCssBytes": 25847,
+      "legacyJsBytes": 9022,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 1961,
+      "renderBlockingCount": 2,
+      "poorlyCachedBytes": 801003.2843803351,
+      "poorlyCachedCount": 21
+    },
+    "accessibility": {
+      "failingCount": 4,
+      "applicableCount": 24,
+      "failingNodes": 4,
+      "failing": [
+        {
+          "id": "aria-hidden-focus",
+          "title": "`[aria-hidden=\"true\"]` elements contain focusable descendents",
+          "weight": 7,
+          "nodes": 1
+        },
+        {
+          "id": "heading-order",
+          "title": "Heading elements are not in a sequentially-descending order",
+          "weight": 3,
+          "nodes": 1
+        },
+        {
+          "id": "meta-viewport",
+          "title": "`[user-scalable=\"no\"]` is used in the `<meta name=\"viewport\">` element or the `[maximum-scale]` attribute is less than 5.",
+          "weight": 10,
+          "nodes": 1
+        },
+        {
+          "id": "landmark-one-main",
+          "title": "Document does not have a main landmark.",
+          "weight": 3,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 3,
+      "applicableCount": 19,
+      "failing": [
+        {
+          "id": "third-party-cookies",
+          "title": "Uses third-party cookies",
+          "weight": 5,
+          "nodes": 16
+        },
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "weight": 1,
+          "nodes": 1
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "weight": 1,
+          "nodes": 1
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 0,
+      "applicableCount": 8,
+      "failing": []
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 0,
+      "bfCacheFailures": 3,
+      "protocol": "h2",
+      "legacyHttpRequests": 23,
+      "redirectMs": 0,
+      "consoleErrors": 1,
+      "baselineLimitedFeatures": 39
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2496,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-09-29T04:40:02.169Z",
+      "runtimeMs": 17713.7
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 654.3,
+    "resourceLoadDelay": 0,
+    "resourceLoadDuration": 5753.2,
+    "elementRenderDelay": 42.9
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-08-31",
+      "last": "2026-09-27"
+    },
+    "metrics": {
+      "cls": {
+        "p75": 0,
+        "rating": "good",
+        "distribution": {
+          "good": 98.6,
+          "needsImprovement": 1,
+          "poor": 0.4
+        }
+      },
+      "ttfb": {
+        "p75": 887,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 69.3,
+          "needsImprovement": 25.7,
+          "poor": 5
+        }
+      },
+      "fcp": {
+        "p75": 1632,
+        "rating": "good",
+        "distribution": {
+          "good": 78.9,
+          "needsImprovement": 13.4,
+          "poor": 7.7
+        }
+      },
+      "inp": {
+        "p75": 154,
+        "rating": "good",
+        "distribution": {
+          "good": 81.9,
+          "needsImprovement": 13.2,
+          "poor": 5
+        }
+      },
+      "lcp": {
+        "p75": 1890,
+        "rating": "good",
+        "distribution": {
+          "good": 84.8,
+          "needsImprovement": 9.7,
+          "poor": 5.5
+        }
+      },
+      "rtt": {
+        "p75": 153,
+        "rating": null,
+        "distribution": {
+          "good": 40.5,
+          "needsImprovement": 47.9,
+          "poor": 11.6
+        }
+      }
+    },
+    "cwvPass": true,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "probe": {
+      "metas": [],
+      "marks": [
+        "react"
+      ],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "self-hosted",
+      "name": "Self-hosted",
+      "icon": null,
+      "detail": "Envoy",
+      "detailIcon": "Envoyproxy",
+      "source": "server"
+    },
+    "headers": {
+      "server": "envoy",
+      "via": "2 i-074fafbe048e0554f (us-west-2), 1.1 c000.sea001.ix.nflxvideo.net (FTL-L4-/Hc0)"
+    },
+    "violations": 18,
+    "passes": 1098,
+    "incomplete": 38,
+    "violationRules": 6,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 13,
+        "help": "All page content should be contained by landmarks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/region?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".default-ltr-iqcdef-cache-slza4h > div:nth-child(1)",
+            "snippet": "<div><h1 data-uia=\"nmhp-hero-headline\" data-headline-variant=\"socialProofHits\" class=\"default-ltr-iqcdef-cache-1ttrzps e8zmz550\">All the hits you keep hearing about</h1><p class=\"default-ltr-iqcdef-c…"
+          },
+          {
+            "selector": ".default-ltr-iqcdef-cache-bz4hbi > .default-ltr-iqcdef-cache-146vp2u.eq269h80[data-layout=\"wrapper\"] > .default-ltr-iqcdef-cache-4fdrtc[data-layout=\"container\"] > .default-ltr-iqcdef-cache-1dypbyj.eq269h80[data-layout=\"item\"]:nth-child(1)",
+            "snippet": "<div class=\"eq269h80 default-ltr...\" style=\"--hcw--layout-item--...\" data-layout=\"item\">"
+          },
+          {
+            "selector": "div[data-uia=\"nmhp-top-10\"] > div:nth-child(1)",
+            "snippet": "<div><h2 class=\"default-ltr-iqcdef-cache-1vv2fce e8zmz550\">Trending Now</h2></div>"
+          },
+          {
+            "selector": "#nmhp-full-value-props > .default-ltr-iqcdef-cache-1dypbyj.eq269h80[data-layout=\"item\"]",
+            "snippet": "<div class=\"eq269h80 default-ltr-iqcdef-cache-1dypbyj\" style=\"--hcw--layout-item--padding:0px;--hcw--layout-item--width:calc(100% - 0px)\" data-layout=\"item\"><h2 class=\"default-ltr-iqcdef-cache-1vv2fc…"
+          },
+          {
+            "selector": ".default-ltr-iqcdef-cache-1dypbyj.eq269h80[data-layout=\"item\"]:nth-child(1) > .default-ltr-iqcdef-cache-19slw8k.e1g1vhz91[dir=\"ltr\"] > div > .default-ltr-iqcdef-cache-146vp2u.eq269h80[data-layout=\"wrapper\"] > .default-ltr-iqcdef-cache-4fdrtc[data-layout=\"container\"] > .default-ltr-iqcdef-cache-1dypbyj.eq269h80[data-layout=\"item\"]:nth-child(1)",
+            "snippet": "<div class=\"eq269h80 default-ltr-iqcdef-cache-1dypbyj\" style=\"--hcw--layout-item--padding:0px;--hcw--layout-item--width:calc(100% - 0px)\" data-layout=\"item\"><h3 class=\"default-ltr-iqcdef-cache-mdshes…"
+          }
+        ]
+      },
+      {
+        "id": "aria-hidden-focus",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "ARIA hidden element must not be focusable or contain focusable elements",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/aria-hidden-focus?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".default-ltr-iqcdef-cache-17hs6dg",
+            "snippet": "<div aria-hidden=\"true\" class=\"default-ltr-iqcdef-cache-17hs6dg egpstn40 nav-animation-enter-done\">"
+          }
+        ]
+      },
+      {
+        "id": "heading-order",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Heading levels should only increase by one",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/heading-order?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".default-ltr-iqcdef-cache-1josprq > .default-ltr-iqcdef-cache-noi56b.e5e63l02 > form > .default-ltr-iqcdef-cache-18zqjlh.e5e63l01",
+            "snippet": "<h3 class=\"default-ltr-iqcdef-cache-18zqjlh e5e63l01\">Ready to watch? Enter your email to create or restart your membership.</h3>"
+          }
+        ]
+      },
+      {
+        "id": "landmark-one-main",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Document should have one main landmark",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/landmark-one-main?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "html",
+            "snippet": "<html lang=\"en\" class=\"\">"
+          }
+        ]
+      },
+      {
+        "id": "landmark-unique",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/landmark-unique?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".default-ltr-iqcdef-cache-1josprq > .default-ltr-iqcdef-cache-noi56b.e5e63l02 > form",
+            "snippet": "<form aria-label=\"Sign up or restart your membership with Netflix.\" method=\"post\" data-uia=\"email-form\" class=\"default-ltr-iqcdef-cache-12vu0mq e1ejc77y0\">"
+          }
+        ]
+      },
+      {
+        "id": "meta-viewport",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Zooming and scaling must not be disabled",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/meta-viewport?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "meta[name=\"viewport\"]",
+            "snippet": "<meta name=\"viewport\" content=\"width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0\">"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}

@@ -1,0 +1,407 @@
+{
+  "url": "https://www.palantir.com/",
+  "name": "Palantir",
+  "group": "big-tech",
+  "groupName": "Big Tech",
+  "timestamp": 1790656891720,
+  "date": "2026-09-29T04:41:31.720Z",
+  "runId": "2026-09-29T04-26-10-186Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 145297,
+  "error": null,
+  "variance": {
+    "min": 47,
+    "max": 48,
+    "spread": 1,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://www.palantir.com/",
+    "finalUrl": "https://www.palantir.com/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 47,
+      "accessibility": 95,
+      "best-practices": 92,
+      "seo": 85,
+      "agentic-browsing": 32
+    },
+    "timings": {
+      "fcp": 2184,
+      "lcp": 96504,
+      "si": 8481,
+      "tbt": 682,
+      "tti": 104704,
+      "cls": 0.064,
+      "ttfb": 609,
+      "maxPotentialFid": 317,
+      "serverResponseTime": 6,
+      "networkRtt": 0.7,
+      "networkServerLatency": 30.6
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 7,
+      "elementRenderDelay": 1146.4
+    },
+    "weight": {
+      "total": 56445028,
+      "requests": 79,
+      "mainDocument": 60883,
+      "byType": {
+        "total": {
+          "bytes": 56441776,
+          "requests": 78
+        },
+        "image": {
+          "bytes": 32274159,
+          "requests": 14
+        },
+        "media": {
+          "bytes": 22059270,
+          "requests": 1
+        },
+        "script": {
+          "bytes": 1606536,
+          "requests": 33
+        },
+        "other": {
+          "bytes": 175111,
+          "requests": 20
+        },
+        "font": {
+          "bytes": 140496,
+          "requests": 3
+        },
+        "stylesheet": {
+          "bytes": 125321,
+          "requests": 6
+        },
+        "document": {
+          "bytes": 60883,
+          "requests": 1
+        },
+        "third-party": {
+          "bytes": 13304047,
+          "requests": 15
+        }
+      },
+      "scripts": 33,
+      "stylesheets": 6,
+      "fonts": 3
+    },
+    "thirdParty": {
+      "count": 3,
+      "bytes": 13304047,
+      "mainThreadMs": 124.7,
+      "top": [
+        {
+          "entity": "ctfassets.net",
+          "bytes": 12887817,
+          "mainThreadMs": 0,
+          "byType": {
+            "image": 12887817
+          },
+          "typedBytes": 12887817
+        },
+        {
+          "entity": "Optanon",
+          "bytes": 244775,
+          "mainThreadMs": 80.4,
+          "byType": {
+            "script": 153868,
+            "other": 44492,
+            "image": 46415
+          },
+          "typedBytes": 244775
+        },
+        {
+          "entity": "Google Tag Manager",
+          "bytes": 171455,
+          "mainThreadMs": 44.3,
+          "byType": {
+            "script": 171455
+          },
+          "typedBytes": 171455
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 4594.4,
+      "byGroup": {
+        "other": 1692.5,
+        "scriptEvaluation": 1541.4,
+        "scriptParseCompile": 601,
+        "styleLayout": 403.7,
+        "paintCompositeRender": 167.9,
+        "parseHTML": 97.6,
+        "garbageCollection": 90.3
+      },
+      "bootupMs": 1986.4,
+      "longTasks": 15,
+      "longestTaskMs": 317
+    },
+    "dom": {
+      "elements": 1482,
+      "depth": 17,
+      "maxChildren": 28
+    },
+    "waste": {
+      "unusedJsBytes": 970777,
+      "unusedCssBytes": 117926,
+      "legacyJsBytes": 22143,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 0,
+      "renderBlockingCount": 3,
+      "poorlyCachedBytes": 16789678.800000004,
+      "poorlyCachedCount": 53
+    },
+    "accessibility": {
+      "failingCount": 2,
+      "applicableCount": 29,
+      "failingNodes": 3,
+      "failing": [
+        {
+          "id": "label-content-name-mismatch",
+          "title": "Elements with visible text labels do not have matching accessible names.",
+          "weight": 0,
+          "nodes": 2
+        },
+        {
+          "id": "aria-valid-attr-value",
+          "title": "`[aria-*]` attributes do not have valid values",
+          "weight": 10,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 3,
+      "applicableCount": 18,
+      "failing": [
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "weight": 1,
+          "nodes": 17
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "weight": 1,
+          "nodes": 1
+        },
+        {
+          "id": "valid-source-maps",
+          "title": "Missing source maps for large first-party JavaScript",
+          "weight": 0,
+          "nodes": 2
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 2,
+      "applicableCount": 10,
+      "failing": [
+        {
+          "id": "link-text",
+          "title": "Links do not have descriptive text",
+          "weight": 1,
+          "nodes": 2
+        },
+        {
+          "id": "crawlable-anchors",
+          "title": "Links are not crawlable",
+          "weight": 1,
+          "nodes": 1
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": null,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 17,
+      "baselineLimitedFeatures": 40
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2497.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-09-29T04:41:58.857Z",
+      "runtimeMs": 12413.6
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 570.2,
+    "elementRenderDelay": 11256.7
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-08-31",
+      "last": "2026-09-27"
+    },
+    "metrics": {
+      "cls": {
+        "p75": 0.11,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 45.7,
+          "needsImprovement": 47.1,
+          "poor": 7.2
+        }
+      },
+      "ttfb": {
+        "p75": 652,
+        "rating": "good",
+        "distribution": {
+          "good": 79.8,
+          "needsImprovement": 11.1,
+          "poor": 9.1
+        }
+      },
+      "fcp": {
+        "p75": 2842,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 56.7,
+          "needsImprovement": 20.1,
+          "poor": 23.3
+        }
+      },
+      "inp": {
+        "p75": 458,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 62.2,
+          "needsImprovement": 14.1,
+          "poor": 23.7
+        }
+      },
+      "lcp": {
+        "p75": 3190,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 64.6,
+          "needsImprovement": 17.8,
+          "poor": 17.6
+        }
+      },
+      "rtt": {
+        "p75": 141,
+        "rating": null,
+        "distribution": {
+          "good": 41.9,
+          "needsImprovement": 49.2,
+          "poor": 8.9
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": {
+      "id": "nextjs",
+      "name": "Next.js",
+      "icon": "Nextdotjs",
+      "version": null,
+      "source": "dom",
+      "raw": null
+    },
+    "probe": {
+      "metas": [],
+      "marks": [
+        "next",
+        "react"
+      ],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "amazons3",
+      "name": "Amazon S3",
+      "icon": "Amazon",
+      "source": "server"
+    },
+    "headers": {
+      "server": "AmazonS3",
+      "via": "1.1 varnish",
+      "x-served-by": "cache-bfi-krnt7300095-BFI"
+    },
+    "violations": 5,
+    "passes": 2076,
+    "incomplete": 96,
+    "violationRules": 3,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 3,
+        "help": "All page content should be contained by landmarks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/region?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".ptcom-design__announcementBarTextCell__1ulabpz",
+            "snippet": "<div class=\"ptcom-design__announcementBarTextCell__1ulabpz\"><div><p>Read CEO Alex Karp’s <a href=\"/q2-2026-letter\">Letter to Shareholders</a> </p></div></div>"
+          },
+          {
+            "selector": ".ptcom-design__skipnav__1g4b6dk",
+            "snippet": "<a href=\"#main\" class=\"ptcom-design__skipnav__1g4b6dk\">Skip to Content</a>"
+          },
+          {
+            "selector": ".ptcom-design__primaryButtonWrapper__1g4b6dk",
+            "snippet": "<div class=\"ptcom-design__primaryButtonWrapper__1g4b6dk\"><a class=\"ptcom-design__button__1d8xeyx\" aria-controls=\"drawer\"><span aria-hidden=\"true\" class=\"ptcom-design__glyphLeft__1d8xeyx\">↖</span> Get…"
+          }
+        ]
+      },
+      {
+        "id": "aria-valid-attr-value",
+        "impact": "critical",
+        "nodes": 1,
+        "help": "ARIA attributes must conform to valid values",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/aria-valid-attr-value?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".ptcom-design__button__1d8xeyx",
+            "snippet": "<a class=\"ptcom-design__button__1d8xeyx\" aria-controls=\"drawer\"><span aria-hidden=\"true\" class=\"ptcom-design__glyphLeft__1d8xeyx\">↖</span> Get Started</a>"
+          }
+        ]
+      },
+      {
+        "id": "scrollable-region-focusable",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "Scrollable region must have keyboard access",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/scrollable-region-focusable?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".ptcom-design__cards__1xz2rij",
+            "snippet": "<div class=\"ptcom-design__cards__1xz2rij\" style=\"--rotation-duration: 324s;\">"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
