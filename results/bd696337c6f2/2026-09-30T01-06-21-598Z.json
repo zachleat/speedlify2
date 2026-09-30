@@ -1,0 +1,341 @@
+{
+  "url": "https://saulcorona.com/",
+  "name": "saulcorona.com",
+  "group": "11ty-community",
+  "groupName": "Built Awesome",
+  "timestamp": 1790730381598,
+  "date": "2026-09-30T01:06:21.598Z",
+  "runId": "2026-09-30T01-06-17-009Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 2,
+  "durationMs": 23500,
+  "error": null,
+  "partialErrors": [
+    "ERRORED_DOCUMENT_REQUEST: Lighthouse was unable to reliably load the page you requested. Make sure you are testing the correct URL and that the server is properly responding to all requests. (Status code: 403)"
+  ],
+  "variance": {
+    "min": 82,
+    "max": 95,
+    "spread": 13,
+    "runs": 2
+  },
+  "lab": {
+    "requestedUrl": "https://saulcorona.com/",
+    "finalUrl": "https://saulcorona.com/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 82,
+      "accessibility": 82,
+      "best-practices": 77,
+      "seo": 100,
+      "agentic-browsing": 50
+    },
+    "timings": {
+      "fcp": 1601,
+      "lcp": 4842,
+      "si": 1601,
+      "tbt": 0,
+      "tti": 4842,
+      "cls": 0.016,
+      "ttfb": 665,
+      "maxPotentialFid": 16,
+      "serverResponseTime": 127,
+      "networkRtt": 0.1,
+      "networkServerLatency": 64.6
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 129.2,
+      "resourceLoadDelay": 133.8,
+      "resourceLoadDuration": 69.3,
+      "elementRenderDelay": 35.8
+    },
+    "weight": {
+      "total": 570040,
+      "requests": 45,
+      "mainDocument": 3037,
+      "byType": {
+        "total": {
+          "bytes": 568881,
+          "requests": 44
+        },
+        "font": {
+          "bytes": 456236,
+          "requests": 30
+        },
+        "image": {
+          "bytes": 87955,
+          "requests": 2
+        },
+        "stylesheet": {
+          "bytes": 15430,
+          "requests": 3
+        },
+        "script": {
+          "bytes": 6223,
+          "requests": 8
+        },
+        "document": {
+          "bytes": 3037,
+          "requests": 1
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "other": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 467650,
+          "requests": 32
+        }
+      },
+      "scripts": 8,
+      "stylesheets": 3,
+      "fonts": 30
+    },
+    "thirdParty": {
+      "count": 2,
+      "bytes": 467650,
+      "mainThreadMs": 0,
+      "top": [
+        {
+          "entity": "iconscout.com",
+          "bytes": 403744,
+          "mainThreadMs": 0,
+          "byType": {
+            "font": 392987,
+            "stylesheet": 10757
+          },
+          "typedBytes": 403744
+        },
+        {
+          "entity": "Google Fonts",
+          "bytes": 63906,
+          "mainThreadMs": 0,
+          "byType": {
+            "font": 63249,
+            "stylesheet": 657
+          },
+          "typedBytes": 63906
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 596.6,
+      "byGroup": {
+        "other": 310,
+        "styleLayout": 187.5,
+        "garbageCollection": 46.6,
+        "paintCompositeRender": 22.7,
+        "scriptEvaluation": 16.6,
+        "parseHTML": 12.4,
+        "scriptParseCompile": 0.8
+      },
+      "bootupMs": 7.8,
+      "longTasks": 1,
+      "longestTaskMs": 85
+    },
+    "dom": {
+      "elements": 261,
+      "depth": 10,
+      "maxChildren": 7
+    },
+    "waste": {
+      "unusedJsBytes": 0,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 0,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 1557,
+      "renderBlockingCount": 3,
+      "poorlyCachedBytes": 9819.399999999998,
+      "poorlyCachedCount": 11
+    },
+    "accessibility": {
+      "failingCount": 3,
+      "applicableCount": 15,
+      "failingNodes": 18,
+      "failing": [
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "weight": 7,
+          "nodes": 12
+        },
+        {
+          "id": "link-name",
+          "title": "Links do not have a discernible name",
+          "weight": 7,
+          "nodes": 5
+        },
+        {
+          "id": "heading-order",
+          "title": "Heading elements are not in a sequentially-descending order",
+          "weight": 3,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 2,
+      "applicableCount": 19,
+      "failing": [
+        {
+          "id": "third-party-cookies",
+          "title": "Uses third-party cookies",
+          "weight": 5,
+          "nodes": 1
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "weight": 1,
+          "nodes": 1
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 0,
+      "applicableCount": 8,
+      "failing": []
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 4
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 3040.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-09-30T01:06:31.261Z",
+      "runtimeMs": 6726.6
+    }
+  },
+  "field": null,
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": {
+      "id": "eleventy",
+      "name": "Eleventy",
+      "icon": "Eleventy",
+      "version": null,
+      "source": "meta",
+      "raw": "Eleventy"
+    },
+    "probe": {
+      "metas": [
+        "Eleventy"
+      ],
+      "marks": [],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": null,
+      "name": "hcdn",
+      "icon": null,
+      "source": "server"
+    },
+    "headers": {
+      "server": "hcdn"
+    },
+    "violations": 18,
+    "passes": 368,
+    "incomplete": 0,
+    "violationRules": 3,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 12,
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/color-contrast?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "#work > .qualification__data:nth-child(1) > div:nth-child(1) > .qualification__calendar",
+            "snippet": "<div class=\"qualification__calendar\"> <i class=\"uil uil-calendar-alt\"></i> 2023 - current </div>"
+          },
+          {
+            "selector": "#work > .qualification__data:nth-child(2) > div:nth-child(3) > .qualification__calendar",
+            "snippet": "<div class=\"qualification__calendar\"> <i class=\"uil uil-calendar-alt\"></i> 2021 - 2023 </div>"
+          },
+          {
+            "selector": ".qualification__data:nth-child(3) > div:nth-child(1) > .qualification__calendar",
+            "snippet": "<div class=\"qualification__calendar\"> <i class=\"uil uil-calendar-alt\"></i> 2020 - 2021 </div>"
+          },
+          {
+            "selector": ".qualification__data:nth-child(4) > div:nth-child(3) > .qualification__calendar",
+            "snippet": "<div class=\"qualification__calendar\"> <i class=\"uil uil-calendar-alt\"></i> 2019 - 2020 </div>"
+          },
+          {
+            "selector": ".qualification__data:nth-child(5) > div:nth-child(1) > .qualification__calendar",
+            "snippet": "<div class=\"qualification__calendar\"> <i class=\"uil uil-calendar-alt\"></i> 2019 - 2019 </div>"
+          }
+        ]
+      },
+      {
+        "id": "link-name",
+        "impact": "serious",
+        "nodes": 5,
+        "help": "Links must have discernible text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/link-name?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".home__social-icon[target=\"_blank\"][rel=\"noopener noreferrer\"]:nth-child(1)",
+            "snippet": "<a href=\"https://www.linkedin.com/in/saulcorona/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"home__social-icon\"> <i class=\"uil uil-linkedin\"></i> </a>"
+          },
+          {
+            "selector": ".home__social-icon[href$=\"saul-corona\"][target=\"_blank\"]",
+            "snippet": "<a href=\"https://github.com/saul-corona\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"home__social-icon\"> <i class=\"uil uil-github\"></i> </a>"
+          },
+          {
+            "selector": ".footer__social[target=\"_blank\"][rel=\"noopener noreferrer\"]:nth-child(1)",
+            "snippet": "<a href=\"https://www.linkedin.com/in/saulcorona/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"footer__social\"> <i class=\"uil uil-linkedin\"></i> </a>"
+          },
+          {
+            "selector": ".footer__social[href$=\"saul-corona\"][target=\"_blank\"]",
+            "snippet": "<a href=\"https://github.com/saul-corona\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"footer__social\"> <i class=\"uil uil-github\"></i> </a>"
+          },
+          {
+            "selector": "#scroll-up",
+            "snippet": "<a href=\"#\" class=\"scrollup\" id=\"scroll-up\"> <i class=\"uil uil-arrow-up scrollup__icon\"></i> </a>"
+          }
+        ]
+      },
+      {
+        "id": "heading-order",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Heading levels should only increase by one",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/heading-order?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".home__subtitle",
+            "snippet": "<h3 class=\"home__subtitle\">Software Engineer</h3>"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
