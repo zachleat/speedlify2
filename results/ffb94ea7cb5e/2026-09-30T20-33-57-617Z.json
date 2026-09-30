@@ -1,0 +1,444 @@
+{
+  "url": "https://www.fastly.com/",
+  "name": "Fastly",
+  "group": "dev-tooling",
+  "groupName": "Developer Tooling",
+  "timestamp": 1790800437617,
+  "date": "2026-09-30T20:33:57.617Z",
+  "runId": "2026-09-30T20-33-56-497Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 136577,
+  "error": null,
+  "variance": {
+    "min": 28,
+    "max": 44,
+    "spread": 16,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://www.fastly.com/",
+    "finalUrl": "https://www.fastly.com/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 40,
+      "accessibility": 92,
+      "best-practices": 77,
+      "seo": 85,
+      "agentic-browsing": 99
+    },
+    "timings": {
+      "fcp": 2545,
+      "lcp": 16376,
+      "si": 5219,
+      "tbt": 1685,
+      "tti": 17541,
+      "cls": 0.055,
+      "ttfb": 647,
+      "maxPotentialFid": 876,
+      "serverResponseTime": 361,
+      "networkRtt": 38.3,
+      "networkServerLatency": 98.6
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 363.5,
+      "resourceLoadDelay": 238.3,
+      "resourceLoadDuration": 38,
+      "elementRenderDelay": 941.5
+    },
+    "weight": {
+      "total": 2740826,
+      "requests": 185,
+      "mainDocument": 43709,
+      "byType": {
+        "total": {
+          "bytes": 2733896,
+          "requests": 181
+        },
+        "script": {
+          "bytes": 1931674,
+          "requests": 48
+        },
+        "image": {
+          "bytes": 641067,
+          "requests": 65
+        },
+        "font": {
+          "bytes": 63878,
+          "requests": 2
+        },
+        "document": {
+          "bytes": 47832,
+          "requests": 6
+        },
+        "other": {
+          "bytes": 26159,
+          "requests": 51
+        },
+        "stylesheet": {
+          "bytes": 23286,
+          "requests": 9
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 1354232,
+          "requests": 104
+        }
+      },
+      "scripts": 49,
+      "stylesheets": 9,
+      "fonts": 2
+    },
+    "thirdParty": {
+      "count": 25,
+      "bytes": 730153,
+      "mainThreadMs": 258.8,
+      "top": [
+        {
+          "entity": "Pendo",
+          "bytes": 201380,
+          "mainThreadMs": 32.6,
+          "byType": {
+            "script": 200918,
+            "other": 364,
+            "image": 98
+          },
+          "typedBytes": 201380
+        },
+        {
+          "entity": "Facebook",
+          "bytes": 182447,
+          "mainThreadMs": 98.8,
+          "byType": {
+            "script": 182430,
+            "image": 17
+          },
+          "typedBytes": 182447
+        },
+        {
+          "entity": "intellimize.co",
+          "bytes": 112328,
+          "mainThreadMs": 30.8,
+          "byType": {
+            "script": 108570,
+            "other": 3758
+          },
+          "typedBytes": 112328
+        },
+        {
+          "entity": "zoominfo.com",
+          "bytes": 35181,
+          "mainThreadMs": 8.5,
+          "byType": {
+            "script": 31632,
+            "other": 3549
+          },
+          "typedBytes": 35181
+        },
+        {
+          "entity": "6sc.co",
+          "bytes": 26473,
+          "mainThreadMs": 12.1,
+          "byType": {
+            "script": 25198,
+            "other": 280,
+            "image": 995
+          },
+          "typedBytes": 26473
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 6954.6,
+      "byGroup": {
+        "scriptEvaluation": 4028.2,
+        "other": 1615.7,
+        "styleLayout": 548.1,
+        "scriptParseCompile": 462.1,
+        "paintCompositeRender": 124.4,
+        "parseHTML": 88.5,
+        "garbageCollection": 87.6
+      },
+      "bootupMs": 4278.2,
+      "longTasks": 18,
+      "longestTaskMs": 876
+    },
+    "dom": {
+      "elements": 1546,
+      "depth": 16,
+      "maxChildren": 24
+    },
+    "waste": {
+      "unusedJsBytes": 489050,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 12277,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 2501,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 150,
+      "renderBlockingCount": 8,
+      "poorlyCachedBytes": 482465.5272430555,
+      "poorlyCachedCount": 21
+    },
+    "accessibility": {
+      "failingCount": 2,
+      "applicableCount": 31,
+      "failingNodes": 2,
+      "failing": [
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "weight": 7,
+          "nodes": 1
+        },
+        {
+          "id": "image-alt",
+          "title": "Image elements do not have `[alt]` attributes",
+          "weight": 10,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 3,
+      "applicableCount": 19,
+      "failing": [
+        {
+          "id": "third-party-cookies",
+          "title": "Uses third-party cookies",
+          "weight": 5,
+          "nodes": 41
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "weight": 1,
+          "nodes": 1
+        },
+        {
+          "id": "valid-source-maps",
+          "title": "Missing source maps for large first-party JavaScript",
+          "weight": 0,
+          "nodes": 4
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 2,
+      "applicableCount": 10,
+      "failing": [
+        {
+          "id": "link-text",
+          "title": "Links do not have descriptive text",
+          "weight": 1,
+          "nodes": 1
+        },
+        {
+          "id": "image-alt",
+          "title": "Image elements do not have `[alt]` attributes",
+          "weight": 1,
+          "nodes": 1
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 56
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2431.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-09-30T20:34:23.329Z",
+      "runtimeMs": 21975.1
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 584.3,
+    "resourceLoadDelay": 1868,
+    "resourceLoadDuration": 1219.5,
+    "elementRenderDelay": 60.1
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-09-01",
+      "last": "2026-09-28"
+    },
+    "metrics": {
+      "cls": {
+        "p75": 0.03,
+        "rating": "good",
+        "distribution": {
+          "good": 94.2,
+          "needsImprovement": 4.4,
+          "poor": 1.3
+        }
+      },
+      "ttfb": {
+        "p75": 765,
+        "rating": "good",
+        "distribution": {
+          "good": 76.2,
+          "needsImprovement": 16,
+          "poor": 7.9
+        }
+      },
+      "fcp": {
+        "p75": 1766,
+        "rating": "good",
+        "distribution": {
+          "good": 75.8,
+          "needsImprovement": 15.7,
+          "poor": 8.5
+        }
+      },
+      "inp": {
+        "p75": 258,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 65.2,
+          "needsImprovement": 28.3,
+          "poor": 6.4
+        }
+      },
+      "lcp": {
+        "p75": 2320,
+        "rating": "good",
+        "distribution": {
+          "good": 78.2,
+          "needsImprovement": 13.4,
+          "poor": 8.5
+        }
+      },
+      "rtt": {
+        "p75": 213,
+        "rating": null,
+        "distribution": {
+          "good": 29.6,
+          "needsImprovement": 54,
+          "poor": 16.5
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": {
+      "id": "astro",
+      "name": "Astro",
+      "icon": "Astro",
+      "version": null,
+      "source": "dom",
+      "raw": null
+    },
+    "probe": {
+      "metas": [],
+      "marks": [
+        "astro"
+      ],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": null,
+      "name": "Artisanal bits",
+      "icon": null,
+      "source": "server"
+    },
+    "headers": {
+      "server": "Artisanal bits",
+      "x-served-by": "cache-dfw-kdal2120021-DFW"
+    },
+    "violations": 11,
+    "passes": 1158,
+    "incomplete": 29,
+    "violationRules": 3,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 8,
+        "help": "All page content should be contained by landmarks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/region?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".intellimize-popup--close",
+            "snippet": "<a class=\"intellimize-popup--close\" href=\"#\">×︎</a>"
+          },
+          {
+            "selector": ".intellimize-popup--banner",
+            "snippet": "<img src=\"\" class=\"intellimize-popup--banner\">"
+          },
+          {
+            "selector": ".fastly-popup-badge",
+            "snippet": "<span class=\"fastly-popup-badge\">Award</span>"
+          },
+          {
+            "selector": ".fastly-popup-title",
+            "snippet": "<h3 class=\"fastly-popup-title\">Just Released!</h3>"
+          },
+          {
+            "selector": ".fastly-popup-body",
+            "snippet": "<p class=\"fastly-popup-body\">2026 Gartner® Peer Insights™ \"Voice of the Customer\" for Edge Distribution Platforms.</p>"
+          }
+        ]
+      },
+      {
+        "id": "image-alt",
+        "impact": "critical",
+        "nodes": 2,
+        "help": "Images must have alternative text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/image-alt?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".intellimize-popup--banner",
+            "snippet": "<img src=\"\" class=\"intellimize-popup--banner\">"
+          },
+          {
+            "selector": "#insent-iframe >>> #insent-popup-card-close-icon",
+            "snippet": "<img id=\"insent-popup-card-close-icon\" src=\"/static/media/close.ec75d473.svg\" class=\"sc-cEvuZC gxfXwW\">"
+          }
+        ]
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/color-contrast?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".intellimize-popup--cta > span",
+            "snippet": "<span>See why we stand out</span>"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
