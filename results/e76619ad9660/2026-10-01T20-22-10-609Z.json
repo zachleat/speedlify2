@@ -1,0 +1,497 @@
+{
+  "url": "https://www.servicenow.com/",
+  "name": "ServiceNow",
+  "group": "big-tech",
+  "groupName": "Big Tech",
+  "timestamp": 1790886130609,
+  "date": "2026-10-01T20:22:10.609Z",
+  "runId": "2026-10-01T20-07-51-803Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 539815,
+  "error": null,
+  "variance": {
+    "min": 17,
+    "max": 19,
+    "spread": 2,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://www.servicenow.com/",
+    "finalUrl": "https://www.servicenow.com/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 19,
+      "accessibility": 92,
+      "best-practices": 54,
+      "seo": 83,
+      "agentic-browsing": 33
+    },
+    "timings": {
+      "fcp": 3919,
+      "lcp": 17720,
+      "si": 20936,
+      "tbt": 3437,
+      "tti": 30225,
+      "cls": 0.189,
+      "ttfb": 655,
+      "maxPotentialFid": 562,
+      "serverResponseTime": 67,
+      "networkRtt": 40.4,
+      "networkServerLatency": 228.2
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 68.8,
+      "elementRenderDelay": 1380.1
+    },
+    "weight": {
+      "total": 4713245,
+      "requests": 219,
+      "mainDocument": 93314,
+      "byType": {
+        "total": {
+          "bytes": 4708517,
+          "requests": 210
+        },
+        "script": {
+          "bytes": 2798851,
+          "requests": 88
+        },
+        "image": {
+          "bytes": 1254239,
+          "requests": 42
+        },
+        "font": {
+          "bytes": 420697,
+          "requests": 11
+        },
+        "document": {
+          "bytes": 96855,
+          "requests": 6
+        },
+        "other": {
+          "bytes": 72486,
+          "requests": 54
+        },
+        "stylesheet": {
+          "bytes": 65389,
+          "requests": 9
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 1611920,
+          "requests": 120
+        }
+      },
+      "scripts": 90,
+      "stylesheets": 9,
+      "fonts": 11
+    },
+    "thirdParty": {
+      "count": 23,
+      "bytes": 1607178,
+      "mainThreadMs": 5420.3,
+      "top": [
+        {
+          "entity": "Adobe Tag Manager",
+          "bytes": 264773,
+          "mainThreadMs": 169,
+          "byType": {
+            "script": 264773
+          },
+          "typedBytes": 264773
+        },
+        {
+          "entity": "Google Tag Manager",
+          "bytes": 252293,
+          "mainThreadMs": 83.2,
+          "byType": {
+            "script": 252293
+          },
+          "typedBytes": 252293
+        },
+        {
+          "entity": "Facebook",
+          "bytes": 216004,
+          "mainThreadMs": 115,
+          "byType": {
+            "script": 216004
+          },
+          "typedBytes": 216004
+        },
+        {
+          "entity": "DemandBase",
+          "bytes": 203682,
+          "mainThreadMs": 38.7,
+          "byType": {
+            "script": 201156,
+            "other": 442,
+            "stylesheet": 2084
+          },
+          "typedBytes": 203682
+        },
+        {
+          "entity": "ContentSquare",
+          "bytes": 173236,
+          "mainThreadMs": 4383.8,
+          "byType": {
+            "script": 173027,
+            "other": 209
+          },
+          "typedBytes": 173236
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 79694.1,
+      "byGroup": {
+        "scriptEvaluation": 50610.5,
+        "other": 14636,
+        "styleLayout": 5962.6,
+        "paintCompositeRender": 5826.9,
+        "garbageCollection": 1393.8,
+        "scriptParseCompile": 1053,
+        "parseHTML": 211.3
+      },
+      "bootupMs": 51006.6,
+      "longTasks": 20,
+      "longestTaskMs": 562
+    },
+    "dom": {
+      "elements": 5723,
+      "depth": 30,
+      "maxChildren": 269
+    },
+    "waste": {
+      "unusedJsBytes": 1015722,
+      "unusedCssBytes": 44080,
+      "legacyJsBytes": 93511,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 900,
+      "renderBlockingCount": 7,
+      "poorlyCachedBytes": 1203122.5370833336,
+      "poorlyCachedCount": 131
+    },
+    "accessibility": {
+      "failingCount": 3,
+      "applicableCount": 32,
+      "failingNodes": 7,
+      "failing": [
+        {
+          "id": "heading-order",
+          "title": "Heading elements are not in a sequentially-descending order",
+          "weight": 3,
+          "nodes": 5
+        },
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "weight": 7,
+          "nodes": 1
+        },
+        {
+          "id": "tabindex",
+          "title": "Some elements have a `[tabindex]` value greater than 0",
+          "weight": 7,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 5,
+      "applicableCount": 19,
+      "failing": [
+        {
+          "id": "deprecations",
+          "title": "Uses deprecated APIs",
+          "weight": 5,
+          "nodes": 2
+        },
+        {
+          "id": "third-party-cookies",
+          "title": "Uses third-party cookies",
+          "weight": 5,
+          "nodes": 20
+        },
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "weight": 1,
+          "nodes": 4
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "weight": 1,
+          "nodes": 1
+        },
+        {
+          "id": "valid-source-maps",
+          "title": "Missing source maps for large first-party JavaScript",
+          "weight": 0,
+          "nodes": 6
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 2,
+      "applicableCount": 9,
+      "failing": [
+        {
+          "id": "link-text",
+          "title": "Links do not have descriptive text",
+          "weight": 1,
+          "nodes": 3
+        },
+        {
+          "id": "crawlable-anchors",
+          "title": "Links are not crawlable",
+          "weight": 1,
+          "nodes": 1
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 0,
+      "bfCacheFailures": 1,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 4,
+      "baselineLimitedFeatures": 68
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2488,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-10-01T20:24:02.394Z",
+      "runtimeMs": 112154.3
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 612,
+    "elementRenderDelay": 15043.4
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-09-01",
+      "last": "2026-09-28"
+    },
+    "metrics": {
+      "cls": {
+        "p75": 0.22,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 29.2,
+          "needsImprovement": 59.8,
+          "poor": 11
+        }
+      },
+      "ttfb": {
+        "p75": 1421,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 66.3,
+          "needsImprovement": 16.2,
+          "poor": 17.5
+        }
+      },
+      "fcp": {
+        "p75": 4663,
+        "rating": "poor",
+        "distribution": {
+          "good": 26.6,
+          "needsImprovement": 21.9,
+          "poor": 51.5
+        }
+      },
+      "inp": {
+        "p75": 379,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 45.1,
+          "needsImprovement": 39.8,
+          "poor": 15.1
+        }
+      },
+      "lcp": {
+        "p75": 5544,
+        "rating": "poor",
+        "distribution": {
+          "good": 31.2,
+          "needsImprovement": 27.1,
+          "poor": 41.8
+        }
+      },
+      "rtt": {
+        "p75": 215,
+        "rating": null,
+        "distribution": {
+          "good": 30,
+          "needsImprovement": 51.7,
+          "poor": 18.3
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": true,
+    "generator": null,
+    "probe": {
+      "metas": [],
+      "marks": [
+        "lit",
+        "fontawesome"
+      ],
+      "markVersions": {
+        "lit": "2.8.0"
+      }
+    },
+    "interstitial": null,
+    "host": {
+      "id": "self-hosted",
+      "name": "Self-hosted",
+      "icon": null,
+      "detail": "Apache",
+      "detailIcon": "Apache",
+      "source": "server"
+    },
+    "headers": {
+      "server": "Apache"
+    },
+    "violations": 77,
+    "passes": 3508,
+    "incomplete": 53,
+    "violationRules": 5,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 67,
+        "help": "All page content should be contained by landmarks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/region?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "div:nth-child(2) > .container",
+            "snippet": "<div class=\"container\">"
+          },
+          {
+            "selector": "#marquee",
+            "snippet": "<arc-marquee-rotating class=\"arc-ds-component\" background=\"transparent\" surface=\"dark\" rotation-time=\"15\" threshold=\"0.25\" id=\"marquee\">"
+          },
+          {
+            "selector": "arc-card[slot=\"mosaic-row-item-0\"][layout=\"asset-left\"][scrim=\"blue\"] .image-container",
+            "snippet": "<div class=\"image-container\"> <slot name=\"image\"> </slot> </div>"
+          },
+          {
+            "selector": "arc-card[slot=\"mosaic-row-item-0\"][layout=\"asset-left\"][scrim=\"blue\"] .eyebrow-container.eyebrow-font-small",
+            "snippet": "<div class=\"eyebrow-container eyebrow-font-small\"> <slot name=\"eyebrow\"> </slot> </div>"
+          },
+          {
+            "selector": "arc-card[slot=\"mosaic-row-item-0\"][layout=\"asset-left\"][scrim=\"blue\"] .heading-container",
+            "snippet": "<div class=\"heading-container\"> <slot name=\"heading\"> </slot> </div>"
+          }
+        ]
+      },
+      {
+        "id": "heading-order",
+        "impact": "moderate",
+        "nodes": 5,
+        "help": "Heading levels should only increase by one",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/heading-order?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "arc-card[slot=\"mosaic-row-item-0\"][layout=\"asset-left\"][scrim=\"blue\"] > arc-heading[heading-level=\"5\"][data-aue-label=\"Heading Text\"][data-aue-prop=\"headingText\"] h5",
+            "snippet": "<h5 class=\"arc-heading surface-dark\"> <slot></slot> <!--?lit$017771865$--> </h5>"
+          },
+          {
+            "selector": "report-highlights-statistic[slot=\"highlights-item-id-0\"] > arc-heading[slot=\"statistic-heading\"][heading-level=\"5\"][data-aue-label=\"Heading Text\"] .no-size-override",
+            "snippet": "<h5 class=\"arc-heading surface-dark no-size-override\"> <slot></slot> <!--?lit$017771865$--> </h5>"
+          },
+          {
+            "selector": "arc-icon-block[slot=\"group-item-0\"] > arc-heading[heading-level=\"5\"][data-aue-label=\"Heading Text\"][data-aue-prop=\"headingText\"] h5",
+            "snippet": "<h5 class=\"arc-heading surface-dark\"> <slot></slot> <!--?lit$017771865$--> </h5>"
+          },
+          {
+            "selector": "arc-card[slot=\"group-item-0\"][layout=\"asset-top\"][scrim=\"blue\"] > arc-heading[heading-level=\"5\"][data-aue-label=\"Heading Text\"][data-aue-prop=\"headingText\"] h5",
+            "snippet": "<h5 class=\"arc-heading surface-dark\"> <slot></slot> <!--?lit$017771865$--> </h5>"
+          },
+          {
+            "selector": "arc-heading[heading-level=\"4\"] h4",
+            "snippet": "<h4 class=\"arc-heading surface-dark\"> <slot></slot> <!--?lit$017771865$--> </h4>"
+          }
+        ]
+      },
+      {
+        "id": "empty-heading",
+        "impact": "minor",
+        "nodes": 3,
+        "help": "Headings should not be empty",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/empty-heading?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "arc-customer-carousel > arc-heading-block[orientation=\"vertical\"][slot=\"heading-block\"] > arc-heading[motion=\"on\"][heading-size-override=\"h1\"][heading-level=\"2\"] .h1",
+            "snippet": "<h2 class=\"arc-heading surface-dark h1\"> <slot></slot> <!--?lit$017771865$--> </h2>"
+          },
+          {
+            "selector": "arc-heading[aria-label=\"What’s new now\"] .h1",
+            "snippet": "<h2 class=\"arc-heading surface-dark h1\"> <slot></slot> <!--?lit$017771865$--> </h2>"
+          },
+          {
+            "selector": "arc-heading[aria-label=\"Let’s put AI to work\"] .h1",
+            "snippet": "<h2 class=\"arc-heading surface-dark h1\"> <slot></slot> <!--?lit$017771865$--> </h2>"
+          }
+        ]
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/color-contrast?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "arc-heading-block[has-divider=\"\"][orientation=\"vertical\"][slot=\"heading-block\"] > arc-heading[heading-level=\"2\"][data-aue-label=\"Heading Text\"][data-aue-prop=\"headingText\"] > b",
+            "snippet": "<b>ServiceNow is the AI control tower</b>"
+          }
+        ]
+      },
+      {
+        "id": "tabindex",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "Elements should not have tabindex greater than zero",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/tabindex?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".link--skip-to-content",
+            "snippet": "<a class=\"naas-link link--solid small link--skip-to-content light icon-trailing\" href=\"#main-content\" tabindex=\"1\"> <i class=\"link-icon arrow-right-long-icon-custom\"></i> <span class=\"link-text\">Skip…"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
