@@ -1292,7 +1292,7 @@ fieldset[disabled] select {
 	letter-spacing: -0.02em;
 }
 
-/* ------------------------------------------------------ site of the day */
+/* ------------------------------------------------------ site of the week */
 
 /* Inside a stat tile now, so it stacks rather than sitting beside its facts.
    The screenshot is a banner crop: the tile is a few hundred pixels wide, and a
@@ -1310,19 +1310,19 @@ fieldset[disabled] select {
  * left over to grow into, and without a minimum the image would collapse to
  * whatever `object-fit` could get away with.
  */
-.stat-sotd {
+.stat-sotw {
 	display: flex;
 	flex-direction: column;
 }
 
-.sotd-shot {
+.sotw-shot {
 	display: block;
 	line-height: 0;
 	margin: 0.15rem 0 0.5rem;
 	min-height: 10rem;
 }
 
-.sotd-shot img {
+.sotw-shot img {
 	width: 100%;
 	height: 100%;
 	/* A ceiling as well as a floor. Growing without one made this card the tallest
@@ -1336,9 +1336,9 @@ fieldset[disabled] select {
 	background: var(--bg);
 }
 
-.sotd-name { margin: 0 0 0.45rem; font-size: 1.05rem; font-weight: 600; }
-.sotd-name a { color: var(--text); text-decoration: none; }
-.sotd-name a:hover { text-decoration: underline; }
+.sotw-name { margin: 0 0 0.45rem; font-size: 1.05rem; font-weight: 600; }
+.sotw-name a { color: var(--text); text-decoration: none; }
+.sotw-name a:hover { text-decoration: underline; }
 
 /* ------------------------------------------------------------------- tally */
 

@@ -86,11 +86,11 @@ permalink: /index.html
 		<h2>Summary</h2>
 	</div>
 	{#
-		The site of the day is a fact about the whole corpus rather than about one
+		The site of the week is a fact about the whole corpus rather than about one
 		category, so it is passed in rather than computed per set — the category
 		pages call the same macro without it and simply do not show the card.
 	#}
-	{{ statbar(sites.stats, metrics, sites.siteOfTheDay, meta.screenshotService) }}
+	{{ statbar(sites.stats, metrics, sites.siteOfTheWeek, meta.screenshotService) }}
 </section>
 
 {% if not sites.stats.measured %}

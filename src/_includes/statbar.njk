@@ -18,11 +18,11 @@
 	here, and reaching for it silently yields undefined rather than failing.
 	Everything the bar needs is therefore passed in.
 #}
-{% macro statbar(stats, metrics, siteOfTheDay=null, screenshotService=null) %}
+{% macro statbar(stats, metrics, siteOfTheWeek=null, screenshotService=null) %}
 <section class="statbar">
 	{#
-		One of the perfect scores, held for the whole UTC day. Every eligible site
-		is featured once before any is featured twice — see siteOfTheDay in
+		One of the perfect scores, held for the whole UTC week. Every eligible site
+		is featured once before any is featured twice — see siteOfTheWeek in
 		lib/report.js. A picture rather than a row, because the leaderboard below
 		already lists every one of them and the point of pulling one out is to
 		show what it looks like.
@@ -30,10 +30,10 @@
 		Cropped to the top of the page: at this size the whole screenshot would be
 		a gray smudge, and the masthead is the recognizable part.
 	#}
-	{% if siteOfTheDay %}
-	{% set sotd = siteOfTheDay.entry %}
-	<div class="stat stat-sotd">
-		<span class="stat-label">Perfect site of the day</span>
+	{% if siteOfTheWeek %}
+	{% set sotw = siteOfTheWeek.entry %}
+	<div class="stat stat-sotw">
+		<span class="stat-label">Perfect site of the week</span>
 		{#
 			Our own capture first: the same page load that produced the scores under
 			it, taken at Lighthouse's own pixel ratio because this site scored a
@@ -46,25 +46,25 @@
 			nothing — it resolves to the current page and fetches this whole
 			document as an image.
 		#}
-		{% if sotd.ownScreenshot %}
-		<a class="sotd-shot" href="/site/{{ sotd.slug }}/" tabindex="-1" aria-hidden="true">
-			<img src="{{ sotd.ownScreenshot.src }}"
-				width="{{ sotd.ownScreenshot.width }}" height="{{ sotd.ownScreenshot.height }}"
+		{% if sotw.ownScreenshot %}
+		<a class="sotw-shot" href="/site/{{ sotw.slug }}/" tabindex="-1" aria-hidden="true">
+			<img src="{{ sotw.ownScreenshot.src }}"
+				width="{{ sotw.ownScreenshot.width }}" height="{{ sotw.ownScreenshot.height }}"
 				alt="" loading="lazy" decoding="async">
 		</a>
 		{% elif screenshotService %}
-		<a class="sotd-shot" href="/site/{{ sotd.slug }}/" tabindex="-1" aria-hidden="true">
-			<img src="{{ sotd.url | screenshot(screenshotService) }}" width="650" height="650"
+		<a class="sotw-shot" href="/site/{{ sotw.slug }}/" tabindex="-1" aria-hidden="true">
+			<img src="{{ sotw.url | screenshot(screenshotService) }}" width="650" height="650"
 				alt="" loading="lazy" decoding="async">
 		</a>
 		{% endif %}
-		<p class="sotd-name"><a href="/site/{{ sotd.slug }}/">{{ sotd.displayUrl }}</a></p>
+		<p class="sotw-name"><a href="/site/{{ sotw.slug }}/">{{ sotw.displayUrl }}</a></p>
 		<span class="rings">
 			{% for score in metrics.SCORES %}
-			{% scoreRing sotd.latest.lab.scores[score.key], score.label, score.short %}
+			{% scoreRing sotw.latest.lab.scores[score.key], score.label, score.short %}
 			{% endfor %}
-			{% axeRing sotd.axe %}
-			{% cwvRing sotd.cwvFailures, sotd.cwv.assessed, sotd.cwvWorst %}
+			{% axeRing sotw.axe %}
+			{% cwvRing sotw.cwvFailures, sotw.cwv.assessed, sotw.cwvWorst %}
 		</span>
 	</div>
 	{% endif %}

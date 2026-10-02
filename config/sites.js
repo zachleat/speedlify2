@@ -544,7 +544,7 @@ export default {
 	// One exception, and it is not configurable: a run that scores a straight 400
 	// — 100 in all four Lighthouse categories — is lifted to "primary" whatever
 	// mode says, so a category set to "none" still captures the no-JS pair for
-	// its perfect scorers. That site can be the perfect site of the day, and that
+	// its perfect scorers. That site can be the perfect site of the week, and that
 	// card is a photograph. It lives in `keepsScreenshots` in lib/runner.js,
 	// because it is decided from the run's own scores and those are only known
 	// once the run has finished.
