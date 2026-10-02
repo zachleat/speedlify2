@@ -1,0 +1,483 @@
+{
+  "url": "https://www.svd.se/",
+  "name": "www.svd.se",
+  "group": "astro-showcase",
+  "groupName": "Astro Showcase",
+  "timestamp": 1790981783094,
+  "date": "2026-10-02T22:56:23.094Z",
+  "runId": "2026-10-02T22-55-09-533Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 46093,
+  "error": null,
+  "variance": {
+    "min": 48,
+    "max": 57,
+    "spread": 9,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://www.svd.se/",
+    "finalUrl": "https://www.svd.se/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 52,
+      "accessibility": 90,
+      "best-practices": 96,
+      "seo": 92,
+      "agentic-browsing": 100
+    },
+    "timings": {
+      "fcp": 3940,
+      "lcp": 6683,
+      "si": 5753,
+      "tbt": 499,
+      "tti": 13276,
+      "cls": 0,
+      "ttfb": 630,
+      "maxPotentialFid": 273,
+      "serverResponseTime": 373,
+      "networkRtt": 127.6,
+      "networkServerLatency": 160.7
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 629.7,
+      "resourceLoadDelay": 362.9,
+      "resourceLoadDuration": 8.4,
+      "elementRenderDelay": 30.1
+    },
+    "weight": {
+      "total": 1788418,
+      "requests": 284,
+      "mainDocument": 59395,
+      "byType": {
+        "total": {
+          "bytes": 1772568,
+          "requests": 281
+        },
+        "script": {
+          "bytes": 683011,
+          "requests": 187
+        },
+        "image": {
+          "bytes": 597816,
+          "requests": 22
+        },
+        "font": {
+          "bytes": 273057,
+          "requests": 14
+        },
+        "other": {
+          "bytes": 109215,
+          "requests": 24
+        },
+        "document": {
+          "bytes": 75670,
+          "requests": 5
+        },
+        "stylesheet": {
+          "bytes": 33799,
+          "requests": 29
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 827931,
+          "requests": 50
+        }
+      },
+      "scripts": 187,
+      "stylesheets": 29,
+      "fonts": 14
+    },
+    "thirdParty": {
+      "count": 6,
+      "bytes": 874736,
+      "mainThreadMs": 94.2,
+      "top": [
+        {
+          "entity": "vgc.no",
+          "bytes": 558602,
+          "mainThreadMs": 0,
+          "byType": {
+            "image": 558602
+          },
+          "typedBytes": 558602
+        },
+        {
+          "entity": "schibsted.tech",
+          "bytes": 115239,
+          "mainThreadMs": 80.7,
+          "byType": {
+            "script": 115239
+          },
+          "typedBytes": 115239
+        },
+        {
+          "entity": "Google Fonts",
+          "bytes": 95479,
+          "mainThreadMs": 0,
+          "byType": {
+            "font": 93392,
+            "stylesheet": 2087
+          },
+          "typedBytes": 95479
+        },
+        {
+          "entity": "Bing Ads",
+          "bytes": 61525,
+          "mainThreadMs": 13.3,
+          "byType": {
+            "script": 61525
+          },
+          "typedBytes": 61525
+        },
+        {
+          "entity": "schibsted.io",
+          "bytes": 34387,
+          "mainThreadMs": 0.2,
+          "byType": {
+            "script": 8802,
+            "other": 25585
+          },
+          "typedBytes": 34387
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 5473.6,
+      "byGroup": {
+        "scriptEvaluation": 2113.7,
+        "other": 1953.2,
+        "styleLayout": 750,
+        "parseHTML": 336.1,
+        "scriptParseCompile": 161,
+        "paintCompositeRender": 119.2,
+        "garbageCollection": 40.4
+      },
+      "bootupMs": 2021.7,
+      "longTasks": 20,
+      "longestTaskMs": 423
+    },
+    "dom": {
+      "elements": 1249,
+      "depth": 15,
+      "maxChildren": 60
+    },
+    "waste": {
+      "unusedJsBytes": 104006,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 39213,
+      "duplicatedJsBytes": 4694,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 1180,
+      "renderBlockingCount": 3,
+      "poorlyCachedBytes": 139971.9083333333,
+      "poorlyCachedCount": 30
+    },
+    "accessibility": {
+      "failingCount": 3,
+      "applicableCount": 33,
+      "failingNodes": 20,
+      "failing": [
+        {
+          "id": "listitem",
+          "title": "List items (`<li>`) are not contained within `<ul>`, `<ol>` or `<menu>` parent elements.",
+          "weight": 7,
+          "nodes": 13
+        },
+        {
+          "id": "frame-title",
+          "title": "`<frame>` or `<iframe>` elements do not have a title",
+          "weight": 7,
+          "nodes": 4
+        },
+        {
+          "id": "list",
+          "title": "Lists do not contain only `<li>` elements and script supporting elements (`<script>` and `<template>`).",
+          "weight": 7,
+          "nodes": 3
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 1,
+      "applicableCount": 19,
+      "failing": [
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "weight": 1,
+          "nodes": 5
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 1,
+      "applicableCount": 10,
+      "failing": [
+        {
+          "id": "link-text",
+          "title": "Links do not have descriptive text",
+          "weight": 1,
+          "nodes": 1
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h3",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 5,
+      "baselineLimitedFeatures": 57
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2449.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-10-02T22:56:24.467Z",
+      "runtimeMs": 13920.3
+    }
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-09-02",
+      "last": "2026-09-29"
+    },
+    "metrics": {
+      "rtt": {
+        "p75": 68,
+        "rating": null,
+        "distribution": {
+          "good": 79.5,
+          "needsImprovement": 18.4,
+          "poor": 2.1
+        }
+      },
+      "cls": {
+        "p75": 0.09,
+        "rating": "good",
+        "distribution": {
+          "good": 76,
+          "needsImprovement": 8.2,
+          "poor": 15.7
+        }
+      },
+      "ttfb": {
+        "p75": 285,
+        "rating": "good",
+        "distribution": {
+          "good": 92.4,
+          "needsImprovement": 5.5,
+          "poor": 2.2
+        }
+      },
+      "fcp": {
+        "p75": 550,
+        "rating": "good",
+        "distribution": {
+          "good": 96.8,
+          "needsImprovement": 2.4,
+          "poor": 0.8
+        }
+      },
+      "inp": {
+        "p75": 78,
+        "rating": "good",
+        "distribution": {
+          "good": 98.5,
+          "needsImprovement": 1.3,
+          "poor": 0.2
+        }
+      },
+      "lcp": {
+        "p75": 1003,
+        "rating": "good",
+        "distribution": {
+          "good": 92.3,
+          "needsImprovement": 5,
+          "poor": 2.7
+        }
+      }
+    },
+    "cwvPass": true,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": {
+      "id": "astro",
+      "name": "Astro",
+      "icon": "Astro",
+      "version": null,
+      "source": "dom",
+      "raw": null
+    },
+    "probe": {
+      "metas": [],
+      "marks": [
+        "astro",
+        "react"
+      ],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "self-hosted",
+      "name": "Self-hosted",
+      "icon": null,
+      "detail": "nginx",
+      "detailIcon": "Nginx",
+      "source": "server"
+    },
+    "headers": {
+      "server": "nginx",
+      "via": "1.1 b972ddb21199e78c50db3b97a65aa6ec.cloudfront.net (CloudFront), 1.1 971cad87e8cdac9c4a5f2f575e735184.cloudfront.net (C",
+      "x-amz-cf-id": "Xl1sOktxQX4QeUzOKV_YHVhr8u2WBkRMUOl5siftF7C3XLtzoSsqTQ=="
+    },
+    "violations": 26,
+    "passes": 1962,
+    "incomplete": 2,
+    "violationRules": 5,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "listitem",
+        "impact": "serious",
+        "nodes": 13,
+        "help": "<li> elements must be contained in a <ul> or <ol>",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/listitem?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "track-element[data-track-id=\"teaser:94:78375\"] > ._li_tkb6a_1",
+            "snippet": "<li class=\"_li_tkb6a_1\">"
+          },
+          {
+            "selector": "track-element[data-track-id=\"teaser:94:78373\"] > ._li_tkb6a_1",
+            "snippet": "<li class=\"_li_tkb6a_1\">"
+          },
+          {
+            "selector": "track-element[data-track-id=\"teaser:94:78372\"] > ._li_tkb6a_1",
+            "snippet": "<li class=\"_li_tkb6a_1\">"
+          },
+          {
+            "selector": "track-element[data-track-id=\"teaser:aJmn22\"][data-track-target-id=\"sdrn:svdse:article:aJmn22\"][data-track-container-name=\"latest-news\"] > ._li_13xr0_1",
+            "snippet": "<li class=\"_li_13xr0_1\">"
+          },
+          {
+            "selector": "track-element[data-track-id=\"teaser:2pQxay\"][data-track-target-id=\"sdrn:svdse:article:2pQxay\"][data-track-container-name=\"latest-news\"] > ._li_13xr0_1",
+            "snippet": "<li class=\"_li_13xr0_1\">"
+          }
+        ]
+      },
+      {
+        "id": "image-redundant-alt",
+        "impact": "minor",
+        "nodes": 5,
+        "help": "Alternative text of images should not be repeated as text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/image-redundant-alt?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "._body_13xr0_35 > ._avatar_1stzn_8 > ._image_1stzn_1[alt=\"Torbjörn Nilsson\"][sizes=\"auto\"]",
+            "snippet": "<img alt=\"Torbjörn Nilsson\" class=\"_image_1stzn_1\" loading=\"lazy\" sizes=\"auto\" src=\"https://akamai.vgc.n...\" srcset=\"https://akamai.vgc.n...\">"
+          },
+          {
+            "selector": "._body_13xr0_35 > ._avatar_1stzn_8 > ._image_1stzn_1[alt=\"Henrik Torehammar\"][sizes=\"auto\"]",
+            "snippet": "<img alt=\"Henrik Torehammar\" class=\"_image_1stzn_1\" loading=\"lazy\" sizes=\"auto\" src=\"https://akamai.vgc.n...\" srcset=\"https://akamai.vgc.n...\">"
+          },
+          {
+            "selector": "img[alt=\"Therese Larsson Hultin\"]",
+            "snippet": "<img alt=\"Therese Larsson Hult...\" class=\"_image_1stzn_1\" loading=\"lazy\" sizes=\"auto\" src=\"https://akamai.vgc.n...\" srcset=\"https://akamai.vgc.n...\">"
+          },
+          {
+            "selector": "img[alt=\"Hugo Rehnberg\"]",
+            "snippet": "<img alt=\"Hugo Rehnberg\" class=\"_image_1stzn_1\" loading=\"lazy\" sizes=\"auto\" src=\"https://akamai.vgc.n...\" srcset=\"https://akamai.vgc.n...\">"
+          },
+          {
+            "selector": "img[alt=\"Ylva Lagercrantz Spindler\"]",
+            "snippet": "<img alt=\"Ylva Lagercrantz Spi...\" class=\"_image_1stzn_1\" loading=\"lazy\" sizes=\"auto\" src=\"https://akamai.vgc.n...\" srcset=\"https://akamai.vgc.n...\">"
+          }
+        ]
+      },
+      {
+        "id": "frame-title",
+        "impact": "serious",
+        "nodes": 4,
+        "help": "Frames must have an accessible name",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/frame-title?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".below-header > smart-frame[data-pulse-provider-id=\"svdse\"] > iframe[allowtransparency=\"\"][allowfullscreen=\"\"][scrolling=\"no\"]",
+            "snippet": "<iframe allowfullscreen=\"\" allowtransparency=\"\" loading=\"lazy\" sandbox=\"allow-scripts allow-...\" scrolling=\"no\" style=\"border:none;height:4...\" src=\"https://widgets.svd....\">"
+          },
+          {
+            "selector": "smart-frame[type=\"smart-frame\"][data-pulse-provider-id=\"svdse\"] > iframe[allowtransparency=\"\"][allowfullscreen=\"\"][scrolling=\"no\"]",
+            "snippet": "<iframe allowfullscreen=\"\" allowtransparency=\"\" loading=\"lazy\" sandbox=\"allow-scripts allow-...\" scrolling=\"no\" style=\"border:none;height:1...\" src=\"https://widgets.svd....\">"
+          },
+          {
+            "selector": ".bottom > smart-frame[data-pulse-provider-id=\"svdse\"]:nth-child(1) > iframe[allowtransparency=\"\"][allowfullscreen=\"\"][scrolling=\"no\"]",
+            "snippet": "<iframe allowfullscreen=\"\" allowtransparency=\"\" loading=\"lazy\" sandbox=\"allow-scripts allow-...\" scrolling=\"no\" style=\"border:none;overflow...\" src=\"https://widgets.svd....\">"
+          },
+          {
+            "selector": "smart-frame[data-pulse-provider-id=\"svdse\"]:nth-child(3) > iframe[allowtransparency=\"\"][allowfullscreen=\"\"][scrolling=\"no\"]",
+            "snippet": "<iframe allowfullscreen=\"\" allowtransparency=\"\" loading=\"lazy\" sandbox=\"allow-scripts allow-...\" scrolling=\"no\" style=\"border:none;overflow...\" src=\"https://widgets.svd....\">"
+          }
+        ]
+      },
+      {
+        "id": "list",
+        "impact": "serious",
+        "nodes": 3,
+        "help": "<ul> and <ol> must only directly contain <li>, <script> or <template> elements",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/list?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".bundle._bundle_z8a57_1:nth-child(11) > ol",
+            "snippet": "<ol class=\"_entries_z8a57_25 _ol_z8a57_15\" data-orientation=\"vertical\">"
+          },
+          {
+            "selector": ".bundle._bundle_z8a57_1[data-skin=\"[object Object]\"] > ol",
+            "snippet": "<ol class=\"_entries_z8a57_25 _ol_z8a57_15\" data-orientation=\"vertical\">"
+          },
+          {
+            "selector": ".bundle._bundle_z8a57_1:nth-child(45) > ol",
+            "snippet": "<ol class=\"_entries_z8a57_25 _ol_z8a57_15\" data-orientation=\"vertical\">"
+          }
+        ]
+      },
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "All page content should be contained by landmarks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/region?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".below-header > smart-frame[data-pulse-provider-id=\"svdse\"] > iframe[allowtransparency=\"\"][allowfullscreen=\"\"][scrolling=\"no\"] >>> .widget-wrapper",
+            "snippet": "<div class=\"widget-wrapper\">"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
