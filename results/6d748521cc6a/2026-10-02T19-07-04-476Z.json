@@ -1,0 +1,362 @@
+{
+  "url": "https://www.porsche.com/",
+  "name": "www.porsche.com",
+  "group": "astro-showcase",
+  "groupName": "Astro Showcase",
+  "timestamp": 1790968024476,
+  "date": "2026-10-02T19:07:04.476Z",
+  "runId": "2026-10-02T18-59-25-440Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 39402,
+  "error": null,
+  "variance": {
+    "min": 71,
+    "max": 78,
+    "spread": 7,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://www.porsche.com/",
+    "finalUrl": "https://www.porsche.com/usa/?cs_redirect=1",
+    "redirect": {
+      "from": "https://www.porsche.com/",
+      "to": "https://www.porsche.com/usa?cs_redirect=1",
+      "chain": [
+        {
+          "url": "https://www.porsche.com/",
+          "status": 301
+        },
+        {
+          "url": "https://www.porsche.com/usa/?cs_redirect=1",
+          "status": 200
+        }
+      ],
+      "statuses": [
+        301
+      ],
+      "change": "path+query",
+      "permanent": true,
+      "schemeUpgrade": false,
+      "hops": 1
+    },
+    "statusCode": "ok",
+    "scores": {
+      "performance": 77,
+      "accessibility": 100,
+      "best-practices": 96,
+      "seo": 100,
+      "agentic-browsing": 98
+    },
+    "timings": {
+      "fcp": 1375,
+      "lcp": 3301,
+      "si": 3993,
+      "tbt": 492,
+      "tti": 10371,
+      "cls": 0.075,
+      "ttfb": 625,
+      "maxPotentialFid": 461,
+      "serverResponseTime": 11,
+      "networkRtt": 0.9,
+      "networkServerLatency": 310
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 27.2,
+      "resourceLoadDelay": 15.5,
+      "resourceLoadDuration": 37,
+      "elementRenderDelay": 76
+    },
+    "weight": {
+      "total": 9767486,
+      "requests": 166,
+      "mainDocument": 45387,
+      "byType": {
+        "total": {
+          "bytes": 9767486,
+          "requests": 166
+        },
+        "media": {
+          "bytes": 8407164,
+          "requests": 13
+        },
+        "script": {
+          "bytes": 696649,
+          "requests": 83
+        },
+        "image": {
+          "bytes": 436553,
+          "requests": 42
+        },
+        "font": {
+          "bytes": 81075,
+          "requests": 2
+        },
+        "other": {
+          "bytes": 64875,
+          "requests": 17
+        },
+        "document": {
+          "bytes": 47039,
+          "requests": 2
+        },
+        "stylesheet": {
+          "bytes": 34131,
+          "requests": 7
+        },
+        "third-party": {
+          "bytes": 216558,
+          "requests": 16
+        }
+      },
+      "scripts": 83,
+      "stylesheets": 7,
+      "fonts": 2
+    },
+    "thirdParty": {
+      "count": 3,
+      "bytes": 216558,
+      "mainThreadMs": 0,
+      "top": [
+        {
+          "entity": "storyblok.com",
+          "bytes": 162281,
+          "mainThreadMs": 0,
+          "byType": {
+            "image": 162281
+          },
+          "typedBytes": 162281
+        },
+        {
+          "entity": "Usercentrics CMP",
+          "bytes": 52892,
+          "mainThreadMs": 0,
+          "byType": {
+            "other": 52249,
+            "image": 643
+          },
+          "typedBytes": 52892
+        },
+        {
+          "entity": "porsche.services",
+          "bytes": 1385,
+          "mainThreadMs": 0,
+          "byType": {
+            "other": 1385
+          },
+          "typedBytes": 1385
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 5557.4,
+      "byGroup": {
+        "scriptEvaluation": 2047.1,
+        "other": 1907.4,
+        "paintCompositeRender": 677.1,
+        "styleLayout": 647.6,
+        "scriptParseCompile": 124,
+        "parseHTML": 84,
+        "garbageCollection": 70.1
+      },
+      "bootupMs": 1661.3,
+      "longTasks": 12,
+      "longestTaskMs": 461
+    },
+    "dom": {
+      "elements": 1071,
+      "depth": 16,
+      "maxChildren": 14
+    },
+    "waste": {
+      "unusedJsBytes": 219275,
+      "unusedCssBytes": 11401,
+      "legacyJsBytes": 0,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 151,
+      "renderBlockingCount": 8,
+      "poorlyCachedBytes": 163525.37083333332,
+      "poorlyCachedCount": 9
+    },
+    "accessibility": {
+      "failingCount": 0,
+      "applicableCount": 29,
+      "failingNodes": 0,
+      "failing": []
+    },
+    "bestPractices": {
+      "failingCount": 1,
+      "applicableCount": 19,
+      "failing": [
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "weight": 1,
+          "nodes": 1
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 0,
+      "applicableCount": 10,
+      "failing": []
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 775.4,
+      "consoleErrors": 1,
+      "baselineLimitedFeatures": 64
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2351.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-10-02T19:07:18.513Z",
+      "runtimeMs": 11021.3
+    }
+  },
+  "field": {
+    "source": "crux",
+    "scope": "origin",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-09-02",
+      "last": "2026-09-29"
+    },
+    "metrics": {
+      "lcp": {
+        "p75": 1941,
+        "rating": "good",
+        "distribution": {
+          "good": 82.5,
+          "needsImprovement": 10.1,
+          "poor": 7.4
+        }
+      },
+      "rtt": {
+        "p75": 126,
+        "rating": null,
+        "distribution": {
+          "good": 43.8,
+          "needsImprovement": 50.1,
+          "poor": 6
+        }
+      },
+      "cls": {
+        "p75": 0.01,
+        "rating": "good",
+        "distribution": {
+          "good": 91.4,
+          "needsImprovement": 7.2,
+          "poor": 1.4
+        }
+      },
+      "ttfb": {
+        "p75": 1067,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 64.2,
+          "needsImprovement": 26,
+          "poor": 9.8
+        }
+      },
+      "fcp": {
+        "p75": 1410,
+        "rating": "good",
+        "distribution": {
+          "good": 84.1,
+          "needsImprovement": 10.5,
+          "poor": 5.4
+        }
+      },
+      "inp": {
+        "p75": 203,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 74.7,
+          "needsImprovement": 17.8,
+          "poor": 7.5
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": {
+      "id": "astro",
+      "name": "Astro",
+      "icon": "Astro",
+      "version": "6.4.8",
+      "source": "meta",
+      "raw": "Astro v6.4.8"
+    },
+    "probe": {
+      "metas": [
+        "Astro v6.4.8"
+      ],
+      "marks": [
+        "astro",
+        "vue",
+        "lit"
+      ],
+      "markVersions": {
+        "vue": "3.5.40",
+        "lit": "3.3.1"
+      }
+    },
+    "interstitial": null,
+    "host": null,
+    "headers": {},
+    "violations": 2,
+    "passes": 1058,
+    "incomplete": 12,
+    "violationRules": 2,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "empty-heading",
+        "impact": "minor",
+        "nodes": 1,
+        "help": "Headings should not be empty",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/empty-heading?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "uc-layer2 uc-p-heading h2",
+            "snippet": "<h2 class=\"root\"><slot></slot></h2>"
+          }
+        ]
+      },
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "All page content should be contained by landmarks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/region?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "p-header p-country-recommender .text-2xs",
+            "snippet": "<div class=\"text-2xs ml-1 grid flex-wrap sm:ml-2\">"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
