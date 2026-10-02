@@ -16,6 +16,7 @@ import { transform as transformCss } from "lightningcss";
 import { lowerIsBetter } from "./lib/compare.js";
 import { scoreBand, axeBand, cwvBand } from "./lib/rank.js";
 import { ringBands } from "./lib/report.js";
+import { siteApi, groupApi, groupsApi } from "./lib/api.js";
 
 const ICONS_DIR = "src/icons";
 
@@ -1333,6 +1334,9 @@ export default async function ($config) {
 	});
 
 	$config.addFilter("json", (v) => JSON.stringify(v, null, 2));
+	$config.addFilter("siteApi", siteApi);
+	$config.addFilter("groupApi", groupApi);
+	$config.addFilter("groupsApi", groupsApi);
 
 	return {
 		dir: { input: "src", output: "_site", includes: "_includes", data: "_data" },

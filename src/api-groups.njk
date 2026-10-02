@@ -1,0 +1,5 @@
+---
+permalink: "/api/groups.json"
+eleventyExcludeFromCollections: true
+---
+{{ sites.groups | groupsApi | json | safe }}

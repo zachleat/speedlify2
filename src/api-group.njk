@@ -1,0 +1,10 @@
+---
+pagination:
+  data: sites.groups
+  size: 1
+  alias: group
+permalink: "/api/group/{{ group.id }}.json"
+eleventyExcludeFromCollections: true
+---
+{#- One request for a whole category's ranks, with the same values as each site's /api/site/ file. -#}
+{{ group | groupApi | json | safe }}

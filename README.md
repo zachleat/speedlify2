@@ -97,6 +97,36 @@ speedlify report --out=x.json # somewhere else (or set SPEEDLIFY_REPORT_FILE)
 
 It is self-describing: alongside the entries it carries the metric definitions (label, unit, note) the site renders with, so it can be consumed without this codebase. It is not published with the site — it is the build's input, and at full coverage it runs to tens of megabytes. What the site serves instead is one small file per site at **`/api/site/<slug>.json`**, which is what the embed component reads.
 
+For a whole category in one request there is **`/api/group/<group-slug>.json`**, built from the same projection as the per-site files so the values always match:
+
+```json
+{
+  "group": "Build Awesome Starters",
+  "slug": "11ty-starters",
+  "updated": "2026-09-28T03:57:46.977Z",
+  "count": 160,
+  "sites": [
+    {
+      "url": "https://eleventy-excellent.netlify.app/",
+      "requestedUrl": "https://eleventy-excellent.netlify.app/",
+      "slug": "eleventy--excellent-netlify-app",
+      "page": "/site/eleventy--excellent-netlify-app/",
+      "measured": true,
+      "stale": false,
+      "rank": 85,
+      "total": 400,
+      "lighthouse": { "performance": 100, "accessibility": 100, "bestPractices": 100, "seo": 100 },
+      "axe": 0,
+      "cwv": null
+    }
+  ]
+}
+```
+
+`rank` is the site-wide rank, as in `/api/site/`, and `sites` is sorted by it with unranked sites last. Unmeasured sites are included with `"measured": false` and `null` scores. `requestedUrl` is the URL as written in the group's source list, which differs from `url` after normalizing or a redirect. `updated` is the newest measurement in the group.
+
+**`/api/groups.json`** lists every group's `group` name, `slug`, site `count` and `api` path.
+
 `report.json` is derived and gitignored. Size is ~24 kB per site with a 120-point window, so roughly 26 MB at 1000 sites; if you publish at that scale, consider dropping the passthrough.
 
 Two things it deliberately does *not* duplicate: trends carry a bare `values` array rather than a point object per measurement (there are ~26 trends per site, so the naive version wrote each site's history 26 times), and `history` is capped to the rows the log table actually renders.
