@@ -1,0 +1,356 @@
+{
+  "url": "http://dpimap.org/",
+  "name": "dpimap.org",
+  "group": "astro-showcase",
+  "groupName": "Astro Showcase",
+  "timestamp": 1790923390752,
+  "date": "2026-10-02T06:43:10.752Z",
+  "runId": "2026-10-02T06-43-05-125Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 65185,
+  "error": null,
+  "variance": {
+    "min": 87,
+    "max": 96,
+    "spread": 9,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "http://dpimap.org/",
+    "finalUrl": "https://dpimap.org/",
+    "redirect": {
+      "from": "http://dpimap.org/",
+      "to": "https://dpimap.org/",
+      "chain": [
+        {
+          "url": "http://dpimap.org/",
+          "status": 307
+        },
+        {
+          "url": "https://dpimap.org/",
+          "status": 200
+        }
+      ],
+      "statuses": [
+        307
+      ],
+      "change": "scheme",
+      "permanent": true,
+      "schemeUpgrade": true,
+      "hops": 1
+    },
+    "statusCode": "ok",
+    "scores": {
+      "performance": 93,
+      "accessibility": 98,
+      "best-practices": 81,
+      "seo": 100,
+      "agentic-browsing": 100
+    },
+    "timings": {
+      "fcp": 1813,
+      "lcp": 1813,
+      "si": 1813,
+      "tbt": 267,
+      "tti": 3677,
+      "cls": 0,
+      "ttfb": 516,
+      "maxPotentialFid": 143,
+      "serverResponseTime": 123,
+      "networkRtt": 0.9,
+      "networkServerLatency": 66
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 129,
+      "elementRenderDelay": 118.9
+    },
+    "weight": {
+      "total": 289486,
+      "requests": 7,
+      "mainDocument": 93679,
+      "byType": {
+        "total": {
+          "bytes": 289486,
+          "requests": 7
+        },
+        "script": {
+          "bytes": 188473,
+          "requests": 2
+        },
+        "document": {
+          "bytes": 93679,
+          "requests": 1
+        },
+        "stylesheet": {
+          "bytes": 7298,
+          "requests": 1
+        },
+        "other": {
+          "bytes": 36,
+          "requests": 3
+        },
+        "image": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "font": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 188509,
+          "requests": 4
+        }
+      },
+      "scripts": 2,
+      "stylesheets": 1,
+      "fonts": 0
+    },
+    "thirdParty": {
+      "count": 3,
+      "bytes": 188509,
+      "mainThreadMs": 76.6,
+      "top": [
+        {
+          "entity": "Google Tag Manager",
+          "bytes": 178261,
+          "mainThreadMs": 67.3,
+          "byType": {
+            "script": 178261
+          },
+          "typedBytes": 178261
+        },
+        {
+          "entity": "Cloudflare",
+          "bytes": 10212,
+          "mainThreadMs": 9.2,
+          "byType": {
+            "script": 10212
+          },
+          "typedBytes": 10212
+        },
+        {
+          "entity": "cloudflareinsights.com",
+          "bytes": 36,
+          "mainThreadMs": 0.1,
+          "byType": {
+            "other": 36
+          },
+          "typedBytes": 36
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 1606.4,
+      "byGroup": {
+        "scriptEvaluation": 472.3,
+        "styleLayout": 369.3,
+        "other": 320.7,
+        "parseHTML": 293.5,
+        "paintCompositeRender": 102.3,
+        "scriptParseCompile": 48.4
+      },
+      "bootupMs": 518.3,
+      "longTasks": 12,
+      "longestTaskMs": 143
+    },
+    "dom": {
+      "elements": 23175,
+      "depth": 10,
+      "maxChildren": 212
+    },
+    "waste": {
+      "unusedJsBytes": 74661,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 10708,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 216,
+      "renderBlockingCount": 1,
+      "poorlyCachedBytes": 4084.8,
+      "poorlyCachedCount": 1
+    },
+    "accessibility": {
+      "failingCount": 2,
+      "applicableCount": 20,
+      "failingNodes": 2,
+      "failing": [
+        {
+          "id": "landmark-one-main",
+          "title": "Document does not have a main landmark.",
+          "weight": 3,
+          "nodes": 1
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "title": "Elements with visible text labels do not have matching accessible names.",
+          "weight": 0,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 1,
+      "applicableCount": 20,
+      "failing": [
+        {
+          "id": "is-on-https",
+          "title": "Does not use HTTPS",
+          "weight": 5,
+          "nodes": 1
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 0,
+      "applicableCount": 8,
+      "failing": []
+    },
+    "hygiene": {
+      "https": 0,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "http/1.1",
+      "legacyHttpRequests": 0,
+      "redirectMs": 630,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 27
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2384,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-10-02T06:43:33.149Z",
+      "runtimeMs": 16926
+    }
+  },
+  "field": null,
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": {
+      "id": "astro",
+      "name": "Astro",
+      "icon": "Astro",
+      "version": null,
+      "source": "dom",
+      "raw": null
+    },
+    "probe": {
+      "metas": [],
+      "marks": [
+        "astro"
+      ],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": null,
+    "headers": {},
+    "violations": 431,
+    "passes": 7751,
+    "incomplete": 2,
+    "violationRules": 4,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 217,
+        "help": "All page content should be contained by landmarks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/region?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".px-2.text-md.text-center",
+            "snippet": "<div class=\"px-2 text-zinc-700 text-md text-center\"> <h2 class=\"font-bold lg:text-lg\"> DPI is far more prevalent than initially believed. </h2> </div>"
+          },
+          {
+            "selector": ".pl-4",
+            "snippet": "<div class=\"max-w-md mx-auto pl-4 pb-8\">"
+          },
+          {
+            "selector": "figcaption",
+            "snippet": "<figcaption> <p class=\"text-center font-sans tracking-wide text-zinc-400 text-xs\"> Digital ID System implementation status by country </p> </figcaption>"
+          },
+          {
+            "selector": ".font-normal",
+            "snippet": "<div class=\"flex font-sans text-xs font-normal tracking-wider text-zinc-700\">"
+          },
+          {
+            "selector": ".grid-flow-row-dense",
+            "snippet": "<header class=\"grid gap-2 items-baseline grid-flow-row-dense grid-cols-1 md:grid-cols-2 lg:grid-cols-3 pt-4\">"
+          }
+        ]
+      },
+      {
+        "id": "nested-interactive",
+        "impact": "serious",
+        "nodes": 212,
+        "help": "Interactive controls must not be nested",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/nested-interactive?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".card:nth-child(1) > article > details > summary",
+            "snippet": "<summary>"
+          },
+          {
+            "selector": ".card:nth-child(2) > article > details > summary",
+            "snippet": "<summary>"
+          },
+          {
+            "selector": ".card:nth-child(3) > article > details > summary",
+            "snippet": "<summary>"
+          },
+          {
+            "selector": ".card:nth-child(4) > article > details > summary",
+            "snippet": "<summary>"
+          },
+          {
+            "selector": ".card:nth-child(5) > article > details > summary",
+            "snippet": "<summary>"
+          }
+        ]
+      },
+      {
+        "id": "landmark-one-main",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Document should have one main landmark",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/landmark-one-main?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "html",
+            "snippet": "<html lang=\"en\" class=\"bg-white\">"
+          }
+        ]
+      },
+      {
+        "id": "landmark-unique",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/landmark-unique?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".flex-auto",
+            "snippet": "<nav class=\"flex-auto font-sans text-right text-sm font-semibold\">"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}

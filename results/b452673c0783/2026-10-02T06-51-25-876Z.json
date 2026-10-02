@@ -1,0 +1,514 @@
+{
+  "url": "https://dayofthedead.holiday/",
+  "name": "dayofthedead.holiday",
+  "group": "astro-showcase",
+  "groupName": "Astro Showcase",
+  "timestamp": 1790923885876,
+  "date": "2026-10-02T06:51:25.876Z",
+  "runId": "2026-10-02T06-43-05-125Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 2,
+  "durationMs": 217501,
+  "error": null,
+  "partialErrors": [
+    "PAGE_HUNG: Lighthouse was unable to reliably load the URL you requested because the page stopped responding."
+  ],
+  "variance": {
+    "min": 29,
+    "max": 32,
+    "spread": 3,
+    "runs": 2
+  },
+  "lab": {
+    "requestedUrl": "https://dayofthedead.holiday/",
+    "finalUrl": "https://dayofthedead.holiday/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 29,
+      "accessibility": 88,
+      "best-practices": 54,
+      "seo": 100,
+      "agentic-browsing": 42
+    },
+    "timings": {
+      "fcp": 2272,
+      "lcp": 16997,
+      "si": 10585,
+      "tbt": 8200,
+      "tti": 35785,
+      "cls": 0.123,
+      "ttfb": 618,
+      "maxPotentialFid": 957,
+      "serverResponseTime": 40,
+      "networkRtt": 869.3,
+      "networkServerLatency": 266.9
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 42.6,
+      "elementRenderDelay": 1321.7
+    },
+    "weight": {
+      "total": 3819012,
+      "requests": 933,
+      "mainDocument": 18032,
+      "byType": {
+        "total": {
+          "bytes": 3819012,
+          "requests": 919
+        },
+        "script": {
+          "bytes": 2244561,
+          "requests": 89
+        },
+        "image": {
+          "bytes": 538065,
+          "requests": 215
+        },
+        "other": {
+          "bytes": 428539,
+          "requests": 371
+        },
+        "document": {
+          "bytes": 380938,
+          "requests": 218
+        },
+        "font": {
+          "bytes": 205415,
+          "requests": 10
+        },
+        "stylesheet": {
+          "bytes": 21494,
+          "requests": 16
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 3173915,
+          "requests": 896
+        }
+      },
+      "scripts": 90,
+      "stylesheets": 16,
+      "fonts": 10
+    },
+    "thirdParty": {
+      "count": 33,
+      "bytes": 2840706,
+      "mainThreadMs": 1636.3,
+      "top": [
+        {
+          "entity": "Google/Doubleclick Ads",
+          "bytes": 928312,
+          "mainThreadMs": 688.8,
+          "byType": {
+            "script": 785359,
+            "other": 114110,
+            "image": 28672,
+            "stylesheet": 171
+          },
+          "typedBytes": 928312
+        },
+        {
+          "entity": "Google Tag Manager",
+          "bytes": 460714,
+          "mainThreadMs": 165.4,
+          "byType": {
+            "script": 460714
+          },
+          "typedBytes": 460714
+        },
+        {
+          "entity": "InMobi",
+          "bytes": 336903,
+          "mainThreadMs": 85,
+          "byType": {
+            "script": 254729,
+            "other": 82174
+          },
+          "typedBytes": 336903
+        },
+        {
+          "entity": "Google Fonts",
+          "bytes": 332351,
+          "mainThreadMs": 0,
+          "byType": {
+            "font": 264588,
+            "stylesheet": 67763
+          },
+          "typedBytes": 332351
+        },
+        {
+          "entity": "adtrafficquality.google",
+          "bytes": 207642,
+          "mainThreadMs": 120.1,
+          "byType": {
+            "script": 139124,
+            "other": 68433,
+            "image": 85
+          },
+          "typedBytes": 207642
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 48806.1,
+      "byGroup": {
+        "scriptEvaluation": 21113.6,
+        "other": 18705.6,
+        "paintCompositeRender": 4355.6,
+        "styleLayout": 2512.3,
+        "scriptParseCompile": 1349.7,
+        "garbageCollection": 386.8,
+        "parseHTML": 382.4
+      },
+      "bootupMs": 22096.6,
+      "longTasks": 20,
+      "longestTaskMs": 957
+    },
+    "dom": {
+      "elements": 924,
+      "depth": 20,
+      "maxChildren": 30
+    },
+    "waste": {
+      "unusedJsBytes": 1507202,
+      "unusedCssBytes": 10861,
+      "legacyJsBytes": 10708,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 0,
+      "renderBlockingCount": 3,
+      "poorlyCachedBytes": 645324.7680624708,
+      "poorlyCachedCount": 107
+    },
+    "accessibility": {
+      "failingCount": 4,
+      "applicableCount": 33,
+      "failingNodes": 12,
+      "failing": [
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "weight": 7,
+          "nodes": 8
+        },
+        {
+          "id": "heading-order",
+          "title": "Heading elements are not in a sequentially-descending order",
+          "weight": 3,
+          "nodes": 2
+        },
+        {
+          "id": "aria-required-parent",
+          "title": "`[role]`s are not contained by their required parent element",
+          "weight": 10,
+          "nodes": 1
+        },
+        {
+          "id": "list",
+          "title": "Lists do not contain only `<li>` elements and script supporting elements (`<script>` and `<template>`).",
+          "weight": 7,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 4,
+      "applicableCount": 20,
+      "failing": [
+        {
+          "id": "is-on-https",
+          "title": "Does not use HTTPS",
+          "weight": 5,
+          "nodes": 1
+        },
+        {
+          "id": "third-party-cookies",
+          "title": "Uses third-party cookies",
+          "weight": 5,
+          "nodes": 293
+        },
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "weight": 1,
+          "nodes": 4
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "weight": 1,
+          "nodes": 2
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 0,
+      "applicableCount": 9,
+      "failing": []
+    },
+    "hygiene": {
+      "https": 0,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 4,
+      "baselineLimitedFeatures": 55
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2461,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-10-02T06:53:23.715Z",
+      "runtimeMs": 60201.8
+    }
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-09-02",
+      "last": "2026-09-29"
+    },
+    "metrics": {
+      "cls": {
+        "p75": 0.13,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 59.2,
+          "needsImprovement": 35.9,
+          "poor": 4.9
+        }
+      },
+      "ttfb": {
+        "p75": 657,
+        "rating": "good",
+        "distribution": {
+          "good": 84,
+          "needsImprovement": 12.5,
+          "poor": 3.5
+        }
+      },
+      "fcp": {
+        "p75": 1209,
+        "rating": "good",
+        "distribution": {
+          "good": 88.6,
+          "needsImprovement": 9,
+          "poor": 2.4
+        }
+      },
+      "inp": {
+        "p75": 144,
+        "rating": "good",
+        "distribution": {
+          "good": 81,
+          "needsImprovement": 13,
+          "poor": 6
+        }
+      },
+      "lcp": {
+        "p75": 2598,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 72.2,
+          "needsImprovement": 19.7,
+          "poor": 8.2
+        }
+      },
+      "rtt": {
+        "p75": 106,
+        "rating": null,
+        "distribution": {
+          "good": 54.3,
+          "needsImprovement": 41.5,
+          "poor": 4.3
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": {
+      "id": "astro",
+      "name": "Astro",
+      "icon": "Astro",
+      "version": null,
+      "source": "dom",
+      "raw": null
+    },
+    "probe": {
+      "metas": [],
+      "marks": [
+        "astro",
+        "react",
+        "preact"
+      ],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "cloudflare",
+      "name": "Cloudflare",
+      "icon": "Cloudflare",
+      "source": "server"
+    },
+    "headers": {
+      "cf-ray": "a441cba6ae04d6f4-IAD",
+      "server": "cloudflare"
+    },
+    "violations": 38,
+    "passes": 1668,
+    "incomplete": 40,
+    "violationRules": 7,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 24,
+        "help": "All page content should be contained by landmarks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/region?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".content-block > .mb-120",
+            "snippet": "<h2 class=\"offset-heading mb-120\"><span>One time a year, </span><span>our departed come back </span><span class=\"c-gold\">to celebrate with us</span></h2>"
+          },
+          {
+            "selector": ".first",
+            "snippet": "<div class=\"content-block-row first\">"
+          },
+          {
+            "selector": "#marker",
+            "snippet": "<div id=\"marker\" class=\"content-block-row second\">"
+          },
+          {
+            "selector": "#google_ads_iframe_\\/124067137\\,22679194194\\/dayofthedead728x90FS_2_0 >>> ins[data-ad-client=\"ca-pub-6022628118304495\"]",
+            "snippet": "<ins class=\"adsbygoogle\" style=\"display:inline-block;width:300px;height:250px\" data-ad-client=\"ca-pub-6022628118304495\" data-ad-slot=\"6613113768\" data-page-url=\"https://dayofthedead.holiday/\" data-ad…"
+          },
+          {
+            "selector": "section:nth-child(11)",
+            "snippet": "<section class=\"container\">"
+          }
+        ]
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 8,
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/color-contrast?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "div:nth-child(2) > .css-cf00qb > .css-jg567y",
+            "snippet": "<p class=\"css-jg567y\">Opted In</p>"
+          },
+          {
+            "selector": "div:nth-child(3) > .css-cf00qb > .css-jg567y",
+            "snippet": "<p class=\"css-jg567y\">Opted In</p>"
+          },
+          {
+            "selector": "div:nth-child(4) > .css-cf00qb > .css-jg567y",
+            "snippet": "<p class=\"css-jg567y\">Opted In</p>"
+          },
+          {
+            "selector": ".link-callout[href$=\"sugar-skull/\"] > .c-white.fw-bold",
+            "snippet": "<p class=\"c-white fw-bold\">Sugar Skull art, coloring pages, and more!</p>"
+          },
+          {
+            "selector": "a[href$=\"the-ofrenda\"] > .c-white.fw-bold",
+            "snippet": "<p class=\"c-white fw-bold\">Learn how to make an Ofrenda</p>"
+          }
+        ]
+      },
+      {
+        "id": "heading-order",
+        "impact": "moderate",
+        "nodes": 2,
+        "help": "Heading levels should only increase by one",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/heading-order?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".h5",
+            "snippet": "<h5 class=\"h5 animate c-gold astro-AIJEIVNE\" style=\"opacity: 1; transform: translateY(0px);\">Dia de los muertos</h5>"
+          },
+          {
+            "selector": "h6",
+            "snippet": "<h6 class=\"mb-20 c-gold\">A dedication to the deceased</h6>"
+          }
+        ]
+      },
+      {
+        "id": "aria-allowed-role",
+        "impact": "minor",
+        "nodes": 1,
+        "help": "ARIA role should be appropriate for the element",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/aria-allowed-role?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".qc-cmp2-list-item-header",
+            "snippet": "<button role=\"listitem\" class=\"qc-cmp2-list-item-header\" aria-label=\"Opt-Outs\" aria-live=\"polite\">"
+          }
+        ]
+      },
+      {
+        "id": "aria-required-parent",
+        "impact": "critical",
+        "nodes": 1,
+        "help": "Certain ARIA roles must be contained by particular parents",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/aria-required-parent?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".qc-cmp2-list-item-header",
+            "snippet": "<button role=\"listitem\" class=\"qc-cmp2-list-item-header\" aria-label=\"Opt-Outs\" aria-live=\"polite\">"
+          }
+        ]
+      },
+      {
+        "id": "avoid-inline-spacing",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "Inline text spacing must be adjustable with custom stylesheets",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/avoid-inline-spacing?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "#google_ads_iframe_\\/124067137\\,22679194194\\/dayofthedead728x90FS_3_0 >>> .goog-rtopics",
+            "snippet": "<div class=\"goog-rtopics\" aria-label=\"These are topics rel...\" tabindex=\"0\" style=\"color-scheme: initia...\">"
+          }
+        ]
+      },
+      {
+        "id": "list",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "<ul> and <ol> must only directly contain <li>, <script> or <template> elements",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/list?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".css-12exy1k",
+            "snippet": "<ul class=\"qc-cmp2-consent-list css-12exy1k\">"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
