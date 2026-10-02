@@ -1,0 +1,560 @@
+{
+  "url": "https://blog.stackblitz.com/",
+  "name": "blog.stackblitz.com",
+  "group": "astro-showcase",
+  "groupName": "Astro Showcase",
+  "timestamp": 1790923513283,
+  "date": "2026-10-02T06:45:13.283Z",
+  "runId": "2026-10-02T06-43-10-418Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 26146,
+  "error": null,
+  "variance": {
+    "min": 56,
+    "max": 88,
+    "spread": 32,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://blog.stackblitz.com/",
+    "finalUrl": "https://blog.stackblitz.com/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 72,
+      "accessibility": 57,
+      "best-practices": 77,
+      "seo": 92,
+      "agentic-browsing": 50
+    },
+    "timings": {
+      "fcp": 775,
+      "lcp": 4655,
+      "si": 775,
+      "tbt": 454,
+      "tti": 7267,
+      "cls": 0,
+      "ttfb": 605,
+      "maxPotentialFid": 351,
+      "serverResponseTime": 5,
+      "networkRtt": 0.2,
+      "networkServerLatency": 25
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 6.9,
+      "resourceLoadDelay": 9.1,
+      "resourceLoadDuration": 9.4,
+      "elementRenderDelay": 111.3
+    },
+    "weight": {
+      "total": 2277799,
+      "requests": 45,
+      "mainDocument": 7204,
+      "byType": {
+        "total": {
+          "bytes": 2277799,
+          "requests": 45
+        },
+        "image": {
+          "bytes": 1598454,
+          "requests": 23
+        },
+        "script": {
+          "bytes": 582628,
+          "requests": 11
+        },
+        "font": {
+          "bytes": 82529,
+          "requests": 4
+        },
+        "document": {
+          "bytes": 7204,
+          "requests": 1
+        },
+        "stylesheet": {
+          "bytes": 6496,
+          "requests": 2
+        },
+        "other": {
+          "bytes": 488,
+          "requests": 4
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 533360,
+          "requests": 8
+        }
+      },
+      "scripts": 11,
+      "stylesheets": 2,
+      "fonts": 4
+    },
+    "thirdParty": {
+      "count": 3,
+      "bytes": 533360,
+      "mainThreadMs": 204.8,
+      "top": [
+        {
+          "entity": "Google Tag Manager",
+          "bytes": 530524,
+          "mainThreadMs": 203.8,
+          "byType": {
+            "script": 530524
+          },
+          "typedBytes": 530524
+        },
+        {
+          "entity": "Google/Doubleclick Ads",
+          "bytes": 2710,
+          "mainThreadMs": 1,
+          "byType": {
+            "script": 2710
+          },
+          "typedBytes": 2710
+        },
+        {
+          "entity": "Other Google APIs/SDKs",
+          "bytes": 126,
+          "mainThreadMs": 0,
+          "byType": {
+            "image": 64,
+            "other": 62
+          },
+          "typedBytes": 126
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 1436.2,
+      "byGroup": {
+        "scriptEvaluation": 749.9,
+        "other": 304.3,
+        "styleLayout": 187.5,
+        "scriptParseCompile": 147.1,
+        "paintCompositeRender": 20.6,
+        "parseHTML": 20.2,
+        "garbageCollection": 6.6
+      },
+      "bootupMs": 863.6,
+      "longTasks": 5,
+      "longestTaskMs": 351
+    },
+    "dom": {
+      "elements": 304,
+      "depth": 13,
+      "maxChildren": 8
+    },
+    "waste": {
+      "unusedJsBytes": 242475,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 0,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 0,
+      "renderBlockingCount": 2,
+      "poorlyCachedBytes": 0,
+      "poorlyCachedCount": 0
+    },
+    "accessibility": {
+      "failingCount": 7,
+      "applicableCount": 17,
+      "failingNodes": 28,
+      "failing": [
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "weight": 7,
+          "nodes": 10
+        },
+        {
+          "id": "aria-hidden-focus",
+          "title": "`[aria-hidden=\"true\"]` elements contain focusable descendents",
+          "weight": 7,
+          "nodes": 6
+        },
+        {
+          "id": "link-name",
+          "title": "Links do not have a discernible name",
+          "weight": 7,
+          "nodes": 4
+        },
+        {
+          "id": "image-alt",
+          "title": "Image elements do not have `[alt]` attributes",
+          "weight": 10,
+          "nodes": 3
+        },
+        {
+          "id": "listitem",
+          "title": "List items (`<li>`) are not contained within `<ul>`, `<ol>` or `<menu>` parent elements.",
+          "weight": 7,
+          "nodes": 3
+        },
+        {
+          "id": "button-name",
+          "title": "Buttons do not have an accessible name",
+          "weight": 10,
+          "nodes": 1
+        },
+        {
+          "id": "heading-order",
+          "title": "Heading elements are not in a sequentially-descending order",
+          "weight": 3,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 2,
+      "applicableCount": 19,
+      "failing": [
+        {
+          "id": "third-party-cookies",
+          "title": "Uses third-party cookies",
+          "weight": 5,
+          "nodes": 1
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "weight": 1,
+          "nodes": 1
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 1,
+      "applicableCount": 10,
+      "failing": [
+        {
+          "id": "image-alt",
+          "title": "Image elements do not have `[alt]` attributes",
+          "weight": 1,
+          "nodes": 3
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 14
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2464,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-10-02T06:45:30.737Z",
+      "runtimeMs": 7316.9
+    }
+  },
+  "field": {
+    "source": "crux",
+    "scope": "origin",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-09-02",
+      "last": "2026-09-29"
+    },
+    "metrics": {
+      "cls": {
+        "p75": 0,
+        "rating": "good",
+        "distribution": {
+          "good": 98.2,
+          "needsImprovement": 0,
+          "poor": 1.9
+        }
+      },
+      "ttfb": {
+        "p75": 1419,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 45.8,
+          "needsImprovement": 39.3,
+          "poor": 14.9
+        }
+      },
+      "fcp": {
+        "p75": 2024,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 69.9,
+          "needsImprovement": 17,
+          "poor": 13.2
+        }
+      },
+      "lcp": {
+        "p75": 2810,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 71.2,
+          "needsImprovement": 15.1,
+          "poor": 13.7
+        }
+      },
+      "rtt": {
+        "p75": 342,
+        "rating": null,
+        "distribution": {
+          "good": 11.7,
+          "needsImprovement": 56.9,
+          "poor": 31.5
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 2
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": {
+      "id": "astro",
+      "name": "Astro",
+      "icon": "Astro",
+      "version": "4.15.4",
+      "source": "meta",
+      "raw": "Astro v4.15.4"
+    },
+    "probe": {
+      "metas": [
+        "Astro v4.15.4"
+      ],
+      "marks": [
+        "astro",
+        "react"
+      ],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "netlify",
+      "name": "Netlify",
+      "icon": "Netlify",
+      "source": "x-nf-request-id"
+    },
+    "headers": {
+      "server": "Netlify",
+      "x-nf-request-id": "01M3XNRZ9MGE3HS9Y9KGW7ZZ9F"
+    },
+    "violations": 35,
+    "passes": 378,
+    "incomplete": 57,
+    "violationRules": 9,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 10,
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/color-contrast?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".category-posts[data-astro-cid-2d2avbyi=\"\"]:nth-child(1) > .post__heading[data-astro-cid-2d2avbyi=\"\"] > .post__heading__link[data-astro-cid-2d2avbyi=\"\"]",
+            "snippet": "<a href=\"/categories/news-and-announcements\" class=\"post__heading__link\" data-astro-cid-2d2avbyi=\"\"> View all <span class=\"long\" data-astro-cid-2d2avbyi=\"\">from News</span> </a>"
+          },
+          {
+            "selector": ".category-posts[data-astro-cid-2d2avbyi=\"\"]:nth-child(1) > .post__list[data-astro-cid-2d2avbyi=\"\"] > .layout__feature.show__authorImage.post-list > .post-list__post > .post__content > .post__description",
+            "snippet": "<p class=\"post__description\" data-astro-cid-csj4u5ke=\"\">We are thrilled to announce that Cloudflare is backing pkg.pr.new’s data infrastructure, enabling us to sustainably scale preview package relea…"
+          },
+          {
+            "selector": ".category-posts[data-astro-cid-2d2avbyi=\"\"]:nth-child(1) > .post__list[data-astro-cid-2d2avbyi=\"\"] > .direction__column.hide__coverImage.post-list > .post-list__post:nth-child(1) > .post__content > .post__description",
+            "snippet": "<p class=\"post__description\" data-astro-cid-csj4u5ke=\"\">We're doubling down on our support to Open Source in 2025 with a 100K fund targeted at web infrastructure and Bolt dependencies.</p>"
+          },
+          {
+            "selector": ".category-posts[data-astro-cid-2d2avbyi=\"\"]:nth-child(1) > .post__list[data-astro-cid-2d2avbyi=\"\"] > .direction__column.hide__coverImage.post-list > .post-list__post:nth-child(2) > .post__content > .post__description",
+            "snippet": "<p class=\"post__description\" data-astro-cid-csj4u5ke=\"\">The third edition of ViteConf was another incredible community party. ViteConf 24 showed how much the Vite Ecosystem keeps growing and evolving…"
+          },
+          {
+            "selector": ".category-posts[data-astro-cid-2d2avbyi=\"\"]:nth-child(1) > .post__list[data-astro-cid-2d2avbyi=\"\"] > .direction__column.hide__coverImage.post-list > .post-list__post:nth-child(3) > .post__content > .post__description",
+            "snippet": "<p class=\"post__description\" data-astro-cid-csj4u5ke=\"\">We’re excited to welcome VoidZero. Their work in Rolldown, Oxc, and Vite will have a profound effect on the Web ecosystem.</p>"
+          }
+        ]
+      },
+      {
+        "id": "aria-hidden-focus",
+        "impact": "serious",
+        "nodes": 6,
+        "help": "ARIA hidden element must not be focusable or contain focusable elements",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/aria-hidden-focus?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".layout__cover > .post-list__post > .post__image[aria-hidden=\"true\"]",
+            "snippet": "<a class=\"post__image\" href=\"/posts/cloudflare-backing-pkg-pr-new-data-infrastructure/\" aria-hidden=\"true\" data-astro-cid-csj4u5ke=\"\">"
+          },
+          {
+            "selector": ".show__meta.show__authorImage.post-list > .post-list__post:nth-child(1) > .post__image[href$=\"bolt-100k-oss-fund/\"][aria-hidden=\"true\"]",
+            "snippet": "<a class=\"post__image\" href=\"/posts/bolt-100k-oss-fund/\" aria-hidden=\"true\" data-astro-cid-csj4u5ke=\"\"> <img src=\"/_astro/hero.Cn1TnLmU_1hEmBN.jpg\" alt=\"\" style=\"aspect-ratio:2\" data-astro-cid-csj4u5…"
+          },
+          {
+            "selector": ".show__meta.show__authorImage.post-list > .post-list__post:nth-child(2) > .post__image[href$=\"viteconf-2024-recap/\"][aria-hidden=\"true\"]",
+            "snippet": "<a class=\"post__image\" href=\"/posts/viteconf-2024-recap/\" aria-hidden=\"true\" data-astro-cid-csj4u5ke=\"\"> <img src=\"/_astro/hero.WoxfdrKF_Z1kuxUA.jpg\" alt=\"\" style=\"aspect-ratio:2\" data-astro-cid-csj4…"
+          },
+          {
+            "selector": ".show__meta.show__authorImage.post-list > .post-list__post:nth-child(3) > .post__image[aria-hidden=\"true\"]",
+            "snippet": "<a class=\"post__image\" href=\"/posts/unbundling-the-js-ecosystem/\" aria-hidden=\"true\" data-astro-cid-csj4u5ke=\"\"> <img src=\"/_astro/hero.B3pZchEe_ZNdfcS.jpg\" alt=\"\" style=\"aspect-ratio:2\" data-astro-c…"
+          },
+          {
+            "selector": ".category-posts[data-astro-cid-2d2avbyi=\"\"]:nth-child(1) > .post__list[data-astro-cid-2d2avbyi=\"\"] > .layout__feature.show__authorImage.post-list > .post-list__post > .post__image[aria-hidden=\"true\"]",
+            "snippet": "<a class=\"post__image\" href=\"/posts/cloudflare-backing-pkg-pr-new-data-infrastructure/\" aria-hidden=\"true\" data-astro-cid-csj4u5ke=\"\">"
+          }
+        ]
+      },
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 6,
+        "help": "All page content should be contained by landmarks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/region?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "section:nth-child(3)",
+            "snippet": "<section class=\"container\" data-astro-cid-xhq7nhw4=\"\">"
+          },
+          {
+            "selector": "img[src$=\"bolt-comment.svg\"]",
+            "snippet": "<img src=\"/logo/bolt-comment.svg\" data-astro-cid-62cl7j3s=\"\">"
+          },
+          {
+            "selector": ".container__content[data-astro-cid-62cl7j3s=\"\"] > h2",
+            "snippet": "<h2 data-astro-cid-62cl7j3s=\"\">Subscribe to StackBlitz Updates</h2>"
+          },
+          {
+            "selector": "p[data-astro-cid-62cl7j3s=\"\"]",
+            "snippet": "<p data-astro-cid-62cl7j3s=\"\">A newsletter from StackBlitz covering engineering achievements, product features, and updates from the community.</p>"
+          },
+          {
+            "selector": "#email",
+            "snippet": "<input type=\"text\" id=\"email\" name=\"email\" placeholder=\"Your email\" class=\"_signupForm__input_fvfkp_44\">"
+          }
+        ]
+      },
+      {
+        "id": "link-name",
+        "impact": "serious",
+        "nodes": 4,
+        "help": "Links must have discernible text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/link-name?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".nav-top__title__logo",
+            "snippet": "<a class=\"nav-top__title__logo\" href=\"https://stackblitz.com\" data-astro-cid-2w66rqv5=\"\"></a>"
+          },
+          {
+            "selector": "a[href$=\"stackblitz\"][target=\"_blank\"][rel=\"nofollow\"]:nth-child(1)",
+            "snippet": "<a href=\"https://twitter.com/stackblitz\" target=\"_blank\" rel=\"nofollow\" data-astro-cid-ak3upacl=\"\"> <div class=\"_icon_1vecz_1 _twitter_1vecz_65\" style=\"width:24px;height:24px;background-color:var(--s…"
+          },
+          {
+            "selector": "a[href$=\"stackblitz\"][target=\"_blank\"][rel=\"nofollow\"]:nth-child(2)",
+            "snippet": "<a href=\"https://github.com/stackblitz\" target=\"_blank\" rel=\"nofollow\" data-astro-cid-ak3upacl=\"\"> <div class=\"_icon_1vecz_1 _github_1vecz_57\" style=\"width:24px;height:24px;background-color:var(--sbb…"
+          },
+          {
+            "selector": "a[href$=\"stackblitz\"][target=\"_blank\"][rel=\"nofollow\"]:nth-child(3)",
+            "snippet": "<a href=\"https://discord.gg/stackblitz\" target=\"_blank\" rel=\"nofollow\" data-astro-cid-ak3upacl=\"\"> <div class=\"_icon_1vecz_1 _discord_1vecz_49\" style=\"width:24px;height:24px;background-color:var(--sb…"
+          }
+        ]
+      },
+      {
+        "id": "image-alt",
+        "impact": "critical",
+        "nodes": 3,
+        "help": "Images must have alternative text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/image-alt?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "img[src$=\"bolt-color.svg\"]",
+            "snippet": "<img src=\"/logo/bolt-color.svg\" data-astro-cid-xhq7nhw4=\"\">"
+          },
+          {
+            "selector": "img[src$=\"bolt-comment.svg\"]",
+            "snippet": "<img src=\"/logo/bolt-comment.svg\" data-astro-cid-62cl7j3s=\"\">"
+          },
+          {
+            "selector": ".footer__logo",
+            "snippet": "<img class=\"footer__logo\" src=\"/logo/stackblitz-logo-color.svg\" data-astro-cid-ak3upacl=\"\">"
+          }
+        ]
+      },
+      {
+        "id": "listitem",
+        "impact": "serious",
+        "nodes": 3,
+        "help": "<li> elements must be contained in a <ul> or <ol>",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/listitem?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".copyright-links > li:nth-child(1)",
+            "snippet": "<li data-astro-cid-ak3upacl=\"\">© 2025 StackBlitz Inc.</li>"
+          },
+          {
+            "selector": ".copyright-links > li:nth-child(2)",
+            "snippet": "<li data-astro-cid-ak3upacl=\"\"><a href=\"https://stackblitz.com/terms-of-service\" data-astro-cid-ak3upacl=\"\">Terms of Service</a></li>"
+          },
+          {
+            "selector": ".copyright-links > li:nth-child(3)",
+            "snippet": "<li data-astro-cid-ak3upacl=\"\"><a href=\"https://stackblitz.com/privacy-policy\" data-astro-cid-ak3upacl=\"\">Privacy Policy</a></li>"
+          }
+        ]
+      },
+      {
+        "id": "button-name",
+        "impact": "critical",
+        "nodes": 1,
+        "help": "Buttons must have discernible text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/button-name?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "._openMenuButton_1uy8v_59",
+            "snippet": "<button class=\"_openMenuButton_1uy8v_59\"><div class=\"_icon_1vecz_1 _bars_1vecz_9\" style=\"width:18px;height:18px;background-color:var(--sbb-light-foreground)\"></div></button>"
+          }
+        ]
+      },
+      {
+        "id": "heading-order",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Heading levels should only increase by one",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/heading-order?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "h5",
+            "snippet": "<h5 data-astro-cid-xhq7nhw4=\"\">Explore more from StackBlitz</h5>"
+          }
+        ]
+      },
+      {
+        "id": "page-has-heading-one",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Page should contain a level-one heading",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/page-has-heading-one?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "html",
+            "snippet": "<html lang=\"en\">"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}

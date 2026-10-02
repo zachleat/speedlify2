@@ -1,0 +1,385 @@
+{
+  "url": "https://draxsocial.com/",
+  "name": "draxsocial.com",
+  "group": "astro-showcase",
+  "groupName": "Astro Showcase",
+  "timestamp": 1790923948636,
+  "date": "2026-10-02T06:52:28.636Z",
+  "runId": "2026-10-02T06-43-10-418Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 97036,
+  "error": null,
+  "variance": {
+    "min": 96,
+    "max": 97,
+    "spread": 1,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://draxsocial.com/",
+    "finalUrl": "https://draxsocial.com/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 96,
+      "accessibility": 92,
+      "best-practices": 54,
+      "seo": 92,
+      "agentic-browsing": 50
+    },
+    "timings": {
+      "fcp": 1756,
+      "lcp": 2577,
+      "si": 1756,
+      "tbt": 72,
+      "tti": 4490,
+      "cls": 0.008,
+      "ttfb": 626,
+      "maxPotentialFid": 160,
+      "serverResponseTime": 26,
+      "networkRtt": 0.9,
+      "networkServerLatency": 104.6
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 27.2,
+      "resourceLoadDelay": 11.5,
+      "resourceLoadDuration": 19.6,
+      "elementRenderDelay": 94
+    },
+    "weight": {
+      "total": 53232594,
+      "requests": 93,
+      "mainDocument": 12608,
+      "byType": {
+        "total": {
+          "bytes": 53231475,
+          "requests": 86
+        },
+        "other": {
+          "bytes": 52149793,
+          "requests": 30
+        },
+        "image": {
+          "bytes": 763314,
+          "requests": 12
+        },
+        "script": {
+          "bytes": 249497,
+          "requests": 39
+        },
+        "font": {
+          "bytes": 38399,
+          "requests": 1
+        },
+        "stylesheet": {
+          "bytes": 17864,
+          "requests": 2
+        },
+        "document": {
+          "bytes": 12608,
+          "requests": 2
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 52888211,
+          "requests": 34
+        }
+      },
+      "scripts": 40,
+      "stylesheets": 2,
+      "fonts": 1
+    },
+    "thirdParty": {
+      "count": 4,
+      "bytes": 52888211,
+      "mainThreadMs": 90.4,
+      "top": [
+        {
+          "entity": "appwrite.io",
+          "bytes": 52847236,
+          "mainThreadMs": 0,
+          "byType": {
+            "other": 52140416,
+            "image": 706820
+          },
+          "typedBytes": 52847236
+        },
+        {
+          "entity": "Clarity",
+          "bytes": 27678,
+          "mainThreadMs": 78.6,
+          "byType": {
+            "script": 26844,
+            "other": 834
+          },
+          "typedBytes": 27678
+        },
+        {
+          "entity": "Cloudflare",
+          "bytes": 10212,
+          "mainThreadMs": 11.8,
+          "byType": {
+            "script": 10212
+          },
+          "typedBytes": 10212
+        },
+        {
+          "entity": "iconify.design",
+          "bytes": 3085,
+          "mainThreadMs": 0,
+          "byType": {
+            "other": 3085
+          },
+          "typedBytes": 3085
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 3997.9,
+      "byGroup": {
+        "other": 1822.5,
+        "scriptEvaluation": 1218.7,
+        "styleLayout": 456,
+        "paintCompositeRender": 420,
+        "parseHTML": 51.1,
+        "scriptParseCompile": 27.9,
+        "garbageCollection": 1.6
+      },
+      "bootupMs": 1215.4,
+      "longTasks": 5,
+      "longestTaskMs": 160
+    },
+    "dom": {
+      "elements": 385,
+      "depth": 16,
+      "maxChildren": 10
+    },
+    "waste": {
+      "unusedJsBytes": 0,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 10708,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 41713,
+      "unminifiedCssBytes": 3427,
+      "renderBlockingMs": 300,
+      "renderBlockingCount": 2,
+      "poorlyCachedBytes": 14478,
+      "poorlyCachedCount": 2
+    },
+    "accessibility": {
+      "failingCount": 2,
+      "applicableCount": 29,
+      "failingNodes": 6,
+      "failing": [
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "weight": 7,
+          "nodes": 5
+        },
+        {
+          "id": "button-name",
+          "title": "Buttons do not have an accessible name",
+          "weight": 10,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 4,
+      "applicableCount": 19,
+      "failing": [
+        {
+          "id": "deprecations",
+          "title": "Uses deprecated APIs",
+          "weight": 5,
+          "nodes": 1
+        },
+        {
+          "id": "third-party-cookies",
+          "title": "Uses third-party cookies",
+          "weight": 5,
+          "nodes": 5
+        },
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "weight": 1,
+          "nodes": 7
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "weight": 1,
+          "nodes": 1
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 1,
+      "applicableCount": 9,
+      "failing": [
+        {
+          "id": "link-text",
+          "title": "Links do not have descriptive text",
+          "weight": 1,
+          "nodes": 5
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 7,
+      "baselineLimitedFeatures": 53
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2468,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-10-02T06:52:42.336Z",
+      "runtimeMs": 11449.6
+    }
+  },
+  "field": null,
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": {
+      "id": "astro",
+      "name": "Astro",
+      "icon": "Astro",
+      "version": "5.16.7",
+      "source": "meta",
+      "raw": "Astro v5.16.7"
+    },
+    "probe": {
+      "metas": [
+        "Astro v5.16.7"
+      ],
+      "marks": [
+        "astro",
+        "vue"
+      ],
+      "markVersions": {
+        "vue": "3.5.20"
+      }
+    },
+    "interstitial": null,
+    "host": {
+      "id": "cloudflare",
+      "name": "Cloudflare",
+      "icon": "Cloudflare",
+      "source": "server"
+    },
+    "headers": {
+      "cf-ray": "a441c9f41e4559ce-IAD",
+      "server": "cloudflare"
+    },
+    "violations": 9,
+    "passes": 584,
+    "incomplete": 54,
+    "violationRules": 5,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 5,
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/color-contrast?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".xl\\:hidden.space-x-4.items-center > .bg-secondary-500.hover\\:bg-secondary-600.rounded-sm",
+            "snippet": "<button class=\"bg-primary-500 hover:bg-primary-700 transition-all duration-300 text-white font-bold py-2 px-4 shadow-md hover:shadow-lg flex items-center justify-center bg-secondary-500 hover:bg-seco…"
+          },
+          {
+            "selector": ".sm\\:w-auto.hover\\:bg-primary-700.shadow-md",
+            "snippet": "<button class=\"bg-primary-500 hover:bg-primary-700 transition-all duration-300 text-white font-bold py-2 px-4 shadow-md hover:shadow-lg flex items-center justify-center py-3 px-6 text-base rounded-fu…"
+          },
+          {
+            "selector": "#service-tab-0",
+            "snippet": "<button role=\"tab\" id=\"service-tab-0\" aria-selected=\"true\" aria-controls=\"service-panel-0\" tabindex=\"0\" class=\"bg-primary-500 text-...\" data-v-4d3abc6f=\"\">"
+          },
+          {
+            "selector": "a[href$=\"services/\"]",
+            "snippet": "<a href=\"/services/\" class=\"group inline-flex items-center gap-2 bg-primary-500 text-white px-6 py-3 rounded-full font-semibold hover:bg-primary-600 transition-colors duration-200 focus:outline-none …"
+          },
+          {
+            "selector": ".px-10",
+            "snippet": "<a href=\"https://go.draxfax.com/book-a-call-page\" class=\"bg-white text-primary-500 font-bold py-4 px-10 rounded-full inline-block hover:bg-gray-100 transition duration-300 transform hover:scale-105 s…"
+          }
+        ]
+      },
+      {
+        "id": "button-name",
+        "impact": "critical",
+        "nodes": 1,
+        "help": "Buttons must have discernible text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/button-name?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".xl\\:hidden.space-x-4.items-center > button:nth-child(2)",
+            "snippet": "<button class=\"text-white hover:text-primary-500\">"
+          }
+        ]
+      },
+      {
+        "id": "landmark-main-is-top-level",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Main landmark should not be contained in another landmark",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/landmark-main-is-top-level?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".flex-grow > main",
+            "snippet": "<main>"
+          }
+        ]
+      },
+      {
+        "id": "landmark-no-duplicate-main",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Document should not have more than one main landmark",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/landmark-no-duplicate-main?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".flex-grow",
+            "snippet": "<main class=\"flex-grow pt-20\">"
+          }
+        ]
+      },
+      {
+        "id": "landmark-unique",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/landmark-unique?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".flex-grow",
+            "snippet": "<main class=\"flex-grow pt-20\">"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
