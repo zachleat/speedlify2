@@ -1,0 +1,409 @@
+{
+  "url": "https://www.deepseek.com/",
+  "name": "DeepSeek",
+  "group": "ai",
+  "groupName": "AI",
+  "timestamp": 1791050219187,
+  "date": "2026-10-03T17:56:59.187Z",
+  "runId": "2026-10-03T17-47-40-025Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 184964,
+  "error": null,
+  "variance": {
+    "min": 31,
+    "max": 35,
+    "spread": 4,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://www.deepseek.com/",
+    "finalUrl": "https://www.deepseek.com/en/",
+    "redirect": {
+      "from": "https://www.deepseek.com/",
+      "to": "https://www.deepseek.com/en",
+      "chain": [
+        {
+          "url": "https://www.deepseek.com/",
+          "status": 200
+        },
+        {
+          "url": "https://www.deepseek.com/en/",
+          "status": 200
+        }
+      ],
+      "statuses": [
+        200
+      ],
+      "change": "path",
+      "permanent": false,
+      "schemeUpgrade": false,
+      "hops": 1
+    },
+    "statusCode": "ok",
+    "scores": {
+      "performance": 32,
+      "accessibility": 87,
+      "best-practices": 81,
+      "seo": 92,
+      "agentic-browsing": 50
+    },
+    "timings": {
+      "fcp": 3962,
+      "lcp": 9875,
+      "si": 5782,
+      "tbt": 7195,
+      "tti": 13465,
+      "cls": 0,
+      "ttfb": 604,
+      "maxPotentialFid": 1121,
+      "serverResponseTime": 13,
+      "networkRtt": 150.9,
+      "networkServerLatency": 277.5
+    },
+    "lcpBreakdown": null,
+    "weight": {
+      "total": 1208953,
+      "requests": 79,
+      "mainDocument": 32271,
+      "byType": {
+        "total": {
+          "bytes": 998604,
+          "requests": 78
+        },
+        "script": {
+          "bytes": 375236,
+          "requests": 41
+        },
+        "font": {
+          "bytes": 243721,
+          "requests": 7
+        },
+        "stylesheet": {
+          "bytes": 143564,
+          "requests": 9
+        },
+        "image": {
+          "bytes": 139062,
+          "requests": 6
+        },
+        "document": {
+          "bytes": 67547,
+          "requests": 2
+        },
+        "other": {
+          "bytes": 29474,
+          "requests": 13
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 389339,
+          "requests": 17
+        }
+      },
+      "scripts": 41,
+      "stylesheets": 9,
+      "fonts": 7
+    },
+    "thirdParty": {
+      "count": 1,
+      "bytes": 124224,
+      "mainThreadMs": 0,
+      "top": [
+        {
+          "entity": "Google Fonts",
+          "bytes": 124224,
+          "mainThreadMs": 0,
+          "byType": {
+            "stylesheet": 124224
+          },
+          "typedBytes": 124224
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 14390.3,
+      "byGroup": {
+        "other": 10334.4,
+        "scriptEvaluation": 3328,
+        "styleLayout": 275.7,
+        "scriptParseCompile": 249.5,
+        "garbageCollection": 78.5,
+        "parseHTML": 78.1,
+        "paintCompositeRender": 46
+      },
+      "bootupMs": 3480.1,
+      "longTasks": 20,
+      "longestTaskMs": 1121
+    },
+    "dom": {
+      "elements": null,
+      "depth": null,
+      "maxChildren": null
+    },
+    "waste": {
+      "unusedJsBytes": 197697,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 24060,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 13041,
+      "renderBlockingMs": 0,
+      "renderBlockingCount": 0,
+      "poorlyCachedBytes": 139648.80000000002,
+      "poorlyCachedCount": 21
+    },
+    "accessibility": {
+      "failingCount": 3,
+      "applicableCount": 25,
+      "failingNodes": 6,
+      "failing": [
+        {
+          "id": "button-name",
+          "title": "Buttons do not have an accessible name",
+          "weight": 10,
+          "nodes": 3
+        },
+        {
+          "id": "link-name",
+          "title": "Links do not have a discernible name",
+          "weight": 7,
+          "nodes": 2
+        },
+        {
+          "id": "aria-prohibited-attr",
+          "title": "Elements use prohibited ARIA attributes",
+          "weight": 7,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 1,
+      "applicableCount": 19,
+      "failing": [
+        {
+          "id": "deprecations",
+          "title": "Uses deprecated APIs",
+          "weight": 5,
+          "nodes": 1
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 1,
+      "applicableCount": 10,
+      "failing": [
+        {
+          "id": "link-text",
+          "title": "Links do not have descriptive text",
+          "weight": 1,
+          "nodes": 1
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 0,
+      "bfCacheFailures": 1,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 2040.6,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 41
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2473,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-10-03T17:57:00.425Z",
+      "runtimeMs": 12540.4
+    }
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-09-04",
+      "last": "2026-10-01"
+    },
+    "metrics": {
+      "cls": {
+        "p75": 0,
+        "rating": "good",
+        "distribution": {
+          "good": 99.1,
+          "needsImprovement": 0.6,
+          "poor": 0.3
+        }
+      },
+      "ttfb": {
+        "p75": 780,
+        "rating": "good",
+        "distribution": {
+          "good": 75.9,
+          "needsImprovement": 16.1,
+          "poor": 8
+        }
+      },
+      "fcp": {
+        "p75": 1470,
+        "rating": "good",
+        "distribution": {
+          "good": 83.5,
+          "needsImprovement": 10.9,
+          "poor": 5.6
+        }
+      },
+      "inp": {
+        "p75": 107,
+        "rating": "good",
+        "distribution": {
+          "good": 92.5,
+          "needsImprovement": 6.6,
+          "poor": 0.9
+        }
+      },
+      "lcp": {
+        "p75": 2142,
+        "rating": "good",
+        "distribution": {
+          "good": 82.9,
+          "needsImprovement": 13,
+          "poor": 4.1
+        }
+      },
+      "rtt": {
+        "p75": 216,
+        "rating": null,
+        "distribution": {
+          "good": 24,
+          "needsImprovement": 59.4,
+          "poor": 16.7
+        }
+      }
+    },
+    "cwvPass": true,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": true,
+    "generator": {
+      "id": "nextjs",
+      "name": "Next.js",
+      "icon": "Nextdotjs",
+      "version": null,
+      "source": "dom",
+      "raw": null
+    },
+    "probe": {
+      "metas": [],
+      "marks": [
+        "next",
+        "react"
+      ],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "amazons3",
+      "name": "Amazon S3",
+      "icon": "Amazon",
+      "source": "server"
+    },
+    "headers": {
+      "server": "AmazonS3",
+      "via": "1.1 41d11417b7470cfb79cc5b299692369a.cloudfront.net (CloudFront)",
+      "x-amz-cf-id": "rnPFNPjID8xgIq8Km5mogZKktfIBwm36MRjxhFYILRJAyGN_kTKitw=="
+    },
+    "violations": 8,
+    "passes": 359,
+    "incomplete": 7,
+    "violationRules": 4,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "button-name",
+        "impact": "critical",
+        "nodes": 3,
+        "help": "Buttons must have discernible text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/button-name?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".md\\:hidden.w-10.h-10",
+            "snippet": "<button class=\"md:hidden flex items-center justify-center w-10 h-10 text-ds-primary\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M3 6h18M3 12h18M3 18h18\" stroke=\"currentColor…"
+          },
+          {
+            "selector": ".ds-mobile-menu-header > .w-10.h-10.text-ds-primary",
+            "snippet": "<button class=\"flex items-center justify-center w-10 h-10 text-ds-primary\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M6 6l12 12M6 18L18 6\" stroke=\"currentColor\" stroke-widt…"
+          },
+          {
+            "selector": ".ds-hero-send-btn",
+            "snippet": "<button type=\"button\" class=\"ds-hero-send-btn flex-shrink-0 flex items-center justify-center w-9 h-9 rounded-full overflow-hidden border-none bg-[var(--ds-color-brand-medium-reverse)] text-white curs…"
+          }
+        ]
+      },
+      {
+        "id": "link-name",
+        "impact": "serious",
+        "nodes": 2,
+        "help": "Links must have discernible text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/link-name?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".shrink-0.text-\\[var\\(--ds-color-brand-medium-reverse\\)\\][href$=\"en/\"]",
+            "snippet": "<a class=\"flex items-center shrink-0 text-[var(--ds-color-brand-medium-reverse)]\" href=\"/en/\">"
+          },
+          {
+            "selector": ".ds-mobile-menu-header > .text-\\[var\\(--ds-color-brand-medium-reverse\\)\\].items-center[href$=\"en/\"]",
+            "snippet": "<a class=\"flex items-center text-[var(--ds-color-brand-medium-reverse)]\" href=\"/en/\">"
+          }
+        ]
+      },
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 2,
+        "help": "All page content should be contained by landmarks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/region?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".cookie_banner-title",
+            "snippet": "<div class=\"cookie_banner-title\">Cookie Settings</div>"
+          },
+          {
+            "selector": ".cookie_banner-description",
+            "snippet": "<div class=\"cookie_banner-description\">"
+          }
+        ]
+      },
+      {
+        "id": "aria-prohibited-attr",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "Elements must only use permitted ARIA attributes",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/aria-prohibited-attr?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".cursor-default",
+            "snippet": "<span class=\"w-8 h-8 flex items-center justify-center text-ds-secondary hover:text-ds-primary transition-colors cursor-default\" aria-label=\"WeChat\">"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
