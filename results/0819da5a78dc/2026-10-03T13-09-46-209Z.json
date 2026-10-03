@@ -1,0 +1,433 @@
+{
+  "url": "https://bunny.net/",
+  "name": "Bunny",
+  "group": "dev-tooling",
+  "groupName": "Developer Tooling",
+  "timestamp": 1791032986209,
+  "date": "2026-10-03T13:09:46.209Z",
+  "runId": "2026-10-03T13-03-39-494Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 145593,
+  "error": null,
+  "variance": {
+    "min": 63,
+    "max": 70,
+    "spread": 7,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://bunny.net/",
+    "finalUrl": "https://bunny.net/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 68,
+      "accessibility": 92,
+      "best-practices": 96,
+      "seo": 100,
+      "agentic-browsing": 67
+    },
+    "timings": {
+      "fcp": 2099,
+      "lcp": 9887,
+      "si": 3149,
+      "tbt": 252,
+      "tti": 12170,
+      "cls": 0.027,
+      "ttfb": 604,
+      "maxPotentialFid": 240,
+      "serverResponseTime": 3,
+      "networkRtt": 0.1,
+      "networkServerLatency": 225.1
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 4.8,
+      "elementRenderDelay": 679.1
+    },
+    "weight": {
+      "total": 5084622,
+      "requests": 141,
+      "mainDocument": 19104,
+      "byType": {
+        "total": {
+          "bytes": 5084622,
+          "requests": 136
+        },
+        "media": {
+          "bytes": 2865970,
+          "requests": 1
+        },
+        "script": {
+          "bytes": 968694,
+          "requests": 16
+        },
+        "font": {
+          "bytes": 573077,
+          "requests": 7
+        },
+        "image": {
+          "bytes": 521539,
+          "requests": 93
+        },
+        "stylesheet": {
+          "bytes": 90656,
+          "requests": 2
+        },
+        "other": {
+          "bytes": 40656,
+          "requests": 11
+        },
+        "document": {
+          "bytes": 24030,
+          "requests": 6
+        },
+        "third-party": {
+          "bytes": 3347832,
+          "requests": 19
+        }
+      },
+      "scripts": 16,
+      "stylesheets": 2,
+      "fonts": 7
+    },
+    "thirdParty": {
+      "count": 3,
+      "bytes": 3312169,
+      "mainThreadMs": 38.7,
+      "top": [
+        {
+          "entity": "b-cdn.net",
+          "bytes": 2865970,
+          "mainThreadMs": 0,
+          "byType": {
+            "media": 2865970
+          },
+          "typedBytes": 2865970
+        },
+        {
+          "entity": "Cookiebot",
+          "bytes": 437912,
+          "mainThreadMs": 29.2,
+          "byType": {
+            "script": 437281,
+            "other": 631
+          },
+          "typedBytes": 437912
+        },
+        {
+          "entity": "Trust Pilot",
+          "bytes": 8287,
+          "mainThreadMs": 9.5,
+          "byType": {
+            "script": 8287
+          },
+          "typedBytes": 8287
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 3031.1,
+      "byGroup": {
+        "other": 1197,
+        "scriptEvaluation": 912.4,
+        "styleLayout": 432.1,
+        "scriptParseCompile": 174.5,
+        "paintCompositeRender": 144.7,
+        "parseHTML": 144.6,
+        "garbageCollection": 25.9
+      },
+      "bootupMs": 996.4,
+      "longTasks": 6,
+      "longestTaskMs": 240
+    },
+    "dom": {
+      "elements": 1950,
+      "depth": 22,
+      "maxChildren": 26
+    },
+    "waste": {
+      "unusedJsBytes": 379329,
+      "unusedCssBytes": 90958,
+      "legacyJsBytes": 0,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 1875,
+      "renderBlockingCount": 2,
+      "poorlyCachedBytes": 50346.18666666667,
+      "poorlyCachedCount": 6
+    },
+    "accessibility": {
+      "failingCount": 3,
+      "applicableCount": 29,
+      "failingNodes": 18,
+      "failing": [
+        {
+          "id": "link-name",
+          "title": "Links do not have a discernible name",
+          "weight": 7,
+          "nodes": 8
+        },
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "weight": 7,
+          "nodes": 7
+        },
+        {
+          "id": "heading-order",
+          "title": "Heading elements are not in a sequentially-descending order",
+          "weight": 3,
+          "nodes": 3
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 1,
+      "applicableCount": 20,
+      "failing": [
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "weight": 1,
+          "nodes": 9
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 0,
+      "applicableCount": 9,
+      "failing": []
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 9,
+      "baselineLimitedFeatures": 34
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 4291,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-10-03T13:11:07.329Z",
+      "runtimeMs": 13402.7
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 566.7,
+    "elementRenderDelay": 17807.3
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-09-04",
+      "last": "2026-10-01"
+    },
+    "metrics": {
+      "cls": {
+        "p75": 0.04,
+        "rating": "good",
+        "distribution": {
+          "good": 89,
+          "needsImprovement": 8.4,
+          "poor": 2.6
+        }
+      },
+      "ttfb": {
+        "p75": 797,
+        "rating": "good",
+        "distribution": {
+          "good": 75.2,
+          "needsImprovement": 17.7,
+          "poor": 7.2
+        }
+      },
+      "fcp": {
+        "p75": 1914,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 72.2,
+          "needsImprovement": 16.9,
+          "poor": 11
+        }
+      },
+      "inp": {
+        "p75": 172,
+        "rating": "good",
+        "distribution": {
+          "good": 78.5,
+          "needsImprovement": 15.2,
+          "poor": 6.4
+        }
+      },
+      "lcp": {
+        "p75": 2837,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 69.6,
+          "needsImprovement": 17.2,
+          "poor": 13.2
+        }
+      },
+      "rtt": {
+        "p75": 195,
+        "rating": null,
+        "distribution": {
+          "good": 24.4,
+          "needsImprovement": 61.7,
+          "poor": 14
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": {
+      "id": "gatsby",
+      "name": "Gatsby",
+      "icon": "Gatsby",
+      "version": "4.25.9",
+      "source": "meta",
+      "raw": "Gatsby 4.25.9"
+    },
+    "probe": {
+      "metas": [
+        "Gatsby 4.25.9"
+      ],
+      "marks": [
+        "gatsby",
+        "react",
+        "fontawesome"
+      ],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "bunny",
+      "name": "Bunny CDN",
+      "icon": null,
+      "source": "server"
+    },
+    "headers": {
+      "server": "BunnyCDN-PHX1-1155"
+    },
+    "violations": 19,
+    "passes": 1463,
+    "incomplete": 74,
+    "violationRules": 4,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "link-name",
+        "impact": "serious",
+        "nodes": 8,
+        "help": "Links must have discernible text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/link-name?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".product--right-bottom.product-wr.has-link > a[href$=\"cdn/\"]",
+            "snippet": "<a href=\"/cdn/\"></a>"
+          },
+          {
+            "selector": ".product--left-bottom.product-wr.has-link > a[href$=\"stream/\"]",
+            "snippet": "<a href=\"/stream/\"></a>"
+          },
+          {
+            "selector": ".product--right-bottom.product-wr.has-link > a[href$=\"storage/\"]",
+            "snippet": "<a href=\"/storage/\"></a>"
+          },
+          {
+            "selector": ".product--left-bottom.product-wr.has-link > a[href$=\"optimizer/\"]",
+            "snippet": "<a href=\"/optimizer/\"></a>"
+          },
+          {
+            "selector": ".product--right-top.product-wr.has-link > a[href$=\"edge-scripting/\"]",
+            "snippet": "<a href=\"/edge-scripting/\"></a>"
+          }
+        ]
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 7,
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/color-contrast?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "#CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll",
+            "snippet": "<button id=\"CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll\" class=\"CybotCookiebotDialogBodyButton\" tabindex=\"0\" lang=\"en\">Allow all</button>"
+          },
+          {
+            "selector": "li:nth-child(1) > .numbers-wr > .flex-start.value-holder.items-end > .value:nth-child(1)",
+            "snippet": "<p class=\"value\" style=\"font-size: 7.8rem; line-height: 0.65; color: rgb(253, 141, 50); margin-bottom: 0.1rem;\">24</p>"
+          },
+          {
+            "selector": "li:nth-child(1) > .numbers-wr > .flex-start.value-holder.items-end > .value:nth-child(2)",
+            "snippet": "<p class=\"value\" style=\"font-size: 5.4rem; line-height: 0.65; color: rgb(253, 141, 50); margin-bottom: 0.1rem;\">&nbsp;ms</p>"
+          },
+          {
+            "selector": ".value-holder.items-end.justify-center > .value:nth-child(1)",
+            "snippet": "<p class=\"value\" style=\"font-size: 7.8rem; line-height: 0.65; color: rgb(253, 141, 50); margin-bottom: 0.1rem;\">119</p>"
+          },
+          {
+            "selector": ".ml-\\[-9px\\]",
+            "snippet": "<p class=\"value ml-[-9px]\" style=\"font-size: 7.8rem; line-height: 0.65; color: rgb(253, 141, 50); margin-bottom: 0.1rem;\">1.5</p>"
+          }
+        ]
+      },
+      {
+        "id": "heading-order",
+        "impact": "moderate",
+        "nodes": 3,
+        "help": "Heading levels should only increase by one",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/heading-order?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".product.product-8:nth-child(1) > .product--right-bottom.product-wr.has-link > .product-content > h4",
+            "snippet": "<h4>CDN </h4>"
+          },
+          {
+            "selector": ".content-wr > h4",
+            "snippet": "<h4>Unlock every corner of the globe</h4>"
+          },
+          {
+            "selector": ".menu-col.col-lg-3.col-6:nth-child(1) > h4",
+            "snippet": "<h4><a href=\"https://bunny.net\">bunny.net</a></h4>"
+          }
+        ]
+      },
+      {
+        "id": "scrollable-region-focusable",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "Scrollable region must have keyboard access",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/scrollable-region-focusable?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".case-controller",
+            "snippet": "<div class=\"case-controller\">"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
