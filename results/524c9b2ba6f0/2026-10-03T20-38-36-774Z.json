@@ -1,0 +1,391 @@
+{
+  "url": "https://eu-testbook.com/",
+  "name": "eu-testbook.com",
+  "group": "11ty-community",
+  "groupName": "Built Awesome",
+  "timestamp": 1791059916774,
+  "date": "2026-10-03T20:38:36.774Z",
+  "runId": "2026-10-03T20-38-02-809Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 25393,
+  "error": null,
+  "variance": {
+    "min": 71,
+    "max": 78,
+    "spread": 7,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://eu-testbook.com/",
+    "finalUrl": "https://eu-testbook.com/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 73,
+      "accessibility": 89,
+      "best-practices": 100,
+      "seo": 92,
+      "agentic-browsing": 50
+    },
+    "timings": {
+      "fcp": 2838,
+      "lcp": 5189,
+      "si": 4839,
+      "tbt": 20,
+      "tti": 5189,
+      "cls": 0,
+      "ttfb": 606,
+      "maxPotentialFid": 70,
+      "serverResponseTime": 42,
+      "networkRtt": 37.8,
+      "networkServerLatency": 18.3
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 453.6,
+      "elementRenderDelay": 2162.1
+    },
+    "weight": {
+      "total": 609961,
+      "requests": 40,
+      "mainDocument": 4178,
+      "byType": {
+        "total": {
+          "bytes": 609961,
+          "requests": 40
+        },
+        "image": {
+          "bytes": 495608,
+          "requests": 18
+        },
+        "script": {
+          "bytes": 57961,
+          "requests": 10
+        },
+        "font": {
+          "bytes": 39283,
+          "requests": 5
+        },
+        "stylesheet": {
+          "bytes": 11566,
+          "requests": 5
+        },
+        "document": {
+          "bytes": 4178,
+          "requests": 1
+        },
+        "other": {
+          "bytes": 1365,
+          "requests": 1
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 102167,
+          "requests": 14
+        }
+      },
+      "scripts": 10,
+      "stylesheets": 5,
+      "fonts": 5
+    },
+    "thirdParty": {
+      "count": 4,
+      "bytes": 102167,
+      "mainThreadMs": 19.6,
+      "top": [
+        {
+          "entity": "Cloudflare CDN",
+          "bytes": 42883,
+          "mainThreadMs": 16.1,
+          "byType": {
+            "script": 41696,
+            "stylesheet": 1187
+          },
+          "typedBytes": 42883
+        },
+        {
+          "entity": "Google Fonts",
+          "bytes": 40715,
+          "mainThreadMs": 0,
+          "byType": {
+            "font": 39283,
+            "stylesheet": 1432
+          },
+          "typedBytes": 40715
+        },
+        {
+          "entity": "parsleyjs.org",
+          "bytes": 12634,
+          "mainThreadMs": 3.2,
+          "byType": {
+            "script": 12634
+          },
+          "typedBytes": 12634
+        },
+        {
+          "entity": "Unpkg",
+          "bytes": 5935,
+          "mainThreadMs": 0.3,
+          "byType": {
+            "script": 1432,
+            "stylesheet": 4503
+          },
+          "typedBytes": 5935
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 562.1,
+      "byGroup": {
+        "other": 293.9,
+        "styleLayout": 137.8,
+        "scriptEvaluation": 74.3,
+        "parseHTML": 27.2,
+        "scriptParseCompile": 17.9,
+        "paintCompositeRender": 10.9
+      },
+      "bootupMs": 69.2,
+      "longTasks": 1,
+      "longestTaskMs": 70
+    },
+    "dom": {
+      "elements": 196,
+      "depth": 13,
+      "maxChildren": 7
+    },
+    "waste": {
+      "unusedJsBytes": 0,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 10060,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 9417,
+      "renderBlockingCount": 15,
+      "poorlyCachedBytes": 11581.166666666666,
+      "poorlyCachedCount": 1
+    },
+    "accessibility": {
+      "failingCount": 3,
+      "applicableCount": 21,
+      "failingNodes": 12,
+      "failing": [
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "weight": 7,
+          "nodes": 7
+        },
+        {
+          "id": "aria-hidden-focus",
+          "title": "`[aria-hidden=\"true\"]` elements contain focusable descendents",
+          "weight": 7,
+          "nodes": 4
+        },
+        {
+          "id": "landmark-one-main",
+          "title": "Document does not have a main landmark.",
+          "weight": 3,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 0,
+      "applicableCount": 20,
+      "failing": []
+    },
+    "seo": {
+      "failingCount": 1,
+      "applicableCount": 9,
+      "failing": [
+        {
+          "id": "link-text",
+          "title": "Links do not have descriptive text",
+          "weight": 1,
+          "nodes": 5
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 4
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2693,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-10-03T20:38:38.054Z",
+      "runtimeMs": 9153.2
+    }
+  },
+  "field": null,
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "probe": {
+      "metas": [],
+      "marks": [],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "netlify",
+      "name": "Netlify",
+      "icon": "Netlify",
+      "source": "x-nf-request-id"
+    },
+    "headers": {
+      "server": "Netlify",
+      "x-nf-request-id": "01M41QVN7CNHGWVA7BHPJ70B65"
+    },
+    "violations": 19,
+    "passes": 285,
+    "incomplete": 5,
+    "violationRules": 6,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 7,
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/color-contrast?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".text_link_release > span",
+            "snippet": "<span>Order Now</span>"
+          },
+          {
+            "selector": ".candidate:nth-child(1) > .candidate__text",
+            "snippet": "<p class=\"candidate__text\"> Learn everything you need to know about EPSO exams. </p>"
+          },
+          {
+            "selector": ".candidate:nth-child(2) > .candidate__text",
+            "snippet": "<p class=\"candidate__text\"> Practice realistic tests and find detailed explanations. </p>"
+          },
+          {
+            "selector": ".candidate:nth-child(3) > .candidate__text",
+            "snippet": "<p class=\"candidate__text\"> Beat the competition thanks to detailed methodology chapters. </p>"
+          },
+          {
+            "selector": ".col-md-4.col-xs-12:nth-child(1) > p:nth-child(1)",
+            "snippet": "<p> “Thanks to the advice and hints in the test book I am now on the EPSO reserve list and already got a job offer. Many thanks for this super useful book, it helped me so much.” </p>"
+          }
+        ]
+      },
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 5,
+        "help": "All page content should be contained by landmarks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/region?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "#tns1-item0",
+            "snippet": "<div class=\"entity entity--book entity--book--carousel-main view-mode view-mode--carousel-main tns-item tns-fadeIn tns-slide-active\" id=\"tns1-item0\" style=\"left: 0%;\">"
+          },
+          {
+            "selector": ".book-slider__thumb",
+            "snippet": "<div class=\"book-slider__thumb col-xs-12 col-md-2\" aria-label=\"Carousel Pagination\">"
+          },
+          {
+            "selector": ".section--candidates",
+            "snippet": "<div class=\"section section--candidates align-center--md\">"
+          },
+          {
+            "selector": ".section--testi",
+            "snippet": "<div class=\"section section--testi align-center\">"
+          },
+          {
+            "selector": ".section--eut",
+            "snippet": "<div class=\"section section--eut align-right--md\">"
+          }
+        ]
+      },
+      {
+        "id": "aria-hidden-focus",
+        "impact": "serious",
+        "nodes": 4,
+        "help": "ARIA hidden element must not be focusable or contain focusable elements",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/aria-hidden-focus?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "#tns1-item1",
+            "snippet": "<div class=\"entity entity--book entity--book--carousel-main view-mode view-mode--carousel-main tns-item tns-normal\" id=\"tns1-item1\" aria-hidden=\"true\" tabindex=\"-1\">"
+          },
+          {
+            "selector": "#tns1-item2",
+            "snippet": "<div class=\"entity entity--book entity--book--carousel-main view-mode view-mode--carousel-main tns-item tns-normal\" id=\"tns1-item2\" aria-hidden=\"true\" tabindex=\"-1\">"
+          },
+          {
+            "selector": "#tns1-item3",
+            "snippet": "<div class=\"entity entity--book entity--book--carousel-main view-mode view-mode--carousel-main tns-item tns-normal\" id=\"tns1-item3\" aria-hidden=\"true\" tabindex=\"-1\">"
+          },
+          {
+            "selector": ".tns-normal.entity--book--carousel-main[aria-hidden=\"true\"]:nth-child(5)",
+            "snippet": "<div class=\"entity entity--book entity--book--carousel-main view-mode view-mode--carousel-main tns-item tns-normal\" aria-hidden=\"true\" tabindex=\"-1\">"
+          }
+        ]
+      },
+      {
+        "id": "landmark-one-main",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Document should have one main landmark",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/landmark-one-main?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "html",
+            "snippet": "<html lang=\"en\">"
+          }
+        ]
+      },
+      {
+        "id": "landmark-unique",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/landmark-unique?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".menu--main",
+            "snippet": "<nav class=\"menu menu--main\">"
+          }
+        ]
+      },
+      {
+        "id": "page-has-heading-one",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Page should contain a level-one heading",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/page-has-heading-one?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "html",
+            "snippet": "<html lang=\"en\">"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
