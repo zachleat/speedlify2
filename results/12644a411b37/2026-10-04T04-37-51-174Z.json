@@ -1,0 +1,447 @@
+{
+  "url": "https://pptr.dev/",
+  "name": "Puppeteer",
+  "group": "dev-tooling",
+  "groupName": "Developer Tooling",
+  "timestamp": 1791088671174,
+  "date": "2026-10-04T04:37:51.174Z",
+  "runId": "2026-10-04T04-29-23-588Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 49221,
+  "error": null,
+  "variance": {
+    "min": 72,
+    "max": 94,
+    "spread": 22,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://pptr.dev/",
+    "finalUrl": "https://pptr.dev/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 94,
+      "accessibility": 89,
+      "best-practices": 96,
+      "seo": 92,
+      "agentic-browsing": 100
+    },
+    "timings": {
+      "fcp": 1068,
+      "lcp": 1443,
+      "si": 1628,
+      "tbt": 282,
+      "tti": 4693,
+      "cls": 0.015,
+      "ttfb": 618,
+      "maxPotentialFid": 378,
+      "serverResponseTime": 18,
+      "networkRtt": 0.2,
+      "networkServerLatency": 77.1
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 19.3,
+      "elementRenderDelay": 69.5
+    },
+    "weight": {
+      "total": 598272,
+      "requests": 26,
+      "mainDocument": 7146,
+      "byType": {
+        "total": {
+          "bytes": 594758,
+          "requests": 23
+        },
+        "script": {
+          "bytes": 540769,
+          "requests": 11
+        },
+        "stylesheet": {
+          "bytes": 25006,
+          "requests": 1
+        },
+        "image": {
+          "bytes": 21837,
+          "requests": 3
+        },
+        "document": {
+          "bytes": 7146,
+          "requests": 1
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "font": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "other": {
+          "bytes": 0,
+          "requests": 7
+        },
+        "third-party": {
+          "bytes": 200098,
+          "requests": 4
+        }
+      },
+      "scripts": 11,
+      "stylesheets": 1,
+      "fonts": 0
+    },
+    "thirdParty": {
+      "count": 3,
+      "bytes": 200098,
+      "mainThreadMs": 38.9,
+      "top": [
+        {
+          "entity": "Google Tag Manager",
+          "bytes": 178261,
+          "mainThreadMs": 38.9,
+          "byType": {
+            "script": 178261
+          },
+          "typedBytes": 178261
+        },
+        {
+          "entity": "GitHub",
+          "bytes": 20602,
+          "mainThreadMs": 0,
+          "byType": {
+            "image": 20602
+          },
+          "typedBytes": 20602
+        },
+        {
+          "entity": "shields.io",
+          "bytes": 1235,
+          "mainThreadMs": 0,
+          "byType": {
+            "image": 1235
+          },
+          "typedBytes": 1235
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 1483.8,
+      "byGroup": {
+        "scriptEvaluation": 911.5,
+        "scriptParseCompile": 182.2,
+        "other": 179,
+        "styleLayout": 119.7,
+        "garbageCollection": 43,
+        "paintCompositeRender": 30.1,
+        "parseHTML": 18.2
+      },
+      "bootupMs": 1034,
+      "longTasks": 3,
+      "longestTaskMs": 378
+    },
+    "dom": {
+      "elements": 655,
+      "depth": 24,
+      "maxChildren": 32
+    },
+    "waste": {
+      "unusedJsBytes": 147183,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 0,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 300,
+      "renderBlockingCount": 2,
+      "poorlyCachedBytes": 368184.7083333334,
+      "poorlyCachedCount": 13
+    },
+    "accessibility": {
+      "failingCount": 4,
+      "applicableCount": 29,
+      "failingNodes": 44,
+      "failing": [
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "weight": 7,
+          "nodes": 40
+        },
+        {
+          "id": "link-in-text-block",
+          "title": "Links rely on color to be distinguishable.",
+          "weight": 7,
+          "nodes": 2
+        },
+        {
+          "id": "image-alt",
+          "title": "Image elements do not have `[alt]` attributes",
+          "weight": 10,
+          "nodes": 1
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "title": "Elements with visible text labels do not have matching accessible names.",
+          "weight": 0,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 2,
+      "applicableCount": 19,
+      "failing": [
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "weight": 1,
+          "nodes": 1
+        },
+        {
+          "id": "valid-source-maps",
+          "title": "Missing source maps for large first-party JavaScript",
+          "weight": 0,
+          "nodes": 1
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 1,
+      "applicableCount": 9,
+      "failing": [
+        {
+          "id": "image-alt",
+          "title": "Image elements do not have `[alt]` attributes",
+          "weight": 1,
+          "nodes": 1
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 1,
+      "baselineLimitedFeatures": 23
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2689.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-10-04T04:38:08.832Z",
+      "runtimeMs": 7412.4
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 581.7,
+    "elementRenderDelay": 1031.5
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-09-05",
+      "last": "2026-10-02"
+    },
+    "metrics": {
+      "ttfb": {
+        "p75": 823,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 72.8,
+          "needsImprovement": 22.3,
+          "poor": 4.8
+        }
+      },
+      "fcp": {
+        "p75": 1476,
+        "rating": "good",
+        "distribution": {
+          "good": 84.3,
+          "needsImprovement": 10.7,
+          "poor": 5
+        }
+      },
+      "inp": {
+        "p75": 193,
+        "rating": "good",
+        "distribution": {
+          "good": 76.7,
+          "needsImprovement": 17.4,
+          "poor": 5.9
+        }
+      },
+      "lcp": {
+        "p75": 1744,
+        "rating": "good",
+        "distribution": {
+          "good": 86.9,
+          "needsImprovement": 7.9,
+          "poor": 5.2
+        }
+      },
+      "rtt": {
+        "p75": 181,
+        "rating": null,
+        "distribution": {
+          "good": 34.8,
+          "needsImprovement": 52.7,
+          "poor": 12.5
+        }
+      },
+      "cls": {
+        "p75": 0.07,
+        "rating": "good",
+        "distribution": {
+          "good": 86.1,
+          "needsImprovement": 12.6,
+          "poor": 1.3
+        }
+      }
+    },
+    "cwvPass": true,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": {
+      "id": "docusaurus",
+      "name": "Docusaurus",
+      "icon": "Docusaurus",
+      "version": "3.10.2",
+      "source": "meta",
+      "raw": "Docusaurus v3.10.2"
+    },
+    "probe": {
+      "metas": [
+        "Docusaurus v3.10.2"
+      ],
+      "marks": [
+        "docusaurus",
+        "react"
+      ],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "github",
+      "name": "GitHub Pages",
+      "icon": "Github",
+      "source": "x-github-request-id"
+    },
+    "headers": {
+      "server": "GitHub.com",
+      "via": "1.1 varnish",
+      "x-fastly-request-id": "94df23d45fdc357084e436d60b3269f607bbf324",
+      "x-github-request-id": "9302:33A044:A873A:DB4A1:6AC1A14B",
+      "x-served-by": "cache-dfw-kdfw8210022-DFW"
+    },
+    "violations": 45,
+    "passes": 1051,
+    "incomplete": 3,
+    "violationRules": 5,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 40,
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/color-contrast?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".theme-doc-markdown > .theme-tabs-container.tabs-container.tabList__CuJ > .margin-top--md > .tabItem_Ymn6[role=\"tabpanel\"]:nth-child(1) > .codeBlockContainer_Ckt0.theme-code-block.language-bash > .codeBlockContent_QJqH > pre > .codeBlockLines_e6Vv > .token-line:nth-child(1) > .function.token",
+            "snippet": "<span class=\"token function\" style=\"color: rgb(215, 58, 73);\">npm</span>"
+          },
+          {
+            "selector": ".tabItem_Ymn6[role=\"tabpanel\"]:nth-child(1) > .codeBlockContainer_Ckt0.theme-code-block.language-bash > .codeBlockContent_QJqH > pre > .codeBlockLines_e6Vv > .token-line:nth-child(1) > .comment.token",
+            "snippet": "<span class=\"token comment\" style=\"color: rgb(153, 153, 136); font-style: italic;\"># Downloads compatible Chrome during installation.</span>"
+          },
+          {
+            "selector": ".tabItem_Ymn6[role=\"tabpanel\"]:nth-child(1) > .codeBlockContainer_Ckt0.theme-code-block.language-bash > .codeBlockContent_QJqH > pre > .codeBlockLines_e6Vv > .token-line:nth-child(2) > .function.token",
+            "snippet": "<span class=\"token function\" style=\"color: rgb(215, 58, 73);\">npm</span>"
+          },
+          {
+            "selector": ".tabItem_Ymn6[role=\"tabpanel\"]:nth-child(1) > .codeBlockContainer_Ckt0.theme-code-block.language-bash > .codeBlockContent_QJqH > pre > .codeBlockLines_e6Vv > .token-line:nth-child(2) > .comment.token",
+            "snippet": "<span class=\"token comment\" style=\"color: rgb(153, 153, 136); font-style: italic;\"># Alternatively, install as a library, without downloading Chrome.</span>"
+          },
+          {
+            "selector": ".admonitionContent_BuS1 > .theme-tabs-container.tabs-container.tabList__CuJ > .margin-top--md > .tabItem_Ymn6[role=\"tabpanel\"]:nth-child(1) > .codeBlockContainer_Ckt0.theme-code-block.language-bash > .codeBlockContent_QJqH > pre > .codeBlockLines_e6Vv > .token-line > .function.token",
+            "snippet": "<span class=\"token function\" style=\"color: rgb(215, 58, 73);\">install</span>"
+          }
+        ]
+      },
+      {
+        "id": "link-in-text-block",
+        "impact": "serious",
+        "nodes": 2,
+        "help": "Links must be distinguishable without relying on color",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/link-in-text-block?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "blockquote > p > a[target=\"_blank\"][rel=\"noopener noreferrer\"]:nth-child(1)",
+            "snippet": "<a href=\"https://chromedevtools.github.io/devtools-protocol/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"\">DevTools Protocol</a>"
+          },
+          {
+            "selector": "blockquote > p > a[target=\"_blank\"][rel=\"noopener noreferrer\"]:nth-child(2)",
+            "snippet": "<a href=\"https://pptr.dev/webdriver-bidi\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"\">WebDriver BiDi</a>"
+          }
+        ]
+      },
+      {
+        "id": "button-name",
+        "impact": "critical",
+        "nodes": 1,
+        "help": "Buttons must have discernible text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/button-name?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".copyPageButton_s7x8",
+            "snippet": "<button class=\"copyPageButton_s7x8\" aria-expanded=\"false\" aria-haspopup=\"true\" data-copy-page-button-trigger=\"\">"
+          }
+        ]
+      },
+      {
+        "id": "image-alt",
+        "impact": "critical",
+        "nodes": 1,
+        "help": "Images must have alternative text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/image-alt?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "img[height=\"200\"]",
+            "snippet": "<img src=\"https://user-images.githubusercontent.com/10379601/29446482-04f7036a-841f-11e7-9872-91d1fc2ea683.png\" height=\"200\" align=\"right\">"
+          }
+        ]
+      },
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "All page content should be contained by landmarks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/region?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".CookieConsent > div:nth-child(1)",
+            "snippet": "<div class=\"\" style=\"flex: 1 0 300px; margin: 15px; font-size: inherit;\">pptr.dev, Puppeteer's documentation site, uses cookies from Google to deliver and enhance the quality of its services and to a…"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
