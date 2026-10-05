@@ -1,0 +1,282 @@
+{
+  "url": "https://wolstenhol.me/",
+  "name": "wolstenhol.me",
+  "group": "11ty-community",
+  "groupName": "Built Awesome",
+  "timestamp": 1791164725924,
+  "date": "2026-10-05T01:45:25.924Z",
+  "runId": "2026-10-05T01-37-51-723Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 2,
+  "durationMs": 51369,
+  "error": null,
+  "partialErrors": [
+    "ERRORED_DOCUMENT_REQUEST: Lighthouse was unable to reliably load the page you requested. Make sure you are testing the correct URL and that the server is properly responding to all requests. (Status code: 502)"
+  ],
+  "variance": {
+    "min": 84,
+    "max": 100,
+    "spread": 16,
+    "runs": 2
+  },
+  "lab": {
+    "requestedUrl": "https://wolstenhol.me/",
+    "finalUrl": "https://wolstenhol.me/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 84,
+      "accessibility": 93,
+      "best-practices": 96,
+      "seo": 100,
+      "agentic-browsing": 50
+    },
+    "timings": {
+      "fcp": 1480,
+      "lcp": 1511,
+      "si": 4005,
+      "tbt": 557,
+      "tti": 3118,
+      "cls": 0.003,
+      "ttfb": 2074,
+      "maxPotentialFid": 368,
+      "serverResponseTime": 1981,
+      "networkRtt": 1.9,
+      "networkServerLatency": 219.2
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 2073.5,
+      "elementRenderDelay": 128.9
+    },
+    "weight": {
+      "total": 309082,
+      "requests": 50,
+      "mainDocument": 51159,
+      "byType": {
+        "total": {
+          "bytes": 309082,
+          "requests": 38
+        },
+        "image": {
+          "bytes": 87561,
+          "requests": 11
+        },
+        "other": {
+          "bytes": 79613,
+          "requests": 9
+        },
+        "document": {
+          "bytes": 51159,
+          "requests": 1
+        },
+        "script": {
+          "bytes": 44240,
+          "requests": 14
+        },
+        "font": {
+          "bytes": 37674,
+          "requests": 2
+        },
+        "stylesheet": {
+          "bytes": 8835,
+          "requests": 1
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 10374,
+          "requests": 3
+        }
+      },
+      "scripts": 14,
+      "stylesheets": 1,
+      "fonts": 2
+    },
+    "thirdParty": {
+      "count": 2,
+      "bytes": 10374,
+      "mainThreadMs": 7.6,
+      "top": [
+        {
+          "entity": "Cloudflare",
+          "bytes": 10338,
+          "mainThreadMs": 7.5,
+          "byType": {
+            "script": 10338
+          },
+          "typedBytes": 10338
+        },
+        {
+          "entity": "cloudflareinsights.com",
+          "bytes": 36,
+          "mainThreadMs": 0.1,
+          "byType": {
+            "other": 36
+          },
+          "typedBytes": 36
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 2500.6,
+      "byGroup": {
+        "scriptEvaluation": 1162.3,
+        "styleLayout": 624.5,
+        "other": 565.5,
+        "parseHTML": 78.6,
+        "paintCompositeRender": 44.6,
+        "garbageCollection": 16.3,
+        "scriptParseCompile": 8.7
+      },
+      "bootupMs": 1121,
+      "longTasks": 6,
+      "longestTaskMs": 368
+    },
+    "dom": {
+      "elements": 1908,
+      "depth": 23,
+      "maxChildren": 18
+    },
+    "waste": {
+      "unusedJsBytes": 0,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 10840,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 0,
+      "renderBlockingCount": 0,
+      "poorlyCachedBytes": 4135.2,
+      "poorlyCachedCount": 1
+    },
+    "accessibility": {
+      "failingCount": 2,
+      "applicableCount": 28,
+      "failingNodes": 3,
+      "failing": [
+        {
+          "id": "link-name",
+          "title": "Links do not have a discernible name",
+          "weight": 7,
+          "nodes": 2
+        },
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "weight": 7,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 1,
+      "applicableCount": 18,
+      "failing": [
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "weight": 1,
+          "nodes": 1
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 0,
+      "applicableCount": 10,
+      "failing": []
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 1,
+      "baselineLimitedFeatures": 41
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 3009.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-10-05T01:45:27.125Z",
+      "runtimeMs": 16172.4
+    }
+  },
+  "field": null,
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "probe": {
+      "metas": [],
+      "marks": [
+        "vue",
+        "fontawesome",
+        "alpine"
+      ],
+      "markVersions": {
+        "alpine": "3.11.1"
+      }
+    },
+    "interstitial": null,
+    "host": {
+      "id": "netlify",
+      "name": "Netlify",
+      "icon": "Netlify",
+      "source": "x-nf-request-id"
+    },
+    "headers": {
+      "server": "Netlify",
+      "x-nf-request-id": "01M44VTXEGNJPWXEQQBKRX7WG0"
+    },
+    "violations": 3,
+    "passes": 1071,
+    "incomplete": 109,
+    "violationRules": 2,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "link-name",
+        "impact": "serious",
+        "nodes": 2,
+        "help": "Links must have discernible text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/link-name?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".tweets-grid__item[role=\"listitem\"]:nth-child(1) > .card-bluesky.bg-bluesky > div:nth-child(1) > .hover\\:bg-blue-700.block",
+            "snippet": "<a href=\"https://htmhell.dev/adventcalendar/\" class=\"block hover:bg-blue-700\">"
+          },
+          {
+            "selector": ".tweets-grid__item[role=\"listitem\"]:nth-child(5) > .card-bluesky.bg-bluesky > div:nth-child(1) > .hover\\:bg-blue-700.block",
+            "snippet": "<a href=\"https://www.npmjs.com/package/buffer\" class=\"block hover:bg-blue-700\">"
+          }
+        ]
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/color-contrast?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "#theres-more-5",
+            "snippet": "<span x-bind:id=\"$id('theres-more')\" data-v-0aaa3c16=\"\" id=\"theres-more-5\">There's more!</span>"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
