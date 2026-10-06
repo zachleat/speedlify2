@@ -1,0 +1,250 @@
+{
+  "url": "https://ninerakes.com/",
+  "name": "ninerakes.com",
+  "group": "11ty-community",
+  "groupName": "Built Awesome",
+  "timestamp": 1791263052061,
+  "date": "2026-10-06T05:04:12.061Z",
+  "runId": "2026-10-06T05-03-12-077Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 1,
+  "durationMs": 19120,
+  "error": null,
+  "partialErrors": [
+    "ERRORED_DOCUMENT_REQUEST: Lighthouse was unable to reliably load the page you requested. Make sure you are testing the correct URL and that the server is properly responding to all requests. (Status code: 429)",
+    "ERRORED_DOCUMENT_REQUEST: Lighthouse was unable to reliably load the page you requested. Make sure you are testing the correct URL and that the server is properly responding to all requests. (Status code: 429)"
+  ],
+  "variance": null,
+  "lab": {
+    "requestedUrl": "https://ninerakes.com/",
+    "finalUrl": "https://www.ninerakes.com/",
+    "redirect": {
+      "from": "https://ninerakes.com/",
+      "to": "https://www.ninerakes.com/",
+      "chain": [
+        {
+          "url": "https://ninerakes.com/",
+          "status": 307
+        },
+        {
+          "url": "https://www.ninerakes.com/",
+          "status": 200
+        }
+      ],
+      "statuses": [
+        307
+      ],
+      "change": "host",
+      "permanent": false,
+      "schemeUpgrade": false,
+      "hops": 1
+    },
+    "statusCode": "ok",
+    "scores": {
+      "performance": 97,
+      "accessibility": 83,
+      "best-practices": 100,
+      "seo": 100,
+      "agentic-browsing": 100
+    },
+    "timings": {
+      "fcp": 1714,
+      "lcp": 2382,
+      "si": 1714,
+      "tbt": 0,
+      "tti": 2382,
+      "cls": 0,
+      "ttfb": 635,
+      "maxPotentialFid": 16,
+      "serverResponseTime": 27,
+      "networkRtt": 0.1,
+      "networkServerLatency": 67.7
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 59.1,
+      "elementRenderDelay": 73.6
+    },
+    "weight": {
+      "total": 72337,
+      "requests": 10,
+      "mainDocument": 3765,
+      "byType": {
+        "total": {
+          "bytes": 68987,
+          "requests": 9
+        },
+        "script": {
+          "bytes": 55221,
+          "requests": 4
+        },
+        "stylesheet": {
+          "bytes": 9484,
+          "requests": 2
+        },
+        "document": {
+          "bytes": 3765,
+          "requests": 1
+        },
+        "image": {
+          "bytes": 435,
+          "requests": 1
+        },
+        "other": {
+          "bytes": 82,
+          "requests": 1
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "font": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 12497,
+          "requests": 3
+        }
+      },
+      "scripts": 4,
+      "stylesheets": 2,
+      "fonts": 0
+    },
+    "thirdParty": {
+      "count": 2,
+      "bytes": 12497,
+      "mainThreadMs": 1.8,
+      "top": [
+        {
+          "entity": "JSDelivr CDN",
+          "bytes": 9306,
+          "mainThreadMs": 0.5,
+          "byType": {
+            "script": 9306
+          },
+          "typedBytes": 9306
+        },
+        {
+          "entity": "Fathom Analytics",
+          "bytes": 3191,
+          "mainThreadMs": 1.3,
+          "byType": {
+            "script": 2756,
+            "image": 435
+          },
+          "typedBytes": 3191
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 175.9,
+      "byGroup": {
+        "other": 61.1,
+        "styleLayout": 47,
+        "scriptEvaluation": 42.8,
+        "scriptParseCompile": 12.3,
+        "parseHTML": 7,
+        "paintCompositeRender": 5.6
+      },
+      "bootupMs": 11.5,
+      "longTasks": 0,
+      "longestTaskMs": null
+    },
+    "dom": {
+      "elements": 90,
+      "depth": 10,
+      "maxChildren": 8
+    },
+    "waste": {
+      "unusedJsBytes": 0,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 0,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 7170,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 150,
+      "renderBlockingCount": 3,
+      "poorlyCachedBytes": 930.5999999999998,
+      "poorlyCachedCount": 1
+    },
+    "accessibility": {
+      "failingCount": 2,
+      "applicableCount": 11,
+      "failingNodes": 2,
+      "failing": [
+        {
+          "id": "meta-viewport",
+          "title": "`[user-scalable=\"no\"]` is used in the `<meta name=\"viewport\">` element or the `[maximum-scale]` attribute is less than 5.",
+          "weight": 10,
+          "nodes": 1
+        },
+        {
+          "id": "landmark-one-main",
+          "title": "Document does not have a main landmark.",
+          "weight": 3,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 0,
+      "applicableCount": 19,
+      "failing": []
+    },
+    "seo": {
+      "failingCount": 0,
+      "applicableCount": 8,
+      "failing": []
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 779.1,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 10
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 3535,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-10-06T05:04:23.127Z",
+      "runtimeMs": 5944.3
+    }
+  },
+  "field": null,
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "probe": null,
+    "interstitial": "Vercel Security Checkpoint",
+    "host": {
+      "id": "vercel",
+      "name": "Vercel",
+      "icon": "Vercel",
+      "source": "x-vercel-id"
+    },
+    "headers": {
+      "server": "Vercel",
+      "x-vercel-id": "cle1::1791263070-TT7i7z5K2Zt1CN01Ijvp1qN7tvZYKeFt"
+    },
+    "violations": null,
+    "passes": null,
+    "incomplete": null,
+    "violationRules": null,
+    "version": "4.13.0",
+    "top": [],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
