@@ -1,0 +1,386 @@
+{
+  "url": "https://www.meta.com/",
+  "name": "Meta",
+  "group": "big-tech",
+  "groupName": "Big Tech",
+  "timestamp": 1791291803969,
+  "date": "2026-10-06T13:03:23.969Z",
+  "runId": "2026-10-06T12-48-53-058Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 1,
+  "durationMs": 261377,
+  "error": null,
+  "partialErrors": [
+    "NO_NAVSTART: Something went wrong with recording the trace over your page load. Please run Lighthouse again. (NO_NAVSTART)",
+    "lighthouse timed out after 120000ms"
+  ],
+  "variance": null,
+  "lab": {
+    "requestedUrl": "https://www.meta.com/",
+    "finalUrl": "https://www.meta.com/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 31,
+      "accessibility": 99,
+      "best-practices": 54,
+      "seo": 92,
+      "agentic-browsing": 98
+    },
+    "timings": {
+      "fcp": 4447,
+      "lcp": 5797,
+      "si": 10589,
+      "tbt": 2736,
+      "tti": 23181,
+      "cls": 0.068,
+      "ttfb": 774,
+      "maxPotentialFid": 795,
+      "serverResponseTime": 495,
+      "networkRtt": 0.1,
+      "networkServerLatency": 323.7
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 497.1,
+      "resourceLoadDelay": 797.8,
+      "resourceLoadDuration": 60.1,
+      "elementRenderDelay": 175.8
+    },
+    "weight": {
+      "total": 5946008,
+      "requests": 104,
+      "mainDocument": 117908,
+      "byType": {
+        "total": {
+          "bytes": 5946008,
+          "requests": 96
+        },
+        "media": {
+          "bytes": 2646831,
+          "requests": 1
+        },
+        "script": {
+          "bytes": 2014781,
+          "requests": 44
+        },
+        "image": {
+          "bytes": 544468,
+          "requests": 20
+        },
+        "stylesheet": {
+          "bytes": 378535,
+          "requests": 2
+        },
+        "font": {
+          "bytes": 183363,
+          "requests": 1
+        },
+        "document": {
+          "bytes": 117962,
+          "requests": 4
+        },
+        "other": {
+          "bytes": 60068,
+          "requests": 24
+        },
+        "third-party": {
+          "bytes": 5770881,
+          "requests": 74
+        }
+      },
+      "scripts": 52,
+      "stylesheets": 2,
+      "fonts": 1
+    },
+    "thirdParty": {
+      "count": 2,
+      "bytes": 5770827,
+      "mainThreadMs": 1830.5,
+      "top": [
+        {
+          "entity": "Facebook",
+          "bytes": 5770755,
+          "mainThreadMs": 1830.5,
+          "byType": {
+            "script": 2014781,
+            "media": 2646831,
+            "stylesheet": 378535,
+            "font": 183363,
+            "image": 544468,
+            "other": 2777
+          },
+          "typedBytes": 5770755
+        },
+        {
+          "entity": "conversionsapigateway.com",
+          "bytes": 72,
+          "mainThreadMs": 0,
+          "byType": {
+            "other": 72
+          },
+          "typedBytes": 72
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 12883.1,
+      "byGroup": {
+        "scriptEvaluation": 7114.2,
+        "other": 3750.5,
+        "scriptParseCompile": 816.5,
+        "styleLayout": 526.1,
+        "garbageCollection": 387.7,
+        "parseHTML": 159.3,
+        "paintCompositeRender": 128.9
+      },
+      "bootupMs": 7548.6,
+      "longTasks": 20,
+      "longestTaskMs": 1500
+    },
+    "dom": {
+      "elements": 1728,
+      "depth": 30,
+      "maxChildren": 106
+    },
+    "waste": {
+      "unusedJsBytes": 971908,
+      "unusedCssBytes": 360873,
+      "legacyJsBytes": 35321,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 2623,
+      "renderBlockingCount": 1,
+      "poorlyCachedBytes": 3454359.2333333334,
+      "poorlyCachedCount": 17
+    },
+    "accessibility": {
+      "failingCount": 2,
+      "applicableCount": 33,
+      "failingNodes": 2,
+      "failing": [
+        {
+          "id": "heading-order",
+          "title": "Heading elements are not in a sequentially-descending order",
+          "weight": 3,
+          "nodes": 1
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "title": "Elements with visible text labels do not have matching accessible names.",
+          "weight": 0,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 4,
+      "applicableCount": 17,
+      "failing": [
+        {
+          "id": "deprecations",
+          "title": "Uses deprecated APIs",
+          "weight": 5,
+          "nodes": 1
+        },
+        {
+          "id": "third-party-cookies",
+          "title": "Uses third-party cookies",
+          "weight": 5,
+          "nodes": 2
+        },
+        {
+          "id": "charset",
+          "title": "Charset declaration is missing or occurs too late in the HTML",
+          "weight": 1,
+          "nodes": null
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "weight": 1,
+          "nodes": 1
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 1,
+      "applicableCount": 10,
+      "failing": [
+        {
+          "id": "link-text",
+          "title": "Links do not have descriptive text",
+          "weight": 1,
+          "nodes": 9
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": null,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": null,
+      "trustedTypes": 1,
+      "bfCache": 0,
+      "bfCacheFailures": 5,
+      "protocol": "h3",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 69
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2470,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-10-06T13:04:15.895Z",
+      "runtimeMs": 52273.8
+    }
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-09-07",
+      "last": "2026-10-04"
+    },
+    "metrics": {
+      "cls": {
+        "p75": 0.1,
+        "rating": "good",
+        "distribution": {
+          "good": 72.8,
+          "needsImprovement": 14.7,
+          "poor": 12.5
+        }
+      },
+      "ttfb": {
+        "p75": 1346,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 48.5,
+          "needsImprovement": 35.4,
+          "poor": 16.1
+        }
+      },
+      "fcp": {
+        "p75": 2985,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 47.2,
+          "needsImprovement": 28,
+          "poor": 24.9
+        }
+      },
+      "inp": {
+        "p75": 764,
+        "rating": "poor",
+        "distribution": {
+          "good": 40.4,
+          "needsImprovement": 26.2,
+          "poor": 33.5
+        }
+      },
+      "lcp": {
+        "p75": 3397,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 59.6,
+          "needsImprovement": 22,
+          "poor": 18.4
+        }
+      },
+      "rtt": {
+        "p75": 213,
+        "rating": null,
+        "distribution": {
+          "good": 27.5,
+          "needsImprovement": 55.5,
+          "poor": 17
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "probe": {
+      "metas": [],
+      "marks": [
+        "react"
+      ],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": null,
+    "headers": {},
+    "violations": 4,
+    "passes": 37,
+    "incomplete": 1,
+    "violationRules": 4,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "landmark-one-main",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Document should have one main landmark",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/landmark-one-main?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "#facebook",
+            "snippet": "<html id=\"facebook\" class=\"_a4ch _aber _auh9 _av9d\" lang=\"en\" dir=\"ltr\">"
+          }
+        ]
+      },
+      {
+        "id": "meta-viewport-large",
+        "impact": "minor",
+        "nodes": 1,
+        "help": "Users should be able to zoom and scale the text up to 500%",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/meta-viewport-large?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "meta[name=\"viewport\"]",
+            "snippet": "<meta name=\"viewport\" content=\"width=device-width,initial-scale=1,maximum-scale=2,shrink-to-fit=no\">"
+          }
+        ]
+      },
+      {
+        "id": "page-has-heading-one",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Page should contain a level-one heading",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/page-has-heading-one?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "#facebook",
+            "snippet": "<html id=\"facebook\" class=\"_a4ch _aber _auh9 _av9d\" lang=\"en\" dir=\"ltr\">"
+          }
+        ]
+      },
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "All page content should be contained by landmarks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/region?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "#mount_0_0_9n",
+            "snippet": "<div id=\"mount_0_0_9n\" data-interactable=\"|click||dragend||dragstart||keydown|\">"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}

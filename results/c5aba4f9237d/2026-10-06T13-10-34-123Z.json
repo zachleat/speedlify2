@@ -1,0 +1,417 @@
+{
+  "url": "https://www.cloudflare.com/products/pages",
+  "name": "Cloudflare Pages",
+  "group": "dev-tooling",
+  "groupName": "Developer Tooling",
+  "timestamp": 1791292234123,
+  "date": "2026-10-06T13:10:34.123Z",
+  "runId": "2026-10-06T12-48-53-058Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 363112,
+  "error": null,
+  "variance": {
+    "min": 38,
+    "max": 65,
+    "spread": 27,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://www.cloudflare.com/products/pages",
+    "finalUrl": "https://www.cloudflare.com/products/pages/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 54,
+      "accessibility": 94,
+      "best-practices": 77,
+      "seo": 100,
+      "agentic-browsing": 100
+    },
+    "timings": {
+      "fcp": 2901,
+      "lcp": 5401,
+      "si": 2901,
+      "tbt": 899,
+      "tti": 21608,
+      "cls": 0,
+      "ttfb": 475,
+      "maxPotentialFid": 407,
+      "serverResponseTime": 6,
+      "networkRtt": 63.1,
+      "networkServerLatency": 155.1
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 27.9,
+      "elementRenderDelay": 530.6
+    },
+    "weight": {
+      "total": 4027279,
+      "requests": 181,
+      "mainDocument": 82431,
+      "byType": {
+        "total": {
+          "bytes": 4019880,
+          "requests": 179
+        },
+        "script": {
+          "bytes": 1897440,
+          "requests": 97
+        },
+        "image": {
+          "bytes": 1842779,
+          "requests": 16
+        },
+        "stylesheet": {
+          "bytes": 101019,
+          "requests": 6
+        },
+        "document": {
+          "bytes": 84415,
+          "requests": 4
+        },
+        "other": {
+          "bytes": 65380,
+          "requests": 53
+        },
+        "font": {
+          "bytes": 28847,
+          "requests": 3
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 101082,
+          "requests": 63
+        }
+      },
+      "scripts": 97,
+      "stylesheets": 6,
+      "fonts": 3
+    },
+    "thirdParty": {
+      "count": 11,
+      "bytes": 97420,
+      "mainThreadMs": 61.9,
+      "top": [
+        {
+          "entity": "The Trade Desk",
+          "bytes": 31873,
+          "mainThreadMs": 8.8,
+          "byType": {
+            "script": 30319,
+            "other": 1054,
+            "image": 500
+          },
+          "typedBytes": 31873
+        },
+        {
+          "entity": "DemandBase",
+          "bytes": 21952,
+          "mainThreadMs": 29.4,
+          "byType": {
+            "script": 21509,
+            "other": 443
+          },
+          "typedBytes": 21952
+        },
+        {
+          "entity": "Twitter Online Conversion Tracking",
+          "bytes": 18428,
+          "mainThreadMs": 13.2,
+          "byType": {
+            "script": 17673,
+            "image": 755
+          },
+          "typedBytes": 18428
+        },
+        {
+          "entity": "Cloudflare",
+          "bytes": 10338,
+          "mainThreadMs": 4.7,
+          "byType": {
+            "script": 10338
+          },
+          "typedBytes": 10338
+        },
+        {
+          "entity": "Marketo",
+          "bytes": 7210,
+          "mainThreadMs": 4.4,
+          "byType": {
+            "script": 6892,
+            "other": 318
+          },
+          "typedBytes": 7210
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 28799.4,
+      "byGroup": {
+        "other": 11773.7,
+        "scriptEvaluation": 8358.3,
+        "styleLayout": 4165.4,
+        "paintCompositeRender": 3700.4,
+        "scriptParseCompile": 355.3,
+        "garbageCollection": 318.4,
+        "parseHTML": 128
+      },
+      "bootupMs": 8590.3,
+      "longTasks": 18,
+      "longestTaskMs": 407
+    },
+    "dom": {
+      "elements": 2026,
+      "depth": 20,
+      "maxChildren": 225
+    },
+    "waste": {
+      "unusedJsBytes": 876928,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 19278,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 3918,
+      "renderBlockingCount": 6,
+      "poorlyCachedBytes": 143658.55833333332,
+      "poorlyCachedCount": 13
+    },
+    "accessibility": {
+      "failingCount": 3,
+      "applicableCount": 26,
+      "failingNodes": 17,
+      "failing": [
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "weight": 7,
+          "nodes": 15
+        },
+        {
+          "id": "heading-order",
+          "title": "Heading elements are not in a sequentially-descending order",
+          "weight": 3,
+          "nodes": 1
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "title": "Elements with visible text labels do not have matching accessible names.",
+          "weight": 0,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 3,
+      "applicableCount": 17,
+      "failing": [
+        {
+          "id": "third-party-cookies",
+          "title": "Uses third-party cookies",
+          "weight": 5,
+          "nodes": 14
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "weight": 1,
+          "nodes": 1
+        },
+        {
+          "id": "valid-source-maps",
+          "title": "Missing source maps for large first-party JavaScript",
+          "weight": 0,
+          "nodes": 5
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 0,
+      "applicableCount": 10,
+      "failing": []
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": null,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h3",
+      "legacyHttpRequests": 0,
+      "redirectMs": 784.4,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 72
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2385.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-10-06T13:10:35.382Z",
+      "runtimeMs": 74910.6
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 1142,
+    "elementRenderDelay": 2528.4
+  },
+  "field": {
+    "source": "crux",
+    "scope": "origin",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-09-07",
+      "last": "2026-10-04"
+    },
+    "metrics": {
+      "lcp": {
+        "p75": 1725,
+        "rating": "good",
+        "distribution": {
+          "good": 87,
+          "needsImprovement": 7.2,
+          "poor": 5.8
+        }
+      },
+      "rtt": {
+        "p75": 237,
+        "rating": null,
+        "distribution": {
+          "good": 21.1,
+          "needsImprovement": 58.7,
+          "poor": 20.2
+        }
+      },
+      "cls": {
+        "p75": 0,
+        "rating": "good",
+        "distribution": {
+          "good": 98.4,
+          "needsImprovement": 1.1,
+          "poor": 0.5
+        }
+      },
+      "ttfb": {
+        "p75": 604,
+        "rating": "good",
+        "distribution": {
+          "good": 82.5,
+          "needsImprovement": 12.3,
+          "poor": 5.1
+        }
+      },
+      "fcp": {
+        "p75": 1407,
+        "rating": "good",
+        "distribution": {
+          "good": 83.5,
+          "needsImprovement": 9,
+          "poor": 7.5
+        }
+      },
+      "inp": {
+        "p75": 205,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 74.2,
+          "needsImprovement": 17.7,
+          "poor": 8.2
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": true,
+    "generator": {
+      "id": "astro",
+      "name": "Astro",
+      "icon": "Astro",
+      "version": "6.3.7",
+      "source": "meta",
+      "raw": "Astro v6.3.7"
+    },
+    "probe": {
+      "metas": [
+        "Astro v6.3.7"
+      ],
+      "marks": [
+        "astro",
+        "react"
+      ],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "cloudflare",
+      "name": "Cloudflare",
+      "icon": "Cloudflare",
+      "source": "server"
+    },
+    "headers": {
+      "cf-ray": "a464ec5338073884-SJC",
+      "server": "cloudflare"
+    },
+    "violations": 16,
+    "passes": 1747,
+    "incomplete": 122,
+    "violationRules": 2,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 15,
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/color-contrast?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".md\\:w-auto.text-lg.hover\\:border-light-foreground > span[data-cms-type=\"text\"]",
+            "snippet": "<span data-cms-path=\"products.pages.sections.hero.primaryCta.text\" data-cms-type=\"text\"> Start building for free </span>"
+          },
+          {
+            "selector": "button[data-ex-tab=\"1\"]",
+            "snippet": "<button type=\"button\" data-ex-tab=\"1\" class=\"ex-file-tab cursor-pointer px-2 py-1 font-mono text-[12px] leading-[16px] transition-colors\"> flask-pages.py </button>"
+          },
+          {
+            "selector": "button[data-ex-tab=\"2\"]",
+            "snippet": "<button type=\"button\" data-ex-tab=\"2\" class=\"ex-file-tab cursor-pointer px-2 py-1 font-mono text-[12px] leading-[16px] transition-colors\"> deploy-pages.sh </button>"
+          },
+          {
+            "selector": "button[data-ex-tab=\"3\"]",
+            "snippet": "<button type=\"button\" data-ex-tab=\"3\" class=\"ex-file-tab cursor-pointer px-2 py-1 font-mono text-[12px] leading-[16px] transition-colors\"> index.html </button>"
+          },
+          {
+            "selector": "pre[data-language=\"javascript\"] > code > .line:nth-child(1) > span:nth-child(1)",
+            "snippet": "<span style=\"color:var(--color-node-accent)\">import</span>"
+          }
+        ]
+      },
+      {
+        "id": "heading-order",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Heading levels should only increase by one",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/heading-order?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "h5",
+            "snippet": "<h5 class=\"text-foreground-100/70 mt-4 text-balance whitespace-pre-line\"> Built on systems powering 20% of the Internet, Cloudflare Pages run on the same infrastructure Cloudflare uses to build Cloud…"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
