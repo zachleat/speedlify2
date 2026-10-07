@@ -1,0 +1,470 @@
+{
+  "url": "https://render.com/",
+  "name": "Render",
+  "group": "dev-tooling",
+  "groupName": "Developer Tooling",
+  "timestamp": 1791394384535,
+  "date": "2026-10-07T17:33:04.535Z",
+  "runId": "2026-10-07T17-17-09-880Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 231456,
+  "error": null,
+  "variance": {
+    "min": 8,
+    "max": 33,
+    "spread": 25,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://render.com/",
+    "finalUrl": "https://render.com/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 19,
+      "accessibility": 84,
+      "best-practices": 73,
+      "seo": 100,
+      "agentic-browsing": 35
+    },
+    "timings": {
+      "fcp": 1566,
+      "lcp": 12366,
+      "si": 3896,
+      "tbt": 3169,
+      "tti": 22935,
+      "cls": 0.847,
+      "ttfb": 666,
+      "maxPotentialFid": 446,
+      "serverResponseTime": 107,
+      "networkRtt": 14.1,
+      "networkServerLatency": 104.2
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 124.2,
+      "elementRenderDelay": 376.5
+    },
+    "weight": {
+      "total": 3533240,
+      "requests": 224,
+      "mainDocument": 83229,
+      "byType": {
+        "total": {
+          "bytes": 3533295,
+          "requests": 166
+        },
+        "script": {
+          "bytes": 2016883,
+          "requests": 95
+        },
+        "font": {
+          "bytes": 998024,
+          "requests": 17
+        },
+        "image": {
+          "bytes": 282938,
+          "requests": 24
+        },
+        "other": {
+          "bytes": 110771,
+          "requests": 26
+        },
+        "document": {
+          "bytes": 83229,
+          "requests": 1
+        },
+        "stylesheet": {
+          "bytes": 41450,
+          "requests": 3
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 989613,
+          "requests": 49
+        }
+      },
+      "scripts": 150,
+      "stylesheets": 3,
+      "fonts": 17
+    },
+    "thirdParty": {
+      "count": 9,
+      "bytes": 989627,
+      "mainThreadMs": 342.3,
+      "top": [
+        {
+          "entity": "Google Tag Manager",
+          "bytes": 520359,
+          "mainThreadMs": 196.4,
+          "byType": {
+            "script": 520359
+          },
+          "typedBytes": 520359
+        },
+        {
+          "entity": "sanity.io",
+          "bytes": 282446,
+          "mainThreadMs": 0,
+          "byType": {
+            "image": 282446
+          },
+          "typedBytes": 282446
+        },
+        {
+          "entity": "posthog.com",
+          "bytes": 156438,
+          "mainThreadMs": 117.2,
+          "byType": {
+            "script": 156152,
+            "other": 286
+          },
+          "typedBytes": 156438
+        },
+        {
+          "entity": "LinkedIn Ads",
+          "bytes": 24136,
+          "mainThreadMs": 21.6,
+          "byType": {
+            "script": 23534,
+            "image": 492,
+            "other": 110
+          },
+          "typedBytes": 24136
+        },
+        {
+          "entity": "SalesLoft",
+          "bytes": 3946,
+          "mainThreadMs": 7.1,
+          "byType": {
+            "script": 2923,
+            "other": 1023
+          },
+          "typedBytes": 3946
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 10306.6,
+      "byGroup": {
+        "scriptEvaluation": 5947.4,
+        "other": 2327.6,
+        "styleLayout": 824.8,
+        "scriptParseCompile": 663.2,
+        "garbageCollection": 229.7,
+        "paintCompositeRender": 209.4,
+        "parseHTML": 104.6
+      },
+      "bootupMs": 6138.3,
+      "longTasks": 20,
+      "longestTaskMs": 446
+    },
+    "dom": {
+      "elements": 2498,
+      "depth": 20,
+      "maxChildren": 92
+    },
+    "waste": {
+      "unusedJsBytes": 703922,
+      "unusedCssBytes": 34720,
+      "legacyJsBytes": 39427,
+      "duplicatedJsBytes": 4446,
+      "unminifiedJsBytes": 31795,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 305,
+      "renderBlockingCount": 3,
+      "poorlyCachedBytes": 86282.65917129631,
+      "poorlyCachedCount": 6
+    },
+    "accessibility": {
+      "failingCount": 4,
+      "applicableCount": 25,
+      "failingNodes": 95,
+      "failing": [
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "weight": 7,
+          "nodes": 47
+        },
+        {
+          "id": "svg-img-alt",
+          "title": "SVG elements with an `img` role do not have an accessible text alternative",
+          "weight": 1,
+          "nodes": 45
+        },
+        {
+          "id": "button-name",
+          "title": "Buttons do not have an accessible name",
+          "weight": 10,
+          "nodes": 2
+        },
+        {
+          "id": "meta-viewport",
+          "title": "`[user-scalable=\"no\"]` is used in the `<meta name=\"viewport\">` element or the `[maximum-scale]` attribute is less than 5.",
+          "weight": 10,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 3,
+      "applicableCount": 18,
+      "failing": [
+        {
+          "id": "third-party-cookies",
+          "title": "Uses third-party cookies",
+          "weight": 5,
+          "nodes": 7
+        },
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "weight": 1,
+          "nodes": 2
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "weight": 1,
+          "nodes": 2
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 0,
+      "applicableCount": 10,
+      "failing": []
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": null,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 2,
+      "baselineLimitedFeatures": 54
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2409,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-10-07T17:33:05.879Z",
+      "runtimeMs": 16997.5
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 659.3,
+    "elementRenderDelay": 6698.9
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-09-08",
+      "last": "2026-10-05"
+    },
+    "metrics": {
+      "cls": {
+        "p75": 0.04,
+        "rating": "good",
+        "distribution": {
+          "good": 82.2,
+          "needsImprovement": 7.6,
+          "poor": 10.2
+        }
+      },
+      "ttfb": {
+        "p75": 1066,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 60.8,
+          "needsImprovement": 29,
+          "poor": 10.2
+        }
+      },
+      "fcp": {
+        "p75": 1856,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 73.7,
+          "needsImprovement": 16.9,
+          "poor": 9.5
+        }
+      },
+      "inp": {
+        "p75": 362,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 50,
+          "needsImprovement": 35.4,
+          "poor": 14.6
+        }
+      },
+      "lcp": {
+        "p75": 2412,
+        "rating": "good",
+        "distribution": {
+          "good": 76,
+          "needsImprovement": 13.7,
+          "poor": 10.3
+        }
+      },
+      "rtt": {
+        "p75": 272,
+        "rating": null,
+        "distribution": {
+          "good": 15.1,
+          "needsImprovement": 60.4,
+          "poor": 24.5
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": true,
+    "generator": {
+      "id": "nextjs",
+      "name": "Next.js",
+      "icon": "Nextdotjs",
+      "version": null,
+      "source": "dom",
+      "raw": null
+    },
+    "probe": {
+      "metas": [],
+      "marks": [
+        "next",
+        "react",
+        "lit"
+      ],
+      "markVersions": {
+        "lit": "2.8.0"
+      }
+    },
+    "interstitial": null,
+    "host": {
+      "id": "render",
+      "name": "Render",
+      "icon": "Render",
+      "source": "x-render-origin-server"
+    },
+    "headers": {
+      "cf-ray": "a46ea8c17adce713-IAD",
+      "server": "cloudflare",
+      "x-render-origin-server": "Render"
+    },
+    "violations": 95,
+    "passes": 1700,
+    "incomplete": 20,
+    "violationRules": 4,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 47,
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/color-contrast?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".text-gray-400",
+            "snippet": "<span class=\"text-gray-400\">Compute Plan:</span>"
+          },
+          {
+            "selector": "a[href$=\"cli\"]",
+            "snippet": "<a class=\"ease text-gray-500 transition-colors duration-300 active:text-white md:hover:text-white\" href=\"/docs/cli\">Render CLI</a>"
+          },
+          {
+            "selector": "a[href$=\"mcp-server\"]",
+            "snippet": "<a class=\"ease text-gray-500 transition-colors duration-300 active:text-white md:hover:text-white\" href=\"/docs/mcp-server\">Render MCP</a>"
+          },
+          {
+            "selector": ".col-span-1:nth-child(1) > .gap-40.flex-col.flex > div > .gap-16 > li:nth-child(3) > .duration-300.active\\:text-white.md\\:hover\\:text-white",
+            "snippet": "<a class=\"ease text-gray-500 transition-colors duration-300 active:text-white md:hover:text-white\" href=\"https://docs.render.com/scaling\">Autoscaling</a>"
+          },
+          {
+            "selector": "a[href$=\"private-network\"]",
+            "snippet": "<a class=\"ease text-gray-500 transition-colors duration-300 active:text-white md:hover:text-white\" href=\"/docs/private-network\">Private Networking</a>"
+          }
+        ]
+      },
+      {
+        "id": "svg-img-alt",
+        "impact": "serious",
+        "nodes": 45,
+        "help": "<svg> elements with an img or image role must have alternative text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/svg-img-alt?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".rfm-marquee-container.w-full:nth-child(1) > .rfm-marquee:nth-child(1) > .rfm-initial-child-container > .rfm-child:nth-child(1) > .mr-30.aspect-square.w-60 > svg[stroke-width=\"0\"][height=\"1em\"][width=\"1em\"]",
+            "snippet": "<svg stroke=\"currentColor\" fill=\"currentColor\" stroke-width=\"0\" role=\"img\" viewBox=\"0 0 24 24\" class=\"h-[calc(500%/9)] w-[calc(200%/3)]\" height=\"1em\" width=\"1em\" xmlns=\"http://www.w3.org/2000/svg\">"
+          },
+          {
+            "selector": ".rfm-marquee-container.w-full:nth-child(1) > .rfm-marquee:nth-child(1) > .rfm-initial-child-container > .rfm-child:nth-child(2) > .mr-30.aspect-square.w-60 > svg[stroke-width=\"0\"][height=\"1em\"][width=\"1em\"]",
+            "snippet": "<svg stroke=\"currentColor\" fill=\"currentColor\" stroke-width=\"0\" role=\"img\" viewBox=\"0 0 24 24\" class=\"h-[calc(500%/9)] w-[calc(200%/3)]\" height=\"1em\" width=\"1em\" xmlns=\"http://www.w3.org/2000/svg\">"
+          },
+          {
+            "selector": ".rfm-initial-child-container > .rfm-child:nth-child(3) > .mr-30.aspect-square.w-60 > svg[stroke-width=\"0\"][height=\"1em\"][width=\"1em\"]",
+            "snippet": "<svg stroke=\"currentColor\" fill=\"currentColor\" stroke-width=\"0\" role=\"img\" viewBox=\"0 0 24 24\" class=\"h-[calc(500%/9)] w-[calc(200%/3)]\" height=\"1em\" width=\"1em\" xmlns=\"http://www.w3.org/2000/svg\">"
+          },
+          {
+            "selector": ".rfm-marquee-container.w-full:nth-child(1) > .rfm-marquee:nth-child(1) > .rfm-initial-child-container > .rfm-child:nth-child(6) > .mr-30.aspect-square.w-60 > svg[stroke-width=\"0\"][height=\"1em\"][width=\"1em\"]",
+            "snippet": "<svg stroke=\"currentColor\" fill=\"currentColor\" stroke-width=\"0\" role=\"img\" viewBox=\"0 0 24 24\" class=\"h-[calc(500%/9)] w-[calc(200%/3)]\" height=\"1em\" width=\"1em\" xmlns=\"http://www.w3.org/2000/svg\">"
+          },
+          {
+            "selector": ".rfm-initial-child-container > .rfm-child:nth-child(7) > .mr-30.aspect-square.w-60 > svg[stroke-width=\"0\"][height=\"1em\"][width=\"1em\"]",
+            "snippet": "<svg stroke=\"currentColor\" fill=\"currentColor\" stroke-width=\"0\" role=\"img\" viewBox=\"0 0 24 24\" class=\"h-[calc(500%/9)] w-[calc(200%/3)]\" height=\"1em\" width=\"1em\" xmlns=\"http://www.w3.org/2000/svg\">"
+          }
+        ]
+      },
+      {
+        "id": "button-name",
+        "impact": "critical",
+        "nodes": 2,
+        "help": "Buttons must have discernible text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/button-name?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".p-10.hover\\:opacity-70[type=\"button\"]:nth-child(1)",
+            "snippet": "<button type=\"button\" class=\"shrink-0 p-10 transition-opacity hover:opacity-70\">"
+          },
+          {
+            "selector": ".p-10.hover\\:opacity-70[type=\"button\"]:nth-child(3)",
+            "snippet": "<button type=\"button\" class=\"shrink-0 p-10 transition-opacity hover:opacity-70\">"
+          }
+        ]
+      },
+      {
+        "id": "meta-viewport",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Zooming and scaling must not be disabled",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/meta-viewport?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "meta[name=\"viewport\"]",
+            "snippet": "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1\">"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
