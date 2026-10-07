@@ -1,0 +1,419 @@
+{
+  "url": "https://www.google.com/",
+  "name": "Google",
+  "group": "big-tech",
+  "groupName": "Big Tech",
+  "timestamp": 1791413183869,
+  "date": "2026-10-07T22:46:23.869Z",
+  "runId": "2026-10-07T22-46-22-796Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 50145,
+  "error": null,
+  "variance": {
+    "min": 62,
+    "max": 68,
+    "spread": 6,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://www.google.com/",
+    "finalUrl": "https://www.google.com/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 67,
+      "accessibility": 91,
+      "best-practices": 100,
+      "seo": 91,
+      "agentic-browsing": 50
+    },
+    "timings": {
+      "fcp": 2004,
+      "lcp": 8394,
+      "si": 2379,
+      "tbt": 320,
+      "tti": 8401,
+      "cls": 0,
+      "ttfb": 483,
+      "maxPotentialFid": 182,
+      "serverResponseTime": 101,
+      "networkRtt": 1.1,
+      "networkServerLatency": 32.7
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 102.5,
+      "elementRenderDelay": 910
+    },
+    "weight": {
+      "total": 954914,
+      "requests": 44,
+      "mainDocument": 66674,
+      "byType": {
+        "total": {
+          "bytes": 954914,
+          "requests": 43
+        },
+        "script": {
+          "bytes": 769534,
+          "requests": 8
+        },
+        "other": {
+          "bytes": 80404,
+          "requests": 29
+        },
+        "document": {
+          "bytes": 66674,
+          "requests": 1
+        },
+        "font": {
+          "bytes": 24525,
+          "requests": 1
+        },
+        "image": {
+          "bytes": 7234,
+          "requests": 2
+        },
+        "stylesheet": {
+          "bytes": 6543,
+          "requests": 2
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 123805,
+          "requests": 5
+        }
+      },
+      "scripts": 8,
+      "stylesheets": 2,
+      "fonts": 1
+    },
+    "thirdParty": {
+      "count": 3,
+      "bytes": 123805,
+      "mainThreadMs": 14.6,
+      "top": [
+        {
+          "entity": "Google CDN",
+          "bytes": 99226,
+          "mainThreadMs": 14.5,
+          "byType": {
+            "script": 92719,
+            "stylesheet": 6507
+          },
+          "typedBytes": 99226
+        },
+        {
+          "entity": "Google Fonts",
+          "bytes": 24525,
+          "mainThreadMs": 0,
+          "byType": {
+            "font": 24525
+          },
+          "typedBytes": 24525
+        },
+        {
+          "entity": "google.com",
+          "bytes": 54,
+          "mainThreadMs": 0.1,
+          "byType": {
+            "other": 54
+          },
+          "typedBytes": 54
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 1323.2,
+      "byGroup": {
+        "scriptEvaluation": 732.4,
+        "other": 297.4,
+        "scriptParseCompile": 132.4,
+        "styleLayout": 75.8,
+        "parseHTML": 29.8,
+        "paintCompositeRender": 29.6,
+        "garbageCollection": 25.8
+      },
+      "bootupMs": 807.6,
+      "longTasks": 7,
+      "longestTaskMs": 182
+    },
+    "dom": {
+      "elements": 418,
+      "depth": 23,
+      "maxChildren": 38
+    },
+    "waste": {
+      "unusedJsBytes": 430704,
+      "unusedCssBytes": 12910,
+      "legacyJsBytes": 0,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 0,
+      "renderBlockingCount": 0,
+      "poorlyCachedBytes": 0,
+      "poorlyCachedCount": 0
+    },
+    "accessibility": {
+      "failingCount": 3,
+      "applicableCount": 29,
+      "failingNodes": 9,
+      "failing": [
+        {
+          "id": "target-size",
+          "title": "Touch targets do not have sufficient size or spacing.",
+          "weight": 7,
+          "nodes": 7
+        },
+        {
+          "id": "list",
+          "title": "Lists do not contain only `<li>` elements and script supporting elements (`<script>` and `<template>`).",
+          "weight": 7,
+          "nodes": 1
+        },
+        {
+          "id": "landmark-one-main",
+          "title": "Document does not have a main landmark.",
+          "weight": 3,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 1,
+      "applicableCount": 19,
+      "failing": [
+        {
+          "id": "valid-source-maps",
+          "title": "Missing source maps for large first-party JavaScript",
+          "weight": 0,
+          "nodes": 1
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 1,
+      "applicableCount": 8,
+      "failing": [
+        {
+          "id": "meta-description",
+          "title": "Document does not have a meta description",
+          "weight": 1,
+          "nodes": null
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h3",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 34
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 4473.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-10-07T22:46:41.222Z",
+      "runtimeMs": 7351.2
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 663.8,
+    "elementRenderDelay": 6565.3
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-09-08",
+      "last": "2026-10-05"
+    },
+    "metrics": {
+      "cls": {
+        "p75": 0.04,
+        "rating": "good",
+        "distribution": {
+          "good": 94.7,
+          "needsImprovement": 2.9,
+          "poor": 2.5
+        }
+      },
+      "ttfb": {
+        "p75": 557,
+        "rating": "good",
+        "distribution": {
+          "good": 84.7,
+          "needsImprovement": 11.4,
+          "poor": 3.9
+        }
+      },
+      "fcp": {
+        "p75": 1061,
+        "rating": "good",
+        "distribution": {
+          "good": 89.8,
+          "needsImprovement": 6.4,
+          "poor": 3.8
+        }
+      },
+      "inp": {
+        "p75": 248,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 63.7,
+          "needsImprovement": 30.2,
+          "poor": 6.1
+        }
+      },
+      "lcp": {
+        "p75": 1831,
+        "rating": "good",
+        "distribution": {
+          "good": 84.8,
+          "needsImprovement": 9.8,
+          "poor": 5.4
+        }
+      },
+      "rtt": {
+        "p75": 184,
+        "rating": null,
+        "distribution": {
+          "good": 26.4,
+          "needsImprovement": 61,
+          "poor": 12.7
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "probe": {
+      "metas": [],
+      "marks": [],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "gws",
+      "name": "Google",
+      "icon": "Google",
+      "source": "server"
+    },
+    "headers": {
+      "server": "gws"
+    },
+    "violations": 19,
+    "passes": 443,
+    "incomplete": 2,
+    "violationRules": 4,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 9,
+        "help": "All page content should be contained by landmarks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/region?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".VsEpQb",
+            "snippet": "<div jsname=\"gYxgdc\" class=\"VsEpQb\" aria-level=\"1\" role=\"heading\">Trending searches</div>"
+          },
+          {
+            "selector": "li[jsaction=\"click:.CLIENT\"]:nth-child(1) > .jh86Nb > .MWnfue > .h5AwLb",
+            "snippet": "<span class=\"h5AwLb\">qatar gifted boeing 747 grounded</span>"
+          },
+          {
+            "selector": "li[jsaction=\"click:.CLIENT\"]:nth-child(2) > .jh86Nb > .MWnfue > .h5AwLb",
+            "snippet": "<span class=\"h5AwLb\">tropical storm isaias hurricane tracker</span>"
+          },
+          {
+            "selector": "li[jsaction=\"click:.CLIENT\"]:nth-child(3) > .jh86Nb > .MWnfue > .h5AwLb",
+            "snippet": "<span class=\"h5AwLb\">two toned ear ragdoll kitten</span>"
+          },
+          {
+            "selector": "li[jsaction=\"click:.CLIENT\"]:nth-child(4) > .jh86Nb > .MWnfue",
+            "snippet": "<div class=\"MWnfue\"> <span class=\"h5AwLb\">little debbie christmas tree creamer</span> <span class=\"SwwBmb DiX1e\">Coffee creamer</span> </div>"
+          }
+        ]
+      },
+      {
+        "id": "aria-allowed-role",
+        "impact": "minor",
+        "nodes": 8,
+        "help": "ARIA role should be appropriate for the element",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/aria-allowed-role?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".gLFyf",
+            "snippet": "<textarea jsname=\"yZiJbe\" class=\"gLFyf\" aria-describedby=\"sb_input_box_aria_de...\" aria-expanded=\"false\" aria-haspopup=\"listbox\" autocorrect=\"off\" maxlength=\"2048\" role=\"combobox\" title=\"\" placeholde…"
+          },
+          {
+            "selector": "li[jsaction=\"click:.CLIENT\"]:nth-child(1)",
+            "snippet": "<li role=\"link\" tabindex=\"0\" style=\"opacity: 1;\" jsaction=\"click:.CLIENT\">"
+          },
+          {
+            "selector": "li[jsaction=\"click:.CLIENT\"]:nth-child(2)",
+            "snippet": "<li role=\"link\" tabindex=\"0\" style=\"opacity: 1;\" jsaction=\"click:.CLIENT\">"
+          },
+          {
+            "selector": "li[jsaction=\"click:.CLIENT\"]:nth-child(3)",
+            "snippet": "<li role=\"link\" tabindex=\"0\" style=\"opacity: 1;\" jsaction=\"click:.CLIENT\">"
+          },
+          {
+            "selector": "li[jsaction=\"click:.CLIENT\"]:nth-child(4)",
+            "snippet": "<li role=\"link\" tabindex=\"0\" style=\"opacity: 1;\" jsaction=\"click:.CLIENT\">"
+          }
+        ]
+      },
+      {
+        "id": "landmark-one-main",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Document should have one main landmark",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/landmark-one-main?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "html",
+            "snippet": "<html lang=\"en\">"
+          }
+        ]
+      },
+      {
+        "id": "list",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "<ul> and <ol> must only directly contain <li>, <script> or <template> elements",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/list?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".o5j3Ue",
+            "snippet": "<ul jsname=\"rn6yge\" class=\"o5j3Ue\" data-num_pips_row=\"7\">"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
