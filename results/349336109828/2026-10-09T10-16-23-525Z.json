@@ -1,0 +1,511 @@
+{
+  "url": "https://surge.sh/",
+  "name": "Surge",
+  "group": "dev-tooling",
+  "groupName": "Developer Tooling",
+  "timestamp": 1791540983525,
+  "date": "2026-10-09T10:16:23.525Z",
+  "runId": "2026-10-09T10-06-06-442Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 174543,
+  "error": null,
+  "variance": {
+    "min": 58,
+    "max": 80,
+    "spread": 22,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://surge.sh/",
+    "finalUrl": "https://surge.sh/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 76,
+      "accessibility": 75,
+      "best-practices": 77,
+      "seo": 91,
+      "agentic-browsing": 49
+    },
+    "timings": {
+      "fcp": 2891,
+      "lcp": 5044,
+      "si": 2891,
+      "tbt": 6,
+      "tti": 6034,
+      "cls": 0.061,
+      "ttfb": 633,
+      "maxPotentialFid": 61,
+      "serverResponseTime": 21,
+      "networkRtt": 50.3,
+      "networkServerLatency": 32.6
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 22.7,
+      "elementRenderDelay": 211.7
+    },
+    "weight": {
+      "total": 1804713,
+      "requests": 50,
+      "mainDocument": 6218,
+      "byType": {
+        "total": {
+          "bytes": 1804713,
+          "requests": 50
+        },
+        "script": {
+          "bytes": 983487,
+          "requests": 10
+        },
+        "image": {
+          "bytes": 398743,
+          "requests": 19
+        },
+        "font": {
+          "bytes": 212590,
+          "requests": 6
+        },
+        "stylesheet": {
+          "bytes": 74041,
+          "requests": 4
+        },
+        "other": {
+          "bytes": 68889,
+          "requests": 9
+        },
+        "document": {
+          "bytes": 66963,
+          "requests": 2
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 1303485,
+          "requests": 24
+        }
+      },
+      "scripts": 10,
+      "stylesheets": 4,
+      "fonts": 6
+    },
+    "thirdParty": {
+      "count": 2,
+      "bytes": 214992,
+      "mainThreadMs": 19.8,
+      "top": [
+        {
+          "entity": "Adobe TypeKit",
+          "bytes": 185189,
+          "mainThreadMs": 2.5,
+          "byType": {
+            "script": 7094,
+            "font": 177890,
+            "image": 205
+          },
+          "typedBytes": 185189
+        },
+        {
+          "entity": "Google CDN",
+          "bytes": 29803,
+          "mainThreadMs": 17.3,
+          "byType": {
+            "script": 29803
+          },
+          "typedBytes": 29803
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 1362.5,
+      "byGroup": {
+        "other": 485.7,
+        "styleLayout": 448.1,
+        "scriptEvaluation": 176.8,
+        "paintCompositeRender": 162.3,
+        "scriptParseCompile": 57.1,
+        "parseHTML": 32.5
+      },
+      "bootupMs": 221.5,
+      "longTasks": 3,
+      "longestTaskMs": 152
+    },
+    "dom": {
+      "elements": 532,
+      "depth": 13,
+      "maxChildren": 26
+    },
+    "waste": {
+      "unusedJsBytes": 0,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 0,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 450,
+      "renderBlockingCount": 3,
+      "poorlyCachedBytes": 19528.05833333333,
+      "poorlyCachedCount": 4
+    },
+    "accessibility": {
+      "failingCount": 6,
+      "applicableCount": 25,
+      "failingNodes": 83,
+      "failing": [
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "weight": 7,
+          "nodes": 70
+        },
+        {
+          "id": "image-alt",
+          "title": "Image elements do not have `[alt]` attributes",
+          "weight": 10,
+          "nodes": 7
+        },
+        {
+          "id": "link-in-text-block",
+          "title": "Links rely on color to be distinguishable.",
+          "weight": 7,
+          "nodes": 3
+        },
+        {
+          "id": "aria-prohibited-attr",
+          "title": "Elements use prohibited ARIA attributes",
+          "weight": 7,
+          "nodes": 1
+        },
+        {
+          "id": "frame-title",
+          "title": "`<frame>` or `<iframe>` elements do not have a title",
+          "weight": 7,
+          "nodes": 1
+        },
+        {
+          "id": "html-has-lang",
+          "title": "`<html>` element does not have a `[lang]` attribute",
+          "weight": 7,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 2,
+      "applicableCount": 20,
+      "failing": [
+        {
+          "id": "third-party-cookies",
+          "title": "Uses third-party cookies",
+          "weight": 5,
+          "nodes": 1
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "weight": 1,
+          "nodes": 1
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 1,
+      "applicableCount": 8,
+      "failing": [
+        {
+          "id": "image-alt",
+          "title": "Image elements do not have `[alt]` attributes",
+          "weight": 1,
+          "nodes": 7
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 45
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2329,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-10-09T10:16:43.364Z",
+      "runtimeMs": 8835.8
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 592,
+    "elementRenderDelay": 959.6
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-09-10",
+      "last": "2026-10-07"
+    },
+    "metrics": {
+      "rtt": {
+        "p75": 236,
+        "rating": null,
+        "distribution": {
+          "good": 21.6,
+          "needsImprovement": 59.6,
+          "poor": 18.8
+        }
+      },
+      "cls": {
+        "p75": 0.02,
+        "rating": "good",
+        "distribution": {
+          "good": 93.4,
+          "needsImprovement": 4.8,
+          "poor": 1.9
+        }
+      },
+      "ttfb": {
+        "p75": 1274,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 53.5,
+          "needsImprovement": 34.1,
+          "poor": 12.4
+        }
+      },
+      "fcp": {
+        "p75": 2320,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 61.7,
+          "needsImprovement": 24.4,
+          "poor": 13.9
+        }
+      },
+      "inp": {
+        "p75": 101,
+        "rating": "good",
+        "distribution": {
+          "good": 88.6,
+          "needsImprovement": 8.6,
+          "poor": 2.9
+        }
+      },
+      "lcp": {
+        "p75": 2423,
+        "rating": "good",
+        "distribution": {
+          "good": 76.6,
+          "needsImprovement": 15.5,
+          "poor": 7.9
+        }
+      }
+    },
+    "cwvPass": true,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": true,
+    "generator": null,
+    "probe": {
+      "metas": [],
+      "marks": [],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": null,
+      "name": "Surge",
+      "icon": null,
+      "source": "server"
+    },
+    "headers": {
+      "server": "Surge"
+    },
+    "violations": 86,
+    "passes": 874,
+    "incomplete": 0,
+    "violationRules": 9,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 69,
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/color-contrast?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".right-align",
+            "snippet": "<a href=\"#menu\" class=\"right-align border-box col-12 sm-hide clearfix right p1 block\">≡ Menu</a>"
+          },
+          {
+            "selector": "span[data-t=\"1791541152109\"]",
+            "snippet": "<span class=\"pulse-pill\" data-t=\"1791541152109\" data-b=\"1160901\" data-n=\"\" data-count=\"1\">⚡ 34 files · 1.1 MB · 1.3s</span>"
+          },
+          {
+            "selector": "span[data-t=\"1791541149637\"]",
+            "snippet": "<span class=\"pulse-pill\" data-t=\"1791541149637\" data-b=\"1253824\" data-n=\"\" data-count=\"1\">⚡ 12 files · 1.2 MB · 4.7s</span>"
+          },
+          {
+            "selector": "span[data-t=\"1791541150316\"]",
+            "snippet": "<span class=\"pulse-pill\" data-t=\"1791541150316\" data-b=\"5691211\" data-n=\"\" data-count=\"1\">⚡ 217 files · 5.4 MB · 4.5s</span>"
+          },
+          {
+            "selector": "figcaption",
+            "snippet": "<figcaption>Surge makes it easy for developers to deploy projects to a production-quality CDN through <a href=\"http://gruntjs.com\">Grunt</a>, <a href=\"http://gulpjs.com\">Gulp</a>, <a href=\"http://npm…"
+          }
+        ]
+      },
+      {
+        "id": "image-alt",
+        "impact": "critical",
+        "nodes": 7,
+        "help": "Images must have alternative text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/image-alt?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".mr1",
+            "snippet": "<img src=\"/images/logos/svg/surge-logo.svg\" style=\"max-width: 4rem; transform: translateY(0.33em)\" class=\"mr1 md-mr2\">"
+          },
+          {
+            "selector": "#static-sites > .px1.sm-px2.container > .md-h2.before-green-light[before=\"“\"] > .md-col-4.left-align > .media.color-inherit > .media-image.rounded[async=\"async\"]",
+            "snippet": "<img async=\"async\" src=\"/images/avatars/HenrikJoreteg.jpg\" class=\"media-image rounded\">"
+          },
+          {
+            "selector": "img[src$=\"thekitze.jpg\"]",
+            "snippet": "<img async=\"async\" src=\"/images/avatars/thekitze.jpg\" class=\"media-image rounded\">"
+          },
+          {
+            "selector": "img[src$=\"elev3n1107.jpg\"]",
+            "snippet": "<img async=\"async\" src=\"/images/avatars/elev3n1107.jpg\" class=\"media-image rounded\">"
+          },
+          {
+            "selector": ".sm-col-4.p1.col:nth-child(2) > .bg-darken-1.md-p3[before=\"\"] > footer > .media.color-inherit > .media-image.rounded[async=\"async\"]",
+            "snippet": "<img async=\"async\" src=\"/images/avatars/ShenoaLawrence.jpg\" class=\"media-image rounded\">"
+          }
+        ]
+      },
+      {
+        "id": "link-in-text-block",
+        "impact": "serious",
+        "nodes": 3,
+        "help": "Links must be distinguishable without relying on color",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/link-in-text-block?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "a[href$=\"gruntjs.com\"]",
+            "snippet": "<a href=\"http://gruntjs.com\">Grunt</a>"
+          },
+          {
+            "selector": "a[href$=\"gulpjs.com\"]",
+            "snippet": "<a href=\"http://gulpjs.com\">Gulp</a>"
+          },
+          {
+            "selector": "a[href$=\"npmjs.org\"]",
+            "snippet": "<a href=\"http://npmjs.org\">npm</a>"
+          }
+        ]
+      },
+      {
+        "id": "aria-prohibited-attr",
+        "impact": "serious",
+        "nodes": 2,
+        "help": "Elements must only use permitted ARIA attributes",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/aria-prohibited-attr?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "iframe >>> #movie_player",
+            "snippet": "<div class=\"html5-video-player y...\" tabindex=\"\" id=\"movie_player\" data-version=\"/s/player/5203c085/p...\" aria-label=\"YouTube Video Player\">"
+          },
+          {
+            "selector": "code[aria-label=\"npm install --global surge\"]",
+            "snippet": "<code class=\"js-line terminal-line blast-root\" aria-label=\"npm install --global surge\">"
+          }
+        ]
+      },
+      {
+        "id": "aria-allowed-attr",
+        "impact": "critical",
+        "nodes": 1,
+        "help": "Elements must only use supported ARIA attributes",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/aria-allowed-attr?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "iframe >>> .ytmVideoInfoVideoTitle",
+            "snippet": "<a class=\"ytmVideoInfoVideoTitle\" aria-level=\"2\" href=\"https://www.youtube.com/watch?v=-EjdMvYPSVU\"><span class=\"ytAttributedStringHost ytmVideoInfoLink ytAttributedStringWhiteSpaceNoWrap\" style=\"\">I…"
+          }
+        ]
+      },
+      {
+        "id": "button-name",
+        "impact": "critical",
+        "nodes": 1,
+        "help": "Buttons must have discernible text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/button-name?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "iframe >>> .ytmVideoInfoChannelAvatar",
+            "snippet": "<button class=\"ytmVideoInfoLink ytmVideoInfoChannelAvatar\"><img class=\"ytCoreImageHost ytmVideoInfoChannelLogo ytCoreImageFillParentHeight ytCoreImageFillParentWidth ytCoreImageContentModeScaleAspect…"
+          }
+        ]
+      },
+      {
+        "id": "frame-title",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "Frames must have an accessible name",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/frame-title?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "iframe",
+            "snippet": "<iframe src=\"https://www.youtube.com/embed/-EjdMvYPSVU?enablejsapi=1&amp;modestbranding=1&amp;autoplay=0&amp;rel=0&amp;showinfo=0&amp;theme=light&amp;color=white\" frameborder=\"0\" allowfullscreen=\"\" a…"
+          }
+        ]
+      },
+      {
+        "id": "html-has-lang",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "<html> element must have a lang attribute",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/html-has-lang?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "html",
+            "snippet": "<html class=\"js wf-ffmetawebpro-i4-active wf-ffmetawebpro-n7-active wf-ffmetawebpro-n4-active wf-ffmetaserifwebpro-n7-active wf-firamono-n4-active wf-active\">"
+          }
+        ]
+      },
+      {
+        "id": "landmark-unique",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/landmark-unique?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".sm-h6",
+            "snippet": "<nav class=\"h4 sm-h6\">"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
