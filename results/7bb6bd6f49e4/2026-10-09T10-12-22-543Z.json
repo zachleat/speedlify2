@@ -1,0 +1,440 @@
+{
+  "url": "https://pkg.go.dev/",
+  "name": "pkg.go.dev",
+  "group": "dev-tooling",
+  "groupName": "Developer Tooling",
+  "timestamp": 1791540742543,
+  "date": "2026-10-09T10:12:22.543Z",
+  "runId": "2026-10-09T10-06-01-490Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 50868,
+  "error": null,
+  "variance": {
+    "min": 99,
+    "max": 100,
+    "spread": 1,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://pkg.go.dev/",
+    "finalUrl": "https://pkg.go.dev/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 99,
+      "accessibility": 88,
+      "best-practices": 100,
+      "seo": 92,
+      "agentic-browsing": 50
+    },
+    "timings": {
+      "fcp": 1334,
+      "lcp": 1784,
+      "si": 1340,
+      "tbt": 79,
+      "tti": 4973,
+      "cls": 0.011,
+      "ttfb": 659,
+      "maxPotentialFid": 122,
+      "serverResponseTime": 66,
+      "networkRtt": 0.1,
+      "networkServerLatency": 249.5
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 67.6,
+      "resourceLoadDelay": 8.7,
+      "resourceLoadDuration": 71.4,
+      "elementRenderDelay": 51.8
+    },
+    "weight": {
+      "total": 565116,
+      "requests": 39,
+      "mainDocument": 34238,
+      "byType": {
+        "total": {
+          "bytes": 559399,
+          "requests": 38
+        },
+        "script": {
+          "bytes": 411917,
+          "requests": 5
+        },
+        "image": {
+          "bytes": 76797,
+          "requests": 29
+        },
+        "stylesheet": {
+          "bytes": 36426,
+          "requests": 2
+        },
+        "document": {
+          "bytes": 34238,
+          "requests": 1
+        },
+        "other": {
+          "bytes": 21,
+          "requests": 1
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "font": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 363803,
+          "requests": 9
+        }
+      },
+      "scripts": 5,
+      "stylesheets": 2,
+      "fonts": 0
+    },
+    "thirdParty": {
+      "count": 3,
+      "bytes": 363803,
+      "mainThreadMs": 71.8,
+      "top": [
+        {
+          "entity": "Google Tag Manager",
+          "bytes": 342907,
+          "mainThreadMs": 64.3,
+          "byType": {
+            "script": 342852,
+            "image": 55
+          },
+          "typedBytes": 342907
+        },
+        {
+          "entity": "Google Analytics",
+          "bytes": 20875,
+          "mainThreadMs": 7.5,
+          "byType": {
+            "script": 20875
+          },
+          "typedBytes": 20875
+        },
+        {
+          "entity": "Other Google APIs/SDKs",
+          "bytes": 21,
+          "mainThreadMs": 0,
+          "byType": {
+            "other": 21
+          },
+          "typedBytes": 21
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 845.7,
+      "byGroup": {
+        "scriptEvaluation": 337.7,
+        "other": 312.7,
+        "styleLayout": 108.8,
+        "scriptParseCompile": 30.1,
+        "paintCompositeRender": 29.5,
+        "parseHTML": 13.7,
+        "garbageCollection": 13.2
+      },
+      "bootupMs": 321.4,
+      "longTasks": 2,
+      "longestTaskMs": 122
+    },
+    "dom": {
+      "elements": 383,
+      "depth": 13,
+      "maxChildren": 13
+    },
+    "waste": {
+      "unusedJsBytes": 166114,
+      "unusedCssBytes": 21676,
+      "legacyJsBytes": 0,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 13719,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 300,
+      "renderBlockingCount": 2,
+      "poorlyCachedBytes": 177069.25,
+      "poorlyCachedCount": 34
+    },
+    "accessibility": {
+      "failingCount": 4,
+      "applicableCount": 31,
+      "failingNodes": 16,
+      "failing": [
+        {
+          "id": "image-alt",
+          "title": "Image elements do not have `[alt]` attributes",
+          "weight": 10,
+          "nodes": 6
+        },
+        {
+          "id": "link-name",
+          "title": "Links do not have a discernible name",
+          "weight": 7,
+          "nodes": 6
+        },
+        {
+          "id": "target-size",
+          "title": "Touch targets do not have sufficient size or spacing.",
+          "weight": 7,
+          "nodes": 3
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "title": "Elements with visible text labels do not have matching accessible names.",
+          "weight": 0,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 0,
+      "applicableCount": 17,
+      "failing": []
+    },
+    "seo": {
+      "failingCount": 1,
+      "applicableCount": 9,
+      "failing": [
+        {
+          "id": "image-alt",
+          "title": "Image elements do not have `[alt]` attributes",
+          "weight": 1,
+          "nodes": 6
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": null,
+      "clickjacking": null,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 13
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 4031.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-10-09T10:12:38.702Z",
+      "runtimeMs": 7258.1
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 619.3,
+    "resourceLoadDelay": 66.7,
+    "resourceLoadDuration": 1183.5,
+    "elementRenderDelay": 10.9
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-09-10",
+      "last": "2026-10-07"
+    },
+    "metrics": {
+      "ttfb": {
+        "p75": 579,
+        "rating": "good",
+        "distribution": {
+          "good": 87.7,
+          "needsImprovement": 9.7,
+          "poor": 2.6
+        }
+      },
+      "fcp": {
+        "p75": 1156,
+        "rating": "good",
+        "distribution": {
+          "good": 93.5,
+          "needsImprovement": 4.2,
+          "poor": 2.3
+        }
+      },
+      "inp": {
+        "p75": 118,
+        "rating": "good",
+        "distribution": {
+          "good": 86.6,
+          "needsImprovement": 11.7,
+          "poor": 1.7
+        }
+      },
+      "lcp": {
+        "p75": 1288,
+        "rating": "good",
+        "distribution": {
+          "good": 94.6,
+          "needsImprovement": 3.9,
+          "poor": 1.5
+        }
+      },
+      "rtt": {
+        "p75": 234,
+        "rating": null,
+        "distribution": {
+          "good": 22.3,
+          "needsImprovement": 59.8,
+          "poor": 18
+        }
+      },
+      "cls": {
+        "p75": 0,
+        "rating": "good",
+        "distribution": {
+          "good": 99.6,
+          "needsImprovement": 0.4,
+          "poor": 0
+        }
+      }
+    },
+    "cwvPass": true,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "probe": {
+      "metas": [],
+      "marks": [],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "google",
+      "name": "Google Frontend",
+      "icon": "Google",
+      "source": "server"
+    },
+    "headers": {
+      "server": "Google Frontend",
+      "via": "1.1 google"
+    },
+    "violations": 16,
+    "passes": 580,
+    "incomplete": 2,
+    "violationRules": 5,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "image-alt",
+        "impact": "critical",
+        "nodes": 6,
+        "help": "Images must have alternative text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/image-alt?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".go-NavigationDrawer-listItem:nth-child(6) > .go-Header-socialIcons > .go-Header-socialIcon:nth-child(1) > img",
+            "snippet": "<img src=\"/static/shared/logo/social/google-groups.svg\">"
+          },
+          {
+            "selector": ".go-NavigationDrawer-listItem:nth-child(6) > .go-Header-socialIcons > .go-Header-socialIcon[href$=\"golang\"]:nth-child(2) > img",
+            "snippet": "<img src=\"/static/shared/logo/social/github.svg\">"
+          },
+          {
+            "selector": ".go-NavigationDrawer-listItem:nth-child(6) > .go-Header-socialIcons > .go-Header-socialIcon[href$=\"golang\"]:nth-child(3) > img",
+            "snippet": "<img src=\"/static/shared/logo/social/twitter.svg\">"
+          },
+          {
+            "selector": ".go-NavigationDrawer-listItem:nth-child(6) > .go-Header-socialIcons > .go-Header-socialIcon:nth-child(4) > img",
+            "snippet": "<img src=\"/static/shared/logo/social/reddit.svg\">"
+          },
+          {
+            "selector": ".go-NavigationDrawer-listItem:nth-child(6) > .go-Header-socialIcons > .go-Header-socialIcon:nth-child(5) > img",
+            "snippet": "<img src=\"/static/shared/logo/social/slack.svg\">"
+          }
+        ]
+      },
+      {
+        "id": "link-name",
+        "impact": "serious",
+        "nodes": 6,
+        "help": "Links must have discernible text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/link-name?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".go-NavigationDrawer-listItem:nth-child(6) > .go-Header-socialIcons > .go-Header-socialIcon:nth-child(1)",
+            "snippet": "<a class=\"go-Header-socialIcon\" href=\"https://groups.google.com/g/golang-nuts\" tabindex=\"-1\"><img src=\"/static/shared/logo/social/google-groups.svg\"></a>"
+          },
+          {
+            "selector": ".go-NavigationDrawer-listItem:nth-child(6) > .go-Header-socialIcons > .go-Header-socialIcon[href$=\"golang\"]:nth-child(2)",
+            "snippet": "<a class=\"go-Header-socialIcon\" href=\"https://github.com/golang\" tabindex=\"-1\"><img src=\"/static/shared/logo/social/github.svg\"></a>"
+          },
+          {
+            "selector": ".go-NavigationDrawer-listItem:nth-child(6) > .go-Header-socialIcons > .go-Header-socialIcon[href$=\"golang\"]:nth-child(3)",
+            "snippet": "<a class=\"go-Header-socialIcon\" href=\"https://twitter.com/golang\" tabindex=\"-1\"><img src=\"/static/shared/logo/social/twitter.svg\"></a>"
+          },
+          {
+            "selector": ".go-NavigationDrawer-listItem:nth-child(6) > .go-Header-socialIcons > .go-Header-socialIcon:nth-child(4)",
+            "snippet": "<a class=\"go-Header-socialIcon\" href=\"https://www.reddit.com/r/golang/\" tabindex=\"-1\"><img src=\"/static/shared/logo/social/reddit.svg\"></a>"
+          },
+          {
+            "selector": ".go-NavigationDrawer-listItem:nth-child(6) > .go-Header-socialIcons > .go-Header-socialIcon:nth-child(5)",
+            "snippet": "<a class=\"go-Header-socialIcon\" href=\"https://invite.slack.golangbridge.org/\" tabindex=\"-1\"><img src=\"/static/shared/logo/social/slack.svg\"></a>"
+          }
+        ]
+      },
+      {
+        "id": "aria-allowed-role",
+        "impact": "minor",
+        "nodes": 2,
+        "help": "ARIA role should be appropriate for the element",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/aria-allowed-role?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".js-headerLogo",
+            "snippet": "<a href=\"https://go.dev/\" class=\"js-headerLogo\" data-gtmc=\"nav link\" data-test-id=\"go-header-logo-link\" role=\"heading\" aria-level=\"1\"> <img class=\"go-Header-logo\" src=\"/static/shared/logo/go-white.sv…"
+          },
+          {
+            "selector": "#AutoComplete",
+            "snippet": "<input class=\"go-Input js-searchFo...\" data-test-id=\"homepage-search\" id=\"AutoComplete\" role=\"textbox\" aria-label=\"Search packages or s...\" aria-describedby=\"SearchTipContent\" type=\"search\" name=\"q\" …"
+          }
+        ]
+      },
+      {
+        "id": "landmark-unique",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/landmark-unique?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".go-Header-nav",
+            "snippet": "<nav class=\"go-Header-nav\">"
+          }
+        ]
+      },
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "All page content should be contained by landmarks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/region?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".Cookie-notice > div:nth-child(1)",
+            "snippet": "<div>go.dev uses cookies from Google to deliver and enhance the quality of its services and to analyze traffic. <a target=\"_blank\" href=\"https://policies.google.com/technologies/cookies\">Learn more.<…"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}

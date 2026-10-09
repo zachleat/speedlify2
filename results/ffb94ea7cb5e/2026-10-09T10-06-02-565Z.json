@@ -1,0 +1,402 @@
+{
+  "url": "https://www.fastly.com/",
+  "name": "Fastly",
+  "group": "dev-tooling",
+  "groupName": "Developer Tooling",
+  "timestamp": 1791540362565,
+  "date": "2026-10-09T10:06:02.565Z",
+  "runId": "2026-10-09T10-06-01-490Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 215366,
+  "error": null,
+  "variance": {
+    "min": 57,
+    "max": 67,
+    "spread": 10,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://www.fastly.com/",
+    "finalUrl": "https://www.fastly.com/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 64,
+      "accessibility": 100,
+      "best-practices": 73,
+      "seo": 92,
+      "agentic-browsing": 99
+    },
+    "timings": {
+      "fcp": 1488,
+      "lcp": 4372,
+      "si": 2874,
+      "tbt": 808,
+      "tti": 15327,
+      "cls": 0.055,
+      "ttfb": 622,
+      "maxPotentialFid": 341,
+      "serverResponseTime": 465,
+      "networkRtt": 55.1,
+      "networkServerLatency": 190.3
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 466.8,
+      "resourceLoadDelay": 133,
+      "resourceLoadDuration": 12.9,
+      "elementRenderDelay": 121.7
+    },
+    "weight": {
+      "total": 2760954,
+      "requests": 205,
+      "mainDocument": 43893,
+      "byType": {
+        "total": {
+          "bytes": 2754094,
+          "requests": 201
+        },
+        "script": {
+          "bytes": 1942600,
+          "requests": 45
+        },
+        "image": {
+          "bytes": 644214,
+          "requests": 79
+        },
+        "font": {
+          "bytes": 63952,
+          "requests": 2
+        },
+        "document": {
+          "bytes": 48426,
+          "requests": 6
+        },
+        "other": {
+          "bytes": 29423,
+          "requests": 59
+        },
+        "stylesheet": {
+          "bytes": 25479,
+          "requests": 10
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 1367900,
+          "requests": 125
+        }
+      },
+      "scripts": 46,
+      "stylesheets": 10,
+      "fonts": 2
+    },
+    "thirdParty": {
+      "count": 25,
+      "bytes": 733700,
+      "mainThreadMs": 198.6,
+      "top": [
+        {
+          "entity": "Pendo",
+          "bytes": 202135,
+          "mainThreadMs": 24.5,
+          "byType": {
+            "script": 201673,
+            "other": 364,
+            "image": 98
+          },
+          "typedBytes": 202135
+        },
+        {
+          "entity": "Facebook",
+          "bytes": 183862,
+          "mainThreadMs": 64.6,
+          "byType": {
+            "script": 183843,
+            "image": 19
+          },
+          "typedBytes": 183862
+        },
+        {
+          "entity": "intellimize.co",
+          "bytes": 111231,
+          "mainThreadMs": 20.7,
+          "byType": {
+            "script": 107886,
+            "other": 3345
+          },
+          "typedBytes": 111231
+        },
+        {
+          "entity": "zoominfo.com",
+          "bytes": 36971,
+          "mainThreadMs": 6.3,
+          "byType": {
+            "script": 31848,
+            "other": 5123
+          },
+          "typedBytes": 36971
+        },
+        {
+          "entity": "6sc.co",
+          "bytes": 26233,
+          "mainThreadMs": 8.6,
+          "byType": {
+            "script": 21971,
+            "other": 282,
+            "image": 3980
+          },
+          "typedBytes": 26233
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 5790.5,
+      "byGroup": {
+        "scriptEvaluation": 2940.2,
+        "other": 1726.9,
+        "styleLayout": 352.7,
+        "scriptParseCompile": 323.9,
+        "garbageCollection": 231,
+        "paintCompositeRender": 153.2,
+        "parseHTML": 62.6
+      },
+      "bootupMs": 3085.8,
+      "longTasks": 14,
+      "longestTaskMs": 341
+    },
+    "dom": {
+      "elements": 1534,
+      "depth": 16,
+      "maxChildren": 23
+    },
+    "waste": {
+      "unusedJsBytes": 495719,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 12273,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 2503,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 0,
+      "renderBlockingCount": 9,
+      "poorlyCachedBytes": 483796.2000000001,
+      "poorlyCachedCount": 21
+    },
+    "accessibility": {
+      "failingCount": 0,
+      "applicableCount": 31,
+      "failingNodes": 0,
+      "failing": []
+    },
+    "bestPractices": {
+      "failingCount": 4,
+      "applicableCount": 19,
+      "failing": [
+        {
+          "id": "third-party-cookies",
+          "title": "Uses third-party cookies",
+          "weight": 5,
+          "nodes": 42
+        },
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "weight": 1,
+          "nodes": 1
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "weight": 1,
+          "nodes": 1
+        },
+        {
+          "id": "valid-source-maps",
+          "title": "Missing source maps for large first-party JavaScript",
+          "weight": 0,
+          "nodes": 4
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 1,
+      "applicableCount": 10,
+      "failing": [
+        {
+          "id": "link-text",
+          "title": "Links do not have descriptive text",
+          "weight": 1,
+          "nodes": 1
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 1,
+      "baselineLimitedFeatures": 61
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 3875,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-10-09T10:06:54.506Z",
+      "runtimeMs": 50954.7
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 578.3,
+    "resourceLoadDelay": 2041.8,
+    "resourceLoadDuration": 1250.6,
+    "elementRenderDelay": 41.5
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-09-10",
+      "last": "2026-10-07"
+    },
+    "metrics": {
+      "inp": {
+        "p75": 250,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 66.7,
+          "needsImprovement": 27.3,
+          "poor": 6
+        }
+      },
+      "lcp": {
+        "p75": 2515,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 74.7,
+          "needsImprovement": 15,
+          "poor": 10.2
+        }
+      },
+      "rtt": {
+        "p75": 244,
+        "rating": null,
+        "distribution": {
+          "good": 24.4,
+          "needsImprovement": 54.9,
+          "poor": 20.7
+        }
+      },
+      "cls": {
+        "p75": 0.03,
+        "rating": "good",
+        "distribution": {
+          "good": 94.7,
+          "needsImprovement": 4,
+          "poor": 1.3
+        }
+      },
+      "ttfb": {
+        "p75": 1021,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 68.6,
+          "needsImprovement": 18.9,
+          "poor": 12.5
+        }
+      },
+      "fcp": {
+        "p75": 2024,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 70.8,
+          "needsImprovement": 16.8,
+          "poor": 12.4
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": {
+      "id": "astro",
+      "name": "Astro",
+      "icon": "Astro",
+      "version": null,
+      "source": "dom",
+      "raw": null
+    },
+    "probe": {
+      "metas": [],
+      "marks": [
+        "astro"
+      ],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": null,
+      "name": "Artisanal bits",
+      "icon": null,
+      "source": "server"
+    },
+    "headers": {
+      "server": "Artisanal bits",
+      "x-served-by": "cache-dfw-kdfw8210159-DFW"
+    },
+    "violations": 3,
+    "passes": 1143,
+    "incomplete": 27,
+    "violationRules": 2,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 2,
+        "help": "All page content should be contained by landmarks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/region?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "._internal_wrryh_31",
+            "snippet": "<div class=\"_internal_wrryh_31 _dismissible_wrryh_61\">"
+          },
+          {
+            "selector": "#insent-iframe >>> #insent-chat-widget",
+            "snippet": "<div id=\"insent-chat-widget\">"
+          }
+        ]
+      },
+      {
+        "id": "image-alt",
+        "impact": "critical",
+        "nodes": 1,
+        "help": "Images must have alternative text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/image-alt?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "#insent-iframe >>> #insent-popup-card-close-icon",
+            "snippet": "<img id=\"insent-popup-card-close-icon\" src=\"/static/media/close.ec75d473.svg\" class=\"sc-cEvuZC gxfXwW\">"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
