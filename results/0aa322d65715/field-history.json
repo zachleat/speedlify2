@@ -2,78 +2,11 @@
   "url": "https://openbulkurl.com/",
   "name": "openbulkurl.com",
   "group": "11ty-emeritus",
-  "fetchedAt": "2026-10-02T22:55:41.984Z",
+  "fetchedAt": "2026-10-09T02:51:30.633Z",
   "source": "crux-history",
   "scope": "url",
   "formFactor": "PHONE",
   "series": [
-    {
-      "period": {
-        "first": "2026-03-15",
-        "last": "2026-04-11"
-      },
-      "date": "2026-04-11",
-      "metrics": {
-        "fcp": {
-          "p75": 1702,
-          "rating": "good",
-          "distribution": {
-            "good": 76.8,
-            "needsImprovement": 14.1,
-            "poor": 9.2
-          }
-        },
-        "inp": {
-          "p75": 476,
-          "rating": "needs-improvement",
-          "distribution": {
-            "good": 36.6,
-            "needsImprovement": 39.6,
-            "poor": 23.8
-          },
-          "scope": "origin"
-        },
-        "lcp": {
-          "p75": 3007,
-          "rating": "needs-improvement",
-          "distribution": {
-            "good": 66.1,
-            "needsImprovement": 22,
-            "poor": 11.9
-          }
-        },
-        "rtt": {
-          "p75": 178,
-          "rating": null,
-          "distribution": {
-            "good": 26.2,
-            "needsImprovement": 58.8,
-            "poor": 15
-          }
-        },
-        "cls": {
-          "p75": 0.08,
-          "rating": "good",
-          "distribution": {
-            "good": 81.4,
-            "needsImprovement": 9,
-            "poor": 9.7
-          }
-        },
-        "ttfb": {
-          "p75": 728,
-          "rating": "good",
-          "distribution": {
-            "good": 79,
-            "needsImprovement": 15.3,
-            "poor": 5.7
-          }
-        }
-      },
-      "borrowedFromOrigin": [
-        "inp"
-      ]
-    },
     {
       "period": {
         "first": "2026-03-22",
@@ -400,9 +333,9 @@
         }
       },
       "borrowedFromOrigin": [
-        "inp",
         "rtt",
-        "ttfb"
+        "ttfb",
+        "inp"
       ]
     },
     {
@@ -474,12 +407,12 @@
         }
       },
       "borrowedFromOrigin": [
-        "inp",
-        "lcp",
         "rtt",
         "cls",
         "ttfb",
-        "fcp"
+        "fcp",
+        "inp",
+        "lcp"
       ]
     },
     {
@@ -615,9 +548,9 @@
         }
       },
       "borrowedFromOrigin": [
+        "ttfb",
         "inp",
-        "lcp",
-        "ttfb"
+        "lcp"
       ]
     },
     {
@@ -689,12 +622,12 @@
         }
       },
       "borrowedFromOrigin": [
-        "inp",
-        "lcp",
         "rtt",
         "cls",
         "ttfb",
-        "fcp"
+        "fcp",
+        "inp",
+        "lcp"
       ]
     },
     {
@@ -1638,6 +1571,69 @@
             "good": 91.1,
             "needsImprovement": 6.7,
             "poor": 2.2
+          }
+        }
+      }
+    },
+    {
+      "period": {
+        "first": "2026-09-06",
+        "last": "2026-10-03"
+      },
+      "date": "2026-10-03",
+      "metrics": {
+        "fcp": {
+          "p75": 1295,
+          "rating": "good",
+          "distribution": {
+            "good": 88,
+            "needsImprovement": 6.4,
+            "poor": 5.7
+          }
+        },
+        "inp": {
+          "p75": 376,
+          "rating": "needs-improvement",
+          "distribution": {
+            "good": 38.2,
+            "needsImprovement": 46.9,
+            "poor": 14.9
+          }
+        },
+        "lcp": {
+          "p75": 1633,
+          "rating": "good",
+          "distribution": {
+            "good": 86.2,
+            "needsImprovement": 9.2,
+            "poor": 4.6
+          }
+        },
+        "rtt": {
+          "p75": 135,
+          "rating": null,
+          "distribution": {
+            "good": 36.2,
+            "needsImprovement": 54.5,
+            "poor": 9.3
+          }
+        },
+        "cls": {
+          "p75": 0.1,
+          "rating": "good",
+          "distribution": {
+            "good": 67.2,
+            "needsImprovement": 29,
+            "poor": 3.8
+          }
+        },
+        "ttfb": {
+          "p75": 357,
+          "rating": "good",
+          "distribution": {
+            "good": 91.9,
+            "needsImprovement": 6.2,
+            "poor": 2
           }
         }
       }
