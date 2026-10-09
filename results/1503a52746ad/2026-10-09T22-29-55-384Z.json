@@ -1,0 +1,373 @@
+{
+  "url": "https://nordcraft.com/",
+  "name": "Nordcraft",
+  "group": "builders",
+  "groupName": "Website Builders",
+  "timestamp": 1791584995384,
+  "date": "2026-10-09T22:29:55.384Z",
+  "runId": "2026-10-09T22-18-36-766Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 2,
+  "durationMs": 77959,
+  "error": null,
+  "partialErrors": [
+    "NO_NAVSTART: Something went wrong with recording the trace over your page load. Please run Lighthouse again. (NO_NAVSTART)"
+  ],
+  "variance": {
+    "min": 62,
+    "max": 62,
+    "spread": 0,
+    "runs": 2
+  },
+  "lab": {
+    "requestedUrl": "https://nordcraft.com/",
+    "finalUrl": "https://nordcraft.com/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 62,
+      "accessibility": 100,
+      "best-practices": 96,
+      "seo": 100,
+      "agentic-browsing": 100
+    },
+    "timings": {
+      "fcp": 3065,
+      "lcp": 11509,
+      "si": 4007,
+      "tbt": 291,
+      "tti": 12350,
+      "cls": 0.041,
+      "ttfb": 1008,
+      "maxPotentialFid": 291,
+      "serverResponseTime": 898,
+      "networkRtt": 17.9,
+      "networkServerLatency": 271.8
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 1007.6,
+      "resourceLoadDelay": 18.1,
+      "resourceLoadDuration": 237.8,
+      "elementRenderDelay": 2313.8
+    },
+    "weight": {
+      "total": 5542624,
+      "requests": 150,
+      "mainDocument": 121009,
+      "byType": {
+        "total": {
+          "bytes": 5542624,
+          "requests": 150
+        },
+        "media": {
+          "bytes": 2895576,
+          "requests": 6
+        },
+        "image": {
+          "bytes": 1857073,
+          "requests": 80
+        },
+        "script": {
+          "bytes": 398239,
+          "requests": 8
+        },
+        "font": {
+          "bytes": 208688,
+          "requests": 5
+        },
+        "document": {
+          "bytes": 121009,
+          "requests": 1
+        },
+        "stylesheet": {
+          "bytes": 49972,
+          "requests": 4
+        },
+        "other": {
+          "bytes": 12067,
+          "requests": 46
+        },
+        "third-party": {
+          "bytes": 184998,
+          "requests": 7
+        }
+      },
+      "scripts": 8,
+      "stylesheets": 4,
+      "fonts": 5
+    },
+    "thirdParty": {
+      "count": 3,
+      "bytes": 184998,
+      "mainThreadMs": 0.3,
+      "top": [
+        {
+          "entity": "toddle.site",
+          "bytes": 176153,
+          "mainThreadMs": 0.3,
+          "byType": {
+            "script": 78215,
+            "font": 93684,
+            "stylesheet": 4254
+          },
+          "typedBytes": 176153
+        },
+        {
+          "entity": "JSDelivr CDN",
+          "bytes": 5382,
+          "mainThreadMs": 0,
+          "byType": {
+            "script": 5382
+          },
+          "typedBytes": 5382
+        },
+        {
+          "entity": "toddle.dev",
+          "bytes": 3463,
+          "mainThreadMs": 0,
+          "byType": {
+            "other": 3463
+          },
+          "typedBytes": 3463
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 2765.6,
+      "byGroup": {
+        "other": 958.8,
+        "styleLayout": 724.9,
+        "scriptEvaluation": 639.1,
+        "paintCompositeRender": 282.7,
+        "garbageCollection": 84.4,
+        "parseHTML": 61.9,
+        "scriptParseCompile": 13.7
+      },
+      "bootupMs": 641.7,
+      "longTasks": 7,
+      "longestTaskMs": 291
+    },
+    "dom": {
+      "elements": 3667,
+      "depth": 24,
+      "maxChildren": 112
+    },
+    "waste": {
+      "unusedJsBytes": 0,
+      "unusedCssBytes": 50353,
+      "legacyJsBytes": 0,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 4384,
+      "unminifiedCssBytes": 14841,
+      "renderBlockingMs": 304,
+      "renderBlockingCount": 3,
+      "poorlyCachedBytes": 945922.6666666665,
+      "poorlyCachedCount": 89
+    },
+    "accessibility": {
+      "failingCount": 1,
+      "applicableCount": 27,
+      "failingNodes": 1,
+      "failing": [
+        {
+          "id": "label-content-name-mismatch",
+          "title": "Elements with visible text labels do not have matching accessible names.",
+          "weight": 0,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 2,
+      "applicableCount": 18,
+      "failing": [
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "weight": 1,
+          "nodes": 1
+        },
+        {
+          "id": "valid-source-maps",
+          "title": "Missing source maps for large first-party JavaScript",
+          "weight": 0,
+          "nodes": 1
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 0,
+      "applicableCount": 9,
+      "failing": []
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": null,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 1,
+      "baselineLimitedFeatures": 42
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 4295.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-10-09T22:29:56.547Z",
+      "runtimeMs": 13483.4
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 800.5,
+    "resourceLoadDelay": 41.6,
+    "resourceLoadDuration": 4816,
+    "elementRenderDelay": 36.5
+  },
+  "field": {
+    "source": "crux",
+    "scope": "origin",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-09-10",
+      "last": "2026-10-07"
+    },
+    "metrics": {
+      "cls": {
+        "p75": 0,
+        "rating": "good",
+        "distribution": {
+          "good": 98.6,
+          "needsImprovement": 1.4,
+          "poor": 0
+        }
+      },
+      "ttfb": {
+        "p75": 1786,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 45.9,
+          "needsImprovement": 31.6,
+          "poor": 22.5
+        }
+      },
+      "fcp": {
+        "p75": 2404,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 64.4,
+          "needsImprovement": 23.2,
+          "poor": 12.4
+        }
+      },
+      "lcp": {
+        "p75": 2572,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 73.3,
+          "needsImprovement": 15,
+          "poor": 11.7
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 2
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "probe": {
+      "metas": [],
+      "marks": [],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "cloudflare",
+      "name": "Cloudflare",
+      "icon": "Cloudflare",
+      "source": "server"
+    },
+    "headers": {
+      "cf-ray": "a480d57deb22f887-DFW",
+      "server": "cloudflare",
+      "x-powered-by": "Nordcraft"
+    },
+    "violations": 173,
+    "passes": 2613,
+    "incomplete": 56,
+    "violationRules": 3,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 170,
+        "help": "All page content should be contained by landmarks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/region?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".dkDVat",
+            "snippet": "<a data-node-id=\"xwaTDqHVW4oxtqLcLpSAz\" data-id=\"0.0.0.1\" data-component=\"nordcraft_shared/nordcraft-header-logo\" class=\"dkDVat\" href=\"/\" aria-label=\"Home\" data-prerender=\"moderate\">"
+          },
+          {
+            "selector": "span[data-node-id=\"IvXb5ccP704qpoZ8kPvxe\"]",
+            "snippet": "<span data-node-id=\"IvXb5ccP704qpoZ8kPvxe\" data-id=\"0.3.0.1.1.0.0.1\" data-component=\"hero-links\" class=\"dbFKKN\"><span data-node-id=\"SnVls5AqB2z_p52ZPQ6Rd\" data-id=\"0.3.0.1.1.0.0.1.0\" data-component=\"…"
+          },
+          {
+            "selector": ".bRvbHv",
+            "snippet": "<a data-node-id=\"root\" data-id=\"0.3.0.1.1.0.1\" class=\"bRvbHv bluesky-flutter hero-links:-47pK-WR6mYM6ac5N-hxT fEWPxT\" href=\"https://bsky.app/profile/nordcraft.com\" target=\"_blank\" aria-label=\"nordcra…"
+          },
+          {
+            "selector": "span[data-node-id=\"dR8ybGmGfDCcMbA6sFQln\"]",
+            "snippet": "<span data-node-id=\"dR8ybGmGfDCcMbA6sFQln\" data-id=\"0.3.0.1.1.0.2.1\" data-component=\"hero-links\" class=\"dbFKKN\"><span data-node-id=\"Ac1iD96S-Dc-iKY4dhbUI\" data-id=\"0.3.0.1.1.0.2.1.0\" data-component=\"…"
+          },
+          {
+            "selector": ".HkvSt",
+            "snippet": "<span data-node-id=\"ASin6To4U3-11SpeFvuxr\" data-id=\"0.3.0.1.1.0.3.1\" data-component=\"hero-links\" class=\"HkvSt\"><span data-node-id=\"H6xlGIsFmarFJHhKnntYm\" data-id=\"0.3.0.1.1.0.3.1.0\" data-component=\"h…"
+          }
+        ]
+      },
+      {
+        "id": "scrollable-region-focusable",
+        "impact": "serious",
+        "nodes": 2,
+        "help": "Scrollable region must have keyboard access",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/scrollable-region-focusable?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".dYirtx",
+            "snippet": "<div data-node-id=\"BHVNO8SQw1dHy60MVvQNW\" data-id=\"0.7.4.1.2\" data-component=\"demo-api-panel\" class=\"dYirtx\">"
+          },
+          {
+            "selector": ".dMenZZ",
+            "snippet": "<div data-node-id=\"k_CIeHo5qNia-v1lQpIk8\" data-id=\"0.7.4.1.4.1\" data-component=\"demo-api-panel\" class=\"dMenZZ\">"
+          }
+        ]
+      },
+      {
+        "id": "image-redundant-alt",
+        "impact": "minor",
+        "nodes": 1,
+        "help": "Alternative text of images should not be repeated as text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/image-redundant-alt?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".dljcGT",
+            "snippet": "<img data-is-root-component=\"true\" data-node-id=\"15txMGB_mlBtOke-ABZQH\" data-id=\"0.6.0.0.0[default]\" class=\"dljcGT\" alt=\"Nordcraft vs Webflow vs Framer \" src=\"/cdn-cgi/imagedelivery/ZIty0Vhmkm0nD-fBK…"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
