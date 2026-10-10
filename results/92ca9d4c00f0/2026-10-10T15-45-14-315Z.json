@@ -1,0 +1,256 @@
+{
+  "url": "https://designsystem.webstandards.ca.gov/",
+  "name": "designsystem.webstandards.ca.gov",
+  "group": "11ty-community",
+  "groupName": "Built Awesome",
+  "timestamp": 1791647114315,
+  "date": "2026-10-10T15:45:14.315Z",
+  "runId": "2026-10-10T15-43-52-742Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 20445,
+  "error": null,
+  "variance": {
+    "min": 85,
+    "max": 95,
+    "spread": 10,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://designsystem.webstandards.ca.gov/",
+    "finalUrl": "https://designsystem.ca.gov/",
+    "redirect": {
+      "from": "https://designsystem.webstandards.ca.gov/",
+      "to": "https://designsystem.ca.gov/",
+      "chain": [
+        {
+          "url": "https://designsystem.webstandards.ca.gov/",
+          "status": 307
+        },
+        {
+          "url": "https://designsystem.ca.gov/",
+          "status": 200
+        }
+      ],
+      "statuses": [
+        307
+      ],
+      "change": "host",
+      "permanent": false,
+      "schemeUpgrade": false,
+      "hops": 1
+    },
+    "statusCode": "ok",
+    "scores": {
+      "performance": 94,
+      "accessibility": 95,
+      "best-practices": 100,
+      "seo": 100,
+      "agentic-browsing": 50
+    },
+    "timings": {
+      "fcp": 2322,
+      "lcp": 2322,
+      "si": 2322,
+      "tbt": 143,
+      "tti": 4891,
+      "cls": 0.037,
+      "ttfb": 638,
+      "maxPotentialFid": 116,
+      "serverResponseTime": 38,
+      "networkRtt": 0,
+      "networkServerLatency": 49
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 54.7,
+      "elementRenderDelay": 56.8
+    },
+    "weight": {
+      "total": 382277,
+      "requests": 9,
+      "mainDocument": 1667,
+      "byType": {
+        "total": {
+          "bytes": 377755,
+          "requests": 8
+        },
+        "script": {
+          "bytes": 334473,
+          "requests": 2
+        },
+        "font": {
+          "bytes": 35888,
+          "requests": 1
+        },
+        "image": {
+          "bytes": 2811,
+          "requests": 1
+        },
+        "stylesheet": {
+          "bytes": 2765,
+          "requests": 2
+        },
+        "document": {
+          "bytes": 1667,
+          "requests": 1
+        },
+        "other": {
+          "bytes": 151,
+          "requests": 1
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 371612,
+          "requests": 4
+        }
+      },
+      "scripts": 2,
+      "stylesheets": 2,
+      "fonts": 1
+    },
+    "thirdParty": {
+      "count": 2,
+      "bytes": 371612,
+      "mainThreadMs": 75,
+      "top": [
+        {
+          "entity": "Google Tag Manager",
+          "bytes": 334473,
+          "mainThreadMs": 75,
+          "byType": {
+            "script": 334473
+          },
+          "typedBytes": 334473
+        },
+        {
+          "entity": "Google Fonts",
+          "bytes": 37139,
+          "mainThreadMs": 0,
+          "byType": {
+            "font": 35888,
+            "stylesheet": 1251
+          },
+          "typedBytes": 37139
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 432.4,
+      "byGroup": {
+        "scriptEvaluation": 247.2,
+        "other": 76.8,
+        "scriptParseCompile": 63.3,
+        "styleLayout": 28.3,
+        "garbageCollection": 8.6,
+        "parseHTML": 4.4,
+        "paintCompositeRender": 3.8
+      },
+      "bootupMs": 306,
+      "longTasks": 3,
+      "longestTaskMs": 116
+    },
+    "dom": {
+      "elements": 28,
+      "depth": 8,
+      "maxChildren": 3
+    },
+    "waste": {
+      "unusedJsBytes": 144392,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 0,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 773,
+      "renderBlockingCount": 2,
+      "poorlyCachedBytes": 4325,
+      "poorlyCachedCount": 2
+    },
+    "accessibility": {
+      "failingCount": 1,
+      "applicableCount": 18,
+      "failingNodes": 1,
+      "failing": [
+        {
+          "id": "aria-hidden-focus",
+          "title": "`[aria-hidden=\"true\"]` elements contain focusable descendents",
+          "weight": 7,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 0,
+      "applicableCount": 19,
+      "failing": []
+    },
+    "seo": {
+      "failingCount": 0,
+      "applicableCount": 7,
+      "failing": []
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 761.4,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 5
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 4171,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-10-10T15:45:27.949Z",
+      "runtimeMs": 5908.3
+    }
+  },
+  "field": null,
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "probe": {
+      "metas": [],
+      "marks": [],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": null,
+    "headers": {},
+    "violations": 1,
+    "passes": 68,
+    "incomplete": 0,
+    "violationRules": 1,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "aria-hidden-focus",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "ARIA hidden element must not be focusable or contain focusable elements",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/aria-hidden-focus?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "aside[slot=\"layout-left\"]",
+            "snippet": "<aside slot=\"layout-left\" aria-hidden=\"true\"> <a href=\"/\"> <img src=\"/images/ca-logo.svg\" alt=\"\" width=\"57\" height=\"32\" class=\"logo\"> </a> </aside>"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
