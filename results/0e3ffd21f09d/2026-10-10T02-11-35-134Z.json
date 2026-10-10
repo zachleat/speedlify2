@@ -1,0 +1,438 @@
+{
+  "url": "https://blades.ninja/",
+  "name": "blades.ninja",
+  "group": "11ty-community",
+  "groupName": "Built Awesome",
+  "timestamp": 1791598295134,
+  "date": "2026-10-10T02:11:35.134Z",
+  "runId": "2026-10-10T02-06-32-163Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 25568,
+  "error": null,
+  "variance": {
+    "min": 81,
+    "max": 90,
+    "spread": 9,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://blades.ninja/",
+    "finalUrl": "https://blades.dev/",
+    "redirect": {
+      "from": "https://blades.ninja/",
+      "to": "https://blades.dev/",
+      "chain": [
+        {
+          "url": "https://blades.ninja/",
+          "status": 301
+        },
+        {
+          "url": "https://blades.dev/",
+          "status": 200
+        }
+      ],
+      "statuses": [
+        301
+      ],
+      "change": "host",
+      "permanent": true,
+      "schemeUpgrade": false,
+      "hops": 1
+    },
+    "statusCode": "ok",
+    "scores": {
+      "performance": 88,
+      "accessibility": 77,
+      "best-practices": 100,
+      "seo": 82,
+      "agentic-browsing": 50
+    },
+    "timings": {
+      "fcp": 2620,
+      "lcp": 3370,
+      "si": 2620,
+      "tbt": 31,
+      "tti": 6763,
+      "cls": 0.001,
+      "ttfb": 626,
+      "maxPotentialFid": 112,
+      "serverResponseTime": 28,
+      "networkRtt": 0.2,
+      "networkServerLatency": 137.3
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 56.1,
+      "elementRenderDelay": 100
+    },
+    "weight": {
+      "total": 644725,
+      "requests": 49,
+      "mainDocument": 5073,
+      "byType": {
+        "total": {
+          "bytes": 627284,
+          "requests": 48
+        },
+        "script": {
+          "bytes": 317945,
+          "requests": 5
+        },
+        "font": {
+          "bytes": 236299,
+          "requests": 2
+        },
+        "stylesheet": {
+          "bytes": 48501,
+          "requests": 5
+        },
+        "image": {
+          "bytes": 18003,
+          "requests": 17
+        },
+        "document": {
+          "bytes": 5763,
+          "requests": 2
+        },
+        "other": {
+          "bytes": 773,
+          "requests": 17
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 621077,
+          "requests": 46
+        }
+      },
+      "scripts": 5,
+      "stylesheets": 5,
+      "fonts": 2
+    },
+    "thirdParty": {
+      "count": 8,
+      "bytes": 643644,
+      "mainThreadMs": 51.6,
+      "top": [
+        {
+          "entity": "Google Tag Manager",
+          "bytes": 306562,
+          "mainThreadMs": 46.7,
+          "byType": {
+            "script": 306562
+          },
+          "typedBytes": 306562
+        },
+        {
+          "entity": "JSDelivr CDN",
+          "bytes": 290681,
+          "mainThreadMs": 1.1,
+          "byType": {
+            "script": 7015,
+            "font": 236299,
+            "stylesheet": 47367
+          },
+          "typedBytes": 290681
+        },
+        {
+          "entity": "blades.dev",
+          "bytes": 23648,
+          "mainThreadMs": 2.6,
+          "byType": {
+            "document": 5073,
+            "other": 17441,
+            "stylesheet": 1134
+          },
+          "typedBytes": 23648
+        },
+        {
+          "entity": "gstatic.com",
+          "bytes": 14274,
+          "mainThreadMs": 0,
+          "byType": {
+            "image": 14274
+          },
+          "typedBytes": 14274
+        },
+        {
+          "entity": "zgo.at",
+          "bytes": 4368,
+          "mainThreadMs": 1.2,
+          "byType": {
+            "script": 4368
+          },
+          "typedBytes": 4368
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 630.6,
+      "byGroup": {
+        "scriptEvaluation": 196.8,
+        "other": 193.6,
+        "styleLayout": 132.9,
+        "scriptParseCompile": 42.7,
+        "paintCompositeRender": 35,
+        "parseHTML": 21.7,
+        "garbageCollection": 7.9
+      },
+      "bootupMs": 229.2,
+      "longTasks": 2,
+      "longestTaskMs": 112
+    },
+    "dom": {
+      "elements": 548,
+      "depth": 13,
+      "maxChildren": 16
+    },
+    "waste": {
+      "unusedJsBytes": 142410,
+      "unusedCssBytes": 39784,
+      "legacyJsBytes": 0,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 4657,
+      "renderBlockingMs": 1067,
+      "renderBlockingCount": 5,
+      "poorlyCachedBytes": 31323.499999999996,
+      "poorlyCachedCount": 24
+    },
+    "accessibility": {
+      "failingCount": 5,
+      "applicableCount": 26,
+      "failingNodes": 40,
+      "failing": [
+        {
+          "id": "image-alt",
+          "title": "Image elements do not have `[alt]` attributes",
+          "weight": 10,
+          "nodes": 25
+        },
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "weight": 7,
+          "nodes": 8
+        },
+        {
+          "id": "link-name",
+          "title": "Links do not have a discernible name",
+          "weight": 7,
+          "nodes": 4
+        },
+        {
+          "id": "target-size",
+          "title": "Touch targets do not have sufficient size or spacing.",
+          "weight": 7,
+          "nodes": 2
+        },
+        {
+          "id": "object-alt",
+          "title": "`<object>` elements do not have alternate text",
+          "weight": 7,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 0,
+      "applicableCount": 19,
+      "failing": []
+    },
+    "seo": {
+      "failingCount": 2,
+      "applicableCount": 8,
+      "failing": [
+        {
+          "id": "link-text",
+          "title": "Links do not have descriptive text",
+          "weight": 1,
+          "nodes": 1
+        },
+        {
+          "id": "image-alt",
+          "title": "Image elements do not have `[alt]` attributes",
+          "weight": 1,
+          "nodes": 25
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 776.2,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 31
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 4202.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-10-10T02:11:51.643Z",
+      "runtimeMs": 6594.4
+    }
+  },
+  "field": null,
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": {
+      "id": "build-awesome",
+      "name": "Build Awesome",
+      "icon": "BuildAwesome",
+      "version": null,
+      "source": "meta",
+      "raw": "Build Awesome One Starter (https://starter.buildawesome.one/)"
+    },
+    "probe": {
+      "metas": [
+        "Build Awesome One Starter (https://starter.buildawesome.one/)"
+      ],
+      "marks": [
+        "fontawesome"
+      ],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "netlify",
+      "name": "Netlify",
+      "icon": "Netlify",
+      "source": "x-nf-request-id"
+    },
+    "headers": {
+      "server": "Netlify",
+      "x-nf-request-id": "01M4HS9MC1BSDAR0W3B1W58CXH"
+    },
+    "violations": 39,
+    "passes": 942,
+    "incomplete": 14,
+    "violationRules": 5,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "image-alt",
+        "impact": "critical",
+        "nodes": 25,
+        "help": "Images must have alternative text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/image-alt?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "big > a[href$=\"picocss.com/\"][title=\"picocss.com\"][target=\"_blank\"] > i > img",
+            "snippet": "<img src=\"https://www.google.com/s2/favicons?domain=picocss.com&amp;sz=64\">"
+          },
+          {
+            "selector": "#pico-css-is-officially-no-longer-maintained > a[title=\"picocss.com\"][target=\"_blank\"][rel=\"noopener noreferrer\"] > i > img",
+            "snippet": "<img src=\"https://www.google.com/s2/favicons?domain=picocss.com&amp;sz=64\">"
+          },
+          {
+            "selector": "dd:nth-child(2) > a[title=\"github.com\"][target=\"_blank\"][rel=\"noopener noreferrer\"] > i > img",
+            "snippet": "<img src=\"https://www.google.com/s2/favicons?domain=github.com&amp;sz=64\">"
+          },
+          {
+            "selector": "a[href$=\"www.netlify.com\"] > i > img",
+            "snippet": "<img src=\"https://www.google.com/s2/favicons?domain=www.netlify.com&amp;sz=64\">"
+          },
+          {
+            "selector": "a[title=\"webawesome.com\"] > i > img",
+            "snippet": "<img src=\"https://www.google.com/s2/favicons?domain=webawesome.com&amp;sz=64\">"
+          }
+        ]
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 8,
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/color-contrast?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "td:nth-child(1) > dl > .faded",
+            "snippet": "<dd class=\"faded\">From standalone CSS helpers ...</dd>"
+          },
+          {
+            "selector": ".curved",
+            "snippet": "<dd class=\"faded curved\">... and original Pico CSS fork:</dd>"
+          },
+          {
+            "selector": ".faded:nth-child(6)",
+            "snippet": "<dd class=\"faded\">... no updates for 1 year</dd>"
+          },
+          {
+            "selector": "li:nth-child(6) > ul > li:nth-child(1) > a[href$=\"pico/\"] > sub",
+            "snippet": "<sub style=\"\">(underlying fork)</sub>"
+          },
+          {
+            "selector": "li:nth-child(6) > ul > li:nth-child(2) > a[href$=\"ninja/\"] > sub",
+            "snippet": "<sub style=\"\">(experimental add-ons)</sub>"
+          }
+        ]
+      },
+      {
+        "id": "link-name",
+        "impact": "serious",
+        "nodes": 4,
+        "help": "Links must have discernible text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/link-name?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "ul:nth-child(3) > li:nth-child(1) > a",
+            "snippet": "<a href=\"https://github.com/anyblades/blades\"><i class=\"fa-brands fa-github fa-lg\"></i></a>"
+          },
+          {
+            "selector": "a[href$=\"BladesCSS\"]",
+            "snippet": "<a href=\"https://x.com/BladesCSS\"><i class=\"fa-brands fa-x-twitter fa-lg\"></i></a>"
+          },
+          {
+            "selector": "ul:nth-child(3) > li:nth-child(3) > a",
+            "snippet": "<a href=\"https://bsky.app/hashtag/BladesCSS?author=any.digital\"><i class=\"fa-brands fa-bluesky\"></i></a>"
+          },
+          {
+            "selector": "ul:nth-child(3) > li:nth-child(4) > a",
+            "snippet": "<a href=\"https://mastodon.social/@anydigital/tagged/BladesCSS?boosts=1\"><i class=\"fa-brands fa-mastodon fa-lg\"></i></a>"
+          }
+        ]
+      },
+      {
+        "id": "landmark-unique",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/landmark-unique?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "header > nav",
+            "snippet": "<nav>"
+          }
+        ]
+      },
+      {
+        "id": "object-alt",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "<object> elements must have alternative text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/object-alt?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "object",
+            "snippet": "<object data=\"https://buildawesome.one/gh-content.svg\" class=\"dark-auto\"></object>"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
