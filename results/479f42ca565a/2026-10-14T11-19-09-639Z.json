@@ -1,0 +1,482 @@
+{
+  "url": "https://www.nvidia.com/",
+  "name": "Nvidia",
+  "group": "big-tech",
+  "groupName": "Big Tech",
+  "timestamp": 1791976749639,
+  "date": "2026-10-14T11:19:09.639Z",
+  "runId": "2026-10-14T11-16-14-987Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 69916,
+  "error": null,
+  "variance": {
+    "min": 55,
+    "max": 55,
+    "spread": 0,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://www.nvidia.com/",
+    "finalUrl": "https://www.nvidia.com/location-selector/",
+    "redirect": {
+      "from": "https://www.nvidia.com/",
+      "to": "https://www.nvidia.com/location-selector",
+      "chain": [
+        {
+          "url": "https://www.nvidia.com/",
+          "status": 307
+        },
+        {
+          "url": "https://www.nvidia.com/en-us/location-selector/",
+          "status": 301
+        },
+        {
+          "url": "https://www.nvidia.com/location-selector/",
+          "status": 200
+        }
+      ],
+      "statuses": [
+        307,
+        301
+      ],
+      "change": "path",
+      "permanent": false,
+      "schemeUpgrade": false,
+      "hops": 2
+    },
+    "statusCode": "ok",
+    "scores": {
+      "performance": 55,
+      "accessibility": 91,
+      "best-practices": 81,
+      "seo": 75,
+      "agentic-browsing": 67
+    },
+    "timings": {
+      "fcp": 10992,
+      "lcp": 13396,
+      "si": 10992,
+      "tbt": 76,
+      "tti": 13403,
+      "cls": 0,
+      "ttfb": 706,
+      "maxPotentialFid": 126,
+      "serverResponseTime": 54,
+      "networkRtt": 0.3,
+      "networkServerLatency": 106.1
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 132,
+      "elementRenderDelay": 1211.4
+    },
+    "weight": {
+      "total": 2259386,
+      "requests": 37,
+      "mainDocument": 36040,
+      "byType": {
+        "total": {
+          "bytes": 2253923,
+          "requests": 36
+        },
+        "script": {
+          "bytes": 1143639,
+          "requests": 17
+        },
+        "font": {
+          "bytes": 812555,
+          "requests": 3
+        },
+        "stylesheet": {
+          "bytes": 187537,
+          "requests": 3
+        },
+        "other": {
+          "bytes": 65408,
+          "requests": 10
+        },
+        "document": {
+          "bytes": 36040,
+          "requests": 1
+        },
+        "image": {
+          "bytes": 8744,
+          "requests": 2
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 559060,
+          "requests": 13
+        }
+      },
+      "scripts": 17,
+      "stylesheets": 3,
+      "fonts": 3
+    },
+    "thirdParty": {
+      "count": 2,
+      "bytes": 559060,
+      "mainThreadMs": 143.5,
+      "top": [
+        {
+          "entity": "Adobe Tag Manager",
+          "bytes": 325008,
+          "mainThreadMs": 94.8,
+          "byType": {
+            "script": 325008
+          },
+          "typedBytes": 325008
+        },
+        {
+          "entity": "Optanon",
+          "bytes": 234052,
+          "mainThreadMs": 48.7,
+          "byType": {
+            "script": 161921,
+            "other": 63387,
+            "image": 8744
+          },
+          "typedBytes": 234052
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 2152.3,
+      "byGroup": {
+        "scriptEvaluation": 948.9,
+        "scriptParseCompile": 450.6,
+        "other": 340.2,
+        "styleLayout": 209.5,
+        "parseHTML": 173.3,
+        "garbageCollection": 21.2,
+        "paintCompositeRender": 8.7
+      },
+      "bootupMs": 1287.8,
+      "longTasks": 12,
+      "longestTaskMs": 322
+    },
+    "dom": {
+      "elements": 2971,
+      "depth": 23,
+      "maxChildren": 21
+    },
+    "waste": {
+      "unusedJsBytes": 528646,
+      "unusedCssBytes": 190096,
+      "legacyJsBytes": 13849,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 82770,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 14806,
+      "renderBlockingCount": 15,
+      "poorlyCachedBytes": 1346596.4,
+      "poorlyCachedCount": 15
+    },
+    "accessibility": {
+      "failingCount": 3,
+      "applicableCount": 31,
+      "failingNodes": 36,
+      "failing": [
+        {
+          "id": "listitem",
+          "title": "List items (`<li>`) are not contained within `<ul>`, `<ol>` or `<menu>` parent elements.",
+          "weight": 7,
+          "nodes": 34
+        },
+        {
+          "id": "aria-required-children",
+          "title": "Elements with an ARIA `[role]` that require children to contain a specific `[role]` are missing some or all of those required children.",
+          "weight": 10,
+          "nodes": 1
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "title": "Elements with visible text labels do not have matching accessible names.",
+          "weight": 0,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 2,
+      "applicableCount": 19,
+      "failing": [
+        {
+          "id": "deprecations",
+          "title": "Uses deprecated APIs",
+          "weight": 5,
+          "nodes": 1
+        },
+        {
+          "id": "valid-source-maps",
+          "title": "Missing source maps for large first-party JavaScript",
+          "weight": 0,
+          "nodes": 3
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 3,
+      "applicableCount": 9,
+      "failing": [
+        {
+          "id": "link-text",
+          "title": "Links do not have descriptive text",
+          "weight": 1,
+          "nodes": 1
+        },
+        {
+          "id": "crawlable-anchors",
+          "title": "Links are not crawlable",
+          "weight": 1,
+          "nodes": 1
+        },
+        {
+          "id": "robots-txt",
+          "title": "robots.txt is not valid",
+          "weight": 1,
+          "nodes": 1
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 0,
+      "bfCacheFailures": 1,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 856.1,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 27
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2492.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-10-14T11:19:21.723Z",
+      "runtimeMs": 10362.5
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 1733.7,
+    "elementRenderDelay": 11833.9
+  },
+  "field": {
+    "source": "crux",
+    "scope": "origin",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-09-15",
+      "last": "2026-10-12"
+    },
+    "metrics": {
+      "fcp": {
+        "p75": 2017,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 70.4,
+          "needsImprovement": 15.2,
+          "poor": 14.3
+        }
+      },
+      "inp": {
+        "p75": 256,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 67.4,
+          "needsImprovement": 22.6,
+          "poor": 10
+        }
+      },
+      "lcp": {
+        "p75": 2714,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 72.9,
+          "needsImprovement": 13.4,
+          "poor": 13.7
+        }
+      },
+      "rtt": {
+        "p75": 159,
+        "rating": null,
+        "distribution": {
+          "good": 34.5,
+          "needsImprovement": 56.1,
+          "poor": 9.4
+        }
+      },
+      "cls": {
+        "p75": 0.2,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 65.1,
+          "needsImprovement": 12.8,
+          "poor": 22.1
+        }
+      },
+      "ttfb": {
+        "p75": 533,
+        "rating": "good",
+        "distribution": {
+          "good": 83.5,
+          "needsImprovement": 10.4,
+          "poor": 6
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "probe": {
+      "metas": [],
+      "marks": [
+        "react",
+        "fontawesome"
+      ],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "akamai",
+      "name": "Akamai",
+      "icon": "Akamai",
+      "source": "server"
+    },
+    "headers": {
+      "server": "AkamaiGHost"
+    },
+    "violations": 47,
+    "passes": 572,
+    "incomplete": 5,
+    "violationRules": 5,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "listitem",
+        "impact": "serious",
+        "nodes": 34,
+        "help": "<li> elements must be contained in a <ul> or <ol>",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/listitem?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "#\\30 \\.745432786469346 > .countrylistselector > .countrylistsection:nth-child(2) > .p-l-0.lap-p-l-0.tab-p-l-0 > div > .body-text.description.color-ui-elements > .countrieswrapper > div > div > .countrylistsection > div:nth-child(2) > .country.text-left.lap-text-left:nth-child(1)",
+            "snippet": "<li class=\"country text-left lap-text-left tab-text-left mob-text-left\"> <a class=\"country_link\" title=\"Argentina\" data-clocale=\"es-la\" href=\"https://www.nvidia.com/es-la/\">Argentina</a> </li>"
+          },
+          {
+            "selector": "#\\30 \\.745432786469346 > .countrylistselector > .countrylistsection:nth-child(2) > .p-l-0.lap-p-l-0.tab-p-l-0 > div > .body-text.description.color-ui-elements > .countrieswrapper > div > div > .countrylistsection > div:nth-child(2) > .country.text-left.lap-text-left:nth-child(2)",
+            "snippet": "<li class=\"country text-left lap-text-left tab-text-left mob-text-left\">"
+          },
+          {
+            "selector": "#\\30 \\.745432786469346 > .countrylistselector > .countrylistsection:nth-child(2) > .p-l-0.lap-p-l-0.tab-p-l-0 > div > .body-text.description.color-ui-elements > .countrieswrapper > div > div > .countrylistsection > div:nth-child(2) > .country.text-left.lap-text-left:nth-child(3)",
+            "snippet": "<li class=\"country text-left lap-text-left tab-text-left mob-text-left\"> <a class=\"country_link\" title=\"Canada\" data-clocale=\"en-us\" href=\"https://www.nvidia.com/en-us/\">Canada</a> </li>"
+          },
+          {
+            "selector": "#\\30 \\.745432786469346 > .countrylistselector > .countrylistsection:nth-child(2) > .p-l-0.lap-p-l-0.tab-p-l-0 > div > .body-text.description.color-ui-elements > .countrieswrapper > div > div > .countrylistsection > div:nth-child(2) > .country.text-left.lap-text-left:nth-child(4)",
+            "snippet": "<li class=\"country text-left lap-text-left tab-text-left mob-text-left\"> <a class=\"country_link\" title=\"Chile\" data-clocale=\"es-la\" href=\"https://www.nvidia.com/es-la/\">Chile</a> </li>"
+          },
+          {
+            "selector": "#\\30 \\.745432786469346 > .countrylistselector > .countrylistsection:nth-child(2) > .p-l-0.lap-p-l-0.tab-p-l-0 > div > .body-text.description.color-ui-elements > .countrieswrapper > div > div > .countrylistsection > div:nth-child(2) > .country.text-left.lap-text-left:nth-child(5)",
+            "snippet": "<li class=\"country text-left lap-text-left tab-text-left mob-text-left\"> <a class=\"country_link\" title=\"Colombia\" data-clocale=\"es-la\" href=\"https://www.nvidia.com/es-la/\">Colombia</a> </li>"
+          }
+        ]
+      },
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 7,
+        "help": "All page content should be contained by landmarks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/region?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".sectionWrapper.parbase.section:nth-child(1)",
+            "snippet": "<div class=\"sectionWrapper parbase section\">"
+          },
+          {
+            "selector": "#\\30 \\.745432786469346",
+            "snippet": "<div id=\"0.745432786469346\">"
+          },
+          {
+            "selector": "#\\30 \\.02778864699669692",
+            "snippet": "<div id=\"0.02778864699669692\">"
+          },
+          {
+            "selector": "#\\30 \\.8376180304776912",
+            "snippet": "<div id=\"0.8376180304776912\">"
+          },
+          {
+            "selector": "#\\30 \\.1263860148339827",
+            "snippet": "<div id=\"0.1263860148339827\">"
+          }
+        ]
+      },
+      {
+        "id": "empty-heading",
+        "impact": "minor",
+        "nodes": 4,
+        "help": "Headings should not be empty",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/empty-heading?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "#\\30 \\.745432786469346 > .countrylistselector > .countrylistsection:nth-child(1) > .full-width.p-b-0.lap-p-t-0 > .text-left.lap-text-left.tab-text-left > h2",
+            "snippet": "<h2 class=\"title color-brand-green\"> <strong></strong> </h2>"
+          },
+          {
+            "selector": "#\\30 \\.02778864699669692 > .countrylistselector > .countrylistsection:nth-child(1) > .full-width.p-b-0.lap-p-t-0 > .text-left.lap-text-left.tab-text-left > h2",
+            "snippet": "<h2 class=\"title color-brand-green\"> <strong></strong> </h2>"
+          },
+          {
+            "selector": "#\\30 \\.8376180304776912 > .countrylistselector > .countrylistsection:nth-child(1) > .full-width.p-b-0.lap-p-t-0 > .text-left.lap-text-left.tab-text-left > h2",
+            "snippet": "<h2 class=\"title color-brand-green\"> <strong></strong> </h2>"
+          },
+          {
+            "selector": "#\\30 \\.1263860148339827 > .countrylistselector > .countrylistsection:nth-child(1) > .full-width.p-b-0.lap-p-t-0 > .text-left.lap-text-left.tab-text-left > h2",
+            "snippet": "<h2 class=\"title color-brand-green\"> <strong></strong> </h2>"
+          }
+        ]
+      },
+      {
+        "id": "aria-required-children",
+        "impact": "critical",
+        "nodes": 1,
+        "help": "Certain ARIA roles must contain particular children",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/aria-required-children?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".mobile-nav > .nav-header > .nav-header-container > .nav-tools-container > .nav-header-list[role=\"list\"]",
+            "snippet": "<ul class=\"nav-header-list\" role=\"list\">"
+          }
+        ]
+      },
+      {
+        "id": "landmark-unique",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/landmark-unique?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "#navigation1ef50d3a_2de4_4c67_8e6a_c323599f3689",
+            "snippet": "<nav class=\"global-nav\" id=\"navigation1ef50d3a_2de4_4c67_8e6a_c323599f3689\">"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
