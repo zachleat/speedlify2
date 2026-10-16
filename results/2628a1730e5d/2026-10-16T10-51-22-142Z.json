@@ -1,0 +1,425 @@
+{
+  "url": "https://www.uber.com/",
+  "name": "Uber",
+  "group": "big-tech",
+  "groupName": "Big Tech",
+  "timestamp": 1792147882142,
+  "date": "2026-10-16T10:51:22.142Z",
+  "runId": "2026-10-16T10-46-40-336Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 116820,
+  "error": null,
+  "variance": {
+    "min": 39,
+    "max": 44,
+    "spread": 5,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://www.uber.com/",
+    "finalUrl": "https://www.uber.com/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 43,
+      "accessibility": 87,
+      "best-practices": 100,
+      "seo": 92,
+      "agentic-browsing": 45
+    },
+    "timings": {
+      "fcp": 3966,
+      "lcp": 16236,
+      "si": 5018,
+      "tbt": 742,
+      "tti": 16303,
+      "cls": 0.097,
+      "ttfb": 623,
+      "maxPotentialFid": 281,
+      "serverResponseTime": 102,
+      "networkRtt": 0.1,
+      "networkServerLatency": 32.1
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 103.8,
+      "resourceLoadDelay": 966.8,
+      "resourceLoadDuration": 19.3,
+      "elementRenderDelay": 31.9
+    },
+    "weight": {
+      "total": 12966346,
+      "requests": 108,
+      "mainDocument": 146004,
+      "byType": {
+        "total": {
+          "bytes": 12966346,
+          "requests": 107
+        },
+        "media": {
+          "bytes": 10073991,
+          "requests": 1
+        },
+        "script": {
+          "bytes": 1504856,
+          "requests": 42
+        },
+        "image": {
+          "bytes": 1042460,
+          "requests": 33
+        },
+        "document": {
+          "bytes": 146004,
+          "requests": 1
+        },
+        "font": {
+          "bytes": 121315,
+          "requests": 4
+        },
+        "other": {
+          "bytes": 64187,
+          "requests": 25
+        },
+        "stylesheet": {
+          "bytes": 13533,
+          "requests": 1
+        },
+        "third-party": {
+          "bytes": 139072,
+          "requests": 2
+        }
+      },
+      "scripts": 42,
+      "stylesheets": 1,
+      "fonts": 4
+    },
+    "thirdParty": {
+      "count": 2,
+      "bytes": 139072,
+      "mainThreadMs": 32.9,
+      "top": [
+        {
+          "entity": "Other Google APIs/SDKs",
+          "bytes": 102134,
+          "mainThreadMs": 6.4,
+          "byType": {
+            "script": 102134
+          },
+          "typedBytes": 102134
+        },
+        {
+          "entity": "Tealium",
+          "bytes": 36938,
+          "mainThreadMs": 26.5,
+          "byType": {
+            "script": 36938
+          },
+          "typedBytes": 36938
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 5365.6,
+      "byGroup": {
+        "scriptEvaluation": 3427.6,
+        "other": 995.5,
+        "styleLayout": 324.8,
+        "scriptParseCompile": 241.1,
+        "garbageCollection": 140.8,
+        "paintCompositeRender": 120.5,
+        "parseHTML": 115.3
+      },
+      "bootupMs": 3470,
+      "longTasks": 19,
+      "longestTaskMs": 281
+    },
+    "dom": {
+      "elements": 2851,
+      "depth": 34,
+      "maxChildren": 37
+    },
+    "waste": {
+      "unusedJsBytes": 779694,
+      "unusedCssBytes": 11584,
+      "legacyJsBytes": 26738,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 2155,
+      "renderBlockingMs": 0,
+      "renderBlockingCount": 1,
+      "poorlyCachedBytes": 8184845.365828678,
+      "poorlyCachedCount": 24
+    },
+    "accessibility": {
+      "failingCount": 4,
+      "applicableCount": 34,
+      "failingNodes": 5,
+      "failing": [
+        {
+          "id": "listitem",
+          "title": "List items (`<li>`) are not contained within `<ul>`, `<ol>` or `<menu>` parent elements.",
+          "weight": 7,
+          "nodes": 2
+        },
+        {
+          "id": "aria-dialog-name",
+          "title": "Elements with `role=\"dialog\"` or `role=\"alertdialog\"` do not have accessible names.",
+          "weight": 7,
+          "nodes": 1
+        },
+        {
+          "id": "list",
+          "title": "Lists do not contain only `<li>` elements and script supporting elements (`<script>` and `<template>`).",
+          "weight": 7,
+          "nodes": 1
+        },
+        {
+          "id": "target-size",
+          "title": "Touch targets do not have sufficient size or spacing.",
+          "weight": 7,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 1,
+      "applicableCount": 19,
+      "failing": [
+        {
+          "id": "valid-source-maps",
+          "title": "Missing source maps for large first-party JavaScript",
+          "weight": 0,
+          "nodes": 39
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 1,
+      "applicableCount": 10,
+      "failing": [
+        {
+          "id": "link-text",
+          "title": "Links do not have descriptive text",
+          "weight": 1,
+          "nodes": 2
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 0,
+      "bfCacheFailures": 3,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 32
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 3362,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-10-16T10:51:40.176Z",
+      "runtimeMs": 16083.2
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 665.4,
+    "elementRenderDelay": 12297.6
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-09-17",
+      "last": "2026-10-14"
+    },
+    "metrics": {
+      "cls": {
+        "p75": 0,
+        "rating": "good",
+        "distribution": {
+          "good": 89.1,
+          "needsImprovement": 9.7,
+          "poor": 1.2
+        }
+      },
+      "ttfb": {
+        "p75": 734,
+        "rating": "good",
+        "distribution": {
+          "good": 78,
+          "needsImprovement": 17.1,
+          "poor": 4.9
+        }
+      },
+      "fcp": {
+        "p75": 1601,
+        "rating": "good",
+        "distribution": {
+          "good": 80.6,
+          "needsImprovement": 13.8,
+          "poor": 5.6
+        }
+      },
+      "inp": {
+        "p75": 191,
+        "rating": "good",
+        "distribution": {
+          "good": 76.3,
+          "needsImprovement": 17.9,
+          "poor": 5.8
+        }
+      },
+      "lcp": {
+        "p75": 2904,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 68.8,
+          "needsImprovement": 16.6,
+          "poor": 14.6
+        }
+      },
+      "rtt": {
+        "p75": 127,
+        "rating": null,
+        "distribution": {
+          "good": 42.7,
+          "needsImprovement": 48.8,
+          "poor": 8.5
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "probe": {
+      "metas": [],
+      "marks": [
+        "react"
+      ],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "cloudflare",
+      "name": "Cloudflare",
+      "icon": "Cloudflare",
+      "source": "server"
+    },
+    "headers": {
+      "cf-ray": "a4b684bcad997816-MSP",
+      "server": "cloudflare"
+    },
+    "violations": 12,
+    "passes": 2060,
+    "incomplete": 12,
+    "violationRules": 5,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "image-redundant-alt",
+        "impact": "minor",
+        "nodes": 6,
+        "help": "Alternative text of images should not be repeated as text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/image-redundant-alt?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".css-cUKFPx[alt=\"Ride\"]",
+            "snippet": "<img alt=\"Ride\" class=\"css-cUKFPx\" src=\"https://mobile-content.uber.com/launch-experience/nava-icons-may-2026/light-mode/Sedan-160-temp.png\">"
+          },
+          {
+            "selector": ".css-cUKFPx[alt=\"Reserve\"]",
+            "snippet": "<img alt=\"Reserve\" class=\"css-cUKFPx\" src=\"https://cn-geo1.uber.com/static/mobile-content/launch-experience/nava-icons-may-2026/light-mode/Calendar-351-temp.png\">"
+          },
+          {
+            "selector": ".css-cUKFPx[alt=\"Airport\"]",
+            "snippet": "<img alt=\"Airport\" class=\"css-cUKFPx\" src=\"https://tb-static.uber.com/prod/uber-static/airport-nava-tile.png\">"
+          },
+          {
+            "selector": ".css-cUKFPx[alt=\"Rental Cars \"]",
+            "snippet": "<img alt=\"Rental Cars \" class=\"css-cUKFPx\" src=\"https://cn-geo1.uber.com/static/mobile-content/launch-experience/nava-icons-may-2026/light-mode/CarRentalKey-189-temp.png\">"
+          },
+          {
+            "selector": ".css-cUKFPx[alt=\"Teens\"]",
+            "snippet": "<img alt=\"Teens\" class=\"css-cUKFPx\" src=\"https://cn-geo1.uber.com/static/mobile-content/launch-experience/nava-icons-may-2026/light-mode/PersonTeen-252-temp.png\">"
+          }
+        ]
+      },
+      {
+        "id": "landmark-unique",
+        "impact": "moderate",
+        "nodes": 2,
+        "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/landmark-unique?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".css-dpHrtI[data-baseweb=\"block\"] > .css-aiKAo.container-inner[data-baseweb=\"block\"] > .css-bVFrLX[data-testid=\"block-container\"][data-baseweb=\"block\"] > .css-HXvWP[data-baseweb=\"block\"]:nth-child(2) > .css-ygIAx[aria-label=\"Gallery\"][aria-roledescription=\"carousel\"]",
+            "snippet": "<div aria-label=\"Gallery\" aria-roledescription=\"carousel\" id=\"bullets-carousel\" role=\"region\" class=\"css-ygIAx\">"
+          },
+          {
+            "selector": ".css-dpHrtI[data-baseweb=\"block\"] > .css-aiKAo.container-inner[data-baseweb=\"block\"] > .css-bVFrLX[data-testid=\"block-container\"][data-baseweb=\"block\"] > .css-HXvWP[data-baseweb=\"block\"]:nth-child(2) > .css-Ueucm[data-testid=\"mobile-pagination\"] > .css-bcpvQL[aria-label=\"Gallery controls\"]",
+            "snippet": "<nav aria-label=\"Gallery controls\" class=\"css-bcpvQL\">"
+          }
+        ]
+      },
+      {
+        "id": "listitem",
+        "impact": "serious",
+        "nodes": 2,
+        "help": "<li> elements must be contained in a <ul> or <ol>",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/listitem?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".logged-out-style-wrapper.css-DPWHs[data-testid=\"class-provider-wrapper\"]:nth-child(1) > .css-iJiqqk",
+            "snippet": "<li class=\"css-iJiqqk\">"
+          },
+          {
+            "selector": ".logged-out-style-wrapper.css-DPWHs[data-testid=\"class-provider-wrapper\"]:nth-child(2) > .css-dmqvLf",
+            "snippet": "<li class=\"css-dmqvLf\">"
+          }
+        ]
+      },
+      {
+        "id": "aria-dialog-name",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "ARIA dialog and alertdialog nodes should have an accessible name",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/aria-dialog-name?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "#privacy-cookie-banners-root",
+            "snippet": "<div role=\"dialog\" class=\"css-chgoVP\" id=\"privacy-cookie-banners-root\">"
+          }
+        ]
+      },
+      {
+        "id": "list",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "<ul> and <ol> must only directly contain <li>, <script> or <template> elements",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/list?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".css-jaByka",
+            "snippet": "<ul class=\"css-jaByka\">"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
