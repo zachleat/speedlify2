@@ -1,0 +1,411 @@
+{
+  "url": "https://www.heroku.com/",
+  "name": "Heroku",
+  "group": "dev-tooling",
+  "groupName": "Developer Tooling",
+  "timestamp": 1792163777094,
+  "date": "2026-10-16T15:16:17.094Z",
+  "runId": "2026-10-16T15-13-38-888Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 87643,
+  "error": null,
+  "variance": {
+    "min": 64,
+    "max": 69,
+    "spread": 5,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://www.heroku.com/",
+    "finalUrl": "https://www.heroku.com/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 69,
+      "accessibility": 93,
+      "best-practices": 73,
+      "seo": 92,
+      "agentic-browsing": 100
+    },
+    "timings": {
+      "fcp": 2448,
+      "lcp": 2878,
+      "si": 2911,
+      "tbt": 1049,
+      "tti": 19402,
+      "cls": 0.021,
+      "ttfb": 606,
+      "maxPotentialFid": 251,
+      "serverResponseTime": 3,
+      "networkRtt": 0.5,
+      "networkServerLatency": 168.3
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 4.9,
+      "elementRenderDelay": 156.3
+    },
+    "weight": {
+      "total": 2788636,
+      "requests": 108,
+      "mainDocument": 52518,
+      "byType": {
+        "total": {
+          "bytes": 2788636,
+          "requests": 106
+        },
+        "script": {
+          "bytes": 1838174,
+          "requests": 47
+        },
+        "other": {
+          "bytes": 465128,
+          "requests": 14
+        },
+        "font": {
+          "bytes": 212228,
+          "requests": 6
+        },
+        "stylesheet": {
+          "bytes": 128966,
+          "requests": 12
+        },
+        "document": {
+          "bytes": 81192,
+          "requests": 2
+        },
+        "image": {
+          "bytes": 62948,
+          "requests": 25
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 1200205,
+          "requests": 32
+        }
+      },
+      "scripts": 47,
+      "stylesheets": 12,
+      "fonts": 6
+    },
+    "thirdParty": {
+      "count": 10,
+      "bytes": 1099005,
+      "mainThreadMs": 366.9,
+      "top": [
+        {
+          "entity": "Google Tag Manager",
+          "bytes": 531732,
+          "mainThreadMs": 228.6,
+          "byType": {
+            "script": 531732
+          },
+          "typedBytes": 531732
+        },
+        {
+          "entity": "Google CDN",
+          "bytes": 354984,
+          "mainThreadMs": 109.2,
+          "byType": {
+            "other": 354984
+          },
+          "typedBytes": 354984
+        },
+        {
+          "entity": "herokucdn.com",
+          "bytes": 146190,
+          "mainThreadMs": 0,
+          "byType": {
+            "other": 146190
+          },
+          "typedBytes": 146190
+        },
+        {
+          "entity": "Parse.ly",
+          "bytes": 22924,
+          "mainThreadMs": 14.3,
+          "byType": {
+            "script": 22355,
+            "other": 340,
+            "image": 229
+          },
+          "typedBytes": 22924
+        },
+        {
+          "entity": "LinkedIn Ads",
+          "bytes": 22158,
+          "mainThreadMs": 8.9,
+          "byType": {
+            "script": 21786,
+            "image": 285,
+            "other": 87
+          },
+          "typedBytes": 22158
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 5533.7,
+      "byGroup": {
+        "scriptEvaluation": 2963.1,
+        "other": 1065.9,
+        "styleLayout": 634,
+        "scriptParseCompile": 420.4,
+        "parseHTML": 225,
+        "paintCompositeRender": 145.7,
+        "garbageCollection": 79.6
+      },
+      "bootupMs": 3008.3,
+      "longTasks": 20,
+      "longestTaskMs": 251
+    },
+    "dom": {
+      "elements": 2314,
+      "depth": 31,
+      "maxChildren": 351
+    },
+    "waste": {
+      "unusedJsBytes": 839733,
+      "unusedCssBytes": 98421,
+      "legacyJsBytes": 36742,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 3111,
+      "renderBlockingMs": 3678,
+      "renderBlockingCount": 11,
+      "poorlyCachedBytes": 71426.59999999999,
+      "poorlyCachedCount": 9
+    },
+    "accessibility": {
+      "failingCount": 2,
+      "applicableCount": 29,
+      "failingNodes": 11,
+      "failing": [
+        {
+          "id": "target-size",
+          "title": "Touch targets do not have sufficient size or spacing.",
+          "weight": 7,
+          "nodes": 10
+        },
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "weight": 7,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 4,
+      "applicableCount": 19,
+      "failing": [
+        {
+          "id": "third-party-cookies",
+          "title": "Uses third-party cookies",
+          "weight": 5,
+          "nodes": 9
+        },
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "weight": 1,
+          "nodes": 2
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "weight": 1,
+          "nodes": 1
+        },
+        {
+          "id": "valid-source-maps",
+          "title": "Missing source maps for large first-party JavaScript",
+          "weight": 0,
+          "nodes": 2
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 1,
+      "applicableCount": 10,
+      "failing": [
+        {
+          "id": "link-text",
+          "title": "Links do not have descriptive text",
+          "weight": 1,
+          "nodes": 3
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 2,
+      "baselineLimitedFeatures": 48
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2461,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-10-16T15:16:33.914Z",
+      "runtimeMs": 12742.2
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 567.5,
+    "elementRenderDelay": 1490.1
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-09-17",
+      "last": "2026-10-14"
+    },
+    "metrics": {
+      "lcp": {
+        "p75": 1658,
+        "rating": "good",
+        "distribution": {
+          "good": 88.7,
+          "needsImprovement": 7.2,
+          "poor": 4.1
+        }
+      },
+      "rtt": {
+        "p75": 215,
+        "rating": null,
+        "distribution": {
+          "good": 19.1,
+          "needsImprovement": 64.1,
+          "poor": 16.8
+        }
+      },
+      "cls": {
+        "p75": 0,
+        "rating": "good",
+        "distribution": {
+          "good": 95.1,
+          "needsImprovement": 4,
+          "poor": 1
+        }
+      },
+      "ttfb": {
+        "p75": 682,
+        "rating": "good",
+        "distribution": {
+          "good": 80.1,
+          "needsImprovement": 15.1,
+          "poor": 4.9
+        }
+      },
+      "fcp": {
+        "p75": 1440,
+        "rating": "good",
+        "distribution": {
+          "good": 83.7,
+          "needsImprovement": 10.8,
+          "poor": 5.6
+        }
+      },
+      "inp": {
+        "p75": 150,
+        "rating": "good",
+        "distribution": {
+          "good": 85.4,
+          "needsImprovement": 12.6,
+          "poor": 2.1
+        }
+      }
+    },
+    "cwvPass": true,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "probe": {
+      "metas": [],
+      "marks": [
+        "fontawesome"
+      ],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "self-hosted",
+      "name": "Self-hosted",
+      "icon": null,
+      "detail": "nginx",
+      "detailIcon": "Nginx",
+      "source": "server"
+    },
+    "headers": {
+      "server": "nginx"
+    },
+    "violations": 3,
+    "passes": 1555,
+    "incomplete": 6,
+    "violationRules": 3,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/color-contrast?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".elementor-element-508241cc > p > a:nth-child(1)",
+            "snippet": "<a href=\"https://elements.heroku.com/buildpacks\">third-party buildpack</a>"
+          }
+        ]
+      },
+      {
+        "id": "landmark-unique",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/landmark-unique?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".menu-footer-1-container",
+            "snippet": "<nav class=\"menu-footer-1-container\" aria-label=\"Menu\">"
+          }
+        ]
+      },
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "All page content should be contained by landmarks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/region?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "#overlay-description",
+            "snippet": "<div id=\"overlay-description\" class=\"sr-only\"> Search overlay panel for performing site-wide searches </div>"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
