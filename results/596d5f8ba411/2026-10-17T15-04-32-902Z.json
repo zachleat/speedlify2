@@ -1,0 +1,592 @@
+{
+  "url": "https://www.tesla.com/",
+  "name": "Tesla",
+  "group": "big-tech",
+  "groupName": "Big Tech",
+  "timestamp": 1792249472902,
+  "date": "2026-10-17T15:04:32.902Z",
+  "runId": "2026-10-17T15-01-19-416Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 1,
+  "durationMs": 70649,
+  "error": null,
+  "partialErrors": [
+    "ERRORED_DOCUMENT_REQUEST: Lighthouse was unable to reliably load the page you requested. Make sure you are testing the correct URL and that the server is properly responding to all requests. (Status code: 403)",
+    "ERRORED_DOCUMENT_REQUEST: Lighthouse was unable to reliably load the page you requested. Make sure you are testing the correct URL and that the server is properly responding to all requests. (Status code: 403)"
+  ],
+  "variance": null,
+  "lab": {
+    "requestedUrl": "https://www.tesla.com/",
+    "finalUrl": "https://www.tesla.com/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 25,
+      "accessibility": 80,
+      "best-practices": 73,
+      "seo": 75,
+      "agentic-browsing": 49
+    },
+    "timings": {
+      "fcp": 21311,
+      "lcp": 36194,
+      "si": 21311,
+      "tbt": 3680,
+      "tti": 43266,
+      "cls": 0.056,
+      "ttfb": 651,
+      "maxPotentialFid": 812,
+      "serverResponseTime": 66,
+      "networkRtt": 33.1,
+      "networkServerLatency": 665.8
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 118.9,
+      "resourceLoadDelay": 3387.9,
+      "resourceLoadDuration": 8.7,
+      "elementRenderDelay": 775.8
+    },
+    "weight": {
+      "total": 12218158,
+      "requests": 182,
+      "mainDocument": 360779,
+      "byType": {
+        "total": {
+          "bytes": 12217312,
+          "requests": 140
+        },
+        "media": {
+          "bytes": 5183235,
+          "requests": 2
+        },
+        "script": {
+          "bytes": 5054952,
+          "requests": 31
+        },
+        "image": {
+          "bytes": 734466,
+          "requests": 40
+        },
+        "stylesheet": {
+          "bytes": 400172,
+          "requests": 9
+        },
+        "document": {
+          "bytes": 362800,
+          "requests": 6
+        },
+        "other": {
+          "bytes": 289518,
+          "requests": 46
+        },
+        "font": {
+          "bytes": 192169,
+          "requests": 6
+        },
+        "third-party": {
+          "bytes": 1704088,
+          "requests": 48
+        }
+      },
+      "scripts": 34,
+      "stylesheets": 9,
+      "fonts": 6
+    },
+    "thirdParty": {
+      "count": 11,
+      "bytes": 1739587,
+      "mainThreadMs": 584.1,
+      "top": [
+        {
+          "entity": "Google Maps",
+          "bytes": 621865,
+          "mainThreadMs": 74.7,
+          "byType": {
+            "script": 430492,
+            "other": 5176,
+            "image": 186197
+          },
+          "typedBytes": 621865
+        },
+        {
+          "entity": "Google Tag Manager",
+          "bytes": 603578,
+          "mainThreadMs": 193.4,
+          "byType": {
+            "script": 603578
+          },
+          "typedBytes": 603578
+        },
+        {
+          "entity": "Facebook",
+          "bytes": 308059,
+          "mainThreadMs": 255.3,
+          "byType": {
+            "script": 308059
+          },
+          "typedBytes": 308059
+        },
+        {
+          "entity": "Optimizely",
+          "bytes": 97904,
+          "mainThreadMs": 50.9,
+          "byType": {
+            "script": 97538,
+            "other": 366
+          },
+          "typedBytes": 97904
+        },
+        {
+          "entity": "Google Fonts",
+          "bytes": 80374,
+          "mainThreadMs": 0,
+          "byType": {
+            "font": 75072,
+            "stylesheet": 5302
+          },
+          "typedBytes": 80374
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 19133.1,
+      "byGroup": {
+        "scriptEvaluation": 8553,
+        "styleLayout": 6234,
+        "other": 2491.7,
+        "scriptParseCompile": 990.2,
+        "garbageCollection": 337.2,
+        "parseHTML": 268.5,
+        "paintCompositeRender": 258.5
+      },
+      "bootupMs": 9417.5,
+      "longTasks": 20,
+      "longestTaskMs": 812
+    },
+    "dom": {
+      "elements": 3024,
+      "depth": 28,
+      "maxChildren": 692
+    },
+    "waste": {
+      "unusedJsBytes": 1611185,
+      "unusedCssBytes": 346014,
+      "legacyJsBytes": 12273,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 21478,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 9519,
+      "renderBlockingCount": 7,
+      "poorlyCachedBytes": 1881470.2925,
+      "poorlyCachedCount": 19
+    },
+    "accessibility": {
+      "failingCount": 6,
+      "applicableCount": 33,
+      "failingNodes": 48,
+      "failing": [
+        {
+          "id": "heading-order",
+          "title": "Heading elements are not in a sequentially-descending order",
+          "weight": 3,
+          "nodes": 13
+        },
+        {
+          "id": "button-name",
+          "title": "Buttons do not have an accessible name",
+          "weight": 10,
+          "nodes": 12
+        },
+        {
+          "id": "aria-required-parent",
+          "title": "`[role]`s are not contained by their required parent element",
+          "weight": 10,
+          "nodes": 11
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "title": "Elements with visible text labels do not have matching accessible names.",
+          "weight": 0,
+          "nodes": 8
+        },
+        {
+          "id": "aria-allowed-attr",
+          "title": "`[aria-*]` attributes do not match their roles",
+          "weight": 10,
+          "nodes": 3
+        },
+        {
+          "id": "image-alt",
+          "title": "Image elements do not have `[alt]` attributes",
+          "weight": 10,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 4,
+      "applicableCount": 19,
+      "failing": [
+        {
+          "id": "third-party-cookies",
+          "title": "Uses third-party cookies",
+          "weight": 5,
+          "nodes": 3
+        },
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "weight": 1,
+          "nodes": 6
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "weight": 1,
+          "nodes": 1
+        },
+        {
+          "id": "valid-source-maps",
+          "title": "Missing source maps for large first-party JavaScript",
+          "weight": 0,
+          "nodes": 5
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 3,
+      "applicableCount": 9,
+      "failing": [
+        {
+          "id": "link-text",
+          "title": "Links do not have descriptive text",
+          "weight": 1,
+          "nodes": 12
+        },
+        {
+          "id": "image-alt",
+          "title": "Image elements do not have `[alt]` attributes",
+          "weight": 1,
+          "nodes": 1
+        },
+        {
+          "id": "hreflang",
+          "title": "Document doesn't have a valid `hreflang`",
+          "weight": 1,
+          "nodes": 3
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": null,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 6,
+      "baselineLimitedFeatures": 74
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2449,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-10-17T15:04:34.218Z",
+      "runtimeMs": 23388.2
+    }
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-09-18",
+      "last": "2026-10-15"
+    },
+    "metrics": {
+      "rtt": {
+        "p75": 114,
+        "rating": null,
+        "distribution": {
+          "good": 50,
+          "needsImprovement": 44.9,
+          "poor": 5.1
+        }
+      },
+      "cls": {
+        "p75": 0.19,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 70.2,
+          "needsImprovement": 28.8,
+          "poor": 1.1
+        }
+      },
+      "ttfb": {
+        "p75": 550,
+        "rating": "good",
+        "distribution": {
+          "good": 85.1,
+          "needsImprovement": 11.6,
+          "poor": 3.3
+        }
+      },
+      "fcp": {
+        "p75": 2358,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 61.8,
+          "needsImprovement": 22.1,
+          "poor": 16.1
+        }
+      },
+      "inp": {
+        "p75": 175,
+        "rating": "good",
+        "distribution": {
+          "good": 82.1,
+          "needsImprovement": 15.4,
+          "poor": 2.5
+        }
+      },
+      "lcp": {
+        "p75": 5456,
+        "rating": "poor",
+        "distribution": {
+          "good": 34.2,
+          "needsImprovement": 15.3,
+          "poor": 50.5
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": {
+      "id": "drupal",
+      "name": "Drupal",
+      "icon": "Drupal",
+      "version": "10",
+      "source": "meta",
+      "raw": "Drupal 10 (https://www.drupal.org)"
+    },
+    "probe": {
+      "metas": [
+        "Drupal 10 (https://www.drupal.org)"
+      ],
+      "marks": [
+        "react",
+        "lit"
+      ],
+      "markVersions": {
+        "lit": "3.3.3"
+      }
+    },
+    "interstitial": null,
+    "host": null,
+    "headers": {},
+    "violations": 52,
+    "passes": 1361,
+    "incomplete": 36,
+    "violationRules": 8,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "heading-order",
+        "impact": "moderate",
+        "nodes": 13,
+        "help": "Heading levels should only increase by one",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/heading-order?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".tcl-flex-module-carousel__slide-1 > .tcl-flex-module--homepage_hero_xs_header_carousel_slide.tds-scrim--black.tcl-flex-module > .tcl-flex-module__content > .tcl-text-align--center.tcl-align-content--center.tcl-align-items--center:nth-child(1) > .tcl-flex-module__component--heading2.tcl-flex-module__component-type--textLine.tcl-flex-module__component > .tcl-text--h5",
+            "snippet": "<h5 class=\"tcl-text-line tcl-text--h5 tcl-text-family--display tds-text--regular tcl-color-theme-foreground-high-contrast\" data-tcl-gtm-drawer=\"tesla-flex-module-v2-1329_fmc1_fm_0_1_tl\">"
+          },
+          {
+            "selector": ".tcl-flex-module__component--subheader_line1 > .tcl-text--f17l24.tcl-color-theme-foreground-low-contrast.tcl-text-family--text",
+            "snippet": "<h5 class=\"tcl-text-line tcl-text--f17l24 tcl-text-family--text tds-text--regular tcl-color-theme-foreground-low-contrast\" data-tcl-gtm-drawer=\"tesla-flex-module-v2-1152_fm_0_1_tl\">Makes every drive …"
+          },
+          {
+            "selector": ".tcl-badge.tcl-badge-v2:nth-child(1) > .tcl-badge__bottom-line.tcl-badge__line > .tcl-text--f17l24.tcl-color-theme-foreground-low-contrast.tcl-text-family--text",
+            "snippet": "<h5 class=\"tcl-text-line tcl-text--f17l24 tcl-text-family--text tds-text--regular tcl-color-theme-foreground-low-contrast\" data-tcl-gtm-drawer=\"tesla-flex-module-v2-1152_fm_1_0_bagp0_b_tl\">Fewer Coll…"
+          },
+          {
+            "selector": ".tcl-badge.tcl-badge-v2:nth-child(2) > .tcl-badge__bottom-line.tcl-badge__line > .tcl-text--f17l24.tcl-color-theme-foreground-low-contrast.tcl-text-family--text",
+            "snippet": "<h5 class=\"tcl-text-line tcl-text--f17l24 tcl-text-family--text tds-text--regular tcl-color-theme-foreground-low-contrast\" data-tcl-gtm-drawer=\"tesla-flex-module-v2-1152_fm_1_0_bagp1_b_tl\">Miles Driv…"
+          },
+          {
+            "selector": "div[data-tcl-gtm-drawer=\"tesla-flex-module-v2-1292_0_fm\"] > .tcl-flex-module__content > .tcl-flex-module__container--headings_container.tcl-justify-content--end.tcl-flex-module__container > .tcl-flex-module__component--heading2.tcl-flex-module__component-type--textLine.tcl-flex-module__component > .tcl-text--h5",
+            "snippet": "<h5 class=\"tcl-text-line tcl-text--h5 tcl-text-family--display tds-text--regular tcl-color-theme-foreground-high-contrast\" data-tcl-gtm-drawer=\"tesla-flex-module-v2-1292_0_fm_1_1_tl\">Starting at $61,…"
+          }
+        ]
+      },
+      {
+        "id": "button-name",
+        "impact": "critical",
+        "nodes": 12,
+        "help": "Buttons must have discernible text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/button-name?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".tcl-flex-module-carousel__slide-1 > .tcl-flex-module--homepage_hero_xs_header_carousel_slide.tds-scrim--black.tcl-flex-module > .tcl-flex-module__content > .tcl-flex-module__container--tabList_container.tcl-text-align--center.tcl-align-content--center > .tcl-flex-module__component--tabList.tcl-flex-module__component-type--tabList.tcl-flex-module__component > .tcl-flex-module-stacked-carousel__tab-list.tds-tab-list.tds-tab-list--dots > .tds-tab[role=\"tab\"][type=\"button\"]:nth-child(1)",
+            "snippet": "<button aria-selected=\"false\" class=\"tds-tab\" id=\"1\" role=\"tab\" tabindex=\"-1\" type=\"button\" data-gtm-listener-attached=\"true\"></button>"
+          },
+          {
+            "selector": ".tcl-flex-module-carousel__slide-1 > .tcl-flex-module--homepage_hero_xs_header_carousel_slide.tds-scrim--black.tcl-flex-module > .tcl-flex-module__content > .tcl-flex-module__container--tabList_container.tcl-text-align--center.tcl-align-content--center > .tcl-flex-module__component--tabList.tcl-flex-module__component-type--tabList.tcl-flex-module__component > .tcl-flex-module-stacked-carousel__tab-list.tds-tab-list.tds-tab-list--dots > .tds-tab[role=\"tab\"][type=\"button\"]:nth-child(2)",
+            "snippet": "<button aria-selected=\"true\" class=\"tds-tab\" id=\"2\" role=\"tab\" tabindex=\"0\" type=\"button\" data-gtm-listener-attached=\"true\"></button>"
+          },
+          {
+            "selector": ".tcl-flex-module-carousel__slide-1 > .tcl-flex-module--homepage_hero_xs_header_carousel_slide.tds-scrim--black.tcl-flex-module > .tcl-flex-module__content > .tcl-flex-module__container--tabList_container.tcl-text-align--center.tcl-align-content--center > .tcl-flex-module__component--tabList.tcl-flex-module__component-type--tabList.tcl-flex-module__component > .tcl-flex-module-stacked-carousel__tab-list.tds-tab-list.tds-tab-list--dots > .tds-tab[role=\"tab\"][type=\"button\"]:nth-child(3)",
+            "snippet": "<button aria-selected=\"false\" class=\"tds-tab\" id=\"3\" role=\"tab\" tabindex=\"-1\" type=\"button\" data-gtm-listener-attached=\"true\"></button>"
+          },
+          {
+            "selector": "div[data-tcl-gtm-drawer=\"tesla-flex-module-v2-1292_ctl\"] > .tds-tab[role=\"tab\"][type=\"button\"]:nth-child(1)",
+            "snippet": "<button aria-selected=\"true\" class=\"tds-tab\" id=\"1\" role=\"tab\" tabindex=\"0\" type=\"button\" data-gtm-listener-attached=\"true\"></button>"
+          },
+          {
+            "selector": "div[data-tcl-gtm-drawer=\"tesla-flex-module-v2-1292_ctl\"] > .tds-tab[role=\"tab\"][type=\"button\"]:nth-child(2)",
+            "snippet": "<button aria-selected=\"false\" class=\"tds-tab\" id=\"2\" role=\"tab\" tabindex=\"-1\" type=\"button\" data-gtm-listener-attached=\"true\"></button>"
+          }
+        ]
+      },
+      {
+        "id": "aria-required-parent",
+        "impact": "critical",
+        "nodes": 11,
+        "help": "Certain ARIA roles must be contained by particular parents",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/aria-required-parent?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".tcl-flex-module-carousel__slide-1 > .tcl-flex-module--homepage_hero_xs_header_carousel_slide.tds-scrim--black.tcl-flex-module > .tcl-flex-module__content > .tcl-flex-module__container--tabList_container.tcl-text-align--center.tcl-align-content--center > .tcl-flex-module__component--tabList.tcl-flex-module__component-type--tabList.tcl-flex-module__component > .tcl-flex-module-stacked-carousel__tab-list.tds-tab-list.tds-tab-list--dots > .tds-tab[role=\"tab\"][type=\"button\"]:nth-child(1)",
+            "snippet": "<button aria-selected=\"false\" class=\"tds-tab\" id=\"1\" role=\"tab\" tabindex=\"-1\" type=\"button\" data-gtm-listener-attached=\"true\"></button>"
+          },
+          {
+            "selector": ".tcl-flex-module-carousel__slide-1 > .tcl-flex-module--homepage_hero_xs_header_carousel_slide.tds-scrim--black.tcl-flex-module > .tcl-flex-module__content > .tcl-flex-module__container--tabList_container.tcl-text-align--center.tcl-align-content--center > .tcl-flex-module__component--tabList.tcl-flex-module__component-type--tabList.tcl-flex-module__component > .tcl-flex-module-stacked-carousel__tab-list.tds-tab-list.tds-tab-list--dots > .tds-tab[role=\"tab\"][type=\"button\"]:nth-child(2)",
+            "snippet": "<button aria-selected=\"true\" class=\"tds-tab\" id=\"2\" role=\"tab\" tabindex=\"0\" type=\"button\" data-gtm-listener-attached=\"true\"></button>"
+          },
+          {
+            "selector": ".tcl-flex-module-carousel__slide-1 > .tcl-flex-module--homepage_hero_xs_header_carousel_slide.tds-scrim--black.tcl-flex-module > .tcl-flex-module__content > .tcl-flex-module__container--tabList_container.tcl-text-align--center.tcl-align-content--center > .tcl-flex-module__component--tabList.tcl-flex-module__component-type--tabList.tcl-flex-module__component > .tcl-flex-module-stacked-carousel__tab-list.tds-tab-list.tds-tab-list--dots > .tds-tab[role=\"tab\"][type=\"button\"]:nth-child(3)",
+            "snippet": "<button aria-selected=\"false\" class=\"tds-tab\" id=\"3\" role=\"tab\" tabindex=\"-1\" type=\"button\" data-gtm-listener-attached=\"true\"></button>"
+          },
+          {
+            "selector": "div[data-tcl-gtm-drawer=\"tesla-flex-module-v2-1292_ctl\"] > .tds-tab[role=\"tab\"][type=\"button\"]:nth-child(1)",
+            "snippet": "<button aria-selected=\"true\" class=\"tds-tab\" id=\"1\" role=\"tab\" tabindex=\"0\" type=\"button\" data-gtm-listener-attached=\"true\"></button>"
+          },
+          {
+            "selector": "div[data-tcl-gtm-drawer=\"tesla-flex-module-v2-1292_ctl\"] > .tds-tab[role=\"tab\"][type=\"button\"]:nth-child(2)",
+            "snippet": "<button aria-selected=\"false\" class=\"tds-tab\" id=\"2\" role=\"tab\" tabindex=\"-1\" type=\"button\" data-gtm-listener-attached=\"true\"></button>"
+          }
+        ]
+      },
+      {
+        "id": "nested-interactive",
+        "impact": "serious",
+        "nodes": 8,
+        "help": "Interactive controls must not be nested",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/nested-interactive?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "div[data-tcl-gtm-drawer=\"tesla-flex-module-v2-1292_0\"]",
+            "snippet": "<div class=\"tcl-freeflow-carousel-container__slide-container tcl-freeflow-carousel-container__slide-container-0 tcl-freeflow-carousel-container__slide-container--active\" role=\"tab\" tabindex=\"0\" aria-…"
+          },
+          {
+            "selector": "div[data-tcl-gtm-drawer=\"tesla-flex-module-v2-1292_1\"]",
+            "snippet": "<div class=\"tcl-freeflow-carousel-container__slide-container tcl-freeflow-carousel-container__slide-container-1\" role=\"tab\" tabindex=\"-1\" aria-selected=\"false\" aria-label=\"Slide 2\" data-tcl-gtm-drawe…"
+          },
+          {
+            "selector": "div[data-tcl-gtm-drawer=\"tesla-flex-module-v2-1292_2\"]",
+            "snippet": "<div class=\"tcl-freeflow-carousel-container__slide-container tcl-freeflow-carousel-container__slide-container-2\" role=\"tab\" tabindex=\"-1\" aria-selected=\"false\" aria-label=\"Slide 3\" data-tcl-gtm-drawe…"
+          },
+          {
+            "selector": ".tcl-freeflow-carousel-container__slide-container-3",
+            "snippet": "<div class=\"tcl-freeflow-carousel-container__slide-container tcl-freeflow-carousel-container__slide-container-3\" role=\"tab\" tabindex=\"-1\" aria-selected=\"false\" aria-label=\"Slide 4\" data-tcl-gtm-drawe…"
+          },
+          {
+            "selector": ".tcl-freeflow-carousel-container__slide-container-4",
+            "snippet": "<div class=\"tcl-freeflow-carousel-container__slide-container tcl-freeflow-carousel-container__slide-container-4\" role=\"tab\" tabindex=\"-1\" aria-selected=\"false\" aria-label=\"Slide 5\" data-tcl-gtm-drawe…"
+          }
+        ]
+      },
+      {
+        "id": "aria-allowed-attr",
+        "impact": "critical",
+        "nodes": 3,
+        "help": "Elements must only use supported ARIA attributes",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/aria-allowed-attr?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".tcl-flex-module-carousel__slide-1 > .tcl-flex-module--homepage_hero_xs_header_carousel_slide.tds-scrim--black.tcl-flex-module > .tcl-flex-module__content > .tcl-flex-module__container--tabList_container.tcl-text-align--center.tcl-align-content--center > .tcl-flex-module__component--tabList.tcl-flex-module__component-type--tabList.tcl-flex-module__component > .tcl-flex-module-stacked-carousel__tab-list.tds-tab-list.tds-tab-list--dots",
+            "snippet": "<div aria-label=\"Tab List\" aria-orientation=\"horizontal\" class=\"tds-tab-list tds-tab...\" role=\"navigation\" data-tcl-gtm-drawer=\"tesla-flex-module-v2...\" style=\"--tds-animate-backdr...\">"
+          },
+          {
+            "selector": "div[data-tcl-gtm-drawer=\"tesla-flex-module-v2-1292_ctl\"]",
+            "snippet": "<div aria-label=\"Tab List\" aria-orientation=\"horizontal\" class=\"tds-tab-list tds-tab...\" role=\"navigation\" data-tcl-gtm-drawer=\"tesla-flex-module-v2...\" style=\"--tds-animate-backdr...\">"
+          },
+          {
+            "selector": "div[data-tcl-gtm-drawer=\"tesla-flex-module-v2-470_ctl\"]",
+            "snippet": "<div aria-label=\"Tab List\" aria-orientation=\"horizontal\" class=\"tds-tab-list tds-tab...\" role=\"navigation\" data-tcl-gtm-drawer=\"tesla-flex-module-v2...\" style=\"--tds-animate-backdr...\">"
+          }
+        ]
+      },
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 3,
+        "help": "All page content should be contained by landmarks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/region?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "#top-of-page",
+            "snippet": "<a class=\"tds-skip-to-content tds--is_visually_hidden\" href=\"#main-content\" id=\"top-of-page\">Skip to main content</a>"
+          },
+          {
+            "selector": ".tds-site-logo",
+            "snippet": "<div class=\"tds-site-logo tds-align--start\">"
+          },
+          {
+            "selector": ".cookie-banner--text",
+            "snippet": "<div class=\"cookie-banner--text\">"
+          }
+        ]
+      },
+      {
+        "id": "image-alt",
+        "impact": "critical",
+        "nodes": 1,
+        "help": "Images must have alternative text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/image-alt?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".charging-map-component__map-buttons > img",
+            "snippet": "<img src=\"data:image/svg+xml,%...\">"
+          }
+        ]
+      },
+      {
+        "id": "landmark-unique",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/landmark-unique?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".tcl-flex-module-carousel__slide-1 > .tcl-flex-module--homepage_hero_xs_header_carousel_slide.tds-scrim--black.tcl-flex-module > .tcl-flex-module__content > .tcl-flex-module__container--tabList_container.tcl-text-align--center.tcl-align-content--center > .tcl-flex-module__component--tabList.tcl-flex-module__component-type--tabList.tcl-flex-module__component > .tcl-flex-module-stacked-carousel__tab-list.tds-tab-list.tds-tab-list--dots",
+            "snippet": "<div aria-label=\"Tab List\" aria-orientation=\"horizontal\" class=\"tds-tab-list tds-tab...\" role=\"navigation\" data-tcl-gtm-drawer=\"tesla-flex-module-v2...\" style=\"--tds-animate-backdr...\">"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
