@@ -1,0 +1,448 @@
+{
+  "url": "https://www.amazon.com/",
+  "name": "Amazon",
+  "group": "big-tech",
+  "groupName": "Big Tech",
+  "timestamp": 1792341235812,
+  "date": "2026-10-18T16:33:55.812Z",
+  "runId": "2026-10-18T16-26-59-049Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 102286,
+  "error": null,
+  "variance": {
+    "min": 66,
+    "max": 99,
+    "spread": 33,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://www.amazon.com/",
+    "finalUrl": "https://www.amazon.com/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 68,
+      "accessibility": 89,
+      "best-practices": 69,
+      "seo": 92,
+      "agentic-browsing": 50
+    },
+    "timings": {
+      "fcp": 3663,
+      "lcp": 6493,
+      "si": 3724,
+      "tbt": 95,
+      "tti": 9850,
+      "cls": 0,
+      "ttfb": 637,
+      "maxPotentialFid": 112,
+      "serverResponseTime": 37,
+      "networkRtt": 6.9,
+      "networkServerLatency": 149
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 38.8,
+      "resourceLoadDelay": 204.8,
+      "resourceLoadDuration": 9.5,
+      "elementRenderDelay": 72.9
+    },
+    "weight": {
+      "total": 6509364,
+      "requests": 123,
+      "mainDocument": 270441,
+      "byType": {
+        "total": {
+          "bytes": 6489187,
+          "requests": 117
+        },
+        "media": {
+          "bytes": 4756881,
+          "requests": 6
+        },
+        "script": {
+          "bytes": 632025,
+          "requests": 30
+        },
+        "image": {
+          "bytes": 600407,
+          "requests": 44
+        },
+        "document": {
+          "bytes": 273694,
+          "requests": 3
+        },
+        "font": {
+          "bytes": 84406,
+          "requests": 4
+        },
+        "stylesheet": {
+          "bytes": 77013,
+          "requests": 12
+        },
+        "other": {
+          "bytes": 64761,
+          "requests": 18
+        },
+        "third-party": {
+          "bytes": 6489187,
+          "requests": 117
+        }
+      },
+      "scripts": 30,
+      "stylesheets": 12,
+      "fonts": 5
+    },
+    "thirdParty": {
+      "count": 2,
+      "bytes": 6231447,
+      "mainThreadMs": 168.1,
+      "top": [
+        {
+          "entity": "media-amazon.com",
+          "bytes": 6227226,
+          "mainThreadMs": 167.6,
+          "byType": {
+            "script": 118209,
+            "media": 4840083,
+            "image": 597508,
+            "font": 84406,
+            "stylesheet": 7524,
+            "other": 412
+          },
+          "typedBytes": 5648142
+        },
+        {
+          "entity": "Marketplace Web Service",
+          "bytes": 4221,
+          "mainThreadMs": 0.5,
+          "byType": {
+            "script": 4221
+          },
+          "typedBytes": 4221
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 3861.5,
+      "byGroup": {
+        "scriptEvaluation": 1513.8,
+        "other": 1095.4,
+        "styleLayout": 439.9,
+        "paintCompositeRender": 321.2,
+        "scriptParseCompile": 296.5,
+        "parseHTML": 150,
+        "garbageCollection": 44.8
+      },
+      "bootupMs": 1635.4,
+      "longTasks": 9,
+      "longestTaskMs": 112
+    },
+    "dom": {
+      "elements": 1184,
+      "depth": 26,
+      "maxChildren": 40
+    },
+    "waste": {
+      "unusedJsBytes": 279201,
+      "unusedCssBytes": 217804,
+      "legacyJsBytes": 107829,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 1355,
+      "renderBlockingCount": 12,
+      "poorlyCachedBytes": 3230.2000000000003,
+      "poorlyCachedCount": 9
+    },
+    "accessibility": {
+      "failingCount": 4,
+      "applicableCount": 35,
+      "failingNodes": 8,
+      "failing": [
+        {
+          "id": "target-size",
+          "title": "Touch targets do not have sufficient size or spacing.",
+          "weight": 7,
+          "nodes": 4
+        },
+        {
+          "id": "aria-allowed-attr",
+          "title": "`[aria-*]` attributes do not match their roles",
+          "weight": 10,
+          "nodes": 2
+        },
+        {
+          "id": "aria-roles",
+          "title": "`[role]` values are not valid",
+          "weight": 10,
+          "nodes": 1
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "title": "Elements with visible text labels do not have matching accessible names.",
+          "weight": 0,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 4,
+      "applicableCount": 18,
+      "failing": [
+        {
+          "id": "third-party-cookies",
+          "title": "Uses third-party cookies",
+          "weight": 5,
+          "nodes": 3
+        },
+        {
+          "id": "image-size-responsive",
+          "title": "Serves images with low resolution",
+          "weight": 1,
+          "nodes": 1
+        },
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "weight": 1,
+          "nodes": 3
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "weight": 1,
+          "nodes": 1
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 1,
+      "applicableCount": 10,
+      "failing": [
+        {
+          "id": "crawlable-anchors",
+          "title": "Links are not crawlable",
+          "weight": 1,
+          "nodes": 1
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": null,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 3,
+      "baselineLimitedFeatures": 45
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2881,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-10-18T16:34:18.130Z",
+      "runtimeMs": 13103.5
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 602.6,
+    "elementRenderDelay": 1644.4
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-09-19",
+      "last": "2026-10-16"
+    },
+    "metrics": {
+      "ttfb": {
+        "p75": 748,
+        "rating": "good",
+        "distribution": {
+          "good": 76.9,
+          "needsImprovement": 16.9,
+          "poor": 6.2
+        }
+      },
+      "fcp": {
+        "p75": 1151,
+        "rating": "good",
+        "distribution": {
+          "good": 86.8,
+          "needsImprovement": 8.1,
+          "poor": 5.1
+        }
+      },
+      "inp": {
+        "p75": 176,
+        "rating": "good",
+        "distribution": {
+          "good": 78.5,
+          "needsImprovement": 15.1,
+          "poor": 6.4
+        }
+      },
+      "lcp": {
+        "p75": 1422,
+        "rating": "good",
+        "distribution": {
+          "good": 89.1,
+          "needsImprovement": 6.3,
+          "poor": 4.6
+        }
+      },
+      "rtt": {
+        "p75": 133,
+        "rating": null,
+        "distribution": {
+          "good": 43.2,
+          "needsImprovement": 47.7,
+          "poor": 9.1
+        }
+      },
+      "cls": {
+        "p75": 0.01,
+        "rating": "good",
+        "distribution": {
+          "good": 94.1,
+          "needsImprovement": 3.9,
+          "poor": 1.9
+        }
+      }
+    },
+    "cwvPass": true,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "probe": {
+      "metas": [],
+      "marks": [
+        "lit"
+      ],
+      "markVersions": {
+        "lit": "3.3.3"
+      }
+    },
+    "interstitial": null,
+    "host": {
+      "id": null,
+      "name": "Server",
+      "icon": null,
+      "source": "server"
+    },
+    "headers": {
+      "server": "Server",
+      "via": "1.1 07d5eec4594a9bae53f5a0be90a3425a.cloudfront.net (CloudFront)",
+      "x-amz-cf-id": "6BT_dixLYWnCr9IGlPUjKqo8UvzffvWqnTdpd9sUOzkqSyvd2r4Jkw=="
+    },
+    "violations": 8,
+    "passes": 1624,
+    "incomplete": 17,
+    "violationRules": 6,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "aria-allowed-attr",
+        "impact": "critical",
+        "nodes": 2,
+        "help": "Elements must only use supported ARIA attributes",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/aria-allowed-attr?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "#nav-search-keywords",
+            "snippet": "<input type=\"text\" class=\"nav-input nav-progre...\" placeholder=\"Search Amazon\" data-aria-clear-labe...=\"Clear search keyword...\" aria-label=\"Search Amazon\" name=\"k\" autocomplete=\"off\" autocorrect=\"of…"
+          },
+          {
+            "selector": "#gwm-window",
+            "snippet": "<ul id=\"gwm-window\" class=\"a-unordered-list a-nostyle a-horizontal gwm-window-wrapper\" aria-setsize=\"15\">"
+          }
+        ]
+      },
+      {
+        "id": "image-redundant-alt",
+        "impact": "minor",
+        "nodes": 2,
+        "help": "Alternative text of images should not be repeated as text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/image-redundant-alt?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "img[alt=\"$0 Grubhub delivery fees\"]",
+            "snippet": "<img alt=\"$0 Grubhub delivery ...\" src=\"https://m.media-amaz...\" class=\"_multi-category-card...\" width=\"100%\" data-a-hires=\"https://m.media-amaz...\">"
+          },
+          {
+            "selector": "img[alt=\"Kids' boots\"]",
+            "snippet": "<img alt=\"Kids' boots\" src=\"https://m.media-amaz...\" class=\"_multi-category-card...\" width=\"100%\" data-a-hires=\"https://m.media-amaz...\">"
+          }
+        ]
+      },
+      {
+        "id": "aria-roles",
+        "impact": "critical",
+        "nodes": 1,
+        "help": "ARIA roles used must conform to valid values",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/aria-roles?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "#nav-app-banner-close-button",
+            "snippet": "<i class=\"a-icon a-icon-close a-icon-small nav-app-banner-close\" id=\"nav-app-banner-close-button\" role=\"close\"></i>"
+          }
+        ]
+      },
+      {
+        "id": "landmark-unique",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/landmark-unique?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "#singleVideoCard-ffb94aa3-a2a9-4d32-9c1e-afc5a5796619",
+            "snippet": "<div muted=\"true\" crossorigin=\"anonymous\" class=\"video-js _single-vid...\" id=\"singleVideoCard-ffb9...\" lang=\"en-us\" role=\"region\" aria-label=\"Video Player\">"
+          }
+        ]
+      },
+      {
+        "id": "meta-viewport-large",
+        "impact": "minor",
+        "nodes": 1,
+        "help": "Users should be able to zoom and scale the text up to 500%",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/meta-viewport-large?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "meta[name=\"viewport\"]",
+            "snippet": "<meta name=\"viewport\" content=\"width=device-width, maximum-scale=2, minimum-scale=1, initial-scale=1, shrink-to-fit=no\">"
+          }
+        ]
+      },
+      {
+        "id": "page-has-heading-one",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Page should contain a level-one heading",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/page-has-heading-one?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "html",
+            "snippet": "<html lang=\"en-us\" class=\"a-touch a-mobile a-j...\" data-19ax5a9jf=\"mongoose\" data-aui-build-date=\"3.26.8-2026-10-14\">"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
