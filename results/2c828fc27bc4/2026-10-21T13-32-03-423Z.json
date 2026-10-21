@@ -1,0 +1,319 @@
+{
+  "url": "https://ninerakes.com/",
+  "name": "ninerakes.com",
+  "group": "11ty-community",
+  "groupName": "Built Awesome",
+  "timestamp": 1792589523423,
+  "date": "2026-10-21T13:32:03.423Z",
+  "runId": "2026-10-21T13-27-53-688Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 2,
+  "durationMs": 20036,
+  "error": null,
+  "partialErrors": [
+    "ERRORED_DOCUMENT_REQUEST: Lighthouse was unable to reliably load the page you requested. Make sure you are testing the correct URL and that the server is properly responding to all requests. (Status code: 429)"
+  ],
+  "variance": {
+    "min": 97,
+    "max": 98,
+    "spread": 1,
+    "runs": 2
+  },
+  "lab": {
+    "requestedUrl": "https://ninerakes.com/",
+    "finalUrl": "https://www.ninerakes.com/",
+    "redirect": {
+      "from": "https://ninerakes.com/",
+      "to": "https://www.ninerakes.com/",
+      "chain": [
+        {
+          "url": "https://ninerakes.com/",
+          "status": 307
+        },
+        {
+          "url": "https://www.ninerakes.com/",
+          "status": 200
+        }
+      ],
+      "statuses": [
+        307
+      ],
+      "change": "host",
+      "permanent": false,
+      "schemeUpgrade": false,
+      "hops": 1
+    },
+    "statusCode": "ok",
+    "scores": {
+      "performance": 97,
+      "accessibility": 83,
+      "best-practices": 100,
+      "seo": 100,
+      "agentic-browsing": 100
+    },
+    "timings": {
+      "fcp": 1676,
+      "lcp": 2306,
+      "si": 1676,
+      "tbt": 0,
+      "tti": 2306,
+      "cls": 0,
+      "ttfb": 613,
+      "maxPotentialFid": 16,
+      "serverResponseTime": 3,
+      "networkRtt": 0.1,
+      "networkServerLatency": 30.1
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 18.2,
+      "elementRenderDelay": 74.2
+    },
+    "weight": {
+      "total": 71869,
+      "requests": 10,
+      "mainDocument": 3758,
+      "byType": {
+        "total": {
+          "bytes": 68387,
+          "requests": 9
+        },
+        "script": {
+          "bytes": 54428,
+          "requests": 4
+        },
+        "stylesheet": {
+          "bytes": 9653,
+          "requests": 2
+        },
+        "document": {
+          "bytes": 3758,
+          "requests": 1
+        },
+        "image": {
+          "bytes": 434,
+          "requests": 1
+        },
+        "other": {
+          "bytes": 114,
+          "requests": 1
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "font": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 11592,
+          "requests": 3
+        }
+      },
+      "scripts": 4,
+      "stylesheets": 2,
+      "fonts": 0
+    },
+    "thirdParty": {
+      "count": 2,
+      "bytes": 11592,
+      "mainThreadMs": 2.2,
+      "top": [
+        {
+          "entity": "JSDelivr CDN",
+          "bytes": 8402,
+          "mainThreadMs": 0.6,
+          "byType": {
+            "script": 8402
+          },
+          "typedBytes": 8402
+        },
+        {
+          "entity": "Fathom Analytics",
+          "bytes": 3190,
+          "mainThreadMs": 1.6,
+          "byType": {
+            "script": 2756,
+            "image": 434
+          },
+          "typedBytes": 3190
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 208,
+      "byGroup": {
+        "other": 72,
+        "styleLayout": 51.8,
+        "scriptEvaluation": 50.2,
+        "scriptParseCompile": 18.6,
+        "parseHTML": 8,
+        "paintCompositeRender": 7.5
+      },
+      "bootupMs": 13,
+      "longTasks": 0,
+      "longestTaskMs": null
+    },
+    "dom": {
+      "elements": 90,
+      "depth": 10,
+      "maxChildren": 8
+    },
+    "waste": {
+      "unusedJsBytes": 0,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 0,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 7170,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 150,
+      "renderBlockingCount": 3,
+      "poorlyCachedBytes": 840.1999999999998,
+      "poorlyCachedCount": 1
+    },
+    "accessibility": {
+      "failingCount": 2,
+      "applicableCount": 11,
+      "failingNodes": 2,
+      "failing": [
+        {
+          "id": "meta-viewport",
+          "title": "`[user-scalable=\"no\"]` is used in the `<meta name=\"viewport\">` element or the `[maximum-scale]` attribute is less than 5.",
+          "weight": 10,
+          "nodes": 1
+        },
+        {
+          "id": "landmark-one-main",
+          "title": "Document does not have a main landmark.",
+          "weight": 3,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 0,
+      "applicableCount": 19,
+      "failing": []
+    },
+    "seo": {
+      "failingCount": 0,
+      "applicableCount": 8,
+      "failing": []
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 762.9,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 10
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2976,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-10-21T13:32:16.125Z",
+      "runtimeMs": 5651.2
+    }
+  },
+  "field": null,
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": {
+      "id": "eleventy",
+      "name": "Eleventy",
+      "icon": "Eleventy",
+      "version": null,
+      "source": "meta",
+      "raw": "Eleventy"
+    },
+    "probe": {
+      "metas": [
+        "Eleventy"
+      ],
+      "marks": [
+        "alpine"
+      ],
+      "markVersions": {
+        "alpine": "3.13.2"
+      }
+    },
+    "interstitial": null,
+    "host": {
+      "id": "vercel",
+      "name": "Vercel",
+      "icon": "Vercel",
+      "source": "x-vercel-id"
+    },
+    "headers": {
+      "server": "Vercel",
+      "x-vercel-id": "iad1::1792589541-MTmRyBeNKMTPiTYccCNZuVqhLiHtwmYB"
+    },
+    "violations": 5,
+    "passes": 167,
+    "incomplete": 0,
+    "violationRules": 3,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 3,
+        "help": "All page content should be contained by landmarks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/region?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".text-center",
+            "snippet": "<div class=\"w-full bg-red-300 text-center py-2 px-4 font-mono text-xs\"> As of Oct 25, 2023, Swoops is over. This site is a legacy archive only and has no affiliation with Swoops or the Swoops team. <…"
+          },
+          {
+            "selector": ".pt-6.prose-quoteless.max-w-7xl",
+            "snippet": "<div class=\"max-w-7xl mx-auto pt-6 px-6 prose prose-quoteless font-mono text-sm\">"
+          },
+          {
+            "selector": ".py-12",
+            "snippet": "<div class=\"max-w-7xl mx-auto py-12 px-6 prose font-mono text-sm\">"
+          }
+        ]
+      },
+      {
+        "id": "landmark-one-main",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Document should have one main landmark",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/landmark-one-main?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "html",
+            "snippet": "<html lang=\"en\">"
+          }
+        ]
+      },
+      {
+        "id": "meta-viewport",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Zooming and scaling must not be disabled",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/meta-viewport?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "meta[name=\"viewport\"]",
+            "snippet": "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, shrink-to-fit=no, viewport-fit=cover\">"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
