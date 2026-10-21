@@ -1,0 +1,591 @@
+{
+  "url": "https://www.ibm.com/",
+  "name": "IBM",
+  "group": "big-tech",
+  "groupName": "Big Tech",
+  "timestamp": 1792546250363,
+  "date": "2026-10-21T01:30:50.363Z",
+  "runId": "2026-10-21T01-18-25-368Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 285855,
+  "error": null,
+  "variance": {
+    "min": 25,
+    "max": 25,
+    "spread": 0,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://www.ibm.com/",
+    "finalUrl": "https://www.ibm.com/us-en",
+    "redirect": {
+      "from": "https://www.ibm.com/",
+      "to": "https://www.ibm.com/us-en",
+      "chain": [
+        {
+          "url": "https://www.ibm.com/",
+          "status": 303
+        },
+        {
+          "url": "https://www.ibm.com/us-en",
+          "status": 200
+        }
+      ],
+      "statuses": [
+        303
+      ],
+      "change": "path",
+      "permanent": false,
+      "schemeUpgrade": false,
+      "hops": 1
+    },
+    "statusCode": "ok",
+    "scores": {
+      "performance": 25,
+      "accessibility": 76,
+      "best-practices": 73,
+      "seo": 92,
+      "agentic-browsing": 50
+    },
+    "timings": {
+      "fcp": 8517,
+      "lcp": 19014,
+      "si": 17693,
+      "tbt": 6836,
+      "tti": 46687,
+      "cls": 0.032,
+      "ttfb": 658,
+      "maxPotentialFid": 954,
+      "serverResponseTime": 61,
+      "networkRtt": 153.8,
+      "networkServerLatency": 137.8
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 92.5,
+      "elementRenderDelay": 2539.2
+    },
+    "weight": {
+      "total": 6993425,
+      "requests": 367,
+      "mainDocument": 43567,
+      "byType": {
+        "total": {
+          "bytes": 6993426,
+          "requests": 362
+        },
+        "script": {
+          "bytes": 5393421,
+          "requests": 175
+        },
+        "font": {
+          "bytes": 486305,
+          "requests": 8
+        },
+        "image": {
+          "bytes": 463866,
+          "requests": 30
+        },
+        "stylesheet": {
+          "bytes": 336488,
+          "requests": 8
+        },
+        "other": {
+          "bytes": 265383,
+          "requests": 135
+        },
+        "document": {
+          "bytes": 47963,
+          "requests": 6
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 4546334,
+          "requests": 191
+        }
+      },
+      "scripts": 178,
+      "stylesheets": 8,
+      "fonts": 8
+    },
+    "thirdParty": {
+      "count": 27,
+      "bytes": 4473314,
+      "mainThreadMs": 1740.9,
+      "top": [
+        {
+          "entity": "IBM Digital Analytics",
+          "bytes": 3073537,
+          "mainThreadMs": 1257.2,
+          "byType": {
+            "script": 2929050,
+            "font": 137588,
+            "stylesheet": 6899
+          },
+          "typedBytes": 3073537
+        },
+        {
+          "entity": "Fastly",
+          "bytes": 393789,
+          "mainThreadMs": 0.1,
+          "byType": {
+            "image": 393789
+          },
+          "typedBytes": 393789
+        },
+        {
+          "entity": "TrustArc",
+          "bytes": 226287,
+          "mainThreadMs": 26.5,
+          "byType": {
+            "script": 64228,
+            "font": 160317,
+            "image": 849,
+            "other": 893
+          },
+          "typedBytes": 226287
+        },
+        {
+          "entity": "Adobe Tag Manager",
+          "bytes": 169912,
+          "mainThreadMs": 59.1,
+          "byType": {
+            "script": 169912
+          },
+          "typedBytes": 169912
+        },
+        {
+          "entity": "Google Tag Manager",
+          "bytes": 167695,
+          "mainThreadMs": 98.9,
+          "byType": {
+            "script": 167695
+          },
+          "typedBytes": 167695
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 32232.3,
+      "byGroup": {
+        "scriptEvaluation": 11786.7,
+        "styleLayout": 8632.5,
+        "other": 7332,
+        "scriptParseCompile": 2091.3,
+        "paintCompositeRender": 1538.5,
+        "garbageCollection": 585.2,
+        "parseHTML": 266.1
+      },
+      "bootupMs": 12745.2,
+      "longTasks": 20,
+      "longestTaskMs": 954
+    },
+    "dom": {
+      "elements": 2742,
+      "depth": 26,
+      "maxChildren": 65
+    },
+    "waste": {
+      "unusedJsBytes": 1733687,
+      "unusedCssBytes": 1702462,
+      "legacyJsBytes": 55875,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 2545,
+      "unminifiedCssBytes": 58031,
+      "renderBlockingMs": 6086,
+      "renderBlockingCount": 20,
+      "poorlyCachedBytes": 3915705.483970505,
+      "poorlyCachedCount": 147
+    },
+    "accessibility": {
+      "failingCount": 8,
+      "applicableCount": 29,
+      "failingNodes": 12,
+      "failing": [
+        {
+          "id": "aria-required-parent",
+          "title": "`[role]`s are not contained by their required parent element",
+          "weight": 10,
+          "nodes": 3
+        },
+        {
+          "id": "heading-order",
+          "title": "Heading elements are not in a sequentially-descending order",
+          "weight": 3,
+          "nodes": 3
+        },
+        {
+          "id": "aria-hidden-focus",
+          "title": "`[aria-hidden=\"true\"]` elements contain focusable descendents",
+          "weight": 7,
+          "nodes": 1
+        },
+        {
+          "id": "aria-required-children",
+          "title": "Elements with an ARIA `[role]` that require children to contain a specific `[role]` are missing some or all of those required children.",
+          "weight": 10,
+          "nodes": 1
+        },
+        {
+          "id": "link-in-text-block",
+          "title": "Links rely on color to be distinguishable.",
+          "weight": 7,
+          "nodes": 1
+        },
+        {
+          "id": "list",
+          "title": "Lists do not contain only `<li>` elements and script supporting elements (`<script>` and `<template>`).",
+          "weight": 7,
+          "nodes": 1
+        },
+        {
+          "id": "target-size",
+          "title": "Touch targets do not have sufficient size or spacing.",
+          "weight": 7,
+          "nodes": 1
+        },
+        {
+          "id": "landmark-one-main",
+          "title": "Document does not have a main landmark.",
+          "weight": 3,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 4,
+      "applicableCount": 19,
+      "failing": [
+        {
+          "id": "third-party-cookies",
+          "title": "Uses third-party cookies",
+          "weight": 5,
+          "nodes": 37
+        },
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "weight": 1,
+          "nodes": 7
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "weight": 1,
+          "nodes": 1
+        },
+        {
+          "id": "valid-source-maps",
+          "title": "Missing source maps for large first-party JavaScript",
+          "weight": 0,
+          "nodes": 8
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 1,
+      "applicableCount": 10,
+      "failing": [
+        {
+          "id": "crawlable-anchors",
+          "title": "Links are not crawlable",
+          "weight": 1,
+          "nodes": 2
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 18,
+      "redirectMs": 807.7,
+      "consoleErrors": 7,
+      "baselineLimitedFeatures": 79
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2476,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-10-21T01:32:13.296Z",
+      "runtimeMs": 74389.5
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 1212.2,
+    "elementRenderDelay": 11764.7
+  },
+  "field": {
+    "source": "crux",
+    "scope": "origin",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-09-21",
+      "last": "2026-10-18"
+    },
+    "metrics": {
+      "lcp": {
+        "p75": 4374,
+        "rating": "poor",
+        "distribution": {
+          "good": 43.4,
+          "needsImprovement": 27.3,
+          "poor": 29.4
+        }
+      },
+      "rtt": {
+        "p75": 264,
+        "rating": null,
+        "distribution": {
+          "good": 16.4,
+          "needsImprovement": 60.7,
+          "poor": 22.9
+        }
+      },
+      "cls": {
+        "p75": 0.15,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 69.2,
+          "needsImprovement": 16,
+          "poor": 14.9
+        }
+      },
+      "ttfb": {
+        "p75": 1672,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 45.5,
+          "needsImprovement": 32.4,
+          "poor": 22.1
+        }
+      },
+      "fcp": {
+        "p75": 3385,
+        "rating": "poor",
+        "distribution": {
+          "good": 36,
+          "needsImprovement": 32.8,
+          "poor": 31.3
+        }
+      },
+      "inp": {
+        "p75": 382,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 47.7,
+          "needsImprovement": 35.1,
+          "poor": 17.2
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "probe": {
+      "metas": [],
+      "marks": [
+        "lit"
+      ],
+      "markVersions": {
+        "lit": "2.8.0"
+      }
+    },
+    "interstitial": null,
+    "host": {
+      "id": "akamai",
+      "name": "Akamai",
+      "icon": "Akamai",
+      "source": "server"
+    },
+    "headers": {
+      "server": "AkamaiGHost"
+    },
+    "violations": 81,
+    "passes": 1438,
+    "incomplete": 35,
+    "violationRules": 10,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 68,
+        "help": "All page content should be contained by landmarks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/region?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "c4d-masthead-logo",
+            "snippet": "<c4d-masthead-logo data-autoid=\"c4d--masthead-logo\" size=\"\" slot=\"brand\"></c4d-masthead-logo>"
+          },
+          {
+            "selector": ".cds--col-lg-6 > div:nth-child(1)",
+            "snippet": "<div>"
+          },
+          {
+            "selector": ".lead-in",
+            "snippet": "<span class=\"lead-in\">"
+          },
+          {
+            "selector": ".cds--col-lg-8",
+            "snippet": "<div class=\"cds--col-lg-8 leadspace-expanded__column leadspace-expanded__column--media\">"
+          },
+          {
+            "selector": ".cds--col > div:nth-child(1)",
+            "snippet": "<div> <!-- ALN semantic override (h2 → p when eyebrow exists) --> <!-- DEFAULT h2 behavior (non-ALN OR no eyebrow) --> <h5 class=\"expressive-heading-02 \">Recommended for you</h5> </div>"
+          }
+        ]
+      },
+      {
+        "id": "aria-required-parent",
+        "impact": "critical",
+        "nodes": 3,
+        "help": "Certain ARIA roles must be contained by particular parents",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/aria-required-parent?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "a[kind=\"primary\"][target=\"_self\"] > c4d-button-group-item",
+            "snippet": "<c4d-button-group-item target=\"_self\" kind=\"primary\" cta-type=\"local\" data-aem-autoid=\"aem--leadspace_cta-0\" data-video-modal-typ...=\"media-center\" href=\"https://www.ibm.com/...\" data-autoid=\"c4d--bu…"
+          },
+          {
+            "selector": "a[kind=\"tertiary\"][target=\"_self\"] > c4d-button-group-item",
+            "snippet": "<c4d-button-group-item target=\"_self\" kind=\"tertiary\" cta-type=\"local\" data-aem-autoid=\"aem--leadspace_cta-1\" data-video-modal-typ...=\"media-center\" href=\"https://www.ibm.com/...\" data-autoid=\"c4d--b…"
+          },
+          {
+            "selector": "c4d-link-list-item-cta",
+            "snippet": "<c4d-link-list-item-cta cta-type=\"local\" icon-placement=\"right\" role=\"listitem\" target=\"_self\" data-video-modal-type=\"media-center\" href=\"https://www.ibm.com/products/offers-and-discounts?lnk=hpfp11u…"
+          }
+        ]
+      },
+      {
+        "id": "heading-order",
+        "impact": "moderate",
+        "nodes": 3,
+        "help": "Heading levels should only increase by one",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/heading-order?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".expressive-heading-02",
+            "snippet": "<h5 class=\"expressive-heading-02 \">Recommended for you</h5>"
+          },
+          {
+            "selector": ".cmp-spotlight-carousel__heading",
+            "snippet": "<h5 class=\"cmp-spotlight-carousel__heading\"> Cybersecurity Month spotlight </h5>"
+          },
+          {
+            "selector": "c4d-cta-block-item:nth-child(1) > c4d-content-item-heading",
+            "snippet": "<c4d-content-item-heading role=\"heading\" aria-level=\"4\" data-autoid=\"c4d--content-item__heading\" slot=\"heading\"> Professional training </c4d-content-item-heading>"
+          }
+        ]
+      },
+      {
+        "id": "aria-hidden-focus",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "ARIA hidden element must not be focusable or contain focusable elements",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/aria-hidden-focus?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "c4d-promo-banner .banner-content",
+            "snippet": "<div class=\"banner-content\" part=\"content\" aria-hidden=\"true\"> <slot></slot> </div>"
+          }
+        ]
+      },
+      {
+        "id": "aria-required-children",
+        "impact": "critical",
+        "nodes": 1,
+        "help": "Certain ARIA roles must contain particular children",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/aria-required-children?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "c4d-button-group",
+            "snippet": "<c4d-button-group class=\"leadspace-expanded__action leadspace-expanded__action--button-group\" data-autoid=\"c4d--button-group\" role=\"list\" style=\"--c4d--button-group--item-count: 2;\">"
+          }
+        ]
+      },
+      {
+        "id": "landmark-banner-is-top-level",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Banner landmark should not be contained in another landmark",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/landmark-banner-is-top-level?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "#truste-consent-track",
+            "snippet": "<div id=\"truste-consent-track\" class=\"tc-track tc-hide ta-show ta-display-block\" role=\"banner\">"
+          }
+        ]
+      },
+      {
+        "id": "landmark-no-duplicate-banner",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Document should not have more than one banner landmark",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/landmark-no-duplicate-banner?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "#consent_blackbar",
+            "snippet": "<div id=\"consent_blackbar\" role=\"banner\" aria-label=\"consent_blackbar\" lang=\"en\">"
+          }
+        ]
+      },
+      {
+        "id": "landmark-one-main",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Document should have one main landmark",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/landmark-one-main?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "html",
+            "snippet": "<html lang=\"en\" style=\"--c4d-sticky-header-height: 49px;\">"
+          }
+        ]
+      },
+      {
+        "id": "link-in-text-block",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "Links must be distinguishable without relying on color",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/link-in-text-block?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "a[href=\"javascript:void(0)\"]",
+            "snippet": "<a href=\"javascript:void(0)\" onclick=\"truste.eu.clickListener()\">cookie&nbsp;preferences</a>"
+          }
+        ]
+      },
+      {
+        "id": "list",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "<ul> and <ol> must only directly contain <li>, <script> or <template> elements",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/list?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "c4d-link-list[type=\"vertical\"] .c4d--link-list__list--vertical",
+            "snippet": "<ul part=\"list\" name=\"list\" class=\" c4d--link-list__list--vertical \"> <slot></slot> </ul>"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
