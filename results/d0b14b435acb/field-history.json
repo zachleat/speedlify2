@@ -2,65 +2,11 @@
   "url": "https://engaged.ca.gov/",
   "name": "engaged.ca.gov",
   "group": "11ty-community",
-  "fetchedAt": "2026-10-14T23:47:07.529Z",
+  "fetchedAt": "2026-10-21T01:22:58.873Z",
   "source": "crux-history",
   "scope": "url",
   "formFactor": "PHONE",
   "series": [
-    {
-      "period": {
-        "first": "2026-03-29",
-        "last": "2026-04-25"
-      },
-      "date": "2026-04-25",
-      "metrics": {
-        "cls": {
-          "p75": null,
-          "rating": null,
-          "distribution": {
-            "good": null,
-            "needsImprovement": null,
-            "poor": null
-          }
-        },
-        "ttfb": {
-          "p75": null,
-          "rating": null,
-          "distribution": {
-            "good": null,
-            "needsImprovement": null,
-            "poor": null
-          }
-        },
-        "fcp": {
-          "p75": null,
-          "rating": null,
-          "distribution": {
-            "good": null,
-            "needsImprovement": null,
-            "poor": null
-          }
-        },
-        "lcp": {
-          "p75": null,
-          "rating": null,
-          "distribution": {
-            "good": null,
-            "needsImprovement": null,
-            "poor": null
-          }
-        },
-        "rtt": {
-          "p75": null,
-          "rating": null,
-          "distribution": {
-            "good": null,
-            "needsImprovement": null,
-            "poor": null
-          }
-        }
-      }
-    },
     {
       "period": {
         "first": "2026-04-05",
@@ -658,11 +604,11 @@
         }
       },
       "borrowedFromOrigin": [
+        "rtt",
         "cls",
         "ttfb",
         "fcp",
-        "lcp",
-        "rtt"
+        "lcp"
       ]
     },
     {
@@ -1420,6 +1366,72 @@
           }
         }
       }
+    },
+    {
+      "period": {
+        "first": "2026-09-20",
+        "last": "2026-10-17"
+      },
+      "date": "2026-10-17",
+      "metrics": {
+        "cls": {
+          "p75": 0,
+          "rating": "good",
+          "distribution": {
+            "good": 98.4,
+            "needsImprovement": 0.8,
+            "poor": 0.8
+          },
+          "scope": "origin"
+        },
+        "ttfb": {
+          "p75": 834,
+          "rating": "needs-improvement",
+          "distribution": {
+            "good": 74.4,
+            "needsImprovement": 21.4,
+            "poor": 4.2
+          },
+          "scope": "origin"
+        },
+        "fcp": {
+          "p75": 1392,
+          "rating": "good",
+          "distribution": {
+            "good": 81.4,
+            "needsImprovement": 15.6,
+            "poor": 3
+          },
+          "scope": "origin"
+        },
+        "lcp": {
+          "p75": 1799,
+          "rating": "good",
+          "distribution": {
+            "good": 87.1,
+            "needsImprovement": 8.8,
+            "poor": 4.1
+          },
+          "scope": "origin"
+        },
+        "rtt": {
+          "p75": 142,
+          "rating": null,
+          "distribution": {
+            "good": 46,
+            "needsImprovement": 43.3,
+            "poor": 10.7
+          },
+          "scope": "origin"
+        }
+      },
+      "borrowedFromOrigin": [
+        "rtt",
+        "cls",
+        "ttfb",
+        "fcp",
+        "lcp"
+      ]
     }
   ]
 }
