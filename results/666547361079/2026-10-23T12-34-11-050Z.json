@@ -1,0 +1,491 @@
+{
+  "url": "https://www.sap.com/",
+  "name": "SAP",
+  "group": "big-tech",
+  "groupName": "Big Tech",
+  "timestamp": 1792758851050,
+  "date": "2026-10-23T12:34:11.050Z",
+  "runId": "2026-10-23T12-34-09-933Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 404049,
+  "error": null,
+  "variance": {
+    "min": 8,
+    "max": 25,
+    "spread": 17,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://www.sap.com/",
+    "finalUrl": "https://www.sap.com/index.html",
+    "redirect": {
+      "from": "https://www.sap.com/",
+      "to": "https://www.sap.com/index.html",
+      "chain": [
+        {
+          "url": "https://www.sap.com/",
+          "status": 301
+        },
+        {
+          "url": "https://www.sap.com/index.html",
+          "status": 200
+        }
+      ],
+      "statuses": [
+        301
+      ],
+      "change": "path",
+      "permanent": true,
+      "schemeUpgrade": false,
+      "hops": 1
+    },
+    "statusCode": "ok",
+    "scores": {
+      "performance": 8,
+      "accessibility": 94,
+      "best-practices": 50,
+      "seo": 92,
+      "agentic-browsing": 16
+    },
+    "timings": {
+      "fcp": 9604,
+      "lcp": 36465,
+      "si": 17980,
+      "tbt": 6624,
+      "tti": 37201,
+      "cls": 0.355,
+      "ttfb": 740,
+      "maxPotentialFid": 849,
+      "serverResponseTime": 351,
+      "networkRtt": 164.2,
+      "networkServerLatency": 180
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 590.6,
+      "resourceLoadDelay": 3540.1,
+      "resourceLoadDuration": 56.5,
+      "elementRenderDelay": 128.5
+    },
+    "weight": {
+      "total": 6259466,
+      "requests": 353,
+      "mainDocument": 14279,
+      "byType": {
+        "total": {
+          "bytes": 6258495,
+          "requests": 351
+        },
+        "script": {
+          "bytes": 4045465,
+          "requests": 121
+        },
+        "media": {
+          "bytes": 986362,
+          "requests": 5
+        },
+        "image": {
+          "bytes": 539166,
+          "requests": 80
+        },
+        "other": {
+          "bytes": 436608,
+          "requests": 116
+        },
+        "stylesheet": {
+          "bytes": 138402,
+          "requests": 20
+        },
+        "font": {
+          "bytes": 91849,
+          "requests": 1
+        },
+        "document": {
+          "bytes": 20643,
+          "requests": 8
+        },
+        "third-party": {
+          "bytes": 2189950,
+          "requests": 190
+        }
+      },
+      "scripts": 122,
+      "stylesheets": 20,
+      "fonts": 1
+    },
+    "thirdParty": {
+      "count": 29,
+      "bytes": 2199928,
+      "mainThreadMs": 1479.7,
+      "top": [
+        {
+          "entity": "net.sap",
+          "bytes": 811799,
+          "mainThreadMs": 0,
+          "byType": {
+            "script": 811347,
+            "other": 452
+          },
+          "typedBytes": 811799
+        },
+        {
+          "entity": "Google Tag Manager",
+          "bytes": 545929,
+          "mainThreadMs": 199.2,
+          "byType": {
+            "script": 545929
+          },
+          "typedBytes": 545929
+        },
+        {
+          "entity": "Facebook",
+          "bytes": 303697,
+          "mainThreadMs": 232.6,
+          "byType": {
+            "script": 303677,
+            "image": 20
+          },
+          "typedBytes": 303697
+        },
+        {
+          "entity": "mPulse",
+          "bytes": 62855,
+          "mainThreadMs": 36.6,
+          "byType": {
+            "script": 61287,
+            "other": 1568
+          },
+          "typedBytes": 62855
+        },
+        {
+          "entity": "TrustArc",
+          "bytes": 56797,
+          "mainThreadMs": 20.6,
+          "byType": {
+            "script": 56351,
+            "other": 446
+          },
+          "typedBytes": 56797
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 20535.5,
+      "byGroup": {
+        "scriptEvaluation": 15093.4,
+        "other": 2508.9,
+        "scriptParseCompile": 1473.3,
+        "styleLayout": 577.7,
+        "garbageCollection": 352.9,
+        "paintCompositeRender": 299.5,
+        "parseHTML": 229.8
+      },
+      "bootupMs": 15103.6,
+      "longTasks": 20,
+      "longestTaskMs": 849
+    },
+    "dom": {
+      "elements": 2461,
+      "depth": 21,
+      "maxChildren": 107
+    },
+    "waste": {
+      "unusedJsBytes": 1762073,
+      "unusedCssBytes": 92475,
+      "legacyJsBytes": 55472,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 2141,
+      "renderBlockingMs": 3474,
+      "renderBlockingCount": 29,
+      "poorlyCachedBytes": 755418.8426084503,
+      "poorlyCachedCount": 50
+    },
+    "accessibility": {
+      "failingCount": 2,
+      "applicableCount": 32,
+      "failingNodes": 4,
+      "failing": [
+        {
+          "id": "heading-order",
+          "title": "Heading elements are not in a sequentially-descending order",
+          "weight": 3,
+          "nodes": 3
+        },
+        {
+          "id": "aria-allowed-attr",
+          "title": "`[aria-*]` attributes do not match their roles",
+          "weight": 10,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 6,
+      "applicableCount": 20,
+      "failing": [
+        {
+          "id": "deprecations",
+          "title": "Uses deprecated APIs",
+          "weight": 5,
+          "nodes": 2
+        },
+        {
+          "id": "third-party-cookies",
+          "title": "Uses third-party cookies",
+          "weight": 5,
+          "nodes": 54
+        },
+        {
+          "id": "image-aspect-ratio",
+          "title": "Displays images with incorrect aspect ratio",
+          "weight": 1,
+          "nodes": 4
+        },
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "weight": 1,
+          "nodes": 3
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "weight": 1,
+          "nodes": 1
+        },
+        {
+          "id": "valid-source-maps",
+          "title": "Missing source maps for large first-party JavaScript",
+          "weight": 0,
+          "nodes": 4
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 1,
+      "applicableCount": 10,
+      "failing": [
+        {
+          "id": "link-text",
+          "title": "Links do not have descriptive text",
+          "weight": 1,
+          "nodes": 1
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 0,
+      "bfCacheFailures": 1,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 889.9,
+      "consoleErrors": 3,
+      "baselineLimitedFeatures": 65
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2459,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-10-23T12:35:18.234Z",
+      "runtimeMs": 64413.2
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 1420.4,
+    "resourceLoadDelay": 26742,
+    "resourceLoadDuration": 3189.1,
+    "elementRenderDelay": 88.1
+  },
+  "field": {
+    "source": "crux",
+    "scope": "origin",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-09-24",
+      "last": "2026-10-21"
+    },
+    "metrics": {
+      "cls": {
+        "p75": 0,
+        "rating": "good",
+        "distribution": {
+          "good": 91.5,
+          "needsImprovement": 4.5,
+          "poor": 4.1
+        }
+      },
+      "ttfb": {
+        "p75": 1435,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 49.1,
+          "needsImprovement": 34.5,
+          "poor": 16.5
+        }
+      },
+      "fcp": {
+        "p75": 2605,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 55.9,
+          "needsImprovement": 25,
+          "poor": 19.1
+        }
+      },
+      "inp": {
+        "p75": 311,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 61,
+          "needsImprovement": 26,
+          "poor": 13.1
+        }
+      },
+      "lcp": {
+        "p75": 2644,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 72.5,
+          "needsImprovement": 15.6,
+          "poor": 11.9
+        }
+      },
+      "rtt": {
+        "p75": 142,
+        "rating": null,
+        "distribution": {
+          "good": 39,
+          "needsImprovement": 53.7,
+          "poor": 7.3
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": true,
+    "generator": null,
+    "probe": {
+      "metas": [],
+      "marks": [
+        "react",
+        "lit"
+      ],
+      "markVersions": {
+        "lit": "2.8.0"
+      }
+    },
+    "interstitial": null,
+    "host": {
+      "id": "akamai",
+      "name": "Akamai",
+      "icon": "Akamai",
+      "source": "server"
+    },
+    "headers": {
+      "server": "AkamaiGHost"
+    },
+    "violations": 7,
+    "passes": 1271,
+    "incomplete": 8,
+    "violationRules": 6,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "heading-order",
+        "impact": "moderate",
+        "nodes": 2,
+        "help": "Heading levels should only increase by one",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/heading-order?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".cs_platform__item:nth-child(1) > .cs_platform__item-content2 > h5",
+            "snippet": "<h5 class=\"cs_platform__item-title\">Build apps, agents, and skills</h5>"
+          },
+          {
+            "selector": "#\\31 792759134671-cyjrf",
+            "snippet": "<h6 id=\"1792759134671-cyjrf\" class=\"NavigationColumn__title--A_JLk\">"
+          }
+        ]
+      },
+      {
+        "id": "aria-allowed-attr",
+        "impact": "critical",
+        "nodes": 1,
+        "help": "Elements must only use supported ARIA attributes",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/aria-allowed-attr?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "article[data-index=\"3\"]",
+            "snippet": "<article class=\"slide is-active\" data-index=\"3\" aria-selected=\"true\" aria-hidden=\"false\">"
+          }
+        ]
+      },
+      {
+        "id": "landmark-banner-is-top-level",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Banner landmark should not be contained in another landmark",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/landmark-banner-is-top-level?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "#masthead-shell .udex-masthead-shell",
+            "snippet": "<header class=\"udex-masthead-shell\">"
+          }
+        ]
+      },
+      {
+        "id": "landmark-no-duplicate-banner",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Document should not have more than one banner landmark",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/landmark-no-duplicate-banner?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "#consent_blackbar",
+            "snippet": "<div id=\"consent_blackbar\" role=\"banner\"></div>"
+          }
+        ]
+      },
+      {
+        "id": "landmark-unique",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/landmark-unique?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "#consent_blackbar",
+            "snippet": "<div id=\"consent_blackbar\" role=\"banner\"></div>"
+          }
+        ]
+      },
+      {
+        "id": "page-has-heading-one",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Page should contain a level-one heading",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/page-has-heading-one?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "html",
+            "snippet": "<html lang=\"en\" class=\"content-en_us en_us ...\" data-language=\"en_us\" data-page-path=\"/content/sapdx/count...\" data-site-code=\"usa\" data-request-path=\"/content/sapdx/count...\" data-page-model-path=\"/…"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}

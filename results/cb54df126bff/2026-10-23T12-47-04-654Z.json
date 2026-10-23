@@ -1,0 +1,543 @@
+{
+  "url": "https://replicate.com/",
+  "name": "Replicate",
+  "group": "ai",
+  "groupName": "AI",
+  "timestamp": 1792759624654,
+  "date": "2026-10-23T12:47:04.654Z",
+  "runId": "2026-10-23T12-34-09-933Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 2,
+  "durationMs": 529311,
+  "error": null,
+  "partialErrors": [
+    "NO_NAVSTART: Something went wrong with recording the trace over your page load. Please run Lighthouse again. (NO_NAVSTART)"
+  ],
+  "variance": {
+    "min": 25,
+    "max": 27,
+    "spread": 2,
+    "runs": 2
+  },
+  "lab": {
+    "requestedUrl": "https://replicate.com/",
+    "finalUrl": "https://replicate.com/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 25,
+      "accessibility": 86,
+      "best-practices": 96,
+      "seo": 92,
+      "agentic-browsing": 67
+    },
+    "timings": {
+      "fcp": 6271,
+      "lcp": 28836,
+      "si": 50977,
+      "tbt": 79982,
+      "tti": 155165,
+      "cls": 0.007,
+      "ttfb": 476,
+      "maxPotentialFid": 679,
+      "serverResponseTime": 202,
+      "networkRtt": 7.5,
+      "networkServerLatency": 34.4
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 203.4,
+      "elementRenderDelay": 267.5
+    },
+    "weight": {
+      "total": 85496112,
+      "requests": 176,
+      "mainDocument": 35307,
+      "byType": {
+        "total": {
+          "bytes": 85496112,
+          "requests": 172
+        },
+        "media": {
+          "bytes": 51196385,
+          "requests": 10
+        },
+        "image": {
+          "bytes": 33186336,
+          "requests": 55
+        },
+        "script": {
+          "bytes": 731704,
+          "requests": 72
+        },
+        "other": {
+          "bytes": 165639,
+          "requests": 25
+        },
+        "font": {
+          "bytes": 144831,
+          "requests": 6
+        },
+        "stylesheet": {
+          "bytes": 35910,
+          "requests": 3
+        },
+        "document": {
+          "bytes": 35307,
+          "requests": 1
+        },
+        "third-party": {
+          "bytes": 85458857,
+          "requests": 169
+        }
+      },
+      "scripts": 72,
+      "stylesheets": 3,
+      "fonts": 6
+    },
+    "thirdParty": {
+      "count": 5,
+      "bytes": 85524510,
+      "mainThreadMs": 1652.6,
+      "top": [
+        {
+          "entity": "replicate.delivery",
+          "bytes": 70226708,
+          "mainThreadMs": 0,
+          "byType": {
+            "image": 27350262,
+            "media": 42876446
+          },
+          "typedBytes": 70226708
+        },
+        {
+          "entity": "replicateassets.com",
+          "bytes": 14262508,
+          "mainThreadMs": 1601.2,
+          "byType": {
+            "script": 609298,
+            "media": 8468245,
+            "image": 4963490,
+            "font": 144831,
+            "other": 40734,
+            "stylesheet": 35910
+          },
+          "typedBytes": 14262508
+        },
+        {
+          "entity": "GitHub",
+          "bytes": 872584,
+          "mainThreadMs": 0,
+          "byType": {
+            "image": 872584
+          },
+          "typedBytes": 872584
+        },
+        {
+          "entity": "Google Tag Manager",
+          "bytes": 122406,
+          "mainThreadMs": 51.4,
+          "byType": {
+            "script": 122406
+          },
+          "typedBytes": 122406
+        },
+        {
+          "entity": "cloudflarestatus.com",
+          "bytes": 40304,
+          "mainThreadMs": 0,
+          "byType": {
+            "other": 40304
+          },
+          "typedBytes": 40304
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 175293,
+      "byGroup": {
+        "other": 162142.4,
+        "scriptEvaluation": 7803.4,
+        "styleLayout": 2592.4,
+        "paintCompositeRender": 1738.4,
+        "garbageCollection": 550.3,
+        "parseHTML": 363.7,
+        "scriptParseCompile": 102.4
+      },
+      "bootupMs": 7748.4,
+      "longTasks": 20,
+      "longestTaskMs": 679
+    },
+    "dom": {
+      "elements": 2310,
+      "depth": 21,
+      "maxChildren": 48
+    },
+    "waste": {
+      "unusedJsBytes": 164262,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 0,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 938,
+      "renderBlockingCount": 3,
+      "poorlyCachedBytes": 24722547.133333333,
+      "poorlyCachedCount": 48
+    },
+    "accessibility": {
+      "failingCount": 5,
+      "applicableCount": 30,
+      "failingNodes": 49,
+      "failing": [
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "weight": 7,
+          "nodes": 34
+        },
+        {
+          "id": "button-name",
+          "title": "Buttons do not have an accessible name",
+          "weight": 10,
+          "nodes": 9
+        },
+        {
+          "id": "list",
+          "title": "Lists do not contain only `<li>` elements and script supporting elements (`<script>` and `<template>`).",
+          "weight": 7,
+          "nodes": 4
+        },
+        {
+          "id": "heading-order",
+          "title": "Heading elements are not in a sequentially-descending order",
+          "weight": 3,
+          "nodes": 1
+        },
+        {
+          "id": "landmark-one-main",
+          "title": "Document does not have a main landmark.",
+          "weight": 3,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 1,
+      "applicableCount": 17,
+      "failing": [
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "weight": 1,
+          "nodes": 1
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 1,
+      "applicableCount": 10,
+      "failing": [
+        {
+          "id": "link-text",
+          "title": "Links do not have descriptive text",
+          "weight": 1,
+          "nodes": 1
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": null,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h3",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 49
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2496,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-10-23T12:48:30.591Z",
+      "runtimeMs": 106675.5
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 886.4,
+    "elementRenderDelay": 3658.7
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-09-24",
+      "last": "2026-10-21"
+    },
+    "metrics": {
+      "ttfb": {
+        "p75": 2072,
+        "rating": "poor",
+        "distribution": {
+          "good": 22.2,
+          "needsImprovement": 42.5,
+          "poor": 35.3
+        }
+      },
+      "fcp": {
+        "p75": 3057,
+        "rating": "poor",
+        "distribution": {
+          "good": 45.2,
+          "needsImprovement": 29.1,
+          "poor": 25.7
+        }
+      },
+      "inp": {
+        "p75": 271,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 67.2,
+          "needsImprovement": 20,
+          "poor": 12.9
+        }
+      },
+      "lcp": {
+        "p75": 3287,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 60,
+          "needsImprovement": 23.9,
+          "poor": 16.1
+        }
+      },
+      "rtt": {
+        "p75": 247,
+        "rating": null,
+        "distribution": {
+          "good": 22.4,
+          "needsImprovement": 56.2,
+          "poor": 21.4
+        }
+      },
+      "cls": {
+        "p75": 0.03,
+        "rating": "good",
+        "distribution": {
+          "good": 82.5,
+          "needsImprovement": 12.7,
+          "poor": 4.8
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": true,
+    "generator": {
+      "id": "reactrouter",
+      "name": "React Router",
+      "icon": "Reactrouter",
+      "version": null,
+      "source": "dom",
+      "raw": null
+    },
+    "probe": {
+      "metas": [],
+      "marks": [
+        "reactrouter",
+        "react"
+      ],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "cloudflare",
+      "name": "Cloudflare",
+      "icon": "Cloudflare",
+      "source": "server"
+    },
+    "headers": {
+      "cf-ray": "a4f0e2f24e1455e9-IAD",
+      "server": "cloudflare"
+    },
+    "violations": 123,
+    "passes": 2113,
+    "incomplete": 32,
+    "violationRules": 7,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 73,
+        "help": "All page content should be contained by landmarks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/region?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".v2-banner-text",
+            "snippet": "<span class=\"v2-banner-text\">Wan 3.0 is 30% off this week</span>"
+          },
+          {
+            "selector": ".via-branding-pinkDarker",
+            "snippet": "<div class=\"absolute inset-0 z-[-1] bg-gradient-to-br from-branding-pink via-branding-pinkDarker to-branding-red object-cover overflow-hidden\">"
+          },
+          {
+            "selector": ".md\\:pr-0",
+            "snippet": "<div class=\"md:pr-0 space-y-4\">"
+          },
+          {
+            "selector": "#node",
+            "snippet": "<button id=\"node\" role=\"tab\" aria-selected=\"true\" class=\"r8-tabs__tab\" type=\"button\" data-active-item=\"true\" aria-controls=\"_R_1jcq55_\"><span class=\"r8-tabs__tab-text\">Node</span></button>"
+          },
+          {
+            "selector": "#python",
+            "snippet": "<button id=\"python\" role=\"tab\" aria-selected=\"false\" class=\"r8-tabs__tab\" type=\"button\" aria-controls=\"_R_2jcq55_\" tabindex=\"-1\"><span class=\"r8-tabs__tab-text\">Python</span></button>"
+          }
+        ]
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 32,
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/color-contrast?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".flex:nth-child(1) > pre:nth-child(1) > .javascript > .hljs-keyword:nth-child(1)",
+            "snippet": "<span class=\"hljs-keyword\">import</span>"
+          },
+          {
+            "selector": ".hljs-keyword:nth-child(3)",
+            "snippet": "<span class=\"hljs-keyword\">from</span>"
+          },
+          {
+            "selector": "pre:nth-child(2) > .javascript > .hljs-keyword:nth-child(1)",
+            "snippet": "<span class=\"hljs-keyword\">const</span>"
+          },
+          {
+            "selector": "pre:nth-child(2) > .javascript > .hljs-keyword:nth-child(2)",
+            "snippet": "<span class=\"hljs-keyword\">new</span>"
+          },
+          {
+            "selector": ".flex:nth-child(5) > pre:nth-child(1) > .javascript > .hljs-keyword",
+            "snippet": "<span class=\"hljs-keyword\">const</span>"
+          }
+        ]
+      },
+      {
+        "id": "button-name",
+        "impact": "critical",
+        "nodes": 9,
+        "help": "Buttons must have discernible text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/button-name?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "#_R_1jcq55_ > .group.relative > .top-4.opacity-0.group-hover\\:opacity-100 > .undefined.r8-btn--icon.r8-btn--outlined",
+            "snippet": "<button class=\"r8-btn r8-btn--outlined r8-btn--primary r8-btn--md r8-btn--icon undefined\" type=\"button\">"
+          },
+          {
+            "selector": ".flex-1.min-w-0 > .code-snippet.border.border-r8-gray-12 > .group.relative > .top-4.opacity-0.group-hover\\:opacity-100 > .undefined.r8-btn--icon.r8-btn--outlined",
+            "snippet": "<button class=\"r8-btn r8-btn--outlined r8-btn--primary r8-btn--md r8-btn--icon undefined\" type=\"button\">"
+          },
+          {
+            "selector": ".lg\\:ml-8.lg\\:gap-12.top-0 > .pb-6.gap-8.flex-col > div:nth-child(1) > .code-snippet.border.border-r8-gray-12 > .group.relative > .top-4.opacity-0.group-hover\\:opacity-100 > .undefined.r8-btn--icon.r8-btn--outlined",
+            "snippet": "<button class=\"r8-btn r8-btn--outlined r8-btn--primary r8-btn--md r8-btn--icon undefined\" type=\"button\">"
+          },
+          {
+            "selector": "div:nth-child(3) > .code-snippet.border.border-r8-gray-12 > .group.relative > .top-4.opacity-0.group-hover\\:opacity-100 > .undefined.r8-btn--icon.r8-btn--outlined",
+            "snippet": "<button class=\"r8-btn r8-btn--outlined r8-btn--primary r8-btn--md r8-btn--icon undefined\" type=\"button\">"
+          },
+          {
+            "selector": ".pb-0.lg\\:gap-16.lg\\:border-l > .pb-6.gap-8.flex-col > div:nth-child(1) > .code-snippet.border.border-r8-gray-12 > .group.relative > .top-4.opacity-0.group-hover\\:opacity-100 > .undefined.r8-btn--icon.r8-btn--outlined",
+            "snippet": "<button class=\"r8-btn r8-btn--outlined r8-btn--primary r8-btn--md r8-btn--icon undefined\" type=\"button\">"
+          }
+        ]
+      },
+      {
+        "id": "list",
+        "impact": "serious",
+        "nodes": 4,
+        "help": "<ul> and <ol> must only directly contain <li>, <script> or <template> elements",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/list?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".-mt-4 > div > .marquee > .marquee__group:nth-child(1)",
+            "snippet": "<ul class=\"marquee__group\">"
+          },
+          {
+            "selector": ".marquee--reverse > .marquee__group:nth-child(1)",
+            "snippet": "<ul class=\"marquee__group\">"
+          },
+          {
+            "selector": ".marquee:nth-child(2) > .marquee__group:nth-child(1)",
+            "snippet": "<ul class=\"marquee__group\">"
+          },
+          {
+            "selector": ".mt-6",
+            "snippet": "<ul class=\"space-y-8 mt-6\">"
+          }
+        ]
+      },
+      {
+        "id": "scrollable-region-focusable",
+        "impact": "serious",
+        "nodes": 3,
+        "help": "Scrollable region must have keyboard access",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/scrollable-region-focusable?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".flex-1.min-w-0 > .code-snippet.border.border-r8-gray-12 > .group.relative > .overflow-auto.bg-r8-gray-1.p-4",
+            "snippet": "<div class=\"bg-r8-gray-1 text-r8-gray-12 overflow-auto p-4 text-r8-sm\">"
+          },
+          {
+            "selector": "div:nth-child(3) > .code-snippet.border.border-r8-gray-12 > .group.relative > .overflow-auto.bg-r8-gray-1.p-4",
+            "snippet": "<div class=\"bg-r8-gray-1 text-r8-gray-12 overflow-auto p-4 text-r8-sm\">"
+          },
+          {
+            "selector": ".pb-6.gap-8.flex-col > div:nth-child(2) > .code-snippet.border.border-r8-gray-12 > .group.relative > .overflow-auto.bg-r8-gray-1.p-4",
+            "snippet": "<div class=\"bg-r8-gray-1 text-r8-gray-12 overflow-auto p-4 text-r8-sm\">"
+          }
+        ]
+      },
+      {
+        "id": "heading-order",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Heading levels should only increase by one",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/heading-order?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".border-l.border-t.border-branding-red:nth-child(1) > .space-y-1\\.5.p-4 > .lg\\:text-r8-3xl.text-r8-2xl.text-branding-red > h4",
+            "snippet": "<h4>Automatic scale</h4>"
+          }
+        ]
+      },
+      {
+        "id": "landmark-one-main",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Document should have one main landmark",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/landmark-one-main?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "html",
+            "snippet": "<html lang=\"en\" class=\"light\">"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
