@@ -1,0 +1,441 @@
+{
+  "url": "https://wordpress.com/",
+  "name": "WordPress.com",
+  "group": "builders",
+  "groupName": "Website Builders",
+  "timestamp": 1792952702285,
+  "date": "2026-10-25T18:25:02.285Z",
+  "runId": "2026-10-25T18-10-15-951Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 65401,
+  "error": null,
+  "variance": {
+    "min": 70,
+    "max": 86,
+    "spread": 16,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://wordpress.com/",
+    "finalUrl": "https://wordpress.com/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 71,
+      "accessibility": 94,
+      "best-practices": 73,
+      "seo": 100,
+      "agentic-browsing": 67
+    },
+    "timings": {
+      "fcp": 3160,
+      "lcp": 4661,
+      "si": 3160,
+      "tbt": 282,
+      "tti": 12389,
+      "cls": 0,
+      "ttfb": 610,
+      "maxPotentialFid": 306,
+      "serverResponseTime": 20,
+      "networkRtt": 0.1,
+      "networkServerLatency": 160.2
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 21.3,
+      "resourceLoadDelay": 11.1,
+      "resourceLoadDuration": 15.4,
+      "elementRenderDelay": 104.5
+    },
+    "weight": {
+      "total": 2253867,
+      "requests": 68,
+      "mainDocument": 67357,
+      "byType": {
+        "total": {
+          "bytes": 2253867,
+          "requests": 68
+        },
+        "image": {
+          "bytes": 895707,
+          "requests": 29
+        },
+        "script": {
+          "bytes": 849606,
+          "requests": 25
+        },
+        "font": {
+          "bytes": 380527,
+          "requests": 2
+        },
+        "document": {
+          "bytes": 67374,
+          "requests": 2
+        },
+        "stylesheet": {
+          "bytes": 52813,
+          "requests": 4
+        },
+        "other": {
+          "bytes": 7840,
+          "requests": 6
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 2226080,
+          "requests": 62
+        }
+      },
+      "scripts": 25,
+      "stylesheets": 4,
+      "fonts": 2
+    },
+    "thirdParty": {
+      "count": 8,
+      "bytes": 712816,
+      "mainThreadMs": 236,
+      "top": [
+        {
+          "entity": "Google Tag Manager",
+          "bytes": 349161,
+          "mainThreadMs": 136.1,
+          "byType": {
+            "script": 349161
+          },
+          "typedBytes": 349161
+        },
+        {
+          "entity": "Facebook",
+          "bytes": 209925,
+          "mainThreadMs": 67,
+          "byType": {
+            "script": 209925
+          },
+          "typedBytes": 209925
+        },
+        {
+          "entity": "Other Google APIs/SDKs",
+          "bytes": 102654,
+          "mainThreadMs": 7.8,
+          "byType": {
+            "script": 102164,
+            "stylesheet": 385,
+            "image": 64,
+            "other": 41
+          },
+          "typedBytes": 102654
+        },
+        {
+          "entity": "Parse.ly",
+          "bytes": 22585,
+          "mainThreadMs": 11.3,
+          "byType": {
+            "script": 22356,
+            "image": 229
+          },
+          "typedBytes": 22585
+        },
+        {
+          "entity": "Bing Ads",
+          "bytes": 17137,
+          "mainThreadMs": 9.1,
+          "byType": {
+            "script": 17015,
+            "image": 122
+          },
+          "typedBytes": 17137
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 2202.5,
+      "byGroup": {
+        "scriptEvaluation": 1111.8,
+        "styleLayout": 373.8,
+        "other": 324.2,
+        "scriptParseCompile": 229.2,
+        "parseHTML": 67.7,
+        "paintCompositeRender": 55.9,
+        "garbageCollection": 39.9
+      },
+      "bootupMs": 1115.2,
+      "longTasks": 8,
+      "longestTaskMs": 306
+    },
+    "dom": {
+      "elements": 1438,
+      "depth": 16,
+      "maxChildren": 85
+    },
+    "waste": {
+      "unusedJsBytes": 301706,
+      "unusedCssBytes": 32692,
+      "legacyJsBytes": 25273,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 300,
+      "renderBlockingCount": 3,
+      "poorlyCachedBytes": 297025.2791945656,
+      "poorlyCachedCount": 20
+    },
+    "accessibility": {
+      "failingCount": 3,
+      "applicableCount": 33,
+      "failingNodes": 6,
+      "failing": [
+        {
+          "id": "aria-prohibited-attr",
+          "title": "Elements use prohibited ARIA attributes",
+          "weight": 7,
+          "nodes": 2
+        },
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "weight": 7,
+          "nodes": 2
+        },
+        {
+          "id": "presentation-role-conflict",
+          "title": "Elements with `role=\"none\"` or `role=\"presentation\"` have conflicts",
+          "weight": 1,
+          "nodes": 2
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 3,
+      "applicableCount": 19,
+      "failing": [
+        {
+          "id": "third-party-cookies",
+          "title": "Uses third-party cookies",
+          "weight": 5,
+          "nodes": 4
+        },
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "weight": 1,
+          "nodes": 2
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "weight": 1,
+          "nodes": 1
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 0,
+      "applicableCount": 10,
+      "failing": []
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": null,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 2,
+      "baselineLimitedFeatures": 51
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2287,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-10-25T18:25:13.218Z",
+      "runtimeMs": 9077
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 581.2,
+    "resourceLoadDelay": 114,
+    "resourceLoadDuration": 1229.8,
+    "elementRenderDelay": 86.3
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-09-26",
+      "last": "2026-10-23"
+    },
+    "metrics": {
+      "fcp": {
+        "p75": 1899,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 71.8,
+          "needsImprovement": 17.5,
+          "poor": 10.7
+        }
+      },
+      "inp": {
+        "p75": 162,
+        "rating": "good",
+        "distribution": {
+          "good": 81.7,
+          "needsImprovement": 15.9,
+          "poor": 2.4
+        }
+      },
+      "lcp": {
+        "p75": 2085,
+        "rating": "good",
+        "distribution": {
+          "good": 82.4,
+          "needsImprovement": 9.7,
+          "poor": 8
+        }
+      },
+      "rtt": {
+        "p75": 210,
+        "rating": null,
+        "distribution": {
+          "good": 25.7,
+          "needsImprovement": 58.7,
+          "poor": 15.7
+        }
+      },
+      "cls": {
+        "p75": 0,
+        "rating": "good",
+        "distribution": {
+          "good": 97,
+          "needsImprovement": 2.7,
+          "poor": 0.3
+        }
+      },
+      "ttfb": {
+        "p75": 1089,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 58.7,
+          "needsImprovement": 30.8,
+          "poor": 10.5
+        }
+      }
+    },
+    "cwvPass": true,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": {
+      "id": "wordpress",
+      "name": "WordPress",
+      "icon": "Wordpress",
+      "version": null,
+      "source": "meta",
+      "raw": "WordPress.com"
+    },
+    "probe": {
+      "metas": [
+        "WordPress.com"
+      ],
+      "marks": [],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "self-hosted",
+      "name": "Self-hosted",
+      "icon": null,
+      "detail": "nginx",
+      "detailIcon": "Nginx",
+      "source": "server"
+    },
+    "headers": {
+      "server": "nginx"
+    },
+    "violations": 7,
+    "passes": 1006,
+    "incomplete": 8,
+    "violationRules": 4,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "aria-prohibited-attr",
+        "impact": "serious",
+        "nodes": 2,
+        "help": "Elements must only use permitted ARIA attributes",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/aria-prohibited-attr?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".x-nav-link--logo > .x-icon--logo.x-icon[viewBox=\"0 0 170 36\"]",
+            "snippet": "<svg class=\"x-icon x-icon--logo\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 170 36\" role=\"presentation\" aria-label=\"WordPress.com logo\">"
+          },
+          {
+            "selector": ".lp-footer-logo",
+            "snippet": "<svg class=\"lp-footer-logo\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 5.33 170 22.87\" role=\"presentation\" aria-label=\"WordPress.com logo\">"
+          }
+        ]
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 2,
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/color-contrast?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "#lp-question-answer-1 > .lp-question__answer__content > .lp-content.lp-block > .color-gray-40",
+            "snippet": "<p class=\"color-gray-40 wp-block-paragraph\">"
+          },
+          {
+            "selector": "#lp-question-answer-1 > .lp-question__answer__content > .lp-content.lp-block > .color-gray-40 > a",
+            "snippet": "<a href=\"https://wordpress.com/newsletter/?ref=logged-out-homepage-lp\">start free</a>"
+          }
+        ]
+      },
+      {
+        "id": "presentation-role-conflict",
+        "impact": "minor",
+        "nodes": 2,
+        "help": "Elements marked as presentational should be consistently ignored",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/presentation-role-conflict?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".x-nav-link--logo > .x-icon--logo.x-icon[viewBox=\"0 0 170 36\"]",
+            "snippet": "<svg class=\"x-icon x-icon--logo\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 170 36\" role=\"presentation\" aria-label=\"WordPress.com logo\">"
+          },
+          {
+            "selector": ".lp-footer-logo",
+            "snippet": "<svg class=\"lp-footer-logo\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 5.33 170 22.87\" role=\"presentation\" aria-label=\"WordPress.com logo\">"
+          }
+        ]
+      },
+      {
+        "id": "label-title-only",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "Form elements should have a visible label",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/label-title-only?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "#language-picker-select",
+            "snippet": "<select id=\"language-picker-select\" class=\"lp-language-picker__content\" title=\"Change Language\">"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
