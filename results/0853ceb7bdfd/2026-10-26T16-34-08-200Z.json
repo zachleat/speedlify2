@@ -1,0 +1,335 @@
+{
+  "url": "https://surma.dev/",
+  "name": "surma.dev",
+  "group": "11ty-community",
+  "groupName": "Built Awesome",
+  "timestamp": 1793032448200,
+  "date": "2026-10-26T16:34:08.200Z",
+  "runId": "2026-10-26T16-31-09-868Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 2,
+  "durationMs": 20347,
+  "error": null,
+  "partialErrors": [
+    "NO_NAVSTART: Something went wrong with recording the trace over your page load. Please run Lighthouse again. (NO_NAVSTART)"
+  ],
+  "variance": {
+    "min": 97,
+    "max": 98,
+    "spread": 1,
+    "runs": 2
+  },
+  "lab": {
+    "requestedUrl": "https://surma.dev/",
+    "finalUrl": "https://surma.dev/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 97,
+      "accessibility": 83,
+      "best-practices": 100,
+      "seo": 85,
+      "agentic-browsing": 100
+    },
+    "timings": {
+      "fcp": 1594,
+      "lcp": 2420,
+      "si": 1740,
+      "tbt": 0,
+      "tti": 2420,
+      "cls": 0.008,
+      "ttfb": 620,
+      "maxPotentialFid": 16,
+      "serverResponseTime": 85,
+      "networkRtt": 0.1,
+      "networkServerLatency": 21.7
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 86.8,
+      "elementRenderDelay": 171.7
+    },
+    "weight": {
+      "total": 190633,
+      "requests": 24,
+      "mainDocument": 4537,
+      "byType": {
+        "total": {
+          "bytes": 190633,
+          "requests": 23
+        },
+        "font": {
+          "bytes": 145752,
+          "requests": 2
+        },
+        "image": {
+          "bytes": 16658,
+          "requests": 9
+        },
+        "script": {
+          "bytes": 15877,
+          "requests": 5
+        },
+        "stylesheet": {
+          "bytes": 7143,
+          "requests": 1
+        },
+        "document": {
+          "bytes": 4537,
+          "requests": 1
+        },
+        "other": {
+          "bytes": 666,
+          "requests": 5
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 10570,
+          "requests": 4
+        }
+      },
+      "scripts": 5,
+      "stylesheets": 1,
+      "fonts": 2
+    },
+    "thirdParty": {
+      "count": 2,
+      "bytes": 10570,
+      "mainThreadMs": 3.8,
+      "top": [
+        {
+          "entity": "Cloudflare",
+          "bytes": 10351,
+          "mainThreadMs": 3.8,
+          "byType": {
+            "script": 10351
+          },
+          "typedBytes": 10351
+        },
+        {
+          "entity": "Google Analytics",
+          "bytes": 219,
+          "mainThreadMs": 0,
+          "byType": {
+            "other": 219
+          },
+          "typedBytes": 219
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 385.6,
+      "byGroup": {
+        "other": 192.4,
+        "styleLayout": 109.5,
+        "scriptEvaluation": 57.7,
+        "paintCompositeRender": 15.6,
+        "parseHTML": 8,
+        "scriptParseCompile": 2.5
+      },
+      "bootupMs": 23.9,
+      "longTasks": 1,
+      "longestTaskMs": 52
+    },
+    "dom": {
+      "elements": 121,
+      "depth": 6,
+      "maxChildren": 10
+    },
+    "waste": {
+      "unusedJsBytes": 0,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 10475,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 0,
+      "renderBlockingCount": 1,
+      "poorlyCachedBytes": 4140.400000000001,
+      "poorlyCachedCount": 1
+    },
+    "accessibility": {
+      "failingCount": 2,
+      "applicableCount": 14,
+      "failingNodes": 2,
+      "failing": [
+        {
+          "id": "html-has-lang",
+          "title": "`<html>` element does not have a `[lang]` attribute",
+          "weight": 7,
+          "nodes": 1
+        },
+        {
+          "id": "image-alt",
+          "title": "Image elements do not have `[alt]` attributes",
+          "weight": 10,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 0,
+      "applicableCount": 18,
+      "failing": []
+    },
+    "seo": {
+      "failingCount": 2,
+      "applicableCount": 10,
+      "failing": [
+        {
+          "id": "meta-description",
+          "title": "Document does not have a meta description",
+          "weight": 1,
+          "nodes": null
+        },
+        {
+          "id": "image-alt",
+          "title": "Image elements do not have `[alt]` attributes",
+          "weight": 1,
+          "nodes": 1
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": null,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 21
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 4110,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-10-26T16:34:21.991Z",
+      "runtimeMs": 5869.7
+    }
+  },
+  "field": {
+    "source": "crux",
+    "scope": "origin",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-09-27",
+      "last": "2026-10-24"
+    },
+    "metrics": {
+      "cls": {
+        "p75": 0,
+        "rating": "good",
+        "distribution": {
+          "good": 95.6,
+          "needsImprovement": 2.9,
+          "poor": 1.5
+        }
+      },
+      "ttfb": {
+        "p75": 1386,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 52.1,
+          "needsImprovement": 34.8,
+          "poor": 13.1
+        }
+      },
+      "fcp": {
+        "p75": 2133,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 68.2,
+          "needsImprovement": 21.2,
+          "poor": 10.6
+        }
+      },
+      "lcp": {
+        "p75": 2541,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 73.8,
+          "needsImprovement": 15.5,
+          "poor": 10.7
+        }
+      },
+      "rtt": {
+        "p75": 130,
+        "rating": null,
+        "distribution": {
+          "good": 43.5,
+          "needsImprovement": 46.9,
+          "poor": 9.6
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 2
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "probe": {
+      "metas": [],
+      "marks": [],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "netlify",
+      "name": "Netlify",
+      "icon": "Netlify",
+      "source": "x-nf-request-id"
+    },
+    "headers": {
+      "cf-ray": "a50ade58ebfd646a-LAX",
+      "server": "cloudflare",
+      "x-nf-request-id": "01M5WH0CXQX8B6HHAVCY4RACCC"
+    },
+    "violations": 2,
+    "passes": 214,
+    "incomplete": 47,
+    "violationRules": 2,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "html-has-lang",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "<html> element must have a lang attribute",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/html-has-lang?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "html",
+            "snippet": "<html class=\"forcelight\">"
+          }
+        ]
+      },
+      {
+        "id": "image-alt",
+        "impact": "critical",
+        "nodes": 1,
+        "help": "Images must have alternative text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/image-alt?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "img",
+            "snippet": "<img src=\"/assets/surma.1bdb48ee.jpg\" class=\"avatar\">"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
