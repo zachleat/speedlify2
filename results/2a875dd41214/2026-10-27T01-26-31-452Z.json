@@ -1,0 +1,399 @@
+{
+  "url": "https://angular.dev/",
+  "name": "Angular",
+  "group": "dev-tooling",
+  "groupName": "Developer Tooling",
+  "timestamp": 1793064391452,
+  "date": "2026-10-27T01:26:31.452Z",
+  "runId": "2026-10-27T01-10-24-161Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 2,
+  "durationMs": 65020,
+  "error": null,
+  "partialErrors": [
+    "NO_NAVSTART: Something went wrong with recording the trace over your page load. Please run Lighthouse again. (NO_NAVSTART)"
+  ],
+  "variance": {
+    "min": 47,
+    "max": 62,
+    "spread": 15,
+    "runs": 2
+  },
+  "lab": {
+    "requestedUrl": "https://angular.dev/",
+    "finalUrl": "https://angular.dev/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 47,
+      "accessibility": 97,
+      "best-practices": 100,
+      "seo": 92,
+      "agentic-browsing": 99
+    },
+    "timings": {
+      "fcp": 4120,
+      "lcp": 4540,
+      "si": 4120,
+      "tbt": 1546,
+      "tti": 9743,
+      "cls": 0.067,
+      "ttfb": 611,
+      "maxPotentialFid": 1317,
+      "serverResponseTime": 4,
+      "networkRtt": 1.6,
+      "networkServerLatency": 33.7
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 5.5,
+      "elementRenderDelay": 215.6
+    },
+    "weight": {
+      "total": 1405508,
+      "requests": 53,
+      "mainDocument": 15644,
+      "byType": {
+        "total": {
+          "bytes": 1401434,
+          "requests": 51
+        },
+        "script": {
+          "bytes": 749170,
+          "requests": 35
+        },
+        "font": {
+          "bytes": 530429,
+          "requests": 6
+        },
+        "image": {
+          "bytes": 92372,
+          "requests": 3
+        },
+        "document": {
+          "bytes": 15644,
+          "requests": 1
+        },
+        "stylesheet": {
+          "bytes": 12668,
+          "requests": 3
+        },
+        "other": {
+          "bytes": 1151,
+          "requests": 3
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 712426,
+          "requests": 10
+        }
+      },
+      "scripts": 35,
+      "stylesheets": 3,
+      "fonts": 6
+    },
+    "thirdParty": {
+      "count": 3,
+      "bytes": 712426,
+      "mainThreadMs": 70.1,
+      "top": [
+        {
+          "entity": "Google Fonts",
+          "bytes": 532047,
+          "mainThreadMs": 0,
+          "byType": {
+            "font": 530429,
+            "stylesheet": 1618
+          },
+          "typedBytes": 532047
+        },
+        {
+          "entity": "Google Tag Manager",
+          "bytes": 180331,
+          "mainThreadMs": 70.1,
+          "byType": {
+            "script": 180331
+          },
+          "typedBytes": 180331
+        },
+        {
+          "entity": "Google Analytics",
+          "bytes": 48,
+          "mainThreadMs": 0,
+          "byType": {
+            "other": 48
+          },
+          "typedBytes": 48
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 5502.8,
+      "byGroup": {
+        "scriptEvaluation": 2275.5,
+        "styleLayout": 1519.7,
+        "other": 1063.2,
+        "paintCompositeRender": 386.8,
+        "garbageCollection": 108.8,
+        "scriptParseCompile": 77.8,
+        "parseHTML": 71.1
+      },
+      "bootupMs": 2298.7,
+      "longTasks": 10,
+      "longestTaskMs": 1317
+    },
+    "dom": {
+      "elements": 435,
+      "depth": 21,
+      "maxChildren": 19
+    },
+    "waste": {
+      "unusedJsBytes": 156682,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 0,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 940,
+      "renderBlockingCount": 2,
+      "poorlyCachedBytes": 14095.2,
+      "poorlyCachedCount": 6
+    },
+    "accessibility": {
+      "failingCount": 1,
+      "applicableCount": 29,
+      "failingNodes": 4,
+      "failing": [
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "weight": 7,
+          "nodes": 4
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 1,
+      "applicableCount": 19,
+      "failing": [
+        {
+          "id": "valid-source-maps",
+          "title": "Missing source maps for large first-party JavaScript",
+          "weight": 0,
+          "nodes": 3
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 1,
+      "applicableCount": 9,
+      "failing": [
+        {
+          "id": "link-text",
+          "title": "Links do not have descriptive text",
+          "weight": 1,
+          "nodes": 1
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": null,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 37
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2527,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-10-27T01:26:43.672Z",
+      "runtimeMs": 9356
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 567,
+    "elementRenderDelay": 820.8
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-09-27",
+      "last": "2026-10-24"
+    },
+    "metrics": {
+      "fcp": {
+        "p75": 2135,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 67,
+          "needsImprovement": 19.4,
+          "poor": 13.6
+        }
+      },
+      "inp": {
+        "p75": 206,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 73.8,
+          "needsImprovement": 20.3,
+          "poor": 5.9
+        }
+      },
+      "lcp": {
+        "p75": 2168,
+        "rating": "good",
+        "distribution": {
+          "good": 80.5,
+          "needsImprovement": 11.4,
+          "poor": 8.1
+        }
+      },
+      "rtt": {
+        "p75": 149,
+        "rating": null,
+        "distribution": {
+          "good": 36.7,
+          "needsImprovement": 52.8,
+          "poor": 10.6
+        }
+      },
+      "cls": {
+        "p75": 0.03,
+        "rating": "good",
+        "distribution": {
+          "good": 92.1,
+          "needsImprovement": 4,
+          "poor": 3.9
+        }
+      },
+      "ttfb": {
+        "p75": 792,
+        "rating": "good",
+        "distribution": {
+          "good": 75.3,
+          "needsImprovement": 15.6,
+          "poor": 9.1
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": {
+      "id": "angular",
+      "name": "Angular",
+      "icon": "Angular",
+      "version": "22.2.3",
+      "source": "dom",
+      "raw": "22.2.3+sha-ea8cdc4"
+    },
+    "probe": {
+      "metas": [],
+      "marks": [
+        "angular"
+      ],
+      "markVersions": {
+        "angular": "22.2.3+sha-ea8cdc4"
+      }
+    },
+    "interstitial": null,
+    "host": null,
+    "headers": {
+      "x-served-by": "cache-phx1710139-PHX"
+    },
+    "violations": 10,
+    "passes": 902,
+    "incomplete": 33,
+    "violationRules": 3,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 4,
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/color-contrast?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".description > code:nth-child(1)",
+            "snippet": "<code _ngcontent-ng-c3942182462=\"\">computed</code>"
+          },
+          {
+            "selector": "code:nth-child(2)",
+            "snippet": "<code _ngcontent-ng-c3942182462=\"\">filteredItems</code>"
+          },
+          {
+            "selector": "code:nth-child(3)",
+            "snippet": "<code _ngcontent-ng-c3942182462=\"\">searchTerm</code>"
+          },
+          {
+            "selector": ".line:nth-child(8) > span:nth-child(8)",
+            "snippet": "<span style=\"color:#E36209\">item</span>"
+          }
+        ]
+      },
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 3,
+        "help": "All page content should be contained by landmarks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/region?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "adev-progress-bar",
+            "snippet": "<adev-progress-bar _ngcontent-ng-c1178817259=\"\">"
+          },
+          {
+            "selector": ".docs-cookies-popup-header > p",
+            "snippet": "<p _ngcontent-ng-c601142251=\"\">This site uses cookies from Google to deliver its services and to analyze traffic.</p>"
+          },
+          {
+            "selector": ".docs-primary-btn[text=\"Learn more\"][_ngcontent-ng-c601142251=\"\"]",
+            "snippet": "<a _ngcontent-ng-c601142251=\"\" href=\"https://policies.google.com/technologies/cookies\" target=\"_blank\" rel=\"noopener\" aria-label=\"Learn more about how Google uses cookies\" text=\"Learn more\" class=\"do…"
+          }
+        ]
+      },
+      {
+        "id": "scrollable-region-focusable",
+        "impact": "serious",
+        "nodes": 3,
+        "help": "Scrollable region must have keyboard access",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/scrollable-region-focusable?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".demo-list",
+            "snippet": "<div _ngcontent-ng-c3942182462=\"\" class=\"demo-list\">"
+          },
+          {
+            "selector": ".code-block[_ngcontent-ng-c3942182462=\"\"]:nth-child(1) > adev-code-block > pre > code[_ngcontent-ng-c2227215708=\"\"] > .shiki.github-light > code",
+            "snippet": "<code>"
+          },
+          {
+            "selector": "adev-code-block[language=\"angular-html\"] > pre > code[_ngcontent-ng-c2227215708=\"\"] > .shiki.github-light > code",
+            "snippet": "<code>"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
