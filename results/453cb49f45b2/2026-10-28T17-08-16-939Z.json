@@ -1,0 +1,475 @@
+{
+  "url": "https://huggingface.co/",
+  "name": "Hugging Face",
+  "group": "ai",
+  "groupName": "AI",
+  "timestamp": 1793207296939,
+  "date": "2026-10-28T17:08:16.939Z",
+  "runId": "2026-10-28T17-06-26-705Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 2,
+  "durationMs": 145195,
+  "error": null,
+  "partialErrors": [
+    "NO_NAVSTART: Something went wrong with recording the trace over your page load. Please run Lighthouse again. (NO_NAVSTART)"
+  ],
+  "variance": {
+    "min": 60,
+    "max": 70,
+    "spread": 10,
+    "runs": 2
+  },
+  "lab": {
+    "requestedUrl": "https://huggingface.co/",
+    "finalUrl": "https://huggingface.co/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 60,
+      "accessibility": 78,
+      "best-practices": 77,
+      "seo": 100,
+      "agentic-browsing": 50
+    },
+    "timings": {
+      "fcp": 1974,
+      "lcp": 3549,
+      "si": 1974,
+      "tbt": 2482,
+      "tti": 10691,
+      "cls": 0,
+      "ttfb": 624,
+      "maxPotentialFid": 3018,
+      "serverResponseTime": 22,
+      "networkRtt": 37.6,
+      "networkServerLatency": 191.9
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 85.4,
+      "elementRenderDelay": 240.4
+    },
+    "weight": {
+      "total": 3268079,
+      "requests": 68,
+      "mainDocument": 29129,
+      "byType": {
+        "total": {
+          "bytes": 3062015,
+          "requests": 66
+        },
+        "image": {
+          "bytes": 2118342,
+          "requests": 26
+        },
+        "script": {
+          "bytes": 750812,
+          "requests": 26
+        },
+        "stylesheet": {
+          "bytes": 94907,
+          "requests": 2
+        },
+        "font": {
+          "bytes": 61513,
+          "requests": 4
+        },
+        "document": {
+          "bytes": 31572,
+          "requests": 3
+        },
+        "other": {
+          "bytes": 4869,
+          "requests": 5
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 588554,
+          "requests": 10
+        }
+      },
+      "scripts": 26,
+      "stylesheets": 2,
+      "fonts": 4
+    },
+    "thirdParty": {
+      "count": 2,
+      "bytes": 570674,
+      "mainThreadMs": 181.8,
+      "top": [
+        {
+          "entity": "awswaf.com",
+          "bytes": 311443,
+          "mainThreadMs": 108.5,
+          "byType": {
+            "script": 307763,
+            "other": 3680
+          },
+          "typedBytes": 311443
+        },
+        {
+          "entity": "Stripe",
+          "bytes": 259231,
+          "mainThreadMs": 73.3,
+          "byType": {
+            "script": 259231
+          },
+          "typedBytes": 259231
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 6356.7,
+      "byGroup": {
+        "scriptEvaluation": 3647.4,
+        "other": 1729.6,
+        "styleLayout": 459,
+        "parseHTML": 186.5,
+        "scriptParseCompile": 178.1,
+        "paintCompositeRender": 119.6,
+        "garbageCollection": 36.5
+      },
+      "bootupMs": 3805,
+      "longTasks": 14,
+      "longestTaskMs": 3018
+    },
+    "dom": {
+      "elements": 962,
+      "depth": 19,
+      "maxChildren": 14
+    },
+    "waste": {
+      "unusedJsBytes": 361181,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 0,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 450,
+      "renderBlockingCount": 1,
+      "poorlyCachedBytes": 271804.0583333333,
+      "poorlyCachedCount": 3
+    },
+    "accessibility": {
+      "failingCount": 5,
+      "applicableCount": 24,
+      "failingNodes": 9,
+      "failing": [
+        {
+          "id": "heading-order",
+          "title": "Heading elements are not in a sequentially-descending order",
+          "weight": 3,
+          "nodes": 5
+        },
+        {
+          "id": "button-name",
+          "title": "Buttons do not have an accessible name",
+          "weight": 10,
+          "nodes": 1
+        },
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "weight": 7,
+          "nodes": 1
+        },
+        {
+          "id": "html-has-lang",
+          "title": "`<html>` element does not have a `[lang]` attribute",
+          "weight": 7,
+          "nodes": 1
+        },
+        {
+          "id": "meta-viewport",
+          "title": "`[user-scalable=\"no\"]` is used in the `<meta name=\"viewport\">` element or the `[maximum-scale]` attribute is less than 5.",
+          "weight": 10,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 2,
+      "applicableCount": 17,
+      "failing": [
+        {
+          "id": "third-party-cookies",
+          "title": "Uses third-party cookies",
+          "weight": 5,
+          "nodes": 1
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "weight": 1,
+          "nodes": 1
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 0,
+      "applicableCount": 10,
+      "failing": []
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": null,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 60
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2436.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-10-28T17:08:18.232Z",
+      "runtimeMs": 26614.7
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 583.4,
+    "elementRenderDelay": 2794
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-09-29",
+      "last": "2026-10-26"
+    },
+    "metrics": {
+      "cls": {
+        "p75": 0,
+        "rating": "good",
+        "distribution": {
+          "good": 92.7,
+          "needsImprovement": 4.5,
+          "poor": 2.8
+        }
+      },
+      "ttfb": {
+        "p75": 573,
+        "rating": "good",
+        "distribution": {
+          "good": 85.2,
+          "needsImprovement": 11.3,
+          "poor": 3.6
+        }
+      },
+      "fcp": {
+        "p75": 1234,
+        "rating": "good",
+        "distribution": {
+          "good": 86.7,
+          "needsImprovement": 8.6,
+          "poor": 4.8
+        }
+      },
+      "inp": {
+        "p75": 190,
+        "rating": "good",
+        "distribution": {
+          "good": 76.4,
+          "needsImprovement": 19.8,
+          "poor": 3.7
+        }
+      },
+      "lcp": {
+        "p75": 1356,
+        "rating": "good",
+        "distribution": {
+          "good": 90.8,
+          "needsImprovement": 5.8,
+          "poor": 3.4
+        }
+      },
+      "rtt": {
+        "p75": 270,
+        "rating": null,
+        "distribution": {
+          "good": 23.3,
+          "needsImprovement": 52.8,
+          "poor": 23.9
+        }
+      }
+    },
+    "cwvPass": true,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "probe": {
+      "metas": [],
+      "marks": [
+        "svelte"
+      ],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": null,
+    "headers": {
+      "via": "1.1 f53d68c63e2426e385994bc8f8166d9c.cloudfront.net (CloudFront)",
+      "x-amz-cf-id": "ezR7rNmBhctMC0kuckxz17J6Rd8VOeec4IrDQuVlITWDHlMpeFf0Pg==",
+      "x-powered-by": "huggingface-moon"
+    },
+    "violations": 16,
+    "passes": 1023,
+    "incomplete": 118,
+    "violationRules": 8,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "heading-order",
+        "impact": "moderate",
+        "nodes": 5,
+        "help": "Heading levels should only increase by one",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/heading-order?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "header[title=\"RecursiveSI/flint\"] > .group-hover\\/repo\\:text-indigo-600.text-md.dark\\:group-hover\\/repo\\:text-yellow-500",
+            "snippet": "<h4 class=\"text-md truncate font-mono text-black dark:group-hover/repo:text-yellow-500 group-hover/repo:text-indigo-600 text-smd\">RecursiveSI/flint</h4>"
+          },
+          {
+            "selector": ".to-indigo-600 > .pt-0\\.5 > .mr-12.text-white.text-sm > .gap-3.justify-between.items-center > .justify-start.mb-0\\.5.gap-1\\.5 > .text-ellipsis.drop-shadow-lg.text-balance",
+            "snippet": "<h4 class=\"overflow-hidden text-ellipsis whitespace-nowrap text-balance text-left drop-shadow-lg\" title=\"MiniMax H3 Turbo Lora UNCENSORED Workflow\">MiniMax H3 Turbo Lora UNCENSORED Workflow</h4>"
+          },
+          {
+            "selector": "header[title=\"nvidia/simready-assets\"] > .group-hover\\/repo\\:text-red-600.text-md.dark\\:group-hover\\/repo\\:text-yellow-500",
+            "snippet": "<h4 class=\"text-md truncate font-mono text-black dark:group-hover/repo:text-yellow-500 group-hover/repo:text-red-600 text-smd\">nvidia/simready-assets</h4>"
+          },
+          {
+            "selector": "h4[title=\"Ai2\"]",
+            "snippet": "<h4 href=\"/allenai\" class=\"truncate font-semibold \" title=\"Ai2\">Ai2<!----></h4>"
+          },
+          {
+            "selector": "a[href$=\"transformers\"] > .leading-tight\\!.sm\\:gap-2.sm\\:text-xl",
+            "snippet": "<h4 class=\"leading-tight! flex items-center gap-1.5 text-lg font-bold sm:gap-2 sm:text-xl 2xl:text-2xl\"><div class=\"h-2 w-2 flex-none rounded-full bg-orange-500\"></div> Transformers</h4>"
+          }
+        ]
+      },
+      {
+        "id": "landmark-main-is-top-level",
+        "impact": "moderate",
+        "nodes": 5,
+        "help": "Main landmark should not be contained in another landmark",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/landmark-main-is-top-level?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".to-indigo-600 > .pt-0\\.5",
+            "snippet": "<main class=\"px-3 flex flex-col justify-center h-full pt-0.5 relative\">"
+          },
+          {
+            "selector": ".from-green-600 > .pt-0\\.5",
+            "snippet": "<main class=\"px-3 flex flex-col justify-center h-full pt-0.5 relative\">"
+          },
+          {
+            "selector": ".from-yellow-600 > .pt-0\\.5",
+            "snippet": "<main class=\"px-3 flex flex-col justify-center h-full pt-0.5 relative\">"
+          },
+          {
+            "selector": ".from-pink-600 > .pt-0\\.5",
+            "snippet": "<main class=\"px-3 flex flex-col justify-center h-full pt-0.5 relative\">"
+          },
+          {
+            "selector": ".from-purple-600.to-pink-600.hover\\:brightness-110 > .pt-0\\.5",
+            "snippet": "<main class=\"px-3 flex flex-col justify-center h-full pt-0.5 relative\">"
+          }
+        ]
+      },
+      {
+        "id": "button-name",
+        "impact": "critical",
+        "nodes": 1,
+        "help": "Buttons must have discernible text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/button-name?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".z-40",
+            "snippet": "<button class=\"relative z-40 flex h-6 w-8 items-center justify-center\" type=\"button\">"
+          }
+        ]
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/color-contrast?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".px-5.py-7.md\\:px-8 > .sm\\:gap-x-3\\.5.gap-x-2\\.5.whitespace-nowrap > .\\32 xl\\:text-base.text-smd",
+            "snippet": "<p class=\"text-smd text-gray-400 2xl:text-base\">Starting at $0.60/hour for GPU</p>"
+          }
+        ]
+      },
+      {
+        "id": "html-has-lang",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "<html> element must have a lang attribute",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/html-has-lang?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "html",
+            "snippet": "<html class=\"\" style=\"--animation-phase: -2559ms;\">"
+          }
+        ]
+      },
+      {
+        "id": "landmark-no-duplicate-main",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Document should not have more than one main landmark",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/landmark-no-duplicate-main?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".min-h-dvh.flex-col.flex > main",
+            "snippet": "<main class=\"flex flex-1 flex-col\">"
+          }
+        ]
+      },
+      {
+        "id": "landmark-unique",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/landmark-unique?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".min-h-dvh.flex-col.flex > main",
+            "snippet": "<main class=\"flex flex-1 flex-col\">"
+          }
+        ]
+      },
+      {
+        "id": "meta-viewport",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Zooming and scaling must not be disabled",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/meta-viewport?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "meta[name=\"viewport\"]",
+            "snippet": "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=no\">"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}

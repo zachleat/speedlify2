@@ -1,0 +1,388 @@
+{
+  "url": "https://www.squarespace.com/",
+  "name": "Squarespace",
+  "group": "builders",
+  "groupName": "Website Builders",
+  "timestamp": 1793207696132,
+  "date": "2026-10-28T17:14:56.132Z",
+  "runId": "2026-10-28T17-06-26-705Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 2,
+  "durationMs": 487516,
+  "error": null,
+  "partialErrors": [
+    "NO_FCP: The page did not paint any content. Please ensure you keep the browser window in the foreground during the load and try again. (NO_FCP)"
+  ],
+  "variance": {
+    "min": 25,
+    "max": 25,
+    "spread": 0,
+    "runs": 2
+  },
+  "lab": {
+    "requestedUrl": "https://www.squarespace.com/",
+    "finalUrl": "https://www.squarespace.com/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 25,
+      "accessibility": 97,
+      "best-practices": 73,
+      "seo": 92,
+      "agentic-browsing": 67
+    },
+    "timings": {
+      "fcp": 14302,
+      "lcp": 29763,
+      "si": 14302,
+      "tbt": 6058,
+      "tti": 36349,
+      "cls": 0,
+      "ttfb": 698,
+      "maxPotentialFid": 1798,
+      "serverResponseTime": 218,
+      "networkRtt": 35.8,
+      "networkServerLatency": 444.6
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 219.6,
+      "elementRenderDelay": 2603.2
+    },
+    "weight": {
+      "total": 5353896,
+      "requests": 186,
+      "mainDocument": 90085,
+      "byType": {
+        "total": {
+          "bytes": 5353896,
+          "requests": 185
+        },
+        "script": {
+          "bytes": 3504162,
+          "requests": 47
+        },
+        "image": {
+          "bytes": 1439915,
+          "requests": 40
+        },
+        "font": {
+          "bytes": 270380,
+          "requests": 5
+        },
+        "document": {
+          "bytes": 92514,
+          "requests": 5
+        },
+        "stylesheet": {
+          "bytes": 26049,
+          "requests": 6
+        },
+        "other": {
+          "bytes": 20876,
+          "requests": 82
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 5353896,
+          "requests": 185
+        }
+      },
+      "scripts": 47,
+      "stylesheets": 6,
+      "fonts": 5
+    },
+    "thirdParty": {
+      "count": 25,
+      "bytes": 2283290,
+      "mainThreadMs": 361.8,
+      "top": [
+        {
+          "entity": "sqspcdn.com",
+          "bytes": 1697030,
+          "mainThreadMs": 0,
+          "byType": {
+            "image": 1425610,
+            "font": 270380,
+            "other": 1040
+          },
+          "typedBytes": 1697030
+        },
+        {
+          "entity": "Facebook",
+          "bytes": 249003,
+          "mainThreadMs": 230.4,
+          "byType": {
+            "script": 249003
+          },
+          "typedBytes": 249003
+        },
+        {
+          "entity": "TrustArc",
+          "bytes": 65519,
+          "mainThreadMs": 14.7,
+          "byType": {
+            "script": 53818,
+            "image": 10807,
+            "other": 894
+          },
+          "typedBytes": 65519
+        },
+        {
+          "entity": "Pinterest",
+          "bytes": 46551,
+          "mainThreadMs": 19.5,
+          "byType": {
+            "script": 45054,
+            "other": 1497
+          },
+          "typedBytes": 46551
+        },
+        {
+          "entity": "openai.com",
+          "bytes": 33731,
+          "mainThreadMs": 9.5,
+          "byType": {
+            "script": 29697,
+            "other": 4034
+          },
+          "typedBytes": 33731
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 27083.6,
+      "byGroup": {
+        "scriptEvaluation": 14514.4,
+        "other": 8424.7,
+        "scriptParseCompile": 1695.3,
+        "paintCompositeRender": 912.8,
+        "styleLayout": 878.8,
+        "garbageCollection": 562.3,
+        "parseHTML": 95.5
+      },
+      "bootupMs": 15857.6,
+      "longTasks": 20,
+      "longestTaskMs": 1798
+    },
+    "dom": {
+      "elements": 3391,
+      "depth": 18,
+      "maxChildren": 90
+    },
+    "waste": {
+      "unusedJsBytes": 1063443,
+      "unusedCssBytes": 14090,
+      "legacyJsBytes": 60254,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 4228,
+      "renderBlockingCount": 13,
+      "poorlyCachedBytes": 401116.8108946307,
+      "poorlyCachedCount": 22
+    },
+    "accessibility": {
+      "failingCount": 2,
+      "applicableCount": 32,
+      "failingNodes": 4,
+      "failing": [
+        {
+          "id": "aria-prohibited-attr",
+          "title": "Elements use prohibited ARIA attributes",
+          "weight": 7,
+          "nodes": 2
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "title": "Elements with visible text labels do not have matching accessible names.",
+          "weight": 0,
+          "nodes": 2
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 4,
+      "applicableCount": 20,
+      "failing": [
+        {
+          "id": "third-party-cookies",
+          "title": "Uses third-party cookies",
+          "weight": 5,
+          "nodes": 24
+        },
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "weight": 1,
+          "nodes": 1
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "weight": 1,
+          "nodes": 1
+        },
+        {
+          "id": "valid-source-maps",
+          "title": "Missing source maps for large first-party JavaScript",
+          "weight": 0,
+          "nodes": 13
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 1,
+      "applicableCount": 10,
+      "failing": [
+        {
+          "id": "crawlable-anchors",
+          "title": "Links are not crawlable",
+          "weight": 1,
+          "nodes": 1
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": null,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 1,
+      "baselineLimitedFeatures": 55
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2493,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-10-28T17:17:46.830Z",
+      "runtimeMs": 75537
+    }
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-09-29",
+      "last": "2026-10-26"
+    },
+    "metrics": {
+      "inp": {
+        "p75": 279,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 62.3,
+          "needsImprovement": 27.3,
+          "poor": 10.4
+        }
+      },
+      "lcp": {
+        "p75": 3160,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 63.8,
+          "needsImprovement": 21,
+          "poor": 15.3
+        }
+      },
+      "rtt": {
+        "p75": 145,
+        "rating": null,
+        "distribution": {
+          "good": 41.6,
+          "needsImprovement": 50.2,
+          "poor": 8.3
+        }
+      },
+      "cls": {
+        "p75": 0.01,
+        "rating": "good",
+        "distribution": {
+          "good": 93,
+          "needsImprovement": 4.5,
+          "poor": 2.5
+        }
+      },
+      "ttfb": {
+        "p75": 1157,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 64.1,
+          "needsImprovement": 24.4,
+          "poor": 11.6
+        }
+      },
+      "fcp": {
+        "p75": 2040,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 69.6,
+          "needsImprovement": 20,
+          "poor": 10.4
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": true,
+    "generator": null,
+    "probe": {
+      "metas": [],
+      "marks": [
+        "react"
+      ],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": null,
+      "name": "Squarespace",
+      "icon": null,
+      "source": "server"
+    },
+    "headers": {
+      "server": "Squarespace"
+    },
+    "violations": 2,
+    "passes": 1674,
+    "incomplete": 59,
+    "violationRules": 1,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "aria-prohibited-attr",
+        "impact": "serious",
+        "nodes": 2,
+        "help": "Elements must only use permitted ARIA attributes",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/aria-prohibited-attr?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "#starting-point-rotate",
+            "snippet": "<a class=\"cta cta--inline templates__mobile-carousel-item-content\" id=\"starting-point-rotate\" title=\"Rotate\" aria-label=\"Start with this template\" tabindex=\"-1\" data-sl-attr-variant=\"aria-label:e2561…"
+          },
+          {
+            "selector": "#starting-point-altaloma",
+            "snippet": "<a class=\"cta cta--inline templates__mobile-carousel-item-content\" id=\"starting-point-altaloma\" title=\"Alta Loma\" aria-label=\"Start with this template\" tabindex=\"-1\" data-sl-attr-variant=\"aria-label:…"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
