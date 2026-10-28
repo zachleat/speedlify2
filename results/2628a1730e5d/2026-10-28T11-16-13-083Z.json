@@ -1,0 +1,402 @@
+{
+  "url": "https://www.uber.com/",
+  "name": "Uber",
+  "group": "big-tech",
+  "groupName": "Big Tech",
+  "timestamp": 1793186173083,
+  "date": "2026-10-28T11:16:13.083Z",
+  "runId": "2026-10-28T10-59-19-035Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 115351,
+  "error": null,
+  "variance": {
+    "min": 42,
+    "max": 45,
+    "spread": 3,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://www.uber.com/",
+    "finalUrl": "https://www.uber.com/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 43,
+      "accessibility": 93,
+      "best-practices": 77,
+      "seo": 92,
+      "agentic-browsing": 50
+    },
+    "timings": {
+      "fcp": 5562,
+      "lcp": 18041,
+      "si": 6906,
+      "tbt": 618,
+      "tti": 18454,
+      "cls": 0,
+      "ttfb": 630,
+      "maxPotentialFid": 296,
+      "serverResponseTime": 191,
+      "networkRtt": 20.2,
+      "networkServerLatency": 75
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 234.8,
+      "elementRenderDelay": 1161.8
+    },
+    "weight": {
+      "total": 13500699,
+      "requests": 103,
+      "mainDocument": 147759,
+      "byType": {
+        "total": {
+          "bytes": 13500699,
+          "requests": 102
+        },
+        "media": {
+          "bytes": 10073970,
+          "requests": 1
+        },
+        "image": {
+          "bytes": 1601351,
+          "requests": 32
+        },
+        "script": {
+          "bytes": 1477427,
+          "requests": 39
+        },
+        "document": {
+          "bytes": 147759,
+          "requests": 1
+        },
+        "font": {
+          "bytes": 121382,
+          "requests": 4
+        },
+        "other": {
+          "bytes": 65406,
+          "requests": 24
+        },
+        "stylesheet": {
+          "bytes": 13404,
+          "requests": 1
+        },
+        "third-party": {
+          "bytes": 172779,
+          "requests": 4
+        }
+      },
+      "scripts": 39,
+      "stylesheets": 1,
+      "fonts": 4
+    },
+    "thirdParty": {
+      "count": 3,
+      "bytes": 172779,
+      "mainThreadMs": 33.4,
+      "top": [
+        {
+          "entity": "Other Google APIs/SDKs",
+          "bytes": 103123,
+          "mainThreadMs": 5.8,
+          "byType": {
+            "script": 103123
+          },
+          "typedBytes": 103123
+        },
+        {
+          "entity": "Tealium",
+          "bytes": 37468,
+          "mainThreadMs": 27.6,
+          "byType": {
+            "script": 37468
+          },
+          "typedBytes": 37468
+        },
+        {
+          "entity": "cloudfront.net",
+          "bytes": 32188,
+          "mainThreadMs": 0,
+          "byType": {
+            "image": 32188
+          },
+          "typedBytes": 32188
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 4981.5,
+      "byGroup": {
+        "scriptEvaluation": 3149.4,
+        "other": 909.2,
+        "styleLayout": 406.8,
+        "scriptParseCompile": 215.1,
+        "parseHTML": 142.5,
+        "garbageCollection": 118.8,
+        "paintCompositeRender": 39.6
+      },
+      "bootupMs": 3184.6,
+      "longTasks": 16,
+      "longestTaskMs": 296
+    },
+    "dom": {
+      "elements": 2500,
+      "depth": 34,
+      "maxChildren": 36
+    },
+    "waste": {
+      "unusedJsBytes": 783217,
+      "unusedCssBytes": 11841,
+      "legacyJsBytes": 26731,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 2135,
+      "renderBlockingMs": 0,
+      "renderBlockingCount": 1,
+      "poorlyCachedBytes": 8202863.636126627,
+      "poorlyCachedCount": 24
+    },
+    "accessibility": {
+      "failingCount": 2,
+      "applicableCount": 34,
+      "failingNodes": 2,
+      "failing": [
+        {
+          "id": "aria-dialog-name",
+          "title": "Elements with `role=\"dialog\"` or `role=\"alertdialog\"` do not have accessible names.",
+          "weight": 7,
+          "nodes": 1
+        },
+        {
+          "id": "target-size",
+          "title": "Touch targets do not have sufficient size or spacing.",
+          "weight": 7,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 3,
+      "applicableCount": 19,
+      "failing": [
+        {
+          "id": "third-party-cookies",
+          "title": "Uses third-party cookies",
+          "weight": 5,
+          "nodes": 1
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "weight": 1,
+          "nodes": 1
+        },
+        {
+          "id": "valid-source-maps",
+          "title": "Missing source maps for large first-party JavaScript",
+          "weight": 0,
+          "nodes": 35
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 1,
+      "applicableCount": 10,
+      "failing": [
+        {
+          "id": "link-text",
+          "title": "Links do not have descriptive text",
+          "weight": 1,
+          "nodes": 2
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 0,
+      "bfCacheFailures": 3,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 32
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 4185.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-10-28T11:16:14.301Z",
+      "runtimeMs": 16407.8
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 691.7,
+    "elementRenderDelay": 13496.1
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-09-29",
+      "last": "2026-10-26"
+    },
+    "metrics": {
+      "fcp": {
+        "p75": 1640,
+        "rating": "good",
+        "distribution": {
+          "good": 79.2,
+          "needsImprovement": 14.3,
+          "poor": 6.5
+        }
+      },
+      "inp": {
+        "p75": 207,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 74,
+          "needsImprovement": 19.4,
+          "poor": 6.6
+        }
+      },
+      "lcp": {
+        "p75": 2942,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 68.4,
+          "needsImprovement": 16.7,
+          "poor": 14.9
+        }
+      },
+      "rtt": {
+        "p75": 129,
+        "rating": null,
+        "distribution": {
+          "good": 42.4,
+          "needsImprovement": 48.5,
+          "poor": 9.1
+        }
+      },
+      "cls": {
+        "p75": 0,
+        "rating": "good",
+        "distribution": {
+          "good": 87.8,
+          "needsImprovement": 11.2,
+          "poor": 1
+        }
+      },
+      "ttfb": {
+        "p75": 778,
+        "rating": "good",
+        "distribution": {
+          "good": 75.8,
+          "needsImprovement": 18.5,
+          "poor": 5.8
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "probe": {
+      "metas": [],
+      "marks": [
+        "react"
+      ],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "cloudflare",
+      "name": "Cloudflare",
+      "icon": "Cloudflare",
+      "source": "server"
+    },
+    "headers": {
+      "cf-ray": "a51989a65aa0262b-LAX",
+      "server": "cloudflare"
+    },
+    "violations": 9,
+    "passes": 2036,
+    "incomplete": 11,
+    "violationRules": 3,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "image-redundant-alt",
+        "impact": "minor",
+        "nodes": 6,
+        "help": "Alternative text of images should not be repeated as text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/image-redundant-alt?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".css-cUKFPx[alt=\"Ride\"]",
+            "snippet": "<img alt=\"Ride\" class=\"css-cUKFPx\" src=\"https://mobile-content.uber.com/launch-experience/nava-icons-may-2026/light-mode/Sedan-160-temp.png\">"
+          },
+          {
+            "selector": ".css-cUKFPx[alt=\"Reserve\"]",
+            "snippet": "<img alt=\"Reserve\" class=\"css-cUKFPx\" src=\"https://cn-geo1.uber.com/static/mobile-content/launch-experience/nava-icons-may-2026/light-mode/Calendar-351-temp.png\">"
+          },
+          {
+            "selector": ".css-cUKFPx[alt=\"Airport\"]",
+            "snippet": "<img alt=\"Airport\" class=\"css-cUKFPx\" src=\"https://tb-static.uber.com/prod/uber-static/airport-nava-tile.png\">"
+          },
+          {
+            "selector": ".css-cUKFPx[alt=\"Black\"]",
+            "snippet": "<img alt=\"Black\" class=\"css-cUKFPx\" src=\"https://d1a3f4spazzrp4.cloudfront.net/car-types/haloProductImages/Regular/SedanBlack-013-0.png\">"
+          },
+          {
+            "selector": ".css-cUKFPx[alt=\"Rental Cars \"]",
+            "snippet": "<img alt=\"Rental Cars \" class=\"css-cUKFPx\" src=\"https://cn-geo1.uber.com/static/mobile-content/launch-experience/nava-icons-may-2026/light-mode/CarRentalKey-189-temp.png\">"
+          }
+        ]
+      },
+      {
+        "id": "landmark-unique",
+        "impact": "moderate",
+        "nodes": 2,
+        "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/landmark-unique?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".css-dpHrtI[data-baseweb=\"block\"] > .css-aiKAo.container-inner[data-baseweb=\"block\"] > .css-bVFrLX[data-testid=\"block-container\"][data-baseweb=\"block\"] > .css-HXvWP[data-baseweb=\"block\"]:nth-child(2) > .css-ygIAx[aria-label=\"Gallery\"][aria-roledescription=\"carousel\"]",
+            "snippet": "<div aria-label=\"Gallery\" aria-roledescription=\"carousel\" id=\"bullets-carousel\" role=\"region\" class=\"css-ygIAx\">"
+          },
+          {
+            "selector": ".css-dpHrtI[data-baseweb=\"block\"] > .css-aiKAo.container-inner[data-baseweb=\"block\"] > .css-bVFrLX[data-testid=\"block-container\"][data-baseweb=\"block\"] > .css-HXvWP[data-baseweb=\"block\"]:nth-child(2) > .css-Ueucm[data-testid=\"mobile-pagination\"] > .css-bcpvQL[aria-label=\"Gallery controls\"]",
+            "snippet": "<nav aria-label=\"Gallery controls\" class=\"css-bcpvQL\">"
+          }
+        ]
+      },
+      {
+        "id": "aria-dialog-name",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "ARIA dialog and alertdialog nodes should have an accessible name",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/aria-dialog-name?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "#privacy-cookie-banners-root",
+            "snippet": "<div role=\"dialog\" class=\"css-chgoVP\" id=\"privacy-cookie-banners-root\">"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
