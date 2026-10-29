@@ -1,0 +1,489 @@
+{
+  "url": "https://www.plex.tv/",
+  "name": "Plex",
+  "group": "nextjs-showcase",
+  "groupName": "Next.js Showcase",
+  "timestamp": 1793266407764,
+  "date": "2026-10-29T09:33:27.764Z",
+  "runId": "2026-10-29T09-24-11-811Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 238942,
+  "error": null,
+  "variance": {
+    "min": 26,
+    "max": 30,
+    "spread": 4,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://www.plex.tv/",
+    "finalUrl": "https://watch.plex.tv/",
+    "redirect": {
+      "from": "https://www.plex.tv/",
+      "to": "https://watch.plex.tv/",
+      "chain": [
+        {
+          "url": "https://www.plex.tv/",
+          "status": 301
+        },
+        {
+          "url": "https://watch.plex.tv/",
+          "status": 200
+        }
+      ],
+      "statuses": [
+        301
+      ],
+      "change": "host",
+      "permanent": true,
+      "schemeUpgrade": false,
+      "hops": 1
+    },
+    "statusCode": "ok",
+    "scores": {
+      "performance": 30,
+      "accessibility": 93,
+      "best-practices": 54,
+      "seo": 83,
+      "agentic-browsing": 67
+    },
+    "timings": {
+      "fcp": 3893,
+      "lcp": 13779,
+      "si": 8378,
+      "tbt": 3457,
+      "tti": 30463,
+      "cls": 0.012,
+      "ttfb": 675,
+      "maxPotentialFid": 1041,
+      "serverResponseTime": 409,
+      "networkRtt": 145.2,
+      "networkServerLatency": 147.9
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 430.7,
+      "resourceLoadDelay": 910.6,
+      "resourceLoadDuration": 23.1,
+      "elementRenderDelay": 694.2
+    },
+    "weight": {
+      "total": 4896491,
+      "requests": 381,
+      "mainDocument": 289330,
+      "byType": {
+        "total": {
+          "bytes": 4896107,
+          "requests": 377
+        },
+        "script": {
+          "bytes": 3214857,
+          "requests": 99
+        },
+        "image": {
+          "bytes": 1105977,
+          "requests": 139
+        },
+        "document": {
+          "bytes": 289750,
+          "requests": 3
+        },
+        "other": {
+          "bytes": 135429,
+          "requests": 96
+        },
+        "font": {
+          "bytes": 97074,
+          "requests": 2
+        },
+        "stylesheet": {
+          "bytes": 53020,
+          "requests": 38
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 2498227,
+          "requests": 117
+        }
+      },
+      "scripts": 101,
+      "stylesheets": 38,
+      "fonts": 2
+    },
+    "thirdParty": {
+      "count": 32,
+      "bytes": 2481754,
+      "mainThreadMs": 641.1,
+      "top": [
+        {
+          "entity": "Google Tag Manager",
+          "bytes": 522952,
+          "mainThreadMs": 167.6,
+          "byType": {
+            "script": 522952
+          },
+          "typedBytes": 522952
+        },
+        {
+          "entity": "intergient.com",
+          "bytes": 447614,
+          "mainThreadMs": 107,
+          "byType": {
+            "script": 447424,
+            "other": 190
+          },
+          "typedBytes": 447614
+        },
+        {
+          "entity": "Google/Doubleclick Ads",
+          "bytes": 341231,
+          "mainThreadMs": 45.3,
+          "byType": {
+            "script": 315843,
+            "other": 25388
+          },
+          "typedBytes": 341231
+        },
+        {
+          "entity": "confiant-integrations.net",
+          "bytes": 162622,
+          "mainThreadMs": 63.3,
+          "byType": {
+            "script": 162622
+          },
+          "typedBytes": 162622
+        },
+        {
+          "entity": "TikTok",
+          "bytes": 160906,
+          "mainThreadMs": 61.1,
+          "byType": {
+            "script": 159020,
+            "other": 1886
+          },
+          "typedBytes": 160906
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 13205.9,
+      "byGroup": {
+        "scriptEvaluation": 7273.3,
+        "other": 2954.2,
+        "styleLayout": 994.2,
+        "scriptParseCompile": 706.4,
+        "paintCompositeRender": 697,
+        "garbageCollection": 385.8,
+        "parseHTML": 195.1
+      },
+      "bootupMs": 7167.5,
+      "longTasks": 20,
+      "longestTaskMs": 1041
+    },
+    "dom": {
+      "elements": 20325,
+      "depth": 25,
+      "maxChildren": 93
+    },
+    "waste": {
+      "unusedJsBytes": 1443178,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 61462,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 3857,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 150,
+      "renderBlockingCount": 34,
+      "poorlyCachedBytes": 425371.91958333325,
+      "poorlyCachedCount": 31
+    },
+    "accessibility": {
+      "failingCount": 2,
+      "applicableCount": 28,
+      "failingNodes": 36,
+      "failing": [
+        {
+          "id": "aria-prohibited-attr",
+          "title": "Elements use prohibited ARIA attributes",
+          "weight": 7,
+          "nodes": 31
+        },
+        {
+          "id": "link-name",
+          "title": "Links do not have a discernible name",
+          "weight": 7,
+          "nodes": 5
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 5,
+      "applicableCount": 18,
+      "failing": [
+        {
+          "id": "deprecations",
+          "title": "Uses deprecated APIs",
+          "weight": 5,
+          "nodes": 2
+        },
+        {
+          "id": "third-party-cookies",
+          "title": "Uses third-party cookies",
+          "weight": 5,
+          "nodes": 33
+        },
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "weight": 1,
+          "nodes": 1
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "weight": 1,
+          "nodes": 1
+        },
+        {
+          "id": "valid-source-maps",
+          "title": "Missing source maps for large first-party JavaScript",
+          "weight": 0,
+          "nodes": 2
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 2,
+      "applicableCount": 9,
+      "failing": [
+        {
+          "id": "meta-description",
+          "title": "Document does not have a meta description",
+          "weight": 1,
+          "nodes": null
+        },
+        {
+          "id": "link-text",
+          "title": "Links do not have descriptive text",
+          "weight": 1,
+          "nodes": 40
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": null,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 0,
+      "bfCacheFailures": 4,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 768.4,
+      "consoleErrors": 1,
+      "baselineLimitedFeatures": 60
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 3777.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-10-29T09:35:13.668Z",
+      "runtimeMs": 26531.3
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 1275.4,
+    "resourceLoadDelay": 1228.8,
+    "resourceLoadDuration": 2867.4,
+    "elementRenderDelay": 1173.7
+  },
+  "field": {
+    "source": "crux",
+    "scope": "origin",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-09-30",
+      "last": "2026-10-27"
+    },
+    "metrics": {
+      "fcp": {
+        "p75": 1588,
+        "rating": "good",
+        "distribution": {
+          "good": 78.9,
+          "needsImprovement": 12.3,
+          "poor": 8.8
+        }
+      },
+      "inp": {
+        "p75": 237,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 67.4,
+          "needsImprovement": 27.1,
+          "poor": 5.5
+        }
+      },
+      "lcp": {
+        "p75": 2220,
+        "rating": "good",
+        "distribution": {
+          "good": 79.1,
+          "needsImprovement": 12.1,
+          "poor": 8.8
+        }
+      },
+      "rtt": {
+        "p75": 155,
+        "rating": null,
+        "distribution": {
+          "good": 37.8,
+          "needsImprovement": 53.5,
+          "poor": 8.8
+        }
+      },
+      "cls": {
+        "p75": 0.03,
+        "rating": "good",
+        "distribution": {
+          "good": 87.7,
+          "needsImprovement": 10.3,
+          "poor": 2
+        }
+      },
+      "ttfb": {
+        "p75": 844,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 73.4,
+          "needsImprovement": 16.7,
+          "poor": 9.9
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": {
+      "id": "nextjs",
+      "name": "Next.js",
+      "icon": "Nextdotjs",
+      "version": null,
+      "source": "dom",
+      "raw": null
+    },
+    "probe": {
+      "metas": [],
+      "marks": [
+        "next",
+        "react"
+      ],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "cloudflare",
+      "name": "Cloudflare",
+      "icon": "Cloudflare",
+      "source": "server"
+    },
+    "headers": {
+      "cf-ray": "a52131aab88ade63-LAX",
+      "server": "cloudflare"
+    },
+    "violations": 38,
+    "passes": 18287,
+    "incomplete": 862,
+    "violationRules": 3,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "aria-prohibited-attr",
+        "impact": "serious",
+        "nodes": 31,
+        "help": "Elements must only use permitted ARIA attributes",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/aria-prohibited-attr?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "div[aria-label=\"39% complete\"]",
+            "snippet": "<div aria-label=\"39% complete\" class=\"aiglaa0\" style=\"width: 100%; height: 100%;\"><div class=\"aiglaa1 aiglaa5\"></div><div class=\"aiglaae aiglaaf\" style=\"transform: translate3d(-61%, 0px, 0px);\"></div…"
+          },
+          {
+            "selector": "div[aria-label=\"87% complete\"]",
+            "snippet": "<div aria-label=\"87% complete\" class=\"aiglaa0\" style=\"width: 100%; height: 100%;\"><div class=\"aiglaa1 aiglaa5\"></div><div class=\"aiglaae aiglaaf\" style=\"transform: translate3d(-13%, 0px, 0px);\"></div…"
+          },
+          {
+            "selector": "div[aria-label=\"69% complete\"]",
+            "snippet": "<div aria-label=\"69% complete\" class=\"aiglaa0\" style=\"width: 100%; height: 100%;\"><div class=\"aiglaa1 aiglaa5\"></div><div class=\"aiglaae aiglaaf\" style=\"transform: translate3d(-31%, 0px, 0px);\"></div…"
+          },
+          {
+            "selector": ".xhahwja:nth-child(5) > .po8e0t1 > figure > ._1fh5d4i6._1fh5d4i4._1fh5d4i2 > .det6jp9c.det6jpao.det6jpc0 > ._1mcyqow0 > ._1mcyqow2 > ._1mcyqowg > .aiglaa0[aria-label=\"36% complete\"]",
+            "snippet": "<div aria-label=\"36% complete\" class=\"aiglaa0\" style=\"width: 100%; height: 100%;\"><div class=\"aiglaa1 aiglaa5\"></div><div class=\"aiglaae aiglaaf\" style=\"transform: translate3d(-64%, 0px, 0px);\"></div…"
+          },
+          {
+            "selector": "div[aria-label=\"14% complete\"]",
+            "snippet": "<div aria-label=\"14% complete\" class=\"aiglaa0\" style=\"width: 100%; height: 100%;\"><div class=\"aiglaa1 aiglaa5\"></div><div class=\"aiglaae aiglaaf\" style=\"transform: translate3d(-86%, 0px, 0px);\"></div…"
+          }
+        ]
+      },
+      {
+        "id": "link-name",
+        "impact": "serious",
+        "nodes": 5,
+        "help": "Links must have discernible text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/link-name?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".det6jp48.det6jp14.det6jpdk > ._1ibfqemc._1ibfqemn._1ibfqemj:nth-child(2)",
+            "snippet": "<a aria-disabled=\"false\" class=\"_1r6wp5u0 _1ibfqem2 _1ibfqem1 _1ibfqemc _1ibfqemj cvmzrg0 _1ibfqem4 _1ibfqemn det6jp3s det6jp2c det6jp1w\" href=\"/movie/hope-2026-2/review/Rick%20Williams?metricsOrigin…"
+          },
+          {
+            "selector": ".xhahwja:nth-child(15) > .LumaUgcCardShell-module__q--nfa__container.LumaUgcCardShell-module__q--nfa__l > .LumaUgcCardActionBar-module__LTIgga__actionBar > .LumaUgcCardActionBar-module__LTIgga__segment:nth-child(2) > ._1ibfqemn._1ibfqemj[data-id=\"goToComments\"]",
+            "snippet": "<a data-id=\"goToComments\" aria-disabled=\"false\" class=\"_1r6wp5u0 _1ibfqem2 _1ibfqem1 _1ibfqemd _1ibfqemj cvmzrg0 _1ibfqem4 _1ibfqemn det6jp3s det6jp2c det6jp1w\" href=\"/u/ounut/lists/jKrK-hallowwweeee…"
+          },
+          {
+            "selector": ".xhahwja:nth-child(17) > .LumaUgcCardShell-module__q--nfa__container.LumaUgcCardShell-module__q--nfa__l > .LumaUgcCardActionBar-module__LTIgga__actionBar > .LumaUgcCardActionBar-module__LTIgga__segment:nth-child(2) > ._1ibfqemn._1ibfqemj[data-id=\"goToComments\"]",
+            "snippet": "<a data-id=\"goToComments\" aria-disabled=\"false\" class=\"_1r6wp5u0 _1ibfqem2 _1ibfqem1 _1ibfqemd _1ibfqemj cvmzrg0 _1ibfqem4 _1ibfqemn det6jp3s det6jp2c det6jp1w\" href=\"/u/uduns7/lists/qqz6-batman-movi…"
+          },
+          {
+            "selector": ".xhahwja:nth-child(20) > .LumaUgcCardShell-module__q--nfa__container.LumaUgcCardShell-module__q--nfa__l > .LumaUgcCardActionBar-module__LTIgga__actionBar > .LumaUgcCardActionBar-module__LTIgga__segment:nth-child(2) > ._1ibfqemn._1ibfqemj[data-id=\"goToComments\"]",
+            "snippet": "<a data-id=\"goToComments\" aria-disabled=\"false\" class=\"_1r6wp5u0 _1ibfqem2 _1ibfqem1 _1ibfqemd _1ibfqemj cvmzrg0 _1ibfqem4 _1ibfqemn det6jp3s det6jp2c det6jp1w\" href=\"/u/zookinheimer/lists/Khkm-kat/c…"
+          },
+          {
+            "selector": ".xhahwja:nth-child(1) > .LumaUgcCardShell-module__q--nfa__container.LumaUgcCardShell-module__q--nfa__l > .LumaUgcCardActionBar-module__LTIgga__actionBar > .LumaUgcCardActionBar-module__LTIgga__segment:nth-child(2) > ._1ibfqemn._1ibfqemj[data-id=\"goToComments\"]",
+            "snippet": "<a data-id=\"goToComments\" aria-disabled=\"false\" class=\"_1r6wp5u0 _1ibfqem2 _1ibfqem1 _1ibfqemd _1ibfqemj cvmzrg0 _1ibfqem4 _1ibfqemn det6jp3s det6jp2c det6jp1w\" href=\"/movie/the-dog-stars/discussions…"
+          }
+        ]
+      },
+      {
+        "id": "landmark-unique",
+        "impact": "moderate",
+        "nodes": 2,
+        "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/landmark-unique?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "header > nav",
+            "snippet": "<nav class=\"_13usayk0 det6jpw det6jp2w det6jp18 det6jp2g det6jp20 det6jp1s det6jp3k det6jpdo\">"
+          },
+          {
+            "selector": "._1t9owge3",
+            "snippet": "<div tabindex=\"-1\" role=\"region\" aria-live=\"polite\" aria-atomic=\"false\" aria-relevant=\"additions text\" aria-label=\"Notifications\" class=\"_1t9owge3\"></div>"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
