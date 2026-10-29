@@ -1,0 +1,471 @@
+{
+  "url": "https://www.lg.com/",
+  "name": "LG",
+  "group": "nextjs-showcase",
+  "groupName": "Next.js Showcase",
+  "timestamp": 1793266320319,
+  "date": "2026-10-29T09:32:00.319Z",
+  "runId": "2026-10-29T09-24-13-782Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 205784,
+  "error": null,
+  "variance": {
+    "min": 37,
+    "max": 42,
+    "spread": 5,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://www.lg.com/",
+    "finalUrl": "https://www.lg.com/us/",
+    "redirect": {
+      "from": "https://www.lg.com/",
+      "to": "https://www.lg.com/us",
+      "chain": [
+        {
+          "url": "https://www.lg.com/",
+          "status": 301
+        },
+        {
+          "url": "https://www.lg.com/us",
+          "status": 301
+        },
+        {
+          "url": "https://www.lg.com/us/",
+          "status": 200
+        }
+      ],
+      "statuses": [
+        301,
+        301
+      ],
+      "change": "path",
+      "permanent": true,
+      "schemeUpgrade": false,
+      "hops": 2
+    },
+    "statusCode": "ok",
+    "scores": {
+      "performance": 38,
+      "accessibility": 76,
+      "best-practices": 54,
+      "seo": 85,
+      "agentic-browsing": 67
+    },
+    "timings": {
+      "fcp": 2804,
+      "lcp": 4776,
+      "si": 37907,
+      "tbt": 6501,
+      "tti": 82933,
+      "cls": 0.023,
+      "ttfb": 650,
+      "maxPotentialFid": 1204,
+      "serverResponseTime": 79,
+      "networkRtt": 53.9,
+      "networkServerLatency": 328.4
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 139.5,
+      "elementRenderDelay": 157.8
+    },
+    "weight": {
+      "total": 20230390,
+      "requests": 703,
+      "mainDocument": 317143,
+      "byType": {
+        "total": {
+          "bytes": 20211628,
+          "requests": 693
+        },
+        "font": {
+          "bytes": 9361095,
+          "requests": 23
+        },
+        "script": {
+          "bytes": 5467111,
+          "requests": 179
+        },
+        "image": {
+          "bytes": 4031887,
+          "requests": 274
+        },
+        "media": {
+          "bytes": 860041,
+          "requests": 4
+        },
+        "document": {
+          "bytes": 337846,
+          "requests": 13
+        },
+        "other": {
+          "bytes": 129079,
+          "requests": 192
+        },
+        "stylesheet": {
+          "bytes": 24569,
+          "requests": 8
+        },
+        "third-party": {
+          "bytes": 13864516,
+          "requests": 386
+        }
+      },
+      "scripts": 181,
+      "stylesheets": 8,
+      "fonts": 23
+    },
+    "thirdParty": {
+      "count": 68,
+      "bytes": 7140794,
+      "mainThreadMs": 3946.5,
+      "top": [
+        {
+          "entity": "FullStory",
+          "bytes": 2508337,
+          "mainThreadMs": 239,
+          "byType": {
+            "script": 2505269,
+            "other": 3068
+          },
+          "typedBytes": 2508337
+        },
+        {
+          "entity": "Google Tag Manager",
+          "bytes": 1606452,
+          "mainThreadMs": 532.7,
+          "byType": {
+            "script": 1606452
+          },
+          "typedBytes": 1606452
+        },
+        {
+          "entity": "sprinklr.com",
+          "bytes": 456206,
+          "mainThreadMs": 45.4,
+          "byType": {
+            "script": 415080,
+            "other": 22960,
+            "image": 18166
+          },
+          "typedBytes": 456206
+        },
+        {
+          "entity": "audioeye.com",
+          "bytes": 338582,
+          "mainThreadMs": 1681.4,
+          "byType": {
+            "script": 322765,
+            "stylesheet": 15757,
+            "other": 60
+          },
+          "typedBytes": 338582
+        },
+        {
+          "entity": "Optimizely",
+          "bytes": 289649,
+          "mainThreadMs": 513.5,
+          "byType": {
+            "script": 288499,
+            "other": 1150
+          },
+          "typedBytes": 289649
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 34665,
+      "byGroup": {
+        "scriptEvaluation": 25581.7,
+        "other": 4583.6,
+        "styleLayout": 1373.9,
+        "scriptParseCompile": 1110.5,
+        "garbageCollection": 851.7,
+        "paintCompositeRender": 840.7,
+        "parseHTML": 322.9
+      },
+      "bootupMs": 24507.9,
+      "longTasks": 20,
+      "longestTaskMs": 1204
+    },
+    "dom": {
+      "elements": 9333,
+      "depth": 23,
+      "maxChildren": 45
+    },
+    "waste": {
+      "unusedJsBytes": 2015329,
+      "unusedCssBytes": 23914,
+      "legacyJsBytes": 105360,
+      "duplicatedJsBytes": 743,
+      "unminifiedJsBytes": 63796,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 305,
+      "renderBlockingCount": 1,
+      "poorlyCachedBytes": 11234443.614055775,
+      "poorlyCachedCount": 176
+    },
+    "accessibility": {
+      "failingCount": 7,
+      "applicableCount": 35,
+      "failingNodes": 62,
+      "failing": [
+        {
+          "id": "listitem",
+          "title": "List items (`<li>`) are not contained within `<ul>`, `<ol>` or `<menu>` parent elements.",
+          "weight": 7,
+          "nodes": 31
+        },
+        {
+          "id": "aria-hidden-focus",
+          "title": "`[aria-hidden=\"true\"]` elements contain focusable descendents",
+          "weight": 7,
+          "nodes": 15
+        },
+        {
+          "id": "aria-required-parent",
+          "title": "`[role]`s are not contained by their required parent element",
+          "weight": 10,
+          "nodes": 8
+        },
+        {
+          "id": "target-size",
+          "title": "Touch targets do not have sufficient size or spacing.",
+          "weight": 7,
+          "nodes": 3
+        },
+        {
+          "id": "link-name",
+          "title": "Links do not have a discernible name",
+          "weight": 7,
+          "nodes": 2
+        },
+        {
+          "id": "meta-viewport",
+          "title": "`[user-scalable=\"no\"]` is used in the `<meta name=\"viewport\">` element or the `[maximum-scale]` attribute is less than 5.",
+          "weight": 10,
+          "nodes": 2
+        },
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "weight": 7,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 4,
+      "applicableCount": 19,
+      "failing": [
+        {
+          "id": "deprecations",
+          "title": "Uses deprecated APIs",
+          "weight": 5,
+          "nodes": 2
+        },
+        {
+          "id": "third-party-cookies",
+          "title": "Uses third-party cookies",
+          "weight": 5,
+          "nodes": 119
+        },
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "weight": 1,
+          "nodes": 27
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "weight": 1,
+          "nodes": 1
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 2,
+      "applicableCount": 10,
+      "failing": [
+        {
+          "id": "link-text",
+          "title": "Links do not have descriptive text",
+          "weight": 1,
+          "nodes": 27
+        },
+        {
+          "id": "robots-txt",
+          "title": "robots.txt is not valid",
+          "weight": 1,
+          "nodes": 1
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 0,
+      "bfCacheFailures": 1,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 802.2,
+      "consoleErrors": 27,
+      "baselineLimitedFeatures": 77
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 3676,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-10-29T09:32:39.138Z",
+      "runtimeMs": 35233.8
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 1742.6,
+    "elementRenderDelay": 1491.2
+  },
+  "field": {
+    "source": "crux",
+    "scope": "origin",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-09-30",
+      "last": "2026-10-27"
+    },
+    "metrics": {
+      "fcp": {
+        "p75": 4098,
+        "rating": "poor",
+        "distribution": {
+          "good": 34.1,
+          "needsImprovement": 26.5,
+          "poor": 39.5
+        }
+      },
+      "inp": {
+        "p75": 957,
+        "rating": "poor",
+        "distribution": {
+          "good": 28.5,
+          "needsImprovement": 29.1,
+          "poor": 42.5
+        }
+      },
+      "lcp": {
+        "p75": 4771,
+        "rating": "poor",
+        "distribution": {
+          "good": 43,
+          "needsImprovement": 24.1,
+          "poor": 32.9
+        }
+      },
+      "rtt": {
+        "p75": 164,
+        "rating": null,
+        "distribution": {
+          "good": 29,
+          "needsImprovement": 61.6,
+          "poor": 9.3
+        }
+      },
+      "cls": {
+        "p75": 0.31,
+        "rating": "poor",
+        "distribution": {
+          "good": 60.8,
+          "needsImprovement": 10.8,
+          "poor": 28.4
+        }
+      },
+      "ttfb": {
+        "p75": 1414,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 48,
+          "needsImprovement": 35.8,
+          "poor": 16.2
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": {
+      "id": "nextjs",
+      "name": "Next.js",
+      "icon": "Nextdotjs",
+      "version": null,
+      "source": "dom",
+      "raw": null
+    },
+    "probe": {
+      "metas": [],
+      "marks": [
+        "next",
+        "react"
+      ],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "akamai",
+      "name": "Akamai",
+      "icon": "Akamai",
+      "source": "server"
+    },
+    "headers": {
+      "server": "AkamaiGHost"
+    },
+    "violations": 3,
+    "passes": 257,
+    "incomplete": 72,
+    "violationRules": 2,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "meta-viewport",
+        "impact": "moderate",
+        "nodes": 2,
+        "help": "Zooming and scaling must not be disabled",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/meta-viewport?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "meta[name=\"viewport\"]:nth-child(51)",
+            "snippet": "<meta name=\"viewport\" content=\"minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=no, viewport-fit=cover\">"
+          },
+          {
+            "selector": "meta[name=\"viewport\"]:nth-child(70)",
+            "snippet": "<meta name=\"viewport\" content=\"minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=no, viewport-fit=cover\">"
+          }
+        ]
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/color-contrast?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "#attentive_creative >>> #ctabutton1header1",
+            "snippet": "<span id=\"ctabutton1header1\" color=\"#ffffff\" font-size=\"1rem\" letter-spacing=\"0px\" class=\"css-ywg856\">CONTINUE</span>"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
