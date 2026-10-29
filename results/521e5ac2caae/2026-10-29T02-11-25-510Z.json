@@ -1,0 +1,434 @@
+{
+  "url": "https://leonardo.ai/",
+  "name": "Leonardo.Ai",
+  "group": "nextjs-showcase",
+  "groupName": "Next.js Showcase",
+  "timestamp": 1793239885510,
+  "date": "2026-10-29T02:11:25.510Z",
+  "runId": "2026-10-29T02-07-18-197Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 2,
+  "durationMs": 118073,
+  "error": null,
+  "partialErrors": [
+    "ERRORED_DOCUMENT_REQUEST: Lighthouse was unable to reliably load the page you requested. Make sure you are testing the correct URL and that the server is properly responding to all requests. (Status code: 403)"
+  ],
+  "variance": {
+    "min": 44,
+    "max": 49,
+    "spread": 5,
+    "runs": 2
+  },
+  "lab": {
+    "requestedUrl": "https://leonardo.ai/",
+    "finalUrl": "https://leonardo.ai/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 44,
+      "accessibility": 93,
+      "best-practices": 73,
+      "seo": 100,
+      "agentic-browsing": 50
+    },
+    "timings": {
+      "fcp": 2352,
+      "lcp": 11794,
+      "si": 8159,
+      "tbt": 840,
+      "tti": 16671,
+      "cls": 0,
+      "ttfb": 634,
+      "maxPotentialFid": 573,
+      "serverResponseTime": 63,
+      "networkRtt": 36.5,
+      "networkServerLatency": 47.4
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 147.3,
+      "resourceLoadDelay": 620.1,
+      "resourceLoadDuration": 40.6,
+      "elementRenderDelay": 65.1
+    },
+    "weight": {
+      "total": 2602384,
+      "requests": 136,
+      "mainDocument": 81209,
+      "byType": {
+        "total": {
+          "bytes": 2602384,
+          "requests": 86
+        },
+        "script": {
+          "bytes": 1659126,
+          "requests": 33
+        },
+        "image": {
+          "bytes": 351979,
+          "requests": 15
+        },
+        "font": {
+          "bytes": 304452,
+          "requests": 6
+        },
+        "media": {
+          "bytes": 115064,
+          "requests": 2
+        },
+        "document": {
+          "bytes": 81209,
+          "requests": 1
+        },
+        "other": {
+          "bytes": 46325,
+          "requests": 22
+        },
+        "stylesheet": {
+          "bytes": 44229,
+          "requests": 7
+        },
+        "third-party": {
+          "bytes": 650246,
+          "requests": 17
+        }
+      },
+      "scripts": 33,
+      "stylesheets": 7,
+      "fonts": 6
+    },
+    "thirdParty": {
+      "count": 8,
+      "bytes": 650246,
+      "mainThreadMs": 173.3,
+      "top": [
+        {
+          "entity": "Google Tag Manager",
+          "bytes": 345666,
+          "mainThreadMs": 71.1,
+          "byType": {
+            "script": 345666
+          },
+          "typedBytes": 345666
+        },
+        {
+          "entity": "ContentSquare",
+          "bytes": 158386,
+          "mainThreadMs": 53.3,
+          "byType": {
+            "script": 158122,
+            "other": 264
+          },
+          "typedBytes": 158386
+        },
+        {
+          "entity": "cookiefirst.com",
+          "bytes": 77417,
+          "mainThreadMs": 25.1,
+          "byType": {
+            "script": 70151,
+            "other": 7266
+          },
+          "typedBytes": 77417
+        },
+        {
+          "entity": "Heap",
+          "bytes": 40766,
+          "mainThreadMs": 12.8,
+          "byType": {
+            "script": 40395,
+            "image": 371
+          },
+          "typedBytes": 40766
+        },
+        {
+          "entity": "Impact Radius",
+          "bytes": 26535,
+          "mainThreadMs": 11,
+          "byType": {
+            "script": 26535
+          },
+          "typedBytes": 26535
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 6211.2,
+      "byGroup": {
+        "scriptEvaluation": 3121.6,
+        "other": 1415.5,
+        "styleLayout": 908.4,
+        "scriptParseCompile": 302.1,
+        "paintCompositeRender": 278.4,
+        "parseHTML": 127.5,
+        "garbageCollection": 57.7
+      },
+      "bootupMs": 3150.6,
+      "longTasks": 10,
+      "longestTaskMs": 573
+    },
+    "dom": {
+      "elements": 2256,
+      "depth": 19,
+      "maxChildren": 22
+    },
+    "waste": {
+      "unusedJsBytes": 910723,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 27613,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 300,
+      "renderBlockingCount": 7,
+      "poorlyCachedBytes": 173359.63402777776,
+      "poorlyCachedCount": 17
+    },
+    "accessibility": {
+      "failingCount": 2,
+      "applicableCount": 29,
+      "failingNodes": 8,
+      "failing": [
+        {
+          "id": "aria-hidden-focus",
+          "title": "`[aria-hidden=\"true\"]` elements contain focusable descendents",
+          "weight": 7,
+          "nodes": 5
+        },
+        {
+          "id": "target-size",
+          "title": "Touch targets do not have sufficient size or spacing.",
+          "weight": 7,
+          "nodes": 3
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 4,
+      "applicableCount": 20,
+      "failing": [
+        {
+          "id": "third-party-cookies",
+          "title": "Uses third-party cookies",
+          "weight": 5,
+          "nodes": 2
+        },
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "weight": 1,
+          "nodes": 4
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "weight": 1,
+          "nodes": 1
+        },
+        {
+          "id": "valid-source-maps",
+          "title": "Missing source maps for large first-party JavaScript",
+          "weight": 0,
+          "nodes": 4
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 0,
+      "applicableCount": 10,
+      "failing": []
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "http/1.1",
+      "legacyHttpRequests": 0,
+      "redirectMs": 784,
+      "consoleErrors": 4,
+      "baselineLimitedFeatures": 83
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 4360,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-10-29T02:11:26.672Z",
+      "runtimeMs": 19701.1
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 648.8,
+    "elementRenderDelay": 1768.5
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-09-29",
+      "last": "2026-10-26"
+    },
+    "metrics": {
+      "inp": {
+        "p75": 248,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 65.9,
+          "needsImprovement": 25.5,
+          "poor": 8.6
+        }
+      },
+      "lcp": {
+        "p75": 4367,
+        "rating": "poor",
+        "distribution": {
+          "good": 40.7,
+          "needsImprovement": 29.8,
+          "poor": 29.6
+        }
+      },
+      "rtt": {
+        "p75": 257,
+        "rating": null,
+        "distribution": {
+          "good": 17.6,
+          "needsImprovement": 60.3,
+          "poor": 22.1
+        }
+      },
+      "cls": {
+        "p75": 0,
+        "rating": "good",
+        "distribution": {
+          "good": 99.5,
+          "needsImprovement": 0.3,
+          "poor": 0.2
+        }
+      },
+      "ttfb": {
+        "p75": 840,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 73.1,
+          "needsImprovement": 18.5,
+          "poor": 8.4
+        }
+      },
+      "fcp": {
+        "p75": 1743,
+        "rating": "good",
+        "distribution": {
+          "good": 76.7,
+          "needsImprovement": 13.5,
+          "poor": 9.7
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": {
+      "id": "nextjs",
+      "name": "Next.js",
+      "icon": "Nextdotjs",
+      "version": null,
+      "source": "dom",
+      "raw": null
+    },
+    "probe": {
+      "metas": [],
+      "marks": [
+        "next",
+        "react",
+        "preact"
+      ],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "vercel",
+      "name": "Vercel",
+      "icon": "Vercel",
+      "source": "x-vercel-id"
+    },
+    "headers": {
+      "cf-ray": "a51ea8c95ba1179d-MSP",
+      "server": "cloudflare",
+      "x-powered-by": "Next.js",
+      "x-vercel-id": "cle1::iad1::pknkl-1793239988718-450e48cf04d5"
+    },
+    "violations": 7,
+    "passes": 1927,
+    "incomplete": 6,
+    "violationRules": 3,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "aria-hidden-focus",
+        "impact": "serious",
+        "nodes": 5,
+        "help": "ARIA hidden element must not be focusable or contain focusable elements",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/aria-hidden-focus?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".inset-x-0.focus-visible\\:outline-none.transition-opacity:nth-child(2)",
+            "snippet": "<div class=\"absolute inset-x-0 top-0 transition-opacity ease-out focus-visible:outline-none overflow-hidden\" style=\"opacity:0;pointer-events:none;transition-duration:500ms\" aria-hidden=\"true\">"
+          },
+          {
+            "selector": ".inset-x-0.focus-visible\\:outline-none.transition-opacity:nth-child(3)",
+            "snippet": "<div class=\"absolute inset-x-0 top-0 transition-opacity ease-out focus-visible:outline-none overflow-hidden\" style=\"opacity:0;pointer-events:none;transition-duration:500ms\" aria-hidden=\"true\">"
+          },
+          {
+            "selector": ".inset-x-0.focus-visible\\:outline-none.transition-opacity:nth-child(4)",
+            "snippet": "<div class=\"absolute inset-x-0 top-0 transition-opacity ease-out focus-visible:outline-none overflow-hidden\" style=\"opacity:0;pointer-events:none;transition-duration:500ms\" aria-hidden=\"true\">"
+          },
+          {
+            "selector": ".inset-x-0.focus-visible\\:outline-none.transition-opacity:nth-child(5)",
+            "snippet": "<div class=\"absolute inset-x-0 top-0 transition-opacity ease-out focus-visible:outline-none overflow-hidden\" style=\"opacity:0;pointer-events:none;transition-duration:500ms\" aria-hidden=\"true\">"
+          },
+          {
+            "selector": ".inset-x-0.focus-visible\\:outline-none.transition-opacity:nth-child(6)",
+            "snippet": "<div class=\"absolute inset-x-0 top-0 transition-opacity ease-out focus-visible:outline-none overflow-hidden\" style=\"opacity:0;pointer-events:none;transition-duration:500ms\" aria-hidden=\"true\">"
+          }
+        ]
+      },
+      {
+        "id": "landmark-unique",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/landmark-unique?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".z-4:nth-child(6) > .synchronized-scrolling-tween.w-full > .s-tween.s-tween--html.w-full > .flex-col-reverse.md\\:flex-row.md\\:gap-6 > .lg\\:w-auto.lg\\:flex-1.md\\:w-1\\/2 > .s-tween-preset.s-tween.s-tween--html > .ml-auto.aspect-1096\\/946.xl\\:max-w-\\[min\\(100\\%\\,calc\\(\\(100vh-8rem\\)\\*1096\\/946\\)\\)\\] > .inset-0.absolute > .bg-black.inset-0.object-cover > media-controller",
+            "snippet": "<media-controller class=\"relative w-full\" role=\"region\" aria-label=\"video player\" userinactive=\"\" tabindex=\"0\" mediapaused=\"\" mediaplaybackrate=\"1\" mediamuted=\"\" mediavolume=\"1\" mediavolumelevel=\"off…"
+          }
+        ]
+      },
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "All page content should be contained by landmarks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/region?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".app-header__logo",
+            "snippet": "<div class=\"app-header__logo\"><a href=\"/\"><img alt=\"Leonardo.AI\" fetchpriority=\"high\" loading=\"eager\" width=\"100\" height=\"100\" decoding=\"async\" data-nimg=\"1\" class=\"h-4 w-auto sm:h-6\" src=\"/images/le…"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
