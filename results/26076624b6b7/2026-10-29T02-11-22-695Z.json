@@ -1,0 +1,385 @@
+{
+  "url": "https://fly.io/",
+  "name": "Fly.io",
+  "group": "dev-tooling",
+  "groupName": "Developer Tooling",
+  "timestamp": 1793239882695,
+  "date": "2026-10-29T02:11:22.695Z",
+  "runId": "2026-10-29T02-07-19-483Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 86884,
+  "error": null,
+  "variance": {
+    "min": 64,
+    "max": 70,
+    "spread": 6,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://fly.io/",
+    "finalUrl": "https://fly.io/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 70,
+      "accessibility": 100,
+      "best-practices": 77,
+      "seo": 85,
+      "agentic-browsing": 67
+    },
+    "timings": {
+      "fcp": 1961,
+      "lcp": 5160,
+      "si": 3956,
+      "tbt": 340,
+      "tti": 12400,
+      "cls": 0,
+      "ttfb": 680,
+      "maxPotentialFid": 288,
+      "serverResponseTime": 17,
+      "networkRtt": 0.1,
+      "networkServerLatency": 192.7
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 18.7,
+      "resourceLoadDelay": 131.6,
+      "resourceLoadDuration": 114.5,
+      "elementRenderDelay": 119.8
+    },
+    "weight": {
+      "total": 2103440,
+      "requests": 42,
+      "mainDocument": 47313,
+      "byType": {
+        "total": {
+          "bytes": 2103440,
+          "requests": 39
+        },
+        "script": {
+          "bytes": 1043890,
+          "requests": 8
+        },
+        "image": {
+          "bytes": 648179,
+          "requests": 14
+        },
+        "font": {
+          "bytes": 224709,
+          "requests": 4
+        },
+        "stylesheet": {
+          "bytes": 127223,
+          "requests": 1
+        },
+        "document": {
+          "bytes": 51267,
+          "requests": 4
+        },
+        "other": {
+          "bytes": 8172,
+          "requests": 8
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 281482,
+          "requests": 6
+        }
+      },
+      "scripts": 8,
+      "stylesheets": 1,
+      "fonts": 4
+    },
+    "thirdParty": {
+      "count": 1,
+      "bytes": 261083,
+      "mainThreadMs": 52.5,
+      "top": [
+        {
+          "entity": "Stripe",
+          "bytes": 261083,
+          "mainThreadMs": 52.5,
+          "byType": {
+            "script": 261083
+          },
+          "typedBytes": 261083
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 1715.9,
+      "byGroup": {
+        "scriptEvaluation": 677.2,
+        "other": 440.6,
+        "scriptParseCompile": 274.9,
+        "styleLayout": 210.9,
+        "paintCompositeRender": 70.4,
+        "parseHTML": 42
+      },
+      "bootupMs": 923.8,
+      "longTasks": 7,
+      "longestTaskMs": 288
+    },
+    "dom": {
+      "elements": 660,
+      "depth": 15,
+      "maxChildren": 11
+    },
+    "waste": {
+      "unusedJsBytes": 461743,
+      "unusedCssBytes": 121507,
+      "legacyJsBytes": 16587,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 830,
+      "renderBlockingCount": 1,
+      "poorlyCachedBytes": 273122.94999999995,
+      "poorlyCachedCount": 2
+    },
+    "accessibility": {
+      "failingCount": 1,
+      "applicableCount": 31,
+      "failingNodes": 17,
+      "failing": [
+        {
+          "id": "svg-img-alt",
+          "title": "SVG elements with an `img` role do not have an accessible text alternative",
+          "weight": 1,
+          "nodes": 17
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 3,
+      "applicableCount": 18,
+      "failing": [
+        {
+          "id": "third-party-cookies",
+          "title": "Uses third-party cookies",
+          "weight": 5,
+          "nodes": 1
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "weight": 1,
+          "nodes": 1
+        },
+        {
+          "id": "valid-source-maps",
+          "title": "Missing source maps for large first-party JavaScript",
+          "weight": 0,
+          "nodes": 2
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 2,
+      "applicableCount": 10,
+      "failing": [
+        {
+          "id": "link-text",
+          "title": "Links do not have descriptive text",
+          "weight": 1,
+          "nodes": 2
+        },
+        {
+          "id": "robots-txt",
+          "title": "robots.txt is not valid",
+          "weight": 1,
+          "nodes": 1
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": null,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "http/1.1",
+      "legacyHttpRequests": 29,
+      "redirectMs": 0,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 48
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2924.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-10-29T02:11:39.148Z",
+      "runtimeMs": 14802.3
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 583.1,
+    "resourceLoadDelay": 144,
+    "resourceLoadDuration": 2392.4,
+    "elementRenderDelay": 651.4
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-09-29",
+      "last": "2026-10-26"
+    },
+    "metrics": {
+      "ttfb": {
+        "p75": 734,
+        "rating": "good",
+        "distribution": {
+          "good": 78,
+          "needsImprovement": 16.5,
+          "poor": 5.5
+        }
+      },
+      "fcp": {
+        "p75": 2069,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 68.4,
+          "needsImprovement": 19.8,
+          "poor": 11.8
+        }
+      },
+      "inp": {
+        "p75": 117,
+        "rating": "good",
+        "distribution": {
+          "good": 87.1,
+          "needsImprovement": 11.4,
+          "poor": 1.6
+        }
+      },
+      "lcp": {
+        "p75": 2274,
+        "rating": "good",
+        "distribution": {
+          "good": 78.9,
+          "needsImprovement": 13.1,
+          "poor": 8
+        }
+      },
+      "rtt": {
+        "p75": 190,
+        "rating": null,
+        "distribution": {
+          "good": 28.5,
+          "needsImprovement": 58.7,
+          "poor": 12.7
+        }
+      },
+      "cls": {
+        "p75": 0,
+        "rating": "good",
+        "distribution": {
+          "good": 99.1,
+          "needsImprovement": 0.8,
+          "poor": 0.1
+        }
+      }
+    },
+    "cwvPass": true,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "probe": {
+      "metas": [],
+      "marks": [],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "fly",
+      "name": "Fly.io",
+      "icon": "Flydotio",
+      "source": "fly-request-id"
+    },
+    "headers": {
+      "fly-request-id": "01M62PWS8AAFVR8TEPT3WW7WKS-lax",
+      "server": "Fly/366e4bf88 (2026-10-27)",
+      "via": "1.1 fly.io"
+    },
+    "violations": 28,
+    "passes": 809,
+    "incomplete": 70,
+    "violationRules": 2,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "svg-img-alt",
+        "impact": "serious",
+        "nodes": 17,
+        "help": "<svg> elements with an img or image role must have alternative text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/svg-img-alt?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "#hero-deploy > .group-hover\\/btn\\:opacity-100.transition-opacity.opacity-50 > .w-0.group-hover\\/btn\\:w-2\\.5.translate-x-2\\.5",
+            "snippet": "<svg role=\"img\" viewBox=\"0 0 16 16\" width=\"0\" height=\"10\" fill=\"currentColor\" class=\"w-0 group-hover/btn:w-2.5 h-3 translate-x-2.5 ease-out duration-200 transition-all transform-gpu\"> <path d=\"M1 9h1…"
+          },
+          {
+            "selector": "#hero-deploy > .group-hover\\/btn\\:opacity-100.transition-opacity.opacity-50 > .size-\\[0\\.7em\\][width=\"10\"][height=\"10\"]",
+            "snippet": "<svg role=\"img\" viewBox=\"0 0 16 16\" width=\"10\" height=\"10\" fill=\"currentColor\" class=\"size-[0.7em]\"> <path d=\"M7.293 1.707L13.586 8l-6.293 6.293a1 1 0 001.414 1.414l7-7a.999.999 0 000-1.414l-7-7a1 1 …"
+          },
+          {
+            "selector": "#home-explore-machines > .group-hover\\/btn\\:opacity-100.transition-opacity.opacity-50 > .w-0.group-hover\\/btn\\:w-2\\.5.translate-x-2\\.5",
+            "snippet": "<svg role=\"img\" viewBox=\"0 0 16 16\" width=\"0\" height=\"10\" fill=\"currentColor\" class=\"w-0 group-hover/btn:w-2.5 h-3 translate-x-2.5 ease-out duration-200 transition-all transform-gpu\"> <path d=\"M1 9h1…"
+          },
+          {
+            "selector": "#home-explore-machines > .group-hover\\/btn\\:opacity-100.transition-opacity.opacity-50 > .size-\\[0\\.7em\\][width=\"10\"][height=\"10\"]",
+            "snippet": "<svg role=\"img\" viewBox=\"0 0 16 16\" width=\"10\" height=\"10\" fill=\"currentColor\" class=\"size-[0.7em]\"> <path d=\"M7.293 1.707L13.586 8l-6.293 6.293a1 1 0 001.414 1.414l7-7a.999.999 0 000-1.414l-7-7a1 1 …"
+          },
+          {
+            "selector": ".group\\/btn.btn-border-dark[href$=\"sprites/\"] > .group-hover\\/btn\\:opacity-100.transition-opacity.opacity-50 > .w-0.group-hover\\/btn\\:w-2\\.5.translate-x-2\\.5",
+            "snippet": "<svg role=\"img\" viewBox=\"0 0 16 16\" width=\"0\" height=\"10\" fill=\"currentColor\" class=\"w-0 group-hover/btn:w-2.5 h-3 translate-x-2.5 ease-out duration-200 transition-all transform-gpu\"> <path d=\"M1 9h1…"
+          }
+        ]
+      },
+      {
+        "id": "image-redundant-alt",
+        "impact": "minor",
+        "nodes": 11,
+        "help": "Alternative text of images should not be repeated as text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/image-redundant-alt?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".justify-around.min-w-full.animate-infinite-scroll:nth-child(1) > .md\\:justify-start.gap-8.justify-center:nth-child(1) > .p-4.lg\\:px-6[href$=\"builder.io\"] > img[alt=\"Builder.io\"][height=\"24\"]",
+            "snippet": "<img src=\"/phx/images/builderio-49040d5f48090f4b80961a5c0e975e9f.svg?vsn=d\" alt=\"Builder.io\" height=\"24\">"
+          },
+          {
+            "selector": ".justify-around.min-w-full.animate-infinite-scroll:nth-child(1) > .md\\:justify-start.gap-8.justify-center:nth-child(2) > .p-4.lg\\:px-6[href$=\"www.mercor.com\"] > .h-7[alt=\"Mercor\"][height=\"28\"]",
+            "snippet": "<img src=\"/phx/images/mercor-a7ffc13de45fe6eff409813c0014675e.png?vsn=d\" alt=\"Mercor\" height=\"28\" class=\"h-7\">"
+          },
+          {
+            "selector": ".justify-around.min-w-full.animate-infinite-scroll:nth-child(1) > .md\\:justify-start.gap-8.justify-center:nth-child(3) > .p-4.lg\\:px-6[href$=\"cogram.com\"] > .h-6[alt=\"Cogram\"][height=\"24\"]",
+            "snippet": "<img src=\"/phx/images/cogram-f563a22679f9ec18b64850196ea0de94.svg?vsn=d\" alt=\"Cogram\" height=\"24\" class=\"h-6\">"
+          },
+          {
+            "selector": ".justify-around.min-w-full.animate-infinite-scroll:nth-child(1) > .md\\:justify-start.gap-8.justify-center:nth-child(4) > .p-4.lg\\:px-6[href$=\"getmocha.com\"] > .h-6[alt=\"Mocha\"][height=\"24\"]",
+            "snippet": "<img src=\"/phx/images/mocha-f959a31e6ecf819b3e46138a3ea92391.svg?vsn=d\" alt=\"Mocha\" height=\"24\" class=\"h-6\">"
+          },
+          {
+            "selector": ".justify-around.min-w-full.animate-infinite-scroll:nth-child(1) > .md\\:justify-start.gap-8.justify-center:nth-child(5) > .p-4.lg\\:px-6[href$=\"context.ai\"] > .h-6[alt=\"Context\"][height=\"24\"]",
+            "snippet": "<img src=\"/phx/images/context-8058d9902ba3a54da31b6d346b48c4b1.svg?vsn=d\" alt=\"Context\" height=\"24\" class=\"h-6\">"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
