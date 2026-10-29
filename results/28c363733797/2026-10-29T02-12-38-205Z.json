@@ -1,0 +1,459 @@
+{
+  "url": "https://motion.dev/",
+  "name": "Motion",
+  "group": "nextjs-showcase",
+  "groupName": "Next.js Showcase",
+  "timestamp": 1793239958205,
+  "date": "2026-10-29T02:12:38.205Z",
+  "runId": "2026-10-29T02-07-08-557Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 78695,
+  "error": null,
+  "variance": {
+    "min": 45,
+    "max": 54,
+    "spread": 9,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://motion.dev/",
+    "finalUrl": "https://motion.dev/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 48,
+      "accessibility": 93,
+      "best-practices": 73,
+      "seo": 100,
+      "agentic-browsing": 67
+    },
+    "timings": {
+      "fcp": 5169,
+      "lcp": 6872,
+      "si": 5841,
+      "tbt": 552,
+      "tti": 10522,
+      "cls": 0,
+      "ttfb": 819,
+      "maxPotentialFid": 156,
+      "serverResponseTime": 42,
+      "networkRtt": 0.6,
+      "networkServerLatency": 219.1
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 43,
+      "elementRenderDelay": 2310.1
+    },
+    "weight": {
+      "total": 786539,
+      "requests": 142,
+      "mainDocument": 37631,
+      "byType": {
+        "total": {
+          "bytes": 786539,
+          "requests": 141
+        },
+        "script": {
+          "bytes": 463206,
+          "requests": 99
+        },
+        "stylesheet": {
+          "bytes": 123928,
+          "requests": 25
+        },
+        "image": {
+          "bytes": 105682,
+          "requests": 10
+        },
+        "font": {
+          "bytes": 54450,
+          "requests": 2
+        },
+        "document": {
+          "bytes": 37631,
+          "requests": 1
+        },
+        "other": {
+          "bytes": 1642,
+          "requests": 4
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 96796,
+          "requests": 7
+        }
+      },
+      "scripts": 99,
+      "stylesheets": 25,
+      "fonts": 2
+    },
+    "thirdParty": {
+      "count": 4,
+      "bytes": 96796,
+      "mainThreadMs": 6.1,
+      "top": [
+        {
+          "entity": "Google Fonts",
+          "bytes": 55186,
+          "mainThreadMs": 0,
+          "byType": {
+            "font": 54450,
+            "stylesheet": 736
+          },
+          "typedBytes": 55186
+        },
+        {
+          "entity": "paddle.com",
+          "bytes": 17736,
+          "mainThreadMs": 1.5,
+          "byType": {
+            "script": 16773,
+            "stylesheet": 963
+          },
+          "typedBytes": 17736
+        },
+        {
+          "entity": "profitwell.com",
+          "bytes": 13523,
+          "mainThreadMs": 1.6,
+          "byType": {
+            "script": 13523
+          },
+          "typedBytes": 13523
+        },
+        {
+          "entity": "Cloudflare",
+          "bytes": 10351,
+          "mainThreadMs": 3,
+          "byType": {
+            "script": 10351
+          },
+          "typedBytes": 10351
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 9413.9,
+      "byGroup": {
+        "other": 8242.4,
+        "scriptEvaluation": 691.1,
+        "styleLayout": 328.8,
+        "paintCompositeRender": 76.3,
+        "parseHTML": 50.8,
+        "scriptParseCompile": 14.9,
+        "garbageCollection": 9.7
+      },
+      "bootupMs": 661.3,
+      "longTasks": 20,
+      "longestTaskMs": 156
+    },
+    "dom": {
+      "elements": 1501,
+      "depth": 19,
+      "maxChildren": 14
+    },
+    "waste": {
+      "unusedJsBytes": 104496,
+      "unusedCssBytes": 25199,
+      "legacyJsBytes": 10475,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 2436,
+      "renderBlockingCount": 24,
+      "poorlyCachedBytes": 25396.52,
+      "poorlyCachedCount": 4
+    },
+    "accessibility": {
+      "failingCount": 4,
+      "applicableCount": 38,
+      "failingNodes": 48,
+      "failing": [
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "weight": 7,
+          "nodes": 28
+        },
+        {
+          "id": "aria-toggle-field-name",
+          "title": "ARIA toggle fields do not have accessible names",
+          "weight": 7,
+          "nodes": 13
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "title": "Elements with visible text labels do not have matching accessible names.",
+          "weight": 0,
+          "nodes": 6
+        },
+        {
+          "id": "heading-order",
+          "title": "Heading elements are not in a sequentially-descending order",
+          "weight": 3,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 3,
+      "applicableCount": 19,
+      "failing": [
+        {
+          "id": "third-party-cookies",
+          "title": "Uses third-party cookies",
+          "weight": 5,
+          "nodes": 1
+        },
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "weight": 1,
+          "nodes": 1
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "weight": 1,
+          "nodes": 1
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 0,
+      "applicableCount": 10,
+      "failing": []
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 1,
+      "baselineLimitedFeatures": 49
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 4298,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-10-29T02:13:09.885Z",
+      "runtimeMs": 14240.5
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 611,
+    "elementRenderDelay": 3973.6
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-09-29",
+      "last": "2026-10-26"
+    },
+    "metrics": {
+      "inp": {
+        "p75": 140,
+        "rating": "good",
+        "distribution": {
+          "good": 84.1,
+          "needsImprovement": 11.3,
+          "poor": 4.6
+        }
+      },
+      "lcp": {
+        "p75": 2391,
+        "rating": "good",
+        "distribution": {
+          "good": 77.2,
+          "needsImprovement": 14.4,
+          "poor": 8.4
+        }
+      },
+      "rtt": {
+        "p75": 189,
+        "rating": null,
+        "distribution": {
+          "good": 27.5,
+          "needsImprovement": 59,
+          "poor": 13.5
+        }
+      },
+      "cls": {
+        "p75": 0,
+        "rating": "good",
+        "distribution": {
+          "good": 96,
+          "needsImprovement": 1.9,
+          "poor": 2
+        }
+      },
+      "ttfb": {
+        "p75": 876,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 71.6,
+          "needsImprovement": 21.8,
+          "poor": 6.6
+        }
+      },
+      "fcp": {
+        "p75": 2038,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 69.3,
+          "needsImprovement": 18.1,
+          "poor": 12.6
+        }
+      }
+    },
+    "cwvPass": true,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": {
+      "id": "reactrouter",
+      "name": "React Router",
+      "icon": "Reactrouter",
+      "version": null,
+      "source": "dom",
+      "raw": null
+    },
+    "probe": {
+      "metas": [],
+      "marks": [
+        "reactrouter",
+        "react"
+      ],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "cloudflare",
+      "name": "Cloudflare",
+      "icon": "Cloudflare",
+      "source": "server"
+    },
+    "headers": {
+      "cf-ray": "a51ea92bcde4fb19-BNA",
+      "server": "cloudflare"
+    },
+    "violations": 45,
+    "passes": 3300,
+    "incomplete": 83,
+    "violationRules": 4,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 28,
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/color-contrast?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "a[href$=\"about\"]",
+            "snippet": "<a href=\"/about\" data-discover=\"true\">About</a>"
+          },
+          {
+            "selector": "li:nth-child(2) > a[href$=\"changelog\"][data-discover=\"true\"]",
+            "snippet": "<a href=\"/changelog\" data-discover=\"true\">Changelog</a>"
+          },
+          {
+            "selector": "li:nth-child(3) > a[href$=\"docs\"][data-discover=\"true\"]",
+            "snippet": "<a href=\"/docs\" data-discover=\"true\">Docs</a>"
+          },
+          {
+            "selector": "li:nth-child(4) > a[href$=\"examples\"][data-discover=\"true\"]",
+            "snippet": "<a href=\"/examples\" data-discover=\"true\">Examples</a>"
+          },
+          {
+            "selector": "li:nth-child(5) > a[href$=\"magazine\"][data-discover=\"true\"]",
+            "snippet": "<a href=\"/magazine\" data-discover=\"true\">Magazine</a>"
+          }
+        ]
+      },
+      {
+        "id": "aria-toggle-field-name",
+        "impact": "serious",
+        "nodes": 13,
+        "help": "ARIA toggle fields must have an accessible name",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/aria-toggle-field-name?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "li[aria-posinset=\"1\"][aria-setsize=\"13\"][data-gallery-item=\"\"]",
+            "snippet": "<li data-gallery-item=\"\" role=\"option\" aria-posinset=\"1\" aria-setsize=\"13\" tabindex=\"-1\" aria-selected=\"false\" data-fit=\"cover\" style=\"--gallery-aspect: 0.66625; transform: translate(-50%, -50%) tran…"
+          },
+          {
+            "selector": "li[aria-posinset=\"2\"][aria-setsize=\"13\"][data-gallery-item=\"\"]",
+            "snippet": "<li data-gallery-item=\"\" role=\"option\" aria-posinset=\"2\" aria-setsize=\"13\" tabindex=\"-1\" aria-selected=\"false\" data-fit=\"cover\" style=\"--gallery-aspect: 0.66625; transform: translate(-50%, -50%) tran…"
+          },
+          {
+            "selector": "li[aria-posinset=\"3\"][aria-setsize=\"13\"][data-gallery-item=\"\"]",
+            "snippet": "<li data-gallery-item=\"\" role=\"option\" aria-posinset=\"3\" aria-setsize=\"13\" tabindex=\"-1\" aria-selected=\"false\" data-fit=\"cover\" style=\"--gallery-aspect: 0.66625; transform: translate(-50%, -50%) tran…"
+          },
+          {
+            "selector": "li[aria-posinset=\"4\"][aria-setsize=\"13\"][data-gallery-item=\"\"]",
+            "snippet": "<li data-gallery-item=\"\" role=\"option\" aria-posinset=\"4\" aria-setsize=\"13\" tabindex=\"-1\" aria-selected=\"false\" data-fit=\"cover\" ...>"
+          },
+          {
+            "selector": "li[aria-posinset=\"5\"][aria-setsize=\"13\"][data-gallery-item=\"\"]",
+            "snippet": "<li data-gallery-item=\"\" role=\"option\" aria-posinset=\"5\" aria-setsize=\"13\" tabindex=\"-1\" aria-selected=\"false\" data-fit=\"cover\" style=\"--gallery-aspect: 0.66625; transform: translate(-50%, -50%) tran…"
+          }
+        ]
+      },
+      {
+        "id": "scrollable-region-focusable",
+        "impact": "serious",
+        "nodes": 3,
+        "help": "Scrollable region must have keyboard access",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/scrollable-region-focusable?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "article[aria-labelledby=\"lnl-demo-layout\"] > .lnl-demo-snippet.slb-card-copy > .lnl-demo-code > div:nth-child(1) > pre",
+            "snippet": "<pre>"
+          },
+          {
+            "selector": "article[aria-labelledby=\"lnl-demo-scroll\"] > .lnl-demo-snippet.slb-card-copy > .lnl-demo-code > div:nth-child(1) > pre",
+            "snippet": "<pre>"
+          },
+          {
+            "selector": "article[aria-labelledby=\"lnl-demo-springs\"] > .lnl-demo-snippet.slb-card-copy > .lnl-demo-code > div:nth-child(1) > pre",
+            "snippet": "<pre>"
+          }
+        ]
+      },
+      {
+        "id": "heading-order",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Heading levels should only increase by one",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/heading-order?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".footer-nav-section:nth-child(1) > h6",
+            "snippet": "<h6 class=\"footer-nav-heading\">Site</h6>"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
