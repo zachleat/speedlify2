@@ -414,7 +414,7 @@ eleventyComputed:
 	Only rendered for a measured site: the branch above is the whole page
 	otherwise.
 #}
-{% set hasStack = entry.generator or entry.host or entry.tools.length %}
+{% set hasStack = entry.generator or entry.host or entry.tools.length or entry.render %}
 {% set hasCwv = entry.cwv %}
 {#
 	Whether there is field data to show a column for. Not simply `hasField`: a
@@ -513,6 +513,15 @@ eleventyComputed:
 			<span>
 				<span class="stack-label block">Hosted by</span>
 				{{ entry.host.name }}
+			</span>
+		</div>
+		{% endif %}
+		{% if entry.render %}
+		<div class="stack-item">
+			<span>
+				<span class="stack-label block">Rendered</span>
+				{{ entry.render.name }}
+				<span class="stack-detail block">{{ entry.render.detail }}</span>
 			</span>
 		</div>
 		{% endif %}

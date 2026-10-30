@@ -192,6 +192,10 @@
 			{%- for key in plot.legend %}
 			<span class="plot-key plot-{{ key.band }}">{{ key.count | num }} {{ key.label }}</span>
 			{%- endfor %}
+			{#- Slow dots are drawn but not named, so say which ones hover. -#}
+			{%- if plot.labeled and plot.labeled < plot.count %}
+			<span>Hover a green dot to see its site.</span>
+			{%- endif %}
 	</figcaption>
 	</figure>
 {% endmacro %}
