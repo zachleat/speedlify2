@@ -1,0 +1,514 @@
+{
+  "url": "https://www.netflix.com/",
+  "name": "Netflix",
+  "group": "big-tech",
+  "groupName": "Big Tech",
+  "timestamp": 1793374799240,
+  "date": "2026-10-30T15:39:59.240Z",
+  "runId": "2026-10-30T15-34-06-144Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 107235,
+  "error": null,
+  "variance": {
+    "min": 29,
+    "max": 29,
+    "spread": 0,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://www.netflix.com/",
+    "finalUrl": "https://www.netflix.com/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 29,
+      "accessibility": 88,
+      "best-practices": 73,
+      "seo": 100,
+      "agentic-browsing": 33
+    },
+    "timings": {
+      "fcp": 12584,
+      "lcp": 21181,
+      "si": 12584,
+      "tbt": 1629,
+      "tti": 25701,
+      "cls": 0.001,
+      "ttfb": 641,
+      "maxPotentialFid": 902,
+      "serverResponseTime": 297,
+      "networkRtt": 93.3,
+      "networkServerLatency": 136.5
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 371.3,
+      "resourceLoadDelay": 29.9,
+      "resourceLoadDuration": 107.8,
+      "elementRenderDelay": 1040
+    },
+    "weight": {
+      "total": 3620793,
+      "requests": 133,
+      "mainDocument": 97778,
+      "byType": {
+        "total": {
+          "bytes": 3620793,
+          "requests": 133
+        },
+        "script": {
+          "bytes": 2081471,
+          "requests": 31
+        },
+        "font": {
+          "bytes": 715223,
+          "requests": 7
+        },
+        "image": {
+          "bytes": 369825,
+          "requests": 22
+        },
+        "other": {
+          "bytes": 244309,
+          "requests": 59
+        },
+        "document": {
+          "bytes": 172639,
+          "requests": 11
+        },
+        "stylesheet": {
+          "bytes": 37326,
+          "requests": 3
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 3508356,
+          "requests": 120
+        }
+      },
+      "scripts": 31,
+      "stylesheets": 3,
+      "fonts": 7
+    },
+    "thirdParty": {
+      "count": 6,
+      "bytes": 2658217,
+      "mainThreadMs": 988.9,
+      "top": [
+        {
+          "entity": "NetFlix",
+          "bytes": 1591410,
+          "mainThreadMs": 551.8,
+          "byType": {
+            "script": 1043639,
+            "other": 207553,
+            "image": 174897,
+            "font": 163546,
+            "stylesheet": 1775
+          },
+          "typedBytes": 1591410
+        },
+        {
+          "entity": "nflxso.net",
+          "bytes": 709468,
+          "mainThreadMs": 0,
+          "byType": {
+            "image": 192491,
+            "font": 516977
+          },
+          "typedBytes": 709468
+        },
+        {
+          "entity": "Google CDN",
+          "bytes": 355892,
+          "mainThreadMs": 435.3,
+          "byType": {
+            "other": 355892
+          },
+          "typedBytes": 355892
+        },
+        {
+          "entity": "Other Google APIs/SDKs",
+          "bytes": 1080,
+          "mainThreadMs": 1.8,
+          "byType": {
+            "script": 1080
+          },
+          "typedBytes": 1080
+        },
+        {
+          "entity": "Optanon",
+          "bytes": 283,
+          "mainThreadMs": 0,
+          "byType": {
+            "other": 283
+          },
+          "typedBytes": 283
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 8285.9,
+      "byGroup": {
+        "scriptEvaluation": 4172.8,
+        "other": 1815.8,
+        "scriptParseCompile": 1047.2,
+        "styleLayout": 465.2,
+        "paintCompositeRender": 442.2,
+        "garbageCollection": 220.7,
+        "parseHTML": 122
+      },
+      "bootupMs": 5017,
+      "longTasks": 20,
+      "longestTaskMs": 902
+    },
+    "dom": {
+      "elements": 939,
+      "depth": 25,
+      "maxChildren": 33
+    },
+    "waste": {
+      "unusedJsBytes": 809861,
+      "unusedCssBytes": 26550,
+      "legacyJsBytes": 8995,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 2180,
+      "renderBlockingCount": 2,
+      "poorlyCachedBytes": 828854.6840377329,
+      "poorlyCachedCount": 29
+    },
+    "accessibility": {
+      "failingCount": 4,
+      "applicableCount": 27,
+      "failingNodes": 5,
+      "failing": [
+        {
+          "id": "aria-hidden-focus",
+          "title": "`[aria-hidden=\"true\"]` elements contain focusable descendents",
+          "weight": 7,
+          "nodes": 2
+        },
+        {
+          "id": "heading-order",
+          "title": "Heading elements are not in a sequentially-descending order",
+          "weight": 3,
+          "nodes": 1
+        },
+        {
+          "id": "meta-viewport",
+          "title": "`[user-scalable=\"no\"]` is used in the `<meta name=\"viewport\">` element or the `[maximum-scale]` attribute is less than 5.",
+          "weight": 10,
+          "nodes": 1
+        },
+        {
+          "id": "landmark-one-main",
+          "title": "Document does not have a main landmark.",
+          "weight": 3,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 3,
+      "applicableCount": 19,
+      "failing": [
+        {
+          "id": "third-party-cookies",
+          "title": "Uses third-party cookies",
+          "weight": 5,
+          "nodes": 19
+        },
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "weight": 1,
+          "nodes": 1
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "weight": 1,
+          "nodes": 1
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 0,
+      "applicableCount": 8,
+      "failing": []
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 0,
+      "bfCacheFailures": 3,
+      "protocol": "h2",
+      "legacyHttpRequests": 32,
+      "redirectMs": 0,
+      "consoleErrors": 1,
+      "baselineLimitedFeatures": 44
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2553.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-10-30T15:40:00.514Z",
+      "runtimeMs": 20168.1
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 726.6,
+    "resourceLoadDelay": 0,
+    "resourceLoadDuration": 5856.4,
+    "elementRenderDelay": 35.6
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-10-01",
+      "last": "2026-10-28"
+    },
+    "metrics": {
+      "ttfb": {
+        "p75": 936,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 65.7,
+          "needsImprovement": 28.8,
+          "poor": 5.5
+        }
+      },
+      "fcp": {
+        "p75": 1774,
+        "rating": "good",
+        "distribution": {
+          "good": 75.8,
+          "needsImprovement": 16,
+          "poor": 8.2
+        }
+      },
+      "inp": {
+        "p75": 154,
+        "rating": "good",
+        "distribution": {
+          "good": 82,
+          "needsImprovement": 13,
+          "poor": 5
+        }
+      },
+      "lcp": {
+        "p75": 2019,
+        "rating": "good",
+        "distribution": {
+          "good": 83,
+          "needsImprovement": 10.8,
+          "poor": 6.3
+        }
+      },
+      "rtt": {
+        "p75": 154,
+        "rating": null,
+        "distribution": {
+          "good": 40.7,
+          "needsImprovement": 47,
+          "poor": 12.3
+        }
+      },
+      "cls": {
+        "p75": 0,
+        "rating": "good",
+        "distribution": {
+          "good": 99.1,
+          "needsImprovement": 0.6,
+          "poor": 0.3
+        }
+      }
+    },
+    "cwvPass": true,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "probe": {
+      "metas": [],
+      "marks": [
+        "react"
+      ],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "self-hosted",
+      "name": "Self-hosted",
+      "icon": null,
+      "detail": "Envoy",
+      "detailIcon": "Envoyproxy",
+      "source": "server"
+    },
+    "headers": {
+      "server": "envoy",
+      "via": "2 i-0cd9efb60a85cdfaa (us-west-2), 1.1 c000.lax001.ix.nflxvideo.net (FTL-L4-R80S)"
+    },
+    "violations": 19,
+    "passes": 1188,
+    "incomplete": 38,
+    "violationRules": 6,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 13,
+        "help": "All page content should be contained by landmarks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/region?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".default-ltr-iqcdef-cache-slza4h > div:nth-child(1)",
+            "snippet": "<div><h1 data-uia=\"nmhp-hero-headline\" data-headline-variant=\"control\" class=\"hcw-ltr-iqcdef-cache-1ttrzps e8zmz550\">Unlimited movies, TV shows, and more</h1><p class=\"hcw-ltr-iqcdef-cache-1tss235 e8…"
+          },
+          {
+            "selector": ".default-ltr-iqcdef-cache-bz4hbi > .hcw-ltr-iqcdef-cache-146vp2u.eq269h80[data-layout=\"wrapper\"] > .hcw-ltr-iqcdef-cache-4fdrtc[data-layout=\"container\"] > .hcw-ltr-iqcdef-cache-1dypbyj.eq269h80[data-layout=\"item\"]:nth-child(1)",
+            "snippet": "<div class=\"eq269h80 hcw-ltr-iqc...\" style=\"--hcw--layout-item--...\" data-layout=\"item\">"
+          },
+          {
+            "selector": "div[data-uia=\"nmhp-top-10\"] > div:nth-child(1)",
+            "snippet": "<div><h2 class=\"hcw-ltr-iqcdef-cache-1vv2fce e8zmz550\">Trending Now</h2></div>"
+          },
+          {
+            "selector": "#nmhp-full-value-props > .hcw-ltr-iqcdef-cache-1dypbyj.eq269h80[data-layout=\"item\"]",
+            "snippet": "<div class=\"eq269h80 hcw-ltr-iqcdef-cache-1dypbyj\" style=\"--hcw--layout-item--padding:0px;--hcw--layout-item--width:calc(100% - 0px)\" data-layout=\"item\"><h2 class=\"hcw-ltr-iqcdef-cache-1vv2fce e8zmz5…"
+          },
+          {
+            "selector": ".hcw-ltr-iqcdef-cache-1dypbyj.eq269h80[data-layout=\"item\"]:nth-child(1) > .default-ltr-iqcdef-cache-19slw8k.e1g1vhz91[dir=\"ltr\"] > div > .hcw-ltr-iqcdef-cache-146vp2u.eq269h80[data-layout=\"wrapper\"] > .hcw-ltr-iqcdef-cache-4fdrtc[data-layout=\"container\"] > .hcw-ltr-iqcdef-cache-1dypbyj.eq269h80[data-layout=\"item\"]:nth-child(1)",
+            "snippet": "<div class=\"eq269h80 hcw-ltr-iqcdef-cache-1dypbyj\" style=\"--hcw--layout-item--padding:0px;--hcw--layout-item--width:calc(100% - 0px)\" data-layout=\"item\"><h3 class=\"hcw-ltr-iqcdef-cache-mdshes e8zmz55…"
+          }
+        ]
+      },
+      {
+        "id": "aria-hidden-focus",
+        "impact": "serious",
+        "nodes": 2,
+        "help": "ARIA hidden element must not be focusable or contain focusable elements",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/aria-hidden-focus?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".default-ltr-iqcdef-cache-fa0tl5.ehv2wyu0:nth-child(2) > .default-ltr-iqcdef-cache-ut53x9 > div:nth-child(3) > .default-ltr-iqcdef-cache-17hs6dg.egpstn40.nav-animation-enter-done",
+            "snippet": "<div aria-hidden=\"true\" class=\"default-ltr-iqcdef-cache-17hs6dg egpstn40 nav-animation-enter-done\">"
+          },
+          {
+            "selector": ".default-ltr-iqcdef-cache-fa0tl5.ehv2wyu0:nth-child(3) > .default-ltr-iqcdef-cache-ut53x9 > div:nth-child(3) > .default-ltr-iqcdef-cache-17hs6dg.egpstn40.nav-animation-enter-done",
+            "snippet": "<div aria-hidden=\"true\" class=\"default-ltr-iqcdef-cache-17hs6dg egpstn40 nav-animation-enter-done\">"
+          }
+        ]
+      },
+      {
+        "id": "heading-order",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Heading levels should only increase by one",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/heading-order?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".default-ltr-iqcdef-cache-1josprq > .default-ltr-iqcdef-cache-noi56b.e5e63l02 > form > .default-ltr-iqcdef-cache-18zqjlh.e5e63l01",
+            "snippet": "<h3 class=\"default-ltr-iqcdef-cache-18zqjlh e5e63l01\">Ready to watch? Enter your email to create or restart your membership.</h3>"
+          }
+        ]
+      },
+      {
+        "id": "landmark-one-main",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Document should have one main landmark",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/landmark-one-main?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "html",
+            "snippet": "<html lang=\"en\" class=\"\">"
+          }
+        ]
+      },
+      {
+        "id": "landmark-unique",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/landmark-unique?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".default-ltr-iqcdef-cache-1josprq > .default-ltr-iqcdef-cache-noi56b.e5e63l02 > form",
+            "snippet": "<form aria-label=\"Sign up or restart your membership with Netflix.\" method=\"post\" data-uia=\"email-form\" class=\"hcw-ltr-iqcdef-cache-12vu0mq e1ejc77y0\">"
+          }
+        ]
+      },
+      {
+        "id": "meta-viewport",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Zooming and scaling must not be disabled",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/meta-viewport?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "meta[name=\"viewport\"]",
+            "snippet": "<meta name=\"viewport\" content=\"width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0\">"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "render": {
+    "samples": [
+      {
+        "hash": "a765f13fb4a2",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {}
+      },
+      {
+        "hash": "899e4aa35ebe",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {}
+      },
+      {
+        "hash": "ba27cb456f45",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {}
+      },
+      {
+        "hash": "5461e2cf7de8",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {}
+      },
+      {
+        "hash": "4e82db0cd7aa",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {}
+      }
+    ]
+  },
+  "consecutiveFailures": 0
+}
