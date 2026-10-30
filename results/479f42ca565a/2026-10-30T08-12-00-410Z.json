@@ -1,0 +1,428 @@
+{
+  "url": "https://www.nvidia.com/",
+  "name": "Nvidia",
+  "group": "big-tech",
+  "groupName": "Big Tech",
+  "timestamp": 1793347920410,
+  "date": "2026-10-30T08:12:00.410Z",
+  "runId": "2026-10-30T08-06-03-468Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 119322,
+  "error": null,
+  "variance": {
+    "min": 26,
+    "max": 28,
+    "spread": 2,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://www.nvidia.com/",
+    "finalUrl": "https://www.nvidia.com/en-us/",
+    "redirect": {
+      "from": "https://www.nvidia.com/",
+      "to": "https://www.nvidia.com/en-us",
+      "chain": [
+        {
+          "url": "https://www.nvidia.com/",
+          "status": 307
+        },
+        {
+          "url": "https://www.nvidia.com/en-us/",
+          "status": 200
+        }
+      ],
+      "statuses": [
+        307
+      ],
+      "change": "path",
+      "permanent": false,
+      "schemeUpgrade": false,
+      "hops": 1
+    },
+    "statusCode": "ok",
+    "scores": {
+      "performance": 28,
+      "accessibility": 100,
+      "best-practices": 81,
+      "seo": 77,
+      "agentic-browsing": 100
+    },
+    "timings": {
+      "fcp": 13033,
+      "lcp": 19623,
+      "si": 13033,
+      "tbt": 1778,
+      "tti": 19645,
+      "cls": 0,
+      "ttfb": 648,
+      "maxPotentialFid": 2663,
+      "serverResponseTime": 39,
+      "networkRtt": 0.4,
+      "networkServerLatency": 47.8
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 76.5,
+      "elementRenderDelay": 2322.5
+    },
+    "weight": {
+      "total": 3405489,
+      "requests": 54,
+      "mainDocument": 88186,
+      "byType": {
+        "total": {
+          "bytes": 3399169,
+          "requests": 50
+        },
+        "font": {
+          "bytes": 1206812,
+          "requests": 8
+        },
+        "script": {
+          "bytes": 1008005,
+          "requests": 21
+        },
+        "image": {
+          "bytes": 763941,
+          "requests": 5
+        },
+        "stylesheet": {
+          "bytes": 207313,
+          "requests": 5
+        },
+        "other": {
+          "bytes": 124912,
+          "requests": 10
+        },
+        "document": {
+          "bytes": 88186,
+          "requests": 1
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 563565,
+          "requests": 13
+        }
+      },
+      "scripts": 21,
+      "stylesheets": 5,
+      "fonts": 8
+    },
+    "thirdParty": {
+      "count": 2,
+      "bytes": 563565,
+      "mainThreadMs": 126.2,
+      "top": [
+        {
+          "entity": "Adobe Tag Manager",
+          "bytes": 326241,
+          "mainThreadMs": 82.8,
+          "byType": {
+            "script": 326241
+          },
+          "typedBytes": 326241
+        },
+        {
+          "entity": "Optanon",
+          "bytes": 237324,
+          "mainThreadMs": 43.4,
+          "byType": {
+            "script": 162453,
+            "other": 63805,
+            "image": 11066
+          },
+          "typedBytes": 237324
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 9250.7,
+      "byGroup": {
+        "styleLayout": 6093.5,
+        "scriptEvaluation": 1284.8,
+        "other": 937.2,
+        "paintCompositeRender": 426,
+        "scriptParseCompile": 316.7,
+        "parseHTML": 160.5,
+        "garbageCollection": 32
+      },
+      "bootupMs": 1489.2,
+      "longTasks": 9,
+      "longestTaskMs": 2663
+    },
+    "dom": {
+      "elements": 4701,
+      "depth": 28,
+      "maxChildren": 34
+    },
+    "waste": {
+      "unusedJsBytes": 366132,
+      "unusedCssBytes": 234334,
+      "legacyJsBytes": 20441,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 3293,
+      "unminifiedCssBytes": 2184,
+      "renderBlockingMs": 15026,
+      "renderBlockingCount": 18,
+      "poorlyCachedBytes": 1704973.4,
+      "poorlyCachedCount": 17
+    },
+    "accessibility": {
+      "failingCount": 1,
+      "applicableCount": 31,
+      "failingNodes": 2,
+      "failing": [
+        {
+          "id": "label-content-name-mismatch",
+          "title": "Elements with visible text labels do not have matching accessible names.",
+          "weight": 0,
+          "nodes": 2
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 2,
+      "applicableCount": 19,
+      "failing": [
+        {
+          "id": "deprecations",
+          "title": "Uses deprecated APIs",
+          "weight": 5,
+          "nodes": 2
+        },
+        {
+          "id": "valid-source-maps",
+          "title": "Missing source maps for large first-party JavaScript",
+          "weight": 0,
+          "nodes": 5
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 3,
+      "applicableCount": 10,
+      "failing": [
+        {
+          "id": "link-text",
+          "title": "Links do not have descriptive text",
+          "weight": 1,
+          "nodes": 2
+        },
+        {
+          "id": "crawlable-anchors",
+          "title": "Links are not crawlable",
+          "weight": 1,
+          "nodes": 1
+        },
+        {
+          "id": "robots-txt",
+          "title": "robots.txt is not valid",
+          "weight": 1,
+          "nodes": 1
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 0,
+      "bfCacheFailures": 1,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 797.8,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 59
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 3041.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-10-30T08:12:42.296Z",
+      "runtimeMs": 19219.8
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 1176.4,
+    "resourceLoadDelay": 17053.5,
+    "resourceLoadDuration": 3199.4,
+    "elementRenderDelay": 89.4
+  },
+  "field": {
+    "source": "crux",
+    "scope": "origin",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-10-01",
+      "last": "2026-10-28"
+    },
+    "metrics": {
+      "rtt": {
+        "p75": 159,
+        "rating": null,
+        "distribution": {
+          "good": 34.5,
+          "needsImprovement": 56,
+          "poor": 9.6
+        }
+      },
+      "cls": {
+        "p75": 0.18,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 67.1,
+          "needsImprovement": 12.2,
+          "poor": 20.8
+        }
+      },
+      "ttfb": {
+        "p75": 583,
+        "rating": "good",
+        "distribution": {
+          "good": 81.6,
+          "needsImprovement": 11.9,
+          "poor": 6.4
+        }
+      },
+      "fcp": {
+        "p75": 2111,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 69.1,
+          "needsImprovement": 15.8,
+          "poor": 15.1
+        }
+      },
+      "inp": {
+        "p75": 391,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 56.5,
+          "needsImprovement": 22.8,
+          "poor": 20.7
+        }
+      },
+      "lcp": {
+        "p75": 2890,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 70.2,
+          "needsImprovement": 14.3,
+          "poor": 15.5
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "probe": {
+      "metas": [],
+      "marks": [
+        "fontawesome"
+      ],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "akamai",
+      "name": "Akamai",
+      "icon": "Akamai",
+      "source": "server"
+    },
+    "headers": {
+      "server": "AkamaiGHost"
+    },
+    "violations": 25,
+    "passes": 1701,
+    "incomplete": 97,
+    "violationRules": 3,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 18,
+        "help": "All page content should be contained by landmarks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/region?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "#home-wmfg-carousel-item-2dbe655d66-tabpanel",
+            "snippet": "<div id=\"home-wmfg-carousel-item-2dbe655d66-tabpanel\" class=\"cmp-carousel__item cmp-carousel__item--active\" role=\"tabpanel\" aria-roledescription=\"slide\" aria-label=\"Slide 1 of 6\" data-cmp-slide-no=\"1…"
+          },
+          {
+            "selector": ".progressContainerWrapper",
+            "snippet": "<div class=\"progressContainerWrapper\" data-progressdecription=\"true\">"
+          },
+          {
+            "selector": "#container-7dcce0f676",
+            "snippet": "<div id=\"container-7dcce0f676\" class=\"v1-1 p-t-0 p-b-0 la...\" data-cmp-is=\"nv-container\" data-cmp-breadcrumbc...=\"none\">"
+          },
+          {
+            "selector": ".d-image-fit-contain",
+            "snippet": "<div class=\"nv-img-as-bg d-image-center d-image-middle l-image-center l-image-middle t-image-center t-image-middle p-image-center p-image-top d-image-fit-contain l-image-fit-contain t-image-fit-conta…"
+          },
+          {
+            "selector": "#ai-data-science-blade > .cmp-carousel__title.h--medium",
+            "snippet": "<h3 class=\"cmp-carousel__title h--medium\"> Artificial Intelligence </h3>"
+          }
+        ]
+      },
+      {
+        "id": "aria-tab-name",
+        "impact": "serious",
+        "nodes": 6,
+        "help": "ARIA tab nodes must have an accessible name",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/aria-tab-name?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "#progressBox_6779308",
+            "snippet": "<div class=\"progressBox activeBox\" id=\"progressBox_6779308\" role=\"tab\" tabindex=\"0\" aria-selected=\"true\" data-theme=\"black\">"
+          },
+          {
+            "selector": "#progressBox_8372975",
+            "snippet": "<div class=\"progressBox\" id=\"progressBox_8372975\" role=\"tab\" tabindex=\"0\" aria-selected=\"false\" data-theme=\"black\">"
+          },
+          {
+            "selector": "#progressBox_1337553",
+            "snippet": "<div class=\"progressBox\" id=\"progressBox_1337553\" role=\"tab\" tabindex=\"0\" aria-selected=\"false\" data-theme=\"black\">"
+          },
+          {
+            "selector": "#progressBox_608014",
+            "snippet": "<div class=\"progressBox\" id=\"progressBox_608014\" role=\"tab\" tabindex=\"0\" aria-selected=\"false\" data-theme=\"black\">"
+          },
+          {
+            "selector": "#progressBox_1828207",
+            "snippet": "<div class=\"progressBox\" id=\"progressBox_1828207\" role=\"tab\" tabindex=\"0\" aria-selected=\"false\" data-theme=\"black\">"
+          }
+        ]
+      },
+      {
+        "id": "landmark-unique",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/landmark-unique?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "#meganavigationbe0dc905_bbc7_46d4_a8af_32a3f074d3ec",
+            "snippet": "<nav class=\"global-nav\" id=\"meganavigationbe0dc905_bbc7_46d4_a8af_32a3f074d3ec\">"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "consecutiveFailures": 0
+}
