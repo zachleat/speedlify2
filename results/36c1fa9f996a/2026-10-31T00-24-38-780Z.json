@@ -1,0 +1,533 @@
+{
+  "url": "https://render.com/",
+  "name": "Render",
+  "group": "dev-tooling",
+  "groupName": "Developer Tooling",
+  "timestamp": 1793406278780,
+  "date": "2026-10-31T00:24:38.780Z",
+  "runId": "2026-10-31T00-24-28-638Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 211190,
+  "error": null,
+  "variance": {
+    "min": 44,
+    "max": 45,
+    "spread": 1,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://render.com/",
+    "finalUrl": "https://render.com/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 45,
+      "accessibility": 84,
+      "best-practices": 73,
+      "seo": 100,
+      "agentic-browsing": 67
+    },
+    "timings": {
+      "fcp": 2107,
+      "lcp": 14395,
+      "si": 3914,
+      "tbt": 1644,
+      "tti": 23163,
+      "cls": 0.001,
+      "ttfb": 678,
+      "maxPotentialFid": 349,
+      "serverResponseTime": 100,
+      "networkRtt": 0.8,
+      "networkServerLatency": 78.2
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 101.5,
+      "elementRenderDelay": 291.5
+    },
+    "weight": {
+      "total": 3632048,
+      "requests": 227,
+      "mainDocument": 84363,
+      "byType": {
+        "total": {
+          "bytes": 3632103,
+          "requests": 169
+        },
+        "script": {
+          "bytes": 2052616,
+          "requests": 100
+        },
+        "font": {
+          "bytes": 999846,
+          "requests": 17
+        },
+        "image": {
+          "bytes": 281149,
+          "requests": 24
+        },
+        "other": {
+          "bytes": 167298,
+          "requests": 24
+        },
+        "document": {
+          "bytes": 84363,
+          "requests": 1
+        },
+        "stylesheet": {
+          "bytes": 46831,
+          "requests": 3
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 993571,
+          "requests": 43
+        }
+      },
+      "scripts": 155,
+      "stylesheets": 3,
+      "fonts": 17
+    },
+    "thirdParty": {
+      "count": 8,
+      "bytes": 993593,
+      "mainThreadMs": 245.1,
+      "top": [
+        {
+          "entity": "Google Tag Manager",
+          "bytes": 525899,
+          "mainThreadMs": 141.8,
+          "byType": {
+            "script": 525899
+          },
+          "typedBytes": 525899
+        },
+        {
+          "entity": "sanity.io",
+          "bytes": 280764,
+          "mainThreadMs": 0,
+          "byType": {
+            "image": 280764
+          },
+          "typedBytes": 280764
+        },
+        {
+          "entity": "posthog.com",
+          "bytes": 161816,
+          "mainThreadMs": 90.8,
+          "byType": {
+            "script": 161531,
+            "other": 285
+          },
+          "typedBytes": 161816
+        },
+        {
+          "entity": "LinkedIn Ads",
+          "bytes": 22435,
+          "mainThreadMs": 11.5,
+          "byType": {
+            "script": 21786,
+            "image": 385,
+            "other": 264
+          },
+          "typedBytes": 22435
+        },
+        {
+          "entity": "SalesLoft",
+          "bytes": 2470,
+          "mainThreadMs": 1,
+          "byType": {
+            "script": 2470
+          },
+          "typedBytes": 2470
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 8422.5,
+      "byGroup": {
+        "scriptEvaluation": 4555.4,
+        "other": 2111.1,
+        "styleLayout": 749.8,
+        "scriptParseCompile": 469.2,
+        "paintCompositeRender": 231.5,
+        "garbageCollection": 204.8,
+        "parseHTML": 100.7
+      },
+      "bootupMs": 4631.8,
+      "longTasks": 20,
+      "longestTaskMs": 349
+    },
+    "dom": {
+      "elements": 2518,
+      "depth": 21,
+      "maxChildren": 92
+    },
+    "waste": {
+      "unusedJsBytes": 705639,
+      "unusedCssBytes": 39484,
+      "legacyJsBytes": 22223,
+      "duplicatedJsBytes": 5491,
+      "unminifiedJsBytes": 31797,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 1356,
+      "renderBlockingCount": 3,
+      "poorlyCachedBytes": 87809.90766666665,
+      "poorlyCachedCount": 5
+    },
+    "accessibility": {
+      "failingCount": 4,
+      "applicableCount": 25,
+      "failingNodes": 53,
+      "failing": [
+        {
+          "id": "svg-img-alt",
+          "title": "SVG elements with an `img` role do not have an accessible text alternative",
+          "weight": 1,
+          "nodes": 45
+        },
+        {
+          "id": "button-name",
+          "title": "Buttons do not have an accessible name",
+          "weight": 10,
+          "nodes": 5
+        },
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "weight": 7,
+          "nodes": 2
+        },
+        {
+          "id": "meta-viewport",
+          "title": "`[user-scalable=\"no\"]` is used in the `<meta name=\"viewport\">` element or the `[maximum-scale]` attribute is less than 5.",
+          "weight": 10,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 3,
+      "applicableCount": 18,
+      "failing": [
+        {
+          "id": "third-party-cookies",
+          "title": "Uses third-party cookies",
+          "weight": 5,
+          "nodes": 7
+        },
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "weight": 1,
+          "nodes": 2
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "weight": 1,
+          "nodes": 2
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 0,
+      "applicableCount": 10,
+      "failing": []
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": null,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 2,
+      "baselineLimitedFeatures": 49
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 3434.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-10-31T00:24:55.267Z",
+      "runtimeMs": 13684
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 675.4,
+    "elementRenderDelay": 6915
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-10-01",
+      "last": "2026-10-28"
+    },
+    "metrics": {
+      "fcp": {
+        "p75": 1864,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 73,
+          "needsImprovement": 17.3,
+          "poor": 9.7
+        }
+      },
+      "inp": {
+        "p75": 330,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 53.8,
+          "needsImprovement": 34.3,
+          "poor": 11.9
+        }
+      },
+      "lcp": {
+        "p75": 2434,
+        "rating": "good",
+        "distribution": {
+          "good": 76,
+          "needsImprovement": 14.1,
+          "poor": 9.9
+        }
+      },
+      "rtt": {
+        "p75": 273,
+        "rating": null,
+        "distribution": {
+          "good": 14.9,
+          "needsImprovement": 60.8,
+          "poor": 24.4
+        }
+      },
+      "cls": {
+        "p75": 0.04,
+        "rating": "good",
+        "distribution": {
+          "good": 81.4,
+          "needsImprovement": 7.8,
+          "poor": 10.8
+        }
+      },
+      "ttfb": {
+        "p75": 1046,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 62.1,
+          "needsImprovement": 28.5,
+          "poor": 9.4
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": true,
+    "generator": {
+      "id": "nextjs",
+      "name": "Next.js",
+      "icon": "Nextdotjs",
+      "version": null,
+      "source": "dom",
+      "raw": null
+    },
+    "probe": {
+      "metas": [],
+      "marks": [
+        "next",
+        "react",
+        "lit"
+      ],
+      "markVersions": {
+        "lit": "2.8.0"
+      }
+    },
+    "interstitial": null,
+    "host": {
+      "id": "render",
+      "name": "Render",
+      "icon": "Render",
+      "source": "x-render-origin-server"
+    },
+    "headers": {
+      "cf-ray": "a52e86c898a85d0d-IAD",
+      "server": "cloudflare",
+      "x-render-origin-server": "Render"
+    },
+    "violations": 53,
+    "passes": 1793,
+    "incomplete": 20,
+    "violationRules": 4,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "svg-img-alt",
+        "impact": "serious",
+        "nodes": 45,
+        "help": "<svg> elements with an img or image role must have alternative text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/svg-img-alt?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".rfm-marquee-container.w-full:nth-child(1) > .rfm-marquee:nth-child(1) > .rfm-initial-child-container > .rfm-child:nth-child(1) > .mr-30.aspect-square.w-60 > svg[stroke-width=\"0\"][height=\"1em\"][width=\"1em\"]",
+            "snippet": "<svg stroke=\"currentColor\" fill=\"currentColor\" stroke-width=\"0\" role=\"img\" viewBox=\"0 0 24 24\" class=\"h-[calc(500%/9)] w-[calc(200%/3)]\" height=\"1em\" width=\"1em\" xmlns=\"http://www.w3.org/2000/svg\">"
+          },
+          {
+            "selector": ".rfm-marquee-container.w-full:nth-child(1) > .rfm-marquee:nth-child(1) > .rfm-initial-child-container > .rfm-child:nth-child(2) > .mr-30.aspect-square.w-60 > svg[stroke-width=\"0\"][height=\"1em\"][width=\"1em\"]",
+            "snippet": "<svg stroke=\"currentColor\" fill=\"currentColor\" stroke-width=\"0\" role=\"img\" viewBox=\"0 0 24 24\" class=\"h-[calc(500%/9)] w-[calc(200%/3)]\" height=\"1em\" width=\"1em\" xmlns=\"http://www.w3.org/2000/svg\">"
+          },
+          {
+            "selector": ".rfm-initial-child-container > .rfm-child:nth-child(3) > .mr-30.aspect-square.w-60 > svg[stroke-width=\"0\"][height=\"1em\"][width=\"1em\"]",
+            "snippet": "<svg stroke=\"currentColor\" fill=\"currentColor\" stroke-width=\"0\" role=\"img\" viewBox=\"0 0 24 24\" class=\"h-[calc(500%/9)] w-[calc(200%/3)]\" height=\"1em\" width=\"1em\" xmlns=\"http://www.w3.org/2000/svg\">"
+          },
+          {
+            "selector": ".rfm-marquee-container.w-full:nth-child(1) > .rfm-marquee:nth-child(1) > .rfm-initial-child-container > .rfm-child:nth-child(6) > .mr-30.aspect-square.w-60 > svg[stroke-width=\"0\"][height=\"1em\"][width=\"1em\"]",
+            "snippet": "<svg stroke=\"currentColor\" fill=\"currentColor\" stroke-width=\"0\" role=\"img\" viewBox=\"0 0 24 24\" class=\"h-[calc(500%/9)] w-[calc(200%/3)]\" height=\"1em\" width=\"1em\" xmlns=\"http://www.w3.org/2000/svg\">"
+          },
+          {
+            "selector": ".rfm-initial-child-container > .rfm-child:nth-child(7) > .mr-30.aspect-square.w-60 > svg[stroke-width=\"0\"][height=\"1em\"][width=\"1em\"]",
+            "snippet": "<svg stroke=\"currentColor\" fill=\"currentColor\" stroke-width=\"0\" role=\"img\" viewBox=\"0 0 24 24\" class=\"h-[calc(500%/9)] w-[calc(200%/3)]\" height=\"1em\" width=\"1em\" xmlns=\"http://www.w3.org/2000/svg\">"
+          }
+        ]
+      },
+      {
+        "id": "button-name",
+        "impact": "critical",
+        "nodes": 5,
+        "help": "Buttons must have discernible text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/button-name?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".-mr-\\[13px\\]",
+            "snippet": "<button class=\"-mr-[13px] flex size-40 items-center justify-center lg:hidden\">"
+          },
+          {
+            "selector": ".p-10.hover\\:opacity-70[type=\"button\"]:nth-child(1)",
+            "snippet": "<button type=\"button\" class=\"shrink-0 p-10 transition-opacity hover:opacity-70\">"
+          },
+          {
+            "selector": ".p-10.hover\\:opacity-70[type=\"button\"]:nth-child(3)",
+            "snippet": "<button type=\"button\" class=\"shrink-0 p-10 transition-opacity hover:opacity-70\">"
+          },
+          {
+            "selector": ".aria-checked\\:border-border.aria-checked\\:bg-background.aria-checked\\:text-text-primary:nth-child(1)",
+            "snippet": "<button class=\"text-text-faint aria-checked:border-border aria-checked:bg-background aria-checked:text-text-primary rounded-[4px] border border-transparent px-8 py-6\" aria-checked=\"true\" role=\"radio\">"
+          },
+          {
+            "selector": ".aria-checked\\:border-border.aria-checked\\:bg-background.aria-checked\\:text-text-primary:nth-child(2)",
+            "snippet": "<button class=\"text-text-faint aria-checked:border-border aria-checked:bg-background aria-checked:text-text-primary rounded-[4px] border border-transparent px-8 py-6\" aria-checked=\"false\" role=\"radio…"
+          }
+        ]
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 2,
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/color-contrast?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".text-gray-400",
+            "snippet": "<span class=\"text-gray-400\">Compute Plan:</span>"
+          },
+          {
+            "selector": "a[href$=\"status.render.com/\"]",
+            "snippet": "<a target=\"_blank\" href=\"https://status.render.com/\" class=\"flex items-center gap-8 text-green-500\"><div class=\"size-8 rounded-full bg-current\"></div>All Systems Operational</a>"
+          }
+        ]
+      },
+      {
+        "id": "meta-viewport",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Zooming and scaling must not be disabled",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/meta-viewport?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "meta[name=\"viewport\"]",
+            "snippet": "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1\">"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "render": {
+    "samples": [
+      {
+        "hash": "000e667ff895",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "cf-cache-status": "DYNAMIC",
+          "etag": "\"eruqsni4p28pc4\"",
+          "x-nextjs-cache": "HIT",
+          "x-nextjs-prerender": "1"
+        }
+      },
+      {
+        "hash": "000e667ff895",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "cf-cache-status": "DYNAMIC",
+          "etag": "\"eruqsni4p28pc4\"",
+          "x-nextjs-cache": "HIT",
+          "x-nextjs-prerender": "1"
+        }
+      },
+      {
+        "hash": "bccdcad7cd60",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "cf-cache-status": "DYNAMIC",
+          "etag": "\"gtfvgpf9s38pc4\"",
+          "x-nextjs-cache": "HIT",
+          "x-nextjs-prerender": "1"
+        }
+      },
+      {
+        "hash": "bccdcad7cd60",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "cf-cache-status": "DYNAMIC",
+          "etag": "\"gtfvgpf9s38pc4\"",
+          "x-nextjs-cache": "HIT",
+          "x-nextjs-prerender": "1"
+        }
+      },
+      {
+        "hash": "000e667ff895",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "cf-cache-status": "DYNAMIC",
+          "etag": "\"eruqsni4p28pc4\"",
+          "x-nextjs-cache": "HIT",
+          "x-nextjs-prerender": "1"
+        }
+      }
+    ]
+  },
+  "consecutiveFailures": 0
+}
