@@ -1,0 +1,372 @@
+{
+  "url": "https://checkthisout.today/",
+  "name": "checkthisout.today",
+  "group": "11ty-community",
+  "groupName": "Built Awesome",
+  "timestamp": 1793470681481,
+  "date": "2026-10-31T18:18:01.481Z",
+  "runId": "2026-10-31T18-12-23-092Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 281432,
+  "error": null,
+  "variance": {
+    "min": 66,
+    "max": 72,
+    "spread": 6,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://checkthisout.today/",
+    "finalUrl": "https://checkthisout.today/lander",
+    "redirect": {
+      "from": "https://checkthisout.today/",
+      "to": "https://checkthisout.today/lander",
+      "chain": [
+        {
+          "url": "https://checkthisout.today/",
+          "status": 200
+        },
+        {
+          "url": "https://checkthisout.today/lander",
+          "status": 200
+        }
+      ],
+      "statuses": [
+        200
+      ],
+      "change": "path",
+      "permanent": false,
+      "schemeUpgrade": false,
+      "hops": 1
+    },
+    "statusCode": "ok",
+    "scores": {
+      "performance": 71,
+      "accessibility": 80,
+      "best-practices": 77,
+      "seo": 73,
+      "agentic-browsing": 9
+    },
+    "timings": {
+      "fcp": 1693,
+      "lcp": 3112,
+      "si": 1693,
+      "tbt": 222,
+      "tti": 3151,
+      "cls": 0.392,
+      "ttfb": 612,
+      "maxPotentialFid": 218,
+      "serverResponseTime": 12,
+      "networkRtt": 1.3,
+      "networkServerLatency": 122.5
+    },
+    "lcpBreakdown": null,
+    "weight": {
+      "total": 230852,
+      "requests": 15,
+      "mainDocument": 1467,
+      "byType": {
+        "total": {
+          "bytes": 230852,
+          "requests": 15
+        },
+        "script": {
+          "bytes": 212675,
+          "requests": 2
+        },
+        "other": {
+          "bytes": 11782,
+          "requests": 10
+        },
+        "stylesheet": {
+          "bytes": 4712,
+          "requests": 1
+        },
+        "document": {
+          "bytes": 1683,
+          "requests": 2
+        },
+        "image": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "font": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 221780,
+          "requests": 12
+        }
+      },
+      "scripts": 2,
+      "stylesheets": 1,
+      "fonts": 0
+    },
+    "thirdParty": {
+      "count": 0,
+      "bytes": 0,
+      "mainThreadMs": 0,
+      "top": []
+    },
+    "mainThread": {
+      "total": 831,
+      "byGroup": {
+        "scriptEvaluation": 444.4,
+        "other": 226.6,
+        "scriptParseCompile": 78,
+        "garbageCollection": 43.6,
+        "styleLayout": 23.6,
+        "parseHTML": 8.4,
+        "paintCompositeRender": 6.5
+      },
+      "bootupMs": 516.5,
+      "longTasks": 3,
+      "longestTaskMs": 218
+    },
+    "dom": {
+      "elements": null,
+      "depth": null,
+      "maxChildren": null
+    },
+    "waste": {
+      "unusedJsBytes": 120783,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 0,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 0,
+      "renderBlockingCount": 0,
+      "poorlyCachedBytes": 0,
+      "poorlyCachedCount": 0
+    },
+    "accessibility": {
+      "failingCount": 3,
+      "applicableCount": 16,
+      "failingNodes": 3,
+      "failing": [
+        {
+          "id": "document-title",
+          "title": "Document doesn't have a `<title>` element",
+          "weight": 7,
+          "nodes": 1
+        },
+        {
+          "id": "meta-viewport",
+          "title": "`[user-scalable=\"no\"]` is used in the `<meta name=\"viewport\">` element or the `[maximum-scale]` attribute is less than 5.",
+          "weight": 10,
+          "nodes": 1
+        },
+        {
+          "id": "landmark-one-main",
+          "title": "Document does not have a main landmark.",
+          "weight": 3,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 2,
+      "applicableCount": 20,
+      "failing": [
+        {
+          "id": "third-party-cookies",
+          "title": "Uses third-party cookies",
+          "weight": 5,
+          "nodes": 2
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "weight": 1,
+          "nodes": 1
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 3,
+      "applicableCount": 8,
+      "failing": [
+        {
+          "id": "document-title",
+          "title": "Document doesn't have a `<title>` element",
+          "weight": 1,
+          "nodes": 1
+        },
+        {
+          "id": "meta-description",
+          "title": "Document does not have a meta description",
+          "weight": 1,
+          "nodes": null
+        },
+        {
+          "id": "robots-txt",
+          "title": "robots.txt is not valid",
+          "weight": 1,
+          "nodes": 2
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "http/1.1",
+      "legacyHttpRequests": 0,
+      "redirectMs": 761.8,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 7
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2422,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-10-31T18:18:56.191Z",
+      "runtimeMs": 53078.1
+    }
+  },
+  "field": null,
+  "axe": {
+    "navigationTimedOut": true,
+    "generator": null,
+    "probe": {
+      "metas": [],
+      "marks": [
+        "react"
+      ],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": null,
+    "headers": {},
+    "violations": 13,
+    "passes": 212,
+    "incomplete": 1,
+    "violationRules": 5,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 9,
+        "help": "All page content should be contained by landmarks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/region?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".SimpleLayout_contentLayout__DLbby > div:nth-child(1)",
+            "snippet": "<div>"
+          },
+          {
+            "selector": ".relatedTopicsHeader",
+            "snippet": "<div class=\"relatedTopicsHeader\"><span>Related Search Topics</span></div>"
+          },
+          {
+            "selector": "li:nth-child(1) > a",
+            "snippet": "<a href=\"https://general-doma...\">"
+          },
+          {
+            "selector": "li:nth-child(2) > a",
+            "snippet": "<a href=\"https://general-doma...\">"
+          },
+          {
+            "selector": "li:nth-child(3) > a",
+            "snippet": "<a href=\"https://general-doma...\">"
+          }
+        ]
+      },
+      {
+        "id": "document-title",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "Documents must have <title> element to aid in navigation",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/document-title?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "html",
+            "snippet": "<html lang=\"en\">"
+          }
+        ]
+      },
+      {
+        "id": "landmark-one-main",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Document should have one main landmark",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/landmark-one-main?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "html",
+            "snippet": "<html lang=\"en\">"
+          }
+        ]
+      },
+      {
+        "id": "meta-viewport",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Zooming and scaling must not be disabled",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/meta-viewport?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "meta[name=\"viewport\"]",
+            "snippet": "<meta name=\"viewport\" content=\"width=device-width,initial-scale=1,user-scalable=no\">"
+          }
+        ]
+      },
+      {
+        "id": "page-has-heading-one",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Page should contain a level-one heading",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/page-has-heading-one?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "html",
+            "snippet": "<html lang=\"en\">"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "render": {
+    "samples": [
+      {
+        "hash": "830995d76a9d",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {}
+      },
+      {
+        "hash": "830995d76a9d",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {}
+      },
+      {
+        "hash": "830995d76a9d",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {}
+      }
+    ]
+  },
+  "consecutiveFailures": 0
+}
