@@ -1,0 +1,337 @@
+{
+  "url": "https://www.noteastic.app/",
+  "name": "www.noteastic.app",
+  "group": "astro-showcase",
+  "groupName": "Astro Showcase",
+  "timestamp": 1793564461884,
+  "date": "2026-11-01T20:21:01.884Z",
+  "runId": "2026-11-01T20-12-20-793Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 27986,
+  "error": null,
+  "variance": {
+    "min": 81,
+    "max": 83,
+    "spread": 2,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://www.noteastic.app/",
+    "finalUrl": "https://noteastic.app/",
+    "redirect": {
+      "from": "https://www.noteastic.app/",
+      "to": "https://noteastic.app/",
+      "chain": [
+        {
+          "url": "https://www.noteastic.app/",
+          "status": 301
+        },
+        {
+          "url": "https://noteastic.app/",
+          "status": 200
+        }
+      ],
+      "statuses": [
+        301
+      ],
+      "change": "host",
+      "permanent": true,
+      "schemeUpgrade": false,
+      "hops": 1
+    },
+    "statusCode": "ok",
+    "scores": {
+      "performance": 81,
+      "accessibility": 94,
+      "best-practices": 77,
+      "seo": 100,
+      "agentic-browsing": 100
+    },
+    "timings": {
+      "fcp": 1974,
+      "lcp": 4450,
+      "si": 1974,
+      "tbt": 156,
+      "tti": 6977,
+      "cls": 0,
+      "ttfb": 607,
+      "maxPotentialFid": 197,
+      "serverResponseTime": 8,
+      "networkRtt": 0.1,
+      "networkServerLatency": 188.6
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 28.7,
+      "resourceLoadDelay": 9,
+      "resourceLoadDuration": 15.3,
+      "elementRenderDelay": 49.3
+    },
+    "weight": {
+      "total": 1124101,
+      "requests": 30,
+      "mainDocument": 34071,
+      "byType": {
+        "total": {
+          "bytes": 1124101,
+          "requests": 30
+        },
+        "script": {
+          "bytes": 480250,
+          "requests": 10
+        },
+        "image": {
+          "bytes": 424908,
+          "requests": 6
+        },
+        "other": {
+          "bytes": 142437,
+          "requests": 11
+        },
+        "document": {
+          "bytes": 34071,
+          "requests": 1
+        },
+        "font": {
+          "bytes": 28381,
+          "requests": 1
+        },
+        "stylesheet": {
+          "bytes": 14054,
+          "requests": 1
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 349741,
+          "requests": 9
+        }
+      },
+      "scripts": 10,
+      "stylesheets": 1,
+      "fonts": 1
+    },
+    "thirdParty": {
+      "count": 4,
+      "bytes": 349741,
+      "mainThreadMs": 93.8,
+      "top": [
+        {
+          "entity": "Google Tag Manager",
+          "bytes": 327518,
+          "mainThreadMs": 84.4,
+          "byType": {
+            "script": 327518
+          },
+          "typedBytes": 327518
+        },
+        {
+          "entity": "reddit",
+          "bytes": 18941,
+          "mainThreadMs": 8.4,
+          "byType": {
+            "script": 18892,
+            "other": 49
+          },
+          "typedBytes": 18941
+        },
+        {
+          "entity": "Google/Doubleclick Ads",
+          "bytes": 3156,
+          "mainThreadMs": 1,
+          "byType": {
+            "script": 3156
+          },
+          "typedBytes": 3156
+        },
+        {
+          "entity": "Other Google APIs/SDKs",
+          "bytes": 126,
+          "mainThreadMs": 0,
+          "byType": {
+            "image": 64,
+            "other": 62
+          },
+          "typedBytes": 126
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 935.5,
+      "byGroup": {
+        "scriptEvaluation": 494.4,
+        "other": 219.9,
+        "scriptParseCompile": 82,
+        "styleLayout": 77.7,
+        "parseHTML": 21.9,
+        "paintCompositeRender": 21,
+        "garbageCollection": 18.6
+      },
+      "bootupMs": 518.4,
+      "longTasks": 4,
+      "longestTaskMs": 197
+    },
+    "dom": {
+      "elements": 948,
+      "depth": 15,
+      "maxChildren": 22
+    },
+    "waste": {
+      "unusedJsBytes": 207735,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 21158,
+      "duplicatedJsBytes": 3017,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 300,
+      "renderBlockingCount": 1,
+      "poorlyCachedBytes": 92094.95333333332,
+      "poorlyCachedCount": 3
+    },
+    "accessibility": {
+      "failingCount": 1,
+      "applicableCount": 15,
+      "failingNodes": 2,
+      "failing": [
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "weight": 7,
+          "nodes": 2
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 2,
+      "applicableCount": 19,
+      "failing": [
+        {
+          "id": "third-party-cookies",
+          "title": "Uses third-party cookies",
+          "weight": 5,
+          "nodes": 1
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "weight": 1,
+          "nodes": 1
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 0,
+      "applicableCount": 8,
+      "failing": []
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 767.5,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 55
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 4402.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-11-01T20:21:12.753Z",
+      "runtimeMs": 7880.2
+    }
+  },
+  "field": null,
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": {
+      "id": "astro",
+      "name": "Astro",
+      "icon": "Astro",
+      "version": null,
+      "source": "dom",
+      "raw": null
+    },
+    "probe": {
+      "metas": [],
+      "marks": [
+        "astro"
+      ],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": null,
+    "headers": {},
+    "violations": 2,
+    "passes": 106,
+    "incomplete": 1,
+    "violationRules": 1,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 2,
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/color-contrast?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "button[data-cookie-reject=\"\"]",
+            "snippet": "<button type=\"button\" data-cookie-reject=\"\" class=\"btn-accent\">Reject all</button>"
+          },
+          {
+            "selector": "button[data-cookie-accept=\"\"]",
+            "snippet": "<button type=\"button\" data-cookie-accept=\"\" class=\"btn-accent\">Accept all</button>"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "render": {
+    "samples": [
+      {
+        "hash": "88a47f3d8ae6",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "etag": "\"00589323\"",
+          "last-modified": "Thu, 15 Oct 2026 13:03:36 GMT"
+        }
+      },
+      {
+        "hash": "88a47f3d8ae6",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "etag": "\"00589323\"",
+          "last-modified": "Thu, 15 Oct 2026 13:03:36 GMT"
+        }
+      },
+      {
+        "hash": "88a47f3d8ae6",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "etag": "\"00589323\"",
+          "last-modified": "Thu, 15 Oct 2026 13:03:36 GMT"
+        }
+      }
+    ]
+  },
+  "consecutiveFailures": 0
+}
