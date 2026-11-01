@@ -1,0 +1,446 @@
+{
+  "url": "https://current.com/",
+  "name": "current.com",
+  "group": "astro-showcase",
+  "groupName": "Astro Showcase",
+  "timestamp": 1793523298517,
+  "date": "2026-11-01T08:54:58.517Z",
+  "runId": "2026-11-01T08-45-15-890Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 34990,
+  "error": null,
+  "variance": {
+    "min": 58,
+    "max": 71,
+    "spread": 13,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://current.com/",
+    "finalUrl": "https://current.com/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 69,
+      "accessibility": 87,
+      "best-practices": 77,
+      "seo": 92,
+      "agentic-browsing": 50
+    },
+    "timings": {
+      "fcp": 1244,
+      "lcp": 5279,
+      "si": 2240,
+      "tbt": 447,
+      "tti": 7149,
+      "cls": 0,
+      "ttfb": 631,
+      "maxPotentialFid": 312,
+      "serverResponseTime": 2,
+      "networkRtt": 11.1,
+      "networkServerLatency": 47.6
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 72.7,
+      "resourceLoadDelay": 86.1,
+      "resourceLoadDuration": 38,
+      "elementRenderDelay": 315
+    },
+    "weight": {
+      "total": 3033061,
+      "requests": 106,
+      "mainDocument": 35330,
+      "byType": {
+        "total": {
+          "bytes": 3033061,
+          "requests": 106
+        },
+        "image": {
+          "bytes": 2331188,
+          "requests": 30
+        },
+        "script": {
+          "bytes": 526755,
+          "requests": 55
+        },
+        "font": {
+          "bytes": 106965,
+          "requests": 3
+        },
+        "document": {
+          "bytes": 39328,
+          "requests": 2
+        },
+        "stylesheet": {
+          "bytes": 24297,
+          "requests": 5
+        },
+        "other": {
+          "bytes": 4528,
+          "requests": 11
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 293336,
+          "requests": 18
+        }
+      },
+      "scripts": 55,
+      "stylesheets": 5,
+      "fonts": 3
+    },
+    "thirdParty": {
+      "count": 6,
+      "bytes": 256341,
+      "mainThreadMs": 181.9,
+      "top": [
+        {
+          "entity": "Google Tag Manager",
+          "bytes": 172843,
+          "mainThreadMs": 124.7,
+          "byType": {
+            "script": 172843
+          },
+          "typedBytes": 172843
+        },
+        {
+          "entity": "datadoghq-browser-agent.com",
+          "bytes": 67540,
+          "mainThreadMs": 50.5,
+          "byType": {
+            "script": 67540
+          },
+          "typedBytes": 67540
+        },
+        {
+          "entity": "Trust Pilot",
+          "bytes": 8551,
+          "mainThreadMs": 5.8,
+          "byType": {
+            "script": 8551
+          },
+          "typedBytes": 8551
+        },
+        {
+          "entity": "Google/Doubleclick Ads",
+          "bytes": 4402,
+          "mainThreadMs": 0.9,
+          "byType": {
+            "script": 3112,
+            "other": 1233,
+            "image": 57
+          },
+          "typedBytes": 4402
+        },
+        {
+          "entity": "Better Business Bureau",
+          "bytes": 2880,
+          "mainThreadMs": 0,
+          "byType": {
+            "image": 2880
+          },
+          "typedBytes": 2880
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 3288.7,
+      "byGroup": {
+        "scriptEvaluation": 1335.4,
+        "other": 812.7,
+        "styleLayout": 623.9,
+        "paintCompositeRender": 341.1,
+        "scriptParseCompile": 101.6,
+        "parseHTML": 73.9
+      },
+      "bootupMs": 1337.6,
+      "longTasks": 6,
+      "longestTaskMs": 312
+    },
+    "dom": {
+      "elements": 1268,
+      "depth": 22,
+      "maxChildren": 17
+    },
+    "waste": {
+      "unusedJsBytes": 121026,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 0,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 153,
+      "renderBlockingCount": 5,
+      "poorlyCachedBytes": 62026,
+      "poorlyCachedCount": 4
+    },
+    "accessibility": {
+      "failingCount": 3,
+      "applicableCount": 28,
+      "failingNodes": 7,
+      "failing": [
+        {
+          "id": "button-name",
+          "title": "Buttons do not have an accessible name",
+          "weight": 10,
+          "nodes": 5
+        },
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "weight": 7,
+          "nodes": 1
+        },
+        {
+          "id": "target-size",
+          "title": "Touch targets do not have sufficient size or spacing.",
+          "weight": 7,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 2,
+      "applicableCount": 18,
+      "failing": [
+        {
+          "id": "third-party-cookies",
+          "title": "Uses third-party cookies",
+          "weight": 5,
+          "nodes": 1
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "weight": 1,
+          "nodes": 1
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 1,
+      "applicableCount": 10,
+      "failing": [
+        {
+          "id": "link-text",
+          "title": "Links do not have descriptive text",
+          "weight": 1,
+          "nodes": 10
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 37
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2462,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-11-01T08:54:59.823Z",
+      "runtimeMs": 10451.8
+    }
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-10-03",
+      "last": "2026-10-30"
+    },
+    "metrics": {
+      "cls": {
+        "p75": 0,
+        "rating": "good",
+        "distribution": {
+          "good": 92.6,
+          "needsImprovement": 6.5,
+          "poor": 0.9
+        }
+      },
+      "ttfb": {
+        "p75": 452,
+        "rating": "good",
+        "distribution": {
+          "good": 86.5,
+          "needsImprovement": 8.9,
+          "poor": 4.6
+        }
+      },
+      "fcp": {
+        "p75": 1422,
+        "rating": "good",
+        "distribution": {
+          "good": 82.3,
+          "needsImprovement": 10.7,
+          "poor": 7
+        }
+      },
+      "inp": {
+        "p75": 236,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 68.2,
+          "needsImprovement": 24.8,
+          "poor": 7
+        }
+      },
+      "lcp": {
+        "p75": 2817,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 69.7,
+          "needsImprovement": 17.2,
+          "poor": 13.1
+        }
+      },
+      "rtt": {
+        "p75": 138,
+        "rating": null,
+        "distribution": {
+          "good": 29,
+          "needsImprovement": 63.3,
+          "poor": 7.8
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": {
+      "id": "astro",
+      "name": "Astro",
+      "icon": "Astro",
+      "version": "5.18.1",
+      "source": "meta",
+      "raw": "Astro v5.18.1"
+    },
+    "probe": {
+      "metas": [
+        "Astro v5.18.1"
+      ],
+      "marks": [
+        "astro",
+        "react",
+        "vue"
+      ],
+      "markVersions": {
+        "vue": "3.5.34"
+      }
+    },
+    "interstitial": null,
+    "host": {
+      "id": "vercel",
+      "name": "Vercel",
+      "icon": "Vercel",
+      "source": "x-vercel-id"
+    },
+    "headers": {
+      "server": "Vercel",
+      "x-vercel-id": "iad1::iad1::npczm-1793523329796-bf75fd85edd1"
+    },
+    "violations": 5,
+    "passes": 956,
+    "incomplete": 16,
+    "violationRules": 1,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "button-name",
+        "impact": "critical",
+        "nodes": 5,
+        "help": "Buttons must have discernible text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/button-name?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".basis-1\\/3.h-6[data-step=\"0\"]",
+            "snippet": "<button class=\"basis-1/3 flex justify-center steps__numbers-a text-sm h-6\" data-step=\"0\" data-astro-cid-7g2dabvn=\"\"></button>"
+          },
+          {
+            "selector": ".basis-1\\/3.h-6[data-step=\"1\"]",
+            "snippet": "<button class=\"basis-1/3 flex justify-center steps__numbers-a text-sm h-6\" data-step=\"1\" data-astro-cid-7g2dabvn=\"\"></button>"
+          },
+          {
+            "selector": ".basis-1\\/3.h-6[data-step=\"2\"]",
+            "snippet": "<button class=\"basis-1/3 flex justify-center steps__numbers-a text-sm h-6\" data-step=\"2\" data-astro-cid-7g2dabvn=\"\"></button>"
+          },
+          {
+            "selector": ".basis-1\\/3.h-6[data-step=\"3\"]",
+            "snippet": "<button class=\"basis-1/3 flex justify-center steps__numbers-a text-sm h-6\" data-step=\"3\" data-astro-cid-7g2dabvn=\"\"></button>"
+          },
+          {
+            "selector": ".basis-1\\/3.h-6[data-step=\"4\"]",
+            "snippet": "<button class=\"basis-1/3 flex justify-center steps__numbers-a text-sm h-6\" data-step=\"4\" data-astro-cid-7g2dabvn=\"\"></button>"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "render": {
+    "samples": [
+      {
+        "hash": "7f7d7f4bf78b",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "age": "0",
+          "x-vercel-cache": "MISS"
+        }
+      },
+      {
+        "hash": "a1b8e4948d17",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "age": "0",
+          "x-vercel-cache": "MISS"
+        }
+      },
+      {
+        "hash": "8f021de56677",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "age": "0",
+          "x-vercel-cache": "MISS"
+        }
+      },
+      {
+        "hash": "39b760ad0923",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "age": "0",
+          "x-vercel-cache": "MISS"
+        }
+      }
+    ]
+  },
+  "consecutiveFailures": 0
+}

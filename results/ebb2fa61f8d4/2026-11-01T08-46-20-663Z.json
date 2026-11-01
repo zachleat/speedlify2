@@ -1,0 +1,523 @@
+{
+  "url": "https://buildkite.com/",
+  "name": "buildkite.com",
+  "group": "astro-showcase",
+  "groupName": "Astro Showcase",
+  "timestamp": 1793522780663,
+  "date": "2026-11-01T08:46:20.663Z",
+  "runId": "2026-11-01T08-45-15-890Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 60969,
+  "error": null,
+  "variance": {
+    "min": 47,
+    "max": 74,
+    "spread": 27,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://buildkite.com/",
+    "finalUrl": "https://buildkite.com/home/",
+    "redirect": {
+      "from": "https://buildkite.com/",
+      "to": "https://buildkite.com/home",
+      "chain": [
+        {
+          "url": "https://buildkite.com/",
+          "status": 302
+        },
+        {
+          "url": "https://buildkite.com/home/",
+          "status": 200
+        }
+      ],
+      "statuses": [
+        302
+      ],
+      "change": "path",
+      "permanent": false,
+      "schemeUpgrade": false,
+      "hops": 1
+    },
+    "statusCode": "ok",
+    "scores": {
+      "performance": 68,
+      "accessibility": 87,
+      "best-practices": 73,
+      "seo": 92,
+      "agentic-browsing": 67
+    },
+    "timings": {
+      "fcp": 1966,
+      "lcp": 6764,
+      "si": 2779,
+      "tbt": 319,
+      "tti": 9107,
+      "cls": 0,
+      "ttfb": 613,
+      "maxPotentialFid": 334,
+      "serverResponseTime": 12,
+      "networkRtt": 0.9,
+      "networkServerLatency": 33.9
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 25.5,
+      "elementRenderDelay": 203.8
+    },
+    "weight": {
+      "total": 2379477,
+      "requests": 129,
+      "mainDocument": 36536,
+      "byType": {
+        "total": {
+          "bytes": 2379477,
+          "requests": 129
+        },
+        "image": {
+          "bytes": 1478250,
+          "requests": 71
+        },
+        "script": {
+          "bytes": 672305,
+          "requests": 46
+        },
+        "font": {
+          "bytes": 128078,
+          "requests": 3
+        },
+        "stylesheet": {
+          "bytes": 60769,
+          "requests": 3
+        },
+        "document": {
+          "bytes": 36536,
+          "requests": 1
+        },
+        "other": {
+          "bytes": 3539,
+          "requests": 5
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 224671,
+          "requests": 33
+        }
+      },
+      "scripts": 46,
+      "stylesheets": 3,
+      "fonts": 3
+    },
+    "thirdParty": {
+      "count": 4,
+      "bytes": 224671,
+      "mainThreadMs": 63,
+      "top": [
+        {
+          "entity": "Hubspot",
+          "bytes": 107250,
+          "mainThreadMs": 63,
+          "byType": {
+            "script": 104241,
+            "other": 2194,
+            "image": 815
+          },
+          "typedBytes": 107250
+        },
+        {
+          "entity": "buildkiteassets.com",
+          "bytes": 79318,
+          "mainThreadMs": 0,
+          "byType": {
+            "image": 79318
+          },
+          "typedBytes": 79318
+        },
+        {
+          "entity": "typenetwork.com",
+          "bytes": 37516,
+          "mainThreadMs": 0,
+          "byType": {
+            "font": 36895,
+            "stylesheet": 621
+          },
+          "typedBytes": 37516
+        },
+        {
+          "entity": "Google Fonts",
+          "bytes": 587,
+          "mainThreadMs": 0,
+          "byType": {
+            "stylesheet": 587
+          },
+          "typedBytes": 587
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 4924.3,
+      "byGroup": {
+        "other": 2031.6,
+        "scriptEvaluation": 1502.4,
+        "styleLayout": 729.6,
+        "paintCompositeRender": 461,
+        "parseHTML": 96.4,
+        "scriptParseCompile": 58.3,
+        "garbageCollection": 45.1
+      },
+      "bootupMs": 1507.7,
+      "longTasks": 11,
+      "longestTaskMs": 334
+    },
+    "dom": {
+      "elements": 1665,
+      "depth": 23,
+      "maxChildren": 65
+    },
+    "waste": {
+      "unusedJsBytes": 235987,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 0,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 754,
+      "renderBlockingCount": 2,
+      "poorlyCachedBytes": 299548.89166666666,
+      "poorlyCachedCount": 29
+    },
+    "accessibility": {
+      "failingCount": 3,
+      "applicableCount": 31,
+      "failingNodes": 8,
+      "failing": [
+        {
+          "id": "link-name",
+          "title": "Links do not have a discernible name",
+          "weight": 7,
+          "nodes": 4
+        },
+        {
+          "id": "button-name",
+          "title": "Buttons do not have an accessible name",
+          "weight": 10,
+          "nodes": 3
+        },
+        {
+          "id": "image-alt",
+          "title": "Image elements do not have `[alt]` attributes",
+          "weight": 10,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 4,
+      "applicableCount": 19,
+      "failing": [
+        {
+          "id": "third-party-cookies",
+          "title": "Uses third-party cookies",
+          "weight": 5,
+          "nodes": 6
+        },
+        {
+          "id": "charset",
+          "title": "Charset declaration is missing or occurs too late in the HTML",
+          "weight": 1,
+          "nodes": null
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "weight": 1,
+          "nodes": 1
+        },
+        {
+          "id": "valid-source-maps",
+          "title": "Missing source maps for large first-party JavaScript",
+          "weight": 0,
+          "nodes": 3
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 1,
+      "applicableCount": 10,
+      "failing": [
+        {
+          "id": "image-alt",
+          "title": "Image elements do not have `[alt]` attributes",
+          "weight": 1,
+          "nodes": 1
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 763.5,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 60
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2419,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-11-01T08:46:41.668Z",
+      "runtimeMs": 18891.8
+    }
+  },
+  "field": {
+    "source": "crux",
+    "scope": "origin",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-10-03",
+      "last": "2026-10-30"
+    },
+    "metrics": {
+      "rtt": {
+        "p75": 160,
+        "rating": null,
+        "distribution": {
+          "good": 35.3,
+          "needsImprovement": 55.3,
+          "poor": 9.5
+        }
+      },
+      "cls": {
+        "p75": 0,
+        "rating": "good",
+        "distribution": {
+          "good": 92.4,
+          "needsImprovement": 4.8,
+          "poor": 2.9
+        }
+      },
+      "ttfb": {
+        "p75": 1146,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 46.3,
+          "needsImprovement": 46.3,
+          "poor": 7.3
+        }
+      },
+      "fcp": {
+        "p75": 1491,
+        "rating": "good",
+        "distribution": {
+          "good": 85.6,
+          "needsImprovement": 11.2,
+          "poor": 3.3
+        }
+      },
+      "inp": {
+        "p75": 139,
+        "rating": "good",
+        "distribution": {
+          "good": 83.1,
+          "needsImprovement": 16.2,
+          "poor": 0.7
+        }
+      },
+      "lcp": {
+        "p75": 2081,
+        "rating": "good",
+        "distribution": {
+          "good": 84.3,
+          "needsImprovement": 11.6,
+          "poor": 4.1
+        }
+      }
+    },
+    "cwvPass": true,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": {
+      "id": "astro",
+      "name": "Astro",
+      "icon": "Astro",
+      "version": "7.2.8",
+      "source": "meta",
+      "raw": "Astro v7.2.8"
+    },
+    "probe": {
+      "metas": [
+        "Astro v7.2.8"
+      ],
+      "marks": [
+        "astro",
+        "react",
+        "preact"
+      ],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "cloudfront",
+      "name": "CloudFront",
+      "icon": null,
+      "source": "server"
+    },
+    "headers": {
+      "server": "CloudFront",
+      "via": "1.1 8bd3b44b8e417f2b75cd6e631907112a.cloudfront.net (CloudFront), 1.1 5e868b55b502623cfa1c1fa31e1c91c8.cloudfront.net (C",
+      "x-amz-cf-id": "3QuaINwvJ1-RP5QYN0PGuT0ZC1KsdvDnB6wTjx5a5WMYrF4TXvIXkg=="
+    },
+    "violations": 126,
+    "passes": 1690,
+    "incomplete": 1,
+    "violationRules": 4,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 118,
+        "help": "All page content should be contained by landmarks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/region?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".z-2",
+            "snippet": "<div class=\"dark relative z-2 pt-20\">"
+          },
+          {
+            "selector": ".h-fit",
+            "snippet": "<div class=\"mx-auto w-fit z-50 h...\" style=\"opacity: 1; transfor...\">"
+          },
+          {
+            "selector": ".p-4.gap-4.justify-between",
+            "snippet": "<div class=\"flex items-center justify-between gap-4 p-4\">"
+          },
+          {
+            "selector": ".mt-0 > .justify-end.whitespace-nowrap.h-full",
+            "snippet": "<div class=\"flex h-full flex-col justify-end whitespace-nowrap\">"
+          },
+          {
+            "selector": ".items-end",
+            "snippet": "<div class=\"m-4 grid grid-cols-2 items-end rounded-md bg-[#5a547841] p-3\">"
+          }
+        ]
+      },
+      {
+        "id": "link-name",
+        "impact": "serious",
+        "nodes": 4,
+        "help": "Links must have discernible text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/link-name?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".size-6.opacity-80[href$=\"buildkite\"]:nth-child(1)",
+            "snippet": "<a href=\"https://x.com/buildkite\" class=\"size-6 opacity-80 transition-opacity hover:opacity-100\">"
+          },
+          {
+            "selector": ".size-6.opacity-80[href$=\"buildkite\"]:nth-child(2)",
+            "snippet": "<a href=\"https://github.com/buildkite\" class=\"size-6 opacity-80 transition-opacity hover:opacity-100\">"
+          },
+          {
+            "selector": ".size-6.opacity-80[href$=\"buildkite\"]:nth-child(3)",
+            "snippet": "<a href=\"https://youtube.com/buildkite\" class=\"size-6 opacity-80 transition-opacity hover:opacity-100\">"
+          },
+          {
+            "selector": ".size-6.opacity-80.hover\\:opacity-100:nth-child(4)",
+            "snippet": "<a href=\"https://linkedin.com/company/buildkite\" class=\"size-6 opacity-80 transition-opacity hover:opacity-100\">"
+          }
+        ]
+      },
+      {
+        "id": "button-name",
+        "impact": "critical",
+        "nodes": 3,
+        "help": "Buttons must have discernible text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/button-name?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".opacity-100",
+            "snippet": "<button class=\"transition-opacity text-white opacity-100\">"
+          },
+          {
+            "selector": "div[data-customer=\"Canva\"] > .opacity-70.text-brand-navy-200",
+            "snippet": "<button class=\"transition-opacity text-brand-navy-200 opacity-70\">"
+          },
+          {
+            "selector": "div[data-customer=\"Slack\"] > .opacity-70.text-brand-navy-200",
+            "snippet": "<button class=\"transition-opacity text-brand-navy-200 opacity-70\">"
+          }
+        ]
+      },
+      {
+        "id": "image-alt",
+        "impact": "critical",
+        "nodes": 1,
+        "help": "Images must have alternative text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/image-alt?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".object-left-top",
+            "snippet": "<img src=\"/_astro/ui_uber.CIIzUl7L.svg\" class=\"pointer-events-none w-full object-cover object-left-top\">"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "render": {
+    "samples": [
+      {
+        "hash": "cf17eeda47ef",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "age": "29",
+          "etag": "W/\"18fa06e8de124b580773e70d735a2856\"",
+          "last-modified": "Fri, 30 Oct 2026 01:35:44 GMT",
+          "x-cache": "Miss from cloudfront"
+        }
+      },
+      {
+        "hash": "cf17eeda47ef",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "age": "48",
+          "etag": "W/\"18fa06e8de124b580773e70d735a2856\"",
+          "last-modified": "Fri, 30 Oct 2026 01:35:44 GMT",
+          "x-cache": "Miss from cloudfront"
+        }
+      },
+      {
+        "hash": "cf17eeda47ef",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "age": "67",
+          "etag": "W/\"18fa06e8de124b580773e70d735a2856\"",
+          "last-modified": "Fri, 30 Oct 2026 01:35:44 GMT",
+          "x-cache": "Miss from cloudfront"
+        }
+      }
+    ]
+  },
+  "consecutiveFailures": 0
+}
