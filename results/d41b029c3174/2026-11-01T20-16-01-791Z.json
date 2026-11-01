@@ -1,0 +1,403 @@
+{
+  "url": "https://www.cointracker.io/",
+  "name": "www.cointracker.io",
+  "group": "astro-showcase",
+  "groupName": "Astro Showcase",
+  "timestamp": 1793564161791,
+  "date": "2026-11-01T20:16:01.791Z",
+  "runId": "2026-11-01T20-12-28-203Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 65097,
+  "error": null,
+  "variance": {
+    "min": 29,
+    "max": 76,
+    "spread": 47,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://www.cointracker.io/",
+    "finalUrl": "https://www.cointracker.com/",
+    "redirect": {
+      "from": "https://www.cointracker.io/",
+      "to": "https://www.cointracker.com/",
+      "chain": [
+        {
+          "url": "https://www.cointracker.io/",
+          "status": 301
+        },
+        {
+          "url": "https://www.cointracker.com/",
+          "status": 200
+        }
+      ],
+      "statuses": [
+        301
+      ],
+      "change": "host",
+      "permanent": true,
+      "schemeUpgrade": false,
+      "hops": 1
+    },
+    "statusCode": "ok",
+    "scores": {
+      "performance": 63,
+      "accessibility": 95,
+      "best-practices": 92,
+      "seo": 92,
+      "agentic-browsing": 100
+    },
+    "timings": {
+      "fcp": 5624,
+      "lcp": 6600,
+      "si": 5624,
+      "tbt": 0,
+      "tti": 6623,
+      "cls": 0,
+      "ttfb": 660,
+      "maxPotentialFid": 16,
+      "serverResponseTime": 108,
+      "networkRtt": 0.7,
+      "networkServerLatency": 60
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 125.8,
+      "resourceLoadDelay": 20.8,
+      "resourceLoadDuration": 24.8,
+      "elementRenderDelay": 1160.8
+    },
+    "weight": {
+      "total": 1018242,
+      "requests": 53,
+      "mainDocument": 94003,
+      "byType": {
+        "total": {
+          "bytes": 1018242,
+          "requests": 45
+        },
+        "script": {
+          "bytes": 705868,
+          "requests": 29
+        },
+        "image": {
+          "bytes": 200865,
+          "requests": 10
+        },
+        "document": {
+          "bytes": 94003,
+          "requests": 1
+        },
+        "stylesheet": {
+          "bytes": 13906,
+          "requests": 3
+        },
+        "other": {
+          "bytes": 3600,
+          "requests": 2
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "font": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 59981,
+          "requests": 8
+        }
+      },
+      "scripts": 29,
+      "stylesheets": 3,
+      "fonts": 0
+    },
+    "thirdParty": {
+      "count": 3,
+      "bytes": 1018186,
+      "mainThreadMs": 27.8,
+      "top": [
+        {
+          "entity": "cointracker.com",
+          "bytes": 958261,
+          "mainThreadMs": 27.8,
+          "byType": {
+            "document": 94003,
+            "script": 705868,
+            "image": 141827,
+            "stylesheet": 13019,
+            "other": 3544
+          },
+          "typedBytes": 958261
+        },
+        {
+          "entity": "sanity.io",
+          "bytes": 59038,
+          "mainThreadMs": 0,
+          "byType": {
+            "image": 59038
+          },
+          "typedBytes": 59038
+        },
+        {
+          "entity": "Google Fonts",
+          "bytes": 887,
+          "mainThreadMs": 0,
+          "byType": {
+            "stylesheet": 887
+          },
+          "typedBytes": 887
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 610.7,
+      "byGroup": {
+        "other": 323.1,
+        "styleLayout": 84.5,
+        "parseHTML": 80.1,
+        "paintCompositeRender": 44.5,
+        "scriptEvaluation": 42,
+        "scriptParseCompile": 36.6
+      },
+      "bootupMs": 66.9,
+      "longTasks": 2,
+      "longestTaskMs": 81
+    },
+    "dom": {
+      "elements": 2036,
+      "depth": 20,
+      "maxChildren": 16
+    },
+    "waste": {
+      "unusedJsBytes": 0,
+      "unusedCssBytes": 54918,
+      "legacyJsBytes": 0,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 1072,
+      "renderBlockingCount": 3,
+      "poorlyCachedBytes": 571807.2399999999,
+      "poorlyCachedCount": 21
+    },
+    "accessibility": {
+      "failingCount": 3,
+      "applicableCount": 28,
+      "failingNodes": 14,
+      "failing": [
+        {
+          "id": "target-size",
+          "title": "Touch targets do not have sufficient size or spacing.",
+          "weight": 7,
+          "nodes": 7
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "title": "Elements with visible text labels do not have matching accessible names.",
+          "weight": 0,
+          "nodes": 6
+        },
+        {
+          "id": "landmark-one-main",
+          "title": "Document does not have a main landmark.",
+          "weight": 3,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 2,
+      "applicableCount": 17,
+      "failing": [
+        {
+          "id": "image-size-responsive",
+          "title": "Serves images with low resolution",
+          "weight": 1,
+          "nodes": 2
+        },
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "weight": 1,
+          "nodes": 14
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 1,
+      "applicableCount": 10,
+      "failing": [
+        {
+          "id": "link-text",
+          "title": "Links do not have descriptive text",
+          "weight": 1,
+          "nodes": 4
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": null,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 764.1,
+      "consoleErrors": 14,
+      "baselineLimitedFeatures": 13
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2435.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-11-01T20:16:12.981Z",
+      "runtimeMs": 9317.6
+    }
+  },
+  "field": null,
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": {
+      "id": "reactrouter",
+      "name": "React Router",
+      "icon": "Reactrouter",
+      "version": null,
+      "source": "dom",
+      "raw": null
+    },
+    "probe": {
+      "metas": [],
+      "marks": [
+        "reactrouter",
+        "react"
+      ],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "cloudflare",
+      "name": "Cloudflare",
+      "icon": "Cloudflare",
+      "source": "server"
+    },
+    "headers": {
+      "cf-ray": "a53d93adccbe3ac1-DFW",
+      "server": "cloudflare"
+    },
+    "violations": 30,
+    "passes": 1620,
+    "incomplete": 33,
+    "violationRules": 3,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 26,
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/color-contrast?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".leading-\\[18px\\].text-\\[\\#5B616E\\].text-\\[14px\\]:nth-child(3) > .text-\\[\\#1E9E4A\\]",
+            "snippet": "<span class=\"text-[#1E9E4A]\">+$4,210.55 (3.47%)</span>"
+          },
+          {
+            "selector": ".gap-2\\.5.items-center.flex:nth-child(2) > .items-end.flex-col.flex > .text-\\[\\#1E9E4A\\].leading-\\[18px\\].text-\\[14px\\]",
+            "snippet": "<span class=\"text-[14px] leading-[18px] text-[#1E9E4A]\">+4.1%</span>"
+          },
+          {
+            "selector": ".gap-2\\.5.items-center.flex:nth-child(3) > .items-end.flex-col.flex > .text-\\[\\#1E9E4A\\].leading-\\[18px\\].text-\\[14px\\]",
+            "snippet": "<span class=\"text-[14px] leading-[18px] text-[#1E9E4A]\">+2.8%</span>"
+          },
+          {
+            "selector": ".uppercase.text-black\\/50.tracking-\\[-0\\.24px\\]",
+            "snippet": "<p class=\"text-xs tracking-[-0.24px] text-black/50 uppercase\">Cointracker benefits</p>"
+          },
+          {
+            "selector": ".md\\:col-span-4.min-h-87\\.5.bg-\\[\\#f4f2f0\\]:nth-child(1) > .p-6.sm\\:p-9.lg\\:hidden > .gap-6.flex-col.flex > .gap-3\\.25.flex-col.flex > .max-w-65.leading-\\[1\\.3\\].tracking-\\[-0\\.24px\\]",
+            "snippet": "<p class=\"max-w-65 text-xs leading-[1.3] tracking-[-0.24px] text-[#7a7978]\">We sync all your crypto activity and accurately calculate your tax liability.</p>"
+          }
+        ]
+      },
+      {
+        "id": "image-redundant-alt",
+        "impact": "minor",
+        "nodes": 3,
+        "help": "Alternative text of images should not be repeated as text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/image-redundant-alt?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "img[alt=\"Linkedin\"]",
+            "snippet": "<img width=\"32\" height=\"32\" alt=\"Linkedin\" loading=\"lazy\" decoding=\"async\" class=\"size-6 shrink-0 object-contain lg:size-8\" src=\"https://cdn.sanity.io/images/kn0uy6kh/production/2a4ad2b02459e07db8b5c…"
+          },
+          {
+            "selector": "img[alt=\"YouTube\"]",
+            "snippet": "<img width=\"32\" height=\"32\" alt=\"YouTube\" loading=\"lazy\" decoding=\"async\" class=\"size-6 shrink-0 object-contain lg:size-8\" src=\"https://cdn.sanity.io/images/kn0uy6kh/production/0957afbbd02925bacffa32…"
+          },
+          {
+            "selector": "img[alt=\"Reddit\"]",
+            "snippet": "<img width=\"32\" height=\"32\" alt=\"Reddit\" loading=\"lazy\" decoding=\"async\" class=\"size-6 shrink-0 object-contain lg:size-8\" src=\"https://cdn.sanity.io/images/kn0uy6kh/production/20a2b4a01611682296a8eb7…"
+          }
+        ]
+      },
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "All page content should be contained by landmarks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/region?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".bg-brand-gradient > span > .group-hover\\/button\\:-translate-x-2\\.5.transition-transform.ease-\\[cubic-bezier\\(1\\,-0\\.02\\,0\\.01\\,0\\.99\\)\\]",
+            "snippet": "<span class=\"transition-transform duration-500 ease-[cubic-bezier(1,-0.02,0.01,0.99)] group-hover/button:-translate-x-2.5\"><span>Start for free</span></span>"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "render": {
+    "samples": [
+      {
+        "hash": "094316b746dc",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "cf-cache-status": "DYNAMIC",
+          "x-cache": "HIT"
+        }
+      },
+      {
+        "hash": "094316b746dc",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "cf-cache-status": "DYNAMIC",
+          "x-cache": "HIT"
+        }
+      },
+      {
+        "hash": "094316b746dc",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "cf-cache-status": "DYNAMIC",
+          "x-cache": "HIT"
+        }
+      }
+    ]
+  },
+  "consecutiveFailures": 0
+}
