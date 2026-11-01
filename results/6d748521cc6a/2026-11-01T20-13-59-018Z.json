@@ -1,0 +1,386 @@
+{
+  "url": "https://www.porsche.com/",
+  "name": "www.porsche.com",
+  "group": "astro-showcase",
+  "groupName": "Astro Showcase",
+  "timestamp": 1793564039018,
+  "date": "2026-11-01T20:13:59.018Z",
+  "runId": "2026-11-01T20-12-27-313Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 43672,
+  "error": null,
+  "variance": {
+    "min": 51,
+    "max": 77,
+    "spread": 26,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://www.porsche.com/",
+    "finalUrl": "https://www.porsche.com/usa/?cs_redirect=1",
+    "redirect": {
+      "from": "https://www.porsche.com/",
+      "to": "https://www.porsche.com/usa?cs_redirect=1",
+      "chain": [
+        {
+          "url": "https://www.porsche.com/",
+          "status": 301
+        },
+        {
+          "url": "https://www.porsche.com/usa/?cs_redirect=1",
+          "status": 200
+        }
+      ],
+      "statuses": [
+        301
+      ],
+      "change": "path+query",
+      "permanent": true,
+      "schemeUpgrade": false,
+      "hops": 1
+    },
+    "statusCode": "ok",
+    "scores": {
+      "performance": 76,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100,
+      "agentic-browsing": 100
+    },
+    "timings": {
+      "fcp": 1558,
+      "lcp": 3214,
+      "si": 4932,
+      "tbt": 486,
+      "tti": 10803,
+      "cls": 0.05,
+      "ttfb": 658,
+      "maxPotentialFid": 431,
+      "serverResponseTime": 46,
+      "networkRtt": 0.9,
+      "networkServerLatency": 537.8
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 95.6,
+      "resourceLoadDelay": 16.5,
+      "resourceLoadDuration": 43.9,
+      "elementRenderDelay": 89.2
+    },
+    "weight": {
+      "total": 7447033,
+      "requests": 171,
+      "mainDocument": 44902,
+      "byType": {
+        "total": {
+          "bytes": 7447033,
+          "requests": 171
+        },
+        "media": {
+          "bytes": 4828713,
+          "requests": 13
+        },
+        "image": {
+          "bytes": 1680748,
+          "requests": 50
+        },
+        "script": {
+          "bytes": 703984,
+          "requests": 79
+        },
+        "font": {
+          "bytes": 81077,
+          "requests": 2
+        },
+        "other": {
+          "bytes": 71607,
+          "requests": 18
+        },
+        "document": {
+          "bytes": 46557,
+          "requests": 2
+        },
+        "stylesheet": {
+          "bytes": 34347,
+          "requests": 7
+        },
+        "third-party": {
+          "bytes": 217703,
+          "requests": 16
+        }
+      },
+      "scripts": 79,
+      "stylesheets": 7,
+      "fonts": 2
+    },
+    "thirdParty": {
+      "count": 3,
+      "bytes": 217703,
+      "mainThreadMs": 0,
+      "top": [
+        {
+          "entity": "storyblok.com",
+          "bytes": 163414,
+          "mainThreadMs": 0,
+          "byType": {
+            "image": 163414
+          },
+          "typedBytes": 163414
+        },
+        {
+          "entity": "Usercentrics CMP",
+          "bytes": 52903,
+          "mainThreadMs": 0,
+          "byType": {
+            "other": 52260,
+            "image": 643
+          },
+          "typedBytes": 52903
+        },
+        {
+          "entity": "porsche.services",
+          "bytes": 1386,
+          "mainThreadMs": 0,
+          "byType": {
+            "other": 1386
+          },
+          "typedBytes": 1386
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 6087,
+      "byGroup": {
+        "other": 2154.9,
+        "scriptEvaluation": 2131.3,
+        "paintCompositeRender": 796.6,
+        "styleLayout": 739.5,
+        "scriptParseCompile": 114.6,
+        "garbageCollection": 82.6,
+        "parseHTML": 67.4
+      },
+      "bootupMs": 1750.2,
+      "longTasks": 13,
+      "longestTaskMs": 431
+    },
+    "dom": {
+      "elements": 1065,
+      "depth": 16,
+      "maxChildren": 13
+    },
+    "waste": {
+      "unusedJsBytes": 189480,
+      "unusedCssBytes": 11695,
+      "legacyJsBytes": 0,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 151,
+      "renderBlockingCount": 7,
+      "poorlyCachedBytes": 660189.2541666667,
+      "poorlyCachedCount": 17
+    },
+    "accessibility": {
+      "failingCount": 0,
+      "applicableCount": 29,
+      "failingNodes": 0,
+      "failing": []
+    },
+    "bestPractices": {
+      "failingCount": 0,
+      "applicableCount": 19,
+      "failing": []
+    },
+    "seo": {
+      "failingCount": 0,
+      "applicableCount": 10,
+      "failing": []
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 808.1,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 65
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2336.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-11-01T20:14:16.464Z",
+      "runtimeMs": 11759
+    }
+  },
+  "field": {
+    "source": "crux",
+    "scope": "origin",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-10-03",
+      "last": "2026-10-30"
+    },
+    "metrics": {
+      "cls": {
+        "p75": 0.01,
+        "rating": "good",
+        "distribution": {
+          "good": 92.4,
+          "needsImprovement": 6.3,
+          "poor": 1.4
+        }
+      },
+      "ttfb": {
+        "p75": 1065,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 64.3,
+          "needsImprovement": 25.6,
+          "poor": 10.1
+        }
+      },
+      "fcp": {
+        "p75": 1419,
+        "rating": "good",
+        "distribution": {
+          "good": 83.6,
+          "needsImprovement": 10.8,
+          "poor": 5.7
+        }
+      },
+      "inp": {
+        "p75": 210,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 73.3,
+          "needsImprovement": 18.4,
+          "poor": 8.3
+        }
+      },
+      "lcp": {
+        "p75": 1921,
+        "rating": "good",
+        "distribution": {
+          "good": 82.9,
+          "needsImprovement": 10,
+          "poor": 7.1
+        }
+      },
+      "rtt": {
+        "p75": 126,
+        "rating": null,
+        "distribution": {
+          "good": 45.7,
+          "needsImprovement": 48.3,
+          "poor": 6
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": {
+      "id": "astro",
+      "name": "Astro",
+      "icon": "Astro",
+      "version": "7.4.1",
+      "source": "meta",
+      "raw": "Astro v7.4.1"
+    },
+    "probe": {
+      "metas": [
+        "Astro v7.4.1"
+      ],
+      "marks": [
+        "astro",
+        "vue",
+        "lit"
+      ],
+      "markVersions": {
+        "vue": "3.5.44",
+        "lit": "3.3.1"
+      }
+    },
+    "interstitial": null,
+    "host": null,
+    "headers": {},
+    "violations": 2,
+    "passes": 1058,
+    "incomplete": 12,
+    "violationRules": 2,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "empty-heading",
+        "impact": "minor",
+        "nodes": 1,
+        "help": "Headings should not be empty",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/empty-heading?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "uc-layer2 uc-p-heading h2",
+            "snippet": "<h2 class=\"root\"><slot></slot></h2>"
+          }
+        ]
+      },
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "All page content should be contained by landmarks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/region?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "p-header p-country-recommender .text-2xs",
+            "snippet": "<div class=\"text-2xs ml-1 grid flex-wrap sm:ml-2\">"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "render": {
+    "samples": [
+      {
+        "hash": "80c0f53a6725",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "last-modified": "Sat, 31 Oct 2026 10:55:43 GMT"
+        }
+      },
+      {
+        "hash": "80c0f53a6725",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "last-modified": "Sat, 31 Oct 2026 10:55:43 GMT"
+        }
+      },
+      {
+        "hash": "80c0f53a6725",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "last-modified": "Sat, 31 Oct 2026 10:55:43 GMT"
+        }
+      }
+    ]
+  },
+  "consecutiveFailures": 0
+}
