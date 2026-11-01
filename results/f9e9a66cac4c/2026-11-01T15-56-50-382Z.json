@@ -1,0 +1,376 @@
+{
+  "url": "https://sdk.val.town/",
+  "name": "sdk.val.town",
+  "group": "astro-showcase",
+  "groupName": "Astro Showcase",
+  "timestamp": 1793548610382,
+  "date": "2026-11-01T15:56:50.382Z",
+  "runId": "2026-11-01T15-47-05-579Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 36087,
+  "error": null,
+  "variance": {
+    "min": 91,
+    "max": 98,
+    "spread": 7,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://sdk.val.town/",
+    "finalUrl": "https://sdk.val.town/api/typescript",
+    "redirect": {
+      "from": "https://sdk.val.town/",
+      "to": "https://sdk.val.town/api/typescript",
+      "chain": [
+        {
+          "url": "https://sdk.val.town/",
+          "status": 301
+        },
+        {
+          "url": "https://sdk.val.town/api/typescript",
+          "status": 200
+        }
+      ],
+      "statuses": [
+        301
+      ],
+      "change": "path",
+      "permanent": true,
+      "schemeUpgrade": false,
+      "hops": 1
+    },
+    "statusCode": "ok",
+    "scores": {
+      "performance": 96,
+      "accessibility": 91,
+      "best-practices": 100,
+      "seo": 82,
+      "agentic-browsing": 100
+    },
+    "timings": {
+      "fcp": 1518,
+      "lcp": 2420,
+      "si": 2427,
+      "tbt": 127,
+      "tti": 3898,
+      "cls": 0,
+      "ttfb": 915,
+      "maxPotentialFid": 250,
+      "serverResponseTime": 44,
+      "networkRtt": 6.9,
+      "networkServerLatency": 314.8
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 800.2,
+      "elementRenderDelay": 492.1
+    },
+    "weight": {
+      "total": 766439,
+      "requests": 60,
+      "mainDocument": 19367,
+      "byType": {
+        "total": {
+          "bytes": 765179,
+          "requests": 58
+        },
+        "script": {
+          "bytes": 637573,
+          "requests": 45
+        },
+        "font": {
+          "bytes": 67707,
+          "requests": 2
+        },
+        "stylesheet": {
+          "bytes": 29113,
+          "requests": 2
+        },
+        "document": {
+          "bytes": 19367,
+          "requests": 1
+        },
+        "image": {
+          "bytes": 11054,
+          "requests": 7
+        },
+        "other": {
+          "bytes": 365,
+          "requests": 1
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 6599,
+          "requests": 5
+        }
+      },
+      "scripts": 45,
+      "stylesheets": 2,
+      "fonts": 2
+    },
+    "thirdParty": {
+      "count": 2,
+      "bytes": 6599,
+      "mainThreadMs": 0,
+      "top": [
+        {
+          "entity": "GitHub",
+          "bytes": 4072,
+          "mainThreadMs": 0,
+          "byType": {
+            "image": 4072
+          },
+          "typedBytes": 4072
+        },
+        {
+          "entity": "shields.io",
+          "bytes": 2527,
+          "mainThreadMs": 0,
+          "byType": {
+            "image": 2527
+          },
+          "typedBytes": 2527
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 1353.8,
+      "byGroup": {
+        "other": 580.8,
+        "scriptEvaluation": 448.7,
+        "styleLayout": 213.2,
+        "paintCompositeRender": 38.9,
+        "parseHTML": 34.2,
+        "garbageCollection": 24.5,
+        "scriptParseCompile": 13.5
+      },
+      "bootupMs": 441.5,
+      "longTasks": 5,
+      "longestTaskMs": 250
+    },
+    "dom": {
+      "elements": 1426,
+      "depth": 19,
+      "maxChildren": 95
+    },
+    "waste": {
+      "unusedJsBytes": 163732,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 0,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 300,
+      "renderBlockingCount": 1,
+      "poorlyCachedBytes": 80085.21666666666,
+      "poorlyCachedCount": 56
+    },
+    "accessibility": {
+      "failingCount": 2,
+      "applicableCount": 27,
+      "failingNodes": 116,
+      "failing": [
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "weight": 7,
+          "nodes": 113
+        },
+        {
+          "id": "image-alt",
+          "title": "Image elements do not have `[alt]` attributes",
+          "weight": 10,
+          "nodes": 3
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 1,
+      "applicableCount": 19,
+      "failing": [
+        {
+          "id": "valid-source-maps",
+          "title": "Missing source maps for large first-party JavaScript",
+          "weight": 0,
+          "nodes": 3
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 2,
+      "applicableCount": 8,
+      "failing": [
+        {
+          "id": "meta-description",
+          "title": "Document does not have a meta description",
+          "weight": 1,
+          "nodes": null
+        },
+        {
+          "id": "image-alt",
+          "title": "Image elements do not have `[alt]` attributes",
+          "weight": 1,
+          "nodes": 3
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 1066.2,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 34
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2443.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-11-01T15:56:51.688Z",
+      "runtimeMs": 11787.8
+    }
+  },
+  "field": null,
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": {
+      "id": "astro",
+      "name": "Astro",
+      "icon": "Astro",
+      "version": "5.16.6",
+      "source": "meta",
+      "raw": "Astro v5.16.6"
+    },
+    "probe": {
+      "metas": [
+        "Astro v5.16.6",
+        "Starlight v0.37.1"
+      ],
+      "marks": [
+        "astro",
+        "react"
+      ],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "cloudflare",
+      "name": "Cloudflare",
+      "icon": "Cloudflare",
+      "source": "server"
+    },
+    "headers": {
+      "cf-ray": "a53c1818e852a599-ORD",
+      "server": "cloudflare"
+    },
+    "violations": 116,
+    "passes": 1902,
+    "incomplete": 0,
+    "violationRules": 2,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 113,
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/color-contrast?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "pre[data-language=\"js\"]:nth-child(10) > code > .line:nth-child(1) > span:nth-child(1)",
+            "snippet": "<span style=\"color:#D73A49;--shiki-dark:#F97583\">import</span>"
+          },
+          {
+            "selector": "pre[data-language=\"js\"]:nth-child(10) > code > .line:nth-child(1) > span:nth-child(3)",
+            "snippet": "<span style=\"color:#D73A49;--shiki-dark:#F97583\">from</span>"
+          },
+          {
+            "selector": "pre[data-language=\"js\"]:nth-child(10) > code > .line:nth-child(3) > span:nth-child(1)",
+            "snippet": "<span style=\"color:#D73A49;--shiki-dark:#F97583\">const</span>"
+          },
+          {
+            "selector": "pre[data-language=\"js\"]:nth-child(10) > code > .line:nth-child(3) > span:nth-child(4)",
+            "snippet": "<span style=\"color:#D73A49;--shiki-dark:#F97583\"> new</span>"
+          },
+          {
+            "selector": "pre[data-language=\"js\"]:nth-child(10) > code > .line:nth-child(4) > span:nth-child(4)",
+            "snippet": "<span style=\"color:#6A737D;--shiki-dark:#6A737D\">// This is the default and can be omitted</span>"
+          }
+        ]
+      },
+      {
+        "id": "image-alt",
+        "impact": "critical",
+        "nodes": 3,
+        "help": "Images must have alternative text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/image-alt?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "p:nth-child(75) > img[align=\"top\"][width=\"18\"][height=\"21\"]",
+            "snippet": "<img src=\"https://raw.githubusercontent.com/stainless-api/sdk-assets/refs/heads/main/node.svg\" align=\"top\" width=\"18\" height=\"21\">"
+          },
+          {
+            "selector": "p:nth-child(77) > img[align=\"top\"][width=\"18\"][height=\"21\"]",
+            "snippet": "<img src=\"https://raw.githubusercontent.com/stainless-api/sdk-assets/refs/heads/main/bun.svg\" align=\"top\" width=\"18\" height=\"21\">"
+          },
+          {
+            "selector": "p:nth-child(79) > img[align=\"top\"][width=\"18\"][height=\"21\"]",
+            "snippet": "<img src=\"https://raw.githubusercontent.com/stainless-api/sdk-assets/refs/heads/main/deno.svg\" align=\"top\" width=\"18\" height=\"21\">"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "render": {
+    "samples": [
+      {
+        "hash": "0de252f8564c",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "age": "121371",
+          "cf-cache-status": "HIT",
+          "last-modified": "Sat, 31 Oct 2026 06:14:00 GMT"
+        }
+      },
+      {
+        "hash": "0de252f8564c",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "age": "121383",
+          "cf-cache-status": "HIT",
+          "last-modified": "Sat, 31 Oct 2026 06:14:00 GMT"
+        }
+      },
+      {
+        "hash": "0de252f8564c",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "age": "121394",
+          "cf-cache-status": "HIT",
+          "last-modified": "Sat, 31 Oct 2026 06:14:00 GMT"
+        }
+      }
+    ]
+  },
+  "consecutiveFailures": 0
+}

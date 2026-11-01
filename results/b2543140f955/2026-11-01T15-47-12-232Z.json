@@ -1,0 +1,469 @@
+{
+  "url": "https://freeworld.org/",
+  "name": "freeworld.org",
+  "group": "astro-showcase",
+  "groupName": "Astro Showcase",
+  "timestamp": 1793548032232,
+  "date": "2026-11-01T15:47:12.232Z",
+  "runId": "2026-11-01T15-47-05-579Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 31310,
+  "error": null,
+  "variance": {
+    "min": 42,
+    "max": 51,
+    "spread": 9,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://freeworld.org/",
+    "finalUrl": "https://freeworld.org/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 49,
+      "accessibility": 92,
+      "best-practices": 88,
+      "seo": 92,
+      "agentic-browsing": 75
+    },
+    "timings": {
+      "fcp": 1143,
+      "lcp": 6168,
+      "si": 1435,
+      "tbt": 641,
+      "tti": 6681,
+      "cls": 0.252,
+      "ttfb": 617,
+      "maxPotentialFid": 243,
+      "serverResponseTime": 23,
+      "networkRtt": 0.1,
+      "networkServerLatency": 45.5
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 24.3,
+      "resourceLoadDelay": 43.9,
+      "resourceLoadDuration": 30.5,
+      "elementRenderDelay": 82.2
+    },
+    "weight": {
+      "total": 6980076,
+      "requests": 50,
+      "mainDocument": 7431,
+      "byType": {
+        "total": {
+          "bytes": 6980076,
+          "requests": 49
+        },
+        "image": {
+          "bytes": 6092544,
+          "requests": 15
+        },
+        "script": {
+          "bytes": 777483,
+          "requests": 22
+        },
+        "font": {
+          "bytes": 80721,
+          "requests": 2
+        },
+        "stylesheet": {
+          "bytes": 16113,
+          "requests": 3
+        },
+        "document": {
+          "bytes": 7431,
+          "requests": 1
+        },
+        "other": {
+          "bytes": 5784,
+          "requests": 6
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 488739,
+          "requests": 14
+        }
+      },
+      "scripts": 22,
+      "stylesheets": 3,
+      "fonts": 3
+    },
+    "thirdParty": {
+      "count": 4,
+      "bytes": 488739,
+      "mainThreadMs": 205.8,
+      "top": [
+        {
+          "entity": "posthog.com",
+          "bytes": 232008,
+          "mainThreadMs": 148.4,
+          "byType": {
+            "script": 230737,
+            "other": 1271
+          },
+          "typedBytes": 232008
+        },
+        {
+          "entity": "Google Tag Manager",
+          "bytes": 173747,
+          "mainThreadMs": 57.4,
+          "byType": {
+            "script": 173747
+          },
+          "typedBytes": 173747
+        },
+        {
+          "entity": "Google Fonts",
+          "bytes": 81658,
+          "mainThreadMs": 0,
+          "byType": {
+            "font": 80721,
+            "stylesheet": 937
+          },
+          "typedBytes": 81658
+        },
+        {
+          "entity": "digitaloceanspaces.com",
+          "bytes": 1326,
+          "mainThreadMs": 0,
+          "byType": {
+            "other": 1326
+          },
+          "typedBytes": 1326
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 2394.4,
+      "byGroup": {
+        "scriptEvaluation": 1082,
+        "other": 890.5,
+        "styleLayout": 195.9,
+        "scriptParseCompile": 133.5,
+        "paintCompositeRender": 68.8,
+        "parseHTML": 23.8
+      },
+      "bootupMs": 1178.4,
+      "longTasks": 8,
+      "longestTaskMs": 243
+    },
+    "dom": {
+      "elements": 158,
+      "depth": 9,
+      "maxChildren": 15
+    },
+    "waste": {
+      "unusedJsBytes": 462221,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 19167,
+      "duplicatedJsBytes": 9039,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 150,
+      "renderBlockingCount": 2,
+      "poorlyCachedBytes": 6472645.668055555,
+      "poorlyCachedCount": 32
+    },
+    "accessibility": {
+      "failingCount": 2,
+      "applicableCount": 22,
+      "failingNodes": 7,
+      "failing": [
+        {
+          "id": "image-alt",
+          "title": "Image elements do not have `[alt]` attributes",
+          "weight": 10,
+          "nodes": 6
+        },
+        {
+          "id": "heading-order",
+          "title": "Heading elements are not in a sequentially-descending order",
+          "weight": 3,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 4,
+      "applicableCount": 19,
+      "failing": [
+        {
+          "id": "image-aspect-ratio",
+          "title": "Displays images with incorrect aspect ratio",
+          "weight": 1,
+          "nodes": 2
+        },
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "weight": 1,
+          "nodes": 1
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "weight": 1,
+          "nodes": 1
+        },
+        {
+          "id": "valid-source-maps",
+          "title": "Missing source maps for large first-party JavaScript",
+          "weight": 0,
+          "nodes": 7
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 1,
+      "applicableCount": 10,
+      "failing": [
+        {
+          "id": "image-alt",
+          "title": "Image elements do not have `[alt]` attributes",
+          "weight": 1,
+          "nodes": 6
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 1,
+      "baselineLimitedFeatures": 36
+    },
+    "environment": {
+      "lighthouseVersion": "13.4.1",
+      "benchmarkIndex": 2488,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-11-01T15:47:33.946Z",
+      "runtimeMs": 8237.5
+    }
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-10-03",
+      "last": "2026-10-30"
+    },
+    "metrics": {
+      "rtt": {
+        "p75": 129,
+        "rating": null,
+        "distribution": {
+          "good": 36.1,
+          "needsImprovement": 56.3,
+          "poor": 7.6
+        }
+      },
+      "cls": {
+        "p75": 0.24,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 73.2,
+          "needsImprovement": 1.9,
+          "poor": 24.9
+        }
+      },
+      "ttfb": {
+        "p75": 566,
+        "rating": "good",
+        "distribution": {
+          "good": 83.7,
+          "needsImprovement": 12.8,
+          "poor": 3.5
+        }
+      },
+      "fcp": {
+        "p75": 1465,
+        "rating": "good",
+        "distribution": {
+          "good": 83.6,
+          "needsImprovement": 11.2,
+          "poor": 5.2
+        }
+      },
+      "inp": {
+        "p75": 95,
+        "rating": "good",
+        "distribution": {
+          "good": 95.1,
+          "needsImprovement": 3.9,
+          "poor": 1
+        }
+      },
+      "lcp": {
+        "p75": 1999,
+        "rating": "good",
+        "distribution": {
+          "good": 84.8,
+          "needsImprovement": 11.6,
+          "poor": 3.6
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": {
+      "id": "astro",
+      "name": "Astro",
+      "icon": "Astro",
+      "version": null,
+      "source": "dom",
+      "raw": null
+    },
+    "probe": {
+      "metas": [],
+      "marks": [
+        "astro",
+        "react"
+      ],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "cloudflare",
+      "name": "Cloudflare",
+      "icon": "Cloudflare",
+      "source": "server"
+    },
+    "headers": {
+      "cf-ray": "a53c0a19b8e51a46-ORD",
+      "server": "cloudflare"
+    },
+    "violations": 8,
+    "passes": 266,
+    "incomplete": 1,
+    "violationRules": 3,
+    "version": "4.13.0",
+    "top": [
+      {
+        "id": "image-alt",
+        "impact": "critical",
+        "nodes": 6,
+        "help": "Images must have alternative text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/image-alt?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".swiper-slide-next > img",
+            "snippet": "<img src=\"/images/homepage/carousel/carousel_1.jpg\">"
+          },
+          {
+            "selector": "div[data-swiper-slide-index=\"1\"] > img",
+            "snippet": "<img src=\"/images/homepage/carousel/carousel_2.jpg\">"
+          },
+          {
+            "selector": "div[data-swiper-slide-index=\"2\"] > img",
+            "snippet": "<img src=\"/images/homepage/carousel/carousel_3.jpg\">"
+          },
+          {
+            "selector": "div[data-swiper-slide-index=\"4\"] > img",
+            "snippet": "<img src=\"/images/homepage/carousel/carousel_4.jpg\">"
+          },
+          {
+            "selector": "div[data-swiper-slide-index=\"5\"] > img",
+            "snippet": "<img src=\"/images/homepage/carousel/carousel_5.jpg\">"
+          }
+        ]
+      },
+      {
+        "id": "heading-order",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Heading levels should only increase by one",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/heading-order?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".col-span-8.shadow.text-lg:nth-child(1) > .text-4xl.font-normal.mb-4",
+            "snippet": "<h3 class=\"text-4xl font-normal mb-4\">Get Started</h3>"
+          }
+        ]
+      },
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "All page content should be contained by landmarks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/region?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".py-10",
+            "snippet": "<a href=\"/application\" class=\"font-bold font-header border-white px-6 min-w-[140px] text-center w-full sm:w-auto tracking-wider bg-fwRoot text-white py-10 block sm:hidden rounded-none border-0\"> Appl…"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "render": {
+    "samples": [
+      {
+        "hash": "ea4d7229ab5f",
+        "nonce": "a634fc3f4957",
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "age": "69977",
+          "cf-cache-status": "HIT",
+          "last-modified": "Fri, 30 Oct 2026 20:15:36 GMT"
+        }
+      },
+      {
+        "hash": "ea4d7229ab5f",
+        "nonce": "a634fc3f4957",
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "age": "69987",
+          "cf-cache-status": "HIT",
+          "last-modified": "Fri, 30 Oct 2026 20:15:36 GMT"
+        }
+      },
+      {
+        "hash": "ea4d7229ab5f",
+        "nonce": "a634fc3f4957",
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "age": "69996",
+          "cf-cache-status": "HIT",
+          "last-modified": "Fri, 30 Oct 2026 20:15:36 GMT"
+        }
+      },
+      {
+        "hash": "ea4d7229ab5f",
+        "nonce": "a634fc3f4957",
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "age": "70004",
+          "cf-cache-status": "HIT",
+          "etag": "\"0e9a843a01c912323d7eedb0d36eb145\"",
+          "last-modified": "Fri, 30 Oct 2026 20:15:36 GMT"
+        }
+      }
+    ]
+  },
+  "consecutiveFailures": 0
+}
