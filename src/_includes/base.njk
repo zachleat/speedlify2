@@ -104,8 +104,10 @@ try {
 			#}
 			{{ meta.description }}
 			{% set lastMeasured = sites.recentlyMeasured[0].timestamp if sites.recentlyMeasured.length %}
-			{% if lastMeasured %}Last updated <time datetime="{{ lastMeasured | iso }}" title="{{ lastMeasured | date('long') }}">{{ lastMeasured | since }}</time> ago{% if runs.measuredThisWeek %}, with <a href="/runs/">{{ runs.measuredThisWeek | num }} measurements</a> in the last week{% endif %}.{% endif %}
-			Follow us on <a href="https://mastodon.social/@speedlify" rel="me"><i class="fa-brands fa-mastodon" aria-hidden="true"></i>Mastodon</a> or <a href="https://bsky.app/profile/speedlify.dev" rel="me"><i class="fa-brands fa-bluesky" aria-hidden="true"></i>Bluesky</a>.
+			Follow us on <a href="https://mastodon.social/@speedlify" rel="me"><i class="fa-brands fa-mastodon" aria-hidden="true"></i>Mastodon</a> and <a href="https://bsky.app/profile/speedlify.dev" rel="me"><i class="fa-brands fa-bluesky" aria-hidden="true"></i>Bluesky</a>.
+			{% if lastMeasured or runs.measuredThisWeek %}<br>{% endif %}
+			{% if lastMeasured %}Last updated <span class="age-pill" title="{{ lastMeasured | date('long') }}"><time datetime="{{ lastMeasured | iso }}">{{ lastMeasured | since }}</time> ago</span>.{% endif %}
+			{% if runs.measuredThisWeek %}{{ runs.measuredThisWeek | num }} measurements in the last week.{% endif %}
 		</p>
 		<div class="masthead-subhed masthead-tools">
 			<a href="/charts/">Charts</a>
@@ -270,7 +272,7 @@ try {
 				This website was built with <a href="https://build.awesome.me/"><i class="fa-brands fa-build-awesome"></i>Build Awesome {{ buildawesome.version }}</a> on <time datetime="{{ sites.generated | iso }}">{{ sites.generated | date("long") }}</time> ·
 				Measured with <a href="https://github.com/GoogleChrome/lighthouse">Lighthouse {{ meta.lighthouseVersion }}</a>{% if meta.repo %} ·
 				<a href="{{ meta.repo }}">Source on <i class="fa-brands fa-github"></i>GitHub</a>{% endif %} ·
-				Follow us on <a href="https://mastodon.social/@speedlify" rel="me"><i class="fa-brands fa-mastodon"></i>Mastodon</a> or <a href="https://bsky.app/profile/speedlify.dev" rel="me"><i class="fa-brands fa-bluesky"></i>Bluesky</a> ·
+				Follow us on <a href="https://mastodon.social/@speedlify" rel="me"><i class="fa-brands fa-mastodon"></i>Mastodon</a> and <a href="https://bsky.app/profile/speedlify.dev" rel="me"><i class="fa-brands fa-bluesky"></i>Bluesky</a> ·
 				{#
 					The Open Graph card this page gets when it is shared. `entry` is
 					only in scope on a site page — it is that template's pagination
