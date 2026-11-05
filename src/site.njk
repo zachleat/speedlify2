@@ -1403,7 +1403,7 @@ eleventyComputed:
 				<th class="col-site">When</th>
 				<th class="col-logdots" title="The four Lighthouse categories, then violating nodes from the axe run and the Core Web Vitals verdict, as they stood at this measurement">Scores</th>
 				<th>Perf</th><th>LCP</th><th>CLS</th><th>TBT</th><th>Weight</th>
-				<th>Runs</th><th>Spread</th><th>Bench</th><th>Took</th>
+				<th>Runs</th><th>Spread</th><th>Bench</th><th>Lighthouse</th><th>Took</th>
 				<th class="col-archive" title="The Wayback Machine's nearest capture to each measurement">Archive</th>
 			</tr>
 		</thead>
@@ -1419,7 +1419,7 @@ eleventyComputed:
 			{% for change in entry.generatorHistory %}
 			{% if change.date == point.date %}
 			<tr class="row-change">
-				<td colspan="12">
+				<td colspan="13">
 					<span class="change-mark">{{ "↩" if change.returnedToEleventy else "→" }}</span>
 					Generator changed from <strong>{{ change.from }}</strong> to
 					<strong>{{ change.to }}</strong>
@@ -1449,7 +1449,7 @@ eleventyComputed:
 					{% endif %}
 				</td>
 				{% if point.error %}
-					<td colspan="8" class="muted"><code>{{ point.error }}</code></td>
+					<td colspan="9" class="muted"><code>{{ point.error }}</code></td>
 					<td class="num muted">{{ (point.durationMs / 1000) | round(1) }}s</td>
 				{% else %}
 					<td class="score score-{{ point.performance | scoreClass }}">{{ point.performance }}</td>
@@ -1479,6 +1479,8 @@ eleventyComputed:
 						<span class="bench-change {{ 'outside' if point.benchOutside }}">{{ point.benchVsMedian | signed }}%</span>
 						{%- endif %}
 					</td>
+					{# Points stored before the version was recorded were all measured with 13.4.1. #}
+					<td class="num muted">{{ point.lh or "13.4.1" }}</td>
 					<td class="num muted">{{ (point.durationMs / 1000) | round(1) }}s</td>
 				{% endif %}
 				{#

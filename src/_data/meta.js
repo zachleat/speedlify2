@@ -1,3 +1,5 @@
+import lighthousePackage from "lighthouse/package.json" with { type: "json" };
+
 function goatcounterUrl(value) {
 	if (!value) return "";
 	let url;
@@ -27,6 +29,9 @@ export default {
 	// blank: an empty string silently drops the link, which is how the header one
 	// went unnoticed for so long. Override it when running your own instance.
 	repo: process.env.SPEEDLIFY_REPO_URL || "https://github.com/zachleat/speedlify2",
+
+	// The installed Lighthouse, which is what measures the next run.
+	lighthouseVersion: lighthousePackage.version,
 
 	// GoatCounter endpoint, e.g. https://you.goatcounter.com/count. Off unless
 	// set: analytics belong to one deployment, not to the template.

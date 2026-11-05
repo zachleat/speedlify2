@@ -265,7 +265,8 @@ try {
 				the stamp and the source link rather than above every page's content.
 			#}
 			<p>
-				This website was built with <a href="https://build.awesome.me/"><i class="fa-brands fa-build-awesome"></i>Build Awesome {{ buildawesome.version }}</a> on <time datetime="{{ sites.generated | iso }}">{{ sites.generated | date("long") }}</time>{% if meta.repo %} ·
+				This website was built with <a href="https://build.awesome.me/"><i class="fa-brands fa-build-awesome"></i>Build Awesome {{ buildawesome.version }}</a> on <time datetime="{{ sites.generated | iso }}">{{ sites.generated | date("long") }}</time> ·
+				Measured with <a href="https://github.com/GoogleChrome/lighthouse">Lighthouse {{ meta.lighthouseVersion }}</a>{% if meta.repo %} ·
 				<a href="{{ meta.repo }}">Source on <i class="fa-brands fa-github"></i>GitHub</a>{% endif %} ·
 				Follow us on <a href="https://mastodon.social/@speedlify" rel="me"><i class="fa-brands fa-mastodon"></i>Mastodon</a> or <a href="https://bsky.app/profile/speedlify.dev" rel="me"><i class="fa-brands fa-bluesky"></i>Bluesky</a> ·
 				{#
