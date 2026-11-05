@@ -104,7 +104,7 @@ try {
 			#}
 			{{ meta.description }}
 			{% set lastMeasured = sites.recentlyMeasured[0].timestamp if sites.recentlyMeasured.length %}
-			{% if lastMeasured %}Last updated <time datetime="{{ lastMeasured | iso }}" title="{{ lastMeasured | date('long') }}">{{ lastMeasured | since }}</time> ago.{% endif %}
+			{% if lastMeasured %}Last updated <time datetime="{{ lastMeasured | iso }}" title="{{ lastMeasured | date('long') }}">{{ lastMeasured | since }}</time> ago{% if runs.measuredThisWeek %}, with <a href="/runs/">{{ runs.measuredThisWeek | num }} measurements</a> in the last week{% endif %}.{% endif %}
 			Follow us on <a href="https://mastodon.social/@speedlify" rel="me"><i class="fa-brands fa-mastodon" aria-hidden="true"></i>Mastodon</a> or <a href="https://bsky.app/profile/speedlify.dev" rel="me"><i class="fa-brands fa-bluesky" aria-hidden="true"></i>Bluesky</a>.
 		</p>
 		<div class="masthead-subhed masthead-tools">
