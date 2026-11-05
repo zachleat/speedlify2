@@ -12,18 +12,16 @@ name: Measure
 
 on:
   schedule:
-    # Hourly. With batch=20 and 4 shards that is 1,920 sites/day — the same
-    # throughput as before, arriving in smaller, more frequent pieces. Shorter
-    # runs matter more than the total: Lighthouse does not fully release memory
-    # between runs, and a job that ends sooner is a job that cannot exhaust the
-    # heap or overrun the timeout mid-batch.
+    # Every 30 minutes with batch=10 and 4 shards: 1,920 sites/day in smaller
+    # runs, which keep Lighthouse's unreleased memory from piling up mid-batch.
     - cron: "0 * * * *"
+    - cron: "30 * * * *"
   workflow_dispatch:
     inputs:
       batch:
         description: "Sites per shard this run"
         type: string
-        default: "20"
+        default: "10"
       force:
         description: "Ignore the freshness window"
         type: boolean
@@ -66,13 +64,13 @@ jobs:
         run: |
           node bin/speedlify.js measure \
             --shard=${{ matrix.shard }}/4 \
-            --limit=${{ inputs.batch || '20' }} \
+            --limit=${{ inputs.batch || '10' }} \
             ${{ inputs.force && '--force' || '' }}
 
       - name: Commit results
         # Runs even when the measure step failed. Results are written to disk as
-        # each site finishes, so a run that died at site 14 of 20 still produced
-        # thirteen good measurements — and skipping the commit throws all of them
+        # each site finishes, so a run that died at site 7 of 10 still produced
+        # six good measurements — and skipping the commit throws all of them
         # away, then re-measures the same sites next cycle because they are still
         # the stalest. The job still reports failure; it just keeps the work.
         if: always()
@@ -137,7 +135,8 @@ jobs:
   field:
     runs-on: ubuntu-latest
     timeout-minutes: 30
-    if: github.event_name == 'schedule'
+    # Hourly only; the half-hour cron is for measurement.
+    if: github.event.schedule == '0 * * * *'
 
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1

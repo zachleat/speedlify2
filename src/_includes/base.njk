@@ -103,6 +103,7 @@ try {
 				below, where `<meta name="description">` above wants it whole.
 			#}
 			{{ meta.description }}
+			{% if sites.generated %}Last updated <time datetime="{{ sites.generated | iso }}" title="{{ sites.generated | date('long') }}">{{ sites.generated | since }}</time> ago.{% endif %}
 			Follow us on <a href="https://mastodon.social/@speedlify" rel="me"><i class="fa-brands fa-mastodon" aria-hidden="true"></i>Mastodon</a> or <a href="https://bsky.app/profile/speedlify.dev" rel="me"><i class="fa-brands fa-bluesky" aria-hidden="true"></i>Bluesky</a>.
 		</p>
 		<div class="masthead-subhed masthead-tools">
