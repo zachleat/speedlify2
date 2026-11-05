@@ -19,7 +19,7 @@ on:
       batch:
         description: "Sites per shard this run"
         type: string
-        default: "20"
+        default: "30"
       force:
         description: "Ignore the freshness window"
         type: boolean
@@ -37,7 +37,7 @@ permissions:
 jobs:
   measure:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 60
 
     strategy:
       # One shard failing must not stop the others; partial coverage is fine.
@@ -62,7 +62,7 @@ jobs:
         run: |
           node bin/speedlify.js measure \
             --shard=${{ matrix.shard }}/4 \
-            --limit=${{ inputs.batch || '20' }} \
+            --limit=${{ inputs.batch || '30' }} \
             ${{ inputs.force && '--force' || '' }}
 
       - name: Commit results
