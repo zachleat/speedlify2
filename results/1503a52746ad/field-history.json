@@ -2,74 +2,11 @@
   "url": "https://nordcraft.com/",
   "name": "Nordcraft",
   "group": "builders",
-  "fetchedAt": "2026-10-31T22:13:32.132Z",
+  "fetchedAt": "2026-11-07T00:58:54.733Z",
   "source": "crux-history",
   "scope": "url",
   "formFactor": "PHONE",
   "series": [
-    {
-      "period": {
-        "first": "2026-04-12",
-        "last": "2026-05-09"
-      },
-      "date": "2026-05-09",
-      "metrics": {
-        "cls": {
-          "p75": 0.04,
-          "rating": "good",
-          "distribution": {
-            "good": 95.2,
-            "needsImprovement": 4.6,
-            "poor": 0.2
-          }
-        },
-        "ttfb": {
-          "p75": 1785,
-          "rating": "needs-improvement",
-          "distribution": {
-            "good": 33.6,
-            "needsImprovement": 41.8,
-            "poor": 24.6
-          }
-        },
-        "fcp": {
-          "p75": 2375,
-          "rating": "needs-improvement",
-          "distribution": {
-            "good": 58.3,
-            "needsImprovement": 26.1,
-            "poor": 15.6
-          }
-        },
-        "inp": {
-          "p75": 153,
-          "rating": "good",
-          "distribution": {
-            "good": 79.6,
-            "needsImprovement": 13.2,
-            "poor": 7.1
-          }
-        },
-        "lcp": {
-          "p75": 3423,
-          "rating": "needs-improvement",
-          "distribution": {
-            "good": 53.5,
-            "needsImprovement": 29,
-            "poor": 17.5
-          }
-        },
-        "rtt": {
-          "p75": 127,
-          "rating": null,
-          "distribution": {
-            "good": 50.3,
-            "needsImprovement": 44.6,
-            "poor": 5.1
-          }
-        }
-      }
-    },
     {
       "period": {
         "first": "2026-04-19",
@@ -1156,9 +1093,9 @@
         }
       },
       "borrowedFromOrigin": [
+        "ttfb",
         "lcp",
-        "rtt",
-        "ttfb"
+        "rtt"
       ]
     },
     {
@@ -1227,9 +1164,9 @@
         }
       },
       "borrowedFromOrigin": [
-        "fcp",
         "cls",
-        "ttfb"
+        "ttfb",
+        "fcp"
       ]
     },
     {
@@ -1423,8 +1360,8 @@
         }
       },
       "borrowedFromOrigin": [
-        "fcp",
-        "cls"
+        "cls",
+        "fcp"
       ]
     },
     {
@@ -1492,8 +1429,8 @@
         }
       },
       "borrowedFromOrigin": [
-        "fcp",
-        "cls"
+        "cls",
+        "fcp"
       ]
     },
     {
@@ -1564,11 +1501,11 @@
         }
       },
       "borrowedFromOrigin": [
+        "cls",
+        "ttfb",
         "fcp",
         "lcp",
-        "rtt",
-        "cls",
-        "ttfb"
+        "rtt"
       ]
     },
     {
@@ -1633,6 +1570,73 @@
           }
         }
       }
+    },
+    {
+      "period": {
+        "first": "2026-10-04",
+        "last": "2026-10-31"
+      },
+      "date": "2026-10-31",
+      "metrics": {
+        "cls": {
+          "p75": 0,
+          "rating": "good",
+          "distribution": {
+            "good": 98.5,
+            "needsImprovement": 1.6,
+            "poor": 0
+          }
+        },
+        "ttfb": {
+          "p75": 1656,
+          "rating": "needs-improvement",
+          "distribution": {
+            "good": 33.2,
+            "needsImprovement": 44.5,
+            "poor": 22.3
+          }
+        },
+        "fcp": {
+          "p75": 2718,
+          "rating": "needs-improvement",
+          "distribution": {
+            "good": 51.2,
+            "needsImprovement": 29.6,
+            "poor": 19.2
+          }
+        },
+        "inp": {
+          "p75": null,
+          "rating": null,
+          "distribution": {
+            "good": null,
+            "needsImprovement": null,
+            "poor": null
+          }
+        },
+        "lcp": {
+          "p75": 3323,
+          "rating": "needs-improvement",
+          "distribution": {
+            "good": 55.2,
+            "needsImprovement": 27.9,
+            "poor": 16.9
+          },
+          "scope": "origin"
+        },
+        "rtt": {
+          "p75": 168,
+          "rating": null,
+          "distribution": {
+            "good": 44.4,
+            "needsImprovement": 44.9,
+            "poor": 10.6
+          }
+        }
+      },
+      "borrowedFromOrigin": [
+        "lcp"
+      ]
     }
   ]
 }
