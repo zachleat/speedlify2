@@ -214,7 +214,8 @@
 		clicked the second thumbnail to go looking for what they just pointed at.
 	#}
 	<a class="stat-chart" href="/charts/#{{ anchor }}"
-		aria-label="{{ mini.count | num }} {{ mini.count | plural('site') }} by {{ xTitle | lower }} and {{ yTitle | lower }} — see the full chart">
+		{# Axis names lead in DOM order so the name contains the SVG's visible text (axe label-content-name-mismatch). #}
+		aria-label="{{ xTitle }}, {{ yTitle }}: {{ mini.count | num }} {{ mini.count | plural('site') }} — see the full chart">
 		<svg viewBox="0 0 {{ mini.w }} {{ mini.h }}" aria-hidden="true" focusable="false">
 			{%- for band in ["poor", "average", "good"] %}
 			<g class="plot-{{ band }}">
