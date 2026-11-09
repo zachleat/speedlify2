@@ -31,6 +31,7 @@ title: Charts
 {% if sites.clientRenderedByGenerator %}{% set toc = (toc.push({ id: "client-rendered", label: "Client Rendering by Generator" }), toc) %}{% endif %}
 {% if sites.ttfbByHost %}{% set toc = (toc.push({ id: "ttfb-by-host", label: "TTFB by Host" }), toc) %}{% endif %}
 {% if sites.labFieldPairs %}{% set toc = (toc.push({ id: "lab-field", label: "Field vs Lab LCP" }), toc) %}{% endif %}
+{% if sites.versionShift %}{% set toc = (toc.push({ id: "lighthouse-version", label: "Lighthouse Version" }), toc) %}{% endif %}
 
 {{ contents(toc) }}
 
@@ -411,6 +412,88 @@ title: Charts
 			<span class="plot-key plot-good">Lab, within 2.5&nbsp;s</span>
 			<span class="plot-key plot-average">Lab, to 4&nbsp;s</span>
 			<span class="plot-key plot-poor">Lab, over 4&nbsp;s</span>
+		</figcaption>
+	</figure>
+</section>
+{% endif %}
+
+{% if sites.versionShift %}
+{% set vs = sites.versionShift %}
+{% set vh = vs.histogram %}
+{% set bandName = { poor: "Red", average: "Orange", good: "Green" } %}
+{% set bandRange = { poor: "0–49", average: "50–89", good: "90–100" } %}
+<section class="group" id="lighthouse-version">
+	<div class="group-head">
+		<h2>Lighthouse {{ vs.from }} vs {{ vs.to }} <span class="tag">{{ vs.count | num }} sites</span></h2>
+	</div>
+	<p class="muted small">
+		Each site&rsquo;s last Performance score on Lighthouse {{ vs.from }} against its
+		first on {{ vs.to }}. {{ (vs.improved + vs.worsened) | num }} circles changed color:
+		<strong>{{ vs.improved | num }}</strong> for the better and {{ vs.worsened | num }} for the worse.
+	</p>
+
+	<table class="version-matrix">
+		<caption class="muted small">Performance circle color, {{ vs.from }} (rows) to {{ vs.to }} (columns)</caption>
+		<thead>
+			<tr>
+				<td></td>
+				{%- for band in ["poor", "average", "good"] %}
+				<th scope="col"><span class="plot-key plot-{{ band }}">{{ bandName[band] }}</span></th>
+				{%- endfor %}
+			</tr>
+		</thead>
+		<tbody>
+			{%- for row in vs.rows %}
+			<tr>
+				<th scope="row"><span class="plot-key plot-{{ row.band }}">{{ bandName[row.band] }}</span> <span class="muted">{{ bandRange[row.band] }}</span></th>
+				{%- for cell in row.cells %}
+				<td class="{{ 'is-same' if cell.same }}" style="--share: {{ cell.share }}%">
+					<span class="version-count">{{ cell.count | num }}</span>
+					<span class="version-share muted">{{ cell.share }}%</span>
+				</td>
+				{%- endfor %}
+			</tr>
+			{%- endfor %}
+		</tbody>
+	</table>
+
+	<p class="muted small">
+		Scores went up on {{ vs.up | num }} sites, down on {{ vs.down | num }} and held on
+		{{ vs.same | num }}, a mean change of {{ "+" if vs.mean > 0 }}{{ vs.mean }} points.
+		{{ vh.unchanged }}% landed within two points, against {{ vh.noiseUnchanged }}% of
+		sites measured twice in a row on {{ vs.from }}.
+	</p>
+
+	<figure class="plot">
+		<div class="plot-frame">
+		<svg viewBox="0 0 {{ vh.box.w }} {{ vh.box.h }}" role="img"
+			aria-label="Distribution of Performance score changes from Lighthouse {{ vs.from }} to {{ vs.to }} across {{ vs.count | num }} sites, drawn over the change between two consecutive {{ vs.from }} runs.">
+			<g class="plot-grid">
+				{%- for tick in vh.yTicks %}
+				<line x1="{{ vh.box.left }}" x2="{{ vh.box.left + vh.plot.w }}" y1="{{ tick.y }}" y2="{{ tick.y }}"/>
+				{%- endfor %}
+			</g>
+			<g class="plot-axis">
+				{%- for tick in vh.yTicks %}
+				<text x="{{ vh.box.left - 8 }}" y="{{ tick.y + 4 }}" text-anchor="end">{{ tick.label }}</text>
+				{%- endfor %}
+				{%- for tick in vh.xTicks %}
+				<text x="{{ tick.x }}" y="{{ vh.axis.tickY }}" text-anchor="middle">{{ tick.label }}</text>
+				{%- endfor %}
+			</g>
+			<g class="plot-axis-title">
+				<text x="{{ vh.axis.xLabel.x }}" y="{{ vh.axis.xLabel.y }}" text-anchor="middle">Change in Performance score</text>
+			</g>
+			<g class="version-bars">
+				{%- for bar in vh.bars %}<rect x="{{ bar.x }}" y="{{ bar.y }}" width="{{ bar.w }}" height="{{ bar.h }}"/>{% endfor %}
+			</g>
+			<path class="version-noise" d="{{ vh.noisePath }}"/>
+		</svg>
+		</div>
+
+		<figcaption class="plot-legend">
+			<span class="plot-key version-key-shift">{{ vs.from }} → {{ vs.to }}</span>
+			<span class="plot-key version-key-noise">Two runs on {{ vs.from }} ({{ vh.noiseCount | num }} sites)</span>
 		</figcaption>
 	</figure>
 </section>
