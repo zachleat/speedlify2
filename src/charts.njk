@@ -16,6 +16,7 @@ title: Charts
 {% from "contents.njk" import contents %}
 {% from "scatter.njk" import scatterfigure, rtag %}
 {% from "strip.njk" import stripfigure %}
+{% from "sankey.njk" import sankeyfigure %}
 
 {#
 	Built rather than written out, so a chart that has no data to draw drops out
@@ -33,7 +34,7 @@ title: Charts
 {% if sites.jsByGenerator %}{% set toc = (toc.push({ id: "js-by-generator", label: "JavaScript by Generator" }), toc) %}{% endif %}
 {% if sites.clientRenderedByGenerator %}{% set toc = (toc.push({ id: "client-rendered", label: "Client Rendering by Generator" }), toc) %}{% endif %}
 {% if sites.ttfbByHost %}{% set toc = (toc.push({ id: "ttfb-by-host", label: "TTFB by Host" }), toc) %}{% endif %}
-{% if sites.labFieldPairs %}{% set toc = (toc.push({ id: "lab-field", label: "Field vs Lab LCP" }), toc) %}{% endif %}
+{% if sites.labField %}{% set toc = (toc.push({ id: "lab-field", label: "Field vs Lab LCP" }), toc) %}{% endif %}
 
 {{ contents(toc) }}
 
@@ -55,38 +56,7 @@ title: Charts
 		{{ vs.steady }}% changed less than two points.
 	</p>
 
-	{% set vk = vs.sankey %}
-	{% set bandName = { poor: "Red", average: "Orange", good: "Green" } %}
-	<figure class="plot">
-		<div class="plot-frame">
-		<svg viewBox="0 0 {{ vk.box.w }} {{ vk.box.h }}" role="img"
-			aria-label="Performance score color on Lighthouse {{ vs.from }} flowing to {{ vs.to }} for {{ vs.count | num }} sites: {{ vs.improved | num }} moved to a better color and {{ vs.worsened | num }} to a worse one.">
-			<g class="version-flows">
-				{%- for flow in vk.flows %}<path class="plot-{{ flow.to }}" d="{{ flow.d }}"><title>{{ bandName[flow.from] }} → {{ bandName[flow.to] }}: {{ flow.count | countOf("site") }}</title></path>{% endfor %}
-			</g>
-			<g class="version-flow-counts">
-				{%- for flow in vk.flows %}<text x="{{ flow.labelX }}" y="{{ flow.labelY + 4 }}" text-anchor="{{ flow.labelAnchor }}">×{{ flow.count | num }}</text>{% endfor %}
-			</g>
-			<g class="version-nodes">
-				{%- for node in vk.sources.concat(vk.targets) %}<rect class="plot-{{ node.band }}" x="{{ node.x }}" y="{{ node.y }}" width="{{ vk.nodeW }}" height="{{ node.h }}"/>{% endfor %}
-			</g>
-			<g class="plot-axis-title">
-				<text x="{{ vk.heading.from }}" y="{{ vk.heading.y }}" text-anchor="middle">{{ vs.from }}</text>
-				<text x="{{ vk.heading.to }}" y="{{ vk.heading.y }}" text-anchor="middle">{{ vs.to }}</text>
-			</g>
-			<g class="version-labels">
-				{%- for node in vk.sources %}
-				<circle class="plot-{{ node.band }}" cx="{{ vk.labelX.from - 9 }}" cy="{{ node.labelY }}" r="8"/>
-				<text x="{{ vk.labelX.from - 22 }}" y="{{ node.labelY + 5 }}" text-anchor="end"><tspan class="version-label-count">×{{ node.count | num }}</tspan></text>
-				{%- endfor %}
-				{%- for node in vk.targets %}
-				<circle class="plot-{{ node.band }}" cx="{{ vk.labelX.to + 9 }}" cy="{{ node.labelY }}" r="8"/>
-				<text x="{{ vk.labelX.to + 22 }}" y="{{ node.labelY + 5 }}" text-anchor="start"><tspan class="version-label-count">×{{ node.count | num }}</tspan></text>
-				{%- endfor %}
-			</g>
-		</svg>
-		</div>
-	</figure>
+	{{ sankeyfigure(vs.sankey, vs.from, vs.to, "Performance score color on Lighthouse " + vs.from + " flowing to " + vs.to + " for " + (vs.count | num) + " sites: " + (vs.improved | num) + " moved to a better color and " + (vs.worsened | num) + " to a worse one.") }}
 </section>
 {% endif %}
 
@@ -368,17 +338,17 @@ title: Charts
 </section>
 {% endif %}
 
-{% if sites.labFieldPairs %}
-{% set lf = sites.labFieldPairs %}
+{% if sites.labField %}
+{% set lf = sites.labField %}
 <section class="group" id="lab-field">
 	<div class="group-head">
 		<h2>Field vs Lab LCP <span class="tag">{{ lf.count | num }} sites</span></h2>
 	</div>
 	<p class="muted small">
-		One row per site, ordered by our throttled lab run: a dot for what the lab
-		measured, a dot for what real users actually saw (Chrome&rsquo;s field p75)
-		and a line joining them. Sorting by the lab figure straightens it into a
-		curve, and the field dots scatter across it.
+		What real users actually saw (Chrome&rsquo;s field p75 LCP) against our
+		throttled lab run, banded at 2.5&nbsp;s and 4&nbsp;s.
+		{{ (lf.improved + lf.worsened) | num }} sites changed color:
+		<strong>{{ lf.worsened | num }}</strong> were worse in the lab and {{ lf.improved | num }} better.
 	</p>
 	{#
 		The sampling bias is the first thing to say, not a footnote. CrUX only
@@ -387,87 +357,10 @@ title: Charts
 		the better-resourced one too. Any reading of the aggregate carries that.
 	#}
 	<p class="muted small">
-		The lab is slower than reality on <strong>{{ lf.labSlower | num }}</strong>
+		The lab is slower than the field on <strong>{{ lf.labSlower | num }}</strong>
 		of these and faster on {{ lf.labFaster | num }}.
 	</p>
 
-	<figure class="plot">
-		<div class="plot-frame">
-		<svg viewBox="0 0 {{ lf.box.w }} {{ lf.box.h }}" role="img"
-			aria-label="Lab and field largest contentful paint for {{ lf.count | num }} sites, one row per site ordered by the lab run, each pair joined by a line. The lab figure is slower than the field figure on {{ lf.labSlower | num }} of them.">
-			<g class="plot-grid">
-				{%- for tick in lf.xTicks %}
-				<line x1="{{ tick.x }}" x2="{{ tick.x }}" y1="{{ lf.box.top }}" y2="{{ lf.box.top + lf.plot.h }}"/>
-				{%- endfor %}
-			</g>
-
-			{#
-				On the same baseline as the decade ticks. The whole scale reads as one
-				row above the plot: split across the two ends of a chart this tall,
-				half of it is off screen for the entire read.
-			#}
-			<g class="plot-threshold">
-				{%- for line in lf.thresholds %}
-				<line x1="{{ line.x }}" x2="{{ line.x }}" y1="{{ lf.box.top }}" y2="{{ lf.box.top + lf.plot.h }}"/>
-				<text x="{{ line.x + 5 }}" y="{{ lf.axis.tickY }}" text-anchor="start">{{ line.label }}</text>
-				{%- endfor %}
-			</g>
-
-			<g class="plot-axis">
-				{%- for tick in lf.xTicks %}
-				<text x="{{ tick.x }}" y="{{ lf.axis.tickY }}" text-anchor="middle">{{ tick.label }}</text>
-				{%- endfor %}
-			</g>
-			<g class="plot-axis-title">
-				<text x="{{ lf.axis.xLabel.x }}" y="{{ lf.axis.xLabel.y }}" text-anchor="middle">Largest Contentful Paint</text>
-			</g>
-
-			{#
-				Lines first, then the field dots, then the lab dots on top — the lab
-				end is the one the rows are ordered by, so nothing is allowed to sit
-				over it.
-			#}
-			<g class="pair-links">
-				{%- for pair in lf.pairs %}<line x1="{{ pair.labX }}" x2="{{ pair.fieldX }}" y1="{{ pair.y }}" y2="{{ pair.y }}"/>{% endfor %}
-			</g>
-			<g class="pair-secondary">
-				{%- for pair in lf.pairs %}<circle cx="{{ pair.fieldX }}" cy="{{ pair.y }}" r="2"/>{% endfor %}
-			</g>
-			{%- for band in ["poor", "average", "good"] %}
-			<g class="pair-primary plot-{{ band }}">
-				{%- for pair in lf.pairs %}{% if pair.band == band %}<circle cx="{{ pair.labX }}" cy="{{ pair.y }}" r="2.2"/>{% endif %}{% endfor %}
-			</g>
-			{%- endfor %}
-		</svg>
-
-		{#
-			One hit target per row rather than per dot: the pair is the unit being
-			read, and a 4px row is already the smallest thing here worth aiming at.
-
-			Only the rows the lab found fast are named, as on every chart here. The
-			others are still drawn, and still every bit as legible — they are simply
-			not identified.
-		#}
-		<div class="plot-hits">
-			{%- for pair in lf.pairs %}{% if pair.named %}
-			<a class="plot-hit pair-hit{{ ' is-low' if pair.flipY }}"
-				href="/site/{{ pair.slug }}/" style="top: {{ pair.py }}%; height: {{ lf.rowPct }}%"
-				tabindex="-1" aria-hidden="true">
-				<span class="plot-tip">
-					<span class="plot-tip-name">{{ pair.name }}</span>
-					<span class="plot-tip-stats">lab {{ pair.labText }} · field {{ pair.fieldText }}</span>
-				</span>
-			</a>
-			{%- endif %}{% endfor %}
-		</div>
-		</div>
-
-		<figcaption class="plot-legend">
-			<span class="plot-key pair-key-secondary">Field</span>
-			<span class="plot-key plot-good">Lab, within 2.5&nbsp;s</span>
-			<span class="plot-key plot-average">Lab, to 4&nbsp;s</span>
-			<span class="plot-key plot-poor">Lab, over 4&nbsp;s</span>
-		</figcaption>
-	</figure>
+	{{ sankeyfigure(lf.sankey, "Field", "Lab", "Field largest contentful paint band flowing to the lab band for " + (lf.count | num) + " sites: " + (lf.worsened | num) + " were worse in the lab and " + (lf.improved | num) + " better.") }}
 </section>
 {% endif %}

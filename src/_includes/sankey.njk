@@ -1,0 +1,32 @@
+{% macro sankeyfigure(sk, fromTitle, toTitle, ariaLabel) %}
+{% set bandName = { poor: "Red", average: "Orange", good: "Green" } %}
+<figure class="plot">
+	<div class="plot-frame">
+	<svg viewBox="0 0 {{ sk.box.w }} {{ sk.box.h }}" role="img" aria-label="{{ ariaLabel }}">
+		<g class="sankey-flows">
+			{%- for flow in sk.flows %}<path class="plot-{{ flow.to }}" d="{{ flow.d }}"><title>{{ fromTitle }} {{ bandName[flow.from] }} → {{ toTitle }} {{ bandName[flow.to] }}: {{ flow.count | countOf("site") }}</title></path>{% endfor %}
+		</g>
+		<g class="sankey-flow-counts">
+			{%- for flow in sk.flows %}<text x="{{ flow.labelX }}" y="{{ flow.labelY + 4 }}" text-anchor="{{ flow.labelAnchor }}">×{{ flow.count | num }}</text>{% endfor %}
+		</g>
+		<g class="sankey-nodes">
+			{%- for node in sk.sources.concat(sk.targets) %}<rect class="plot-{{ node.band }}" x="{{ node.x }}" y="{{ node.y }}" width="{{ sk.nodeW }}" height="{{ node.h }}"/>{% endfor %}
+		</g>
+		<g class="plot-axis-title">
+			<text x="{{ sk.heading.from }}" y="{{ sk.heading.y }}" text-anchor="middle">{{ fromTitle }}</text>
+			<text x="{{ sk.heading.to }}" y="{{ sk.heading.y }}" text-anchor="middle">{{ toTitle }}</text>
+		</g>
+		<g class="sankey-labels">
+			{%- for node in sk.sources %}
+			<circle class="plot-{{ node.band }}" cx="{{ sk.labelX.from - 9 }}" cy="{{ node.labelY }}" r="8"/>
+			<text x="{{ sk.labelX.from - 22 }}" y="{{ node.labelY + 5 }}" text-anchor="end"><tspan class="sankey-label-count">×{{ node.count | num }}</tspan></text>
+			{%- endfor %}
+			{%- for node in sk.targets %}
+			<circle class="plot-{{ node.band }}" cx="{{ sk.labelX.to + 9 }}" cy="{{ node.labelY }}" r="8"/>
+			<text x="{{ sk.labelX.to + 22 }}" y="{{ node.labelY + 5 }}" text-anchor="start"><tspan class="sankey-label-count">×{{ node.count | num }}</tspan></text>
+			{%- endfor %}
+		</g>
+	</svg>
+	</div>
+</figure>
+{% endmacro %}

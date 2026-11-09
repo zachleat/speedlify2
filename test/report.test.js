@@ -1332,17 +1332,12 @@ describe("canonical redirect kind", () => {
 	});
 });
 
-describe("lab and field pairs", () => {
-	/*
-	 * One row per site, ordered by the lab run. Deliberately opposed numbers: the
-	 * site with the fastest lab run has the slowest field p75, so a chart sorted
-	 * off the wrong end is not one that happens to look the same.
-	 */
-	const pairFixture = () =>
+describe("lab and field bands", () => {
+	const labFieldFixture = () =>
 		fixture({
 			sites: 3,
 			points: 1,
-			lcp: (_p, s) => [1000, 2000, 3000][s],
+			lcp: (_p, s) => [1000, 2000, 5000][s],
 			field: (s) => ({
 				metrics: { lcp: { p75: [3000, 2000, 1000][s], rating: "good" } },
 				collectionPeriod: { first: "2025-12-01", last: "2025-12-28" },
@@ -1350,41 +1345,19 @@ describe("lab and field pairs", () => {
 			}),
 		});
 
-	test("rows run from the fastest lab run to the slowest", async () => {
-		const f = pairFixture();
+	test("flows run from the field band to the lab band", async () => {
+		const f = labFieldFixture();
 		const r = await buildReport({ resultsDir: f.resultsDir, configFile: f.configFile });
+		const lf = r.labField;
 
-		assert.equal(r.labFieldPairs.count, 3);
+		assert.equal(lf.count, 3);
+		assert.equal(lf.improved, 1);
+		assert.equal(lf.worsened, 1);
+		assert.deepEqual([lf.labSlower, lf.labFaster], [1, 1]);
 		assert.deepEqual(
-			r.labFieldPairs.pairs.map((p) => p.labText),
-			["1.0 s", "2.0 s", "3.0 s"]
+			lf.sankey.flows.map((flow) => `${flow.from}>${flow.to}:${flow.count}`),
+			["good>good:1", "good>poor:1", "average>good:1"]
 		);
-		// Which is not the field order, so the sort is doing something.
-		assert.deepEqual(
-			r.labFieldPairs.pairs.map((p) => p.fieldText),
-			["3.0 s", "2.0 s", "1.0 s"]
-		);
-	});
-
-	test("the lab end is the one banded and named", async () => {
-		const f = pairFixture();
-		const r = await buildReport({ resultsDir: f.resultsDir, configFile: f.configFile });
-
-		// 3 s lab against a 1 s field: banded on the lab reading, and so not named.
-		const slow = r.labFieldPairs.pairs.at(-1);
-		assert.equal(slow.labText, "3.0 s");
-		assert.equal(slow.band, "average");
-		assert.equal(slow.named, false);
-		assert.equal(r.labFieldPairs.pairs[0].named, true);
-	});
-
-	test("the scale sits above the plot", async () => {
-		const f = pairFixture();
-		const r = await buildReport({ resultsDir: f.resultsDir, configFile: f.configFile });
-
-		const lf = r.labFieldPairs;
-		assert.ok(lf.axis.tickY < lf.box.top);
-		assert.ok(lf.axis.xLabel.y < lf.axis.tickY);
 	});
 });
 

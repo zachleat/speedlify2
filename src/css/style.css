@@ -1018,30 +1018,6 @@ fieldset[disabled] select {
 	fill-opacity: 0.95;
 }
 
-/*
- * A whole row, not a dot: the pair is the unit being read, and a 4px row is
- * already the smallest thing on this chart worth aiming at.
- *
- * Written as `.plot-hit.pair-hit` rather than `.pair-hit`. Both carry the same
- * single-class weight, and `.plot-hit` is declared further down the file, so the
- * bare selector lost every property the two share — the rows came out as 8px
- * circles pinned to the left edge, which is to say unhittable. Qualifying it
- * settles the question by weight rather than by which rule happens to be lower
- * in the file.
- */
-.plot-hit.pair-hit {
-	left: 0;
-	width: 100%;
-	/* Height comes from the template as a percentage of the frame, so one target
-	   is exactly one row however wide the chart is drawn. */
-	border-radius: 0;
-	transform: translateY(-50%);
-}
-
-.plot-hit.pair-hit .plot-tip {
-	left: 1rem;
-}
-
 .pair-key-secondary {
 	color: var(--text-muted);
 }
@@ -1260,30 +1236,30 @@ fieldset[disabled] select {
 	color: var(--poor);
 }
 
-.version-flows path {
+.sankey-flows path {
 	fill-opacity: 0.3;
 }
 
-.version-flows path:hover {
+.sankey-flows path:hover {
 	fill-opacity: 0.55;
 }
 
-.version-flows .plot-good,
-.version-nodes .plot-good {
+.sankey-flows .plot-good,
+.sankey-nodes .plot-good {
 	fill: var(--good);
 }
 
-.version-flows .plot-average,
-.version-nodes .plot-average {
+.sankey-flows .plot-average,
+.sankey-nodes .plot-average {
 	fill: var(--average);
 }
 
-.version-flows .plot-poor,
-.version-nodes .plot-poor {
+.sankey-flows .plot-poor,
+.sankey-nodes .plot-poor {
 	fill: var(--poor);
 }
 
-.version-flow-counts text {
+.sankey-flow-counts text {
 	fill: var(--text-muted);
 	font-size: 12px;
 	font-variant-numeric: tabular-nums;
@@ -1291,31 +1267,31 @@ fieldset[disabled] select {
 }
 
 /* Mirrors the Lighthouse score gauge: a tinted fill inside a colored ring. */
-.version-labels circle {
+.sankey-labels circle {
 	fill: color-mix(in srgb, currentcolor 15%, transparent);
 	stroke: currentcolor;
 	stroke-width: 2;
 }
 
-.version-labels .plot-good {
+.sankey-labels .plot-good {
 	color: var(--good);
 }
 
-.version-labels .plot-average {
+.sankey-labels .plot-average {
 	color: var(--average);
 }
 
-.version-labels .plot-poor {
+.sankey-labels .plot-poor {
 	color: var(--poor);
 }
 
-.version-labels text {
+.sankey-labels text {
 	fill: var(--text-muted);
 	font-size: 15px;
 	font-variant-numeric: tabular-nums;
 }
 
-.version-labels .version-label-count {
+.sankey-labels .sankey-label-count {
 	fill: var(--text);
 	font-weight: 600;
 }
