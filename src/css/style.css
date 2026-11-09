@@ -1240,8 +1240,16 @@ fieldset[disabled] select {
 	fill-opacity: 0.3;
 }
 
-.sankey-flows path:hover {
+.sankey-flows path:hover,
+.sankey-flows path:focus-visible {
 	fill-opacity: 0.55;
+}
+
+/* Outlines on SVG shapes are drawn around the bounding box, so trace the flow itself. */
+.sankey-flows path:focus-visible {
+	outline: none;
+	stroke: var(--accent);
+	stroke-width: 2;
 }
 
 .sankey-flows .plot-good,

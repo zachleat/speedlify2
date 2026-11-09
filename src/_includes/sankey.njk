@@ -2,9 +2,9 @@
 {% set bandName = { poor: "Red", average: "Orange", good: "Green" } %}
 <figure class="plot">
 	<div class="plot-frame">
-	<svg viewBox="0 0 {{ sk.box.w }} {{ sk.box.h }}" role="img" aria-label="{{ ariaLabel }}">
+	<svg viewBox="0 0 {{ sk.box.w }} {{ sk.box.h }}" role="group" aria-label="{{ ariaLabel }}">
 		<g class="sankey-flows">
-			{%- for flow in sk.flows %}<path class="plot-{{ flow.to }}" d="{{ flow.d }}"><title>{{ fromTitle }} {{ bandName[flow.from] }} → {{ toTitle }} {{ bandName[flow.to] }}: {{ flow.count | countOf("site") }}</title></path>{% endfor %}
+			{%- for flow in sk.flows %}{% set flowName %}{{ fromTitle }} {{ bandName[flow.from] }} → {{ toTitle }} {{ bandName[flow.to] }}: {{ flow.count | countOf("site") }}{% endset %}<path class="plot-{{ flow.to }}" d="{{ flow.d }}" tabindex="0" role="img" aria-label="{{ flowName }}"><title>{{ flowName }}</title></path>{% endfor %}
 		</g>
 		<g class="sankey-flow-counts">
 			{%- for flow in sk.flows %}{% set label = flow.count | num | string %}<rect class="plot-{{ flow.to }}" x="{{ flow.labelX }}" y="{{ flow.labelY - 6 }}" width="{{ label.length * 5.4 + 8 }}" height="12" rx="6"/><text class="plot-{{ flow.to }}" x="{{ flow.labelX + 4 }}" y="{{ flow.labelY + 3 }}">{{ label }}</text>{% endfor %}
