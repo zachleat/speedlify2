@@ -864,6 +864,8 @@ export default {
 			// putting their own pages on it reads as marking your own homework.
 			// They still rank normally here and in the global leaderboard.
 			excludeFromPerfectScores: true,
+			// Kept off /charts/ for the same reason.
+			excludeFromCharts: true,
 			name: "zachleat",
 			enabled: true,
 			description: "Pages from zachleat.com, and the other sites Zach maintains.",
@@ -1009,6 +1011,8 @@ export default {
 			// crowd out the real sites the board exists to show. They still rank
 			// normally on their own category page and in the global leaderboard.
 			excludeFromPerfectScores: true,
+			// Kept off /charts/: near-identical boilerplates would pull every distribution toward one point.
+			excludeFromCharts: true,
 
 			// Same reasoning as the community list above: a starter emits no
 			// generator tag any more often than a finished site does, and being on

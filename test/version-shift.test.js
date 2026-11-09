@@ -18,7 +18,7 @@ test("pairs the last run on the previous version with the first on the newest", 
 	assert.equal(shift.improved, 1);
 	assert.equal(shift.worsened, 0);
 	assert.deepEqual([shift.up, shift.down, shift.same], [1, 0, 1]);
-	assert.equal(shift.histogram.noiseCount, 2);
+	assert.equal(shift.steady, 50);
 	assert.deepEqual(shift.rows.find((r) => r.band === "average").cells.map((c) => c.count), [0, 0, 1]);
 });
 

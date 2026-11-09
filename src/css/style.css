@@ -1260,77 +1260,64 @@ fieldset[disabled] select {
 	color: var(--poor);
 }
 
-/* Lighthouse version comparison: cells shade by row share so each row reads on its own. */
-.version-matrix {
-	margin-block-start: 1em;
-	border-collapse: separate;
-	border-spacing: 0.25em;
+.version-flows path {
+	fill-opacity: 0.3;
+}
+
+.version-flows path:hover {
+	fill-opacity: 0.55;
+}
+
+.version-flows .plot-good,
+.version-nodes .plot-good {
+	fill: var(--good);
+}
+
+.version-flows .plot-average,
+.version-nodes .plot-average {
+	fill: var(--average);
+}
+
+.version-flows .plot-poor,
+.version-nodes .plot-poor {
+	fill: var(--poor);
+}
+
+.version-flow-counts text {
+	fill: var(--text-muted);
+	font-size: 12px;
+	font-variant-numeric: tabular-nums;
+	pointer-events: none;
+}
+
+/* Mirrors the Lighthouse score gauge: a tinted fill inside a colored ring. */
+.version-labels circle {
+	fill: color-mix(in srgb, currentcolor 15%, transparent);
+	stroke: currentcolor;
+	stroke-width: 2;
+}
+
+.version-labels .plot-good {
+	color: var(--good);
+}
+
+.version-labels .plot-average {
+	color: var(--average);
+}
+
+.version-labels .plot-poor {
+	color: var(--poor);
+}
+
+.version-labels text {
+	fill: var(--text-muted);
+	font-size: 15px;
 	font-variant-numeric: tabular-nums;
 }
 
-.version-matrix caption {
-	caption-side: top;
-	text-align: start;
-	padding-block-end: 0.25em;
-}
-
-.version-matrix th {
-	font-weight: 500;
-	text-align: start;
-	padding-inline-end: 0.75em;
-	white-space: nowrap;
-}
-
-.version-matrix thead th {
-	padding-inline-start: 0.75em;
-}
-
-.version-matrix .plot-good { color: var(--good); }
-.version-matrix .plot-average { color: var(--average); }
-.version-matrix .plot-poor { color: var(--poor); }
-
-.version-matrix td {
-	min-inline-size: 5.5em;
-	padding: 0.6em 0.75em;
-	border-radius: var(--radius);
-	background: color-mix(in srgb, var(--accent) calc(var(--share) * 0.6), transparent);
-}
-
-.version-matrix td.is-same {
-	outline: 1px dashed var(--border-strong);
-	outline-offset: -1px;
-}
-
-.version-count {
-	display: block;
-	color: var(--text);
+.version-labels .version-label-count {
+	fill: var(--text);
 	font-weight: 600;
-}
-
-.version-share {
-	font-size: 0.8em;
-}
-
-.version-bars rect {
-	fill: var(--accent);
-	fill-opacity: 0.8;
-}
-
-.version-noise {
-	fill: none;
-	stroke: var(--text);
-	stroke-width: 1.5;
-	stroke-dasharray: 5 3;
-}
-
-.plot-legend .version-key-shift {
-	color: var(--accent);
-}
-
-.plot-legend .version-key-noise::before {
-	background: none;
-	border: 1.5px dashed var(--text);
-	border-radius: 0;
 }
 
 
