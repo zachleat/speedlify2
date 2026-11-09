@@ -7,7 +7,7 @@
 			{%- for flow in sk.flows %}<path class="plot-{{ flow.to }}" d="{{ flow.d }}"><title>{{ fromTitle }} {{ bandName[flow.from] }} → {{ toTitle }} {{ bandName[flow.to] }}: {{ flow.count | countOf("site") }}</title></path>{% endfor %}
 		</g>
 		<g class="sankey-flow-counts">
-			{%- for flow in sk.flows %}<text x="{{ flow.labelX }}" y="{{ flow.labelY + 4 }}" text-anchor="{{ flow.labelAnchor }}">×{{ flow.count | num }}</text>{% endfor %}
+			{%- for flow in sk.flows %}{% set label = flow.count | num | string %}<rect x="{{ flow.labelX }}" y="{{ flow.labelY - 6 }}" width="{{ label.length * 5.4 + 8 }}" height="12" rx="6"/><text x="{{ flow.labelX + 4 }}" y="{{ flow.labelY + 3 }}">{{ label }}</text>{% endfor %}
 		</g>
 		<g class="sankey-nodes">
 			{%- for node in sk.sources.concat(sk.targets) %}<rect class="plot-{{ node.band }}" x="{{ node.x }}" y="{{ node.y }}" width="{{ sk.nodeW }}" height="{{ node.h }}"/>{% endfor %}

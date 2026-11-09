@@ -1259,9 +1259,14 @@ fieldset[disabled] select {
 	fill: var(--poor);
 }
 
+.sankey-flow-counts rect {
+	fill: var(--text);
+	fill-opacity: 0.12;
+}
+
 .sankey-flow-counts text {
-	fill: var(--text-muted);
-	font-size: 12px;
+	fill: color-mix(in srgb, var(--text-muted), var(--text) 40%);
+	font-size: 9px;
 	font-variant-numeric: tabular-nums;
 	pointer-events: none;
 }
