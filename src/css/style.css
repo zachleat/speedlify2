@@ -1245,30 +1245,37 @@ fieldset[disabled] select {
 }
 
 .sankey-flows .plot-good,
+.sankey-flow-counts rect.plot-good,
 .sankey-nodes .plot-good {
 	fill: var(--good);
 }
 
 .sankey-flows .plot-average,
+.sankey-flow-counts rect.plot-average,
 .sankey-nodes .plot-average {
 	fill: var(--average);
 }
 
 .sankey-flows .plot-poor,
+.sankey-flow-counts rect.plot-poor,
 .sankey-nodes .plot-poor {
 	fill: var(--poor);
 }
 
 .sankey-flow-counts rect {
-	fill: var(--text);
-	fill-opacity: 0.12;
+	fill-opacity: 0.8;
 }
 
+/* Black clears 4.5:1 on every pill except the dark light-mode red, which needs white. */
 .sankey-flow-counts text {
-	fill: color-mix(in srgb, var(--text-muted), var(--text) 40%);
+	fill: #000;
 	font-size: 9px;
 	font-variant-numeric: tabular-nums;
 	pointer-events: none;
+}
+
+.sankey-flow-counts text.plot-poor {
+	fill: light-dark(#fff, #000);
 }
 
 /* Mirrors the Lighthouse score gauge: a tinted fill inside a colored ring. */
