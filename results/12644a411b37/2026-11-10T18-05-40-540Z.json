@@ -1,0 +1,536 @@
+{
+  "url": "https://pptr.dev/",
+  "name": "Puppeteer",
+  "group": "dev-tooling",
+  "groupName": "Developer Tooling",
+  "timestamp": 1794333940540,
+  "date": "2026-11-10T18:05:40.540Z",
+  "runId": "2026-11-10T17-55-32-445Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 50702,
+  "error": null,
+  "variance": {
+    "min": 68,
+    "max": 88,
+    "spread": 20,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://pptr.dev/",
+    "finalUrl": "https://pptr.dev/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 87,
+      "accessibility": 89,
+      "best-practices": 92,
+      "seo": 92,
+      "agentic-browsing": 100
+    },
+    "timings": {
+      "fcp": 907,
+      "lcp": 907,
+      "si": 1782,
+      "tbt": 512,
+      "tti": 4904,
+      "cls": 0.015,
+      "ttfb": 607,
+      "maxPotentialFid": 404,
+      "serverResponseTime": 7,
+      "networkRtt": 0.1,
+      "networkServerLatency": 45.3
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 8.7,
+      "elementRenderDelay": 74.3
+    },
+    "weight": {
+      "total": 603786,
+      "requests": 26,
+      "mainDocument": 6993,
+      "byType": {
+        "total": {
+          "bytes": 600259,
+          "requests": 23
+        },
+        "script": {
+          "bytes": 546261,
+          "requests": 11
+        },
+        "stylesheet": {
+          "bytes": 24681,
+          "requests": 1
+        },
+        "image": {
+          "bytes": 22324,
+          "requests": 3
+        },
+        "document": {
+          "bytes": 6993,
+          "requests": 1
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "font": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "other": {
+          "bytes": 0,
+          "requests": 7
+        },
+        "third-party": {
+          "bytes": 203451,
+          "requests": 4
+        }
+      },
+      "scripts": 11,
+      "stylesheets": 1,
+      "fonts": 0
+    },
+    "thirdParty": {
+      "count": 3,
+      "bytes": 203451,
+      "mainThreadMs": 47.7,
+      "top": [
+        {
+          "entity": "Google Tag Manager",
+          "bytes": 181127,
+          "mainThreadMs": 47.7,
+          "byType": {
+            "script": 181127
+          },
+          "typedBytes": 181127
+        },
+        {
+          "entity": "GitHub",
+          "bytes": 21096,
+          "mainThreadMs": 0,
+          "byType": {
+            "image": 21096
+          },
+          "typedBytes": 21096
+        },
+        {
+          "entity": "shields.io",
+          "bytes": 1228,
+          "mainThreadMs": 0,
+          "byType": {
+            "image": 1228
+          },
+          "typedBytes": 1228
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 1739.4,
+      "byGroup": {
+        "scriptEvaluation": 1108.5,
+        "other": 205.7,
+        "scriptParseCompile": 200.6,
+        "styleLayout": 123.9,
+        "garbageCollection": 45.6,
+        "paintCompositeRender": 29.9,
+        "parseHTML": 25.1
+      },
+      "bootupMs": 1232.1,
+      "longTasks": 5,
+      "longestTaskMs": 404
+    },
+    "dom": {
+      "elements": 655,
+      "depth": 24,
+      "maxChildren": 32
+    },
+    "waste": {
+      "unusedJsBytes": 149314,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 0,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 150,
+      "renderBlockingCount": 2,
+      "poorlyCachedBytes": 370285.65,
+      "poorlyCachedCount": 13
+    },
+    "accessibility": {
+      "failingCount": 4,
+      "applicableCount": 29,
+      "failingNodes": 44,
+      "failing": [
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "weight": 7,
+          "nodes": 40
+        },
+        {
+          "id": "link-in-text-block",
+          "title": "Links rely on color to be distinguishable.",
+          "weight": 7,
+          "nodes": 2
+        },
+        {
+          "id": "image-alt",
+          "title": "Image elements do not have `[alt]` attributes",
+          "weight": 10,
+          "nodes": 1
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "title": "Elements with visible text labels do not have matching accessible names.",
+          "weight": 0,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 3,
+      "applicableCount": 19,
+      "failing": [
+        {
+          "id": "image-size-responsive",
+          "title": "Serves images with low resolution",
+          "weight": 1,
+          "nodes": 1
+        },
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "weight": 1,
+          "nodes": 1
+        },
+        {
+          "id": "valid-source-maps",
+          "title": "Missing source maps for large first-party JavaScript",
+          "weight": 0,
+          "nodes": 1
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 1,
+      "applicableCount": 9,
+      "failing": [
+        {
+          "id": "image-alt",
+          "title": "Image elements do not have `[alt]` attributes",
+          "weight": 1,
+          "nodes": 1
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 1,
+      "baselineLimitedFeatures": 23
+    },
+    "environment": {
+      "lighthouseVersion": "13.6.0",
+      "benchmarkIndex": 2464.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-11-10T18:05:59.329Z",
+      "runtimeMs": 7621.1
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 573.7,
+    "elementRenderDelay": 1054.7
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-10-12",
+      "last": "2026-11-08"
+    },
+    "metrics": {
+      "rtt": {
+        "p75": 190,
+        "rating": null,
+        "distribution": {
+          "good": 31.1,
+          "needsImprovement": 53.4,
+          "poor": 15.5
+        }
+      },
+      "cls": {
+        "p75": 0.07,
+        "rating": "good",
+        "distribution": {
+          "good": 86.2,
+          "needsImprovement": 9.4,
+          "poor": 4.4
+        }
+      },
+      "ttfb": {
+        "p75": 729,
+        "rating": "good",
+        "distribution": {
+          "good": 78.1,
+          "needsImprovement": 16.7,
+          "poor": 5.2
+        }
+      },
+      "fcp": {
+        "p75": 1394,
+        "rating": "good",
+        "distribution": {
+          "good": 85,
+          "needsImprovement": 8.2,
+          "poor": 6.8
+        }
+      },
+      "inp": {
+        "p75": 180,
+        "rating": "good",
+        "distribution": {
+          "good": 77,
+          "needsImprovement": 19,
+          "poor": 4
+        }
+      },
+      "lcp": {
+        "p75": 1798,
+        "rating": "good",
+        "distribution": {
+          "good": 87.5,
+          "needsImprovement": 6.6,
+          "poor": 5.8
+        }
+      }
+    },
+    "cwvPass": true,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": {
+      "id": "docusaurus",
+      "name": "Docusaurus",
+      "icon": "Docusaurus",
+      "version": "3.10.2",
+      "source": "meta",
+      "raw": "Docusaurus v3.10.2"
+    },
+    "probe": {
+      "metas": [
+        "Docusaurus v3.10.2"
+      ],
+      "marks": [
+        "docusaurus",
+        "react"
+      ],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "github",
+      "name": "GitHub Pages",
+      "icon": "Github",
+      "source": "x-github-request-id"
+    },
+    "headers": {
+      "server": "GitHub.com",
+      "via": "1.1 varnish",
+      "x-fastly-request-id": "3d5253957d0f81f16ed30beb67b7b409c01a2378",
+      "x-github-request-id": "8042:C4E48:4F843:56C81:6AF35A46",
+      "x-served-by": "cache-bfi-krnt7300063-BFI"
+    },
+    "violations": 46,
+    "passes": 1031,
+    "incomplete": 4,
+    "violationRules": 6,
+    "version": "4.14.0",
+    "top": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 40,
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".theme-doc-markdown > .theme-tabs-container.tabs-container.tabList__CuJ > .margin-top--md > .tabItem_Ymn6[role=\"tabpanel\"]:nth-child(1) > .codeBlockContainer_Ckt0.theme-code-block.language-bash > .codeBlockContent_QJqH > pre > .codeBlockLines_e6Vv > .token-line:nth-child(1) > .function.token",
+            "snippet": "<span class=\"token function\" style=\"color: rgb(215, 58, 73);\">npm</span>"
+          },
+          {
+            "selector": ".tabItem_Ymn6[role=\"tabpanel\"]:nth-child(1) > .codeBlockContainer_Ckt0.theme-code-block.language-bash > .codeBlockContent_QJqH > pre > .codeBlockLines_e6Vv > .token-line:nth-child(1) > .comment.token",
+            "snippet": "<span class=\"token comment\" style=\"color: rgb(153, 153, 136); font-style: italic;\"># Downloads compatible Chrome during installation.</span>"
+          },
+          {
+            "selector": ".tabItem_Ymn6[role=\"tabpanel\"]:nth-child(1) > .codeBlockContainer_Ckt0.theme-code-block.language-bash > .codeBlockContent_QJqH > pre > .codeBlockLines_e6Vv > .token-line:nth-child(2) > .function.token",
+            "snippet": "<span class=\"token function\" style=\"color: rgb(215, 58, 73);\">npm</span>"
+          },
+          {
+            "selector": ".tabItem_Ymn6[role=\"tabpanel\"]:nth-child(1) > .codeBlockContainer_Ckt0.theme-code-block.language-bash > .codeBlockContent_QJqH > pre > .codeBlockLines_e6Vv > .token-line:nth-child(2) > .comment.token",
+            "snippet": "<span class=\"token comment\" style=\"color: rgb(153, 153, 136); font-style: italic;\"># Alternatively, install as a library, without downloading Chrome.</span>"
+          },
+          {
+            "selector": ".admonitionContent_BuS1 > .theme-tabs-container.tabs-container.tabList__CuJ > .margin-top--md > .tabItem_Ymn6[role=\"tabpanel\"]:nth-child(1) > .codeBlockContainer_Ckt0.theme-code-block.language-bash > .codeBlockContent_QJqH > pre > .codeBlockLines_e6Vv > .token-line > .function.token",
+            "snippet": "<span class=\"token function\" style=\"color: rgb(215, 58, 73);\">install</span>"
+          }
+        ]
+      },
+      {
+        "id": "link-in-text-block",
+        "impact": "serious",
+        "nodes": 2,
+        "help": "Links must be distinguishable without relying on color",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/link-in-text-block?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "blockquote > p > a[target=\"_blank\"][rel=\"noopener noreferrer\"]:nth-child(1)",
+            "snippet": "<a href=\"https://chromedevtools.github.io/devtools-protocol/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"\">DevTools Protocol</a>"
+          },
+          {
+            "selector": "blockquote > p > a[target=\"_blank\"][rel=\"noopener noreferrer\"]:nth-child(2)",
+            "snippet": "<a href=\"https://pptr.dev/webdriver-bidi\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"\">WebDriver BiDi</a>"
+          }
+        ]
+      },
+      {
+        "id": "button-name",
+        "impact": "critical",
+        "nodes": 1,
+        "help": "Buttons must have discernible text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/button-name?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".copyPageButton_s7x8",
+            "snippet": "<button class=\"copyPageButton_s7x8\" aria-expanded=\"false\" aria-haspopup=\"true\" data-copy-page-button-trigger=\"\">"
+          }
+        ]
+      },
+      {
+        "id": "image-alt",
+        "impact": "critical",
+        "nodes": 1,
+        "help": "Images must have alternative text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/image-alt?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "img[height=\"200\"]",
+            "snippet": "<img decoding=\"async\" loading=\"lazy\" src=\"https://user-images.githubusercontent.com/10379601/29446482-04f7036a-841f-11e7-9872-91d1fc2ea683.png\" height=\"200\" align=\"right\" class=\"img_ev3q\">"
+          }
+        ]
+      },
+      {
+        "id": "label-content-name-mismatch",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "Elements must have their visible text as part of their accessible name",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/label-content-name-mismatch?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "#rcc-confirm-button",
+            "snippet": "<button class=\"button button--primary button--outline\" id=\"rcc-confirm-button\" aria-label=\"Accept cookies\">Okay, got it!</button>"
+          }
+        ]
+      },
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "All page content should be contained by landmarks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/region?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".CookieConsent > div:nth-child(1)",
+            "snippet": "<div class=\"\" style=\"flex: 1 0 300px; margin: 15px; font-size: inherit;\">pptr.dev, Puppeteer's documentation site, uses cookies from Google to deliver and enhance the quality of its services and to a…"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "render": {
+    "samples": [
+      {
+        "hash": "5a20ef8f2856",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "age": "0",
+          "etag": "W/\"6af2f54f-8ed6\"",
+          "last-modified": "Tue, 10 Nov 2026 10:43:27 GMT",
+          "x-cache": "HIT",
+          "x-proxy-cache": "REVALIDATED"
+        }
+      },
+      {
+        "hash": "5a20ef8f2856",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "age": "10",
+          "etag": "W/\"6af2f54f-8ed6\"",
+          "last-modified": "Tue, 10 Nov 2026 10:43:27 GMT",
+          "x-cache": "HIT",
+          "x-proxy-cache": "REVALIDATED"
+        }
+      },
+      {
+        "hash": "5a20ef8f2856",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "age": "17",
+          "etag": "W/\"6af2f54f-8ed6\"",
+          "last-modified": "Tue, 10 Nov 2026 10:43:27 GMT",
+          "x-cache": "HIT",
+          "x-proxy-cache": "REVALIDATED"
+        }
+      },
+      {
+        "hash": "5a20ef8f2856",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "age": "25",
+          "etag": "W/\"6af2f54f-8ed6\"",
+          "last-modified": "Tue, 10 Nov 2026 10:43:27 GMT",
+          "x-cache": "HIT",
+          "x-proxy-cache": "REVALIDATED"
+        }
+      },
+      {
+        "hash": "5a20ef8f2856",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "age": "44",
+          "etag": "W/\"6af2f54f-8ed6\"",
+          "last-modified": "Tue, 10 Nov 2026 10:43:27 GMT",
+          "x-cache": "HIT",
+          "x-proxy-cache": "REVALIDATED"
+        },
+        "fromCache": true
+      }
+    ]
+  },
+  "consecutiveFailures": 0
+}
