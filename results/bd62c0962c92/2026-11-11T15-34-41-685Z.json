@@ -1,0 +1,477 @@
+{
+  "url": "https://www.deepseek.com/",
+  "name": "DeepSeek",
+  "group": "ai",
+  "groupName": "AI",
+  "timestamp": 1794411281685,
+  "date": "2026-11-11T15:34:41.685Z",
+  "runId": "2026-11-11T15-20-45-587Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 67817,
+  "error": null,
+  "variance": {
+    "min": 36,
+    "max": 68,
+    "spread": 32,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://www.deepseek.com/",
+    "finalUrl": "https://www.deepseek.com/en/",
+    "redirect": {
+      "from": "https://www.deepseek.com/",
+      "to": "https://www.deepseek.com/en",
+      "chain": [
+        {
+          "url": "https://www.deepseek.com/",
+          "status": 200
+        },
+        {
+          "url": "https://www.deepseek.com/en/",
+          "status": 200
+        }
+      ],
+      "statuses": [
+        200
+      ],
+      "change": "path",
+      "permanent": false,
+      "schemeUpgrade": false,
+      "hops": 1
+    },
+    "statusCode": "ok",
+    "scores": {
+      "performance": 43,
+      "accessibility": 87,
+      "best-practices": 81,
+      "seo": 92,
+      "agentic-browsing": 25
+    },
+    "timings": {
+      "fcp": 1206,
+      "lcp": 6960,
+      "si": 4636,
+      "tbt": 8898,
+      "tti": 17205,
+      "cls": 0,
+      "ttfb": 606,
+      "maxPotentialFid": 322,
+      "serverResponseTime": 12,
+      "networkRtt": 213.1,
+      "networkServerLatency": 297.8
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 86,
+      "elementRenderDelay": 1448
+    },
+    "weight": {
+      "total": 952821,
+      "requests": 72,
+      "mainDocument": 32038,
+      "byType": {
+        "total": {
+          "bytes": 742472,
+          "requests": 71
+        },
+        "script": {
+          "bytes": 437811,
+          "requests": 40
+        },
+        "image": {
+          "bytes": 139043,
+          "requests": 6
+        },
+        "document": {
+          "bytes": 66766,
+          "requests": 2
+        },
+        "font": {
+          "bytes": 63086,
+          "requests": 4
+        },
+        "stylesheet": {
+          "bytes": 19275,
+          "requests": 7
+        },
+        "other": {
+          "bytes": 16491,
+          "requests": 12
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 84633,
+          "requests": 12
+        }
+      },
+      "scripts": 40,
+      "stylesheets": 7,
+      "fonts": 4
+    },
+    "thirdParty": {
+      "count": 2,
+      "bytes": 84633,
+      "mainThreadMs": 32.7,
+      "top": [
+        {
+          "entity": "volccdn.com",
+          "bytes": 79789,
+          "mainThreadMs": 32.4,
+          "byType": {
+            "script": 79789
+          },
+          "typedBytes": 79789
+        },
+        {
+          "entity": "volces.com",
+          "bytes": 4844,
+          "mainThreadMs": 0.3,
+          "byType": {
+            "other": 4844
+          },
+          "typedBytes": 4844
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 14217.8,
+      "byGroup": {
+        "other": 12903.1,
+        "scriptEvaluation": 846,
+        "scriptParseCompile": 251,
+        "styleLayout": 143.5,
+        "paintCompositeRender": 41,
+        "parseHTML": 21.1,
+        "garbageCollection": 12.1
+      },
+      "bootupMs": 962.3,
+      "longTasks": 20,
+      "longestTaskMs": 322
+    },
+    "dom": {
+      "elements": 281,
+      "depth": 18,
+      "maxChildren": 23
+    },
+    "waste": {
+      "unusedJsBytes": 335778,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 24274,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 0,
+      "renderBlockingCount": 3,
+      "poorlyCachedBytes": 234017.6166666667,
+      "poorlyCachedCount": 51
+    },
+    "accessibility": {
+      "failingCount": 3,
+      "applicableCount": 25,
+      "failingNodes": 6,
+      "failing": [
+        {
+          "id": "button-name",
+          "title": "Buttons do not have an accessible name",
+          "weight": 10,
+          "nodes": 3
+        },
+        {
+          "id": "link-name",
+          "title": "Links do not have a discernible name",
+          "weight": 7,
+          "nodes": 2
+        },
+        {
+          "id": "aria-prohibited-attr",
+          "title": "Elements use prohibited ARIA attributes",
+          "weight": 7,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 1,
+      "applicableCount": 19,
+      "failing": [
+        {
+          "id": "deprecations",
+          "title": "Uses deprecated APIs",
+          "weight": 5,
+          "nodes": 1
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 1,
+      "applicableCount": 9,
+      "failing": [
+        {
+          "id": "link-text",
+          "title": "Links do not have descriptive text",
+          "weight": 1,
+          "nodes": 1
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 0,
+      "bfCacheFailures": 1,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 1356,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 32
+    },
+    "environment": {
+      "lighthouseVersion": "13.6.0",
+      "benchmarkIndex": 3045.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-11-11T15:34:42.877Z",
+      "runtimeMs": 12211.4
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 576,
+    "elementRenderDelay": 4439.9
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-10-13",
+      "last": "2026-11-09"
+    },
+    "metrics": {
+      "cls": {
+        "p75": 0,
+        "rating": "good",
+        "distribution": {
+          "good": 99.7,
+          "needsImprovement": 0,
+          "poor": 0.3
+        }
+      },
+      "ttfb": {
+        "p75": 625,
+        "rating": "good",
+        "distribution": {
+          "good": 81.4,
+          "needsImprovement": 12.3,
+          "poor": 6.3
+        }
+      },
+      "fcp": {
+        "p75": 1336,
+        "rating": "good",
+        "distribution": {
+          "good": 85.7,
+          "needsImprovement": 9.2,
+          "poor": 5.1
+        }
+      },
+      "inp": {
+        "p75": 106,
+        "rating": "good",
+        "distribution": {
+          "good": 91.8,
+          "needsImprovement": 7.2,
+          "poor": 1
+        }
+      },
+      "lcp": {
+        "p75": 2080,
+        "rating": "good",
+        "distribution": {
+          "good": 85.5,
+          "needsImprovement": 10.9,
+          "poor": 3.6
+        }
+      },
+      "rtt": {
+        "p75": 233,
+        "rating": null,
+        "distribution": {
+          "good": 20.8,
+          "needsImprovement": 60,
+          "poor": 19.3
+        }
+      }
+    },
+    "cwvPass": true,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": {
+      "id": "nextjs",
+      "name": "Next.js",
+      "icon": "Nextdotjs",
+      "version": null,
+      "source": "dom",
+      "raw": null
+    },
+    "probe": {
+      "metas": [],
+      "marks": [
+        "next",
+        "react"
+      ],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "amazons3",
+      "name": "Amazon S3",
+      "icon": "Amazon",
+      "source": "server"
+    },
+    "headers": {
+      "server": "AmazonS3",
+      "via": "1.1 08437041a08295a47ee88412dbd8c35a.cloudfront.net (CloudFront)",
+      "x-amz-cf-id": "Et_1RsJkcXPa5pzyb-KfX4I4Kx_aDfvXmTdSwKZbl0TrL1I90xXjJg=="
+    },
+    "violations": 8,
+    "passes": 354,
+    "incomplete": 7,
+    "violationRules": 4,
+    "version": "4.14.0",
+    "top": [
+      {
+        "id": "button-name",
+        "impact": "critical",
+        "nodes": 3,
+        "help": "Buttons must have discernible text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/button-name?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".md\\:hidden.w-10.h-10",
+            "snippet": "<button class=\"md:hidden flex items-center justify-center w-10 h-10 text-ds-primary\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M3 6h18M3 12h18M3 18h18\" stroke=\"currentColor…"
+          },
+          {
+            "selector": ".ds-mobile-menu-header > .w-10.h-10.text-ds-primary",
+            "snippet": "<button class=\"flex items-center justify-center w-10 h-10 text-ds-primary\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M6 6l12 12M6 18L18 6\" stroke=\"currentColor\" stroke-widt…"
+          },
+          {
+            "selector": ".ds-hero-send-btn",
+            "snippet": "<button type=\"button\" class=\"ds-hero-send-btn flex-shrink-0 flex items-center justify-center w-9 h-9 rounded-full overflow-hidden border-none bg-[var(--ds-color-brand-medium-reverse)] text-white curs…"
+          }
+        ]
+      },
+      {
+        "id": "link-name",
+        "impact": "serious",
+        "nodes": 2,
+        "help": "Links must have discernible text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/link-name?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".shrink-0.text-\\[var\\(--ds-color-brand-medium-reverse\\)\\][href$=\"en/\"]",
+            "snippet": "<a class=\"flex items-center shrink-0 text-[var(--ds-color-brand-medium-reverse)]\" href=\"/en/\">"
+          },
+          {
+            "selector": ".ds-mobile-menu-header > .text-\\[var\\(--ds-color-brand-medium-reverse\\)\\].items-center[href$=\"en/\"]",
+            "snippet": "<a class=\"flex items-center text-[var(--ds-color-brand-medium-reverse)]\" href=\"/en/\">"
+          }
+        ]
+      },
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 2,
+        "help": "All page content should be contained by landmarks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/region?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".cookie_banner-title",
+            "snippet": "<div class=\"cookie_banner-title\">Cookie Settings</div>"
+          },
+          {
+            "selector": ".cookie_banner-description",
+            "snippet": "<div class=\"cookie_banner-description\">"
+          }
+        ]
+      },
+      {
+        "id": "aria-prohibited-attr",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "Elements must only use permitted ARIA attributes",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/aria-prohibited-attr?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".cursor-default",
+            "snippet": "<span class=\"w-8 h-8 flex items-center justify-center text-ds-secondary hover:text-ds-primary transition-colors cursor-default\" aria-label=\"WeChat\">"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "render": {
+    "samples": [
+      {
+        "hash": "3ba12a37f5b5",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "age": "22706",
+          "etag": "W/\"5af523c59272fafa2a57a07e26d0593b\"",
+          "last-modified": "Thu, 29 Oct 2026 12:00:27 GMT",
+          "x-cache": "Hit from cloudfront"
+        }
+      },
+      {
+        "hash": "3ba12a37f5b5",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "age": "22719",
+          "etag": "W/\"5af523c59272fafa2a57a07e26d0593b\"",
+          "last-modified": "Thu, 29 Oct 2026 12:00:27 GMT",
+          "x-cache": "Hit from cloudfront"
+        }
+      },
+      {
+        "hash": "3ba12a37f5b5",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "age": "22729",
+          "etag": "W/\"5af523c59272fafa2a57a07e26d0593b\"",
+          "last-modified": "Thu, 29 Oct 2026 12:00:27 GMT",
+          "x-cache": "Hit from cloudfront"
+        }
+      },
+      {
+        "hash": "3ba12a37f5b5",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "age": "22742",
+          "etag": "W/\"5af523c59272fafa2a57a07e26d0593b\"",
+          "last-modified": "Thu, 29 Oct 2026 12:00:27 GMT",
+          "x-cache": "Hit from cloudfront"
+        }
+      }
+    ]
+  },
+  "consecutiveFailures": 0
+}
