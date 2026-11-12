@@ -1,0 +1,470 @@
+{
+  "url": "https://www.adobe.com/",
+  "name": "Adobe",
+  "group": "big-tech",
+  "groupName": "Big Tech",
+  "timestamp": 1794456300307,
+  "date": "2026-11-12T04:05:00.307Z",
+  "runId": "2026-11-12T03-52-33-775Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 422327,
+  "error": null,
+  "variance": {
+    "min": 60,
+    "max": 60,
+    "spread": 0,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://www.adobe.com/",
+    "finalUrl": "https://www.adobe.com/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 60,
+      "accessibility": 95,
+      "best-practices": 54,
+      "seo": 100,
+      "agentic-browsing": 50
+    },
+    "timings": {
+      "fcp": 829,
+      "lcp": 829,
+      "si": 15782,
+      "tbt": 6855,
+      "tti": 49271,
+      "cls": 0,
+      "ttfb": 663,
+      "maxPotentialFid": 936,
+      "serverResponseTime": 30,
+      "networkRtt": 67.8,
+      "networkServerLatency": 258.8
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 47.5,
+      "elementRenderDelay": 1024.9
+    },
+    "weight": {
+      "total": 10236284,
+      "requests": 676,
+      "mainDocument": 8430,
+      "byType": {
+        "total": {
+          "bytes": 10234052,
+          "requests": 668
+        },
+        "script": {
+          "bytes": 8623701,
+          "requests": 197
+        },
+        "font": {
+          "bytes": 690716,
+          "requests": 5
+        },
+        "image": {
+          "bytes": 589242,
+          "requests": 127
+        },
+        "other": {
+          "bytes": 178339,
+          "requests": 294
+        },
+        "stylesheet": {
+          "bytes": 122311,
+          "requests": 30
+        },
+        "document": {
+          "bytes": 29743,
+          "requests": 15
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 1846393,
+          "requests": 379
+        }
+      },
+      "scripts": 204,
+      "stylesheets": 30,
+      "fonts": 5
+    },
+    "thirdParty": {
+      "count": 33,
+      "bytes": 7517523,
+      "mainThreadMs": 1272.8,
+      "top": [
+        {
+          "entity": "adobe.com",
+          "bytes": 5814491,
+          "mainThreadMs": 389.2,
+          "byType": {
+            "script": 5722565,
+            "document": 6595,
+            "stylesheet": 64579,
+            "other": 19122
+          },
+          "typedBytes": 5812861
+        },
+        {
+          "entity": "Adobe TypeKit",
+          "bytes": 693984,
+          "mainThreadMs": 0.5,
+          "byType": {
+            "stylesheet": 3268,
+            "font": 690716
+          },
+          "typedBytes": 693984
+        },
+        {
+          "entity": "Forter",
+          "bytes": 248612,
+          "mainThreadMs": 244.5,
+          "byType": {
+            "script": 242992,
+            "other": 5620
+          },
+          "typedBytes": 248612
+        },
+        {
+          "entity": "ContentSquare",
+          "bytes": 183697,
+          "mainThreadMs": 158.5,
+          "byType": {
+            "script": 183150,
+            "other": 264,
+            "image": 283
+          },
+          "typedBytes": 183697
+        },
+        {
+          "entity": "TikTok",
+          "bytes": 173561,
+          "mainThreadMs": 143.3,
+          "byType": {
+            "script": 160563,
+            "other": 12998
+          },
+          "typedBytes": 173561
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 27891.7,
+      "byGroup": {
+        "scriptEvaluation": 13438.2,
+        "styleLayout": 6202.5,
+        "other": 5702.8,
+        "scriptParseCompile": 1496.7,
+        "paintCompositeRender": 420.4,
+        "garbageCollection": 398.1,
+        "parseHTML": 232.8
+      },
+      "bootupMs": 12989.9,
+      "longTasks": 20,
+      "longestTaskMs": 936
+    },
+    "dom": {
+      "elements": 2556,
+      "depth": 20,
+      "maxChildren": 98
+    },
+    "waste": {
+      "unusedJsBytes": 1689267,
+      "unusedCssBytes": 82900,
+      "legacyJsBytes": 9082,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 34259,
+      "unminifiedCssBytes": 4763,
+      "renderBlockingMs": 0,
+      "renderBlockingCount": 0,
+      "poorlyCachedBytes": 510275.2398786468,
+      "poorlyCachedCount": 83
+    },
+    "accessibility": {
+      "failingCount": 2,
+      "applicableCount": 33,
+      "failingNodes": 2,
+      "failing": [
+        {
+          "id": "aria-required-children",
+          "title": "Elements with an ARIA `[role]` that require children to contain a specific `[role]` are missing some or all of those required children.",
+          "weight": 10,
+          "nodes": 1
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "title": "Elements with visible text labels do not have matching accessible names.",
+          "weight": 0,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 5,
+      "applicableCount": 19,
+      "failing": [
+        {
+          "id": "deprecations",
+          "title": "Uses deprecated APIs",
+          "weight": 5,
+          "nodes": 2
+        },
+        {
+          "id": "third-party-cookies",
+          "title": "Uses third-party cookies",
+          "weight": 5,
+          "nodes": 37
+        },
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "weight": 1,
+          "nodes": 5
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "weight": 1,
+          "nodes": 2
+        },
+        {
+          "id": "valid-source-maps",
+          "title": "Missing source maps for large first-party JavaScript",
+          "weight": 0,
+          "nodes": 9
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 0,
+      "applicableCount": 9,
+      "failing": []
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 0,
+      "bfCacheFailures": 1,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 5,
+      "baselineLimitedFeatures": 94
+    },
+    "environment": {
+      "lighthouseVersion": "13.6.0",
+      "benchmarkIndex": 2399.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-11-12T04:05:01.584Z",
+      "runtimeMs": 74641.3
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 596,
+    "elementRenderDelay": 4468.5
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-10-13",
+      "last": "2026-11-09"
+    },
+    "metrics": {
+      "rtt": {
+        "p75": 176,
+        "rating": null,
+        "distribution": {
+          "good": 30.3,
+          "needsImprovement": 58,
+          "poor": 11.7
+        }
+      },
+      "cls": {
+        "p75": 0,
+        "rating": "good",
+        "distribution": {
+          "good": 93.2,
+          "needsImprovement": 1.4,
+          "poor": 5.4
+        }
+      },
+      "ttfb": {
+        "p75": 851,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 73.3,
+          "needsImprovement": 16.5,
+          "poor": 10.3
+        }
+      },
+      "fcp": {
+        "p75": 3933,
+        "rating": "poor",
+        "distribution": {
+          "good": 34.3,
+          "needsImprovement": 27.6,
+          "poor": 38.1
+        }
+      },
+      "inp": {
+        "p75": 275,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 63.9,
+          "needsImprovement": 25.2,
+          "poor": 10.9
+        }
+      },
+      "lcp": {
+        "p75": 4133,
+        "rating": "poor",
+        "distribution": {
+          "good": 48.9,
+          "needsImprovement": 24.7,
+          "poor": 26.4
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": true,
+    "generator": null,
+    "probe": {
+      "metas": [],
+      "marks": [],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": null,
+    "headers": {
+      "x-served-by": "cache-iad-kiad7000165-IAD, cache-iad-kiad7000165-IAD, cache-bur-kbur8200020-BUR"
+    },
+    "violations": 8,
+    "passes": 1428,
+    "incomplete": 34,
+    "violationRules": 3,
+    "version": "4.14.0",
+    "top": [
+      {
+        "id": "image-redundant-alt",
+        "impact": "minor",
+        "nodes": 6,
+        "help": "Alternative text of images should not be repeated as text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/image-redundant-alt?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "a[daa-ll=\"rm-nav-1--Adobe MAXis live now\"] > .rm-card-icon[alt=\"Adobe MAX\"][loading=\"lazy\"]",
+            "snippet": "<img class=\"rm-card-icon\" src=\"https://www.adobe.com/federal/assets/svgs/creative-cloud.svg\" loading=\"lazy\" alt=\"Adobe MAX\">"
+          },
+          {
+            "selector": "a[daa-ll=\"rm-nav-2--Your best ideas don\"] > .rm-card-icon[alt=\"Creativity and design\"][loading=\"lazy\"]",
+            "snippet": "<img class=\"rm-card-icon\" src=\"https://www.adobe.com/federal/assets/svgs/creative-cloud.svg\" loading=\"lazy\" alt=\"Creativity and design\">"
+          },
+          {
+            "selector": "a[daa-ll=\"rm-nav-3--Save up to 60 on Fir\"] > .rm-card-icon[alt=\"Content creation\"][loading=\"lazy\"]",
+            "snippet": "<img class=\"rm-card-icon\" src=\"https://www.adobe.com/federal/assets/svgs/firefly-appicon-256.svg\" loading=\"lazy\" alt=\"Content creation\">"
+          },
+          {
+            "selector": "a[daa-ll=\"rm-nav-4--Get work done Faster\"] > .rm-card-icon[alt=\"PDF and document essentials\"][loading=\"lazy\"]",
+            "snippet": "<img class=\"rm-card-icon\" src=\"https://www.adobe.com/federal/assets/svgs/acrobat-pro.svg\" loading=\"lazy\" alt=\"PDF and document essentials\">"
+          },
+          {
+            "selector": "a[daa-ll=\"rm-nav-5--Orchestrate customer\"] > .rm-card-icon[alt=\"Adobe for Business\"][loading=\"lazy\"]",
+            "snippet": "<img class=\"rm-card-icon\" src=\"https://www.adobe.com/federal/assets/svgs/experience-cloud-logo.svg\" loading=\"lazy\" alt=\"Adobe for Business\">"
+          }
+        ]
+      },
+      {
+        "id": "aria-required-children",
+        "impact": "critical",
+        "nodes": 1,
+        "help": "Certain ARIA roles must contain particular children",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/aria-required-children?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "div[data-viewport=\"mobile\"] > .rm-controls > .rm-cards[role=\"tablist\"]",
+            "snippet": "<div class=\"rm-cards\" role=\"tablist\" style=\"transition: transform 300ms cubic-bezier(0.42, 0, 0, 1); transform: translateX(0px);\">"
+          }
+        ]
+      },
+      {
+        "id": "label-content-name-mismatch",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "Elements must have their visible text as part of their accessible name",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/label-content-name-mismatch?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "a[aria-describedby=\"elastic-carousel-slide-1\"]",
+            "snippet": "<a class=\"elastic-carousel-ite...\" tabindex=\"0\" href=\"https://www.adobe.co...\" data-index=\"1\" role=\"link\" aria-roledescription=\"slide\" aria-label=\"Adobe products, caro...\" aria-describedby=\"elastic-c…"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "render": {
+    "samples": [
+      {
+        "hash": "4f10f566dc07",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "last-modified": "Tue, 10 Nov 2026 14:34:22 GMT"
+        }
+      },
+      {
+        "hash": "4f10f566dc07",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "last-modified": "Tue, 10 Nov 2026 14:34:22 GMT"
+        }
+      },
+      {
+        "hash": "4f10f566dc07",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "last-modified": "Tue, 10 Nov 2026 14:34:22 GMT"
+        }
+      },
+      {
+        "hash": "4f10f566dc07",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "last-modified": "Tue, 10 Nov 2026 14:34:22 GMT"
+        }
+      },
+      {
+        "hash": "4f10f566dc07",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "last-modified": "Tue, 10 Nov 2026 14:34:22 GMT"
+        }
+      }
+    ]
+  },
+  "consecutiveFailures": 0
+}
