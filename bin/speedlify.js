@@ -488,6 +488,19 @@ function summaryOf(batch) {
  * the stalest sites it can get through in the time it has and leaves the rest
  * for the next run.
  */
+/**
+ * The landing URL the last measurement followed, if it followed one.
+ *
+ * Backfill runs without a browser, so the redirect has to come from the
+ * archive. One record is enough here: the measure run already required every
+ * run in it to agree before recording a redirect at all.
+ */
+function knownLandingUrl(store, url) {
+	const landing = store.recent(url, 1)[0]?.lab?.finalUrl;
+	if (!landing) return null;
+	return isLandingRedirect(url, landing) ? landing : null;
+}
+
 async function backfill() {
 	const apiKey = process.env.CRUX_API_KEY;
 	if (!apiKey) throw new Error("CRUX_API_KEY is required for backfill");
@@ -498,6 +511,8 @@ async function backfill() {
 	const logger = new RunLogger({ dir: LOGS_DIR, runId, quiet: flags.quiet });
 
 	const formFactor = flags.desktop ? "DESKTOP" : "PHONE";
+	// Read-only here, to recover the redirect the last measurement followed.
+	const store = new ResultStore(RESULTS_DIR);
 
 	// Everything still inside the freshness window is already current; --force
 	// takes the whole list regardless. What is left is ordered oldest first, so
@@ -558,7 +573,15 @@ async function backfill() {
 
 		const prefix = `[${i + 1}/${work.length}]`;
 		try {
-			const history = await fetchFieldHistory(site.url, { apiKey, formFactor });
+			const history = await fetchFieldHistory(site.url, {
+				apiKey,
+				formFactor,
+				// The same question the measure run asks: a front door that
+				// redirects has no CrUX history under its own address, and the page
+				// it serves does. Read from the newest stored measurement, since
+				// backfill does not load the site itself.
+				landingUrl: knownLandingUrl(store, site.url),
+			});
 
 			const dir = path.join(RESULTS_DIR, site.hash);
 			fs.mkdirSync(dir, { recursive: true });

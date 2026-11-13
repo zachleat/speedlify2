@@ -422,6 +422,11 @@ eleventyComputed:
 	measurement, and its real-user numbers reach the table through the backfilled
 	week the assessment fell back to.
 #}
+{#
+	This URL's own CrUX record. An origin-scoped one is not field data for this
+	page — it is the whole site, shown in its own section below.
+#}
+{% set hasField = entry.latest.field and entry.latest.field.scope != "origin" %}
 {% set cwvSource = entry.cwv.source if hasCwv else null %}
 {% set showField = hasField or cwvSource == "field" or cwvSource == "field-history" %}
 {#
@@ -430,9 +435,24 @@ eleventyComputed:
 #}
 {% set hasRealCwv = cwvSource == "field" or cwvSource == "field-history" %}
 {% set fieldPeriod = entry.latest.field.collectionPeriod if hasField else (entry.cwv.period if hasCwv else null) %}
-{% set fieldScope = entry.latest.field.scope if hasField else (fieldPeriod.scope if fieldPeriod else null) %}
-{% set hasField = entry.latest.field %}
 {% set hasFieldHistory = entry.fieldHistory and entry.fieldHistory.series.length %}
+{#
+	The origin's numbers, which exist for plenty of pages CrUX will not report on
+	by themselves. Never folded into anything above — see originFieldData.
+#}
+{% set hasOriginField = entry.originField %}
+{#
+	Rows in the metrics table carrying the origin's figure instead of this URL's.
+	Collected here so the note under the table can be written once, in the plural
+	the page actually needs.
+#}
+{% set borrowedRows = entry.metricsTable | selectattr("field.scope", "equalto", "origin") | list %}
+{#
+	The URL CrUX was asked about, when the front door redirects and that is not
+	the address this site is keyed on. Named rather than implied: these numbers
+	are a real page-level measurement, of a page spelled differently.
+#}
+{% set fieldUrl = entry.latest.field.url if hasField and entry.latest.field.scope == "landing" else null %}
 {#
 	One picture is a screenshot, not a filmstrip. A page that painted before the
 	first sample repeats that one frame for the rest of the strip, and the
@@ -471,6 +491,7 @@ eleventyComputed:
 	is not a destination of its own either.
 #}
 {% set toc = (toc.push({ id: "lab", label: "Metrics" }), toc) %}
+{% if hasOriginField %}{% set toc = (toc.push({ id: "origin-field", label: "Origin" }), toc) %}{% endif %}
 {% set toc = (toc.push({ id: "weight", label: "Page weight" }), toc) %}
 {% if hasNoJs %}{% set toc = (toc.push({ id: "without-javascript", label: "Without JavaScript" }), toc) %}{% endif %}
 {% set toc = (toc.push({ id: "health", label: "Page health" }), toc) %}
@@ -583,6 +604,19 @@ eleventyComputed:
 	the metric exists, it is a Core Web Vital, and nothing here measures it —
 	which a reader should be told rather than left to notice the absence of.
 #}
+{% macro distbar(d) %}
+<span class="dist" title="{{ d.good }}% good, {{ d.needsImprovement }}% needs improvement, {{ d.poor }}% poor">
+	<span class="dist-good" style="width:{{ d.good }}%"></span>
+	<span class="dist-avg" style="width:{{ d.needsImprovement }}%"></span>
+	<span class="dist-poor" style="width:{{ d.poor }}%"></span>
+</span>
+<span class="dist-key">
+	<span class="dist-key-good" title="{{ d.good }}% of loads were good"><i class="fa-solid fa-circle-check" width="10" height="10" aria-hidden="true"></i>{{ d.good }}%</span>
+	<span class="dist-key-avg" title="{{ d.needsImprovement }}% of loads needed work"><i class="fa-solid fa-triangle-exclamation" width="10" height="10" aria-hidden="true"></i>{{ d.needsImprovement }}%</span>
+	<span class="dist-key-poor" title="{{ d.poor }}% of loads were poor"><i class="fa-solid fa-circle-xmark" width="10" height="10" aria-hidden="true"></i>{{ d.poor }}%</span>
+</span>
+{% endmacro %}
+
 {% macro metricstable(rows, entryData, showField, labTag) %}
 <div class="table-scroll">
 <table class="grid grid-grouped">
@@ -684,10 +718,12 @@ eleventyComputed:
 					{{ row.field.value | unit(row.unit) }}
 					{% if row.field.rating %}<span class="pill pill-{{ row.field.rating | ratingClass }}">{{ row.field.rating | ratingLabel }}</span>{% endif %}
 					{#
-						A value borrowed from the origin is the whole site's number, not
-						this page's — CrUX had too few samples here.
+						A value the page does not determine, filled from the whole site
+						because CrUX had none for this URL. Labeled rather than quietly
+						merged, and it never reaches the verdict above or the ranking —
+						see BORROWABLE_FROM_ORIGIN in lib/crux.js.
 					#}
-					{% if row.field.scope == "origin" %}<span class="tag" title="Not enough samples for this page, so this is the figure for the whole origin">site-wide</span>{% endif %}
+					{% if row.field.scope == "origin" %}<span class="tag" title="Not enough samples for this URL, so this is {{ entry.url | hostname }} as a whole{% if row.coreWebVital %}, and it is not counted toward the Core Web Vitals verdict{% endif %}">site-wide</span>{% endif %}
 				</span>
 				{% endif %}
 			</td>
@@ -702,19 +738,7 @@ eleventyComputed:
 				text beside it via the title, and the bar keeps its own summary.
 			#}
 			<td class="col-dist">
-				{% if row.field and row.field.distribution %}
-				{% set d = row.field.distribution %}
-				<span class="dist" title="{{ d.good }}% good, {{ d.needsImprovement }}% needs improvement, {{ d.poor }}% poor">
-					<span class="dist-good" style="width:{{ d.good }}%"></span>
-					<span class="dist-avg" style="width:{{ d.needsImprovement }}%"></span>
-					<span class="dist-poor" style="width:{{ d.poor }}%"></span>
-				</span>
-				<span class="dist-key">
-					<span class="dist-key-good" title="{{ d.good }}% of loads were good"><i class="fa-solid fa-circle-check" width="10" height="10" aria-hidden="true"></i>{{ d.good }}%</span>
-					<span class="dist-key-avg" title="{{ d.needsImprovement }}% of loads needed work"><i class="fa-solid fa-triangle-exclamation" width="10" height="10" aria-hidden="true"></i>{{ d.needsImprovement }}%</span>
-					<span class="dist-key-poor" title="{{ d.poor }}% of loads were poor"><i class="fa-solid fa-circle-xmark" width="10" height="10" aria-hidden="true"></i>{{ d.poor }}%</span>
-				</span>
-				{% else %}&mdash;{% endif %}
+				{% if row.field and row.field.distribution %}{{ distbar(row.field.distribution) }}{% else %}&mdash;{% endif %}
 			</td>
 			{% endif %}
 		</tr>
@@ -841,9 +865,30 @@ eleventyComputed:
 
 	{% if showField %}
 	<p class="muted small">
-		Field figures are the p75 across real Chrome users over a 28-day trailing window
-		{%- if fieldPeriod.first %} ({{ fieldPeriod.first }} &rarr; {{ fieldPeriod.last }}){% endif %}
-		{%- if fieldScope %}, {{ fieldScope }}-level{% endif %}.
+		Field figures are the p75 across real Chrome users of
+		{%- if fieldUrl %} <a href="{{ fieldUrl }}">{{ fieldUrl | pathname }}</a>{% else %} this URL{% endif %}
+		over a 28-day trailing window
+		{%- if fieldPeriod.first %} ({{ fieldPeriod.first }} &rarr; {{ fieldPeriod.last }}){% endif %}.
+		{#
+			Why the field half names a different address than the page does. The
+			lab half already measured this page through the same redirect, so the
+			two columns are the same subject — it is the spelling that differs.
+		#}
+		{% if fieldUrl %}
+		This URL redirects there, and CrUX files a page under the address visitors
+		actually land on, so that is where its real-user data lives.
+		{% endif %}
+		{#
+			Said once under the table rather than per row: the tag marks which cells,
+			and what needs explaining is why they are allowed to be there at all.
+		#}
+		{% if borrowedRows.length %}
+		{{ "A row" if borrowedRows.length == 1 else "Rows" }} marked <span class="tag">site-wide</span>
+		{{ "is" if borrowedRows.length == 1 else "are" }} the whole site's figure, shown
+		because CrUX has none for this URL and because {{ "it is" if borrowedRows.length == 1 else "they are" }}
+		not something this page determines. Core Web Vitals above
+		{{ "ignores it" if borrowedRows.length == 1 else "ignore them" }}.
+		{% endif %}
 		{% if not hasField %}
 		From the backfilled CrUX history rather than this measurement, which predates the API key.
 		{% endif %}
@@ -860,6 +905,9 @@ eleventyComputed:
 		No field data: the Chrome UX Report has too few samples for this URL to report on,
 		so every figure below is from the Lighthouse run. This is ordinary for a site
 		without much traffic, and says nothing about how fast it is.
+		{% if hasOriginField %}CrUX does report on the rest of
+		<a href="#origin-field">{{ entry.url | hostname }}</a>, which is a different
+		measurement and kept separate.{% endif %}
 		{% else %}
 		No field data: the Chrome UX Report is not being collected for this project,
 		so every figure below is from the Lighthouse run.
@@ -993,6 +1041,93 @@ eleventyComputed:
 	</p>
 	{% endif %}
 </section>
+
+{#
+	The whole origin's field data, where CrUX has it.
+
+	Its own panel rather than a column or a set of tagged cells in the table
+	above, because it is a measurement of a different thing: every page on the
+	host, pooled, weighted by whatever traffic each one gets. A homepage that
+	takes most of the visits sets these numbers, so for any other URL they are
+	context about the site and not a reading of the page — and a verdict built
+	from them would belong to neither. Nothing here feeds the ranking, the
+	Core Web Vitals verdict or any pass/fail count.
+
+	Shown for the pages CrUX will not report on individually, which is most of
+	them: it is the only real-user data those pages have anywhere near them.
+#}
+{% if hasOriginField %}
+<section class="panel" id="origin-field">
+	<h2>
+		Origin <span class="tag">FIELD</span>
+		<span class="tag">SITE-WIDE</span>
+	</h2>
+
+	<p class="muted small">
+		Real Chrome users across <strong>{{ entry.url | hostname }}</strong> as a whole, not
+		this URL
+		{%- if entry.originField.period and entry.originField.period.first %} ({{ entry.originField.period.first }} &rarr; {{ entry.originField.period.last }}){% endif %}.
+		{% if hasField %}
+		The table above is this page's own data, bar
+		{{- " the rows marked site-wide, which came from here" if borrowedRows.length }}; these are
+		the site's in full, for comparison.
+		{% else %}
+		This page has too little Chrome traffic for CrUX to report on by itself, so
+		this is the closest real-user measurement there is — a different population
+		from the one that visits this URL.
+		{% endif %}
+		{% if entry.originField.source == "field-history" %}
+		From the backfilled CrUX history rather than a measurement.
+		{% endif %}
+	</p>
+
+	<div class="table-scroll">
+	<table class="grid compact">
+		<thead>
+			<tr>
+				<th class="col-site">Metric</th>
+				<th class="num">p75</th>
+				<th class="col-dist">Distribution</th>
+			</tr>
+		</thead>
+		<tbody>
+		{% for row in entry.originField.rows %}
+			<tr>
+				<td class="col-site">
+					<strong>{{ row.label }}</strong>
+					{% if row.coreWebVital %}<span class="badge badge-cwv">CWV</span>{% endif %}
+					{% if row.note %}<span class="muted small block">{{ row.note }}</span>{% endif %}
+				</td>
+				<td class="num">
+					<span class="metric-pair">
+						{{ row.value | unit(row.unit) }}
+						{% if row.rating %}<span class="pill pill-{{ row.rating | ratingClass }}">{{ row.rating | ratingLabel }}</span>{% endif %}
+					</span>
+				</td>
+				<td class="col-dist">
+					{% if row.distribution %}{{ distbar(row.distribution) }}{% else %}&mdash;{% endif %}
+				</td>
+			</tr>
+		{% endfor %}
+		</tbody>
+	</table>
+	</div>
+
+	{#
+		Stated as the origin's verdict, with the subject in the sentence. Without
+		the word "origin" in it this reads as the page passing, which is the one
+		thing this panel exists not to say.
+	#}
+	{% if entry.originField.pass !== null %}
+	<p class="muted small">
+		{{ entry.url | hostname }}
+		{%- if entry.originField.pass %} passes{% else %} fails{% endif %}
+		Core Web Vitals across the whole site, on {{ entry.originField.assessed }} of 3 assessed.
+		{% if not hasField %}This is not a verdict on this URL.{% endif %}
+	</p>
+	{% endif %}
+</section>
+{% endif %}
 
 <section class="panel" id="weight">
 	<h2>Page weight</h2>
@@ -1339,9 +1474,23 @@ eleventyComputed:
 <section class="panel" id="log">
 	<h2>Measurement log</h2>
 	{% if hasFieldHistory %}
-	<h3 id="field-history">Field history <span class="tag">{{ entry.fieldHistory.series.length }} weeks</span></h3>
+	{% set originHistory = entry.fieldHistory.scope == "origin" %}
+	<h3 id="field-history">
+		{% if originHistory %}Origin field history{% else %}Field history{% endif %}
+		<span class="tag">{{ entry.fieldHistory.series.length }} weeks</span>
+		{%- if originHistory %} <span class="tag">SITE-WIDE</span>{% endif %}
+	</h3>
 	<p class="muted small">
 		Weekly p75 from the CrUX History API, backfilled in a single request.
+		{#
+			Said here as well as in the heading: this table is a long way down the
+			page from the panel that explains the distinction, and a reader who
+			lands on it from the table of contents has not seen that explanation.
+		#}
+		{% if originHistory %}
+		For {{ entry.url | hostname }} as a whole — CrUX has no per-week data for this
+		URL, so these are the site's numbers and not this page's.
+		{% endif %}
 	</p>
 	<div class="table-scroll">
 	<table class="grid compact">

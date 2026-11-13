@@ -386,6 +386,12 @@ Core Web Vitals are **skipped entirely** — no panel, no badge, no home-page st
 
 With a key set, sites that lack Chrome traffic return no data individually. That is expected, not an error — those fall back to a clearly-labeled lab approximation using TBT in place of INP, because in that case CrUX *is* configured and this URL simply isn't covered.
 
+**A verdict is only ever made from a URL's own field data.** CrUX will answer for an origin when it has nothing for the page, and that number is every page on the host pooled together — usually dominated by a homepage. Using it as the page's Core Web Vitals would attribute to one URL a measurement of a different population, so it never reaches the verdict, the ranking, the charts or the series. Where it exists it gets its own **Origin** panel on the site page, and `originCwv` in the per-site API.
+
+**A redirecting front door is asked about by the page it serves.** CrUX files a URL-level record under the address the browser navigated to, so `https://www.amd.com/` — a 301 to `/en.html` — has no record of its own however much traffic the site has. Where a measurement followed a landing redirect (`isLandingRedirect` in [`lib/redirect.js`](lib/redirect.js)), CrUX is asked about Lighthouse's `finalUrl` instead and the answer is scoped `landing`: real page-level data for the page we measured, under a URL the site is not keyed on, named on the site page. The site's own identity and history are untouched — this changes the question, not the subject. 19 of the 22 affected sites here have a record at their landing URL.
+
+**Four metrics are borrowed for display**, in the metrics table only, tagged `site-wide` and never assessed: INP, TTFB, FCP and RTT (`BORROWABLE_FROM_ORIGIN` in [`lib/crux.js`](lib/crux.js)). The test is whether the page determines the number. LCP and CLS are the page — its hero image, its fonts, its layout — and the lab column measures both anyway, so they are never borrowed. RTT is the users' network, TTFB is the server and CDN, FCP is largely both; none is a Core Web Vital, so nothing they say can move a pass, a fail or a rank. INP is the exception worth stating: it is the only metric no lab run can produce, so a page CrUX cannot rate for INP has none anywhere — the origin's is shown, labeled, and left out of the assessment, which then reads as 2 of 3.
+
 Field data already stored in `results/` always renders, even if the key isn't present for a later build.
 
 ## What gets measured

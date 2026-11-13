@@ -1250,6 +1250,15 @@ export default async function ($config) {
 		}
 	});
 
+	/** The path alone, for naming a landing URL next to the site it belongs to. */
+	$config.addFilter("pathname", (url) => {
+		try {
+			return new URL(url).pathname;
+		} catch {
+			return url;
+		}
+	});
+
 	/**
 	 * A Wayback Machine URL for a page, optionally at a moment in time.
 	 *

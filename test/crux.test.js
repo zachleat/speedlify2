@@ -137,7 +137,7 @@ describe("fetchFieldData", () => {
 	});
 });
 
-describe("filling a page's gaps from its origin", () => {
+describe("the origin beside a page's own record", () => {
 	/** A URL-scoped record CrUX could not rate INP for: too few interactions. */
 	const URL_NO_INP = {
 		record: {
@@ -179,41 +179,70 @@ describe("filling a page's gaps from its origin", () => {
 		return bodies;
 	}
 
-	test("borrows the missing metric and marks where it came from", async () => {
+	test("attaches the origin's record without merging it in", async () => {
 		mockByScope(URL_NO_INP, ORIGIN_WITH_INP);
 		const r = await fetchFieldData("https://example.com/page/", { apiKey: "k" });
 
 		assert.equal(r.scope, "url");
-		assert.equal(r.metrics.inp.p75, 640);
-		assert.equal(r.metrics.inp.scope, "origin");
-		assert.deepEqual(r.borrowedFromOrigin, ["inp"]);
+		// The page still has no INP of its own — the origin's 640 sits beside it.
+		assert.equal(r.metrics.inp, undefined);
+		assert.equal(r.origin.scope, "origin");
+		assert.equal(r.origin.metrics.inp.p75, 640);
+		assert.deepEqual(r.originCovers, ["inp"]);
 	});
 
-	test("never overwrites a value the page has of its own", async () => {
+	test("leaves the page's own values untouched", async () => {
 		mockByScope(URL_NO_INP, ORIGIN_WITH_INP);
 		const r = await fetchFieldData("https://example.com/page/", { apiKey: "k" });
 
-		// The origin's LCP is 9000 and fails; the page's own 2300 stands.
+		// The origin's LCP is 9000 and fails; the page's own 2300 is the answer.
 		assert.equal(r.metrics.lcp.p75, 2300);
 		assert.equal(r.metrics.lcp.scope, undefined);
 	});
 
-	test("recomputes the verdict over the filled-in set", async () => {
+	test("the verdict stays the page's own, over the metrics it has", async () => {
 		mockByScope(URL_NO_INP, ORIGIN_WITH_INP);
 		const r = await fetchFieldData("https://example.com/page/", { apiKey: "k" });
 
-		// Two good metrics became three assessed, one of them poor.
-		assert.equal(r.cwvAssessed, 3);
-		assert.equal(r.cwvPass, false);
+		// Two good metrics, both the page's. The origin's poor INP is not a
+		// failure of this URL, and the origin carries its own verdict.
+		assert.equal(r.cwvAssessed, 2);
+		assert.equal(r.cwvPass, true);
+		assert.equal(r.origin.cwvPass, false);
 	});
 
-	test("asks the origin only when a Core Web Vital is missing", async () => {
+	test("asks the origin whenever it could fill a gap", async () => {
 		const bodies = mockByScope(CURRENT, ORIGIN_WITH_INP);
 		await fetchFieldData("https://example.com/page/", { apiKey: "k" });
 
-		// CURRENT has all three, so the second request is never made.
-		assert.equal(bodies.length, 1);
+		// CURRENT has all three vitals but no TTFB, FCP or RTT, any of which the
+		// origin may carry — so it is still worth the second request.
+		assert.equal(bodies.length, 2);
 		assert.ok(bodies[0].url);
+		assert.ok(bodies[1].origin);
+	});
+
+	test("asks nothing further for a page with no gaps at all", async () => {
+		const complete = {
+			record: {
+				key: { formFactor: "PHONE", url: "https://example.com/page/" },
+				metrics: {
+					largest_contentful_paint: { percentiles: { p75: 2300 }, histogram: [] },
+					cumulative_layout_shift: { percentiles: { p75: "0.05" }, histogram: [] },
+					interaction_to_next_paint: { percentiles: { p75: 210 }, histogram: [] },
+					first_contentful_paint: { percentiles: { p75: 1200 }, histogram: [] },
+					experimental_time_to_first_byte: { percentiles: { p75: 600 }, histogram: [] },
+					round_trip_time: { percentiles: { p75: 90 }, histogram: [] },
+				},
+				collectionPeriod: { firstDate: { year: 2026, month: 7, day: 1 }, lastDate: { year: 2026, month: 7, day: 28 } },
+			},
+		};
+
+		const bodies = mockByScope(complete, ORIGIN_WITH_INP);
+		const r = await fetchFieldData("https://example.com/page/", { apiKey: "k" });
+
+		assert.equal(bodies.length, 1);
+		assert.equal(r.origin, undefined);
 	});
 
 	test("keeps the page's own answer when the origin request fails", async () => {
@@ -226,10 +255,10 @@ describe("filling a page's gaps from its origin", () => {
 		const r = await fetchFieldData("https://example.com/page/", { apiKey: "k" });
 		assert.equal(r.metrics.lcp.p75, 2300);
 		assert.equal(r.metrics.inp, undefined);
-		assert.equal(r.borrowedFromOrigin, undefined);
+		assert.equal(r.origin, undefined);
 	});
 
-	test("an origin-scoped record is not filled from itself", async () => {
+	test("an origin-scoped record gets no origin of its own", async () => {
 		const bodies = mockByScope(null, ORIGIN_WITH_INP);
 		const r = await fetchFieldData("https://example.com/page/", { apiKey: "k" });
 
@@ -238,6 +267,97 @@ describe("filling a page's gaps from its origin", () => {
 		assert.equal(r.scope, "origin");
 		assert.equal(bodies.length, 2);
 		assert.equal(r.metrics.cls, undefined);
+	});
+});
+
+describe("a front door that redirects", () => {
+	const LANDING = {
+		record: {
+			key: { formFactor: "PHONE", url: "https://www.example.com/en.html" },
+			metrics: {
+				largest_contentful_paint: { percentiles: { p75: 2050 }, histogram: [] },
+				cumulative_layout_shift: { percentiles: { p75: "0.12" }, histogram: [] },
+				interaction_to_next_paint: { percentiles: { p75: 329 }, histogram: [] },
+				first_contentful_paint: { percentiles: { p75: 1100 }, histogram: [] },
+				experimental_time_to_first_byte: { percentiles: { p75: 704 }, histogram: [] },
+				round_trip_time: { percentiles: { p75: 80 }, histogram: [] },
+			},
+			collectionPeriod: { firstDate: { year: 2026, month: 10, day: 14 }, lastDate: { year: 2026, month: 11, day: 10 } },
+		},
+	};
+
+	function mock(byUrl) {
+		const bodies = [];
+		globalThis.fetch = async (endpoint, opts) => {
+			const body = JSON.parse(opts.body);
+			bodies.push(body);
+			const payload = body.url ? byUrl[body.url] : byUrl.origin;
+			return {
+				ok: Boolean(payload),
+				status: payload ? 200 : 404,
+				headers: { get: () => null },
+				json: async () => payload ?? { error: { code: 404 } },
+			};
+		};
+		return bodies;
+	}
+
+	test("asks about the page it landed on, not the address it asked for", async () => {
+		const bodies = mock({ "https://www.example.com/en.html": LANDING });
+		const r = await fetchFieldData("https://www.example.com/", {
+			apiKey: "k",
+			landingUrl: "https://www.example.com/en.html",
+		});
+
+		assert.equal(bodies.length, 1);
+		assert.equal(bodies[0].url, "https://www.example.com/en.html");
+		assert.equal(r.scope, "landing");
+		// The record says which URL it is about, since it is not the site's own.
+		assert.equal(r.url, "https://www.example.com/en.html");
+		assert.equal(r.metrics.cls.p75, 0.12);
+		assert.equal(r.cwvAssessed, 3);
+	});
+
+	test("the bare URL is never asked about once a landing URL is known", async () => {
+		const bodies = mock({ origin: null });
+		await fetchFieldData("https://www.example.com/", {
+			apiKey: "k",
+			landingUrl: "https://www.example.com/en.html",
+		});
+
+		// The landing URL, then the origin. Asking for `/` in between would spend
+		// a request on an address CrUX files nothing under.
+		assert.deepEqual(bodies.map((b) => b.url ?? b.origin), [
+			"https://www.example.com/en.html",
+			"https://www.example.com",
+		]);
+	});
+
+	test("a landing URL the same as the site's own changes nothing", async () => {
+		const bodies = mock({ "https://www.example.com/": CURRENT });
+		const r = await fetchFieldData("https://www.example.com/", {
+			apiKey: "k",
+			landingUrl: "https://www.example.com/",
+		});
+
+		assert.equal(bodies[0].url, "https://www.example.com/");
+		assert.equal(r.scope, "url");
+		assert.equal(r.url, undefined);
+	});
+
+	test("history follows the landing URL too", async () => {
+		const bodies = [];
+		globalThis.fetch = async (endpoint, opts) => {
+			bodies.push(JSON.parse(opts.body));
+			return { ok: false, status: 404, headers: { get: () => null }, json: async () => ({ error: { code: 404 } }) };
+		};
+
+		await fetchFieldHistory("https://www.example.com/", {
+			apiKey: "k",
+			landingUrl: "https://www.example.com/en.html",
+		});
+
+		assert.equal(bodies[0].url, "https://www.example.com/en.html");
 	});
 });
 

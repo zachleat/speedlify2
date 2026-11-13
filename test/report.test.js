@@ -744,15 +744,15 @@ describe("perfect scores", () => {
 	const clean = { violations: 0, violationRules: 0, error: null };
 	const dirty = { violations: 3, violationRules: 2, error: null };
 
-	/** A real CrUX response, rated the way the API rates it. */
-	const crux = (rating) => ({
+	/** A real CrUX response for the measured URL, rated the way the API rates it. */
+	const crux = (rating, scope = "url") => ({
 		metrics: {
 			lcp: { p75: 1800, rating },
 			inp: { p75: 120, rating },
 			cls: { p75: 0.02, rating },
 		},
 		collectionPeriod: { first: "2025-12-01", last: "2025-12-28" },
-		scope: "origin",
+		scope,
 	});
 
 	test("counts a site with full marks and a clean axe run", async () => {
@@ -820,6 +820,177 @@ describe("perfect scores", () => {
 
 		assert.equal(r.entries[0].cwvFailures, 3);
 		assert.equal(r.entries[0].perfect, false);
+	});
+
+	test("ignores an origin-scoped record, which is not this URL's data", async () => {
+		const f = fixture({ performance: () => 100, axe: clean, field: crux("poor", "origin") });
+		const r = await buildReport({ resultsDir: f.resultsDir, configFile: f.configFile, cruxEnabled: true });
+
+		// The origin fails, but CrUX never measured this page: a site-wide number
+		// cannot fail a URL it does not describe. The page falls through to the
+		// lab approximation, exactly as a site CrUX has never heard of does.
+		assert.equal(r.entries[0].cwvFailures, null);
+		assert.equal(r.entries[0].cwv.source, "lab");
+		assert.equal(r.entries[0].perfect, true);
+
+		// Not discarded, though — it is the page's only real-user context.
+		assert.equal(r.entries[0].originField.assessed, 3);
+		assert.equal(r.entries[0].originField.pass, false);
+	});
+
+	test("keeps an origin value out of the verdict but shows it separately", async () => {
+		const field = {
+			metrics: {
+				lcp: { p75: 1800, rating: "good" },
+				cls: { p75: 0.02, rating: "good" },
+				// Merged in by an older build, tagged as the whole site's.
+				inp: { p75: 640, rating: "poor", scope: "origin" },
+			},
+			collectionPeriod: { first: "2025-12-01", last: "2025-12-28" },
+			scope: "url",
+		};
+		const f = fixture({ performance: () => 100, axe: clean, field });
+		const r = await buildReport({ resultsDir: f.resultsDir, configFile: f.configFile });
+
+		// Two of the page's own metrics are assessed; the borrowed INP is not.
+		assert.equal(r.entries[0].cwv.assessed, 2);
+		assert.equal(r.entries[0].cwvFailures, 0);
+		assert.deepEqual(
+			r.entries[0].cwv.parts.map((part) => part.key + ":" + part.value),
+			["lcp:1800", "inp:null", "cls:0.02"]
+		);
+		assert.deepEqual(r.entries[0].originField.rows.map((row) => row.key), ["inp"]);
+	});
+
+	test("borrows the metrics a page does not determine, and no others", async () => {
+		const field = {
+			metrics: {
+				lcp: { p75: 1800, rating: "good" },
+				cls: { p75: 0.02, rating: "good" },
+			},
+			collectionPeriod: { first: "2025-12-01", last: "2025-12-28" },
+			scope: "url",
+			// Fetched beside the page's record because the page was short of INP.
+			origin: {
+				scope: "origin",
+				metrics: {
+					lcp: { p75: 9000, rating: "poor" },
+					cls: { p75: 0.4, rating: "poor" },
+					inp: { p75: 240, rating: "needs-improvement" },
+					ttfb: { p75: 910, rating: "needs-improvement" },
+					rtt: { p75: 140, rating: null },
+				},
+				collectionPeriod: { first: "2025-12-01", last: "2025-12-28" },
+			},
+		};
+		const f = fixture({ performance: () => 100, axe: clean, field });
+		const r = await buildReport({ resultsDir: f.resultsDir, configFile: f.configFile, cruxEnabled: true });
+		const entry = r.entries[0];
+		const row = (key) => entry.metricsTable.find((m) => m.key === key);
+
+		// INP, TTFB and RTT are filled from the origin and marked as the site's.
+		for (let key of ["inp", "ttfb", "rtt"]) {
+			assert.equal(row(key).field.scope, "origin", `${key} borrowed`);
+			assert.equal(row(key).field.source, "origin");
+		}
+		assert.equal(row("inp").field.value, 240);
+		assert.equal(row("rtt").field.value, 140);
+
+		// The page has its own LCP and CLS, and the origin's worse ones never
+		// touch them.
+		assert.equal(row("lcp").field.value, 1800);
+		assert.equal(row("lcp").field.scope, null);
+		assert.equal(row("cls").field.value, 0.02);
+		assert.equal(row("cls").field.scope, null);
+
+		// A borrowed INP is shown but never assessed: two of three, still passing.
+		assert.equal(entry.cwv.assessed, 2);
+		assert.equal(entry.cwv.pass, true);
+		assert.equal(entry.cwvFailures, 0);
+		assert.equal(entry.cwv.parts.find((part) => part.key === "inp").value, null);
+	});
+
+	test("never borrows LCP, even when the page has none", async () => {
+		const field = {
+			metrics: { cls: { p75: 0.02, rating: "good" } },
+			collectionPeriod: { first: "2025-12-01", last: "2025-12-28" },
+			scope: "url",
+			origin: {
+				scope: "origin",
+				metrics: { lcp: { p75: 9000, rating: "poor" }, inp: { p75: 240, rating: "needs-improvement" } },
+				collectionPeriod: { first: "2025-12-01", last: "2025-12-28" },
+			},
+		};
+		const f = fixture({ performance: () => 100, axe: clean, field });
+		const r = await buildReport({ resultsDir: f.resultsDir, configFile: f.configFile, cruxEnabled: true });
+		const row = (key) => r.entries[0].metricsTable.find((m) => m.key === key);
+
+		// LCP is the page: its hero image, its fonts. The lab column has one.
+		assert.equal(row("lcp").field.value, null);
+		assert.equal(row("inp").field.value, 240);
+	});
+
+	test("a page with no record of its own borrows nothing into its table", async () => {
+		const f = fixture({ performance: () => 100, axe: clean, field: crux("poor", "origin") });
+		const r = await buildReport({ resultsDir: f.resultsDir, configFile: f.configFile, cruxEnabled: true });
+		const row = (key) => r.entries[0].metricsTable.find((m) => m.key === key);
+
+		// Every number would have been the site's, under a heading saying FIELD.
+		// The Origin panel is where that record belongs.
+		for (let key of ["lcp", "inp", "cls"]) assert.equal(row(key).field.value, null, key);
+		assert.equal(r.entries[0].originField.assessed, 3);
+	});
+
+	test("a history week whose vitals were all the origin's is not an assessment", async () => {
+		const f = fixture({ performance: () => 100, axe: clean });
+		fs.writeFileSync(
+			path.join(f.resultsDir, fs.readdirSync(f.resultsDir)[0], "field-history.json"),
+			JSON.stringify({
+				source: "crux-history",
+				scope: "url",
+				series: [
+					{
+						date: "2025-12-28",
+						period: { first: "2025-12-01", last: "2025-12-28" },
+						borrowedFromOrigin: ["lcp", "inp", "cls"],
+						metrics: {
+							lcp: { p75: 9000, rating: "poor", scope: "origin" },
+							inp: { p75: 640, rating: "poor", scope: "origin" },
+							cls: { p75: 0.4, rating: "poor", scope: "origin" },
+						},
+					},
+				],
+			})
+		);
+		const r = await buildReport({ resultsDir: f.resultsDir, configFile: f.configFile, cruxEnabled: true });
+
+		// Nothing in that week was this URL's, so it is not field data for it.
+		assert.equal(r.entries[0].cwv.source, "lab");
+		assert.equal(r.entries[0].cwvFailures, null);
+	});
+
+	test("a landing-scoped record is this page's data and is assessed", async () => {
+		const field = {
+			metrics: {
+				lcp: { p75: 2050, rating: "good" },
+				inp: { p75: 329, rating: "poor" },
+				cls: { p75: 0.12, rating: "needs-improvement" },
+			},
+			collectionPeriod: { first: "2026-10-14", last: "2026-11-10" },
+			scope: "landing",
+			url: "https://www.example.com/en.html",
+		};
+		const f = fixture({ performance: () => 100, axe: clean, field });
+		const r = await buildReport({ resultsDir: f.resultsDir, configFile: f.configFile, cruxEnabled: true });
+		const entry = r.entries[0];
+
+		// The page we measured, under the address CrUX files it at. Not an origin
+		// reading, so it counts for everything a URL-scoped one counts for.
+		assert.equal(entry.cwv.source, "field");
+		assert.equal(entry.cwv.assessed, 3);
+		assert.equal(entry.cwvFailures, 2);
+		assert.equal(entry.perfect, false);
+		assert.equal(entry.metricsTable.find((row) => row.key === "cls").field.value, 0.12);
 	});
 
 	test("does not count an imperfect Lighthouse total, however clean", async () => {
@@ -1341,7 +1512,7 @@ describe("lab and field bands", () => {
 			field: (s) => ({
 				metrics: { lcp: { p75: [3000, 2000, 1000][s], rating: "good" } },
 				collectionPeriod: { first: "2025-12-01", last: "2025-12-28" },
-				scope: "origin",
+				scope: "url",
 			}),
 		});
 
