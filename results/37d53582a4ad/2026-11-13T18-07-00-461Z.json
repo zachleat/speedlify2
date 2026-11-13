@@ -1,0 +1,337 @@
+{
+  "url": "https://www.solidjs.com/",
+  "name": "SolidJS",
+  "group": "dev-tooling",
+  "groupName": "Developer Tooling",
+  "timestamp": 1794593220461,
+  "date": "2026-11-13T18:07:00.461Z",
+  "runId": "2026-11-13T17-50-03-216Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 2,
+  "durationMs": 104816,
+  "error": null,
+  "partialErrors": [
+    "ERRORED_DOCUMENT_REQUEST: Lighthouse was unable to reliably load the page you requested. Make sure you are testing the correct URL and that the server is properly responding to all requests. (Status code: 403)"
+  ],
+  "variance": {
+    "min": 75,
+    "max": 93,
+    "spread": 18,
+    "runs": 2
+  },
+  "lab": {
+    "requestedUrl": "https://www.solidjs.com/",
+    "finalUrl": "https://www.solidjs.com/",
+    "redirect": null,
+    "statusCode": "error",
+    "scores": {
+      "performance": 75,
+      "accessibility": 93,
+      "best-practices": 96,
+      "seo": 45,
+      "agentic-browsing": 50
+    },
+    "timings": {
+      "fcp": 1049,
+      "lcp": 1049,
+      "si": 1181,
+      "tbt": 1396,
+      "tti": 5428,
+      "cls": 0,
+      "ttfb": 519,
+      "maxPotentialFid": 486,
+      "serverResponseTime": 41,
+      "networkRtt": 4.4,
+      "networkServerLatency": 68.9
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 84.4,
+      "elementRenderDelay": 279.2
+    },
+    "weight": {
+      "total": 2205452,
+      "requests": 16,
+      "mainDocument": 5094,
+      "byType": {
+        "total": {
+          "bytes": 2205455,
+          "requests": 10
+        },
+        "other": {
+          "bytes": 1739632,
+          "requests": 5
+        },
+        "script": {
+          "bytes": 233429,
+          "requests": 2
+        },
+        "document": {
+          "bytes": 230048,
+          "requests": 2
+        },
+        "image": {
+          "bytes": 2346,
+          "requests": 1
+        },
+        "stylesheet": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "font": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 1817314,
+          "requests": 5
+        }
+      },
+      "scripts": 7,
+      "stylesheets": 0,
+      "fonts": 0
+    },
+    "thirdParty": {
+      "count": 1,
+      "bytes": 28466,
+      "mainThreadMs": 14.1,
+      "top": [
+        {
+          "entity": "cloudflare.com",
+          "bytes": 28466,
+          "mainThreadMs": 14.1,
+          "byType": {
+            "script": 28466
+          },
+          "typedBytes": 28466
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 2153.9,
+      "byGroup": {
+        "scriptEvaluation": 1812.6,
+        "other": 202.3,
+        "scriptParseCompile": 57,
+        "garbageCollection": 42,
+        "styleLayout": 22.9,
+        "parseHTML": 9,
+        "paintCompositeRender": 8
+      },
+      "bootupMs": 1867.2,
+      "longTasks": 8,
+      "longestTaskMs": 486
+    },
+    "dom": {
+      "elements": 36,
+      "depth": 8,
+      "maxChildren": 7
+    },
+    "waste": {
+      "unusedJsBytes": 48910,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 0,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 0,
+      "renderBlockingCount": 0,
+      "poorlyCachedBytes": 0,
+      "poorlyCachedCount": 0
+    },
+    "accessibility": {
+      "failingCount": 1,
+      "applicableCount": 20,
+      "failingNodes": 1,
+      "failing": [
+        {
+          "id": "meta-refresh",
+          "title": "The document uses `<meta http-equiv=\"refresh\">`",
+          "weight": 10,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 2,
+      "applicableCount": 17,
+      "failing": [
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "weight": 1,
+          "nodes": 1
+        },
+        {
+          "id": "valid-source-maps",
+          "title": "Missing source maps for large first-party JavaScript",
+          "weight": 0,
+          "nodes": 1
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 3,
+      "applicableCount": 8,
+      "failing": [
+        {
+          "id": "is-crawlable",
+          "title": "Page is blocked from indexing",
+          "weight": 4.043478260869565,
+          "nodes": 1
+        },
+        {
+          "id": "meta-description",
+          "title": "Document does not have a meta description",
+          "weight": 1,
+          "nodes": null
+        },
+        {
+          "id": "http-status-code",
+          "title": "Page has unsuccessful HTTP status code",
+          "weight": 1,
+          "nodes": null
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": null,
+      "trustedTypes": 1,
+      "bfCache": 0,
+      "bfCacheFailures": 1,
+      "protocol": "http/1.1",
+      "legacyHttpRequests": 0,
+      "redirectMs": 818.9,
+      "consoleErrors": 1,
+      "baselineLimitedFeatures": 30
+    },
+    "environment": {
+      "lighthouseVersion": "13.6.0",
+      "benchmarkIndex": 2456.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-11-13T18:07:12.899Z",
+      "runtimeMs": 13090.4
+    }
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-10-15",
+      "last": "2026-11-11"
+    },
+    "metrics": {
+      "inp": {
+        "p75": 97,
+        "rating": "good",
+        "distribution": {
+          "good": 93.6,
+          "needsImprovement": 5.2,
+          "poor": 1.2
+        }
+      },
+      "lcp": {
+        "p75": 1604,
+        "rating": "good",
+        "distribution": {
+          "good": 86.9,
+          "needsImprovement": 9.2,
+          "poor": 3.9
+        }
+      },
+      "rtt": {
+        "p75": 150,
+        "rating": null,
+        "distribution": {
+          "good": 36.7,
+          "needsImprovement": 55.9,
+          "poor": 7.5
+        }
+      },
+      "cls": {
+        "p75": 0.02,
+        "rating": "good",
+        "distribution": {
+          "good": 96.8,
+          "needsImprovement": 1.7,
+          "poor": 1.5
+        }
+      },
+      "ttfb": {
+        "p75": 590,
+        "rating": "good",
+        "distribution": {
+          "good": 83.9,
+          "needsImprovement": 13.9,
+          "poor": 2.3
+        }
+      },
+      "fcp": {
+        "p75": 1544,
+        "rating": "good",
+        "distribution": {
+          "good": 80,
+          "needsImprovement": 11,
+          "poor": 9
+        }
+      }
+    },
+    "cwvPass": true,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "probe": null,
+    "interstitial": "Just a moment...",
+    "host": {
+      "id": "cloudflare",
+      "name": "Cloudflare",
+      "icon": "Cloudflare",
+      "source": "server"
+    },
+    "headers": {
+      "cf-ray": "a59fb91a6bcd381d-EWR",
+      "server": "cloudflare"
+    },
+    "violations": null,
+    "passes": null,
+    "incomplete": null,
+    "violationRules": null,
+    "version": "4.14.0",
+    "top": [],
+    "error": null
+  },
+  "render": {
+    "samples": [
+      {
+        "hash": "808d58cb4a74",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "cf-cache-status": "DYNAMIC"
+        }
+      },
+      {
+        "hash": "4a912a2b79c9",
+        "nonce": "9a7ee0f91484",
+        "stamp": null,
+        "marks": [],
+        "headers": {}
+      }
+    ]
+  },
+  "consecutiveFailures": 0
+}
