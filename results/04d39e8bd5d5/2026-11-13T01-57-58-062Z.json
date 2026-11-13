@@ -1,0 +1,343 @@
+{
+  "url": "https://openai.com/",
+  "name": "OpenAI",
+  "group": "ai",
+  "groupName": "AI",
+  "timestamp": 1794535078062,
+  "date": "2026-11-13T01:57:58.062Z",
+  "runId": "2026-11-13T01-54-07-647Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 1,
+  "durationMs": 86670,
+  "error": null,
+  "partialErrors": [
+    "ERRORED_DOCUMENT_REQUEST: Lighthouse was unable to reliably load the page you requested. Make sure you are testing the correct URL and that the server is properly responding to all requests. (Status code: 403)",
+    "ERRORED_DOCUMENT_REQUEST: Lighthouse was unable to reliably load the page you requested. Make sure you are testing the correct URL and that the server is properly responding to all requests. (Status code: 403)"
+  ],
+  "variance": null,
+  "lab": {
+    "requestedUrl": "https://openai.com/",
+    "finalUrl": "https://openai.com/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 69,
+      "accessibility": 97,
+      "best-practices": 69,
+      "seo": 100,
+      "agentic-browsing": 100
+    },
+    "timings": {
+      "fcp": 4455,
+      "lcp": 4455,
+      "si": 7670,
+      "tbt": 39,
+      "tti": 23953,
+      "cls": 0,
+      "ttfb": 682,
+      "maxPotentialFid": 80,
+      "serverResponseTime": 253,
+      "networkRtt": 14.9,
+      "networkServerLatency": 82.5
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 321.6,
+      "elementRenderDelay": 1160.3
+    },
+    "weight": {
+      "total": 3780790,
+      "requests": 216,
+      "mainDocument": 52981,
+      "byType": {
+        "total": {
+          "bytes": 3780790,
+          "requests": 216
+        },
+        "script": {
+          "bytes": 2816141,
+          "requests": 114
+        },
+        "image": {
+          "bytes": 861651,
+          "requests": 19
+        },
+        "document": {
+          "bytes": 52981,
+          "requests": 1
+        },
+        "other": {
+          "bytes": 27357,
+          "requests": 14
+        },
+        "stylesheet": {
+          "bytes": 22660,
+          "requests": 68
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "font": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 872129,
+          "requests": 20
+        }
+      },
+      "scripts": 114,
+      "stylesheets": 68,
+      "fonts": 0
+    },
+    "thirdParty": {
+      "count": 2,
+      "bytes": 872129,
+      "mainThreadMs": 0,
+      "top": [
+        {
+          "entity": "ctfassets.net",
+          "bytes": 861651,
+          "mainThreadMs": 0,
+          "byType": {
+            "image": 861651
+          },
+          "typedBytes": 861651
+        },
+        {
+          "entity": "Cloudflare",
+          "bytes": 10478,
+          "mainThreadMs": 0,
+          "byType": {
+            "script": 10478
+          },
+          "typedBytes": 10478
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 1496.6,
+      "byGroup": {
+        "scriptParseCompile": 579.5,
+        "other": 514.1,
+        "scriptEvaluation": 237.1,
+        "styleLayout": 78.7,
+        "parseHTML": 56,
+        "paintCompositeRender": 21.7,
+        "garbageCollection": 9.5
+      },
+      "bootupMs": 368.7,
+      "longTasks": 6,
+      "longestTaskMs": 97
+    },
+    "dom": {
+      "elements": 774,
+      "depth": 16,
+      "maxChildren": 19
+    },
+    "waste": {
+      "unusedJsBytes": 2234306,
+      "unusedCssBytes": 13710,
+      "legacyJsBytes": 13686,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 3560,
+      "renderBlockingMs": 150,
+      "renderBlockingCount": 68,
+      "poorlyCachedBytes": 4191.2,
+      "poorlyCachedCount": 1
+    },
+    "accessibility": {
+      "failingCount": 2,
+      "applicableCount": 29,
+      "failingNodes": 67,
+      "failing": [
+        {
+          "id": "target-size",
+          "title": "Touch targets do not have sufficient size or spacing.",
+          "weight": 7,
+          "nodes": 46
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "title": "Elements with visible text labels do not have matching accessible names.",
+          "weight": 0,
+          "nodes": 21
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 5,
+      "applicableCount": 17,
+      "failing": [
+        {
+          "id": "deprecations",
+          "title": "Uses deprecated APIs",
+          "weight": 5,
+          "nodes": 3
+        },
+        {
+          "id": "image-aspect-ratio",
+          "title": "Displays images with incorrect aspect ratio",
+          "weight": 1,
+          "nodes": 20
+        },
+        {
+          "id": "image-size-responsive",
+          "title": "Serves images with low resolution",
+          "weight": 1,
+          "nodes": 19
+        },
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "weight": 1,
+          "nodes": 170
+        },
+        {
+          "id": "valid-source-maps",
+          "title": "Missing source maps for large first-party JavaScript",
+          "weight": 0,
+          "nodes": 2
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 0,
+      "applicableCount": 10,
+      "failing": []
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": null,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "http/1.1",
+      "legacyHttpRequests": 0,
+      "redirectMs": 832.5,
+      "consoleErrors": 170,
+      "baselineLimitedFeatures": 29
+    },
+    "environment": {
+      "lighthouseVersion": "13.6.0",
+      "benchmarkIndex": 4405,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-11-13T01:57:59.217Z",
+      "runtimeMs": 8660.6
+    }
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-10-14",
+      "last": "2026-11-10"
+    },
+    "metrics": {
+      "rtt": {
+        "p75": 303,
+        "rating": null,
+        "distribution": {
+          "good": 18.8,
+          "needsImprovement": 53.3,
+          "poor": 28
+        }
+      },
+      "cls": {
+        "p75": 0,
+        "rating": "good",
+        "distribution": {
+          "good": 98.1,
+          "needsImprovement": 1.1,
+          "poor": 0.8
+        }
+      },
+      "ttfb": {
+        "p75": 975,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 66.7,
+          "needsImprovement": 22.4,
+          "poor": 10.9
+        }
+      },
+      "fcp": {
+        "p75": 2534,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 58.7,
+          "needsImprovement": 22.7,
+          "poor": 18.6
+        }
+      },
+      "inp": {
+        "p75": 328,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 64,
+          "needsImprovement": 18.3,
+          "poor": 17.8
+        }
+      },
+      "lcp": {
+        "p75": 2811,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 69.8,
+          "needsImprovement": 17,
+          "poor": 13.1
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "probe": null,
+    "interstitial": "Just a moment...",
+    "host": {
+      "id": "cloudflare",
+      "name": "Cloudflare",
+      "icon": "Cloudflare",
+      "source": "server"
+    },
+    "headers": {
+      "cf-ray": "a59a2d331d1b6bb6-DFW",
+      "server": "cloudflare"
+    },
+    "violations": null,
+    "passes": null,
+    "incomplete": null,
+    "violationRules": null,
+    "version": "4.14.0",
+    "top": [],
+    "error": null
+  },
+  "render": {
+    "samples": [
+      {
+        "hash": "4d31ea23a122",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "age": "2202",
+          "cf-cache-status": "DYNAMIC",
+          "x-nextjs-prerender": "1",
+          "x-vercel-cache": "HIT"
+        }
+      }
+    ]
+  },
+  "consecutiveFailures": 0
+}
