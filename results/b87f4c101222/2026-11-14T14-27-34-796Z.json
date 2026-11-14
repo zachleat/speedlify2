@@ -1,0 +1,549 @@
+{
+  "url": "https://tilda.cc/",
+  "name": "Tilda",
+  "group": "builders",
+  "groupName": "Website Builders",
+  "timestamp": 1794666454796,
+  "date": "2026-11-14T14:27:34.796Z",
+  "runId": "2026-11-14T14-14-47-821Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 71052,
+  "error": null,
+  "variance": {
+    "min": 56,
+    "max": 65,
+    "spread": 9,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://tilda.cc/",
+    "finalUrl": "https://tilda.cc/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 65,
+      "accessibility": 81,
+      "best-practices": 100,
+      "seo": 92,
+      "agentic-browsing": 19
+    },
+    "timings": {
+      "fcp": 2345,
+      "lcp": 4707,
+      "si": 2345,
+      "tbt": 0,
+      "tti": 4782,
+      "cls": 0.308,
+      "ttfb": 651,
+      "maxPotentialFid": 47,
+      "serverResponseTime": 50,
+      "networkRtt": 0.3,
+      "networkServerLatency": 134.1
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 52.2,
+      "resourceLoadDelay": 398.4,
+      "resourceLoadDuration": 5.9,
+      "elementRenderDelay": 656.5
+    },
+    "weight": {
+      "total": 716010,
+      "requests": 100,
+      "mainDocument": 112970,
+      "byType": {
+        "total": {
+          "bytes": 716010,
+          "requests": 98
+        },
+        "image": {
+          "bytes": 374891,
+          "requests": 61
+        },
+        "script": {
+          "bytes": 124382,
+          "requests": 24
+        },
+        "document": {
+          "bytes": 112970,
+          "requests": 1
+        },
+        "font": {
+          "bytes": 85579,
+          "requests": 1
+        },
+        "stylesheet": {
+          "bytes": 16937,
+          "requests": 9
+        },
+        "other": {
+          "bytes": 1251,
+          "requests": 2
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 603040,
+          "requests": 97
+        }
+      },
+      "scripts": 24,
+      "stylesheets": 9,
+      "fonts": 1
+    },
+    "thirdParty": {
+      "count": 2,
+      "bytes": 603040,
+      "mainThreadMs": 43.9,
+      "top": [
+        {
+          "entity": "tildacdn.net",
+          "bytes": 516141,
+          "mainThreadMs": 43.3,
+          "byType": {
+            "script": 123251,
+            "stylesheet": 16937,
+            "image": 374891,
+            "other": 1062
+          },
+          "typedBytes": 516141
+        },
+        {
+          "entity": "Tilda",
+          "bytes": 86899,
+          "mainThreadMs": 0.6,
+          "byType": {
+            "script": 1131,
+            "other": 189,
+            "font": 85579
+          },
+          "typedBytes": 86899
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 4647.7,
+      "byGroup": {
+        "paintCompositeRender": 1664,
+        "other": 1313.8,
+        "styleLayout": 1233.7,
+        "scriptEvaluation": 286.4,
+        "parseHTML": 83.9,
+        "scriptParseCompile": 66
+      },
+      "bootupMs": 231.2,
+      "longTasks": 5,
+      "longestTaskMs": 209
+    },
+    "dom": {
+      "elements": 1693,
+      "depth": 15,
+      "maxChildren": 55
+    },
+    "waste": {
+      "unusedJsBytes": 45107,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 0,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 904,
+      "renderBlockingCount": 8,
+      "poorlyCachedBytes": 515192.1,
+      "poorlyCachedCount": 94
+    },
+    "accessibility": {
+      "failingCount": 6,
+      "applicableCount": 29,
+      "failingNodes": 63,
+      "failing": [
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "weight": 7,
+          "nodes": 35
+        },
+        {
+          "id": "target-size",
+          "title": "Touch targets do not have sufficient size or spacing.",
+          "weight": 7,
+          "nodes": 22
+        },
+        {
+          "id": "link-in-text-block",
+          "title": "Links rely on color to be distinguishable.",
+          "weight": 7,
+          "nodes": 3
+        },
+        {
+          "id": "button-name",
+          "title": "Buttons do not have an accessible name",
+          "weight": 10,
+          "nodes": 1
+        },
+        {
+          "id": "heading-order",
+          "title": "Heading elements are not in a sequentially-descending order",
+          "weight": 3,
+          "nodes": 1
+        },
+        {
+          "id": "landmark-one-main",
+          "title": "Document does not have a main landmark.",
+          "weight": 3,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 0,
+      "applicableCount": 19,
+      "failing": []
+    },
+    "seo": {
+      "failingCount": 1,
+      "applicableCount": 10,
+      "failing": [
+        {
+          "id": "link-text",
+          "title": "Links do not have descriptive text",
+          "weight": 1,
+          "nodes": 4
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 0,
+      "bfCacheFailures": 1,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 17
+    },
+    "environment": {
+      "lighthouseVersion": "13.6.0",
+      "benchmarkIndex": 2446,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-11-14T14:28:00.666Z",
+      "runtimeMs": 10864.1
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 1126.8,
+    "resourceLoadDelay": 1444.8,
+    "resourceLoadDuration": 3120.1,
+    "elementRenderDelay": 689.9
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-10-16",
+      "last": "2026-11-12"
+    },
+    "metrics": {
+      "cls": {
+        "p75": 0.4,
+        "rating": "poor",
+        "distribution": {
+          "good": 46.6,
+          "needsImprovement": 3.1,
+          "poor": 50.2
+        }
+      },
+      "ttfb": {
+        "p75": 1118,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 61.8,
+          "needsImprovement": 30.3,
+          "poor": 7.9
+        }
+      },
+      "fcp": {
+        "p75": 1850,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 73.7,
+          "needsImprovement": 18,
+          "poor": 8.4
+        }
+      },
+      "inp": {
+        "p75": 246,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 67.2,
+          "needsImprovement": 24.9,
+          "poor": 7.9
+        }
+      },
+      "lcp": {
+        "p75": 3275,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 61.2,
+          "needsImprovement": 22.7,
+          "poor": 16.1
+        }
+      },
+      "rtt": {
+        "p75": 214,
+        "rating": null,
+        "distribution": {
+          "good": 21.4,
+          "needsImprovement": 61.7,
+          "poor": 16.9
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "probe": {
+      "metas": [],
+      "marks": [],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": null,
+    "headers": {},
+    "violations": 113,
+    "passes": 2215,
+    "incomplete": 15,
+    "violationRules": 9,
+    "version": "4.14.0",
+    "top": [
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 60,
+        "help": "All page content should be contained by landmarks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/region?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".t972__title",
+            "snippet": "<div class=\"t972__title t-name t-name_xs t972__translate\" field=\"title\" data-translate=\"title\">Manage cookies</div>"
+          },
+          {
+            "selector": ".t972__text",
+            "snippet": "<div class=\"t972__text t-descr t-descr_xxs t972__translate\" field=\"text\" data-translate=\"mainText\">"
+          },
+          {
+            "selector": ".loaded",
+            "snippet": "<div class=\"t-cover__carrier loa...\" id=\"coverCarry2340846391\" data-content-cover-i...=\"2340846391\" data-content-cover-b...=\"https://static.tilda...\" data-display-changed=\"true\" data-content-cover-h.…"
+          },
+          {
+            "selector": ".t935__small-cover > .t-cell.t-cell_50 > .t-cover[bgimgfield=\"img\"] > .t-container_100",
+            "snippet": "<div class=\"t-container_100\" style=\"width:100%;\">"
+          },
+          {
+            "selector": ".t935__title",
+            "snippet": "<div class=\"t935__title t-title\">"
+          }
+        ]
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 35,
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".t972__text > a[rel=\"noreferrer noopener\"][target=\"_blank\"]",
+            "snippet": "<a href=\"https://tilda.cc/cookie-policy/\" target=\"_blank\" rel=\"noreferrer noopener\">Cookie Policy</a>"
+          },
+          {
+            "selector": ".t-btnflex_smd.t935__submit.t-btnflex_type_button2 > .t-btnflex__text",
+            "snippet": "<span class=\"t-btnflex__text\">Create a website for free</span>"
+          },
+          {
+            "selector": "#rec186881030 > .t175 > .t-container_flex.t-container > .t-col_flex.t-col_12.t-col:nth-child(1) > .t175__textwrapper > .t175__descr.t-descr_xl[field=\"descr\"]",
+            "snippet": "<div class=\"t175__descr t-descr t-descr_xl\" field=\"descr\">Fullscreen covers, gorgeous typography, photo galleries, background videos, forms, and more…</div>"
+          },
+          {
+            "selector": "#rec186881032 > .t175 > .t-container_flex.t-container > .t-col_flex.t-col_12.t-col:nth-child(2) > .t175__textwrapper > .t175__descr.t-descr_xl[field=\"descr\"]",
+            "snippet": "<div class=\"t175__descr t-descr t-descr_xl\" field=\"descr\">Start from scratch and create new blocks with unique design and adaptability.</div>"
+          },
+          {
+            "selector": ".t175__text.t-text_sm[field=\"text\"] > a[href$=\"zero.tilda.cc/\"][rel=\"noreferrer noopener\"][target=\"_blank\"]",
+            "snippet": "<a href=\"https://zero.tilda.cc/\" target=\"_blank\" rel=\"noreferrer noopener\">Zero Block</a>"
+          }
+        ]
+      },
+      {
+        "id": "aria-allowed-role",
+        "impact": "minor",
+        "nodes": 10,
+        "help": "ARIA role should be appropriate for the element",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/aria-allowed-role?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "a[aria-label=\"2 of 11\"]",
+            "snippet": "<a class=\"t1196__item t1196__item_top t1196__item_has_image t1196__item_has_bg\" role=\"group\" aria-roledescription=\"slide\" aria-label=\"2 of 11\" aria-current=\"false\" href=\"/lp/crm/\" draggable=\"false\" t…"
+          },
+          {
+            "selector": "a[aria-label=\"3 of 11\"]",
+            "snippet": "<a class=\"t1196__item t1196__item_top t1196__item_has_image t1196__item_has_bg\" role=\"group\" aria-roledescription=\"slide\" aria-label=\"3 of 11\" aria-current=\"false\" href=\"/lp/feeds/\" draggable=\"false\"…"
+          },
+          {
+            "selector": "a[aria-label=\"4 of 11\"]",
+            "snippet": "<a class=\"t1196__item t1196__item_top t1196__item_has_image t1196__item_has_bg\" role=\"group\" aria-roledescription=\"slide\" aria-label=\"4 of 11\" aria-current=\"false\" href=\"https://blog-en.tilda.cc/mcp-…"
+          },
+          {
+            "selector": "a[aria-label=\"5 of 11\"]",
+            "snippet": "<a class=\"t1196__item t1196__item_top t1196__item_has_image t1196__item_has_bg\" role=\"group\" aria-roledescription=\"slide\" aria-label=\"5 of 11\" aria-current=\"false\" href=\"/lp/quiz/\" draggable=\"false\" …"
+          },
+          {
+            "selector": "a[aria-label=\"6 of 11\"]",
+            "snippet": "<a class=\"t1196__item t1196__item_top t1196__item_has_image t1196__item_has_bg\" role=\"group\" aria-roledescription=\"slide\" aria-label=\"6 of 11\" aria-current=\"false\" href=\"/lp/membership/\" draggable=\"f…"
+          }
+        ]
+      },
+      {
+        "id": "link-in-text-block",
+        "impact": "serious",
+        "nodes": 3,
+        "help": "Links must be distinguishable without relying on color",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/link-in-text-block?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "#rec186881062 > .t178 > .t-container > .t-row > .t-col_6.t-col:nth-child(2) > .t178__text.t-opacity_50.t-text_sm > a[rel=\"noreferrer noopener\"][target=\"_blank\"]",
+            "snippet": "<a href=\"https://help.tilda.cc/customdomain\" target=\"_blank\" rel=\"noreferrer noopener\" style=\"color: rgb(255, 133, 98);\">Learn more</a>"
+          },
+          {
+            "selector": "a[href$=\"api/\"]",
+            "snippet": "<a href=\"https://tilda.cc/lp/api/\" target=\"_blank\" rel=\"noreferrer noopener\" style=\"color: rgb(255, 133, 98);\">Learn more</a>"
+          },
+          {
+            "selector": ".tn-elem__3834206821530812327195 > .tn-atom[field=\"tn_text_1530812327195\"] > a[href$=\"mailto:team@tilda.cc\"][rel=\"noopener noreferrer\"]",
+            "snippet": "<a href=\"mailto:team@tilda.cc\" rel=\"noopener noreferrer\">team@tilda.cc</a>"
+          }
+        ]
+      },
+      {
+        "id": "button-name",
+        "impact": "critical",
+        "nodes": 1,
+        "help": "Buttons must have discernible text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/button-name?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".t972__widget-button",
+            "snippet": "<button class=\"t972__widget-button t972__widget-button_active\" type=\"button\">"
+          }
+        ]
+      },
+      {
+        "id": "heading-order",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Heading levels should only increase by one",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/heading-order?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "#rec186881030 > .t175 > .t-container_flex.t-container > .t-col_flex.t-col_12.t-col:nth-child(1) > .t175__textwrapper > .t175__title.t-title_md",
+            "snippet": "<h3 class=\"t175__title t-title t-title_md\" field=\"title\">Block Library</h3>"
+          }
+        ]
+      },
+      {
+        "id": "landmark-one-main",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Document should have one main landmark",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/landmark-one-main?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "html",
+            "snippet": "<html lang=\"en\">"
+          }
+        ]
+      },
+      {
+        "id": "scrollable-region-focusable",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "Scrollable region must have keyboard access",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/scrollable-region-focusable?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".t844__container",
+            "snippet": "<ul class=\"t844__container t-card__container t-container t-container_flex\" role=\"list\" style=\"--column-margin:80px;\">"
+          }
+        ]
+      },
+      {
+        "id": "summary-name",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "Summary elements must have discernible text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/summary-name?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "summary",
+            "snippet": "<summary class=\"t-widget-translate__current-lang-wrapper\" aria-haspopup=\"true\" aria-expanded=\"false\" role=\"button\"> <div class=\"t-widget-translate__current-lang\"> <span class=\"t-widget-translate__cur…"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "render": {
+    "samples": [
+      {
+        "hash": "b01b17a30dfc",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {}
+      },
+      {
+        "hash": "b01b17a30dfc",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {}
+      },
+      {
+        "hash": "b01b17a30dfc",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {}
+      },
+      {
+        "hash": "b01b17a30dfc",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {}
+      },
+      {
+        "hash": "b01b17a30dfc",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {}
+      }
+    ]
+  },
+  "consecutiveFailures": 0
+}
