@@ -1,0 +1,425 @@
+{
+  "url": "https://fly.io/",
+  "name": "Fly.io",
+  "group": "dev-tooling",
+  "groupName": "Developer Tooling",
+  "timestamp": 1794698511301,
+  "date": "2026-11-14T23:21:51.301Z",
+  "runId": "2026-11-14T23-06-33-632Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 81039,
+  "error": null,
+  "variance": {
+    "min": 59,
+    "max": 66,
+    "spread": 7,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://fly.io/",
+    "finalUrl": "https://fly.io/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 61,
+      "accessibility": 100,
+      "best-practices": 77,
+      "seo": 85,
+      "agentic-browsing": 75
+    },
+    "timings": {
+      "fcp": 1990,
+      "lcp": 5390,
+      "si": 2681,
+      "tbt": 676,
+      "tti": 11029,
+      "cls": 0,
+      "ttfb": 620,
+      "maxPotentialFid": 333,
+      "serverResponseTime": 24,
+      "networkRtt": 0.3,
+      "networkServerLatency": 66.8
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 25.9,
+      "resourceLoadDelay": 195.9,
+      "resourceLoadDuration": 48,
+      "elementRenderDelay": 126.6
+    },
+    "weight": {
+      "total": 1766788,
+      "requests": 55,
+      "mainDocument": 20879,
+      "byType": {
+        "total": {
+          "bytes": 1766788,
+          "requests": 49
+        },
+        "script": {
+          "bytes": 1053467,
+          "requests": 8
+        },
+        "image": {
+          "bytes": 314134,
+          "requests": 25
+        },
+        "font": {
+          "bytes": 224665,
+          "requests": 4
+        },
+        "stylesheet": {
+          "bytes": 130628,
+          "requests": 1
+        },
+        "document": {
+          "bytes": 24339,
+          "requests": 4
+        },
+        "other": {
+          "bytes": 19555,
+          "requests": 7
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 288139,
+          "requests": 6
+        }
+      },
+      "scripts": 8,
+      "stylesheets": 1,
+      "fonts": 4
+    },
+    "thirdParty": {
+      "count": 1,
+      "bytes": 270763,
+      "mainThreadMs": 62.3,
+      "top": [
+        {
+          "entity": "Stripe",
+          "bytes": 270763,
+          "mainThreadMs": 62.3,
+          "byType": {
+            "script": 270763
+          },
+          "typedBytes": 270763
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 2211.9,
+      "byGroup": {
+        "scriptEvaluation": 826,
+        "other": 652.6,
+        "scriptParseCompile": 314.4,
+        "styleLayout": 255,
+        "parseHTML": 59.6,
+        "paintCompositeRender": 54.6,
+        "garbageCollection": 49.8
+      },
+      "bootupMs": 1131.4,
+      "longTasks": 7,
+      "longestTaskMs": 333
+    },
+    "dom": {
+      "elements": 625,
+      "depth": 13,
+      "maxChildren": 11
+    },
+    "waste": {
+      "unusedJsBytes": 480146,
+      "unusedCssBytes": 125517,
+      "legacyJsBytes": 16650,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 1070,
+      "renderBlockingCount": 1,
+      "poorlyCachedBytes": 280217.0333333333,
+      "poorlyCachedCount": 2
+    },
+    "accessibility": {
+      "failingCount": 1,
+      "applicableCount": 32,
+      "failingNodes": 6,
+      "failing": [
+        {
+          "id": "svg-img-alt",
+          "title": "SVG elements with an `img` role do not have an accessible text alternative",
+          "weight": 1,
+          "nodes": 6
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 3,
+      "applicableCount": 18,
+      "failing": [
+        {
+          "id": "third-party-cookies",
+          "title": "Uses third-party cookies",
+          "weight": 5,
+          "nodes": 1
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "weight": 1,
+          "nodes": 1
+        },
+        {
+          "id": "valid-source-maps",
+          "title": "Missing source maps for large first-party JavaScript",
+          "weight": 0,
+          "nodes": 2
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 2,
+      "applicableCount": 10,
+      "failing": [
+        {
+          "id": "link-text",
+          "title": "Links do not have descriptive text",
+          "weight": 1,
+          "nodes": 2
+        },
+        {
+          "id": "robots-txt",
+          "title": "robots.txt is not valid",
+          "weight": 1,
+          "nodes": 1
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": null,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "http/1.1",
+      "legacyHttpRequests": 40,
+      "redirectMs": 0,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 43
+    },
+    "environment": {
+      "lighthouseVersion": "13.6.0",
+      "benchmarkIndex": 2550.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-11-14T23:22:02.955Z",
+      "runtimeMs": 14949.6
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 774,
+    "resourceLoadDelay": 0,
+    "resourceLoadDuration": 1818.8,
+    "elementRenderDelay": 971.2
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-10-16",
+      "last": "2026-11-12"
+    },
+    "metrics": {
+      "lcp": {
+        "p75": 2290,
+        "rating": "good",
+        "distribution": {
+          "good": 78.9,
+          "needsImprovement": 14,
+          "poor": 7.2
+        }
+      },
+      "rtt": {
+        "p75": 186,
+        "rating": null,
+        "distribution": {
+          "good": 30.8,
+          "needsImprovement": 57.5,
+          "poor": 11.7
+        }
+      },
+      "cls": {
+        "p75": 0,
+        "rating": "good",
+        "distribution": {
+          "good": 97.7,
+          "needsImprovement": 1.7,
+          "poor": 0.6
+        }
+      },
+      "ttfb": {
+        "p75": 751,
+        "rating": "good",
+        "distribution": {
+          "good": 77,
+          "needsImprovement": 17.5,
+          "poor": 5.5
+        }
+      },
+      "fcp": {
+        "p75": 2093,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 67.2,
+          "needsImprovement": 21.3,
+          "poor": 11.5
+        }
+      },
+      "inp": {
+        "p75": 135,
+        "rating": "good",
+        "distribution": {
+          "good": 85.4,
+          "needsImprovement": 12.4,
+          "poor": 2.3
+        }
+      }
+    },
+    "cwvPass": true,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "probe": {
+      "metas": [],
+      "marks": [],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "fly",
+      "name": "Fly.io",
+      "icon": "Flydotio",
+      "source": "fly-request-id"
+    },
+    "headers": {
+      "fly-request-id": "01M7E5YDQXGS8186K3YHDYJX2Q-iad",
+      "server": "Fly/781f3a6652 (2026-11-10)",
+      "via": "1.1 fly.io"
+    },
+    "violations": 17,
+    "passes": 868,
+    "incomplete": 37,
+    "violationRules": 2,
+    "version": "4.14.0",
+    "top": [
+      {
+        "id": "image-redundant-alt",
+        "impact": "minor",
+        "nodes": 11,
+        "help": "Alternative text of images should not be repeated as text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/image-redundant-alt?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".justify-around.min-w-full.animate-infinite-scroll:nth-child(1) > .md\\:justify-start.gap-8.justify-center:nth-child(1) > .p-4.lg\\:px-6[href$=\"builder.io\"] > img[alt=\"Builder.io\"][height=\"24\"]",
+            "snippet": "<img src=\"/phx/images/builderio-49040d5f48090f4b80961a5c0e975e9f.svg?vsn=d\" alt=\"Builder.io\" height=\"24\">"
+          },
+          {
+            "selector": ".justify-around.min-w-full.animate-infinite-scroll:nth-child(1) > .md\\:justify-start.gap-8.justify-center:nth-child(2) > .p-4.lg\\:px-6[href$=\"www.mercor.com\"] > .h-7[alt=\"Mercor\"][height=\"28\"]",
+            "snippet": "<img src=\"/phx/images/mercor-a7ffc13de45fe6eff409813c0014675e.png?vsn=d\" alt=\"Mercor\" height=\"28\" class=\"h-7\">"
+          },
+          {
+            "selector": ".justify-around.min-w-full.animate-infinite-scroll:nth-child(1) > .md\\:justify-start.gap-8.justify-center:nth-child(3) > .p-4.lg\\:px-6[href$=\"cogram.com\"] > .h-6[alt=\"Cogram\"][height=\"24\"]",
+            "snippet": "<img src=\"/phx/images/cogram-f563a22679f9ec18b64850196ea0de94.svg?vsn=d\" alt=\"Cogram\" height=\"24\" class=\"h-6\">"
+          },
+          {
+            "selector": ".justify-around.min-w-full.animate-infinite-scroll:nth-child(1) > .md\\:justify-start.gap-8.justify-center:nth-child(4) > .p-4.lg\\:px-6[href$=\"getmocha.com\"] > .h-6[alt=\"Mocha\"][height=\"24\"]",
+            "snippet": "<img src=\"/phx/images/mocha-f959a31e6ecf819b3e46138a3ea92391.svg?vsn=d\" alt=\"Mocha\" height=\"24\" class=\"h-6\">"
+          },
+          {
+            "selector": ".justify-around.min-w-full.animate-infinite-scroll:nth-child(1) > .md\\:justify-start.gap-8.justify-center:nth-child(5) > .p-4.lg\\:px-6[href$=\"context.ai\"] > .h-6[alt=\"Context\"][height=\"24\"]",
+            "snippet": "<img src=\"/phx/images/context-8058d9902ba3a54da31b6d346b48c4b1.svg?vsn=d\" alt=\"Context\" height=\"24\" class=\"h-6\">"
+          }
+        ]
+      },
+      {
+        "id": "svg-img-alt",
+        "impact": "serious",
+        "nodes": 6,
+        "help": "<svg> elements with an img or image role must have alternative text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/svg-img-alt?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "#hero-deploy > .opacity-50.group-hover\\/btn\\:opacity-100.transition-opacity > .w-0.group-hover\\/btn\\:w-2\\.5.translate-x-2\\.5",
+            "snippet": "<svg role=\"img\" viewBox=\"0 0 16 16\" width=\"0\" height=\"10\" fill=\"currentColor\" class=\"w-0 group-hover/btn:w-2.5 h-3 translate-x-2.5 ease-out duration-200 transition-all transform-gpu\"> <path d=\"M1 9h1…"
+          },
+          {
+            "selector": "#hero-deploy > .opacity-50.group-hover\\/btn\\:opacity-100.transition-opacity > .size-\\[0\\.7em\\][width=\"10\"][role=\"img\"]",
+            "snippet": "<svg role=\"img\" viewBox=\"0 0 16 16\" width=\"10\" height=\"10\" fill=\"currentColor\" class=\"size-[0.7em]\"> <path d=\"M7.293 1.707L13.586 8l-6.293 6.293a1 1 0 001.414 1.414l7-7a.999.999 0 000-1.414l-7-7a1 1 …"
+          },
+          {
+            "selector": ".btn-translucent > .opacity-50.group-hover\\/btn\\:opacity-100.transition-opacity > .w-0.group-hover\\/btn\\:w-2\\.5.translate-x-2\\.5",
+            "snippet": "<svg role=\"img\" viewBox=\"0 0 16 16\" width=\"0\" height=\"10\" fill=\"currentColor\" class=\"w-0 group-hover/btn:w-2.5 h-3 translate-x-2.5 ease-out duration-200 transition-all transform-gpu\"> <path d=\"M1 9h1…"
+          },
+          {
+            "selector": ".btn-translucent > .opacity-50.group-hover\\/btn\\:opacity-100.transition-opacity > .size-\\[0\\.7em\\][width=\"10\"][role=\"img\"]",
+            "snippet": "<svg role=\"img\" viewBox=\"0 0 16 16\" width=\"10\" height=\"10\" fill=\"currentColor\" class=\"size-[0.7em]\"> <path d=\"M7.293 1.707L13.586 8l-6.293 6.293a1 1 0 001.414 1.414l7-7a.999.999 0 000-1.414l-7-7a1 1 …"
+          },
+          {
+            "selector": "#home-closing-cta-primary > .opacity-50.group-hover\\/btn\\:opacity-100.transition-opacity > .w-0.group-hover\\/btn\\:w-2\\.5.translate-x-2\\.5",
+            "snippet": "<svg role=\"img\" viewBox=\"0 0 16 16\" width=\"0\" height=\"10\" fill=\"currentColor\" class=\"w-0 group-hover/btn:w-2.5 h-3 translate-x-2.5 ease-out duration-200 transition-all transform-gpu\"> <path d=\"M1 9h1…"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "render": {
+    "samples": [
+      {
+        "hash": "506fff1fa2f6",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {}
+      },
+      {
+        "hash": "ddb18929300f",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {}
+      },
+      {
+        "hash": "ed54d5b411dc",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {}
+      },
+      {
+        "hash": "076c06538b83",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {}
+      },
+      {
+        "hash": "a5acf75d2874",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {}
+      }
+    ]
+  },
+  "consecutiveFailures": 0
+}
