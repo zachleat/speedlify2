@@ -1,0 +1,294 @@
+{
+  "url": "https://davidrhoden.com/",
+  "name": "davidrhoden.com",
+  "group": "11ty-community",
+  "groupName": "Built Awesome",
+  "timestamp": 1794710978360,
+  "date": "2026-11-15T02:49:38.360Z",
+  "runId": "2026-11-15T02-45-32-825Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 2,
+  "durationMs": 44413,
+  "error": null,
+  "partialErrors": [
+    "ERRORED_DOCUMENT_REQUEST: Lighthouse was unable to reliably load the page you requested. Make sure you are testing the correct URL and that the server is properly responding to all requests. (Status code: 403)"
+  ],
+  "variance": {
+    "min": 67,
+    "max": 74,
+    "spread": 7,
+    "runs": 2
+  },
+  "lab": {
+    "requestedUrl": "https://davidrhoden.com/",
+    "finalUrl": "https://davidrhoden.com/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 67,
+      "accessibility": 95,
+      "best-practices": 81,
+      "seo": 100,
+      "agentic-browsing": 100
+    },
+    "timings": {
+      "fcp": 2003,
+      "lcp": 7377,
+      "si": 4982,
+      "tbt": 236,
+      "tti": 7377,
+      "cls": 0,
+      "ttfb": 627,
+      "maxPotentialFid": 141,
+      "serverResponseTime": 181,
+      "networkRtt": 26.9,
+      "networkServerLatency": 363.3
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 265.2,
+      "resourceLoadDelay": 46,
+      "resourceLoadDuration": 393.9,
+      "elementRenderDelay": 1735.8
+    },
+    "weight": {
+      "total": 914834,
+      "requests": 30,
+      "mainDocument": 34911,
+      "byType": {
+        "total": {
+          "bytes": 906309,
+          "requests": 29
+        },
+        "image": {
+          "bytes": 509987,
+          "requests": 6
+        },
+        "script": {
+          "bytes": 243263,
+          "requests": 5
+        },
+        "font": {
+          "bytes": 91352,
+          "requests": 4
+        },
+        "document": {
+          "bytes": 34911,
+          "requests": 1
+        },
+        "stylesheet": {
+          "bytes": 22718,
+          "requests": 6
+        },
+        "other": {
+          "bytes": 4078,
+          "requests": 7
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 301601,
+          "requests": 15
+        }
+      },
+      "scripts": 5,
+      "stylesheets": 6,
+      "fonts": 4
+    },
+    "thirdParty": {
+      "count": 7,
+      "bytes": 301601,
+      "mainThreadMs": 73.9,
+      "top": [
+        {
+          "entity": "Google Tag Manager",
+          "bytes": 188984,
+          "mainThreadMs": 63.9,
+          "byType": {
+            "script": 188984
+          },
+          "typedBytes": 188984
+        },
+        {
+          "entity": "Google Fonts",
+          "bytes": 93434,
+          "mainThreadMs": 0.3,
+          "byType": {
+            "stylesheet": 2082,
+            "font": 91352
+          },
+          "typedBytes": 93434
+        },
+        {
+          "entity": "Cloudflare",
+          "bytes": 10478,
+          "mainThreadMs": 7.3,
+          "byType": {
+            "script": 10478
+          },
+          "typedBytes": 10478
+        },
+        {
+          "entity": "umami.is",
+          "bytes": 6323,
+          "mainThreadMs": 2.3,
+          "byType": {
+            "script": 5344,
+            "other": 979
+          },
+          "typedBytes": 6323
+        },
+        {
+          "entity": "cdnfonts.com",
+          "bytes": 1276,
+          "mainThreadMs": 0.1,
+          "byType": {
+            "stylesheet": 1276
+          },
+          "typedBytes": 1276
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 1050.3,
+      "byGroup": {
+        "scriptEvaluation": 564.4,
+        "other": 225.9,
+        "styleLayout": 126.5,
+        "scriptParseCompile": 81.9,
+        "parseHTML": 31.6,
+        "garbageCollection": 12.1,
+        "paintCompositeRender": 7.8
+      },
+      "bootupMs": 603.2,
+      "longTasks": 3,
+      "longestTaskMs": 141
+    },
+    "dom": {
+      "elements": 467,
+      "depth": 13,
+      "maxChildren": 15
+    },
+    "waste": {
+      "unusedJsBytes": 78484,
+      "unusedCssBytes": 13480,
+      "legacyJsBytes": 10483,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 3652,
+      "renderBlockingMs": 2165,
+      "renderBlockingCount": 7,
+      "poorlyCachedBytes": 4191.2,
+      "poorlyCachedCount": 1
+    },
+    "accessibility": {
+      "failingCount": 2,
+      "applicableCount": 26,
+      "failingNodes": 22,
+      "failing": [
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "weight": 7,
+          "nodes": 21
+        },
+        {
+          "id": "heading-order",
+          "title": "Heading elements are not in a sequentially-descending order",
+          "weight": 3,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 1,
+      "applicableCount": 19,
+      "failing": [
+        {
+          "id": "deprecations",
+          "title": "Uses deprecated APIs",
+          "weight": 5,
+          "nodes": 2
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 0,
+      "applicableCount": 10,
+      "failing": []
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h3",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 36
+    },
+    "environment": {
+      "lighthouseVersion": "13.6.0",
+      "benchmarkIndex": 2421,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-11-15T02:49:39.626Z",
+      "runtimeMs": 9720.2
+    }
+  },
+  "field": null,
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "probe": null,
+    "interstitial": "Just a moment...",
+    "host": {
+      "id": "cloudflare",
+      "name": "Cloudflare",
+      "icon": "Cloudflare",
+      "source": "server"
+    },
+    "headers": {
+      "cf-ray": "a5aaf296acfc2cc7-DFW",
+      "server": "cloudflare"
+    },
+    "violations": null,
+    "passes": null,
+    "incomplete": null,
+    "violationRules": null,
+    "version": "4.14.0",
+    "top": [],
+    "error": null
+  },
+  "render": {
+    "samples": [
+      {
+        "hash": "3c1802fa50bc",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "age": "19250",
+          "cache-status": "\"Netlify Edge\"; hit; ttl=31516751",
+          "cf-cache-status": "DYNAMIC"
+        }
+      },
+      {
+        "hash": "9203de3531a9",
+        "nonce": "9113b9b89a62",
+        "stamp": null,
+        "marks": [],
+        "headers": {}
+      }
+    ]
+  },
+  "consecutiveFailures": 0
+}
