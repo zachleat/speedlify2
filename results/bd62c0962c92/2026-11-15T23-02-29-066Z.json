@@ -1,0 +1,478 @@
+{
+  "url": "https://www.deepseek.com/",
+  "name": "DeepSeek",
+  "group": "ai",
+  "groupName": "AI",
+  "timestamp": 1794783749066,
+  "date": "2026-11-15T23:02:29.066Z",
+  "runId": "2026-11-15T22-55-25-596Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 66619,
+  "error": null,
+  "variance": {
+    "min": 36,
+    "max": 67,
+    "spread": 31,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://www.deepseek.com/",
+    "finalUrl": "https://www.deepseek.com/en/",
+    "redirect": {
+      "from": "https://www.deepseek.com/",
+      "to": "https://www.deepseek.com/en",
+      "chain": [
+        {
+          "url": "https://www.deepseek.com/",
+          "status": 200
+        },
+        {
+          "url": "https://www.deepseek.com/en/",
+          "status": 200
+        }
+      ],
+      "statuses": [
+        200
+      ],
+      "change": "path",
+      "permanent": false,
+      "schemeUpgrade": false,
+      "hops": 1
+    },
+    "statusCode": "ok",
+    "scores": {
+      "performance": 43,
+      "accessibility": 87,
+      "best-practices": 81,
+      "seo": 92,
+      "agentic-browsing": 50
+    },
+    "timings": {
+      "fcp": 1206,
+      "lcp": 8446,
+      "si": 4231,
+      "tbt": 9303,
+      "tti": 17163,
+      "cls": 0,
+      "ttfb": 605,
+      "maxPotentialFid": 348,
+      "serverResponseTime": 6,
+      "networkRtt": 6.9,
+      "networkServerLatency": 314.8
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 13,
+      "elementRenderDelay": 1299.6
+    },
+    "weight": {
+      "total": 941381,
+      "requests": 70,
+      "mainDocument": 31854,
+      "byType": {
+        "total": {
+          "bytes": 731041,
+          "requests": 69
+        },
+        "script": {
+          "bytes": 427741,
+          "requests": 40
+        },
+        "image": {
+          "bytes": 139051,
+          "requests": 6
+        },
+        "document": {
+          "bytes": 66820,
+          "requests": 2
+        },
+        "font": {
+          "bytes": 63034,
+          "requests": 4
+        },
+        "stylesheet": {
+          "bytes": 19136,
+          "requests": 7
+        },
+        "other": {
+          "bytes": 15259,
+          "requests": 10
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 82637,
+          "requests": 10
+        }
+      },
+      "scripts": 40,
+      "stylesheets": 7,
+      "fonts": 4
+    },
+    "thirdParty": {
+      "count": 2,
+      "bytes": 82637,
+      "mainThreadMs": 32.1,
+      "top": [
+        {
+          "entity": "volccdn.com",
+          "bytes": 78804,
+          "mainThreadMs": 31.8,
+          "byType": {
+            "script": 78804
+          },
+          "typedBytes": 78804
+        },
+        {
+          "entity": "volces.com",
+          "bytes": 3833,
+          "mainThreadMs": 0.3,
+          "byType": {
+            "other": 3833
+          },
+          "typedBytes": 3833
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 14469.6,
+      "byGroup": {
+        "other": 13164.5,
+        "scriptEvaluation": 893,
+        "scriptParseCompile": 188.5,
+        "styleLayout": 138.5,
+        "paintCompositeRender": 44.7,
+        "parseHTML": 21.1,
+        "garbageCollection": 19.2
+      },
+      "bootupMs": 969.5,
+      "longTasks": 20,
+      "longestTaskMs": 348
+    },
+    "dom": {
+      "elements": 283,
+      "depth": 18,
+      "maxChildren": 23
+    },
+    "waste": {
+      "unusedJsBytes": 129887,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 11336,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 0,
+      "renderBlockingCount": 3,
+      "poorlyCachedBytes": 230285.34999999998,
+      "poorlyCachedCount": 40
+    },
+    "accessibility": {
+      "failingCount": 3,
+      "applicableCount": 25,
+      "failingNodes": 6,
+      "failing": [
+        {
+          "id": "button-name",
+          "title": "Buttons do not have an accessible name",
+          "weight": 10,
+          "nodes": 3
+        },
+        {
+          "id": "link-name",
+          "title": "Links do not have a discernible name",
+          "weight": 7,
+          "nodes": 2
+        },
+        {
+          "id": "aria-prohibited-attr",
+          "title": "Elements use prohibited ARIA attributes",
+          "weight": 7,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 1,
+      "applicableCount": 19,
+      "failing": [
+        {
+          "id": "deprecations",
+          "title": "Uses deprecated APIs",
+          "weight": 5,
+          "nodes": 1
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 1,
+      "applicableCount": 10,
+      "failing": [
+        {
+          "id": "link-text",
+          "title": "Links do not have descriptive text",
+          "weight": 1,
+          "nodes": 1
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 0,
+      "bfCacheFailures": 1,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 1205.5,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 32
+    },
+    "environment": {
+      "lighthouseVersion": "13.6.0",
+      "benchmarkIndex": 2844,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-11-15T23:02:52.055Z",
+      "runtimeMs": 9545.1
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 1128.5,
+    "elementRenderDelay": 3906.8
+  },
+  "field": {
+    "source": "crux",
+    "scope": "landing",
+    "url": "https://www.deepseek.com/en/",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-10-17",
+      "last": "2026-11-13"
+    },
+    "metrics": {
+      "cls": {
+        "p75": 0,
+        "rating": "good",
+        "distribution": {
+          "good": 99.1,
+          "needsImprovement": 0.7,
+          "poor": 0.1
+        }
+      },
+      "ttfb": {
+        "p75": 286,
+        "rating": "good",
+        "distribution": {
+          "good": 92.8,
+          "needsImprovement": 4.7,
+          "poor": 2.5
+        }
+      },
+      "fcp": {
+        "p75": 1691,
+        "rating": "good",
+        "distribution": {
+          "good": 77.7,
+          "needsImprovement": 14.8,
+          "poor": 7.6
+        }
+      },
+      "inp": {
+        "p75": 150,
+        "rating": "good",
+        "distribution": {
+          "good": 84.3,
+          "needsImprovement": 13.2,
+          "poor": 2.5
+        }
+      },
+      "lcp": {
+        "p75": 2237,
+        "rating": "good",
+        "distribution": {
+          "good": 81.1,
+          "needsImprovement": 13.7,
+          "poor": 5.2
+        }
+      },
+      "rtt": {
+        "p75": 223,
+        "rating": null,
+        "distribution": {
+          "good": 21.7,
+          "needsImprovement": 60.7,
+          "poor": 17.6
+        }
+      }
+    },
+    "cwvPass": true,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": {
+      "id": "nextjs",
+      "name": "Next.js",
+      "icon": "Nextdotjs",
+      "version": null,
+      "source": "dom",
+      "raw": null
+    },
+    "probe": {
+      "metas": [],
+      "marks": [
+        "next",
+        "react"
+      ],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "amazons3",
+      "name": "Amazon S3",
+      "icon": "Amazon",
+      "source": "server"
+    },
+    "headers": {
+      "server": "AmazonS3",
+      "via": "1.1 f9727388a9890610c008f83558e75e0e.cloudfront.net (CloudFront)",
+      "x-amz-cf-id": "AVH2ZeBnUYpnIv-yGZmWNeMtGCwxiSkWttaamr4B2VlAooWDZAlFPg=="
+    },
+    "violations": 8,
+    "passes": 355,
+    "incomplete": 7,
+    "violationRules": 4,
+    "version": "4.14.0",
+    "top": [
+      {
+        "id": "button-name",
+        "impact": "critical",
+        "nodes": 3,
+        "help": "Buttons must have discernible text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/button-name?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".md\\:hidden.w-10.h-10",
+            "snippet": "<button class=\"md:hidden flex items-center justify-center w-10 h-10 text-ds-primary\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M3 6h18M3 12h18M3 18h18\" stroke=\"currentColor…"
+          },
+          {
+            "selector": ".ds-mobile-menu-header > .w-10.h-10.text-ds-primary",
+            "snippet": "<button class=\"flex items-center justify-center w-10 h-10 text-ds-primary\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M6 6l12 12M6 18L18 6\" stroke=\"currentColor\" stroke-widt…"
+          },
+          {
+            "selector": ".ds-hero-send-btn",
+            "snippet": "<button type=\"button\" class=\"ds-hero-send-btn flex-shrink-0 flex items-center justify-center w-9 h-9 rounded-full overflow-hidden border-none bg-[var(--ds-color-brand-medium-reverse)] text-white curs…"
+          }
+        ]
+      },
+      {
+        "id": "link-name",
+        "impact": "serious",
+        "nodes": 2,
+        "help": "Links must have discernible text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/link-name?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".shrink-0.text-\\[var\\(--ds-color-brand-medium-reverse\\)\\][href$=\"en/\"]",
+            "snippet": "<a class=\"flex items-center shrink-0 text-[var(--ds-color-brand-medium-reverse)]\" href=\"/en/\">"
+          },
+          {
+            "selector": ".ds-mobile-menu-header > .text-\\[var\\(--ds-color-brand-medium-reverse\\)\\].items-center[href$=\"en/\"]",
+            "snippet": "<a class=\"flex items-center text-[var(--ds-color-brand-medium-reverse)]\" href=\"/en/\">"
+          }
+        ]
+      },
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 2,
+        "help": "All page content should be contained by landmarks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/region?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".cookie_banner-title",
+            "snippet": "<div class=\"cookie_banner-title\">Cookie Settings</div>"
+          },
+          {
+            "selector": ".cookie_banner-description",
+            "snippet": "<div class=\"cookie_banner-description\">"
+          }
+        ]
+      },
+      {
+        "id": "aria-prohibited-attr",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "Elements must only use permitted ARIA attributes",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/aria-prohibited-attr?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".cursor-default",
+            "snippet": "<span class=\"w-8 h-8 flex items-center justify-center text-ds-secondary hover:text-ds-primary transition-colors cursor-default\" aria-label=\"WeChat\">"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "render": {
+    "samples": [
+      {
+        "hash": "20cf201104aa",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "age": "62081",
+          "etag": "W/\"328aaec444de6fd284833bad93f278bf\"",
+          "last-modified": "Fri, 13 Nov 2026 09:26:01 GMT",
+          "x-cache": "Hit from cloudfront"
+        }
+      },
+      {
+        "hash": "20cf201104aa",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "age": "62093",
+          "etag": "W/\"328aaec444de6fd284833bad93f278bf\"",
+          "last-modified": "Fri, 13 Nov 2026 09:26:01 GMT",
+          "x-cache": "Hit from cloudfront"
+        }
+      },
+      {
+        "hash": "20cf201104aa",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "age": "62103",
+          "etag": "W/\"328aaec444de6fd284833bad93f278bf\"",
+          "last-modified": "Fri, 13 Nov 2026 09:26:01 GMT",
+          "x-cache": "Hit from cloudfront"
+        }
+      },
+      {
+        "hash": "20cf201104aa",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "age": "62114",
+          "etag": "W/\"328aaec444de6fd284833bad93f278bf\"",
+          "last-modified": "Fri, 13 Nov 2026 09:26:01 GMT",
+          "x-cache": "Hit from cloudfront"
+        }
+      }
+    ]
+  },
+  "consecutiveFailures": 0
+}
