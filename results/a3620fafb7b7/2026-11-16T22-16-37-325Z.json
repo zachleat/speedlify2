@@ -1,0 +1,413 @@
+{
+  "url": "https://heyflow.com/",
+  "name": "heyflow.com",
+  "group": "11ty-community",
+  "groupName": "Built Awesome",
+  "timestamp": 1794867397325,
+  "date": "2026-11-16T22:16:37.325Z",
+  "runId": "2026-11-16T22-14-54-798Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 2,
+  "durationMs": 50721,
+  "error": null,
+  "partialErrors": [
+    "NO_NAVSTART: Something went wrong with recording the trace over your page load. Please run Lighthouse again. (NO_NAVSTART)"
+  ],
+  "variance": {
+    "min": 50,
+    "max": 69,
+    "spread": 19,
+    "runs": 2
+  },
+  "lab": {
+    "requestedUrl": "https://heyflow.com/",
+    "finalUrl": "https://heyflow.com/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 50,
+      "accessibility": 99,
+      "best-practices": 77,
+      "seo": 100,
+      "agentic-browsing": 67
+    },
+    "timings": {
+      "fcp": 1298,
+      "lcp": 14185,
+      "si": 4337,
+      "tbt": 1084,
+      "tti": 18777,
+      "cls": 0,
+      "ttfb": 621,
+      "maxPotentialFid": 310,
+      "serverResponseTime": 486,
+      "networkRtt": 127.1,
+      "networkServerLatency": 246
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 578.5,
+      "resourceLoadDelay": 1889.1,
+      "resourceLoadDuration": 55.6,
+      "elementRenderDelay": 7.5
+    },
+    "weight": {
+      "total": 4144181,
+      "requests": 113,
+      "mainDocument": 56456,
+      "byType": {
+        "total": {
+          "bytes": 4142090,
+          "requests": 112
+        },
+        "script": {
+          "bytes": 1831384,
+          "requests": 40
+        },
+        "media": {
+          "bytes": 1807566,
+          "requests": 1
+        },
+        "image": {
+          "bytes": 354016,
+          "requests": 31
+        },
+        "font": {
+          "bytes": 67309,
+          "requests": 2
+        },
+        "document": {
+          "bytes": 58424,
+          "requests": 3
+        },
+        "other": {
+          "bytes": 23391,
+          "requests": 35
+        },
+        "stylesheet": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 3235051,
+          "requests": 92
+        }
+      },
+      "scripts": 40,
+      "stylesheets": 0,
+      "fonts": 2
+    },
+    "thirdParty": {
+      "count": 15,
+      "bytes": 3230214,
+      "mainThreadMs": 252.3,
+      "top": [
+        {
+          "entity": "Cloudinary",
+          "bytes": 2157400,
+          "mainThreadMs": 0,
+          "byType": {
+            "image": 349834,
+            "media": 1807566
+          },
+          "typedBytes": 2157400
+        },
+        {
+          "entity": "Google Tag Manager",
+          "bytes": 341354,
+          "mainThreadMs": 22.8,
+          "byType": {
+            "script": 341354
+          },
+          "typedBytes": 341354
+        },
+        {
+          "entity": "Facebook",
+          "bytes": 295416,
+          "mainThreadMs": 98.2,
+          "byType": {
+            "script": 295396,
+            "image": 20
+          },
+          "typedBytes": 295416
+        },
+        {
+          "entity": "Hubspot",
+          "bytes": 141566,
+          "mainThreadMs": 51.9,
+          "byType": {
+            "script": 136497,
+            "other": 3051,
+            "image": 2018
+          },
+          "typedBytes": 141566
+        },
+        {
+          "entity": "Usercentrics CMP",
+          "bytes": 97103,
+          "mainThreadMs": 11.3,
+          "byType": {
+            "script": 87875,
+            "other": 8131,
+            "image": 1097
+          },
+          "typedBytes": 97103
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 7179.7,
+      "byGroup": {
+        "scriptEvaluation": 2564.9,
+        "other": 1810.5,
+        "styleLayout": 1589.5,
+        "paintCompositeRender": 607.7,
+        "scriptParseCompile": 429.8,
+        "garbageCollection": 101.4,
+        "parseHTML": 75.7
+      },
+      "bootupMs": 2592.6,
+      "longTasks": 17,
+      "longestTaskMs": 310
+    },
+    "dom": {
+      "elements": 1121,
+      "depth": 12,
+      "maxChildren": 33
+    },
+    "waste": {
+      "unusedJsBytes": 759720,
+      "unusedCssBytes": 22170,
+      "legacyJsBytes": 39616,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 0,
+      "renderBlockingCount": 0,
+      "poorlyCachedBytes": 569917.2583147113,
+      "poorlyCachedCount": 19
+    },
+    "accessibility": {
+      "failingCount": 1,
+      "applicableCount": 28,
+      "failingNodes": 1,
+      "failing": [
+        {
+          "id": "svg-img-alt",
+          "title": "SVG elements with an `img` role do not have an accessible text alternative",
+          "weight": 1,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 3,
+      "applicableCount": 17,
+      "failing": [
+        {
+          "id": "third-party-cookies",
+          "title": "Uses third-party cookies",
+          "weight": 5,
+          "nodes": 11
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "weight": 1,
+          "nodes": 1
+        },
+        {
+          "id": "valid-source-maps",
+          "title": "Missing source maps for large first-party JavaScript",
+          "weight": 0,
+          "nodes": 7
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 0,
+      "applicableCount": 10,
+      "failing": []
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": null,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": null,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 76
+    },
+    "environment": {
+      "lighthouseVersion": "13.6.0",
+      "benchmarkIndex": 3052,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-11-16T22:16:38.521Z",
+      "runtimeMs": 18380.5
+    }
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-10-18",
+      "last": "2026-11-14"
+    },
+    "metrics": {
+      "rtt": {
+        "p75": 104,
+        "rating": null,
+        "distribution": {
+          "good": 57.3,
+          "needsImprovement": 37.8,
+          "poor": 5
+        }
+      },
+      "cls": {
+        "p75": 0,
+        "rating": "good",
+        "distribution": {
+          "good": 97,
+          "needsImprovement": 2.5,
+          "poor": 0.5
+        }
+      },
+      "ttfb": {
+        "p75": 849,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 72.3,
+          "needsImprovement": 23.4,
+          "poor": 4.3
+        }
+      },
+      "fcp": {
+        "p75": 1513,
+        "rating": "good",
+        "distribution": {
+          "good": 86.4,
+          "needsImprovement": 9.9,
+          "poor": 3.6
+        }
+      },
+      "inp": {
+        "p75": 316,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 53.1,
+          "needsImprovement": 32.8,
+          "poor": 14.1
+        }
+      },
+      "lcp": {
+        "p75": 1533,
+        "rating": "good",
+        "distribution": {
+          "good": 93.7,
+          "needsImprovement": 4.4,
+          "poor": 1.9
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": {
+      "id": "eleventy",
+      "name": "Eleventy",
+      "icon": "Eleventy",
+      "version": "3.1.2",
+      "source": "meta",
+      "raw": "Eleventy v3.1.2"
+    },
+    "probe": {
+      "metas": [
+        "Eleventy v3.1.2"
+      ],
+      "marks": [],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "netlify",
+      "name": "Netlify",
+      "icon": "Netlify",
+      "source": "x-nf-request-id"
+    },
+    "headers": {
+      "cf-ray": "a5b9dd933b623f0e-STL",
+      "server": "cloudflare",
+      "x-nf-request-id": "01M7K6ZE0SK3DWQVWTT141N4BJ"
+    },
+    "violations": 1,
+    "passes": 1533,
+    "incomplete": 175,
+    "violationRules": 1,
+    "version": "4.14.0",
+    "top": [
+      {
+        "id": "svg-img-alt",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "<svg> elements with an img or image role must have alternative text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/svg-img-alt?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "svg[viewBox=\"0 0 28 32\"]",
+            "snippet": "<svg viewBox=\"0 0 28 32\" role=\"img\">"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "render": {
+    "samples": [
+      {
+        "hash": "3f48334e43b6",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "age": "6012",
+          "cache-status": "\"Netlify Edge\"; hit; ttl=31529988",
+          "cf-cache-status": "DYNAMIC"
+        }
+      },
+      {
+        "hash": "3f48334e43b6",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "age": "6047",
+          "cache-status": "\"Netlify Edge\"; hit; ttl=31529953",
+          "cf-cache-status": "DYNAMIC"
+        }
+      },
+      {
+        "hash": "3f48334e43b6",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "age": "6057",
+          "cache-status": "\"Netlify Edge\"; hit; ttl=31529943",
+          "cf-cache-status": "DYNAMIC"
+        }
+      }
+    ]
+  },
+  "consecutiveFailures": 0
+}
