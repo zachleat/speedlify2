@@ -1,0 +1,471 @@
+{
+  "url": "https://www.adobe.com/",
+  "name": "Adobe",
+  "group": "big-tech",
+  "groupName": "Big Tech",
+  "timestamp": 1794829930441,
+  "date": "2026-11-16T11:52:10.441Z",
+  "runId": "2026-11-16T11-36-05-114Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 412182,
+  "error": null,
+  "variance": {
+    "min": 21,
+    "max": 47,
+    "spread": 26,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://www.adobe.com/",
+    "finalUrl": "https://www.adobe.com/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 47,
+      "accessibility": 95,
+      "best-practices": 54,
+      "seo": 100,
+      "agentic-browsing": 24
+    },
+    "timings": {
+      "fcp": 788,
+      "lcp": 788,
+      "si": 38269,
+      "tbt": 6461,
+      "tti": 44738,
+      "cls": 0.262,
+      "ttfb": 620,
+      "maxPotentialFid": 1124,
+      "serverResponseTime": 14,
+      "networkRtt": 68.9,
+      "networkServerLatency": 135.6
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 16.1,
+      "elementRenderDelay": 572.3
+    },
+    "weight": {
+      "total": 10210514,
+      "requests": 656,
+      "mainDocument": 8373,
+      "byType": {
+        "total": {
+          "bytes": 10208283,
+          "requests": 648
+        },
+        "script": {
+          "bytes": 8561361,
+          "requests": 192
+        },
+        "font": {
+          "bytes": 749849,
+          "requests": 6
+        },
+        "image": {
+          "bytes": 592669,
+          "requests": 126
+        },
+        "other": {
+          "bytes": 153639,
+          "requests": 281
+        },
+        "stylesheet": {
+          "bytes": 122064,
+          "requests": 30
+        },
+        "document": {
+          "bytes": 28701,
+          "requests": 13
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 2157477,
+          "requests": 361
+        }
+      },
+      "scripts": 199,
+      "stylesheets": 30,
+      "fonts": 6
+    },
+    "thirdParty": {
+      "count": 29,
+      "bytes": 7853034,
+      "mainThreadMs": 1136.5,
+      "top": [
+        {
+          "entity": "adobe.com",
+          "bytes": 5808746,
+          "mainThreadMs": 333.6,
+          "byType": {
+            "script": 5720758,
+            "document": 6596,
+            "stylesheet": 64565,
+            "other": 15272
+          },
+          "typedBytes": 5807191
+        },
+        {
+          "entity": "Adobe TypeKit",
+          "bytes": 753115,
+          "mainThreadMs": 0.5,
+          "byType": {
+            "stylesheet": 3266,
+            "font": 749849
+          },
+          "typedBytes": 753115
+        },
+        {
+          "entity": "Google Tag Manager",
+          "bytes": 341430,
+          "mainThreadMs": 77.9,
+          "byType": {
+            "script": 341430
+          },
+          "typedBytes": 341430
+        },
+        {
+          "entity": "Forter",
+          "bytes": 249520,
+          "mainThreadMs": 275.5,
+          "byType": {
+            "script": 244181,
+            "other": 5339
+          },
+          "typedBytes": 249520
+        },
+        {
+          "entity": "ContentSquare",
+          "bytes": 183284,
+          "mainThreadMs": 159.5,
+          "byType": {
+            "script": 183158,
+            "other": 42,
+            "image": 84
+          },
+          "typedBytes": 183284
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 27501.1,
+      "byGroup": {
+        "scriptEvaluation": 12715.4,
+        "styleLayout": 6448.7,
+        "other": 5917.8,
+        "scriptParseCompile": 1338.4,
+        "paintCompositeRender": 432.3,
+        "garbageCollection": 399.7,
+        "parseHTML": 248.8
+      },
+      "bootupMs": 12073.9,
+      "longTasks": 20,
+      "longestTaskMs": 1124
+    },
+    "dom": {
+      "elements": 2653,
+      "depth": 20,
+      "maxChildren": 98
+    },
+    "waste": {
+      "unusedJsBytes": 1711444,
+      "unusedCssBytes": 82145,
+      "legacyJsBytes": 9099,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 33855,
+      "unminifiedCssBytes": 4764,
+      "renderBlockingMs": 0,
+      "renderBlockingCount": 0,
+      "poorlyCachedBytes": 1877311.3093810778,
+      "poorlyCachedCount": 82
+    },
+    "accessibility": {
+      "failingCount": 2,
+      "applicableCount": 33,
+      "failingNodes": 2,
+      "failing": [
+        {
+          "id": "aria-required-children",
+          "title": "Elements with an ARIA `[role]` that require children to contain a specific `[role]` are missing some or all of those required children.",
+          "weight": 10,
+          "nodes": 1
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "title": "Elements with visible text labels do not have matching accessible names.",
+          "weight": 0,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 5,
+      "applicableCount": 19,
+      "failing": [
+        {
+          "id": "deprecations",
+          "title": "Uses deprecated APIs",
+          "weight": 5,
+          "nodes": 2
+        },
+        {
+          "id": "third-party-cookies",
+          "title": "Uses third-party cookies",
+          "weight": 5,
+          "nodes": 37
+        },
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "weight": 1,
+          "nodes": 2
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "weight": 1,
+          "nodes": 1
+        },
+        {
+          "id": "valid-source-maps",
+          "title": "Missing source maps for large first-party JavaScript",
+          "weight": 0,
+          "nodes": 9
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 0,
+      "applicableCount": 9,
+      "failing": []
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 0,
+      "bfCacheFailures": 1,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 2,
+      "baselineLimitedFeatures": 94
+    },
+    "environment": {
+      "lighthouseVersion": "13.6.0",
+      "benchmarkIndex": 2468.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-11-16T11:53:24.833Z",
+      "runtimeMs": 72901.3
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 1127.1,
+    "resourceLoadDelay": 19674.9,
+    "resourceLoadDuration": 2002.6,
+    "elementRenderDelay": 66.2
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-10-18",
+      "last": "2026-11-14"
+    },
+    "metrics": {
+      "ttfb": {
+        "p75": 855,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 73.3,
+          "needsImprovement": 16.2,
+          "poor": 10.5
+        }
+      },
+      "fcp": {
+        "p75": 3788,
+        "rating": "poor",
+        "distribution": {
+          "good": 35.5,
+          "needsImprovement": 28,
+          "poor": 36.6
+        }
+      },
+      "inp": {
+        "p75": 269,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 65.4,
+          "needsImprovement": 24.2,
+          "poor": 10.4
+        }
+      },
+      "lcp": {
+        "p75": 3975,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 50.6,
+          "needsImprovement": 24.7,
+          "poor": 24.7
+        }
+      },
+      "rtt": {
+        "p75": 171,
+        "rating": null,
+        "distribution": {
+          "good": 30.7,
+          "needsImprovement": 58.1,
+          "poor": 11.2
+        }
+      },
+      "cls": {
+        "p75": 0,
+        "rating": "good",
+        "distribution": {
+          "good": 89.8,
+          "needsImprovement": 1.7,
+          "poor": 8.6
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": true,
+    "generator": null,
+    "probe": {
+      "metas": [],
+      "marks": [],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": null,
+    "headers": {
+      "x-served-by": "cache-iad-kiad7000165-IAD, cache-iad-kiad7000165-IAD, cache-bur-kbur8200021-BUR"
+    },
+    "violations": 8,
+    "passes": 1501,
+    "incomplete": 48,
+    "violationRules": 3,
+    "version": "4.14.0",
+    "top": [
+      {
+        "id": "image-redundant-alt",
+        "impact": "minor",
+        "nodes": 6,
+        "help": "Alternative text of images should not be repeated as text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/image-redundant-alt?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "a[daa-ll=\"rm-nav-1--Save 57 for a year\"] > .rm-card-icon[alt=\"Creativity and design\"][loading=\"lazy\"]",
+            "snippet": "<img class=\"rm-card-icon\" src=\"https://www.adobe.com/federal/assets/svgs/creative-cloud.svg\" loading=\"lazy\" alt=\"Creativity and design\">"
+          },
+          {
+            "selector": "a[daa-ll=\"rm-nav-2--Save 55 or more on C\"] > .rm-card-icon[alt=\"Black Friday is on\"][loading=\"lazy\"]",
+            "snippet": "<img class=\"rm-card-icon\" src=\"https://www.adobe.com/federal/assets/svgs/creative-cloud.svg\" loading=\"lazy\" alt=\"Black Friday is on\">"
+          },
+          {
+            "selector": "a[daa-ll=\"rm-nav-3--Save up to 60 on Fir\"] > .rm-card-icon[alt=\"Content creation\"][loading=\"lazy\"]",
+            "snippet": "<img class=\"rm-card-icon\" src=\"https://www.adobe.com/federal/assets/svgs/firefly-appicon-256.svg\" loading=\"lazy\" alt=\"Content creation\">"
+          },
+          {
+            "selector": "a[daa-ll=\"rm-nav-4--Get work done Faster\"] > .rm-card-icon[alt=\"PDF and document essentials\"][loading=\"lazy\"]",
+            "snippet": "<img class=\"rm-card-icon\" src=\"https://www.adobe.com/federal/assets/svgs/acrobat-pro.svg\" loading=\"lazy\" alt=\"PDF and document essentials\">"
+          },
+          {
+            "selector": "a[daa-ll=\"rm-nav-5--Orchestrate customer\"] > .rm-card-icon[alt=\"Adobe for Business\"][loading=\"lazy\"]",
+            "snippet": "<img class=\"rm-card-icon\" src=\"https://www.adobe.com/federal/assets/svgs/experience-cloud-logo.svg\" loading=\"lazy\" alt=\"Adobe for Business\">"
+          }
+        ]
+      },
+      {
+        "id": "aria-required-children",
+        "impact": "critical",
+        "nodes": 1,
+        "help": "Certain ARIA roles must contain particular children",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/aria-required-children?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "div[data-viewport=\"mobile\"] > .rm-controls > .rm-cards[role=\"tablist\"]",
+            "snippet": "<div class=\"rm-cards\" role=\"tablist\" style=\"transition: transform 300ms cubic-bezier(0.42, 0, 0, 1); transform: translateX(0px);\">"
+          }
+        ]
+      },
+      {
+        "id": "label-content-name-mismatch",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "Elements must have their visible text as part of their accessible name",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/label-content-name-mismatch?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "a[aria-describedby=\"elastic-carousel-slide-1\"]",
+            "snippet": "<a class=\"elastic-carousel-ite...\" tabindex=\"0\" href=\"https://www.adobe.co...\" data-index=\"1\" role=\"link\" aria-roledescription=\"slide\" aria-label=\"Adobe products, caro...\" aria-describedby=\"elastic-c…"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "render": {
+    "samples": [
+      {
+        "hash": "b5eff59ed4bc",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "last-modified": "Fri, 13 Nov 2026 08:09:47 GMT"
+        }
+      },
+      {
+        "hash": "b5eff59ed4bc",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "last-modified": "Fri, 13 Nov 2026 08:09:47 GMT"
+        }
+      },
+      {
+        "hash": "b5eff59ed4bc",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "last-modified": "Fri, 13 Nov 2026 08:09:47 GMT"
+        }
+      },
+      {
+        "hash": "b5eff59ed4bc",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "last-modified": "Fri, 13 Nov 2026 08:09:47 GMT"
+        }
+      },
+      {
+        "hash": "b5eff59ed4bc",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "last-modified": "Fri, 13 Nov 2026 08:09:47 GMT"
+        }
+      }
+    ]
+  },
+  "consecutiveFailures": 0
+}
