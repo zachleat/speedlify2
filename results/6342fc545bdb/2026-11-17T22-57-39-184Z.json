@@ -1,0 +1,491 @@
+{
+  "url": "https://chromeos.dev/en",
+  "name": "chromeos.dev",
+  "group": "11ty-emeritus",
+  "groupName": "11ty Emeritus",
+  "timestamp": 1794956259184,
+  "date": "2026-11-17T22:57:39.184Z",
+  "runId": "2026-11-17T22-57-32-829Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 28611,
+  "error": null,
+  "variance": {
+    "min": 53,
+    "max": 96,
+    "spread": 43,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://chromeos.dev/en",
+    "finalUrl": "https://chromeos.dev/en",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 96,
+      "accessibility": 95,
+      "best-practices": 100,
+      "seo": 82,
+      "agentic-browsing": 100
+    },
+    "timings": {
+      "fcp": 913,
+      "lcp": 2435,
+      "si": 1210,
+      "tbt": 167,
+      "tti": 6379,
+      "cls": 0.001,
+      "ttfb": 613,
+      "maxPotentialFid": 157,
+      "serverResponseTime": 11,
+      "networkRtt": 0.2,
+      "networkServerLatency": 49.2
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 12.4,
+      "resourceLoadDelay": 8,
+      "resourceLoadDuration": 16.5,
+      "elementRenderDelay": 67.3
+    },
+    "weight": {
+      "total": 1006111,
+      "requests": 57,
+      "mainDocument": 13757,
+      "byType": {
+        "total": {
+          "bytes": 1006111,
+          "requests": 51
+        },
+        "script": {
+          "bytes": 689187,
+          "requests": 24
+        },
+        "image": {
+          "bytes": 273537,
+          "requests": 16
+        },
+        "other": {
+          "bytes": 16334,
+          "requests": 5
+        },
+        "document": {
+          "bytes": 13757,
+          "requests": 1
+        },
+        "stylesheet": {
+          "bytes": 13296,
+          "requests": 5
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "font": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 677045,
+          "requests": 24
+        }
+      },
+      "scripts": 26,
+      "stylesheets": 5,
+      "fonts": 0
+    },
+    "thirdParty": {
+      "count": 5,
+      "bytes": 677045,
+      "mainThreadMs": 68.6,
+      "top": [
+        {
+          "entity": "Google Tag Manager",
+          "bytes": 347612,
+          "mainThreadMs": 64.2,
+          "byType": {
+            "script": 347612
+          },
+          "typedBytes": 347612
+        },
+        {
+          "entity": "imgix",
+          "bytes": 210710,
+          "mainThreadMs": 0,
+          "byType": {
+            "image": 206153,
+            "other": 4557
+          },
+          "typedBytes": 210710
+        },
+        {
+          "entity": "YouTube",
+          "bytes": 67384,
+          "mainThreadMs": 0,
+          "byType": {
+            "image": 67384
+          },
+          "typedBytes": 67384
+        },
+        {
+          "entity": "Google CDN",
+          "bytes": 30464,
+          "mainThreadMs": 2.8,
+          "byType": {
+            "script": 28596,
+            "stylesheet": 1801,
+            "other": 67
+          },
+          "typedBytes": 30464
+        },
+        {
+          "entity": "Google Analytics",
+          "bytes": 20875,
+          "mainThreadMs": 1.6,
+          "byType": {
+            "script": 20875
+          },
+          "typedBytes": 20875
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 1431.8,
+      "byGroup": {
+        "scriptEvaluation": 594.5,
+        "other": 498.3,
+        "styleLayout": 145.2,
+        "paintCompositeRender": 69.6,
+        "scriptParseCompile": 67.6,
+        "garbageCollection": 36.2,
+        "parseHTML": 20.3
+      },
+      "bootupMs": 530,
+      "longTasks": 5,
+      "longestTaskMs": 157
+    },
+    "dom": {
+      "elements": 955,
+      "depth": 15,
+      "maxChildren": 52
+    },
+    "waste": {
+      "unusedJsBytes": 194163,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 0,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 930,
+      "renderBlockingCount": 4,
+      "poorlyCachedBytes": 309073.45000000007,
+      "poorlyCachedCount": 27
+    },
+    "accessibility": {
+      "failingCount": 3,
+      "applicableCount": 29,
+      "failingNodes": 7,
+      "failing": [
+        {
+          "id": "label-content-name-mismatch",
+          "title": "Elements with visible text labels do not have matching accessible names.",
+          "weight": 0,
+          "nodes": 5
+        },
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "weight": 7,
+          "nodes": 1
+        },
+        {
+          "id": "heading-order",
+          "title": "Heading elements are not in a sequentially-descending order",
+          "weight": 3,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 0,
+      "applicableCount": 19,
+      "failing": []
+    },
+    "seo": {
+      "failingCount": 2,
+      "applicableCount": 8,
+      "failing": [
+        {
+          "id": "meta-description",
+          "title": "Document does not have a meta description",
+          "weight": 1,
+          "nodes": null
+        },
+        {
+          "id": "link-text",
+          "title": "Links do not have descriptive text",
+          "weight": 1,
+          "nodes": 2
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 38
+    },
+    "environment": {
+      "lighthouseVersion": "13.6.0",
+      "benchmarkIndex": 3521,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-11-17T22:57:51.838Z",
+      "runtimeMs": 7341.6
+    }
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-10-19",
+      "last": "2026-11-15"
+    },
+    "metrics": {
+      "rtt": {
+        "p75": 196,
+        "rating": null,
+        "distribution": {
+          "good": 28.6,
+          "needsImprovement": 56.8,
+          "poor": 14.6
+        }
+      },
+      "cls": {
+        "p75": 0.02,
+        "rating": "good",
+        "distribution": {
+          "good": 93.1,
+          "needsImprovement": 4.7,
+          "poor": 2.1
+        }
+      },
+      "ttfb": {
+        "p75": 656,
+        "rating": "good",
+        "distribution": {
+          "good": 80.9,
+          "needsImprovement": 10.7,
+          "poor": 8.4
+        }
+      },
+      "fcp": {
+        "p75": 1717,
+        "rating": "good",
+        "distribution": {
+          "good": 76.6,
+          "needsImprovement": 13.4,
+          "poor": 10
+        }
+      },
+      "inp": {
+        "p75": 232,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 68.4,
+          "needsImprovement": 25.8,
+          "poor": 5.8
+        }
+      },
+      "lcp": {
+        "p75": 3662,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 60.8,
+          "needsImprovement": 18.6,
+          "poor": 20.6
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": {
+      "id": "astro",
+      "name": "Astro",
+      "icon": "Astro",
+      "version": null,
+      "source": "dom",
+      "raw": null
+    },
+    "probe": {
+      "metas": [],
+      "marks": [
+        "astro",
+        "svelte"
+      ],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": null,
+    "headers": {
+      "x-served-by": "cache-chi-kmdw8640063-CHI"
+    },
+    "violations": 10,
+    "passes": 768,
+    "incomplete": 20,
+    "violationRules": 5,
+    "version": "4.14.0",
+    "top": [
+      {
+        "id": "label-content-name-mismatch",
+        "impact": "serious",
+        "nodes": 5,
+        "help": "Elements must have their visible text as part of their accessible name",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/label-content-name-mismatch?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "a[href$=\"sketches\"]",
+            "snippet": "<a href=\"/en/stories/sketches\" class=\"story-card svelte-19gdm8a\" aria-labelledby=\"0331160\">"
+          },
+          {
+            "selector": "a[href$=\"simplifi\"]",
+            "snippet": "<a href=\"/en/stories/simplifi\" class=\"story-card svelte-19gdm8a\" aria-labelledby=\"c818be7\">"
+          },
+          {
+            "selector": "a[aria-labelledby=\"T-Hu5I77-u T-Hu5I77-u-body\"]",
+            "snippet": "<a href=\"/en/posts/upgrade-digital-goods-api-to-google-play-billing-library-7\" aria-labelledby=\"T-Hu5I77-u T-Hu5I77-u-body\" class=\"card type--base svelte-eu45ue\">"
+          },
+          {
+            "selector": "a[aria-labelledby=\"_u7U66bGlK _u7U66bGlK-body\"]",
+            "snippet": "<a href=\"/en/posts/roblox-takes-flight-literally-on-chromebook\" aria-labelledby=\"_u7U66bGlK _u7U66bGlK-body\" class=\"card type--base svelte-eu45ue\">"
+          },
+          {
+            "selector": "a[aria-labelledby=\"2sfyQfRlFW 2sfyQfRlFW-body\"]",
+            "snippet": "<a href=\"/en/posts/learn-with-tutorials-on-chromeos\" aria-labelledby=\"2sfyQfRlFW 2sfyQfRlFW-body\" class=\"card type--base svelte-eu45ue\">"
+          }
+        ]
+      },
+      {
+        "id": "landmark-unique",
+        "impact": "moderate",
+        "nodes": 2,
+        "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/landmark-unique?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".announcement",
+            "snippet": "<aside class=\"announcement wrapper--padded\" data-astro-cid-tmlihunq=\"\"> <p>Get your <a href=\"/en/add-to-chromebook-badge\">Add to Chromebook badge</a> now!</p> </aside>"
+          },
+          {
+            "selector": ".wrapper__background--light",
+            "snippet": "<footer class=\"wrapper wrapper--full-bleed wrapper--padded wrapper--padding wrapper__contained wrapper__background--light wrapper--no-bottom footnotes svelte-dmvkr8\">"
+          }
+        ]
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".cta--transparent",
+            "snippet": "<a href=\"/en/posts/io-2024\" class=\"cta cta--transparent \"> Read more </a>"
+          }
+        ]
+      },
+      {
+        "id": "heading-order",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Heading levels should only increase by one",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/heading-order?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "#T-Hu5I77-u",
+            "snippet": "<h4 id=\"T-Hu5I77-u\" class=\"type--h4 card--title svelte-eu45ue\">Upgrade Digital Goods API to Google Play Billing Library 7</h4>"
+          }
+        ]
+      },
+      {
+        "id": "landmark-no-duplicate-contentinfo",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Document should not have more than one contentinfo landmark",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/landmark-no-duplicate-contentinfo?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".section > .home--card-grid > .homecard:nth-child(1) > .homecard--wrapper.svelte-15l4d96 > .homecard--content.svelte-15l4d96 > .homecard--footer",
+            "snippet": "<footer class=\"homecard--footer svelte-15l4d96\"><a href=\"/en/web\" class=\"cta cta--link cta--right-icon cta--right-icon\">Learn more<span class=\"icon--container\">⁠<svg role=\"img\" aria-hidden=\"true\" cla…"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "render": {
+    "samples": [
+      {
+        "hash": "0aa7e5edf61c",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "etag": "\"cfdc796e132d0a2eafea02a07c0a5e7c8c73f3b03d16b88e239e6f865364bc6e-br\"",
+          "last-modified": "Fri, 16 Oct 2026 17:32:10 GMT",
+          "x-cache": "HIT"
+        }
+      },
+      {
+        "hash": "0aa7e5edf61c",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "etag": "\"cfdc796e132d0a2eafea02a07c0a5e7c8c73f3b03d16b88e239e6f865364bc6e-br\"",
+          "last-modified": "Fri, 16 Oct 2026 17:32:10 GMT",
+          "x-cache": "HIT"
+        }
+      },
+      {
+        "hash": "0aa7e5edf61c",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "etag": "\"cfdc796e132d0a2eafea02a07c0a5e7c8c73f3b03d16b88e239e6f865364bc6e-br\"",
+          "last-modified": "Fri, 16 Oct 2026 17:32:10 GMT",
+          "x-cache": "HIT"
+        }
+      },
+      {
+        "hash": "0aa7e5edf61c",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "etag": "\"cfdc796e132d0a2eafea02a07c0a5e7c8c73f3b03d16b88e239e6f865364bc6e-br\"",
+          "last-modified": "Fri, 16 Oct 2026 17:32:10 GMT",
+          "x-cache": "HIT"
+        },
+        "fromCache": true
+      }
+    ]
+  },
+  "consecutiveFailures": 0
+}
