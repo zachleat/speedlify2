@@ -1,0 +1,436 @@
+{
+  "url": "https://www.meta.com/",
+  "name": "Meta",
+  "group": "big-tech",
+  "groupName": "Big Tech",
+  "timestamp": 1794927934712,
+  "date": "2026-11-17T15:05:34.712Z",
+  "runId": "2026-11-17T14-34-40-291Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 292043,
+  "error": null,
+  "variance": {
+    "min": 27,
+    "max": 29,
+    "spread": 2,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://www.meta.com/",
+    "finalUrl": "https://www.meta.com/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 28,
+      "accessibility": 99,
+      "best-practices": 54,
+      "seo": 92,
+      "agentic-browsing": 98
+    },
+    "timings": {
+      "fcp": 4401,
+      "lcp": 8976,
+      "si": 9520,
+      "tbt": 2777,
+      "tti": 20504,
+      "cls": 0.07,
+      "ttfb": 624,
+      "maxPotentialFid": 885,
+      "serverResponseTime": 356,
+      "networkRtt": 0.4,
+      "networkServerLatency": 174.4
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 357.5,
+      "resourceLoadDelay": 590.3,
+      "resourceLoadDuration": 85.4,
+      "elementRenderDelay": 278.2
+    },
+    "weight": {
+      "total": 6958362,
+      "requests": 157,
+      "mainDocument": 126825,
+      "byType": {
+        "total": {
+          "bytes": 6958362,
+          "requests": 148
+        },
+        "script": {
+          "bytes": 2791145,
+          "requests": 71
+        },
+        "media": {
+          "bytes": 2646831,
+          "requests": 1
+        },
+        "image": {
+          "bytes": 549284,
+          "requests": 21
+        },
+        "stylesheet": {
+          "bytes": 421769,
+          "requests": 8
+        },
+        "font": {
+          "bytes": 331078,
+          "requests": 2
+        },
+        "document": {
+          "bytes": 161127,
+          "requests": 8
+        },
+        "other": {
+          "bytes": 57128,
+          "requests": 37
+        },
+        "third-party": {
+          "bytes": 6769278,
+          "requests": 117
+        }
+      },
+      "scripts": 80,
+      "stylesheets": 8,
+      "fonts": 2
+    },
+    "thirdParty": {
+      "count": 2,
+      "bytes": 6269439,
+      "mainThreadMs": 2054.7,
+      "top": [
+        {
+          "entity": "Facebook",
+          "bytes": 6269367,
+          "mainThreadMs": 2054.7,
+          "byType": {
+            "script": 2322506,
+            "stylesheet": 416955,
+            "media": 2646831,
+            "font": 331078,
+            "image": 549221,
+            "other": 2776
+          },
+          "typedBytes": 6269367
+        },
+        {
+          "entity": "conversionsapigateway.com",
+          "bytes": 72,
+          "mainThreadMs": 0,
+          "byType": {
+            "other": 72
+          },
+          "typedBytes": 72
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 15032.6,
+      "byGroup": {
+        "scriptEvaluation": 7987.7,
+        "other": 4728,
+        "scriptParseCompile": 1041.4,
+        "styleLayout": 521.6,
+        "garbageCollection": 423.2,
+        "parseHTML": 170,
+        "paintCompositeRender": 160.6
+      },
+      "bootupMs": 8499.5,
+      "longTasks": 20,
+      "longestTaskMs": 1054
+    },
+    "dom": {
+      "elements": 1665,
+      "depth": 31,
+      "maxChildren": 110
+    },
+    "waste": {
+      "unusedJsBytes": 1202880,
+      "unusedCssBytes": 395119,
+      "legacyJsBytes": 35150,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 2876,
+      "renderBlockingCount": 1,
+      "poorlyCachedBytes": 3485056.2083333335,
+      "poorlyCachedCount": 23
+    },
+    "accessibility": {
+      "failingCount": 2,
+      "applicableCount": 33,
+      "failingNodes": 2,
+      "failing": [
+        {
+          "id": "heading-order",
+          "title": "Heading elements are not in a sequentially-descending order",
+          "weight": 3,
+          "nodes": 1
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "title": "Elements with visible text labels do not have matching accessible names.",
+          "weight": 0,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 4,
+      "applicableCount": 17,
+      "failing": [
+        {
+          "id": "deprecations",
+          "title": "Uses deprecated APIs",
+          "weight": 5,
+          "nodes": 1
+        },
+        {
+          "id": "third-party-cookies",
+          "title": "Uses third-party cookies",
+          "weight": 5,
+          "nodes": 5
+        },
+        {
+          "id": "charset",
+          "title": "Charset declaration is missing or occurs too late in the HTML",
+          "weight": 1,
+          "nodes": null
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "weight": 1,
+          "nodes": 1
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 1,
+      "applicableCount": 10,
+      "failing": [
+        {
+          "id": "link-text",
+          "title": "Links do not have descriptive text",
+          "weight": 1,
+          "nodes": 9
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": null,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": null,
+      "trustedTypes": 1,
+      "bfCache": 0,
+      "bfCacheFailures": 6,
+      "protocol": "h3",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 77
+    },
+    "environment": {
+      "lighthouseVersion": "13.6.0",
+      "benchmarkIndex": 2511,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-11-17T15:06:30.157Z",
+      "runtimeMs": 53905.3
+    }
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-10-19",
+      "last": "2026-11-15"
+    },
+    "metrics": {
+      "inp": {
+        "p75": 720,
+        "rating": "poor",
+        "distribution": {
+          "good": 39.5,
+          "needsImprovement": 27.1,
+          "poor": 33.4
+        }
+      },
+      "lcp": {
+        "p75": 3485,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 55.8,
+          "needsImprovement": 25.3,
+          "poor": 18.9
+        }
+      },
+      "rtt": {
+        "p75": 206,
+        "rating": null,
+        "distribution": {
+          "good": 27.5,
+          "needsImprovement": 56.4,
+          "poor": 16.2
+        }
+      },
+      "cls": {
+        "p75": 0.1,
+        "rating": "good",
+        "distribution": {
+          "good": 73,
+          "needsImprovement": 15.7,
+          "poor": 11.3
+        }
+      },
+      "ttfb": {
+        "p75": 1572,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 45.2,
+          "needsImprovement": 34.3,
+          "poor": 20.5
+        }
+      },
+      "fcp": {
+        "p75": 3180,
+        "rating": "poor",
+        "distribution": {
+          "good": 42.6,
+          "needsImprovement": 29.7,
+          "poor": 27.7
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "probe": {
+      "metas": [],
+      "marks": [
+        "react"
+      ],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": null,
+    "headers": {},
+    "violations": 6,
+    "passes": 2032,
+    "incomplete": 121,
+    "violationRules": 5,
+    "version": "4.14.0",
+    "top": [
+      {
+        "id": "image-redundant-alt",
+        "impact": "minor",
+        "nodes": 2,
+        "help": "Alternative text of images should not be repeated as text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/image-redundant-alt?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".x1ffbijf.xpucvpp.x1yhw3ld > .x1uhb9sk.xawggmj[href$=\"vr-glasses/\"] > .mma-wd767px_bdr-rds_16px.mmi-wd768pxandma-wd1024px_bdr-rds_16px.mmi-wd1025px_bdr-rds_24px > .x19audg1.xo5wt6b.xxayxew > .mma-wd767px_ma-ht_54px.mmi-wd768pxandma-wd1024px_ma-ht_65px.mmi-wd1025px_ma-ht_65px > picture > .x3ajldb.x19kjcj4[alt=\"Meta VR Glasses\"]",
+            "snippet": "<img src=\"https://lookaside.fbsbx.com/elementpath/media/?media_id=1575564487707782&amp;version=1792526766&amp;transcode_extension=webp\" alt=\"Meta VR Glasses\" class=\"x3ajldb x5yr21d x19kjcj4 x1s8dy9j\"…"
+          },
+          {
+            "selector": ".x1ffbijf.xpucvpp.x1yhw3ld > .x1uhb9sk[aria-label=\"learn more about Muse Charm\"][href$=\"muse-charm/\"] > .mma-wd767px_bdr-rds_16px.mmi-wd768pxandma-wd1024px_bdr-rds_16px.mmi-wd1025px_bdr-rds_24px > .x19audg1.xo5wt6b.xxayxew > .ma-ht_54px.x18vy5xy.xlluq36 > picture > .x3ajldb.x19kjcj4[alt=\"Muse Charm\"]",
+            "snippet": "<img src=\"https://lookaside.fbsbx.com/elementpath/media/?media_id=2098949087660860&amp;version=1790089128&amp;transcode_extension=webp\" alt=\"Muse Charm\" class=\"x3ajldb x5yr21d x19kjcj4 x1s8dy9j\" deco…"
+          }
+        ]
+      },
+      {
+        "id": "heading-order",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Heading levels should only increase by one",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/heading-order?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".xnp2e5m.x1wcxulw.x1ffbijf > .x1uhb9sk[aria-label=\"shop AI glasses\"][href$=\"shop-all/\"] > .mma-wd767px_bdr-rds_16px.mmi-wd768pxandma-wd1024px_bdr-rds_16px.mmi-wd1025px_bdr-rds_24px > .x19audg1.xo5wt6b.xxayxew > .xivu535.xaekkt6.x1tvn097 > .xcbfeyv.x1dvl3sw.xv4ga1b",
+            "snippet": "<h3 class=\"x1motxo8 x1dqydl7 xb3ah51 xm5vtmc xtktl0p x1ujsr0z x13mthhe x12m2fu2 x1k03ns3 x1r9fc21 x1tfywbn xt200rw xdgynxl xrm2kyc x1sf3app ximnbtg xcbfeyv x1dvl3sw xv4ga1b x7vsv7c xq9mrsl x1a2a7pz\" …"
+          }
+        ]
+      },
+      {
+        "id": "label-content-name-mismatch",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "Elements must have their visible text as part of their accessible name",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/label-content-name-mismatch?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "a[href$=\"parent-info/\"]",
+            "snippet": "<a aria-label=\"Click to learn more ...\" class=\"x1i10hfl x1qjc9v5 xj...\" href=\"/quest/parent-info/\" role=\"link\" tabindex=\"0\" target=\"_self\" data-qm-allow=\"public-product\">"
+          }
+        ]
+      },
+      {
+        "id": "meta-viewport-large",
+        "impact": "minor",
+        "nodes": 1,
+        "help": "Users should be able to zoom and scale the text up to 500%",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/meta-viewport-large?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "meta[name=\"viewport\"]",
+            "snippet": "<meta name=\"viewport\" content=\"width=device-width,initial-scale=1,maximum-scale=2,shrink-to-fit=no\">"
+          }
+        ]
+      },
+      {
+        "id": "scrollable-region-focusable",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "Scrollable region must have keyboard access",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/scrollable-region-focusable?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "div[aria-label=\"Why buy from Meta\"]",
+            "snippet": "<div aria-label=\"Why buy from Meta\" aria-live=\"polite\" class=\"x9f619 x78zum5 x14aock7 x10wlt62 x1n2onr6 xh8yej3 xhfbhpw x1rohswg xfk6m8\" role=\"region\">"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "render": {
+    "samples": [
+      {
+        "hash": "0679cb1ae3c3",
+        "nonce": "7735a3a9c37c",
+        "stamp": null,
+        "marks": [],
+        "headers": {}
+      },
+      {
+        "hash": "63f4e801db6b",
+        "nonce": "a1b5e055678e",
+        "stamp": null,
+        "marks": [],
+        "headers": {}
+      },
+      {
+        "hash": "c15b34e9ea0f",
+        "nonce": "222782b2a054",
+        "stamp": null,
+        "marks": [],
+        "headers": {}
+      },
+      {
+        "hash": "a17b405b23d1",
+        "nonce": "bb3fe76ef6e8",
+        "stamp": null,
+        "marks": [],
+        "headers": {}
+      }
+    ]
+  },
+  "consecutiveFailures": 0
+}
