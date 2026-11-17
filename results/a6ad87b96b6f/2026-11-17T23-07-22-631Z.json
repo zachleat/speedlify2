@@ -1,0 +1,461 @@
+{
+  "url": "https://www.cloudflare.com/",
+  "name": "Cloudflare",
+  "group": "dev-tooling",
+  "groupName": "Developer Tooling",
+  "timestamp": 1794956842631,
+  "date": "2026-11-17T23:07:22.631Z",
+  "runId": "2026-11-17T22-57-36-077Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 363977,
+  "error": null,
+  "variance": {
+    "min": 77,
+    "max": 85,
+    "spread": 8,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://www.cloudflare.com/",
+    "finalUrl": "https://www.cloudflare.com/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 77,
+      "accessibility": 96,
+      "best-practices": 73,
+      "seo": 92,
+      "agentic-browsing": 100
+    },
+    "timings": {
+      "fcp": 1992,
+      "lcp": 3882,
+      "si": 2375,
+      "tbt": 375,
+      "tti": 13776,
+      "cls": 0.012,
+      "ttfb": 642,
+      "maxPotentialFid": 234,
+      "serverResponseTime": 18,
+      "networkRtt": 26.8,
+      "networkServerLatency": 48.7
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 52.6,
+      "resourceLoadDelay": 232.9,
+      "resourceLoadDuration": 4.2,
+      "elementRenderDelay": 207.1
+    },
+    "weight": {
+      "total": 2493412,
+      "requests": 157,
+      "mainDocument": 158148,
+      "byType": {
+        "total": {
+          "bytes": 2486981,
+          "requests": 155
+        },
+        "script": {
+          "bytes": 1718469,
+          "requests": 92
+        },
+        "image": {
+          "bytes": 419207,
+          "requests": 38
+        },
+        "document": {
+          "bytes": 158148,
+          "requests": 1
+        },
+        "stylesheet": {
+          "bytes": 95650,
+          "requests": 4
+        },
+        "other": {
+          "bytes": 49581,
+          "requests": 15
+        },
+        "font": {
+          "bytes": 45926,
+          "requests": 5
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 14976,
+          "requests": 10
+        }
+      },
+      "scripts": 92,
+      "stylesheets": 4,
+      "fonts": 5
+    },
+    "thirdParty": {
+      "count": 5,
+      "bytes": 15081,
+      "mainThreadMs": 8.2,
+      "top": [
+        {
+          "entity": "Cloudflare",
+          "bytes": 10478,
+          "mainThreadMs": 7.4,
+          "byType": {
+            "script": 10478
+          },
+          "typedBytes": 10478
+        },
+        {
+          "entity": "Google/Doubleclick Ads",
+          "bytes": 3213,
+          "mainThreadMs": 0.6,
+          "byType": {
+            "script": 3191,
+            "other": 22
+          },
+          "typedBytes": 3213
+        },
+        {
+          "entity": "Optanon",
+          "bytes": 858,
+          "mainThreadMs": 0,
+          "byType": {
+            "image": 858
+          },
+          "typedBytes": 858
+        },
+        {
+          "entity": "Google Tag Manager",
+          "bytes": 385,
+          "mainThreadMs": 0.2,
+          "byType": {
+            "script": 385
+          },
+          "typedBytes": 385
+        },
+        {
+          "entity": "Other Google APIs/SDKs",
+          "bytes": 147,
+          "mainThreadMs": 0,
+          "byType": {
+            "image": 64,
+            "other": 83
+          },
+          "typedBytes": 147
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 5645.5,
+      "byGroup": {
+        "other": 2403.9,
+        "scriptEvaluation": 1510.6,
+        "styleLayout": 1092,
+        "paintCompositeRender": 326.3,
+        "scriptParseCompile": 165.6,
+        "parseHTML": 104.9,
+        "garbageCollection": 42.3
+      },
+      "bootupMs": 1568.2,
+      "longTasks": 13,
+      "longestTaskMs": 234
+    },
+    "dom": {
+      "elements": 2988,
+      "depth": 25,
+      "maxChildren": 239
+    },
+    "waste": {
+      "unusedJsBytes": 732452,
+      "unusedCssBytes": 12073,
+      "legacyJsBytes": 18889,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 450,
+      "renderBlockingCount": 4,
+      "poorlyCachedBytes": 94570.49166666665,
+      "poorlyCachedCount": 7
+    },
+    "accessibility": {
+      "failingCount": 1,
+      "applicableCount": 26,
+      "failingNodes": 11,
+      "failing": [
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "weight": 7,
+          "nodes": 11
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 4,
+      "applicableCount": 17,
+      "failing": [
+        {
+          "id": "third-party-cookies",
+          "title": "Uses third-party cookies",
+          "weight": 5,
+          "nodes": 1
+        },
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "weight": 1,
+          "nodes": 1
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "weight": 1,
+          "nodes": 1
+        },
+        {
+          "id": "valid-source-maps",
+          "title": "Missing source maps for large first-party JavaScript",
+          "weight": 0,
+          "nodes": 4
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 1,
+      "applicableCount": 10,
+      "failing": [
+        {
+          "id": "link-text",
+          "title": "Links do not have descriptive text",
+          "weight": 1,
+          "nodes": 2
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": null,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 1,
+      "baselineLimitedFeatures": 77
+    },
+    "environment": {
+      "lighthouseVersion": "13.6.0",
+      "benchmarkIndex": 3649.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-11-17T23:07:23.794Z",
+      "runtimeMs": 21942.4
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 594.6,
+    "resourceLoadDelay": 0,
+    "resourceLoadDuration": 1.9,
+    "elementRenderDelay": 1730.6
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-10-19",
+      "last": "2026-11-15"
+    },
+    "metrics": {
+      "lcp": {
+        "p75": 2276,
+        "rating": "good",
+        "distribution": {
+          "good": 78.4,
+          "needsImprovement": 10.8,
+          "poor": 10.8
+        }
+      },
+      "rtt": {
+        "p75": 299,
+        "rating": null,
+        "distribution": {
+          "good": 14.5,
+          "needsImprovement": 57.8,
+          "poor": 27.7
+        }
+      },
+      "cls": {
+        "p75": 0,
+        "rating": "good",
+        "distribution": {
+          "good": 97.2,
+          "needsImprovement": 2.5,
+          "poor": 0.3
+        }
+      },
+      "ttfb": {
+        "p75": 470,
+        "rating": "good",
+        "distribution": {
+          "good": 84.7,
+          "needsImprovement": 9,
+          "poor": 6.2
+        }
+      },
+      "fcp": {
+        "p75": 1675,
+        "rating": "good",
+        "distribution": {
+          "good": 77.1,
+          "needsImprovement": 10.7,
+          "poor": 12.2
+        }
+      },
+      "inp": {
+        "p75": 298,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 61.5,
+          "needsImprovement": 25.6,
+          "poor": 12.9
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": true,
+    "generator": {
+      "id": "astro",
+      "name": "Astro",
+      "icon": "Astro",
+      "version": "6.3.7",
+      "source": "meta",
+      "raw": "Astro v6.3.7"
+    },
+    "probe": {
+      "metas": [
+        "Astro v6.3.7"
+      ],
+      "marks": [
+        "astro",
+        "react"
+      ],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "cloudflare",
+      "name": "Cloudflare",
+      "icon": "Cloudflare",
+      "source": "server"
+    },
+    "headers": {
+      "cf-ray": "a5c26a11e9674cbc-MSP",
+      "server": "cloudflare",
+      "x-served-by": "marketing-site"
+    },
+    "violations": 11,
+    "passes": 1749,
+    "incomplete": 40,
+    "violationRules": 1,
+    "version": "4.14.0",
+    "top": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 11,
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "div:nth-child(1) > .px-\\[18px\\].gap-1.w-full > .flex-1.opacity-50.min-w-0 > .min-w-0.items-center.flex > .leading-\\[1\\.2\\].tracking-\\[-0\\.02em\\].font-mono",
+            "snippet": "<span class=\"text-foreground-100 font-mono whitespace-nowrap text-[12px] leading-[1.2] tracking-[-0.02em]\">scanning PRs</span>"
+          },
+          {
+            "selector": "div:nth-child(1) > .px-\\[18px\\].gap-1.w-full > .flex-1.opacity-50.min-w-0 > .min-w-0.items-center.flex > .pr-3.pl-\\[10px\\].gap-3 > .leading-\\[1\\.2\\].tracking-\\[-0\\.02em\\].font-mono",
+            "snippet": "<span class=\"text-foreground-100 font-mono whitespace-nowrap text-[12px] leading-[1.2] tracking-[-0.02em]\">179.6k tokens</span>"
+          },
+          {
+            "selector": "div:nth-child(2) > .px-\\[18px\\].gap-1.w-full > .flex-1.opacity-50.min-w-0 > .min-w-0.items-center.flex > .leading-\\[1\\.2\\].tracking-\\[-0\\.02em\\].font-mono",
+            "snippet": "<span class=\"text-foreground-100 font-mono whitespace-nowrap text-[12px] leading-[1.2] tracking-[-0.02em]\">running checks</span>"
+          },
+          {
+            "selector": "div:nth-child(2) > .px-\\[18px\\].gap-1.w-full > .flex-1.opacity-50.min-w-0 > .min-w-0.items-center.flex > .pr-3.pl-\\[10px\\].gap-3 > .leading-\\[1\\.2\\].tracking-\\[-0\\.02em\\].font-mono",
+            "snippet": "<span class=\"text-foreground-100 font-mono whitespace-nowrap text-[12px] leading-[1.2] tracking-[-0.02em]\">8k tokens</span>"
+          },
+          {
+            "selector": "div:nth-child(3) > .px-\\[18px\\].gap-1.w-full > .flex-1.opacity-50.min-w-0 > .min-w-0.items-center.flex > .leading-\\[1\\.2\\].tracking-\\[-0\\.02em\\].font-mono",
+            "snippet": "<span class=\"text-foreground-100 font-mono whitespace-nowrap text-[12px] leading-[1.2] tracking-[-0.02em]\">fixed documentation</span>"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "render": {
+    "samples": [
+      {
+        "hash": "fea51bd86a92",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "age": "5",
+          "cf-cache-status": "HIT"
+        }
+      },
+      {
+        "hash": "d2e6bc6c8262",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "age": "6",
+          "cf-cache-status": "HIT"
+        }
+      },
+      {
+        "hash": "160d3f52696d",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "age": "1",
+          "cf-cache-status": "HIT"
+        }
+      },
+      {
+        "hash": "d2e6bc6c8262",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "age": "7",
+          "cf-cache-status": "HIT"
+        }
+      },
+      {
+        "hash": "d2e6bc6c8262",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "age": "6",
+          "cf-cache-status": "HIT"
+        }
+      }
+    ]
+  },
+  "consecutiveFailures": 0
+}
