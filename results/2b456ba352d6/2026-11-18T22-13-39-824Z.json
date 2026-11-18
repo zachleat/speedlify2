@@ -1,0 +1,389 @@
+{
+  "url": "https://fundamenty.netlify.app/",
+  "name": "fundamenty.netlify.app",
+  "group": "11ty-starters",
+  "groupName": "Build Awesome Starters",
+  "timestamp": 1795040019824,
+  "date": "2026-11-18T22:13:39.824Z",
+  "runId": "2026-11-18T22-03-58-793Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 23080,
+  "error": null,
+  "variance": {
+    "min": 53,
+    "max": 81,
+    "spread": 28,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://fundamenty.netlify.app/",
+    "finalUrl": "https://fundamenty.netlify.app/en/",
+    "redirect": {
+      "from": "https://fundamenty.netlify.app/",
+      "to": "https://fundamenty.netlify.app/en",
+      "chain": [
+        {
+          "url": "https://fundamenty.netlify.app/",
+          "status": 200
+        },
+        {
+          "url": "https://fundamenty.netlify.app/en/",
+          "status": 200
+        }
+      ],
+      "statuses": [
+        200
+      ],
+      "change": "path",
+      "permanent": false,
+      "schemeUpgrade": false,
+      "hops": 1
+    },
+    "statusCode": "ok",
+    "scores": {
+      "performance": 54,
+      "accessibility": 78,
+      "best-practices": 100,
+      "seo": 92,
+      "agentic-browsing": 50
+    },
+    "timings": {
+      "fcp": 1677,
+      "lcp": 8478,
+      "si": 1677,
+      "tbt": 921,
+      "tti": 8478,
+      "cls": 0,
+      "ttfb": 607,
+      "maxPotentialFid": 971,
+      "serverResponseTime": 7,
+      "networkRtt": 0.1,
+      "networkServerLatency": 35.1
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 11.1,
+      "resourceLoadDelay": 64.4,
+      "resourceLoadDuration": 26,
+      "elementRenderDelay": 29
+    },
+    "weight": {
+      "total": 1220271,
+      "requests": 11,
+      "mainDocument": 3621,
+      "byType": {
+        "total": {
+          "bytes": 1220271,
+          "requests": 11
+        },
+        "script": {
+          "bytes": 873711,
+          "requests": 1
+        },
+        "image": {
+          "bytes": 185782,
+          "requests": 3
+        },
+        "font": {
+          "bytes": 78082,
+          "requests": 1
+        },
+        "stylesheet": {
+          "bytes": 77853,
+          "requests": 3
+        },
+        "document": {
+          "bytes": 4276,
+          "requests": 2
+        },
+        "other": {
+          "bytes": 567,
+          "requests": 1
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 148091,
+          "requests": 4
+        }
+      },
+      "scripts": 1,
+      "stylesheets": 3,
+      "fonts": 1
+    },
+    "thirdParty": {
+      "count": 3,
+      "bytes": 148091,
+      "mainThreadMs": 2.2,
+      "top": [
+        {
+          "entity": "Cloudflare CDN",
+          "bytes": 89091,
+          "mainThreadMs": 2.1,
+          "byType": {
+            "stylesheet": 11009,
+            "font": 78082
+          },
+          "typedBytes": 89091
+        },
+        {
+          "entity": "pixabay.com",
+          "bytes": 58090,
+          "mainThreadMs": 0,
+          "byType": {
+            "image": 58090
+          },
+          "typedBytes": 58090
+        },
+        {
+          "entity": "Unpkg",
+          "bytes": 910,
+          "mainThreadMs": 0.1,
+          "byType": {
+            "stylesheet": 910
+          },
+          "typedBytes": 910
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 1228.1,
+      "byGroup": {
+        "scriptEvaluation": 765.2,
+        "scriptParseCompile": 211.2,
+        "other": 144.3,
+        "styleLayout": 48.4,
+        "parseHTML": 23.6,
+        "garbageCollection": 21.9,
+        "paintCompositeRender": 13.5
+      },
+      "bootupMs": 970.5,
+      "longTasks": 1,
+      "longestTaskMs": 971
+    },
+    "dom": {
+      "elements": 124,
+      "depth": 8,
+      "maxChildren": 14
+    },
+    "waste": {
+      "unusedJsBytes": 326970,
+      "unusedCssBytes": 74700,
+      "legacyJsBytes": 24130,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 9254,
+      "renderBlockingMs": 2604,
+      "renderBlockingCount": 3,
+      "poorlyCachedBytes": 0,
+      "poorlyCachedCount": 0
+    },
+    "accessibility": {
+      "failingCount": 3,
+      "applicableCount": 14,
+      "failingNodes": 4,
+      "failing": [
+        {
+          "id": "link-name",
+          "title": "Links do not have a discernible name",
+          "weight": 7,
+          "nodes": 2
+        },
+        {
+          "id": "image-alt",
+          "title": "Image elements do not have `[alt]` attributes",
+          "weight": 10,
+          "nodes": 1
+        },
+        {
+          "id": "landmark-one-main",
+          "title": "Document does not have a main landmark.",
+          "weight": 3,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 1,
+      "applicableCount": 19,
+      "failing": [
+        {
+          "id": "valid-source-maps",
+          "title": "Missing source maps for large first-party JavaScript",
+          "weight": 0,
+          "nodes": 1
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 1,
+      "applicableCount": 9,
+      "failing": [
+        {
+          "id": "image-alt",
+          "title": "Image elements do not have `[alt]` attributes",
+          "weight": 1,
+          "nodes": 1
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": null,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 757.5,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 7
+    },
+    "environment": {
+      "lighthouseVersion": "13.6.0",
+      "benchmarkIndex": 3062,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-11-18T22:13:48.741Z",
+      "runtimeMs": 6267.4
+    }
+  },
+  "field": null,
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "probe": {
+      "metas": [],
+      "marks": [
+        "fontawesome"
+      ],
+      "markVersions": {
+        "fontawesome": "5.13.1"
+      }
+    },
+    "interstitial": null,
+    "host": {
+      "id": "netlify",
+      "name": "Netlify",
+      "icon": "Netlify",
+      "source": "x-nf-request-id"
+    },
+    "headers": {
+      "server": "Netlify",
+      "x-nf-request-id": "01M7RBJP0GQ3S20KWNHK8PSRBT"
+    },
+    "violations": 6,
+    "passes": 281,
+    "incomplete": 8,
+    "violationRules": 4,
+    "version": "4.14.0",
+    "top": [
+      {
+        "id": "link-name",
+        "impact": "serious",
+        "nodes": 2,
+        "help": "Links must have discernible text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/link-name?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".md\\:py-0.mr-3[title=\"\"]:nth-child(4) > .font-bold.hover\\:underline.bg\\:rounded-md",
+            "snippet": "<a href=\"https://github.com/creasoft-dev/fundamenty\" class=\"inline-block py-2 px-2 font-bold no-underline hover:underline hover:bg-primary bg:rounded-md hover:text-white uppercase\"> <i class=\"fab fa-…"
+          },
+          {
+            "selector": ".md\\:py-0.mr-3[title=\"\"]:nth-child(5) > .font-bold.hover\\:underline.bg\\:rounded-md",
+            "snippet": "<a href=\"https://twitter.com/creasoftdev\" class=\"inline-block py-2 px-2 font-bold no-underline hover:underline hover:bg-primary bg:rounded-md hover:text-white uppercase\"> <i class=\"fab fa-twitter fil…"
+          }
+        ]
+      },
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 2,
+        "help": "All page content should be contained by landmarks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/region?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".hero",
+            "snippet": "<div class=\"w-full flex mx-auto hero\">"
+          },
+          {
+            "selector": ".pt-8",
+            "snippet": "<div class=\"container w-full flex flex-wrap mx-auto px-2 pt-8 \">"
+          }
+        ]
+      },
+      {
+        "id": "image-alt",
+        "impact": "critical",
+        "nodes": 1,
+        "help": "Images must have alternative text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/image-alt?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".w-2",
+            "snippet": "<img class=\"w-2 md:w-2/5 z-50\" src=\"/images/logo.png\">"
+          }
+        ]
+      },
+      {
+        "id": "landmark-one-main",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Document should have one main landmark",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/landmark-one-main?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "html",
+            "snippet": "<html lang=\"en\">"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "render": {
+    "samples": [
+      {
+        "hash": "70b471b3e6e4",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "age": "0",
+          "cache-status": "\"Netlify Edge\"; fwd=miss; fwd-status=200; stored",
+          "etag": "W/\"c5653ae214d617ac91c7698a0582d436-ssl\""
+        }
+      },
+      {
+        "hash": "70b471b3e6e4",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "age": "7",
+          "cache-status": "\"Netlify Edge\"; hit; ttl=31535993",
+          "etag": "W/\"c5653ae214d617ac91c7698a0582d436-ssl\""
+        }
+      },
+      {
+        "hash": "70b471b3e6e4",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "age": "14",
+          "cache-status": "\"Netlify Edge\"; hit; ttl=31535986",
+          "etag": "W/\"c5653ae214d617ac91c7698a0582d436-ssl\""
+        }
+      }
+    ]
+  },
+  "consecutiveFailures": 0
+}
