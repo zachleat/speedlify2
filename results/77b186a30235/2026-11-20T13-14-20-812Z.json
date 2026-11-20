@@ -1,0 +1,539 @@
+{
+  "url": "https://www.amazon.com/",
+  "name": "Amazon",
+  "group": "big-tech",
+  "groupName": "Big Tech",
+  "timestamp": 1795180460812,
+  "date": "2026-11-20T13:14:20.812Z",
+  "runId": "2026-11-20T13-03-40-882Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 106003,
+  "error": null,
+  "variance": {
+    "min": 68,
+    "max": 98,
+    "spread": 30,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://www.amazon.com/",
+    "finalUrl": "https://www.amazon.com/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 68,
+      "accessibility": 88,
+      "best-practices": 50,
+      "seo": 92,
+      "agentic-browsing": 50
+    },
+    "timings": {
+      "fcp": 3985,
+      "lcp": 5769,
+      "si": 4521,
+      "tbt": 88,
+      "tti": 9357,
+      "cls": 0.011,
+      "ttfb": 661,
+      "maxPotentialFid": 122,
+      "serverResponseTime": 119,
+      "networkRtt": 11.8,
+      "networkServerLatency": 225.1
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 120.4,
+      "elementRenderDelay": 370.7
+    },
+    "weight": {
+      "total": 14484211,
+      "requests": 132,
+      "mainDocument": 394075,
+      "byType": {
+        "total": {
+          "bytes": 14479121,
+          "requests": 127
+        },
+        "media": {
+          "bytes": 11933326,
+          "requests": 6
+        },
+        "script": {
+          "bytes": 787933,
+          "requests": 36
+        },
+        "image": {
+          "bytes": 701171,
+          "requests": 42
+        },
+        "other": {
+          "bytes": 487312,
+          "requests": 23
+        },
+        "document": {
+          "bytes": 397470,
+          "requests": 3
+        },
+        "stylesheet": {
+          "bytes": 87503,
+          "requests": 13
+        },
+        "font": {
+          "bytes": 84406,
+          "requests": 4
+        },
+        "third-party": {
+          "bytes": 14479121,
+          "requests": 127
+        }
+      },
+      "scripts": 36,
+      "stylesheets": 13,
+      "fonts": 5
+    },
+    "thirdParty": {
+      "count": 3,
+      "bytes": 13807111,
+      "mainThreadMs": 156.3,
+      "top": [
+        {
+          "entity": "media-amazon.com",
+          "bytes": 13735044,
+          "mainThreadMs": 140.4,
+          "byType": {
+            "script": 181917,
+            "stylesheet": 8587,
+            "media": 12148999,
+            "image": 682107,
+            "font": 84406
+          },
+          "typedBytes": 13106016
+        },
+        {
+          "entity": "cloudfront.net",
+          "bytes": 51505,
+          "mainThreadMs": 14.4,
+          "byType": {
+            "script": 51505
+          },
+          "typedBytes": 51505
+        },
+        {
+          "entity": "Marketplace Web Service",
+          "bytes": 20562,
+          "mainThreadMs": 1.5,
+          "byType": {
+            "script": 4399,
+            "image": 16163
+          },
+          "typedBytes": 20562
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 3532,
+      "byGroup": {
+        "scriptEvaluation": 1324.3,
+        "other": 1199.4,
+        "styleLayout": 339.3,
+        "paintCompositeRender": 292.4,
+        "scriptParseCompile": 208.4,
+        "parseHTML": 139.3,
+        "garbageCollection": 28.8
+      },
+      "bootupMs": 1297.3,
+      "longTasks": 9,
+      "longestTaskMs": 122
+    },
+    "dom": {
+      "elements": 1302,
+      "depth": 26,
+      "maxChildren": 42
+    },
+    "waste": {
+      "unusedJsBytes": 362294,
+      "unusedCssBytes": 298635,
+      "legacyJsBytes": 108492,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 1207,
+      "renderBlockingCount": 12,
+      "poorlyCachedBytes": 67665.2,
+      "poorlyCachedCount": 11
+    },
+    "accessibility": {
+      "failingCount": 4,
+      "applicableCount": 33,
+      "failingNodes": 29,
+      "failing": [
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "weight": 7,
+          "nodes": 25
+        },
+        {
+          "id": "aria-allowed-attr",
+          "title": "`[aria-*]` attributes do not match their roles",
+          "weight": 10,
+          "nodes": 2
+        },
+        {
+          "id": "aria-roles",
+          "title": "`[role]` values are not valid",
+          "weight": 10,
+          "nodes": 1
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "title": "Elements with visible text labels do not have matching accessible names.",
+          "weight": 0,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 5,
+      "applicableCount": 18,
+      "failing": [
+        {
+          "id": "deprecations",
+          "title": "Uses deprecated APIs",
+          "weight": 5,
+          "nodes": 1
+        },
+        {
+          "id": "third-party-cookies",
+          "title": "Uses third-party cookies",
+          "weight": 5,
+          "nodes": 3
+        },
+        {
+          "id": "image-aspect-ratio",
+          "title": "Displays images with incorrect aspect ratio",
+          "weight": 1,
+          "nodes": 4
+        },
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "weight": 1,
+          "nodes": 6
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "weight": 1,
+          "nodes": 1
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 1,
+      "applicableCount": 10,
+      "failing": [
+        {
+          "id": "crawlable-anchors",
+          "title": "Links are not crawlable",
+          "weight": 1,
+          "nodes": 1
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": null,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 6,
+      "baselineLimitedFeatures": 43
+    },
+    "environment": {
+      "lighthouseVersion": "13.6.0",
+      "benchmarkIndex": 4250,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-11-20T13:14:43.315Z",
+      "runtimeMs": 14976
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 1127,
+    "resourceLoadDelay": 11085.6,
+    "resourceLoadDuration": 4251.9,
+    "elementRenderDelay": 32.8
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-10-22",
+      "last": "2026-11-18"
+    },
+    "metrics": {
+      "fcp": {
+        "p75": 1140,
+        "rating": "good",
+        "distribution": {
+          "good": 87,
+          "needsImprovement": 8.1,
+          "poor": 4.9
+        }
+      },
+      "inp": {
+        "p75": 176,
+        "rating": "good",
+        "distribution": {
+          "good": 78.3,
+          "needsImprovement": 15.7,
+          "poor": 6
+        }
+      },
+      "lcp": {
+        "p75": 1406,
+        "rating": "good",
+        "distribution": {
+          "good": 89.3,
+          "needsImprovement": 6.4,
+          "poor": 4.3
+        }
+      },
+      "rtt": {
+        "p75": 128,
+        "rating": null,
+        "distribution": {
+          "good": 44.1,
+          "needsImprovement": 47.6,
+          "poor": 8.3
+        }
+      },
+      "cls": {
+        "p75": 0.01,
+        "rating": "good",
+        "distribution": {
+          "good": 93.5,
+          "needsImprovement": 4.5,
+          "poor": 2
+        }
+      },
+      "ttfb": {
+        "p75": 701,
+        "rating": "good",
+        "distribution": {
+          "good": 79,
+          "needsImprovement": 15.8,
+          "poor": 5.2
+        }
+      }
+    },
+    "cwvPass": true,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "probe": {
+      "metas": [],
+      "marks": [
+        "lit"
+      ],
+      "markVersions": {
+        "lit": "3.3.3"
+      }
+    },
+    "interstitial": null,
+    "host": {
+      "id": null,
+      "name": "Server",
+      "icon": null,
+      "source": "server"
+    },
+    "headers": {
+      "server": "Server"
+    },
+    "violations": 33,
+    "passes": 1423,
+    "incomplete": 18,
+    "violationRules": 7,
+    "version": "4.14.0",
+    "top": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 25,
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "#nav-logobar-greeting",
+            "snippet": "<a href=\"https://www.amazon.c...\" id=\"nav-logobar-greeting\" class=\"nav-a nav-show-sign-...\">"
+          },
+          {
+            "selector": "#nav-holiday",
+            "snippet": "<a id=\"nav-holiday\" href=\"/blackfriday?ref_=navm_cs_td_bf_mw_mpl\" class=\"nav-a \" data-csa-c-type=\"link\" data-csa-c-slot-id=\"navm_cs_0\" data-csa-c-content-id=\"navm_cs_td_bf_mw_mpl\" data-csa-c-id=\"rp4y…"
+          },
+          {
+            "selector": "#video",
+            "snippet": "<a id=\"video\" href=\"/gp/video/storefront?ref_=navm_cs_prime_video\" class=\"nav-a \" data-csa-c-type=\"link\" data-csa-c-slot-id=\"navm_cs_1\" data-csa-c-content-id=\"navm_cs_prime_video\" data-csa-c-id=\"pqis…"
+          },
+          {
+            "selector": "#health-household",
+            "snippet": "<a id=\"health-household\" href=\"/gp/browse.html?node=3760901&amp;ref_=navm_cs_health_household\" class=\"nav-a \" data-csa-c-type=\"link\" data-csa-c-slot-id=\"navm_cs_2\" data-csa-c-content-id=\"navm_cs_heal…"
+          },
+          {
+            "selector": "#prime",
+            "snippet": "<a id=\"prime\" href=\"/prime?ref_=navm_cs_prime\" class=\"nav-a \" data-csa-c-type=\"link\" data-csa-c-slot-id=\"navm_cs_3\" data-csa-c-content-id=\"navm_cs_prime\" data-csa-c-id=\"eftr2k-872oq0-m6rtfm-q58a86\">P…"
+          }
+        ]
+      },
+      {
+        "id": "aria-allowed-attr",
+        "impact": "critical",
+        "nodes": 2,
+        "help": "Elements must only use supported ARIA attributes",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/aria-allowed-attr?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "#nav-search-keywords",
+            "snippet": "<input type=\"text\" class=\"nav-input nav-progre...\" placeholder=\"Search Amazon\" data-aria-clear-labe...=\"Clear search keyword...\" aria-label=\"Search Amazon\" name=\"k\" autocomplete=\"off\" autocorrect=\"of…"
+          },
+          {
+            "selector": "#gwm-window",
+            "snippet": "<ul id=\"gwm-window\" class=\"a-unordered-list a-nostyle a-horizontal gwm-window-wrapper\" aria-setsize=\"13\">"
+          }
+        ]
+      },
+      {
+        "id": "image-redundant-alt",
+        "impact": "minor",
+        "nodes": 2,
+        "help": "Alternative text of images should not be repeated as text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/image-redundant-alt?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "#CardInstanceH5ZxfBAtU1UztQyc6dz9bw > ._single-video-card_share-style_cardContainer__dYuXV._single-video-card_share-style_smartHeaderPadding__2s9J2[data-a-card-type=\"basic\"] > ._single-video-card_share-style_image__3BJ0B._single-video-card_share-style_container__1mg8-.a-spacing-none > ._single-video-card_share-style_lazy-video-wrapper__NTuJr[data-is-gif-video=\"true\"][data-audio-enabled=\"false\"] > ._single-video-card_style_lazy-loaded-video__3m5dG._single-video-card_style_aspect-ratio-5x8__2IaNz._single-video-card_style_stacking-context__3PbQE > ._single-video-card_style_overlay__3Sx3u > ._single-video-card_style_cta-link__2xo74.a-link-normal[data-rufustracking=\"false\"] > ._single-video-card_style_poster-image__1W0yA",
+            "snippet": "<img alt=\"National promotions ...\" src=\"data:image/jpeg;base...\" class=\"_single-video-card_s...\" data-a-hires=\"https://m.media-amaz...\">"
+          },
+          {
+            "selector": "img[alt=\"Seen on social. All under $50.\"]",
+            "snippet": "<img alt=\"Seen on social. All ...\" src=\"data:image/jpeg;base...\" class=\"_single-video-card_s...\" data-a-hires=\"https://m.media-amaz...\">"
+          }
+        ]
+      },
+      {
+        "id": "aria-roles",
+        "impact": "critical",
+        "nodes": 1,
+        "help": "ARIA roles used must conform to valid values",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/aria-roles?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "#nav-app-banner-close-button",
+            "snippet": "<i class=\"a-icon a-icon-close a-icon-small nav-app-banner-close\" id=\"nav-app-banner-close-button\" role=\"close\"></i>"
+          }
+        ]
+      },
+      {
+        "id": "label-content-name-mismatch",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "Elements must have their visible text as part of their accessible name",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/label-content-name-mismatch?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "#nav-button-cart",
+            "snippet": "<a href=\"/gp/aw/c?ref_=navm_hdr_cart\" aria-label=\"Cart\" class=\"nav-a\" id=\"nav-button-cart\">"
+          }
+        ]
+      },
+      {
+        "id": "meta-viewport-large",
+        "impact": "minor",
+        "nodes": 1,
+        "help": "Users should be able to zoom and scale the text up to 500%",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/meta-viewport-large?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "meta[name=\"viewport\"]",
+            "snippet": "<meta name=\"viewport\" content=\"width=device-width, maximum-scale=2, minimum-scale=1, initial-scale=1, shrink-to-fit=no\">"
+          }
+        ]
+      },
+      {
+        "id": "page-has-heading-one",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Page should contain a level-one heading",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/page-has-heading-one?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "html",
+            "snippet": "<html lang=\"en-us\" class=\"a-touch a-mobile a-j...\" data-19ax5a9jf=\"mongoose\" data-aui-build-date=\"3.26.10-2026-11-12\">"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "render": {
+    "samples": [
+      {
+        "hash": "976fd4c7eb4e",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "x-cache": "NotCacheable from child"
+        }
+      },
+      {
+        "hash": "2f2189f9f8d6",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "x-cache": "NotCacheable from child"
+        }
+      },
+      {
+        "hash": "9959d371c1cf",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "x-cache": "NotCacheable from child"
+        }
+      },
+      {
+        "hash": "d6726b594d5e",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "x-cache": "NotCacheable from child"
+        }
+      },
+      {
+        "hash": "b4d36f3f1a63",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "x-cache": "NotCacheable from child"
+        }
+      }
+    ]
+  },
+  "consecutiveFailures": 0
+}
