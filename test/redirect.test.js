@@ -1,5 +1,8 @@
 import { test, describe } from "node:test";
 import assert from "node:assert/strict";
+import fs from "node:fs";
+import os from "node:os";
+import path from "node:path";
 import {
 	extractRedirect,
 	confirmRedirect,
@@ -7,7 +10,7 @@ import {
 	isRetiredDestination,
 	isLandingRedirect,
 } from "../lib/redirect.js";
-import { resolveHistoryUrls, danglingAliases, resolveCurrentUrl, applyAliases } from "../lib/aliases.js";
+import { resolveHistoryUrls, danglingAliases, resolveCurrentUrl, applyAliases, adoptedAliases } from "../lib/aliases.js";
 
 /** Minimal LHR with a redirect chain and per-hop status codes. */
 function lhr(from, to, statuses = [301]) {
@@ -354,5 +357,37 @@ describe("isRetiredDestination", () => {
 		assert.equal(isRetiredDestination(""), false);
 		assert.equal(isRetiredDestination(null), false);
 		assert.equal(isRetiredDestination(undefined), false);
+	});
+});
+
+describe("adoptedAliases", () => {
+	const hash = (u) => u.replace(/\W/g, "").slice(0, 12);
+	const site = (url) => ({ url, hash: hash(url), previousUrls: [] });
+
+	function fixture(points) {
+		const dir = fs.mkdtempSync(path.join(os.tmpdir(), "adopted-"));
+		const old = "https://old.com/";
+		fs.mkdirSync(path.join(dir, hash(old)));
+		fs.writeFileSync(path.join(dir, hash(old), "meta.json"), JSON.stringify({ url: old }));
+		const store = { hashes: () => [hash(old)], series: () => points };
+		return { dir, store };
+	}
+
+	test("adopts an unclaimed history that redirected to a configured URL", () => {
+		const { dir, store } = fixture([{}, { to: "https://new.com/", perm: 1 }]);
+		assert.deepEqual(adoptedAliases(store, [site("https://new.com/")], dir, hash), [
+			{ from: "https://old.com/", to: "https://new.com/", source: "config" },
+		]);
+	});
+
+	test("ignores temporary redirects and unconfigured destinations", () => {
+		const temporary = fixture([{ to: "https://new.com/", perm: 0 }]);
+		assert.deepEqual(adoptedAliases(temporary.store, [site("https://new.com/")], temporary.dir, hash), []);
+
+		const subpage = fixture([{ to: "https://new.com/blog", perm: 1 }]);
+		assert.deepEqual(adoptedAliases(subpage.store, [site("https://new.com/blog")], subpage.dir, hash), []);
+
+		const elsewhere = fixture([{ to: "https://new.com/", perm: 1 }]);
+		assert.deepEqual(adoptedAliases(elsewhere.store, [site("https://other.com/")], elsewhere.dir, hash), []);
 	});
 });
