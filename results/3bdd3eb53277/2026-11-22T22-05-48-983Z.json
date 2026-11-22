@@ -1,0 +1,407 @@
+{
+  "url": "https://www.oracle.com/",
+  "name": "Oracle",
+  "group": "big-tech",
+  "groupName": "Big Tech",
+  "timestamp": 1795385148983,
+  "date": "2026-11-22T22:05:48.983Z",
+  "runId": "2026-11-22T21-52-54-686Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 1,
+  "durationMs": 41089,
+  "error": null,
+  "partialErrors": [
+    "ERRORED_DOCUMENT_REQUEST: Lighthouse was unable to reliably load the page you requested. Make sure you are testing the correct URL and that the server is properly responding to all requests. (Status code: 403)",
+    "ERRORED_DOCUMENT_REQUEST: Lighthouse was unable to reliably load the page you requested. Make sure you are testing the correct URL and that the server is properly responding to all requests. (Status code: 403)"
+  ],
+  "variance": null,
+  "lab": {
+    "requestedUrl": "https://www.oracle.com/",
+    "finalUrl": "https://www.oracle.com/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 31,
+      "accessibility": 96,
+      "best-practices": 77,
+      "seo": 92,
+      "agentic-browsing": 53
+    },
+    "timings": {
+      "fcp": 1873,
+      "lcp": 10039,
+      "si": 3819,
+      "tbt": 728,
+      "tti": 10175,
+      "cls": 0.755,
+      "ttfb": 658,
+      "maxPotentialFid": 395,
+      "serverResponseTime": 127,
+      "networkRtt": 3.1,
+      "networkServerLatency": 57.8
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 157.9,
+      "elementRenderDelay": 443.3
+    },
+    "weight": {
+      "total": 1608279,
+      "requests": 64,
+      "mainDocument": 15736,
+      "byType": {
+        "total": {
+          "bytes": 1606883,
+          "requests": 61
+        },
+        "script": {
+          "bytes": 649899,
+          "requests": 27
+        },
+        "image": {
+          "bytes": 599065,
+          "requests": 9
+        },
+        "other": {
+          "bytes": 149073,
+          "requests": 18
+        },
+        "font": {
+          "bytes": 147064,
+          "requests": 2
+        },
+        "stylesheet": {
+          "bytes": 46046,
+          "requests": 4
+        },
+        "document": {
+          "bytes": 15736,
+          "requests": 1
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 194645,
+          "requests": 23
+        }
+      },
+      "scripts": 28,
+      "stylesheets": 4,
+      "fonts": 2
+    },
+    "thirdParty": {
+      "count": 8,
+      "bytes": 194106,
+      "mainThreadMs": 384.6,
+      "top": [
+        {
+          "entity": "mPulse",
+          "bytes": 66606,
+          "mainThreadMs": 347.7,
+          "byType": {
+            "script": 61363,
+            "other": 5243
+          },
+          "typedBytes": 66606
+        },
+        {
+          "entity": "oracleinfinity.io",
+          "bytes": 55368,
+          "mainThreadMs": 16.8,
+          "byType": {
+            "script": 53588,
+            "other": 879,
+            "image": 901
+          },
+          "typedBytes": 55368
+        },
+        {
+          "entity": "TrustArc",
+          "bytes": 46791,
+          "mainThreadMs": 16.4,
+          "byType": {
+            "script": 46326,
+            "other": 465
+          },
+          "typedBytes": 46791
+        },
+        {
+          "entity": "YouTube",
+          "bytes": 23017,
+          "mainThreadMs": 3.3,
+          "byType": {
+            "script": 23017
+          },
+          "typedBytes": 23017
+        },
+        {
+          "entity": "Adobe Tag Manager",
+          "bytes": 801,
+          "mainThreadMs": 0.1,
+          "byType": {
+            "other": 801
+          },
+          "typedBytes": 801
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 4186.8,
+      "byGroup": {
+        "scriptEvaluation": 2841.6,
+        "other": 495.2,
+        "styleLayout": 413.9,
+        "scriptParseCompile": 215.3,
+        "garbageCollection": 99.8,
+        "paintCompositeRender": 73.9,
+        "parseHTML": 47.1
+      },
+      "bootupMs": 2740.1,
+      "longTasks": 15,
+      "longestTaskMs": 395
+    },
+    "dom": {
+      "elements": 565,
+      "depth": 14,
+      "maxChildren": 27
+    },
+    "waste": {
+      "unusedJsBytes": 114163,
+      "unusedCssBytes": 40887,
+      "legacyJsBytes": 34398,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 908,
+      "renderBlockingCount": 2,
+      "poorlyCachedBytes": 1048419.3258333333,
+      "poorlyCachedCount": 33
+    },
+    "accessibility": {
+      "failingCount": 1,
+      "applicableCount": 29,
+      "failingNodes": 1,
+      "failing": [
+        {
+          "id": "list",
+          "title": "Lists do not contain only `<li>` elements and script supporting elements (`<script>` and `<template>`).",
+          "weight": 7,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 2,
+      "applicableCount": 19,
+      "failing": [
+        {
+          "id": "third-party-cookies",
+          "title": "Uses third-party cookies",
+          "weight": 5,
+          "nodes": 1
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "weight": 1,
+          "nodes": 1
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 1,
+      "applicableCount": 10,
+      "failing": [
+        {
+          "id": "link-text",
+          "title": "Links do not have descriptive text",
+          "weight": 1,
+          "nodes": 8
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 120
+    },
+    "environment": {
+      "lighthouseVersion": "13.6.0",
+      "benchmarkIndex": 2473,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-11-22T22:05:50.218Z",
+      "runtimeMs": 9706.1
+    }
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-10-24",
+      "last": "2026-11-20"
+    },
+    "metrics": {
+      "rtt": {
+        "p75": 216,
+        "rating": null,
+        "distribution": {
+          "good": 21.4,
+          "needsImprovement": 62.1,
+          "poor": 16.5
+        }
+      },
+      "cls": {
+        "p75": 0,
+        "rating": "good",
+        "distribution": {
+          "good": 95.8,
+          "needsImprovement": 2.9,
+          "poor": 1.3
+        }
+      },
+      "ttfb": {
+        "p75": 560,
+        "rating": "good",
+        "distribution": {
+          "good": 83.1,
+          "needsImprovement": 12.3,
+          "poor": 4.7
+        }
+      },
+      "fcp": {
+        "p75": 1255,
+        "rating": "good",
+        "distribution": {
+          "good": 86,
+          "needsImprovement": 8.4,
+          "poor": 5.6
+        }
+      },
+      "inp": {
+        "p75": 191,
+        "rating": "good",
+        "distribution": {
+          "good": 76.6,
+          "needsImprovement": 20.7,
+          "poor": 2.7
+        }
+      },
+      "lcp": {
+        "p75": 2175,
+        "rating": "good",
+        "distribution": {
+          "good": 80.2,
+          "needsImprovement": 11.5,
+          "poor": 8.3
+        }
+      }
+    },
+    "cwvPass": true,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "probe": {
+      "metas": [],
+      "marks": [],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "akamai",
+      "name": "Akamai",
+      "icon": "Akamai",
+      "source": "server"
+    },
+    "headers": {
+      "server": "AkamaiGHost"
+    },
+    "violations": 7,
+    "passes": 36,
+    "incomplete": 0,
+    "violationRules": 2,
+    "version": "4.14.0",
+    "top": [
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 6,
+        "help": "All page content should be contained by landmarks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/region?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "h1",
+            "snippet": "<h1>Technical Difficulties</h1>"
+          },
+          {
+            "selector": ".incident-number:nth-child(4)",
+            "snippet": "<p class=\"incident-number\"> Site Accessed: <span id=\"url-display\"><b>https://www.oracle.com/</b></span> </p>"
+          },
+          {
+            "selector": "p:nth-child(5)",
+            "snippet": "<p>This site is experiencing a technical difficulty. We are aware of the issue and are working as quickly as possible to correct the problem. </p>"
+          },
+          {
+            "selector": "p:nth-child(6)",
+            "snippet": "<p>We apologize for any inconvenience this may have caused.</p>"
+          },
+          {
+            "selector": ".contact-info",
+            "snippet": "<div class=\"contact-info\">"
+          }
+        ]
+      },
+      {
+        "id": "landmark-one-main",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Document should have one main landmark",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/landmark-one-main?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "html",
+            "snippet": "<html lang=\"en\" xmlns=\"http://www.w3.org/1999/xhtml\" class=\"\">"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "render": {
+    "samples": [
+      {
+        "hash": "678efe91ce51",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "last-modified": "Fri, 13 Nov 2026 16:13:35 GMT"
+        }
+      },
+      {
+        "hash": "2ab6f8db3a01",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {}
+      }
+    ]
+  },
+  "consecutiveFailures": 0
+}
