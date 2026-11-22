@@ -1,0 +1,522 @@
+{
+  "url": "https://www.amazon.com/",
+  "name": "Amazon",
+  "group": "big-tech",
+  "groupName": "Big Tech",
+  "timestamp": 1795384637434,
+  "date": "2026-11-22T21:57:17.434Z",
+  "runId": "2026-11-22T21-52-52-099Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 108090,
+  "error": null,
+  "variance": {
+    "min": 69,
+    "max": 99,
+    "spread": 30,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://www.amazon.com/",
+    "finalUrl": "https://www.amazon.com/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 70,
+      "accessibility": 88,
+      "best-practices": 50,
+      "seo": 92,
+      "agentic-browsing": 50
+    },
+    "timings": {
+      "fcp": 3818,
+      "lcp": 4548,
+      "si": 4509,
+      "tbt": 212,
+      "tti": 10446,
+      "cls": 0,
+      "ttfb": 638,
+      "maxPotentialFid": 152,
+      "serverResponseTime": 42,
+      "networkRtt": 17.6,
+      "networkServerLatency": 85.4
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 43.2,
+      "elementRenderDelay": 345.1
+    },
+    "weight": {
+      "total": 9751942,
+      "requests": 128,
+      "mainDocument": 358017,
+      "byType": {
+        "total": {
+          "bytes": 9731765,
+          "requests": 124
+        },
+        "media": {
+          "bytes": 7782872,
+          "requests": 4
+        },
+        "script": {
+          "bytes": 813262,
+          "requests": 33
+        },
+        "image": {
+          "bytes": 480304,
+          "requests": 47
+        },
+        "document": {
+          "bytes": 361409,
+          "requests": 3
+        },
+        "other": {
+          "bytes": 110341,
+          "requests": 20
+        },
+        "stylesheet": {
+          "bytes": 97767,
+          "requests": 13
+        },
+        "font": {
+          "bytes": 85810,
+          "requests": 4
+        },
+        "third-party": {
+          "bytes": 9731765,
+          "requests": 124
+        }
+      },
+      "scripts": 33,
+      "stylesheets": 13,
+      "fonts": 5
+    },
+    "thirdParty": {
+      "count": 3,
+      "bytes": 9285565,
+      "mainThreadMs": 199,
+      "top": [
+        {
+          "entity": "media-amazon.com",
+          "bytes": 9213420,
+          "mainThreadMs": 177,
+          "byType": {
+            "script": 174989,
+            "stylesheet": 10552,
+            "media": 7811327,
+            "image": 461236,
+            "font": 85810
+          },
+          "typedBytes": 8543914
+        },
+        {
+          "entity": "cloudfront.net",
+          "bytes": 51575,
+          "mainThreadMs": 20.6,
+          "byType": {
+            "script": 51575
+          },
+          "typedBytes": 51575
+        },
+        {
+          "entity": "Marketplace Web Service",
+          "bytes": 20570,
+          "mainThreadMs": 1.4,
+          "byType": {
+            "script": 4407,
+            "image": 16163
+          },
+          "typedBytes": 20570
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 4444.8,
+      "byGroup": {
+        "scriptEvaluation": 1645.8,
+        "other": 1355.7,
+        "styleLayout": 469.2,
+        "paintCompositeRender": 468.8,
+        "scriptParseCompile": 300.2,
+        "parseHTML": 180,
+        "garbageCollection": 25.2
+      },
+      "bootupMs": 1767.8,
+      "longTasks": 10,
+      "longestTaskMs": 152
+    },
+    "dom": {
+      "elements": 1368,
+      "depth": 27,
+      "maxChildren": 42
+    },
+    "waste": {
+      "unusedJsBytes": 380947,
+      "unusedCssBytes": 258610,
+      "legacyJsBytes": 108492,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 1209,
+      "renderBlockingCount": 12,
+      "poorlyCachedBytes": 67874.6,
+      "poorlyCachedCount": 11
+    },
+    "accessibility": {
+      "failingCount": 4,
+      "applicableCount": 32,
+      "failingNodes": 33,
+      "failing": [
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "weight": 7,
+          "nodes": 29
+        },
+        {
+          "id": "aria-allowed-attr",
+          "title": "`[aria-*]` attributes do not match their roles",
+          "weight": 10,
+          "nodes": 2
+        },
+        {
+          "id": "aria-roles",
+          "title": "`[role]` values are not valid",
+          "weight": 10,
+          "nodes": 1
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "title": "Elements with visible text labels do not have matching accessible names.",
+          "weight": 0,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 5,
+      "applicableCount": 18,
+      "failing": [
+        {
+          "id": "deprecations",
+          "title": "Uses deprecated APIs",
+          "weight": 5,
+          "nodes": 1
+        },
+        {
+          "id": "third-party-cookies",
+          "title": "Uses third-party cookies",
+          "weight": 5,
+          "nodes": 3
+        },
+        {
+          "id": "image-aspect-ratio",
+          "title": "Displays images with incorrect aspect ratio",
+          "weight": 1,
+          "nodes": 4
+        },
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "weight": 1,
+          "nodes": 3
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "weight": 1,
+          "nodes": 1
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 1,
+      "applicableCount": 10,
+      "failing": [
+        {
+          "id": "crawlable-anchors",
+          "title": "Links are not crawlable",
+          "weight": 1,
+          "nodes": 1
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": null,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 3,
+      "baselineLimitedFeatures": 44
+    },
+    "environment": {
+      "lighthouseVersion": "13.6.0",
+      "benchmarkIndex": 3006,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-11-22T21:57:40.384Z",
+      "runtimeMs": 13091.4
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 1126.8,
+    "resourceLoadDelay": 7664.7,
+    "resourceLoadDuration": 1411.9,
+    "elementRenderDelay": 222.8
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-10-24",
+      "last": "2026-11-20"
+    },
+    "metrics": {
+      "lcp": {
+        "p75": 1395,
+        "rating": "good",
+        "distribution": {
+          "good": 89.7,
+          "needsImprovement": 6.2,
+          "poor": 4.1
+        }
+      },
+      "rtt": {
+        "p75": 128,
+        "rating": null,
+        "distribution": {
+          "good": 44.2,
+          "needsImprovement": 47.7,
+          "poor": 8.1
+        }
+      },
+      "cls": {
+        "p75": 0.01,
+        "rating": "good",
+        "distribution": {
+          "good": 93.5,
+          "needsImprovement": 4.5,
+          "poor": 2
+        }
+      },
+      "ttfb": {
+        "p75": 694,
+        "rating": "good",
+        "distribution": {
+          "good": 79,
+          "needsImprovement": 15.7,
+          "poor": 5.4
+        }
+      },
+      "fcp": {
+        "p75": 1127,
+        "rating": "good",
+        "distribution": {
+          "good": 87.2,
+          "needsImprovement": 8,
+          "poor": 4.9
+        }
+      },
+      "inp": {
+        "p75": 173,
+        "rating": "good",
+        "distribution": {
+          "good": 78.8,
+          "needsImprovement": 15.3,
+          "poor": 5.9
+        }
+      }
+    },
+    "cwvPass": true,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "probe": {
+      "metas": [],
+      "marks": [
+        "lit"
+      ],
+      "markVersions": {
+        "lit": "3.3.3"
+      }
+    },
+    "interstitial": null,
+    "host": {
+      "id": null,
+      "name": "Server",
+      "icon": null,
+      "source": "server"
+    },
+    "headers": {
+      "server": "Server"
+    },
+    "violations": 35,
+    "passes": 1628,
+    "incomplete": 15,
+    "violationRules": 6,
+    "version": "4.14.0",
+    "top": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 29,
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "#nav-logobar-greeting",
+            "snippet": "<a href=\"https://www.amazon.c...\" id=\"nav-logobar-greeting\" class=\"nav-a nav-show-sign-...\">"
+          },
+          {
+            "selector": "#nav-holiday",
+            "snippet": "<a id=\"nav-holiday\" href=\"/blackfriday?ref_=navm_cs_td_bf_mw_mpl\" class=\"nav-a \" data-csa-c-type=\"link\" data-csa-c-slot-id=\"navm_cs_0\" data-csa-c-content-id=\"navm_cs_td_bf_mw_mpl\" data-csa-c-id=\"iajj…"
+          },
+          {
+            "selector": "#video",
+            "snippet": "<a id=\"video\" href=\"/gp/video/storefront?ref_=navm_cs_prime_video\" class=\"nav-a \" data-csa-c-type=\"link\" data-csa-c-slot-id=\"navm_cs_1\" data-csa-c-content-id=\"navm_cs_prime_video\" data-csa-c-id=\"rd0x…"
+          },
+          {
+            "selector": "#health-household",
+            "snippet": "<a id=\"health-household\" href=\"/gp/browse.html?node=3760901&amp;ref_=navm_cs_health_household\" class=\"nav-a \" data-csa-c-type=\"link\" data-csa-c-slot-id=\"navm_cs_2\" data-csa-c-content-id=\"navm_cs_heal…"
+          },
+          {
+            "selector": "#prime",
+            "snippet": "<a id=\"prime\" href=\"/prime?ref_=navm_cs_prime\" class=\"nav-a \" data-csa-c-type=\"link\" data-csa-c-slot-id=\"navm_cs_3\" data-csa-c-content-id=\"navm_cs_prime\" data-csa-c-id=\"vylojq-obgd49-wcyp8z-sqnw59\">P…"
+          }
+        ]
+      },
+      {
+        "id": "aria-allowed-attr",
+        "impact": "critical",
+        "nodes": 2,
+        "help": "Elements must only use supported ARIA attributes",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/aria-allowed-attr?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "#nav-search-keywords",
+            "snippet": "<input type=\"text\" class=\"nav-input nav-progre...\" placeholder=\"Search Amazon\" data-aria-clear-labe...=\"Clear search keyword...\" aria-label=\"Search Amazon\" name=\"k\" autocomplete=\"off\" autocorrect=\"of…"
+          },
+          {
+            "selector": "#gwm-window",
+            "snippet": "<ul id=\"gwm-window\" class=\"a-unordered-list a-nostyle a-horizontal gwm-window-wrapper\" aria-setsize=\"12\">"
+          }
+        ]
+      },
+      {
+        "id": "aria-roles",
+        "impact": "critical",
+        "nodes": 1,
+        "help": "ARIA roles used must conform to valid values",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/aria-roles?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "#nav-app-banner-close-button",
+            "snippet": "<i class=\"a-icon a-icon-close a-icon-small nav-app-banner-close\" id=\"nav-app-banner-close-button\" role=\"close\"></i>"
+          }
+        ]
+      },
+      {
+        "id": "label-content-name-mismatch",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "Elements must have their visible text as part of their accessible name",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/label-content-name-mismatch?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "#nav-button-cart",
+            "snippet": "<a href=\"/gp/aw/c?ref_=navm_hdr_cart\" aria-label=\"Cart\" class=\"nav-a\" id=\"nav-button-cart\">"
+          }
+        ]
+      },
+      {
+        "id": "meta-viewport-large",
+        "impact": "minor",
+        "nodes": 1,
+        "help": "Users should be able to zoom and scale the text up to 500%",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/meta-viewport-large?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "meta[name=\"viewport\"]",
+            "snippet": "<meta name=\"viewport\" content=\"width=device-width, maximum-scale=2, minimum-scale=1, initial-scale=1, shrink-to-fit=no\">"
+          }
+        ]
+      },
+      {
+        "id": "page-has-heading-one",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Page should contain a level-one heading",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/page-has-heading-one?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "html",
+            "snippet": "<html lang=\"en-us\" class=\"a-touch a-mobile a-j...\" data-19ax5a9jf=\"mongoose\" data-aui-build-date=\"3.26.10-2026-11-12\">"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "render": {
+    "samples": [
+      {
+        "hash": "f50aca0b54c7",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "x-cache": "Miss from cloudfront"
+        }
+      },
+      {
+        "hash": "5b82236f4fda",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "x-cache": "Miss from cloudfront"
+        }
+      },
+      {
+        "hash": "c1a7cfa7dc44",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "x-cache": "Miss from cloudfront"
+        }
+      },
+      {
+        "hash": "7dabf97713c6",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "x-cache": "Miss from cloudfront"
+        }
+      },
+      {
+        "hash": "059fb5dc442e",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "x-cache": "NotCacheable from child"
+        }
+      }
+    ]
+  },
+  "consecutiveFailures": 0
+}
