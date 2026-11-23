@@ -1,0 +1,278 @@
+{
+  "url": "https://esthesis.org/",
+  "name": "esthesis.org",
+  "group": "11ty-community",
+  "groupName": "Built Awesome",
+  "timestamp": 1795439090873,
+  "date": "2026-11-23T13:04:50.873Z",
+  "runId": "2026-11-23T13-02-31-384Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 2,
+  "durationMs": 38069,
+  "error": null,
+  "partialErrors": [
+    "ERRORED_DOCUMENT_REQUEST: Lighthouse was unable to reliably load the page you requested. Make sure you are testing the correct URL and that the server is properly responding to all requests. (Status code: 403)"
+  ],
+  "variance": {
+    "min": 67,
+    "max": 71,
+    "spread": 4,
+    "runs": 2
+  },
+  "lab": {
+    "requestedUrl": "https://esthesis.org/",
+    "finalUrl": "https://esthesis.org/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 67,
+      "accessibility": 83,
+      "best-practices": 77,
+      "seo": 100,
+      "agentic-browsing": 50
+    },
+    "timings": {
+      "fcp": 1383,
+      "lcp": 10715,
+      "si": 5071,
+      "tbt": 219,
+      "tti": 11345,
+      "cls": 0.004,
+      "ttfb": 783,
+      "maxPotentialFid": 482,
+      "serverResponseTime": 105,
+      "networkRtt": 4.8,
+      "networkServerLatency": 182.7
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 159.2,
+      "resourceLoadDelay": 95.3,
+      "resourceLoadDuration": 187.2,
+      "elementRenderDelay": 236.5
+    },
+    "weight": {
+      "total": 3076822,
+      "requests": 24,
+      "mainDocument": 73178,
+      "byType": {
+        "total": {
+          "bytes": 3076822,
+          "requests": 23
+        },
+        "image": {
+          "bytes": 2683922,
+          "requests": 9
+        },
+        "font": {
+          "bytes": 225665,
+          "requests": 3
+        },
+        "document": {
+          "bytes": 73178,
+          "requests": 1
+        },
+        "script": {
+          "bytes": 65306,
+          "requests": 3
+        },
+        "stylesheet": {
+          "bytes": 24672,
+          "requests": 2
+        },
+        "other": {
+          "bytes": 4079,
+          "requests": 5
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 243535,
+          "requests": 4
+        }
+      },
+      "scripts": 3,
+      "stylesheets": 2,
+      "fonts": 3
+    },
+    "thirdParty": {
+      "count": 2,
+      "bytes": 243535,
+      "mainThreadMs": 9,
+      "top": [
+        {
+          "entity": "Cloudflare CDN",
+          "bytes": 233057,
+          "mainThreadMs": 2,
+          "byType": {
+            "stylesheet": 17334,
+            "font": 215723
+          },
+          "typedBytes": 233057
+        },
+        {
+          "entity": "Cloudflare",
+          "bytes": 10478,
+          "mainThreadMs": 7,
+          "byType": {
+            "script": 10478
+          },
+          "typedBytes": 10478
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 1565.3,
+      "byGroup": {
+        "scriptEvaluation": 1078.2,
+        "other": 241.4,
+        "styleLayout": 127.5,
+        "parseHTML": 77.4,
+        "paintCompositeRender": 17.7,
+        "scriptParseCompile": 17.6,
+        "garbageCollection": 5.4
+      },
+      "bootupMs": 1072.9,
+      "longTasks": 5,
+      "longestTaskMs": 482
+    },
+    "dom": {
+      "elements": 312,
+      "depth": 11,
+      "maxChildren": 13
+    },
+    "waste": {
+      "unusedJsBytes": 0,
+      "unusedCssBytes": 58970,
+      "legacyJsBytes": 10483,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 150,
+      "renderBlockingCount": 1,
+      "poorlyCachedBytes": 4191.2,
+      "poorlyCachedCount": 1
+    },
+    "accessibility": {
+      "failingCount": 3,
+      "applicableCount": 18,
+      "failingNodes": 3,
+      "failing": [
+        {
+          "id": "button-name",
+          "title": "Buttons do not have an accessible name",
+          "weight": 10,
+          "nodes": 1
+        },
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "weight": 7,
+          "nodes": 1
+        },
+        {
+          "id": "heading-order",
+          "title": "Heading elements are not in a sequentially-descending order",
+          "weight": 3,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 2,
+      "applicableCount": 19,
+      "failing": [
+        {
+          "id": "deprecations",
+          "title": "Uses deprecated APIs",
+          "weight": 5,
+          "nodes": 2
+        },
+        {
+          "id": "image-aspect-ratio",
+          "title": "Displays images with incorrect aspect ratio",
+          "weight": 1,
+          "nodes": 1
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 0,
+      "applicableCount": 10,
+      "failing": []
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 39
+    },
+    "environment": {
+      "lighthouseVersion": "13.6.0",
+      "benchmarkIndex": 2450.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-11-23T13:04:52.160Z",
+      "runtimeMs": 8204.1
+    }
+  },
+  "field": null,
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "probe": null,
+    "interstitial": "Just a moment...",
+    "host": {
+      "id": "cloudflare",
+      "name": "Cloudflare",
+      "icon": "Cloudflare",
+      "source": "server"
+    },
+    "headers": {
+      "cf-ray": "a5f062a03e9dd705-IAD",
+      "server": "cloudflare"
+    },
+    "violations": null,
+    "passes": null,
+    "incomplete": null,
+    "violationRules": null,
+    "version": "4.14.0",
+    "top": [],
+    "error": null
+  },
+  "render": {
+    "samples": [
+      {
+        "hash": "de1b3df8e67c",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "age": "17320",
+          "cache-status": "\"Netlify Edge\"; hit; ttl=31518680",
+          "cf-cache-status": "DYNAMIC"
+        }
+      },
+      {
+        "hash": "590895f92f8d",
+        "nonce": "f8fbf37910f7",
+        "stamp": null,
+        "marks": [],
+        "headers": {}
+      }
+    ]
+  },
+  "consecutiveFailures": 0
+}
