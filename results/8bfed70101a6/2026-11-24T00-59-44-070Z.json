@@ -1,0 +1,353 @@
+{
+  "url": "https://freshkosher.cruises/",
+  "name": "freshkosher.cruises",
+  "group": "11ty-community",
+  "groupName": "Built Awesome",
+  "timestamp": 1795481984070,
+  "date": "2026-11-24T00:59:44.070Z",
+  "runId": "2026-11-24T00-59-35-811Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 2,
+  "durationMs": 31644,
+  "error": null,
+  "partialErrors": [
+    "ERRORED_DOCUMENT_REQUEST: Lighthouse was unable to reliably load the page you requested. Make sure you are testing the correct URL and that the server is properly responding to all requests. (Status code: 403)"
+  ],
+  "variance": {
+    "min": 65,
+    "max": 78,
+    "spread": 13,
+    "runs": 2
+  },
+  "lab": {
+    "requestedUrl": "https://freshkosher.cruises/",
+    "finalUrl": "https://freshkosher.cruises/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 65,
+      "accessibility": 90,
+      "best-practices": 77,
+      "seo": 100,
+      "agentic-browsing": 67
+    },
+    "timings": {
+      "fcp": 1122,
+      "lcp": 7326,
+      "si": 4965,
+      "tbt": 317,
+      "tti": 7464,
+      "cls": 0,
+      "ttfb": 472,
+      "maxPotentialFid": 237,
+      "serverResponseTime": 176,
+      "networkRtt": 34.2,
+      "networkServerLatency": 97.7
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 255.8,
+      "resourceLoadDelay": 26.2,
+      "resourceLoadDuration": 76.6,
+      "elementRenderDelay": 2078.7
+    },
+    "weight": {
+      "total": 1368257,
+      "requests": 53,
+      "mainDocument": 19549,
+      "byType": {
+        "total": {
+          "bytes": 1365352,
+          "requests": 48
+        },
+        "image": {
+          "bytes": 651412,
+          "requests": 16
+        },
+        "script": {
+          "bytes": 315022,
+          "requests": 10
+        },
+        "font": {
+          "bytes": 305490,
+          "requests": 6
+        },
+        "stylesheet": {
+          "bytes": 44797,
+          "requests": 6
+        },
+        "other": {
+          "bytes": 29082,
+          "requests": 9
+        },
+        "document": {
+          "bytes": 19549,
+          "requests": 1
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 10478,
+          "requests": 2
+        }
+      },
+      "scripts": 10,
+      "stylesheets": 6,
+      "fonts": 6
+    },
+    "thirdParty": {
+      "count": 2,
+      "bytes": 10972,
+      "mainThreadMs": 9.7,
+      "top": [
+        {
+          "entity": "Cloudflare",
+          "bytes": 10478,
+          "mainThreadMs": 9.7,
+          "byType": {
+            "script": 10478
+          },
+          "typedBytes": 10478
+        },
+        {
+          "entity": "Google/Doubleclick Ads",
+          "bytes": 494,
+          "mainThreadMs": 0,
+          "byType": {
+            "other": 494
+          },
+          "typedBytes": 494
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 1953.2,
+      "byGroup": {
+        "scriptEvaluation": 914.5,
+        "other": 476,
+        "styleLayout": 370.6,
+        "parseHTML": 64.1,
+        "paintCompositeRender": 63.3,
+        "scriptParseCompile": 53.3,
+        "garbageCollection": 11.3
+      },
+      "bootupMs": 880.2,
+      "longTasks": 5,
+      "longestTaskMs": 237
+    },
+    "dom": {
+      "elements": 2087,
+      "depth": 14,
+      "maxChildren": 33
+    },
+    "waste": {
+      "unusedJsBytes": 103253,
+      "unusedCssBytes": 12325,
+      "legacyJsBytes": 10483,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 160,
+      "renderBlockingCount": 6,
+      "poorlyCachedBytes": 309179.84,
+      "poorlyCachedCount": 4
+    },
+    "accessibility": {
+      "failingCount": 4,
+      "applicableCount": 30,
+      "failingNodes": 54,
+      "failing": [
+        {
+          "id": "label-content-name-mismatch",
+          "title": "Elements with visible text labels do not have matching accessible names.",
+          "weight": 0,
+          "nodes": 34
+        },
+        {
+          "id": "aria-prohibited-attr",
+          "title": "Elements use prohibited ARIA attributes",
+          "weight": 7,
+          "nodes": 14
+        },
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "weight": 7,
+          "nodes": 3
+        },
+        {
+          "id": "target-size",
+          "title": "Touch targets do not have sufficient size or spacing.",
+          "weight": 7,
+          "nodes": 3
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 3,
+      "applicableCount": 18,
+      "failing": [
+        {
+          "id": "deprecations",
+          "title": "Uses deprecated APIs",
+          "weight": 5,
+          "nodes": 2
+        },
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "weight": 1,
+          "nodes": 1
+        },
+        {
+          "id": "valid-source-maps",
+          "title": "Missing source maps for large first-party JavaScript",
+          "weight": 0,
+          "nodes": 3
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 0,
+      "applicableCount": 10,
+      "failing": []
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": null,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h3",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 1,
+      "baselineLimitedFeatures": 50
+    },
+    "environment": {
+      "lighthouseVersion": "13.6.0",
+      "benchmarkIndex": 3214,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-11-24T00:59:45.758Z",
+      "runtimeMs": 10944
+    }
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-10-25",
+      "last": "2026-11-21"
+    },
+    "metrics": {
+      "fcp": {
+        "p75": 743,
+        "rating": "good",
+        "distribution": {
+          "good": 94.7,
+          "needsImprovement": 3.1,
+          "poor": 2.2
+        }
+      },
+      "inp": {
+        "p75": 77,
+        "rating": "good",
+        "distribution": {
+          "good": 97.4,
+          "needsImprovement": 2.1,
+          "poor": 0.6
+        }
+      },
+      "lcp": {
+        "p75": 779,
+        "rating": "good",
+        "distribution": {
+          "good": 96.8,
+          "needsImprovement": 1.8,
+          "poor": 1.4
+        }
+      },
+      "rtt": {
+        "p75": 103,
+        "rating": null,
+        "distribution": {
+          "good": 58.9,
+          "needsImprovement": 36.4,
+          "poor": 4.7
+        }
+      },
+      "cls": {
+        "p75": 0,
+        "rating": "good",
+        "distribution": {
+          "good": 97.7,
+          "needsImprovement": 2.2,
+          "poor": 0.1
+        }
+      },
+      "ttfb": {
+        "p75": 474,
+        "rating": "good",
+        "distribution": {
+          "good": 88.2,
+          "needsImprovement": 9.1,
+          "poor": 2.8
+        }
+      }
+    },
+    "cwvPass": true,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "probe": null,
+    "interstitial": "Just a moment...",
+    "host": {
+      "id": "cloudflare",
+      "name": "Cloudflare",
+      "icon": "Cloudflare",
+      "source": "server"
+    },
+    "headers": {
+      "cf-ray": "a5f479afdbc0b0a6-ATL",
+      "server": "cloudflare"
+    },
+    "violations": null,
+    "passes": null,
+    "incomplete": null,
+    "violationRules": null,
+    "version": "4.14.0",
+    "top": [],
+    "error": null
+  },
+  "render": {
+    "samples": [
+      {
+        "hash": "a81660fd5435",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "cf-cache-status": "DYNAMIC"
+        }
+      },
+      {
+        "hash": "9997459966b1",
+        "nonce": "93889e62c695",
+        "stamp": null,
+        "marks": [],
+        "headers": {}
+      }
+    ]
+  },
+  "consecutiveFailures": 0
+}
