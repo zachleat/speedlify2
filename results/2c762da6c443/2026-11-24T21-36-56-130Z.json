@@ -1,0 +1,387 @@
+{
+  "url": "https://x.ai/",
+  "name": "xAI",
+  "group": "ai",
+  "groupName": "AI",
+  "timestamp": 1795556216130,
+  "date": "2026-11-24T21:36:56.130Z",
+  "runId": "2026-11-24T21-21-00-005Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 1,
+  "durationMs": 88775,
+  "error": null,
+  "partialErrors": [
+    "ERRORED_DOCUMENT_REQUEST: Lighthouse was unable to reliably load the page you requested. Make sure you are testing the correct URL and that the server is properly responding to all requests. (Status code: 403)",
+    "ERRORED_DOCUMENT_REQUEST: Lighthouse was unable to reliably load the page you requested. Make sure you are testing the correct URL and that the server is properly responding to all requests. (Status code: 403)"
+  ],
+  "variance": null,
+  "lab": {
+    "requestedUrl": "https://x.ai/",
+    "finalUrl": "https://x.ai/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 39,
+      "accessibility": 87,
+      "best-practices": 54,
+      "seo": 92,
+      "agentic-browsing": 50
+    },
+    "timings": {
+      "fcp": 1703,
+      "lcp": 21459,
+      "si": 7128,
+      "tbt": 2286,
+      "tti": 21474,
+      "cls": 0.001,
+      "ttfb": 615,
+      "maxPotentialFid": 531,
+      "serverResponseTime": 41,
+      "networkRtt": 14,
+      "networkServerLatency": 58.2
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 55.9,
+      "elementRenderDelay": 1634.6
+    },
+    "weight": {
+      "total": 2951067,
+      "requests": 167,
+      "mainDocument": 36365,
+      "byType": {
+        "total": {
+          "bytes": 2951067,
+          "requests": 167
+        },
+        "script": {
+          "bytes": 2426377,
+          "requests": 76
+        },
+        "image": {
+          "bytes": 151177,
+          "requests": 17
+        },
+        "font": {
+          "bytes": 140609,
+          "requests": 2
+        },
+        "other": {
+          "bytes": 134294,
+          "requests": 61
+        },
+        "stylesheet": {
+          "bytes": 61219,
+          "requests": 8
+        },
+        "document": {
+          "bytes": 37391,
+          "requests": 3
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 1444830,
+          "requests": 74
+        }
+      },
+      "scripts": 76,
+      "stylesheets": 8,
+      "fonts": 2
+    },
+    "thirdParty": {
+      "count": 14,
+      "bytes": 1421488,
+      "mainThreadMs": 454.9,
+      "top": [
+        {
+          "entity": "Google Tag Manager",
+          "bytes": 696891,
+          "mainThreadMs": 283.2,
+          "byType": {
+            "script": 696891
+          },
+          "typedBytes": 696891
+        },
+        {
+          "entity": "Optanon",
+          "bytes": 220342,
+          "mainThreadMs": 17.6,
+          "byType": {
+            "script": 153396,
+            "other": 40873,
+            "image": 26073
+          },
+          "typedBytes": 220342
+        },
+        {
+          "entity": "Facebook",
+          "bytes": 217403,
+          "mainThreadMs": 65.2,
+          "byType": {
+            "script": 217383,
+            "image": 20
+          },
+          "typedBytes": 217403
+        },
+        {
+          "entity": "TikTok",
+          "bytes": 168760,
+          "mainThreadMs": 44.4,
+          "byType": {
+            "script": 161156,
+            "other": 7604
+          },
+          "typedBytes": 168760
+        },
+        {
+          "entity": "reddit",
+          "bytes": 29376,
+          "mainThreadMs": 12.9,
+          "byType": {
+            "script": 28622,
+            "other": 754
+          },
+          "typedBytes": 29376
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 23063.4,
+      "byGroup": {
+        "scriptEvaluation": 9239,
+        "other": 7509.3,
+        "paintCompositeRender": 3506.9,
+        "styleLayout": 1938,
+        "scriptParseCompile": 529.7,
+        "garbageCollection": 281,
+        "parseHTML": 59.6
+      },
+      "bootupMs": 9366.6,
+      "longTasks": 20,
+      "longestTaskMs": 531
+    },
+    "dom": {
+      "elements": 1157,
+      "depth": 15,
+      "maxChildren": 34
+    },
+    "waste": {
+      "unusedJsBytes": 760485,
+      "unusedCssBytes": 64141,
+      "legacyJsBytes": 63522,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 304,
+      "renderBlockingCount": 4,
+      "poorlyCachedBytes": 362658.16958333337,
+      "poorlyCachedCount": 14
+    },
+    "accessibility": {
+      "failingCount": 4,
+      "applicableCount": 32,
+      "failingNodes": 9,
+      "failing": [
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "weight": 7,
+          "nodes": 6
+        },
+        {
+          "id": "button-name",
+          "title": "Buttons do not have an accessible name",
+          "weight": 10,
+          "nodes": 1
+        },
+        {
+          "id": "meta-viewport",
+          "title": "`[user-scalable=\"no\"]` is used in the `<meta name=\"viewport\">` element or the `[maximum-scale]` attribute is less than 5.",
+          "weight": 10,
+          "nodes": 1
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "title": "Elements with visible text labels do not have matching accessible names.",
+          "weight": 0,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 4,
+      "applicableCount": 19,
+      "failing": [
+        {
+          "id": "deprecations",
+          "title": "Uses deprecated APIs",
+          "weight": 5,
+          "nodes": 2
+        },
+        {
+          "id": "third-party-cookies",
+          "title": "Uses third-party cookies",
+          "weight": 5,
+          "nodes": 30
+        },
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "weight": 1,
+          "nodes": 14
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "weight": 1,
+          "nodes": 2
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 1,
+      "applicableCount": 10,
+      "failing": [
+        {
+          "id": "link-text",
+          "title": "Links do not have descriptive text",
+          "weight": 1,
+          "nodes": 1
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": null,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 14,
+      "baselineLimitedFeatures": 80
+    },
+    "environment": {
+      "lighthouseVersion": "13.6.0",
+      "benchmarkIndex": 3474.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-11-24T21:36:57.339Z",
+      "runtimeMs": 62794.9
+    }
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-10-26",
+      "last": "2026-11-22"
+    },
+    "metrics": {
+      "fcp": {
+        "p75": 2192,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 61.2,
+          "needsImprovement": 25.4,
+          "poor": 13.5
+        }
+      },
+      "inp": {
+        "p75": 461,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 51.7,
+          "needsImprovement": 24.7,
+          "poor": 23.7
+        }
+      },
+      "lcp": {
+        "p75": 5489,
+        "rating": "poor",
+        "distribution": {
+          "good": 44.6,
+          "needsImprovement": 15.5,
+          "poor": 39.9
+        }
+      },
+      "rtt": {
+        "p75": 285,
+        "rating": null,
+        "distribution": {
+          "good": 13.8,
+          "needsImprovement": 59.8,
+          "poor": 26.5
+        }
+      },
+      "cls": {
+        "p75": 0,
+        "rating": "good",
+        "distribution": {
+          "good": 98.5,
+          "needsImprovement": 1.3,
+          "poor": 0.2
+        }
+      },
+      "ttfb": {
+        "p75": 1059,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 60,
+          "needsImprovement": 29.5,
+          "poor": 10.5
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "probe": null,
+    "interstitial": "Attention Required! | Cloudflare",
+    "host": {
+      "id": "cloudflare",
+      "name": "Cloudflare",
+      "icon": "Cloudflare",
+      "source": "server"
+    },
+    "headers": {
+      "cf-ray": "a5fb8f70ddf0fbda-IAD",
+      "server": "cloudflare"
+    },
+    "violations": null,
+    "passes": null,
+    "incomplete": null,
+    "violationRules": null,
+    "version": "4.14.0",
+    "top": [],
+    "error": null
+  },
+  "render": {
+    "samples": [
+      {
+        "hash": "13053bbe988f",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "cf-cache-status": "DYNAMIC",
+          "x-nextjs-cache": "HIT",
+          "x-nextjs-prerender": "1\n1"
+        }
+      }
+    ]
+  },
+  "consecutiveFailures": 0
+}

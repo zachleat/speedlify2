@@ -1,0 +1,271 @@
+{
+  "url": "https://podcast.doctrineofdiscovery.org/",
+  "name": "podcast.doctrineofdiscovery.org",
+  "group": "11ty-community",
+  "groupName": "Built Awesome",
+  "timestamp": 1795555328684,
+  "date": "2026-11-24T21:22:08.684Z",
+  "runId": "2026-11-24T21-21-00-005Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 2,
+  "durationMs": 36715,
+  "error": null,
+  "partialErrors": [
+    "ERRORED_DOCUMENT_REQUEST: Lighthouse was unable to reliably load the page you requested. Make sure you are testing the correct URL and that the server is properly responding to all requests. (Status code: 403)"
+  ],
+  "variance": {
+    "min": 76,
+    "max": 97,
+    "spread": 21,
+    "runs": 2
+  },
+  "lab": {
+    "requestedUrl": "https://podcast.doctrineofdiscovery.org/",
+    "finalUrl": "https://podcast.doctrineofdiscovery.org/",
+    "redirect": null,
+    "statusCode": "error",
+    "scores": {
+      "performance": 76,
+      "accessibility": 93,
+      "best-practices": 96,
+      "seo": 50,
+      "agentic-browsing": 100
+    },
+    "timings": {
+      "fcp": 941,
+      "lcp": 941,
+      "si": 986,
+      "tbt": 1178,
+      "tti": 5572,
+      "cls": 0.003,
+      "ttfb": 463,
+      "maxPotentialFid": 820,
+      "serverResponseTime": 4,
+      "networkRtt": 7.2,
+      "networkServerLatency": 12.8
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 14,
+      "elementRenderDelay": 300.4
+    },
+    "weight": {
+      "total": 2213989,
+      "requests": 19,
+      "mainDocument": 5404,
+      "byType": {
+        "total": {
+          "bytes": 2213475,
+          "requests": 12
+        },
+        "other": {
+          "bytes": 1738057,
+          "requests": 6
+        },
+        "script": {
+          "bytes": 237702,
+          "requests": 2
+        },
+        "document": {
+          "bytes": 227047,
+          "requests": 2
+        },
+        "image": {
+          "bytes": 10669,
+          "requests": 2
+        },
+        "stylesheet": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "font": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 1811591,
+          "requests": 6
+        }
+      },
+      "scripts": 8,
+      "stylesheets": 0,
+      "fonts": 0
+    },
+    "thirdParty": {
+      "count": 1,
+      "bytes": 28420,
+      "mainThreadMs": 10.6,
+      "top": [
+        {
+          "entity": "cloudflare.com",
+          "bytes": 28420,
+          "mainThreadMs": 10.6,
+          "byType": {
+            "script": 28420
+          },
+          "typedBytes": 28420
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 2052.1,
+      "byGroup": {
+        "scriptEvaluation": 1713,
+        "other": 224.2,
+        "scriptParseCompile": 37.2,
+        "garbageCollection": 31.7,
+        "styleLayout": 28.7,
+        "parseHTML": 11.2,
+        "paintCompositeRender": 6.1
+      },
+      "bootupMs": 1708.4,
+      "longTasks": 8,
+      "longestTaskMs": 820
+    },
+    "dom": {
+      "elements": 36,
+      "depth": 8,
+      "maxChildren": 7
+    },
+    "waste": {
+      "unusedJsBytes": 46788,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 0,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 0,
+      "renderBlockingCount": 0,
+      "poorlyCachedBytes": 951,
+      "poorlyCachedCount": 1
+    },
+    "accessibility": {
+      "failingCount": 1,
+      "applicableCount": 21,
+      "failingNodes": 1,
+      "failing": [
+        {
+          "id": "meta-refresh",
+          "title": "The document uses `<meta http-equiv=\"refresh\">`",
+          "weight": 10,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 2,
+      "applicableCount": 17,
+      "failing": [
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "weight": 1,
+          "nodes": 1
+        },
+        {
+          "id": "valid-source-maps",
+          "title": "Missing source maps for large first-party JavaScript",
+          "weight": 0,
+          "nodes": 1
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 3,
+      "applicableCount": 9,
+      "failing": [
+        {
+          "id": "is-crawlable",
+          "title": "Page is blocked from indexing",
+          "weight": 4.043478260869565,
+          "nodes": 1
+        },
+        {
+          "id": "meta-description",
+          "title": "Document does not have a meta description",
+          "weight": 1,
+          "nodes": null
+        },
+        {
+          "id": "http-status-code",
+          "title": "Page has unsuccessful HTTP status code",
+          "weight": 1,
+          "nodes": null
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": null,
+      "trustedTypes": 1,
+      "bfCache": 0,
+      "bfCacheFailures": 1,
+      "protocol": "http/1.1",
+      "legacyHttpRequests": 0,
+      "redirectMs": 762.8,
+      "consoleErrors": 1,
+      "baselineLimitedFeatures": 36
+    },
+    "environment": {
+      "lighthouseVersion": "13.6.0",
+      "benchmarkIndex": 3462,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-11-24T21:22:16.710Z",
+      "runtimeMs": 11746.3
+    }
+  },
+  "field": null,
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "probe": null,
+    "interstitial": "Just a moment...",
+    "host": {
+      "id": "cloudflare",
+      "name": "Cloudflare",
+      "icon": "Cloudflare",
+      "source": "server"
+    },
+    "headers": {
+      "cf-ray": "a5fb78712f24e5ba-IAD",
+      "server": "cloudflare"
+    },
+    "violations": null,
+    "passes": null,
+    "incomplete": null,
+    "violationRules": null,
+    "version": "4.14.0",
+    "top": [],
+    "error": null
+  },
+  "render": {
+    "samples": [
+      {
+        "hash": "6aecc88148a3",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "cf-cache-status": "HIT"
+        }
+      },
+      {
+        "hash": "d9b4f75da010",
+        "nonce": "623220a0b4f1",
+        "stamp": null,
+        "marks": [],
+        "headers": {}
+      }
+    ]
+  },
+  "consecutiveFailures": 0
+}
