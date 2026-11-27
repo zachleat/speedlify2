@@ -1,0 +1,448 @@
+{
+  "url": "https://www.uber.com/",
+  "name": "Uber",
+  "group": "big-tech",
+  "groupName": "Big Tech",
+  "timestamp": 1795750511172,
+  "date": "2026-11-27T03:35:11.172Z",
+  "runId": "2026-11-27T02-55-39-872Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 127432,
+  "error": null,
+  "variance": {
+    "min": 35,
+    "max": 42,
+    "spread": 7,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://www.uber.com/",
+    "finalUrl": "https://www.uber.com/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 42,
+      "accessibility": 94,
+      "best-practices": 73,
+      "seo": 92,
+      "agentic-browsing": 47
+    },
+    "timings": {
+      "fcp": 2614,
+      "lcp": 18504,
+      "si": 4707,
+      "tbt": 1260,
+      "tti": 18565,
+      "cls": 0.081,
+      "ttfb": 618,
+      "maxPotentialFid": 442,
+      "serverResponseTime": 102,
+      "networkRtt": 0.2,
+      "networkServerLatency": 48.3
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 104,
+      "elementRenderDelay": 1505.5
+    },
+    "weight": {
+      "total": 13421254,
+      "requests": 101,
+      "mainDocument": 150004,
+      "byType": {
+        "total": {
+          "bytes": 13421254,
+          "requests": 100
+        },
+        "media": {
+          "bytes": 10074025,
+          "requests": 1
+        },
+        "image": {
+          "bytes": 1520570,
+          "requests": 29
+        },
+        "script": {
+          "bytes": 1474893,
+          "requests": 38
+        },
+        "document": {
+          "bytes": 150004,
+          "requests": 1
+        },
+        "font": {
+          "bytes": 121441,
+          "requests": 4
+        },
+        "other": {
+          "bytes": 66362,
+          "requests": 26
+        },
+        "stylesheet": {
+          "bytes": 13959,
+          "requests": 1
+        },
+        "third-party": {
+          "bytes": 140460,
+          "requests": 2
+        }
+      },
+      "scripts": 38,
+      "stylesheets": 1,
+      "fonts": 4
+    },
+    "thirdParty": {
+      "count": 2,
+      "bytes": 140460,
+      "mainThreadMs": 54.8,
+      "top": [
+        {
+          "entity": "Other Google APIs/SDKs",
+          "bytes": 103263,
+          "mainThreadMs": 9.1,
+          "byType": {
+            "script": 103263
+          },
+          "typedBytes": 103263
+        },
+        {
+          "entity": "Tealium",
+          "bytes": 37197,
+          "mainThreadMs": 45.7,
+          "byType": {
+            "script": 37197
+          },
+          "typedBytes": 37197
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 6920.3,
+      "byGroup": {
+        "scriptEvaluation": 4426.7,
+        "other": 1367.3,
+        "styleLayout": 353.1,
+        "scriptParseCompile": 342.9,
+        "garbageCollection": 159.6,
+        "parseHTML": 140.8,
+        "paintCompositeRender": 130
+      },
+      "bootupMs": 4586.3,
+      "longTasks": 20,
+      "longestTaskMs": 442
+    },
+    "dom": {
+      "elements": 2560,
+      "depth": 34,
+      "maxChildren": 29
+    },
+    "waste": {
+      "unusedJsBytes": 785880,
+      "unusedCssBytes": 11923,
+      "legacyJsBytes": 26974,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 2296,
+      "renderBlockingMs": 0,
+      "renderBlockingCount": 1,
+      "poorlyCachedBytes": 8193030.831703912,
+      "poorlyCachedCount": 25
+    },
+    "accessibility": {
+      "failingCount": 2,
+      "applicableCount": 35,
+      "failingNodes": 2,
+      "failing": [
+        {
+          "id": "aria-dialog-name",
+          "title": "Elements with `role=\"dialog\"` or `role=\"alertdialog\"` do not have accessible names.",
+          "weight": 7,
+          "nodes": 1
+        },
+        {
+          "id": "target-size",
+          "title": "Touch targets do not have sufficient size or spacing.",
+          "weight": 7,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 4,
+      "applicableCount": 19,
+      "failing": [
+        {
+          "id": "third-party-cookies",
+          "title": "Uses third-party cookies",
+          "weight": 5,
+          "nodes": 2
+        },
+        {
+          "id": "image-aspect-ratio",
+          "title": "Displays images with incorrect aspect ratio",
+          "weight": 1,
+          "nodes": 1
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "weight": 1,
+          "nodes": 1
+        },
+        {
+          "id": "valid-source-maps",
+          "title": "Missing source maps for large first-party JavaScript",
+          "weight": 0,
+          "nodes": 35
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 1,
+      "applicableCount": 10,
+      "failing": [
+        {
+          "id": "link-text",
+          "title": "Links do not have descriptive text",
+          "weight": 1,
+          "nodes": 2
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 0,
+      "bfCacheFailures": 3,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 31
+    },
+    "environment": {
+      "lighthouseVersion": "13.6.0",
+      "benchmarkIndex": 2483,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-11-27T03:35:49.361Z",
+      "runtimeMs": 17664
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 1127.2,
+    "elementRenderDelay": 17897.2
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-10-29",
+      "last": "2026-11-25"
+    },
+    "metrics": {
+      "cls": {
+        "p75": 0,
+        "rating": "good",
+        "distribution": {
+          "good": 98.5,
+          "needsImprovement": 1.1,
+          "poor": 0.4
+        }
+      },
+      "ttfb": {
+        "p75": 818,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 74,
+          "needsImprovement": 19.8,
+          "poor": 6.1
+        }
+      },
+      "fcp": {
+        "p75": 1680,
+        "rating": "good",
+        "distribution": {
+          "good": 78.5,
+          "needsImprovement": 14.8,
+          "poor": 6.7
+        }
+      },
+      "inp": {
+        "p75": 211,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 73.6,
+          "needsImprovement": 19.9,
+          "poor": 6.6
+        }
+      },
+      "lcp": {
+        "p75": 2638,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 72.9,
+          "needsImprovement": 14.9,
+          "poor": 12.3
+        }
+      },
+      "rtt": {
+        "p75": 123,
+        "rating": null,
+        "distribution": {
+          "good": 44.4,
+          "needsImprovement": 47.7,
+          "poor": 7.9
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "probe": {
+      "metas": [],
+      "marks": [
+        "react"
+      ],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "cloudflare",
+      "name": "Cloudflare",
+      "icon": "Cloudflare",
+      "source": "server"
+    },
+    "headers": {
+      "cf-ray": "a60e17d459d39b4f-MSP",
+      "server": "cloudflare"
+    },
+    "violations": 9,
+    "passes": 2112,
+    "incomplete": 12,
+    "violationRules": 3,
+    "version": "4.14.0",
+    "top": [
+      {
+        "id": "image-redundant-alt",
+        "impact": "minor",
+        "nodes": 6,
+        "help": "Alternative text of images should not be repeated as text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/image-redundant-alt?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".css-cUKFPx[alt=\"Ride\"]",
+            "snippet": "<img alt=\"Ride\" class=\"css-cUKFPx\" src=\"https://mobile-content.uber.com/launch-experience/nava-icons-may-2026/light-mode/Sedan-160-temp.png\">"
+          },
+          {
+            "selector": ".css-cUKFPx[alt=\"Reserve\"]",
+            "snippet": "<img alt=\"Reserve\" class=\"css-cUKFPx\" src=\"https://cn-geo1.uber.com/static/mobile-content/launch-experience/nava-icons-may-2026/light-mode/Calendar-351-temp.png\">"
+          },
+          {
+            "selector": ".css-cUKFPx[alt=\"Hotels\"]",
+            "snippet": "<img alt=\"Hotels\" class=\"css-cUKFPx\" src=\"https://mobile-content.uber.com/launch-experience/hotels_light_v3.png\">"
+          },
+          {
+            "selector": ".css-cUKFPx[alt=\"Airport\"]",
+            "snippet": "<img alt=\"Airport\" class=\"css-cUKFPx\" src=\"https://tb-static.uber.com/prod/uber-static/airport-nava-tile.png\">"
+          },
+          {
+            "selector": ".css-cUKFPx[alt=\"Rental Cars \"]",
+            "snippet": "<img alt=\"Rental Cars \" class=\"css-cUKFPx\" src=\"https://cn-geo1.uber.com/static/mobile-content/launch-experience/nava-icons-may-2026/light-mode/CarRentalKey-189-temp.png\">"
+          }
+        ]
+      },
+      {
+        "id": "landmark-unique",
+        "impact": "moderate",
+        "nodes": 2,
+        "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/landmark-unique?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "div[data-block-id=\"BulletsCarousel\"]:nth-child(9) > .css-dmafOG[data-testid=\"responsive.visibility.wrapper\"] > div[data-hydrate-module-id=\"__fusion__27a0bcbc73\"][data-hydrate-component-name=\"Bullets\"][data-hydrate-method=\"visible\"] > .css-hBnhgZ > .css-hazmlH[data-baseweb=\"block\"] > .css-ofGld[data-baseweb=\"block\"] > .css-aiKAo.container-inner[data-baseweb=\"block\"] > .css-bVFrLX[data-testid=\"block-container\"][data-baseweb=\"block\"] > .css-HXvWP[data-baseweb=\"block\"]:nth-child(2) > .css-ygIAx[aria-label=\"Gallery\"][aria-roledescription=\"carousel\"]",
+            "snippet": "<div aria-label=\"Gallery\" aria-roledescription=\"carousel\" id=\"bullets-carousel\" role=\"region\" class=\"css-ygIAx\">"
+          },
+          {
+            "selector": "div[data-block-id=\"BulletsCarousel\"]:nth-child(9) > .css-dmafOG[data-testid=\"responsive.visibility.wrapper\"] > div[data-hydrate-module-id=\"__fusion__27a0bcbc73\"][data-hydrate-component-name=\"Bullets\"][data-hydrate-method=\"visible\"] > .css-hBnhgZ > .css-hazmlH[data-baseweb=\"block\"] > .css-ofGld[data-baseweb=\"block\"] > .css-aiKAo.container-inner[data-baseweb=\"block\"] > .css-bVFrLX[data-testid=\"block-container\"][data-baseweb=\"block\"] > .css-HXvWP[data-baseweb=\"block\"]:nth-child(2) > .css-Ueucm[data-testid=\"mobile-pagination\"] > .css-bcpvQL[aria-label=\"Gallery controls\"]",
+            "snippet": "<nav aria-label=\"Gallery controls\" class=\"css-bcpvQL\">"
+          }
+        ]
+      },
+      {
+        "id": "aria-dialog-name",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "ARIA dialog and alertdialog nodes should have an accessible name",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/aria-dialog-name?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "#privacy-cookie-banners-root",
+            "snippet": "<div role=\"dialog\" class=\"css-chgoVP\" id=\"privacy-cookie-banners-root\">"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "render": {
+    "samples": [
+      {
+        "hash": "3d6c7022c9d7",
+        "nonce": "b0308fad1b2e",
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "cf-cache-status": "BYPASS"
+        }
+      },
+      {
+        "hash": "3d6c7022c9d7",
+        "nonce": "b0308fad1b2e",
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "cf-cache-status": "BYPASS"
+        }
+      },
+      {
+        "hash": "3d6c7022c9d7",
+        "nonce": "b0308fad1b2e",
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "cf-cache-status": "BYPASS"
+        }
+      },
+      {
+        "hash": "3d6c7022c9d7",
+        "nonce": "b0308fad1b2e",
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "cf-cache-status": "BYPASS"
+        }
+      },
+      {
+        "hash": "3d6c7022c9d7",
+        "nonce": "b0308fad1b2e",
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "cf-cache-status": "BYPASS"
+        }
+      }
+    ]
+  },
+  "consecutiveFailures": 0
+}
