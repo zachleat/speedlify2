@@ -1,0 +1,628 @@
+{
+  "url": "https://www.hulu.com/",
+  "name": "Hulu",
+  "group": "nextjs-showcase",
+  "groupName": "Next.js Showcase",
+  "timestamp": 1795871578666,
+  "date": "2026-11-28T13:12:58.666Z",
+  "runId": "2026-11-28T13-10-45-338Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 117131,
+  "error": null,
+  "variance": {
+    "min": 36,
+    "max": 44,
+    "spread": 8,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://www.hulu.com/",
+    "finalUrl": "https://www.hulu.com/welcome",
+    "redirect": {
+      "from": "https://www.hulu.com/",
+      "to": "https://www.hulu.com/welcome",
+      "chain": [
+        {
+          "url": "https://www.hulu.com/",
+          "status": 301
+        },
+        {
+          "url": "https://www.hulu.com/welcome",
+          "status": 200
+        }
+      ],
+      "statuses": [
+        301
+      ],
+      "change": "path",
+      "permanent": true,
+      "schemeUpgrade": false,
+      "hops": 1
+    },
+    "statusCode": "ok",
+    "scores": {
+      "performance": 41,
+      "accessibility": 84,
+      "best-practices": 77,
+      "seo": 85,
+      "agentic-browsing": 50
+    },
+    "timings": {
+      "fcp": 1212,
+      "lcp": 8929,
+      "si": 6500,
+      "tbt": 2318,
+      "tti": 24273,
+      "cls": 0.007,
+      "ttfb": 1737,
+      "maxPotentialFid": 663,
+      "serverResponseTime": 1662,
+      "networkRtt": 3.6,
+      "networkServerLatency": 105.6
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 1736.9,
+      "elementRenderDelay": 247.9
+    },
+    "weight": {
+      "total": 4051018,
+      "requests": 157,
+      "mainDocument": 64755,
+      "byType": {
+        "total": {
+          "bytes": 4051018,
+          "requests": 157
+        },
+        "script": {
+          "bytes": 2121705,
+          "requests": 65
+        },
+        "image": {
+          "bytes": 1380860,
+          "requests": 40
+        },
+        "font": {
+          "bytes": 355339,
+          "requests": 7
+        },
+        "document": {
+          "bytes": 65381,
+          "requests": 2
+        },
+        "other": {
+          "bytes": 64448,
+          "requests": 39
+        },
+        "stylesheet": {
+          "bytes": 63285,
+          "requests": 4
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 2723359,
+          "requests": 116
+        }
+      },
+      "scripts": 65,
+      "stylesheets": 4,
+      "fonts": 7
+    },
+    "thirdParty": {
+      "count": 22,
+      "bytes": 2725828,
+      "mainThreadMs": 989.7,
+      "top": [
+        {
+          "entity": "bamgrid.com",
+          "bytes": 1220665,
+          "mainThreadMs": 0,
+          "byType": {
+            "image": 1220665
+          },
+          "typedBytes": 1220665
+        },
+        {
+          "entity": "Akamai",
+          "bytes": 356578,
+          "mainThreadMs": 0,
+          "byType": {
+            "font": 355339,
+            "other": 1239
+          },
+          "typedBytes": 356578
+        },
+        {
+          "entity": "Facebook",
+          "bytes": 278563,
+          "mainThreadMs": 178.7,
+          "byType": {
+            "script": 278512,
+            "image": 51
+          },
+          "typedBytes": 278563
+        },
+        {
+          "entity": "Optanon",
+          "bytes": 228679,
+          "mainThreadMs": 61.3,
+          "byType": {
+            "script": 153034,
+            "other": 53487,
+            "image": 22158
+          },
+          "typedBytes": 228679
+        },
+        {
+          "entity": "TikTok",
+          "bytes": 162405,
+          "mainThreadMs": 73.7,
+          "byType": {
+            "script": 156290,
+            "other": 6115
+          },
+          "typedBytes": 162405
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 7506.1,
+      "byGroup": {
+        "scriptEvaluation": 4868.2,
+        "other": 993.4,
+        "scriptParseCompile": 872.5,
+        "styleLayout": 478.6,
+        "paintCompositeRender": 130.7,
+        "parseHTML": 82.1,
+        "garbageCollection": 80.6
+      },
+      "bootupMs": 5422.3,
+      "longTasks": 20,
+      "longestTaskMs": 663
+    },
+    "dom": {
+      "elements": 1622,
+      "depth": 22,
+      "maxChildren": 37
+    },
+    "waste": {
+      "unusedJsBytes": 1133492,
+      "unusedCssBytes": 67485,
+      "legacyJsBytes": 101542,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 2115,
+      "renderBlockingMs": 322,
+      "renderBlockingCount": 4,
+      "poorlyCachedBytes": 706338.2643721068,
+      "poorlyCachedCount": 53
+    },
+    "accessibility": {
+      "failingCount": 5,
+      "applicableCount": 31,
+      "failingNodes": 22,
+      "failing": [
+        {
+          "id": "aria-required-parent",
+          "title": "`[role]`s are not contained by their required parent element",
+          "weight": 10,
+          "nodes": 13
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "title": "Elements with visible text labels do not have matching accessible names.",
+          "weight": 0,
+          "nodes": 6
+        },
+        {
+          "id": "button-name",
+          "title": "Buttons do not have an accessible name",
+          "weight": 10,
+          "nodes": 1
+        },
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "weight": 7,
+          "nodes": 1
+        },
+        {
+          "id": "link-in-text-block",
+          "title": "Links rely on color to be distinguishable.",
+          "weight": 7,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 3,
+      "applicableCount": 19,
+      "failing": [
+        {
+          "id": "third-party-cookies",
+          "title": "Uses third-party cookies",
+          "weight": 5,
+          "nodes": 15
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "weight": 1,
+          "nodes": 1
+        },
+        {
+          "id": "valid-source-maps",
+          "title": "Missing source maps for large first-party JavaScript",
+          "weight": 0,
+          "nodes": 1
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 2,
+      "applicableCount": 10,
+      "failing": [
+        {
+          "id": "link-text",
+          "title": "Links do not have descriptive text",
+          "weight": 1,
+          "nodes": 2
+        },
+        {
+          "id": "crawlable-anchors",
+          "title": "Links are not crawlable",
+          "weight": 1,
+          "nodes": 1
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 0,
+      "bfCacheFailures": 3,
+      "protocol": "h2",
+      "legacyHttpRequests": 8,
+      "redirectMs": 828.7,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 33
+    },
+    "environment": {
+      "lighthouseVersion": "13.6.0",
+      "benchmarkIndex": 2536.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/158.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-11-28T13:13:40.322Z",
+      "runtimeMs": 17817.4
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 1701.6,
+    "elementRenderDelay": 3894.7
+  },
+  "field": {
+    "source": "crux",
+    "scope": "landing",
+    "url": "https://www.hulu.com/welcome",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-10-30",
+      "last": "2026-11-26"
+    },
+    "metrics": {
+      "ttfb": {
+        "p75": 1236,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 34.4,
+          "needsImprovement": 58.5,
+          "poor": 7.1
+        }
+      },
+      "fcp": {
+        "p75": 1876,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 71.8,
+          "needsImprovement": 21.8,
+          "poor": 6.3
+        }
+      },
+      "inp": {
+        "p75": 150,
+        "rating": "good",
+        "distribution": {
+          "good": 84.6,
+          "needsImprovement": 11.8,
+          "poor": 3.6
+        }
+      },
+      "lcp": {
+        "p75": 2930,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 68,
+          "needsImprovement": 15.7,
+          "poor": 16.4
+        }
+      },
+      "rtt": {
+        "p75": 95,
+        "rating": null,
+        "distribution": {
+          "good": 57.2,
+          "needsImprovement": 39.9,
+          "poor": 2.9
+        }
+      },
+      "cls": {
+        "p75": 0,
+        "rating": "good",
+        "distribution": {
+          "good": 96.9,
+          "needsImprovement": 0.4,
+          "poor": 2.7
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": {
+      "id": "nextjs",
+      "name": "Next.js",
+      "icon": "Nextdotjs",
+      "version": null,
+      "source": "dom",
+      "raw": null
+    },
+    "probe": {
+      "metas": [],
+      "marks": [
+        "next",
+        "react"
+      ],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "self-hosted",
+      "name": "Self-hosted",
+      "icon": null,
+      "detail": "Envoy",
+      "detailIcon": "Envoyproxy",
+      "source": "server"
+    },
+    "headers": {
+      "server": "envoy"
+    },
+    "violations": 76,
+    "passes": 1716,
+    "incomplete": 37,
+    "violationRules": 8,
+    "version": "4.14.0",
+    "top": [
+      {
+        "id": "aria-allowed-role",
+        "impact": "minor",
+        "nodes": 43,
+        "help": "ARIA role should be appropriate for the element",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/aria-allowed-role?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "img[alt=\"ABC News\"]",
+            "snippet": "<img src=\"https://img3.hulu.co...\" class=\"library__item-backgr...\" alt=\"ABC News\" role=\"presentation\">"
+          },
+          {
+            "selector": "img[alt=\"Hulu Original Series\"]",
+            "snippet": "<img src=\"https://img4.hulu.co...\" class=\"library__item-backgr...\" alt=\"Hulu Original Series\" role=\"presentation\">"
+          },
+          {
+            "selector": "img[alt=\"A&E\"]",
+            "snippet": "<img src=\"https://img3.hulu.co...\" class=\"library__item-backgr...\" alt=\"A&E\" role=\"presentation\">"
+          },
+          {
+            "selector": ".plan-head__card-0 > .plan-head__card-content > .plan-head__card-eyebrow-image > img[alt=\"logo\"][role=\"presentation\"][loading=\"lazy\"]",
+            "snippet": "<img src=\"https://cnbl-cdn.bamgrid.com/assets/ef744401e9395cfbb37338e279b3d283e21844ee6e5f2c741a4fc80ecbd64c51/original\" role=\"presentation\" alt=\"logo\" loading=\"lazy\">"
+          },
+          {
+            "selector": ".plan-head__card-1 > .plan-head__card-content > .plan-head__card-eyebrow-image > img[alt=\"logo\"][role=\"presentation\"][loading=\"lazy\"]",
+            "snippet": "<img src=\"https://cnbl-cdn.bamgrid.com/assets/ef744401e9395cfbb37338e279b3d283e21844ee6e5f2c741a4fc80ecbd64c51/original\" role=\"presentation\" alt=\"logo\" loading=\"lazy\">"
+          }
+        ]
+      },
+      {
+        "id": "aria-required-parent",
+        "impact": "critical",
+        "nodes": 13,
+        "help": "Certain ARIA roles must be contained by particular parents",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/aria-required-parent?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "div[aria-label=\"CBS Sports Network Logo logo\"]",
+            "snippet": "<div aria-label=\"CBS Sports Network Logo logo\" role=\"listitem\" class=\"TabContent__logo\">"
+          },
+          {
+            "selector": "div[aria-label=\"ESPN Network Logo logo\"]",
+            "snippet": "<div aria-label=\"ESPN Network Logo logo\" role=\"listitem\" class=\"TabContent__logo\"><div class=\"logo-wall--bug \"><img class=\"lazyload\" data-src=\"//cnbl-cdn.bamgrid.com/assets/22943c5e9e0ee02501daa440ec…"
+          },
+          {
+            "selector": "div[aria-label=\"FS1 Logo logo\"]",
+            "snippet": "<div aria-label=\"FS1 Logo logo\" role=\"listitem\" class=\"TabContent__logo\"><div class=\"logo-wall--bug \"><img class=\"lazyload\" data-src=\"//cnbl-cdn.bamgrid.com/assets/1011985ada97696d9ac50c3ba59cfa50d0c…"
+          },
+          {
+            "selector": "div[aria-label=\"NFL Network Logo logo\"]",
+            "snippet": "<div aria-label=\"NFL Network Logo logo\" role=\"listitem\" class=\"TabContent__logo\"><div class=\"logo-wall--bug \"><img class=\"lazyload\" data-src=\"//cnbl-cdn.bamgrid.com/assets/1caca943330869aaf05bf9db4ad…"
+          },
+          {
+            "selector": "div[aria-label=\"MLB Network logo\"]",
+            "snippet": "<div aria-label=\"MLB Network logo\" role=\"listitem\" class=\"TabContent__logo\"><div class=\"logo-wall--bug \"><img class=\"lazyload\" data-src=\"//cnbl-cdn.bamgrid.com/assets/f60de36aa00ab1c9c27bc669bc2ba64e…"
+          }
+        ]
+      },
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 10,
+        "help": "All page content should be contained by landmarks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/region?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".library__header",
+            "snippet": "<div class=\"library__header\">"
+          },
+          {
+            "selector": ".Billboard:nth-child(6) > div > .Billboard__container > .Billboard__eyebrow",
+            "snippet": "<div class=\"Billboard__eyebrow\">TRY HULU (WITH ADS) + LIVE TV FREE FOR 3 DAYS</div>"
+          },
+          {
+            "selector": ".Billboard:nth-child(6) > div > .Billboard__container > .Billboard__headline",
+            "snippet": "<h2 class=\"Billboard__headline\">Watch Live TV From 100+ Channels</h2>"
+          },
+          {
+            "selector": ".Billboard:nth-child(6) > div > .Billboard__container > .Billboard__subheadline",
+            "snippet": "<h3 class=\"Billboard__subheadline\">"
+          },
+          {
+            "selector": ".Billboard:nth-child(6) > div > .Billboard__container > .Billboard__disclaimer",
+            "snippet": "<p class=\"Billboard__disclaimer section-disclaimer\">"
+          }
+        ]
+      },
+      {
+        "id": "label-content-name-mismatch",
+        "impact": "serious",
+        "nodes": 6,
+        "help": "Elements must have their visible text as part of their accessible name",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/label-content-name-mismatch?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "button[data-target=\"#live-tv-legal-modal\"]",
+            "snippet": "<button class=\"button-link\" data-toggle=\"modal\" data-target=\"#live-tv-legal-modal\" aria-label=\"Click to see offer eligibility details.\" data-listener=\"true\">See details</button>"
+          },
+          {
+            "selector": ".Billboard__modalLink",
+            "snippet": "<button aria-label=\"Open Zip Code Module\" class=\"Billboard__modalLink\" data-toggle=\"modal\" data-target=\"#zip-modal\" data-listener=\"true\">VIEW CHANNELS IN YOUR AREA →</button>"
+          },
+          {
+            "selector": ".plan-card__button-wrapper--mobile > .plan-card__0_cta.plan-card__cta.css-ep6pbm",
+            "snippet": "<button class=\"button--cta plan-card__cta plan-card__0_cta smooth-transition css-ep6pbm\" aria-label=\"Get Disney+, Hulu Bundle Basic plan\"><span class=\"css-1hdv16d\">GET THIS DEAL</span></button>"
+          },
+          {
+            "selector": ".plan-card__button-wrapper--mobile > .plan-card__1_cta.plan-card__cta.css-ep6pbm",
+            "snippet": "<button class=\"button--cta plan-card__cta plan-card__1_cta smooth-transition css-ep6pbm\" aria-label=\"Get Disney+, Hulu Bundle Premium plan\"><span class=\"css-1hdv16d\">GET THIS DEAL</span></button>"
+          },
+          {
+            "selector": ".plan-addon_controller",
+            "snippet": "<div class=\"plan-addon_controller\" role=\"button\" aria-label=\"See Addons\" aria-pressed=\"false\">Show Add-ons<img src=\"/static/hitch/static/icons/Dropdown_Down_Arrow.svg\" role=\"presentation\" alt=\"See Ad…"
+          }
+        ]
+      },
+      {
+        "id": "button-name",
+        "impact": "critical",
+        "nodes": 1,
+        "help": "Buttons must have discernible text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/button-name?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "#nav-menu-button-2",
+            "snippet": "<button class=\"NavMenu-module_NavMenu__button__ArTRv\" data-testid=\"nav-menu-button\" aria-haspopup=\"true\" aria-expanded=\"false\" aria-controls=\"nav-menu-list-1\" id=\"nav-menu-button-2\" type=\"button\">"
+          }
+        ]
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "a[title=\"Help Center\"]",
+            "snippet": "<a href=\"https://help.hulu.com/article/hulu-disney-espn-bundle?utm_source=hulu&amp;utm_medium=web&amp;utm_campaign=MLP-FAQ-any-questions&amp;utm_content=hulu-disney-espn-bundle\" title=\"Help Center\" t…"
+          }
+        ]
+      },
+      {
+        "id": "landmark-unique",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/landmark-unique?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "#call-to-action-live-tv",
+            "snippet": "<div id=\"call-to-action-live-tv\" class=\"container call-to-action-container center-aligned\" role=\"region\" aria-labelledby=\"regionCallToAction\" data-automationid=\"call_to_action\">"
+          }
+        ]
+      },
+      {
+        "id": "link-in-text-block",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "Links must be distinguishable without relying on color",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/link-in-text-block?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "a[title=\"Help Center\"]",
+            "snippet": "<a href=\"https://help.hulu.com/article/hulu-disney-espn-bundle?utm_source=hulu&amp;utm_medium=web&amp;utm_campaign=MLP-FAQ-any-questions&amp;utm_content=hulu-disney-espn-bundle\" title=\"Help Center\" t…"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "render": {
+    "samples": [
+      {
+        "hash": "9902f1ac3606",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "etag": "W/\"5006a-KJFLw7O7+oyN+m+xS+JDJ2J3zbE\""
+        }
+      },
+      {
+        "hash": "335a79bb9aea",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "etag": "W/\"5006a-KJFLw7O7+oyN+m+xS+JDJ2J3zbE\""
+        }
+      },
+      {
+        "hash": "335a79bb9aea",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "etag": "W/\"5006a-KJFLw7O7+oyN+m+xS+JDJ2J3zbE\""
+        }
+      },
+      {
+        "hash": "335a79bb9aea",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "etag": "W/\"5006a-KJFLw7O7+oyN+m+xS+JDJ2J3zbE\""
+        }
+      }
+    ]
+  },
+  "consecutiveFailures": 0
+}

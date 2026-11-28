@@ -1,0 +1,535 @@
+{
+  "url": "https://www.nerdwallet.com/",
+  "name": "NerdWallet",
+  "group": "nextjs-showcase",
+  "groupName": "Next.js Showcase",
+  "timestamp": 1795871698800,
+  "date": "2026-11-28T13:14:58.800Z",
+  "runId": "2026-11-28T13-10-45-338Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 268223,
+  "error": null,
+  "variance": {
+    "min": 71,
+    "max": 73,
+    "spread": 2,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://www.nerdwallet.com/",
+    "finalUrl": "https://www.nerdwallet.com/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 73,
+      "accessibility": 85,
+      "best-practices": 77,
+      "seo": 100,
+      "agentic-browsing": 50
+    },
+    "timings": {
+      "fcp": 1725,
+      "lcp": 2082,
+      "si": 2504,
+      "tbt": 1299,
+      "tti": 12773,
+      "cls": 0,
+      "ttfb": 657,
+      "maxPotentialFid": 417,
+      "serverResponseTime": 98,
+      "networkRtt": 2.6,
+      "networkServerLatency": 76.1
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 102,
+      "resourceLoadDelay": 71.2,
+      "resourceLoadDuration": 59.5,
+      "elementRenderDelay": 77.3
+    },
+    "weight": {
+      "total": 1842934,
+      "requests": 148,
+      "mainDocument": 175325,
+      "byType": {
+        "total": {
+          "bytes": 1833637,
+          "requests": 128
+        },
+        "script": {
+          "bytes": 1249959,
+          "requests": 38
+        },
+        "image": {
+          "bytes": 268810,
+          "requests": 42
+        },
+        "document": {
+          "bytes": 175325,
+          "requests": 1
+        },
+        "other": {
+          "bytes": 74989,
+          "requests": 42
+        },
+        "font": {
+          "bytes": 64554,
+          "requests": 5
+        },
+        "stylesheet": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 811998,
+          "requests": 32
+        }
+      },
+      "scripts": 38,
+      "stylesheets": 0,
+      "fonts": 5
+    },
+    "thirdParty": {
+      "count": 6,
+      "bytes": 812041,
+      "mainThreadMs": 228.1,
+      "top": [
+        {
+          "entity": "Google Tag Manager",
+          "bytes": 561580,
+          "mainThreadMs": 152,
+          "byType": {
+            "script": 561580
+          },
+          "typedBytes": 561580
+        },
+        {
+          "entity": "Optanon",
+          "bytes": 239974,
+          "mainThreadMs": 76.1,
+          "byType": {
+            "script": 160331,
+            "other": 57237,
+            "image": 22406
+          },
+          "typedBytes": 239974
+        },
+        {
+          "entity": "browser-intake-datadoghq.com",
+          "bytes": 5291,
+          "mainThreadMs": 0,
+          "byType": {
+            "other": 5291
+          },
+          "typedBytes": 5291
+        },
+        {
+          "entity": "Gravatar",
+          "bytes": 5153,
+          "mainThreadMs": 0,
+          "byType": {
+            "image": 5153
+          },
+          "typedBytes": 5153
+        },
+        {
+          "entity": "Google/Doubleclick Ads",
+          "bytes": 22,
+          "mainThreadMs": 0,
+          "byType": {
+            "other": 22
+          },
+          "typedBytes": 22
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 17468.6,
+      "byGroup": {
+        "other": 8403.9,
+        "scriptEvaluation": 3847.2,
+        "paintCompositeRender": 2381.6,
+        "styleLayout": 2182.6,
+        "scriptParseCompile": 251,
+        "garbageCollection": 207.6,
+        "parseHTML": 194.8
+      },
+      "bootupMs": 3779.3,
+      "longTasks": 16,
+      "longestTaskMs": 417
+    },
+    "dom": {
+      "elements": 2649,
+      "depth": 16,
+      "maxChildren": 32
+    },
+    "waste": {
+      "unusedJsBytes": 611556,
+      "unusedCssBytes": 31406,
+      "legacyJsBytes": 20815,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 0,
+      "renderBlockingCount": 0,
+      "poorlyCachedBytes": 112362.09166666669,
+      "poorlyCachedCount": 14
+    },
+    "accessibility": {
+      "failingCount": 5,
+      "applicableCount": 29,
+      "failingNodes": 11,
+      "failing": [
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "weight": 7,
+          "nodes": 4
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "title": "Elements with visible text labels do not have matching accessible names.",
+          "weight": 0,
+          "nodes": 4
+        },
+        {
+          "id": "aria-prohibited-attr",
+          "title": "Elements use prohibited ARIA attributes",
+          "weight": 7,
+          "nodes": 1
+        },
+        {
+          "id": "link-in-text-block",
+          "title": "Links rely on color to be distinguishable.",
+          "weight": 7,
+          "nodes": 1
+        },
+        {
+          "id": "target-size",
+          "title": "Touch targets do not have sufficient size or spacing.",
+          "weight": 7,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 3,
+      "applicableCount": 18,
+      "failing": [
+        {
+          "id": "third-party-cookies",
+          "title": "Uses third-party cookies",
+          "weight": 5,
+          "nodes": 1
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "weight": 1,
+          "nodes": 1
+        },
+        {
+          "id": "valid-source-maps",
+          "title": "Missing source maps for large first-party JavaScript",
+          "weight": 0,
+          "nodes": 3
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 0,
+      "applicableCount": 10,
+      "failing": []
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 0,
+      "baselineLimitedFeatures": 62
+    },
+    "environment": {
+      "lighthouseVersion": "13.6.0",
+      "benchmarkIndex": 2530.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/158.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-11-28T13:16:06.071Z",
+      "runtimeMs": 65366.9
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 1127.1,
+    "resourceLoadDelay": 32,
+    "resourceLoadDuration": 1430.7,
+    "elementRenderDelay": 31.9
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-10-30",
+      "last": "2026-11-26"
+    },
+    "metrics": {
+      "lcp": {
+        "p75": 1410,
+        "rating": "good",
+        "distribution": {
+          "good": 89.1,
+          "needsImprovement": 6.4,
+          "poor": 4.6
+        }
+      },
+      "rtt": {
+        "p75": 143,
+        "rating": null,
+        "distribution": {
+          "good": 32.9,
+          "needsImprovement": 58.1,
+          "poor": 9
+        }
+      },
+      "cls": {
+        "p75": 0,
+        "rating": "good",
+        "distribution": {
+          "good": 96.5,
+          "needsImprovement": 2.3,
+          "poor": 1.2
+        }
+      },
+      "ttfb": {
+        "p75": 627,
+        "rating": "good",
+        "distribution": {
+          "good": 81.3,
+          "needsImprovement": 12.3,
+          "poor": 6.4
+        }
+      },
+      "fcp": {
+        "p75": 1030,
+        "rating": "good",
+        "distribution": {
+          "good": 88.5,
+          "needsImprovement": 5.6,
+          "poor": 5.9
+        }
+      },
+      "inp": {
+        "p75": 129,
+        "rating": "good",
+        "distribution": {
+          "good": 84.8,
+          "needsImprovement": 11.8,
+          "poor": 3.4
+        }
+      }
+    },
+    "cwvPass": true,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": {
+      "id": "astro",
+      "name": "Astro",
+      "icon": "Astro",
+      "version": null,
+      "source": "dom",
+      "raw": null
+    },
+    "probe": {
+      "metas": [],
+      "marks": [
+        "astro",
+        "react"
+      ],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "vercel",
+      "name": "Vercel",
+      "icon": "Vercel",
+      "source": "x-vercel-id"
+    },
+    "headers": {
+      "cf-ray": "a619a9f68acbbe47-IAD",
+      "server": "cloudflare",
+      "x-vercel-id": "iad1::iad1::xkmj6-1795871962660-0488134bba60"
+    },
+    "violations": 11,
+    "passes": 1813,
+    "incomplete": 64,
+    "violationRules": 5,
+    "version": "4.14.0",
+    "top": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 4,
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "#panel-banking > .max-md\\:-mx-4.max-md\\:snap-x.max-md\\:snap-mandatory > .md\\:grid.md\\:items-stretch.md\\:grid-cols-3 > .min-h-0.w-80.max-w-80:nth-child(1) > .min-h-\\[180px\\].pt-\\[26px\\].pb-4 > .-top-\\[14px\\].left-4.z-50",
+            "snippet": "<span class=\"text-green absolute -top-[14px] left-4 z-50 inline-block rounded-full border border-[#A8EA4C] bg-[#E5FFC0] px-3 py-1 text-[13px] leading-[150%] font-medium lg:left-6\" aria-label=\"Compare…"
+          },
+          {
+            "selector": "#panel-banking > .max-md\\:-mx-4.max-md\\:snap-x.max-md\\:snap-mandatory > .md\\:grid.md\\:items-stretch.md\\:grid-cols-3 > .min-h-0.w-80.max-w-80:nth-child(1) > .min-h-\\[180px\\].pt-\\[26px\\].pb-4 > .\\@container.min-w-0.w-full > .grid-cols-1.items-baseline.gap-x-2 > .text-neutral-dark.\\@min-\\[16\\.5rem\\]\\:text-right.text-\\[20px\\]",
+            "snippet": "<span class=\"hp-fade-element text-neutral-dark block shrink-0 text-left text-[20px] leading-[130%] font-medium -tracking-[0.2px] opacity-0 lg:text-2xl @min-[16.5rem]:w-full @min-[16.5rem]:text-right\"…"
+          },
+          {
+            "selector": "#panel-banking > .max-md\\:-mx-4.max-md\\:snap-x.max-md\\:snap-mandatory > .md\\:grid.md\\:items-stretch.md\\:grid-cols-3 > .min-h-0.w-80.max-w-80:nth-child(2) > .min-h-\\[180px\\].pt-\\[26px\\].pb-4 > .\\@container.min-w-0.w-full > .grid-cols-1.items-baseline.gap-x-2 > .text-neutral-dark.\\@min-\\[16\\.5rem\\]\\:text-right.text-\\[20px\\]",
+            "snippet": "<span class=\"hp-fade-element text-neutral-dark block shrink-0 text-left text-[20px] leading-[130%] font-medium -tracking-[0.2px] opacity-0 lg:text-2xl @min-[16.5rem]:w-full @min-[16.5rem]:text-right\"…"
+          },
+          {
+            "selector": "#panel-banking > .max-md\\:-mx-4.max-md\\:snap-x.max-md\\:snap-mandatory > .md\\:grid.md\\:items-stretch.md\\:grid-cols-3 > .min-h-0.w-80.max-w-80:nth-child(3) > .min-h-\\[180px\\].pt-\\[26px\\].pb-4 > .\\@container.min-w-0.w-full > .grid-cols-1.items-baseline.gap-x-2 > .text-neutral-dark.\\@min-\\[16\\.5rem\\]\\:text-right.text-\\[20px\\]",
+            "snippet": "<span class=\"hp-fade-element text-neutral-dark block shrink-0 text-left text-[20px] leading-[130%] font-medium -tracking-[0.2px] opacity-0 lg:text-2xl @min-[16.5rem]:w-full @min-[16.5rem]:text-right\"…"
+          }
+        ]
+      },
+      {
+        "id": "label-content-name-mismatch",
+        "impact": "serious",
+        "nodes": 4,
+        "help": "Elements must have their visible text as part of their accessible name",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/label-content-name-mismatch?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "#panel-banking > .max-md\\:-mx-4.max-md\\:snap-x.max-md\\:snap-mandatory > .md\\:grid.md\\:items-stretch.md\\:grid-cols-3 > .min-h-0.w-80.max-w-80:nth-child(1) > .min-h-\\[180px\\].pt-\\[26px\\].pb-4",
+            "snippet": "<a href=\"https://www.nerdwall...\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"group relative flex ...\" aria-label=\"Compare Savings rate...\">"
+          },
+          {
+            "selector": "#panel-banking > .max-md\\:-mx-4.max-md\\:snap-x.max-md\\:snap-mandatory > .md\\:grid.md\\:items-stretch.md\\:grid-cols-3 > .min-h-0.w-80.max-w-80:nth-child(2) > .min-h-\\[180px\\].pt-\\[26px\\].pb-4",
+            "snippet": "<a href=\"https://www.nerdwall...\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"group relative flex ...\" aria-label=\"Compare CD Rates - B...\">"
+          },
+          {
+            "selector": "#panel-banking > .max-md\\:-mx-4.max-md\\:snap-x.max-md\\:snap-mandatory > .md\\:grid.md\\:items-stretch.md\\:grid-cols-3 > .min-h-0.w-80.max-w-80:nth-child(3) > .min-h-\\[180px\\].pt-\\[26px\\].pb-4",
+            "snippet": "<a href=\"https://www.nerdwall...\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"group relative flex ...\" aria-label=\"Compare Money Market...\">"
+          },
+          {
+            "selector": ".ot-cookie-policy-link",
+            "snippet": "<a class=\"ot-cookie-policy-link\" href=\"https://www.nerdwallet.com/p/privacy-policy\" aria-label=\"More information about your privacy, opens in a new tab\" rel=\"noopener\" target=\"_blank\">Privacy policy<…"
+          }
+        ]
+      },
+      {
+        "id": "aria-prohibited-attr",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "Elements must only use permitted ARIA attributes",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/aria-prohibited-attr?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "#sideBarEntry",
+            "snippet": "<label id=\"sideBarEntry\" for=\"navPanelTree\" aria-label=\"Open navigation pane...\" data-role=\"button\" tabindex=\"0\" class=\"p-2 mr-4 lg:ml-4 cur...\" data-nw-tracking=\"{\"click\":{\"event\":\"E...\">"
+          }
+        ]
+      },
+      {
+        "id": "link-in-text-block",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "Links must be distinguishable without relying on color",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/link-in-text-block?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".ot-cookie-policy-link",
+            "snippet": "<a class=\"ot-cookie-policy-link\" href=\"https://www.nerdwallet.com/p/privacy-policy\" aria-label=\"More information about your privacy, opens in a new tab\" rel=\"noopener\" target=\"_blank\">Privacy policy<…"
+          }
+        ]
+      },
+      {
+        "id": "scrollable-region-focusable",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "Scrollable region must have keyboard access",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/scrollable-region-focusable?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".snap-x",
+            "snippet": "<div class=\"snap-x snap-mandatory overflow-x-auto overflow-y-visible scroll-smooth py-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden\">"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "render": {
+    "samples": [
+      {
+        "hash": "a608db47cc82",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "age": "1158",
+          "cf-cache-status": "DYNAMIC",
+          "x-vercel-cache": "HIT"
+        }
+      },
+      {
+        "hash": "a608db47cc82",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "age": "1224",
+          "cf-cache-status": "DYNAMIC",
+          "x-vercel-cache": "HIT"
+        }
+      },
+      {
+        "hash": "a608db47cc82",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "age": "1290",
+          "cf-cache-status": "DYNAMIC",
+          "x-vercel-cache": "HIT"
+        }
+      },
+      {
+        "hash": "a608db47cc82",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "age": "1356",
+          "cf-cache-status": "DYNAMIC",
+          "x-vercel-cache": "HIT"
+        }
+      },
+      {
+        "hash": "a608db47cc82",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "age": "1421",
+          "cf-cache-status": "DYNAMIC",
+          "x-vercel-cache": "HIT"
+        }
+      }
+    ]
+  },
+  "consecutiveFailures": 0
+}
