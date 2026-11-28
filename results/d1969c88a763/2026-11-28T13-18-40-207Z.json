@@ -1,0 +1,733 @@
+{
+  "url": "https://www.lg.com/",
+  "name": "LG",
+  "group": "nextjs-showcase",
+  "groupName": "Next.js Showcase",
+  "timestamp": 1795871920207,
+  "date": "2026-11-28T13:18:40.207Z",
+  "runId": "2026-11-28T13-10-49-233Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 189588,
+  "error": null,
+  "variance": {
+    "min": 18,
+    "max": 19,
+    "spread": 1,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://www.lg.com/",
+    "finalUrl": "https://www.lg.com/us/",
+    "redirect": {
+      "from": "https://www.lg.com/",
+      "to": "https://www.lg.com/us",
+      "chain": [
+        {
+          "url": "https://www.lg.com/",
+          "status": 301
+        },
+        {
+          "url": "https://www.lg.com/us",
+          "status": 301
+        },
+        {
+          "url": "https://www.lg.com/us/",
+          "status": 200
+        }
+      ],
+      "statuses": [
+        301,
+        301
+      ],
+      "change": "path",
+      "permanent": true,
+      "schemeUpgrade": false,
+      "hops": 2
+    },
+    "statusCode": "ok",
+    "scores": {
+      "performance": 18,
+      "accessibility": 65,
+      "best-practices": 96,
+      "seo": 85,
+      "agentic-browsing": 50
+    },
+    "timings": {
+      "fcp": 2813,
+      "lcp": 40004,
+      "si": 13943,
+      "tbt": 6776,
+      "tti": 46781,
+      "cls": 0.246,
+      "ttfb": 660,
+      "maxPotentialFid": 2907,
+      "serverResponseTime": 70,
+      "networkRtt": 74,
+      "networkServerLatency": 143
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 130,
+      "elementRenderDelay": 5151.2
+    },
+    "weight": {
+      "total": 7932123,
+      "requests": 376,
+      "mainDocument": 376818,
+      "byType": {
+        "total": {
+          "bytes": 7916383,
+          "requests": 372
+        },
+        "image": {
+          "bytes": 3687798,
+          "requests": 210
+        },
+        "script": {
+          "bytes": 3388067,
+          "requests": 100
+        },
+        "font": {
+          "bytes": 421716,
+          "requests": 4
+        },
+        "document": {
+          "bytes": 376818,
+          "requests": 1
+        },
+        "other": {
+          "bytes": 25026,
+          "requests": 53
+        },
+        "stylesheet": {
+          "bytes": 16958,
+          "requests": 4
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 2691434,
+          "requests": 86
+        }
+      },
+      "scripts": 102,
+      "stylesheets": 4,
+      "fonts": 4
+    },
+    "thirdParty": {
+      "count": 17,
+      "bytes": 2691782,
+      "mainThreadMs": 2399.6,
+      "top": [
+        {
+          "entity": "Google Tag Manager",
+          "bytes": 1619408,
+          "mainThreadMs": 475.9,
+          "byType": {
+            "script": 1619408
+          },
+          "typedBytes": 1619408
+        },
+        {
+          "entity": "audioeye.com",
+          "bytes": 347074,
+          "mainThreadMs": 1580.2,
+          "byType": {
+            "script": 334751,
+            "stylesheet": 12323
+          },
+          "typedBytes": 347074
+        },
+        {
+          "entity": "Forter",
+          "bytes": 193890,
+          "mainThreadMs": 13.3,
+          "byType": {
+            "script": 189452,
+            "other": 4438
+          },
+          "typedBytes": 193890
+        },
+        {
+          "entity": "transcend.io",
+          "bytes": 165490,
+          "mainThreadMs": 144.1,
+          "byType": {
+            "script": 165490
+          },
+          "typedBytes": 165490
+        },
+        {
+          "entity": "FullStory",
+          "bytes": 117939,
+          "mainThreadMs": 56.9,
+          "byType": {
+            "script": 114704,
+            "other": 3235
+          },
+          "typedBytes": 117939
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 27421.1,
+      "byGroup": {
+        "scriptEvaluation": 21251.3,
+        "other": 2891.7,
+        "styleLayout": 1003.6,
+        "garbageCollection": 814.5,
+        "scriptParseCompile": 532.8,
+        "parseHTML": 469.4,
+        "paintCompositeRender": 457.7
+      },
+      "bootupMs": 20911.6,
+      "longTasks": 20,
+      "longestTaskMs": 2907
+    },
+    "dom": {
+      "elements": 8523,
+      "depth": 23,
+      "maxChildren": 47
+    },
+    "waste": {
+      "unusedJsBytes": 1072840,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 47872,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 16592,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 152,
+      "renderBlockingCount": 1,
+      "poorlyCachedBytes": 1131915.4630873778,
+      "poorlyCachedCount": 89
+    },
+    "accessibility": {
+      "failingCount": 9,
+      "applicableCount": 34,
+      "failingNodes": 74,
+      "failing": [
+        {
+          "id": "listitem",
+          "title": "List items (`<li>`) are not contained within `<ul>`, `<ol>` or `<menu>` parent elements.",
+          "weight": 7,
+          "nodes": 31
+        },
+        {
+          "id": "aria-hidden-focus",
+          "title": "`[aria-hidden=\"true\"]` elements contain focusable descendents",
+          "weight": 7,
+          "nodes": 21
+        },
+        {
+          "id": "aria-required-parent",
+          "title": "`[role]`s are not contained by their required parent element",
+          "weight": 10,
+          "nodes": 8
+        },
+        {
+          "id": "aria-allowed-attr",
+          "title": "`[aria-*]` attributes do not match their roles",
+          "weight": 10,
+          "nodes": 6
+        },
+        {
+          "id": "link-name",
+          "title": "Links do not have a discernible name",
+          "weight": 7,
+          "nodes": 2
+        },
+        {
+          "id": "meta-viewport",
+          "title": "`[user-scalable=\"no\"]` is used in the `<meta name=\"viewport\">` element or the `[maximum-scale]` attribute is less than 5.",
+          "weight": 10,
+          "nodes": 2
+        },
+        {
+          "id": "target-size",
+          "title": "Touch targets do not have sufficient size or spacing.",
+          "weight": 7,
+          "nodes": 2
+        },
+        {
+          "id": "aria-required-children",
+          "title": "Elements with an ARIA `[role]` that require children to contain a specific `[role]` are missing some or all of those required children.",
+          "weight": 10,
+          "nodes": 1
+        },
+        {
+          "id": "aria-valid-attr-value",
+          "title": "`[aria-*]` attributes do not have valid values",
+          "weight": 10,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 1,
+      "applicableCount": 19,
+      "failing": [
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "weight": 1,
+          "nodes": 12
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 2,
+      "applicableCount": 10,
+      "failing": [
+        {
+          "id": "link-text",
+          "title": "Links do not have descriptive text",
+          "weight": 1,
+          "nodes": 48
+        },
+        {
+          "id": "robots-txt",
+          "title": "robots.txt is not valid",
+          "weight": 1,
+          "nodes": 1
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 810.4,
+      "consoleErrors": 12,
+      "baselineLimitedFeatures": 65
+    },
+    "environment": {
+      "lighthouseVersion": "13.6.0",
+      "benchmarkIndex": 4050,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/158.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-11-28T13:19:18.236Z",
+      "runtimeMs": 32417.8
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 2270.7,
+    "resourceLoadDelay": 946,
+    "resourceLoadDuration": 796,
+    "elementRenderDelay": 18785.9
+  },
+  "field": {
+    "source": "crux",
+    "scope": "landing",
+    "url": "https://www.lg.com/us/",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-10-30",
+      "last": "2026-11-26"
+    },
+    "metrics": {
+      "cls": {
+        "p75": 0.11,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 69.5,
+          "needsImprovement": 20.8,
+          "poor": 9.7
+        }
+      },
+      "ttfb": {
+        "p75": 970,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 68.7,
+          "needsImprovement": 22.8,
+          "poor": 8.5
+        }
+      },
+      "fcp": {
+        "p75": 1584,
+        "rating": "good",
+        "distribution": {
+          "good": 80.2,
+          "needsImprovement": 12.2,
+          "poor": 7.6
+        }
+      },
+      "inp": {
+        "p75": 371,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 54.3,
+          "needsImprovement": 26.4,
+          "poor": 19.3
+        }
+      },
+      "lcp": {
+        "p75": 2880,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 68.8,
+          "needsImprovement": 16.9,
+          "poor": 14.2
+        }
+      },
+      "rtt": {
+        "p75": 132,
+        "rating": null,
+        "distribution": {
+          "good": 40.5,
+          "needsImprovement": 52.6,
+          "poor": 6.9
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": {
+      "id": "nextjs",
+      "name": "Next.js",
+      "icon": "Nextdotjs",
+      "version": null,
+      "source": "dom",
+      "raw": null
+    },
+    "probe": {
+      "metas": [],
+      "marks": [
+        "next",
+        "react"
+      ],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": {
+      "id": "akamai",
+      "name": "Akamai",
+      "icon": "Akamai",
+      "source": "server"
+    },
+    "headers": {
+      "server": "AkamaiGHost"
+    },
+    "violations": 93,
+    "passes": 2606,
+    "incomplete": 70,
+    "violationRules": 11,
+    "version": "4.14.0",
+    "top": [
+      {
+        "id": "listitem",
+        "impact": "serious",
+        "nodes": 31,
+        "help": "<li> elements must be contained in a <ul> or <ol>",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/listitem?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".css-0.MuiBox-root > .css-12dzmx4[role=\"menuitem\"][menu-group-index=\"0\"] > .css-17658ms:nth-child(1)",
+            "snippet": "<li class=\"css-17658ms\">"
+          },
+          {
+            "selector": ".css-17658ms:nth-child(2)",
+            "snippet": "<li class=\"css-17658ms\">"
+          },
+          {
+            "selector": ".css-17658ms:nth-child(3)",
+            "snippet": "<li class=\"css-17658ms\">"
+          },
+          {
+            "selector": ".css-m75k3q:nth-child(1)",
+            "snippet": "<li class=\"css-m75k3q\">"
+          },
+          {
+            "selector": ".css-m75k3q:nth-child(2)",
+            "snippet": "<li class=\"css-m75k3q\">"
+          }
+        ]
+      },
+      {
+        "id": "aria-hidden-focus",
+        "impact": "serious",
+        "nodes": 21,
+        "help": "ARIA hidden element must not be focusable or contain focusable elements",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/aria-hidden-focus?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".css-8w879k > .slick-slider.slick-initialized[dir=\"ltr\"] > .slick-list > .slick-track > .slick-slide[data-index=\"1\"][aria-hidden=\"true\"]",
+            "snippet": "<div data-index=\"1\" class=\"slick-slide\" tabindex=\"-1\" aria-hidden=\"true\" style=\"outline: none; width: 396px;\">"
+          },
+          {
+            "selector": ".css-8w879k > .slick-slider.slick-initialized[dir=\"ltr\"] > .slick-list > .slick-track > .slick-slide[data-index=\"2\"][aria-hidden=\"true\"]",
+            "snippet": "<div data-index=\"2\" class=\"slick-slide\" tabindex=\"-1\" aria-hidden=\"true\" style=\"outline: none; width: 396px;\">"
+          },
+          {
+            "selector": ".css-8w879k > .slick-slider.slick-initialized[dir=\"ltr\"] > .slick-list > .slick-track > .slick-slide[data-index=\"3\"][aria-hidden=\"true\"]",
+            "snippet": "<div data-index=\"3\" class=\"slick-slide\" tabindex=\"-1\" aria-hidden=\"true\" style=\"outline: none; width: 396px;\">"
+          },
+          {
+            "selector": ".css-8w879k > .slick-slider.slick-initialized[dir=\"ltr\"] > .slick-list > .slick-track > .slick-slide[data-index=\"4\"][aria-hidden=\"true\"]",
+            "snippet": "<div data-index=\"4\" class=\"slick-slide\" tabindex=\"-1\" aria-hidden=\"true\" style=\"outline: none; width: 396px;\">"
+          },
+          {
+            "selector": "div[data-component-id=\"blt1aa652cc579ad4cc\"] > .css-q6n4wc.MuiBox-root > .css-1cybofv.MuiBox-root > .css-1m7ooi4.MuiBox-root > .css-s35s1n.MuiBox-root[dotamount=\"5\"] > .slick-slider.slick-initialized[dir=\"ltr\"] > .slick-list > .slick-track > .slick-slide[data-index=\"1\"][aria-hidden=\"true\"]",
+            "snippet": "<div data-index=\"1\" class=\"slick-slide\" tabindex=\"-1\" aria-hidden=\"true\" style=\"outline: none;\">"
+          }
+        ]
+      },
+      {
+        "id": "aria-allowed-role",
+        "impact": "minor",
+        "nodes": 8,
+        "help": "ARIA role should be appropriate for the element",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/aria-allowed-role?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".css-0.MuiBox-root > .css-12dzmx4[role=\"menuitem\"][menu-group-index=\"0\"]",
+            "snippet": "<ul class=\"MuiList-root MuiList-padding css-12dzmx4\" tabindex=\"-1\" role=\"menuitem\" menu-group-index=\"0\">"
+          },
+          {
+            "selector": ".css-1bqraaa",
+            "snippet": "<ul class=\"MuiList-root MuiList-padding css-1bqraaa\" tabindex=\"-1\" role=\"menuitem\" menu-group-index=\"0\">"
+          },
+          {
+            "selector": ".MuiAccordion-root.css-1ga0nse.MuiPaper-elevation0:nth-child(2) > .MuiAccordionSummary-root.css-1if2xt7[role=\"button\"] > .MuiAccordionSummary-content.css-1n11r91 > .css-12dzmx4[role=\"menuitem\"][menu-group-index=\"0\"]",
+            "snippet": "<ul class=\"MuiList-root MuiList-padding css-12dzmx4\" tabindex=\"-1\" role=\"menuitem\" menu-group-index=\"0\"><li class=\"css-17658ms\"><div class=\"MuiBox-root css-0\" data-testid=\"Products\"><span class=\"MuiT…"
+          },
+          {
+            "selector": ".MuiAccordion-root.css-1ga0nse.MuiPaper-elevation0:nth-child(3) > .MuiAccordionSummary-root.css-1if2xt7[role=\"button\"] > .MuiAccordionSummary-content.css-1n11r91 > .css-12dzmx4[role=\"menuitem\"][menu-group-index=\"0\"]",
+            "snippet": "<ul class=\"MuiList-root MuiList-padding css-12dzmx4\" tabindex=\"-1\" role=\"menuitem\" menu-group-index=\"0\"><li class=\"css-17658ms\"><div class=\"MuiBox-root css-0\" data-testid=\"My Account\"><span class=\"Mu…"
+          },
+          {
+            "selector": ".MuiAccordion-root.css-1ga0nse.MuiPaper-elevation0:nth-child(4) > .MuiAccordionSummary-root.css-1if2xt7[role=\"button\"] > .MuiAccordionSummary-content.css-1n11r91 > .css-12dzmx4[role=\"menuitem\"][menu-group-index=\"0\"]",
+            "snippet": "<ul class=\"MuiList-root MuiList-padding css-12dzmx4\" tabindex=\"-1\" role=\"menuitem\" menu-group-index=\"0\"><li class=\"css-17658ms\"><div class=\"MuiBox-root css-0\" data-testid=\"About LG\"><span class=\"MuiT…"
+          }
+        ]
+      },
+      {
+        "id": "aria-required-parent",
+        "impact": "critical",
+        "nodes": 8,
+        "help": "Certain ARIA roles must be contained by particular parents",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/aria-required-parent?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".css-0.MuiBox-root > .css-12dzmx4[role=\"menuitem\"][menu-group-index=\"0\"]",
+            "snippet": "<ul class=\"MuiList-root MuiList-padding css-12dzmx4\" tabindex=\"-1\" role=\"menuitem\" menu-group-index=\"0\">"
+          },
+          {
+            "selector": ".css-1bqraaa",
+            "snippet": "<ul class=\"MuiList-root MuiList-padding css-1bqraaa\" tabindex=\"-1\" role=\"menuitem\" menu-group-index=\"0\">"
+          },
+          {
+            "selector": ".MuiAccordion-root.css-1ga0nse.MuiPaper-elevation0:nth-child(2) > .MuiAccordionSummary-root.css-1if2xt7[role=\"button\"] > .MuiAccordionSummary-content.css-1n11r91 > .css-12dzmx4[role=\"menuitem\"][menu-group-index=\"0\"]",
+            "snippet": "<ul class=\"MuiList-root MuiList-padding css-12dzmx4\" tabindex=\"-1\" role=\"menuitem\" menu-group-index=\"0\"><li class=\"css-17658ms\"><div class=\"MuiBox-root css-0\" data-testid=\"Products\"><span class=\"MuiT…"
+          },
+          {
+            "selector": ".MuiAccordion-root.css-1ga0nse.MuiPaper-elevation0:nth-child(3) > .MuiAccordionSummary-root.css-1if2xt7[role=\"button\"] > .MuiAccordionSummary-content.css-1n11r91 > .css-12dzmx4[role=\"menuitem\"][menu-group-index=\"0\"]",
+            "snippet": "<ul class=\"MuiList-root MuiList-padding css-12dzmx4\" tabindex=\"-1\" role=\"menuitem\" menu-group-index=\"0\"><li class=\"css-17658ms\"><div class=\"MuiBox-root css-0\" data-testid=\"My Account\"><span class=\"Mu…"
+          },
+          {
+            "selector": ".MuiAccordion-root.css-1ga0nse.MuiPaper-elevation0:nth-child(4) > .MuiAccordionSummary-root.css-1if2xt7[role=\"button\"] > .MuiAccordionSummary-content.css-1n11r91 > .css-12dzmx4[role=\"menuitem\"][menu-group-index=\"0\"]",
+            "snippet": "<ul class=\"MuiList-root MuiList-padding css-12dzmx4\" tabindex=\"-1\" role=\"menuitem\" menu-group-index=\"0\"><li class=\"css-17658ms\"><div class=\"MuiBox-root css-0\" data-testid=\"About LG\"><span class=\"MuiT…"
+          }
+        ]
+      },
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 7,
+        "help": "All page content should be contained by landmarks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/region?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".slick-current.slick-active[data-index=\"2\"] > div > .css-0.MuiBox-root > .MuiAlert-root.MuiAlert-filledInfo.MuiAlert-filled > .MuiAlert-message.css-1xsto0d",
+            "snippet": "<div class=\"MuiAlert-message css-1xsto0d\">"
+          },
+          {
+            "selector": ".css-g50atd",
+            "snippet": "<span class=\"MuiTypography-root MuiTypography-caption css-g50atd\">3/6</span>"
+          },
+          {
+            "selector": ".css-1jgwj4g",
+            "snippet": "<div class=\"MuiBox-root css-1jgwj4g\">"
+          },
+          {
+            "selector": ".css-14ng9o6",
+            "snippet": "<a class=\"MuiTypography-root MuiTypography-body2 MuiTypography-alignLeft MuiLink-root MuiLink-underlineHover css-14ng9o6\" href=\"https://www.lg.com/common/index.jsp\" target=\"_self\">USA, English</a>"
+          },
+          {
+            "selector": ".css-1mrd89u",
+            "snippet": "<div class=\"MuiBox-root css-1mrd89u\" data-testid=\"socialLinks\">"
+          }
+        ]
+      },
+      {
+        "id": "aria-allowed-attr",
+        "impact": "critical",
+        "nodes": 6,
+        "help": "Elements must only use supported ARIA attributes",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/aria-allowed-attr?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".Mui-selected[aria-controls=\"simple-tabpanel-0\"][role=\"link\"]",
+            "snippet": "<button class=\"MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected tab css-4m6665\" tabindex=\"0\" type=\"button\" role=\"link\" aria-selected=\"true\" color=\"secondary\" id=\"simple-tab-0\" aria…"
+          },
+          {
+            "selector": ".MuiTab-root[aria-controls=\"simple-tabpanel-1\"][role=\"link\"]",
+            "snippet": "<button class=\"MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tab css-4m6665\" tabindex=\"0\" type=\"button\" role=\"link\" aria-selected=\"false\" color=\"secondary\" id=\"simple-tab-1\" aria-controls=\"s…"
+          },
+          {
+            "selector": ".MuiTab-root[aria-controls=\"simple-tabpanel-2\"][role=\"link\"]",
+            "snippet": "<button class=\"MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tab css-4m6665\" tabindex=\"0\" type=\"button\" role=\"link\" aria-selected=\"false\" color=\"secondary\" id=\"simple-tab-2\" aria-controls=\"s…"
+          },
+          {
+            "selector": ".MuiTab-root[aria-controls=\"simple-tabpanel-3\"][role=\"link\"]",
+            "snippet": "<button class=\"MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tab css-4m6665\" tabindex=\"0\" type=\"button\" role=\"link\" aria-selected=\"false\" color=\"secondary\" id=\"simple-tab-3\" aria-controls=\"s…"
+          },
+          {
+            "selector": ".MuiTab-root[aria-controls=\"simple-tabpanel-4\"][role=\"link\"]",
+            "snippet": "<button class=\"MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tab css-4m6665\" tabindex=\"0\" type=\"button\" role=\"link\" aria-selected=\"false\" color=\"secondary\" id=\"simple-tab-4\" aria-controls=\"s…"
+          }
+        ]
+      },
+      {
+        "id": "nested-interactive",
+        "impact": "serious",
+        "nodes": 6,
+        "help": "Interactive controls must not be nested",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/nested-interactive?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".MuiAccordion-root.css-1ga0nse.MuiPaper-elevation0:nth-child(2) > .MuiAccordionSummary-root.css-1if2xt7[role=\"button\"]",
+            "snippet": "<div class=\"MuiButtonBase-root MuiAccordionSummary-root css-1if2xt7\" tabindex=\"0\" role=\"button\" aria-expanded=\"false\">"
+          },
+          {
+            "selector": ".MuiAccordion-root.css-1ga0nse.MuiPaper-elevation0:nth-child(3) > .MuiAccordionSummary-root.css-1if2xt7[role=\"button\"]",
+            "snippet": "<div class=\"MuiButtonBase-root MuiAccordionSummary-root css-1if2xt7\" tabindex=\"0\" role=\"button\" aria-expanded=\"false\">"
+          },
+          {
+            "selector": ".MuiAccordion-root.css-1ga0nse.MuiPaper-elevation0:nth-child(4) > .MuiAccordionSummary-root.css-1if2xt7[role=\"button\"]",
+            "snippet": "<div class=\"MuiButtonBase-root MuiAccordionSummary-root css-1if2xt7\" tabindex=\"0\" role=\"button\" aria-expanded=\"false\">"
+          },
+          {
+            "selector": ".MuiAccordion-root.css-1ga0nse.MuiPaper-elevation0:nth-child(5) > .MuiAccordionSummary-root.css-1if2xt7[role=\"button\"]",
+            "snippet": "<div class=\"MuiButtonBase-root MuiAccordionSummary-root css-1if2xt7\" tabindex=\"0\" role=\"button\" aria-expanded=\"false\">"
+          },
+          {
+            "selector": ".MuiAccordion-root.css-1ga0nse.MuiPaper-elevation0:nth-child(6) > .MuiAccordionSummary-root.css-1if2xt7[role=\"button\"]",
+            "snippet": "<div class=\"MuiButtonBase-root MuiAccordionSummary-root css-1if2xt7\" tabindex=\"0\" role=\"button\" aria-expanded=\"false\">"
+          }
+        ]
+      },
+      {
+        "id": "link-name",
+        "impact": "serious",
+        "nodes": 2,
+        "help": "Links must have discernible text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/link-name?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "#terms",
+            "snippet": "<a id=\"terms\" href=\"#\" target=\"_self\"><br></a>"
+          },
+          {
+            "selector": ".css-jwok74",
+            "snippet": "<a class=\"MuiTypography-root MuiTypography-body1 MuiTypography-alignLeft MuiLink-root MuiLink-underlineHover css-jwok74\" href=\"#\" tabindex=\"-1\"></a>"
+          }
+        ]
+      },
+      {
+        "id": "meta-viewport",
+        "impact": "moderate",
+        "nodes": 2,
+        "help": "Zooming and scaling must not be disabled",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/meta-viewport?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "meta[name=\"viewport\"]:nth-child(42)",
+            "snippet": "<meta name=\"viewport\" content=\"minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=no, viewport-fit=cover\">"
+          },
+          {
+            "selector": "meta[name=\"viewport\"]:nth-child(61)",
+            "snippet": "<meta name=\"viewport\" content=\"minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=no, viewport-fit=cover\">"
+          }
+        ]
+      },
+      {
+        "id": "aria-required-children",
+        "impact": "critical",
+        "nodes": 1,
+        "help": "Certain ARIA roles must contain particular children",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/aria-required-children?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "div[data-component-id=\"blt23ab92f887caa920\"] > .css-17hcyfs.MuiBox-root > .css-1l4w6pd.MuiBox-root > .MuiTabs-root.css-1leynpi > .MuiTabs-scroller.css-12qnib.MuiTabs-hideScrollbar > .MuiTabs-flexContainer.css-k008qs[aria-label=\"tabbed component tabs\"]",
+            "snippet": "<div aria-label=\"tabbed component tabs\" class=\"MuiTabs-flexContainer css-k008qs\" role=\"tablist\">"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "render": {
+    "samples": [
+      {
+        "hash": "5ef5cb8afe68",
+        "nonce": null,
+        "stamp": null,
+        "marks": [
+          "next-gssp"
+        ],
+        "headers": {
+          "etag": "\"mjbufd2vj729bab\""
+        }
+      },
+      {
+        "hash": "d4b1a3b5a8ab",
+        "nonce": null,
+        "stamp": null,
+        "marks": [
+          "next-gssp"
+        ],
+        "headers": {
+          "etag": "\"mjbufd2vj729bab\""
+        }
+      },
+      {
+        "hash": "37f48820d6b7",
+        "nonce": null,
+        "stamp": null,
+        "marks": [
+          "next-gssp"
+        ],
+        "headers": {
+          "etag": "\"mjbufd2vj729bab\""
+        }
+      },
+      {
+        "hash": "73dce6f062f0",
+        "nonce": null,
+        "stamp": null,
+        "marks": [
+          "next-gssp"
+        ],
+        "headers": {
+          "etag": "\"mjbufd2vj729bab\""
+        }
+      }
+    ]
+  },
+  "consecutiveFailures": 0
+}
