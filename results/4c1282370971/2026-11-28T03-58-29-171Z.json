@@ -1,0 +1,361 @@
+{
+  "url": "https://claude.ai/",
+  "name": "Claude",
+  "group": "nextjs-showcase",
+  "groupName": "Next.js Showcase",
+  "timestamp": 1795838309171,
+  "date": "2026-11-28T03:58:29.171Z",
+  "runId": "2026-11-28T03-58-22-952Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 1,
+  "durationMs": 97543,
+  "error": null,
+  "partialErrors": [
+    "ERRORED_DOCUMENT_REQUEST: Lighthouse was unable to reliably load the page you requested. Make sure you are testing the correct URL and that the server is properly responding to all requests. (Status code: 403)",
+    "ERRORED_DOCUMENT_REQUEST: Lighthouse was unable to reliably load the page you requested. Make sure you are testing the correct URL and that the server is properly responding to all requests. (Status code: 403)"
+  ],
+  "variance": null,
+  "lab": {
+    "requestedUrl": "https://claude.ai/",
+    "finalUrl": "https://claude.ai/login",
+    "redirect": {
+      "from": "https://claude.ai/",
+      "to": "https://claude.ai/login",
+      "chain": [
+        {
+          "url": "https://claude.ai/",
+          "status": 302
+        },
+        {
+          "url": "https://claude.ai/login",
+          "status": 307
+        },
+        {
+          "url": "https://claude.ai/",
+          "status": 302
+        },
+        {
+          "url": "https://claude.ai/login",
+          "status": 307
+        }
+      ],
+      "statuses": [
+        302,
+        307,
+        302
+      ],
+      "change": "path",
+      "permanent": false,
+      "schemeUpgrade": false,
+      "hops": 3
+    },
+    "statusCode": "ok",
+    "scores": {
+      "performance": 67,
+      "accessibility": 100,
+      "best-practices": 77,
+      "seo": 92,
+      "agentic-browsing": 67
+    },
+    "timings": {
+      "fcp": 2070,
+      "lcp": 2070,
+      "si": 2932,
+      "tbt": 3473,
+      "tti": 11287,
+      "cls": 0,
+      "ttfb": 464,
+      "maxPotentialFid": 1027,
+      "serverResponseTime": 17,
+      "networkRtt": 15.8,
+      "networkServerLatency": 35.5
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 204,
+      "elementRenderDelay": 503.5
+    },
+    "weight": {
+      "total": 8735756,
+      "requests": 180,
+      "mainDocument": 111351,
+      "byType": {
+        "total": {
+          "bytes": 8732317,
+          "requests": 173
+        },
+        "other": {
+          "bytes": 6558009,
+          "requests": 125
+        },
+        "script": {
+          "bytes": 1470890,
+          "requests": 33
+        },
+        "document": {
+          "bytes": 440214,
+          "requests": 5
+        },
+        "font": {
+          "bytes": 245761,
+          "requests": 7
+        },
+        "stylesheet": {
+          "bytes": 17197,
+          "requests": 2
+        },
+        "image": {
+          "bytes": 246,
+          "requests": 1
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 8491791,
+          "requests": 157
+        }
+      },
+      "scripts": 34,
+      "stylesheets": 2,
+      "fonts": 7
+    },
+    "thirdParty": {
+      "count": 3,
+      "bytes": 7420945,
+      "mainThreadMs": 196.5,
+      "top": [
+        {
+          "entity": "anthropic.com",
+          "bytes": 7084908,
+          "mainThreadMs": 120.2,
+          "byType": {
+            "script": 389091,
+            "stylesheet": 16532,
+            "font": 420343,
+            "other": 6258696,
+            "image": 246
+          },
+          "typedBytes": 7084908
+        },
+        {
+          "entity": "hcaptcha.com",
+          "bytes": 227778,
+          "mainThreadMs": 49.9,
+          "byType": {
+            "script": 224451,
+            "other": 3327
+          },
+          "typedBytes": 227778
+        },
+        {
+          "entity": "Other Google APIs/SDKs",
+          "bytes": 108259,
+          "mainThreadMs": 26.4,
+          "byType": {
+            "script": 107041,
+            "other": 553,
+            "stylesheet": 665
+          },
+          "typedBytes": 108259
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 8670.6,
+      "byGroup": {
+        "scriptEvaluation": 5272.3,
+        "other": 1679.4,
+        "styleLayout": 1201.9,
+        "parseHTML": 225.8,
+        "paintCompositeRender": 148.7,
+        "scriptParseCompile": 80.7,
+        "garbageCollection": 61.8
+      },
+      "bootupMs": 3769.1,
+      "longTasks": 20,
+      "longestTaskMs": 1027
+    },
+    "dom": {
+      "elements": 1038,
+      "depth": 26,
+      "maxChildren": 21
+    },
+    "waste": {
+      "unusedJsBytes": 232710,
+      "unusedCssBytes": 27959,
+      "legacyJsBytes": 15513,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 69208,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 0,
+      "renderBlockingCount": 0,
+      "poorlyCachedBytes": 231398.875,
+      "poorlyCachedCount": 2
+    },
+    "accessibility": {
+      "failingCount": 0,
+      "applicableCount": 30,
+      "failingNodes": 0,
+      "failing": []
+    },
+    "bestPractices": {
+      "failingCount": 2,
+      "applicableCount": 17,
+      "failing": [
+        {
+          "id": "deprecations",
+          "title": "Uses deprecated APIs",
+          "weight": 5,
+          "nodes": 2
+        },
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "weight": 1,
+          "nodes": 4
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 1,
+      "applicableCount": 9,
+      "failing": [
+        {
+          "id": "link-text",
+          "title": "Links do not have descriptive text",
+          "weight": 1,
+          "nodes": 1
+        }
+      ]
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": null,
+      "trustedTypes": 1,
+      "bfCache": 0,
+      "bfCacheFailures": 3,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 802.2,
+      "consoleErrors": 4,
+      "baselineLimitedFeatures": 106
+    },
+    "environment": {
+      "lighthouseVersion": "13.6.0",
+      "benchmarkIndex": 3499,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/158.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-11-28T03:58:32.231Z",
+      "runtimeMs": 18260.7
+    }
+  },
+  "field": {
+    "source": "crux",
+    "scope": "landing",
+    "url": "https://claude.ai/login",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-10-30",
+      "last": "2026-11-26"
+    },
+    "metrics": {
+      "ttfb": {
+        "p75": 496,
+        "rating": "good",
+        "distribution": {
+          "good": 84.9,
+          "needsImprovement": 10.2,
+          "poor": 4.9
+        }
+      },
+      "fcp": {
+        "p75": 2594,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 62.4,
+          "needsImprovement": 16.8,
+          "poor": 20.9
+        }
+      },
+      "inp": {
+        "p75": 215,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 72.2,
+          "needsImprovement": 20.7,
+          "poor": 7
+        }
+      },
+      "lcp": {
+        "p75": 2625,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 73.6,
+          "needsImprovement": 12,
+          "poor": 14.4
+        }
+      },
+      "rtt": {
+        "p75": 210,
+        "rating": null,
+        "distribution": {
+          "good": 25.2,
+          "needsImprovement": 58,
+          "poor": 16.8
+        }
+      },
+      "cls": {
+        "p75": 0,
+        "rating": "good",
+        "distribution": {
+          "good": 97.9,
+          "needsImprovement": 1.6,
+          "poor": 0.5
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "probe": null,
+    "interstitial": "Just a moment...",
+    "host": {
+      "id": "cloudflare",
+      "name": "Cloudflare",
+      "icon": "Cloudflare",
+      "source": "server"
+    },
+    "headers": {
+      "cf-ray": "a61676a15f74c641-DFW",
+      "server": "cloudflare"
+    },
+    "violations": null,
+    "passes": null,
+    "incomplete": null,
+    "violationRules": null,
+    "version": "4.14.0",
+    "top": [],
+    "error": null
+  },
+  "render": {
+    "samples": [
+      {
+        "hash": "912f0564997e",
+        "nonce": "84b6f2a04452",
+        "stamp": null,
+        "marks": [],
+        "headers": {}
+      }
+    ]
+  },
+  "consecutiveFailures": 0
+}

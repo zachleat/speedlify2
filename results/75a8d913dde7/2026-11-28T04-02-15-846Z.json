@@ -1,0 +1,459 @@
+{
+  "url": "https://jobs.redbull.com/",
+  "name": "Red Bull Jobs",
+  "group": "nextjs-showcase",
+  "groupName": "Next.js Showcase",
+  "timestamp": 1795838535846,
+  "date": "2026-11-28T04:02:15.846Z",
+  "runId": "2026-11-28T03-58-22-952Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 91241,
+  "error": null,
+  "variance": {
+    "min": 34,
+    "max": 42,
+    "spread": 8,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://jobs.redbull.com/",
+    "finalUrl": "https://jobs.redbull.com/en-us",
+    "redirect": {
+      "from": "https://jobs.redbull.com/",
+      "to": "https://jobs.redbull.com/en-us",
+      "chain": [
+        {
+          "url": "https://jobs.redbull.com/",
+          "status": 302
+        },
+        {
+          "url": "https://jobs.redbull.com/en-us",
+          "status": 200
+        }
+      ],
+      "statuses": [
+        302
+      ],
+      "change": "path",
+      "permanent": false,
+      "schemeUpgrade": false,
+      "hops": 1
+    },
+    "statusCode": "ok",
+    "scores": {
+      "performance": 42,
+      "accessibility": 96,
+      "best-practices": 96,
+      "seo": 100,
+      "agentic-browsing": 44
+    },
+    "timings": {
+      "fcp": 2681,
+      "lcp": 11456,
+      "si": 6806,
+      "tbt": 850,
+      "tti": 15116,
+      "cls": 0.107,
+      "ttfb": 641,
+      "maxPotentialFid": 376,
+      "serverResponseTime": 54,
+      "networkRtt": 0.9,
+      "networkServerLatency": 166.2
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 271,
+      "resourceLoadDelay": 122,
+      "resourceLoadDuration": 301.2,
+      "elementRenderDelay": 346.8
+    },
+    "weight": {
+      "total": 11363067,
+      "requests": 104,
+      "mainDocument": 24365,
+      "byType": {
+        "total": {
+          "bytes": 11363067,
+          "requests": 103
+        },
+        "media": {
+          "bytes": 8441609,
+          "requests": 5
+        },
+        "script": {
+          "bytes": 1550986,
+          "requests": 41
+        },
+        "image": {
+          "bytes": 834268,
+          "requests": 18
+        },
+        "font": {
+          "bytes": 391823,
+          "requests": 8
+        },
+        "other": {
+          "bytes": 89700,
+          "requests": 20
+        },
+        "stylesheet": {
+          "bytes": 29342,
+          "requests": 8
+        },
+        "document": {
+          "bytes": 25339,
+          "requests": 3
+        },
+        "third-party": {
+          "bytes": 286293,
+          "requests": 10
+        }
+      },
+      "scripts": 41,
+      "stylesheets": 8,
+      "fonts": 8
+    },
+    "thirdParty": {
+      "count": 3,
+      "bytes": 286293,
+      "mainThreadMs": 42.9,
+      "top": [
+        {
+          "entity": "Optanon",
+          "bytes": 191671,
+          "mainThreadMs": 42.7,
+          "byType": {
+            "script": 165186,
+            "other": 26485
+          },
+          "typedBytes": 191671
+        },
+        {
+          "entity": "Cloudinary",
+          "bytes": 94463,
+          "mainThreadMs": 0,
+          "byType": {
+            "image": 94463
+          },
+          "typedBytes": 94463
+        },
+        {
+          "entity": "polyfill-fastly.io",
+          "bytes": 159,
+          "mainThreadMs": 0.2,
+          "byType": {
+            "script": 159
+          },
+          "typedBytes": 159
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 3473,
+      "byGroup": {
+        "scriptEvaluation": 1920.3,
+        "other": 677.9,
+        "scriptParseCompile": 351.1,
+        "styleLayout": 289.8,
+        "paintCompositeRender": 133.1,
+        "garbageCollection": 53,
+        "parseHTML": 47.8
+      },
+      "bootupMs": 2163.2,
+      "longTasks": 12,
+      "longestTaskMs": 376
+    },
+    "dom": {
+      "elements": 1621,
+      "depth": 18,
+      "maxChildren": 32
+    },
+    "waste": {
+      "unusedJsBytes": 750879,
+      "unusedCssBytes": 41367,
+      "legacyJsBytes": 20345,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 0,
+      "renderBlockingMs": 5920,
+      "renderBlockingCount": 9,
+      "poorlyCachedBytes": 322260.4583333334,
+      "poorlyCachedCount": 6
+    },
+    "accessibility": {
+      "failingCount": 2,
+      "applicableCount": 30,
+      "failingNodes": 12,
+      "failing": [
+        {
+          "id": "label-content-name-mismatch",
+          "title": "Elements with visible text labels do not have matching accessible names.",
+          "weight": 0,
+          "nodes": 11
+        },
+        {
+          "id": "aria-dialog-name",
+          "title": "Elements with `role=\"dialog\"` or `role=\"alertdialog\"` do not have accessible names.",
+          "weight": 7,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 2,
+      "applicableCount": 19,
+      "failing": [
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "weight": 1,
+          "nodes": 1
+        },
+        {
+          "id": "valid-source-maps",
+          "title": "Missing source maps for large first-party JavaScript",
+          "weight": 0,
+          "nodes": 4
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 0,
+      "applicableCount": 9,
+      "failing": []
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "http/1.1",
+      "legacyHttpRequests": 45,
+      "redirectMs": 791.4,
+      "consoleErrors": 1,
+      "baselineLimitedFeatures": 50
+    },
+    "environment": {
+      "lighthouseVersion": "13.6.0",
+      "benchmarkIndex": 4032.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/158.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-11-28T04:02:31.849Z",
+      "runtimeMs": 10072.7
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 1693,
+    "resourceLoadDelay": 644.3,
+    "resourceLoadDuration": 6568.5,
+    "elementRenderDelay": 7755.2
+  },
+  "field": {
+    "source": "crux",
+    "scope": "landing",
+    "url": "https://jobs.redbull.com/en-us",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-10-30",
+      "last": "2026-11-26"
+    },
+    "metrics": {
+      "cls": {
+        "p75": 0.22,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 47.6,
+          "needsImprovement": 31.8,
+          "poor": 20.6
+        }
+      },
+      "ttfb": {
+        "p75": 828,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 72.8,
+          "needsImprovement": 24.7,
+          "poor": 2.5
+        }
+      },
+      "fcp": {
+        "p75": 1385,
+        "rating": "good",
+        "distribution": {
+          "good": 86.6,
+          "needsImprovement": 9.8,
+          "poor": 3.6
+        }
+      },
+      "inp": {
+        "p75": 95,
+        "rating": "good",
+        "distribution": {
+          "good": 93.9,
+          "needsImprovement": 4.6,
+          "poor": 1.6
+        }
+      },
+      "lcp": {
+        "p75": 2122,
+        "rating": "good",
+        "distribution": {
+          "good": 82.9,
+          "needsImprovement": 12.3,
+          "poor": 4.8
+        }
+      },
+      "rtt": {
+        "p75": 105,
+        "rating": null,
+        "distribution": {
+          "good": 48.8,
+          "needsImprovement": 48.2,
+          "poor": 3
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": {
+      "id": "nextjs",
+      "name": "Next.js",
+      "icon": "Nextdotjs",
+      "version": null,
+      "source": "dom",
+      "raw": null
+    },
+    "probe": {
+      "metas": [],
+      "marks": [
+        "next",
+        "react"
+      ],
+      "markVersions": {}
+    },
+    "interstitial": null,
+    "host": null,
+    "headers": {},
+    "violations": 29,
+    "passes": 1199,
+    "incomplete": 43,
+    "violationRules": 3,
+    "version": "4.14.0",
+    "top": [
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 17,
+        "help": "All page content should be contained by landmarks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/region?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "rbcom-navigation .global-header__media-bull",
+            "snippet": "<a class=\"global-header__content global-header__media-bull\" href=\"https://www.redbull.com\"><div class=\"global-header__media-bull-icon\"><img class=\"global-header__media-bull-image\" src=\"https://www.re…"
+          },
+          {
+            "selector": "rbcom-navigation .tenant-header__logo-image--dark",
+            "snippet": "<img class=\"tenant-header__logo-image tenant-header__logo-image--dark\" src=\"https://www.redbull.com/v3/resources/images/client/header/redbullcom-logo_double-with-text.svg\" alt=\"Red Bull Logo\">"
+          },
+          {
+            "selector": ".StageSearchNew_stage-search-background__T7rar",
+            "snippet": "<div class=\"StageSearchNew_stage-search-background__T7rar StageSearchNew_has-inline-results__1r6oR\">"
+          },
+          {
+            "selector": ".StageSearchNew_stage-search-content__0vgPp",
+            "snippet": "<div class=\"StageSearchNew_stage-search-content__0vgPp StageSearchNew_has-inline-results__1r6oR\">"
+          },
+          {
+            "selector": "input[placeholder=\"Search in locations\"]",
+            "snippet": "<input tabindex=\"0\" type=\"search\" class=\"SearchInputControl_search-control-input__input-field__W7sVJ\" placeholder=\"Search in locations\" value=\"\">"
+          }
+        ]
+      },
+      {
+        "id": "label-content-name-mismatch",
+        "impact": "serious",
+        "nodes": 11,
+        "help": "Elements must have their visible text as part of their accessible name",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/label-content-name-mismatch?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "cosmos-default-card[tag=\"Gaming\"] .cosmos-default-card__link",
+            "snippet": "<a aria-labelledby=\"headline meta-text tag logo badge\" href=\"https://www.redbull.com/us-en/gta-6-beginners-guide\" class=\"cosmos-default-card__link\">"
+          },
+          {
+            "selector": "cosmos-default-card[tag=\"F1\"] .cosmos-default-card__link",
+            "snippet": "<a aria-labelledby=\"headline meta-text tag logo badge\" href=\"https://www.redbull.com/us-en/max-verstappen-f1-2026-season-numbers\" class=\"cosmos-default-card__link\">"
+          },
+          {
+            "selector": ".WorbGrid_worb-grid__card-wrapper__8HtwA:nth-child(4) > cosmos-default-card[tag=\"MC Battle\"] .cosmos-default-card__link",
+            "snippet": "<a aria-labelledby=\"headline meta-text tag logo badge\" href=\"https://www.redbull.com/us-en/lauren-michael-sellers-wins-red-bull-jukebox-songwriting-contest-nashville\" class=\"cosmos-default-card__link…"
+          },
+          {
+            "selector": ".WorbGrid_worb-grid__card-wrapper__8HtwA:nth-child(5) > cosmos-default-card[tag=\"Esports\"] .cosmos-default-card__link",
+            "snippet": "<a aria-labelledby=\"headline meta-text tag logo badge\" href=\"https://www.redbull.com/us-en/red-bull-home-ground-announcement\" class=\"cosmos-default-card__link\">"
+          },
+          {
+            "selector": ".WorbGrid_worb-grid__card-wrapper__8HtwA:nth-child(6) > cosmos-default-card[tag=\"MC Battle\"] .cosmos-default-card__link",
+            "snippet": "<a aria-labelledby=\"headline meta-text tag logo badge\" href=\"https://www.redbull.com/us-en/red-bull-batalla-national-final-everything-you-need-to-know\" class=\"cosmos-default-card__link\">"
+          }
+        ]
+      },
+      {
+        "id": "aria-dialog-name",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "ARIA dialog and alertdialog nodes should have an accessible name",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/aria-dialog-name?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".FraudModal_fraud-modal__kQy_5",
+            "snippet": "<div class=\"FraudModal_fraud-modal__kQy_5 FraudModal_fraud-modal--visible__5WXtj\" role=\"dialog\" aria-modal=\"true\">"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "render": {
+    "samples": [
+      {
+        "hash": "32a2f26f1e5e",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {}
+      },
+      {
+        "hash": "32a2f26f1e5e",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {}
+      },
+      {
+        "hash": "32a2f26f1e5e",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {}
+      },
+      {
+        "hash": "32a2f26f1e5e",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {}
+      }
+    ]
+  },
+  "consecutiveFailures": 0
+}
