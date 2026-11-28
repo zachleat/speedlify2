@@ -1,0 +1,354 @@
+{
+  "url": "https://www.landia.com/",
+  "name": "Landia",
+  "group": "wordpress-showcase",
+  "groupName": "WordPress Showcase",
+  "timestamp": 1795838978681,
+  "date": "2026-11-28T04:09:38.681Z",
+  "runId": "2026-11-28T03-58-27-409Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 2,
+  "durationMs": 96100,
+  "error": null,
+  "partialErrors": [
+    "ERRORED_DOCUMENT_REQUEST: Lighthouse was unable to reliably load the page you requested. Make sure you are testing the correct URL and that the server is properly responding to all requests. (Status code: 403)"
+  ],
+  "variance": {
+    "min": 70,
+    "max": 74,
+    "spread": 4,
+    "runs": 2
+  },
+  "lab": {
+    "requestedUrl": "https://www.landia.com/",
+    "finalUrl": "https://www.landia.com/us/",
+    "redirect": {
+      "from": "https://www.landia.com/",
+      "to": "https://www.landia.com/us",
+      "chain": [
+        {
+          "url": "https://www.landia.com/",
+          "status": 302
+        },
+        {
+          "url": "https://www.landia.com/us/",
+          "status": 200
+        }
+      ],
+      "statuses": [
+        302
+      ],
+      "change": "path",
+      "permanent": false,
+      "schemeUpgrade": false,
+      "hops": 1
+    },
+    "statusCode": "ok",
+    "scores": {
+      "performance": 70,
+      "accessibility": 90,
+      "best-practices": 77,
+      "seo": 100,
+      "agentic-browsing": 50
+    },
+    "timings": {
+      "fcp": 2625,
+      "lcp": 5226,
+      "si": 2625,
+      "tbt": 327,
+      "tti": 5226,
+      "cls": 0.003,
+      "ttfb": 626,
+      "maxPotentialFid": 146,
+      "serverResponseTime": 139,
+      "networkRtt": 2.7,
+      "networkServerLatency": 26.3
+    },
+    "lcpBreakdown": null,
+    "weight": {
+      "total": 678979,
+      "requests": 36,
+      "mainDocument": 11424,
+      "byType": {
+        "total": {
+          "bytes": 676059,
+          "requests": 34
+        },
+        "script": {
+          "bytes": 437546,
+          "requests": 17
+        },
+        "font": {
+          "bytes": 188118,
+          "requests": 3
+        },
+        "stylesheet": {
+          "bytes": 24889,
+          "requests": 4
+        },
+        "document": {
+          "bytes": 11424,
+          "requests": 1
+        },
+        "media": {
+          "bytes": 8406,
+          "requests": 2
+        },
+        "other": {
+          "bytes": 4432,
+          "requests": 6
+        },
+        "image": {
+          "bytes": 1244,
+          "requests": 1
+        },
+        "third-party": {
+          "bytes": 183267,
+          "requests": 3
+        }
+      },
+      "scripts": 18,
+      "stylesheets": 4,
+      "fonts": 3
+    },
+    "thirdParty": {
+      "count": 3,
+      "bytes": 183267,
+      "mainThreadMs": 74.2,
+      "top": [
+        {
+          "entity": "Google Tag Manager",
+          "bytes": 172232,
+          "mainThreadMs": 67.5,
+          "byType": {
+            "script": 172232
+          },
+          "typedBytes": 172232
+        },
+        {
+          "entity": "Cloudflare",
+          "bytes": 10478,
+          "mainThreadMs": 6.7,
+          "byType": {
+            "script": 10478
+          },
+          "typedBytes": 10478
+        },
+        {
+          "entity": "Google Analytics",
+          "bytes": 557,
+          "mainThreadMs": 0,
+          "byType": {
+            "other": 557
+          },
+          "typedBytes": 557
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 1923.3,
+      "byGroup": {
+        "scriptEvaluation": 890.1,
+        "other": 502.3,
+        "styleLayout": 227.5,
+        "scriptParseCompile": 151.7,
+        "paintCompositeRender": 62.5,
+        "parseHTML": 58.1,
+        "garbageCollection": 31.2
+      },
+      "bootupMs": 913.3,
+      "longTasks": 6,
+      "longestTaskMs": 146
+    },
+    "dom": {
+      "elements": 283,
+      "depth": 9,
+      "maxChildren": 25
+    },
+    "waste": {
+      "unusedJsBytes": 229825,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 10483,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 0,
+      "unminifiedCssBytes": 2062,
+      "renderBlockingMs": 0,
+      "renderBlockingCount": 18,
+      "poorlyCachedBytes": 4191.2,
+      "poorlyCachedCount": 1
+    },
+    "accessibility": {
+      "failingCount": 1,
+      "applicableCount": 11,
+      "failingNodes": 4,
+      "failing": [
+        {
+          "id": "link-name",
+          "title": "Links do not have a discernible name",
+          "weight": 7,
+          "nodes": 4
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 2,
+      "applicableCount": 20,
+      "failing": [
+        {
+          "id": "deprecations",
+          "title": "Uses deprecated APIs",
+          "weight": 5,
+          "nodes": 2
+        },
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "weight": 1,
+          "nodes": 2
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 0,
+      "applicableCount": 9,
+      "failing": []
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": 1,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 1,
+      "bfCacheFailures": 0,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 776.3,
+      "consoleErrors": 2,
+      "baselineLimitedFeatures": 32
+    },
+    "environment": {
+      "lighthouseVersion": "13.6.0",
+      "benchmarkIndex": 2539.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/158.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-11-28T04:09:39.959Z",
+      "runtimeMs": 7642.7
+    }
+  },
+  "field": {
+    "source": "crux",
+    "scope": "origin",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-10-30",
+      "last": "2026-11-26"
+    },
+    "metrics": {
+      "lcp": {
+        "p75": 4990,
+        "rating": "poor",
+        "distribution": {
+          "good": 31.8,
+          "needsImprovement": 28.6,
+          "poor": 39.7
+        }
+      },
+      "rtt": {
+        "p75": 219,
+        "rating": null,
+        "distribution": {
+          "good": 26.6,
+          "needsImprovement": 57.9,
+          "poor": 15.5
+        }
+      },
+      "cls": {
+        "p75": 0,
+        "rating": "good",
+        "distribution": {
+          "good": 97.7,
+          "needsImprovement": 2.3,
+          "poor": 0
+        }
+      },
+      "ttfb": {
+        "p75": 2176,
+        "rating": "poor",
+        "distribution": {
+          "good": 16.2,
+          "needsImprovement": 45.1,
+          "poor": 38.7
+        }
+      },
+      "fcp": {
+        "p75": 2904,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 37.5,
+          "needsImprovement": 40.2,
+          "poor": 22.3
+        }
+      },
+      "inp": {
+        "p75": 190,
+        "rating": "good",
+        "distribution": {
+          "good": 76,
+          "needsImprovement": 17.8,
+          "poor": 6.2
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": false,
+    "generator": null,
+    "probe": null,
+    "interstitial": "Just a moment...",
+    "host": {
+      "id": "cloudflare",
+      "name": "Cloudflare",
+      "icon": "Cloudflare",
+      "source": "server"
+    },
+    "headers": {
+      "cf-ray": "a61686e8aae605fc-IAD",
+      "server": "cloudflare"
+    },
+    "violations": null,
+    "passes": null,
+    "incomplete": null,
+    "violationRules": null,
+    "version": "4.14.0",
+    "top": [],
+    "error": null
+  },
+  "render": {
+    "samples": [
+      {
+        "hash": "d7b53ce51c7d",
+        "nonce": null,
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "cf-cache-status": "DYNAMIC",
+          "x-kinsta-cache": "HIT"
+        }
+      },
+      {
+        "hash": "c0beb6dd1997",
+        "nonce": "1ad9833f8965",
+        "stamp": null,
+        "marks": [],
+        "headers": {}
+      }
+    ]
+  },
+  "consecutiveFailures": 0
+}
