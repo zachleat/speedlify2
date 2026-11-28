@@ -1,0 +1,478 @@
+{
+  "url": "https://www.wegmans.com/",
+  "name": "Wegmans",
+  "group": "nextjs-showcase",
+  "groupName": "Next.js Showcase",
+  "timestamp": 1795872005947,
+  "date": "2026-11-28T13:20:05.947Z",
+  "runId": "2026-11-28T13-10-45-322Z",
+  "formFactor": "mobile",
+  "requestedRuns": 3,
+  "completedRuns": 3,
+  "durationMs": 446909,
+  "error": null,
+  "variance": {
+    "min": 10,
+    "max": 10,
+    "spread": 0,
+    "runs": 3
+  },
+  "lab": {
+    "requestedUrl": "https://www.wegmans.com/",
+    "finalUrl": "https://www.wegmans.com/",
+    "redirect": null,
+    "statusCode": "ok",
+    "scores": {
+      "performance": 10,
+      "accessibility": 100,
+      "best-practices": 69,
+      "seo": 100,
+      "agentic-browsing": 67
+    },
+    "timings": {
+      "fcp": 1124,
+      "lcp": 26176,
+      "si": 18740,
+      "tbt": 5255,
+      "tti": 34967,
+      "cls": 1.718,
+      "ttfb": 659,
+      "maxPotentialFid": 756,
+      "serverResponseTime": 188,
+      "networkRtt": 76.7,
+      "networkServerLatency": 78.8
+    },
+    "lcpBreakdown": {
+      "timeToFirstByte": 190.3,
+      "resourceLoadDelay": 1871.9,
+      "resourceLoadDuration": 43.8,
+      "elementRenderDelay": 100.4
+    },
+    "weight": {
+      "total": 8248767,
+      "requests": 727,
+      "mainDocument": 43683,
+      "byType": {
+        "total": {
+          "bytes": 8245276,
+          "requests": 724
+        },
+        "image": {
+          "bytes": 3544192,
+          "requests": 65
+        },
+        "script": {
+          "bytes": 3407014,
+          "requests": 118
+        },
+        "other": {
+          "bytes": 692696,
+          "requests": 445
+        },
+        "font": {
+          "bytes": 403229,
+          "requests": 8
+        },
+        "stylesheet": {
+          "bytes": 136210,
+          "requests": 83
+        },
+        "document": {
+          "bytes": 61935,
+          "requests": 5
+        },
+        "media": {
+          "bytes": 0,
+          "requests": 0
+        },
+        "third-party": {
+          "bytes": 3133842,
+          "requests": 476
+        }
+      },
+      "scripts": 119,
+      "stylesheets": 83,
+      "fonts": 8
+    },
+    "thirdParty": {
+      "count": 23,
+      "bytes": 2847550,
+      "mainThreadMs": 617.9,
+      "top": [
+        {
+          "entity": "wegmans.cloud",
+          "bytes": 536621,
+          "mainThreadMs": 0,
+          "byType": {
+            "other": 536621
+          },
+          "typedBytes": 536621
+        },
+        {
+          "entity": "fwcdn3.com",
+          "bytes": 492067,
+          "mainThreadMs": 86.1,
+          "byType": {
+            "script": 492067
+          },
+          "typedBytes": 492067
+        },
+        {
+          "entity": "contentstack.com",
+          "bytes": 438139,
+          "mainThreadMs": 0,
+          "byType": {
+            "image": 438139
+          },
+          "typedBytes": 438139
+        },
+        {
+          "entity": "Google Maps",
+          "bytes": 352534,
+          "mainThreadMs": 48.9,
+          "byType": {
+            "script": 352489,
+            "other": 45
+          },
+          "typedBytes": 352534
+        },
+        {
+          "entity": "Google Tag Manager",
+          "bytes": 325756,
+          "mainThreadMs": 92.3,
+          "byType": {
+            "script": 325756
+          },
+          "typedBytes": 325756
+        }
+      ]
+    },
+    "mainThread": {
+      "total": 26610.4,
+      "byGroup": {
+        "scriptEvaluation": 15704.1,
+        "other": 5655.3,
+        "styleLayout": 2654.2,
+        "scriptParseCompile": 1060.1,
+        "garbageCollection": 1025.3,
+        "paintCompositeRender": 403.9,
+        "parseHTML": 107.5
+      },
+      "bootupMs": 15681.2,
+      "longTasks": 20,
+      "longestTaskMs": 756
+    },
+    "dom": {
+      "elements": 11969,
+      "depth": 22,
+      "maxChildren": 48
+    },
+    "waste": {
+      "unusedJsBytes": 1155277,
+      "unusedCssBytes": 0,
+      "legacyJsBytes": 57934,
+      "duplicatedJsBytes": 0,
+      "unminifiedJsBytes": 9500,
+      "unminifiedCssBytes": 4011,
+      "renderBlockingMs": 450,
+      "renderBlockingCount": 77,
+      "poorlyCachedBytes": 3389057.5586917154,
+      "poorlyCachedCount": 224
+    },
+    "accessibility": {
+      "failingCount": 1,
+      "applicableCount": 32,
+      "failingNodes": 1,
+      "failing": [
+        {
+          "id": "label-content-name-mismatch",
+          "title": "Elements with visible text labels do not have matching accessible names.",
+          "weight": 0,
+          "nodes": 1
+        }
+      ]
+    },
+    "bestPractices": {
+      "failingCount": 4,
+      "applicableCount": 19,
+      "failing": [
+        {
+          "id": "third-party-cookies",
+          "title": "Uses third-party cookies",
+          "weight": 5,
+          "nodes": 22
+        },
+        {
+          "id": "image-size-responsive",
+          "title": "Serves images with low resolution",
+          "weight": 1,
+          "nodes": 1
+        },
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "weight": 1,
+          "nodes": 5
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "weight": 1,
+          "nodes": 2
+        }
+      ]
+    },
+    "seo": {
+      "failingCount": 0,
+      "applicableCount": 9,
+      "failing": []
+    },
+    "hygiene": {
+      "https": 1,
+      "hsts": 1,
+      "csp": 1,
+      "clickjacking": null,
+      "originIsolation": 1,
+      "trustedTypes": 1,
+      "bfCache": 0,
+      "bfCacheFailures": 3,
+      "protocol": "h2",
+      "legacyHttpRequests": 0,
+      "redirectMs": 0,
+      "consoleErrors": 5,
+      "baselineLimitedFeatures": 71
+    },
+    "environment": {
+      "lighthouseVersion": "13.6.0",
+      "benchmarkIndex": 2503.5,
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/158.0.0.0 Mobile Safari/537.36",
+      "fetchTime": "2026-11-28T13:22:41.145Z",
+      "runtimeMs": 84880
+    }
+  },
+  "throttledLcpBreakdown": {
+    "timeToFirstByte": 1127.6,
+    "resourceLoadDelay": 20922.3,
+    "resourceLoadDuration": 20543.3,
+    "elementRenderDelay": 11.2
+  },
+  "field": {
+    "source": "crux",
+    "scope": "url",
+    "formFactor": "PHONE",
+    "collectionPeriod": {
+      "first": "2026-10-30",
+      "last": "2026-11-26"
+    },
+    "metrics": {
+      "inp": {
+        "p75": 341,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 54.8,
+          "needsImprovement": 30.1,
+          "poor": 15.2
+        }
+      },
+      "lcp": {
+        "p75": 2782,
+        "rating": "needs-improvement",
+        "distribution": {
+          "good": 69.3,
+          "needsImprovement": 18.9,
+          "poor": 11.8
+        }
+      },
+      "rtt": {
+        "p75": 115,
+        "rating": null,
+        "distribution": {
+          "good": 47.8,
+          "needsImprovement": 48.1,
+          "poor": 4.1
+        }
+      },
+      "cls": {
+        "p75": 2.27,
+        "rating": "poor",
+        "distribution": {
+          "good": 19,
+          "needsImprovement": 0.7,
+          "poor": 80.3
+        }
+      },
+      "ttfb": {
+        "p75": 708,
+        "rating": "good",
+        "distribution": {
+          "good": 80.5,
+          "needsImprovement": 15.8,
+          "poor": 3.8
+        }
+      },
+      "fcp": {
+        "p75": 1354,
+        "rating": "good",
+        "distribution": {
+          "good": 85.9,
+          "needsImprovement": 9.3,
+          "poor": 4.8
+        }
+      }
+    },
+    "cwvPass": false,
+    "cwvAssessed": 3
+  },
+  "axe": {
+    "navigationTimedOut": true,
+    "generator": {
+      "id": "nextjs",
+      "name": "Next.js",
+      "icon": "Nextdotjs",
+      "version": null,
+      "source": "dom",
+      "raw": null
+    },
+    "probe": {
+      "metas": [],
+      "marks": [
+        "next",
+        "react",
+        "lit"
+      ],
+      "markVersions": {
+        "lit": "1.4.1"
+      }
+    },
+    "interstitial": null,
+    "host": {
+      "id": "vercel",
+      "name": "Vercel",
+      "icon": "Vercel",
+      "source": "x-vercel-id"
+    },
+    "headers": {
+      "x-vercel-id": "iad1::iad1::hzqv4-1795872328366-0d69775a6ab4"
+    },
+    "violations": 6,
+    "passes": 5518,
+    "incomplete": 3,
+    "violationRules": 4,
+    "version": "4.14.0",
+    "top": [
+      {
+        "id": "page-has-heading-one",
+        "impact": "moderate",
+        "nodes": 3,
+        "help": "Page should contain a level-one heading",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/page-has-heading-one?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": "html",
+            "snippet": "<html class=\"P7Yruq_variable TSdJ8a_variable _1XFLPW_variable\" data-scroll-behavior=\"smooth\" lang=\"en\">"
+          },
+          {
+            "selector": "iframe[name=\"componentFrameLauncher\"] >>> html",
+            "snippet": "<html xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en\" style=\"background: transparent;\">"
+          },
+          {
+            "selector": "iframe[name=\"componentFrameAttention\"] >>> html",
+            "snippet": "<html xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en\" style=\"background: transparent;\">"
+          }
+        ]
+      },
+      {
+        "id": "image-redundant-alt",
+        "impact": "minor",
+        "nodes": 1,
+        "help": "Alternative text of images should not be repeated as text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/image-redundant-alt?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".swiper-slide-active.swiper-slide-fully-visible.swiper-slide-visible > .component--image-link.service-card-small.tw\\:items-start > .figure.tw\\:md\\:items-start.tw\\:text-left > .component--base-picture > .img[height=\"400\"][width=\"400\"]",
+            "snippet": "<img alt=\"Creating a Healthier, Better Planet\" class=\"img\" loading=\"lazy\" height=\"400\" width=\"400\" src=\"https://images.wegmans.com/is/image/wegmanscsprod/7355109-tiles-sustainability?wid=700&amp;hei=…"
+          }
+        ]
+      },
+      {
+        "id": "label-content-name-mismatch",
+        "impact": "serious",
+        "nodes": 1,
+        "help": "Elements must have their visible text as part of their accessible name",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/label-content-name-mismatch?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".sign-in-greeting-button",
+            "snippet": "<button class=\"component--base-button tw:cursor-pointer sign-in-greeting-button tw:items-center tw:flex tw:xxs:px-1 text dark medium tw:justify-center tw:text-center\" type=\"button\" aria-haspopup=\"men…"
+          }
+        ]
+      },
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": 1,
+        "help": "All page content should be contained by landmarks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/region?application=axe-puppeteer",
+        "samples": [
+          {
+            "selector": ".component--cookie-banner > .component--base-content.table-appearance-default.global--body-text",
+            "snippet": "<div class=\"component--base-content default table-appearance-default global--body-text\">"
+          }
+        ]
+      }
+    ],
+    "error": null
+  },
+  "render": {
+    "samples": [
+      {
+        "hash": "46bc20342a8e",
+        "nonce": "ee7c0a443c86",
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "x-vercel-cache": "MISS"
+        }
+      },
+      {
+        "hash": "7ad99b2687bf",
+        "nonce": "2f193a416de1",
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "x-vercel-cache": "MISS"
+        }
+      },
+      {
+        "hash": "64c06173c59b",
+        "nonce": "9e6c36451b96",
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "x-vercel-cache": "MISS"
+        }
+      },
+      {
+        "hash": "6d5386dea64d",
+        "nonce": "84d65ed0bde9",
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "x-vercel-cache": "MISS"
+        }
+      },
+      {
+        "hash": "a647f488d0a3",
+        "nonce": "beea5626850e",
+        "stamp": null,
+        "marks": [],
+        "headers": {
+          "x-vercel-cache": "MISS"
+        }
+      }
+    ]
+  },
+  "consecutiveFailures": 0
+}
